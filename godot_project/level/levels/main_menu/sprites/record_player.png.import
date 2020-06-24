@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/record_player.png-80e5cdae456010c1fa3b5e279d864bce.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://level/levels/main_menu/sprites/record_player.png"
+dest_files=[ "res://.import/record_player.png-80e5cdae456010c1fa3b5e279d864bce.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

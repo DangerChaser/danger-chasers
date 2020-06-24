@@ -1,0 +1,415 @@
+[gd_scene load_steps=90 format=2]
+
+[ext_resource path="res://actors/turret/sprites/Idle/Enemy01_Idle_01.png" type="Texture" id=1]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_01.png" type="Texture" id=2]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_02.png" type="Texture" id=3]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_03.png" type="Texture" id=4]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_04.png" type="Texture" id=5]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_05.png" type="Texture" id=6]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_06.png" type="Texture" id=7]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_07.png" type="Texture" id=8]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_08.png" type="Texture" id=9]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_09.png" type="Texture" id=10]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_10.png" type="Texture" id=11]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_11.png" type="Texture" id=12]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_12.png" type="Texture" id=13]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_13.png" type="Texture" id=14]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_14.png" type="Texture" id=15]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_15.png" type="Texture" id=16]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_16.png" type="Texture" id=17]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_17.png" type="Texture" id=18]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_18.png" type="Texture" id=19]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_19.png" type="Texture" id=20]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_20.png" type="Texture" id=21]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_21.png" type="Texture" id=22]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_22.png" type="Texture" id=23]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_23.png" type="Texture" id=24]
+[ext_resource path="res://actors/turret/sprites/Death/Enemy01_Death_24.png" type="Texture" id=25]
+[ext_resource path="res://actors/turret/sprites/Idle/Enemy01_Idle_02.png" type="Texture" id=26]
+[ext_resource path="res://actors/turret/sprites/Idle/Enemy01_Idle_03.png" type="Texture" id=27]
+[ext_resource path="res://actors/turret/sprites/Idle/Enemy01_Idle_04.png" type="Texture" id=28]
+[ext_resource path="res://actors/turret/sprites/Idle/Enemy01_Idle_05.png" type="Texture" id=29]
+[ext_resource path="res://actors/turret/sprites/Idle/Enemy01_Idle_06.png" type="Texture" id=30]
+[ext_resource path="res://actors/turret/sprites/Idle/Enemy01_Idle_07.png" type="Texture" id=31]
+[ext_resource path="res://actors/turret/sprites/Idle/Enemy01_Idle_08.png" type="Texture" id=32]
+[ext_resource path="res://actors/turret/sprites/Aim/Enemy01_Aim_01.png" type="Texture" id=33]
+[ext_resource path="res://actors/turret/sprites/Aim/Enemy01_Aim_02.png" type="Texture" id=34]
+[ext_resource path="res://actors/turret/sprites/Aim/Enemy01_Aim_03.png" type="Texture" id=35]
+[ext_resource path="res://actors/turret/sprites/Aim/Enemy01_Aim_04.png" type="Texture" id=36]
+[ext_resource path="res://actors/turret/sprites/Aim/Enemy01_Aim_05.png" type="Texture" id=37]
+[ext_resource path="res://actors/turret/sprites/Aim/Enemy01_Aim_06.png" type="Texture" id=38]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_01.png" type="Texture" id=39]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_02.png" type="Texture" id=40]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_03.png" type="Texture" id=41]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_04.png" type="Texture" id=42]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_05.png" type="Texture" id=43]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_06.png" type="Texture" id=44]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_07.png" type="Texture" id=45]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_08.png" type="Texture" id=46]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_09.png" type="Texture" id=47]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_10.png" type="Texture" id=48]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_11.png" type="Texture" id=49]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_12.png" type="Texture" id=50]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_13.png" type="Texture" id=51]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_14.png" type="Texture" id=52]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_15.png" type="Texture" id=53]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_16.png" type="Texture" id=54]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_17.png" type="Texture" id=55]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_18.png" type="Texture" id=56]
+[ext_resource path="res://actors/turret/sprites/Reload/Enemy01_Reload_19.png" type="Texture" id=57]
+[ext_resource path="res://actors/turret/sprites/Run/Enemy01_Run_01.png" type="Texture" id=58]
+[ext_resource path="res://actors/turret/sprites/Run/Enemy01_Run_02.png" type="Texture" id=59]
+[ext_resource path="res://actors/turret/sprites/Run/Enemy01_Run_03.png" type="Texture" id=60]
+[ext_resource path="res://actors/turret/sprites/Run/Enemy01_Run_04.png" type="Texture" id=61]
+[ext_resource path="res://actors/turret/sprites/Run/Enemy01_Run_05.png" type="Texture" id=62]
+[ext_resource path="res://actors/turret/sprites/Run/Enemy01_Run_06.png" type="Texture" id=63]
+[ext_resource path="res://actors/turret/sprites/Run/Enemy01_Run_07.png" type="Texture" id=64]
+[ext_resource path="res://actors/turret/sprites/Run/Enemy01_Run_08.png" type="Texture" id=65]
+[ext_resource path="res://actors/turret/sprites/Shoot/Enemy01_Shoot_01.png" type="Texture" id=66]
+[ext_resource path="res://actors/turret/sprites/Shoot/Enemy01_Shoot_02.png" type="Texture" id=67]
+[ext_resource path="res://actors/turret/sprites/Shoot/Enemy01_Shoot_03.png" type="Texture" id=68]
+[ext_resource path="res://actors/turret/sprites/Shoot/Enemy01_Shoot_04.png" type="Texture" id=69]
+[ext_resource path="res://actors/turret/sprites/Shoot/Enemy01_Shoot_05.png" type="Texture" id=70]
+[ext_resource path="res://actors/turret/sprites/Shoot/Enemy01_Shoot_06.png" type="Texture" id=71]
+[ext_resource path="res://actors/turret/sprites/Shoot/Enemy01_Shoot_07.png" type="Texture" id=72]
+[ext_resource path="res://actors/turret/sprites/Shoot/Enemy01_Shoot_08.png" type="Texture" id=73]
+[ext_resource path="res://actors/turret/sprites/Shoot/Enemy01_Shoot_09.png" type="Texture" id=74]
+[ext_resource path="res://actors/turret/sprites/Hit/Enemy01_Hit_02.png" type="Texture" id=75]
+[ext_resource path="res://actors/turret/sprites/Hit/Enemy01_Hit_03.png" type="Texture" id=76]
+[ext_resource path="res://actors/turret/sprites/Hit/Enemy01_Hit_01.png" type="Texture" id=77]
+[ext_resource path="res://actor_framework/AnimationPlayer.gd" type="Script" id=78]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 96, 96 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 64, 96 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Hurtbox/CollisionShape2D:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Hurtbox/CollisionShape2D:shape:extents")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 96, 96 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -96 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../CollisionBox:shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 2 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../CollisionBox:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 23.0714, 52.9394 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../CollisionBox:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -96 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -127.446 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sprite:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Sprite:vframes")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sprite:hframes")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sprite:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "die"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "prepare"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "reload"
+length = 1.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "run"
+length = 0.4
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "shoot"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Weapons:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 130.436, -109.896 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "stagger"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ), ExtResource( 76 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "stagger_impact"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 77 ) ]
+}
+
+[node name="Pivot" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SETUP = SubResource( 3 )
+anims/die = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/prepare = SubResource( 6 )
+anims/reload = SubResource( 7 )
+anims/run = SubResource( 8 )
+anims/shoot = SubResource( 9 )
+anims/stagger = SubResource( 10 )
+anims/stagger_impact = SubResource( 11 )
+next/stagger_impact = "stagger"
+script = ExtResource( 78 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -127.446 )
+scale = Vector2( 8, 8 )
+texture = ExtResource( 1 )
+
+[node name="Weapons" type="Node2D" parent="."]
+position = Vector2( 130.436, -109.896 )

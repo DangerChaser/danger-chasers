@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/spin_slash.wav-30d08c1af1807cd1e772cfa63319783e.sample"
+
+[deps]
+
+source_file="res://actors/till/sfx/spin_slash.wav"
+dest_files=[ "res://.import/spin_slash.wav-30d08c1af1807cd1e772cfa63319783e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

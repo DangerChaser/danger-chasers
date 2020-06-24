@@ -1,0 +1,131 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://objects/vehicles/trolley/TrolleyVehicle.gd" type="Script" id=1]
+[ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/vehicles/trolley/trolley.png" type="Texture" id=3]
+[ext_resource path="res://objects/vehicles/trolley/grinding.wav" type="AudioStream" id=4]
+[ext_resource path="res://objects/vehicles/trolley/grind_sparks.png" type="Texture" id=5]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/vehicles/trolley/TrolleyLand.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/vehicles/trolley/TrolleyJumpParticles.tscn" type="PackedScene" id=8]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/vehicles/trolley/TrolleyHit.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/vehicles/trolley/TrolleyExplosion.tscn" type="PackedScene" id=11]
+[ext_resource path="res://core/utils/SfxRandom.gd" type="Script" id=12]
+
+
+
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 80, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 4.0
+scale_random = 0.1
+anim_speed = 1.0
+
+[sub_resource type="RectangleShape2D" id=7]
+resource_local_to_scene = true
+extents = Vector2( 128, 96 )
+
+[node name="TrolleyNode" type="Node2D"]
+script = ExtResource( 1 )
+direction = Vector2( -1, 0 )
+
+[node name="Motion" parent="." instance=ExtResource( 2 )]
+
+[node name="MotionSteering" parent="Motion" index="1"]
+max_speed = 2400.0
+
+[node name="Gravity" parent="Motion" index="2"]
+max_speed = 4000.0
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -124.277 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 4 )
+frame = 2
+playing = true
+
+[node name="JumpRegisteredTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="GrindSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+bus = "Sfx"
+script = ExtResource( 12 )
+decay = 1.0
+
+[node name="GrindParticles" type="Particles2D" parent="."]
+material = SubResource( 5 )
+position = Vector2( 96, 0 )
+amount = 16
+lifetime = 0.3
+local_coords = false
+process_material = SubResource( 6 )
+texture = ExtResource( 5 )
+
+[node name="TrolleyJump" parent="." instance=ExtResource( 6 )]
+object = ExtResource( 8 )
+
+[node name="TrolleyLand" parent="." instance=ExtResource( 6 )]
+object = ExtResource( 7 )
+
+[node name="DamageSource" parent="." instance=ExtResource( 9 )]
+position = Vector2( 32, 0 )
+damage = 1
+stagger_duration = 1.0
+stagger_mass = 24.0
+stagger_force = 8000.0
+delay_milliseconds = 6
+screen_shake_amplitude = 8.0
+screen_shake_duration = 0.5
+stagger_direction_while_right = Vector2( 1.5, -1 )
+
+[node name="CollisionShape2D" parent="DamageSource" index="0"]
+position = Vector2( -32, -96 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="TrolleyHitSpawner" parent="." instance=ExtResource( 6 )]
+position = Vector2( 192, -96 )
+object = ExtResource( 10 )
+
+[node name="TrolleyExplosion" parent="." instance=ExtResource( 11 )]
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="timeout" from="JumpRegisteredTimer" to="." method="_on_JumpRegisteredTimer_timeout"]
+[connection signal="hit_confirmed_no_actor" from="DamageSource" to="TrolleyHitSpawner" method="spawn"]
+
+[editable path="Motion"]
+
+[editable path="DamageSource"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/share_slash.wav-67bd763704437f5b8c167c7ddf36d891.sample"
+
+[deps]
+
+source_file="res://actors/maid_share/sfx/share_slash.wav"
+dest_files=[ "res://.import/share_slash.wav-67bd763704437f5b8c167c7ddf36d891.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

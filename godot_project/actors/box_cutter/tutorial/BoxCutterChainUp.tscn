@@ -1,0 +1,690 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/box_cutter/SawBladesUp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/box_cutter/SawBladesRight.tscn" type="PackedScene" id=4]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=9]
+[ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnFloorEffect.gd" type="Script" id=11]
+[ext_resource path="res://common/particles/warning_mark/WarningMark.tscn" type="PackedScene" id=15]
+[ext_resource path="res://common/particles/warning_mark/WarningArea.tscn" type="PackedScene" id=16]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks/SlashUp/DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/Lunge/DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "lunge"
+length = 1.1
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+}, {
+"args": [  ],
+"method": "register_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("SfxParticleSpawner2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pivot/Attacks/Lunge/DamageSource")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "prepare_1"
+length = 1.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("WarningArea")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "register_attack"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "prepare_2"
+length = 1.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "register_attack"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("WarningArea2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "slash_up"
+length = 1.1
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+}, {
+"args": [  ],
+"method": "register_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("SfxParticleSpawner")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pivot/Attacks/SlashUp/DamageSource")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 30, 30 )
+
+[sub_resource type="RectangleShape2D" id=5]
+resource_local_to_scene = true
+extents = Vector2( 181.117, 1552 )
+
+[sub_resource type="RectangleShape2D" id=8]
+resource_local_to_scene = true
+extents = Vector2( 30, 30 )
+
+[sub_resource type="RectangleShape2D" id=9]
+resource_local_to_scene = true
+extents = Vector2( 1456, 176 )
+
+[sub_resource type="Animation" id=6]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("WarningMarkScanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 3456 ), Vector2( 0, 448 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+resource_local_to_scene = true
+extents = Vector2( 576, 512 )
+
+[sub_resource type="Animation" id=12]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("WarningMarkScanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -832, 0 ), Vector2( 2192, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=13]
+resource_local_to_scene = true
+extents = Vector2( 531.001, 528 )
+
+[node name="BoxCutterChainUp" instance=ExtResource( 1 )]
+cooldown = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 1 )
+anims/lunge = SubResource( 10 )
+anims/prepare_1 = SubResource( 3 )
+anims/prepare_2 = SubResource( 11 )
+anims/slash_up = SubResource( 2 )
+
+[node name="SfxParticleSpawner" parent="." index="1" instance=ExtResource( 7 )]
+position = Vector2( 320, -1344 )
+object = ExtResource( 3 )
+
+[node name="SfxParticleSpawner2" parent="." index="2" instance=ExtResource( 7 )]
+position = Vector2( 1600, 0 )
+object = ExtResource( 4 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+grounded = false
+
+[node name="Wait" parent="Pivot/Attacks" index="0" instance=ExtResource( 9 )]
+actor_animation = "prepare"
+weapon_animation = "prepare_1"
+
+[node name="DamageSource" parent="Pivot/Attacks/Wait" index="0"]
+visible = false
+position = Vector2( 10.8831, -130.596 )
+damage = 3
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/Wait/DamageSource" index="0"]
+shape = SubResource( 4 )
+disabled = true
+
+[node name="AdditionalEffects" parent="Pivot/Attacks/Wait" index="1"]
+script = ExtResource( 11 )
+
+[node name="MovementEffect" parent="Pivot/Attacks/Wait/AdditionalEffects" index="0" instance=ExtResource( 2 )]
+
+[node name="MotionSteering" parent="Pivot/Attacks/Wait/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 0.0
+
+[node name="SlashUp" parent="Pivot/Attacks" index="1" instance=ExtResource( 9 )]
+actor_animation = "slash_up"
+weapon_animation = "slash_up"
+
+[node name="DamageSource" parent="Pivot/Attacks/SlashUp" index="0"]
+position = Vector2( 320, -1344 )
+damage = 3
+stagger_direction_while_right = Vector2( 0, -1 )
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/SlashUp/DamageSource" index="0"]
+shape = SubResource( 5 )
+
+[node name="AdditionalEffects" parent="Pivot/Attacks/SlashUp" index="1"]
+script = ExtResource( 11 )
+
+[node name="MovementEffect" parent="Pivot/Attacks/SlashUp/AdditionalEffects" index="0" instance=ExtResource( 2 )]
+initial_speed = 800.0
+
+[node name="MotionSteering" parent="Pivot/Attacks/SlashUp/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 0.0
+mass = 8.0
+
+[node name="Wait2" parent="Pivot/Attacks" index="2" instance=ExtResource( 9 )]
+actor_animation = "prepare"
+weapon_animation = "prepare_2"
+
+[node name="DamageSource" parent="Pivot/Attacks/Wait2" index="0"]
+visible = false
+position = Vector2( 10.8831, -130.596 )
+damage = 3
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/Wait2/DamageSource" index="0"]
+shape = SubResource( 8 )
+disabled = true
+
+[node name="AdditionalEffects" parent="Pivot/Attacks/Wait2" index="1"]
+script = ExtResource( 11 )
+
+[node name="MovementEffect" parent="Pivot/Attacks/Wait2/AdditionalEffects" index="0" instance=ExtResource( 2 )]
+
+[node name="MotionSteering" parent="Pivot/Attacks/Wait2/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 0.0
+
+[node name="Lunge" parent="Pivot/Attacks" index="3" instance=ExtResource( 9 )]
+actor_animation = "lunge"
+weapon_animation = "lunge"
+
+[node name="DamageSource" parent="Pivot/Attacks/Lunge" index="0"]
+position = Vector2( 2064, -32 )
+damage = 3
+stagger_direction_while_right = Vector2( 0, -1 )
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/Lunge/DamageSource" index="0"]
+position = Vector2( -464, 16 )
+shape = SubResource( 9 )
+
+[node name="AdditionalEffects" parent="Pivot/Attacks/Lunge" index="1"]
+script = ExtResource( 11 )
+
+[node name="MovementEffect" parent="Pivot/Attacks/Lunge/AdditionalEffects" index="0" instance=ExtResource( 2 )]
+initial_speed = 800.0
+
+[node name="MotionSteering" parent="Pivot/Attacks/Lunge/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 0.0
+mass = 8.0
+
+[node name="WarningArea" parent="." index="4" instance=ExtResource( 16 )]
+position = Vector2( 320, -2688 )
+
+[node name="AnimationPlayer" parent="WarningArea" index="0"]
+anims/start = SubResource( 6 )
+
+[node name="WarningMarkScanner" parent="WarningArea" index="1"]
+position = Vector2( 0, 3456 )
+
+[node name="CollisionShape2D" parent="WarningArea/WarningMarkScanner" index="0"]
+shape = SubResource( 7 )
+
+[node name="WarningMark" parent="WarningArea/Marks" index="0" instance=ExtResource( 15 )]
+
+[node name="WarningMark2" parent="WarningArea/Marks" index="1" instance=ExtResource( 15 )]
+position = Vector2( -128, 128 )
+
+[node name="WarningMark3" parent="WarningArea/Marks" index="2" instance=ExtResource( 15 )]
+position = Vector2( 128, 128 )
+
+[node name="WarningMark6" parent="WarningArea/Marks" index="3" instance=ExtResource( 15 )]
+position = Vector2( 0, 256 )
+
+[node name="WarningMark5" parent="WarningArea/Marks" index="4" instance=ExtResource( 15 )]
+position = Vector2( -128, 384 )
+
+[node name="WarningMark4" parent="WarningArea/Marks" index="5" instance=ExtResource( 15 )]
+position = Vector2( 128, 384 )
+
+[node name="WarningMark9" parent="WarningArea/Marks" index="6" instance=ExtResource( 15 )]
+position = Vector2( 0, 512 )
+
+[node name="WarningMark8" parent="WarningArea/Marks" index="7" instance=ExtResource( 15 )]
+position = Vector2( -128, 640 )
+
+[node name="WarningMark7" parent="WarningArea/Marks" index="8" instance=ExtResource( 15 )]
+position = Vector2( 128, 640 )
+
+[node name="WarningMark12" parent="WarningArea/Marks" index="9" instance=ExtResource( 15 )]
+position = Vector2( 0, 768 )
+
+[node name="WarningMark11" parent="WarningArea/Marks" index="10" instance=ExtResource( 15 )]
+position = Vector2( -128, 896 )
+
+[node name="WarningMark10" parent="WarningArea/Marks" index="11" instance=ExtResource( 15 )]
+position = Vector2( 128, 896 )
+
+[node name="WarningMark15" parent="WarningArea/Marks" index="12" instance=ExtResource( 15 )]
+position = Vector2( 0, 1024 )
+
+[node name="WarningMark14" parent="WarningArea/Marks" index="13" instance=ExtResource( 15 )]
+position = Vector2( -128, 1152 )
+
+[node name="WarningMark13" parent="WarningArea/Marks" index="14" instance=ExtResource( 15 )]
+position = Vector2( 128, 1152 )
+
+[node name="WarningMark18" parent="WarningArea/Marks" index="15" instance=ExtResource( 15 )]
+position = Vector2( 0, 1280 )
+
+[node name="WarningMark17" parent="WarningArea/Marks" index="16" instance=ExtResource( 15 )]
+position = Vector2( -128, 1408 )
+
+[node name="WarningMark16" parent="WarningArea/Marks" index="17" instance=ExtResource( 15 )]
+position = Vector2( 128, 1408 )
+
+[node name="WarningMark21" parent="WarningArea/Marks" index="18" instance=ExtResource( 15 )]
+position = Vector2( 0, 1536 )
+
+[node name="WarningMark20" parent="WarningArea/Marks" index="19" instance=ExtResource( 15 )]
+position = Vector2( -128, 1664 )
+
+[node name="WarningMark19" parent="WarningArea/Marks" index="20" instance=ExtResource( 15 )]
+position = Vector2( 128, 1664 )
+
+[node name="WarningMark24" parent="WarningArea/Marks" index="21" instance=ExtResource( 15 )]
+position = Vector2( 0, 1792 )
+
+[node name="WarningMark23" parent="WarningArea/Marks" index="22" instance=ExtResource( 15 )]
+position = Vector2( -128, 1920 )
+
+[node name="WarningMark22" parent="WarningArea/Marks" index="23" instance=ExtResource( 15 )]
+position = Vector2( 128, 1920 )
+
+[node name="WarningMark27" parent="WarningArea/Marks" index="24" instance=ExtResource( 15 )]
+position = Vector2( 0, 2048 )
+
+[node name="WarningMark26" parent="WarningArea/Marks" index="25" instance=ExtResource( 15 )]
+position = Vector2( -128, 2176 )
+
+[node name="WarningMark25" parent="WarningArea/Marks" index="26" instance=ExtResource( 15 )]
+position = Vector2( 128, 2176 )
+
+[node name="WarningMark30" parent="WarningArea/Marks" index="27" instance=ExtResource( 15 )]
+position = Vector2( 0, 2304 )
+
+[node name="WarningMark29" parent="WarningArea/Marks" index="28" instance=ExtResource( 15 )]
+position = Vector2( -128, 2432 )
+
+[node name="WarningMark28" parent="WarningArea/Marks" index="29" instance=ExtResource( 15 )]
+position = Vector2( 128, 2432 )
+
+[node name="WarningMark33" parent="WarningArea/Marks" index="30" instance=ExtResource( 15 )]
+position = Vector2( 0, 2560 )
+
+[node name="WarningMark32" parent="WarningArea/Marks" index="31" instance=ExtResource( 15 )]
+position = Vector2( -128, 2688 )
+
+[node name="WarningMark31" parent="WarningArea/Marks" index="32" instance=ExtResource( 15 )]
+position = Vector2( 128, 2688 )
+
+[node name="WarningMark34" parent="WarningArea/Marks" index="33" instance=ExtResource( 15 )]
+position = Vector2( 0, 2816 )
+
+[node name="WarningArea2" parent="." index="5" instance=ExtResource( 16 )]
+position = Vector2( 400, -16 )
+
+[node name="AnimationPlayer" parent="WarningArea2" index="0"]
+anims/start = SubResource( 12 )
+
+[node name="WarningMarkScanner" parent="WarningArea2" index="1"]
+position = Vector2( -832, 0 )
+
+[node name="CollisionShape2D" parent="WarningArea2/WarningMarkScanner" index="0"]
+shape = SubResource( 13 )
+
+[node name="WarningMark" parent="WarningArea2/Marks" index="0" instance=ExtResource( 15 )]
+position = Vector2( -192, -112 )
+
+[node name="WarningMark2" parent="WarningArea2/Marks" index="1" instance=ExtResource( 15 )]
+position = Vector2( -320, 16 )
+
+[node name="WarningMark3" parent="WarningArea2/Marks" index="2" instance=ExtResource( 15 )]
+position = Vector2( -64, 16 )
+
+[node name="WarningMark6" parent="WarningArea2/Marks" index="3" instance=ExtResource( 15 )]
+position = Vector2( -192, 144 )
+
+[node name="WarningMark5" parent="WarningArea2/Marks" index="4" instance=ExtResource( 15 )]
+position = Vector2( 64, -112 )
+
+[node name="WarningMark4" parent="WarningArea2/Marks" index="5" instance=ExtResource( 15 )]
+position = Vector2( 320, -112 )
+
+[node name="WarningMark9" parent="WarningArea2/Marks" index="6" instance=ExtResource( 15 )]
+position = Vector2( 192, 16 )
+
+[node name="WarningMark8" parent="WarningArea2/Marks" index="7" instance=ExtResource( 15 )]
+position = Vector2( 64, 144 )
+
+[node name="WarningMark7" parent="WarningArea2/Marks" index="8" instance=ExtResource( 15 )]
+position = Vector2( 320, 144 )
+
+[node name="WarningMark12" parent="WarningArea2/Marks" index="9" instance=ExtResource( 15 )]
+position = Vector2( 576, -112 )
+
+[node name="WarningMark11" parent="WarningArea2/Marks" index="10" instance=ExtResource( 15 )]
+position = Vector2( 448, 16 )
+
+[node name="WarningMark10" parent="WarningArea2/Marks" index="11" instance=ExtResource( 15 )]
+position = Vector2( 704, 16 )
+
+[node name="WarningMark15" parent="WarningArea2/Marks" index="12" instance=ExtResource( 15 )]
+position = Vector2( 576, 144 )
+
+[node name="WarningMark14" parent="WarningArea2/Marks" index="13" instance=ExtResource( 15 )]
+position = Vector2( 832, -112 )
+
+[node name="WarningMark13" parent="WarningArea2/Marks" index="14" instance=ExtResource( 15 )]
+position = Vector2( 1088, -112 )
+
+[node name="WarningMark18" parent="WarningArea2/Marks" index="15" instance=ExtResource( 15 )]
+position = Vector2( 960, 16 )
+
+[node name="WarningMark17" parent="WarningArea2/Marks" index="16" instance=ExtResource( 15 )]
+position = Vector2( 832, 144 )
+
+[node name="WarningMark16" parent="WarningArea2/Marks" index="17" instance=ExtResource( 15 )]
+position = Vector2( 1088, 144 )
+
+[node name="WarningMark21" parent="WarningArea2/Marks" index="18" instance=ExtResource( 15 )]
+position = Vector2( 1344, -112 )
+
+[node name="WarningMark20" parent="WarningArea2/Marks" index="19" instance=ExtResource( 15 )]
+position = Vector2( 1216, 16 )
+
+[node name="WarningMark19" parent="WarningArea2/Marks" index="20" instance=ExtResource( 15 )]
+position = Vector2( 1472, 16 )
+
+[node name="WarningMark24" parent="WarningArea2/Marks" index="21" instance=ExtResource( 15 )]
+position = Vector2( 1344, 144 )
+
+[node name="WarningMark23" parent="WarningArea2/Marks" index="22" instance=ExtResource( 15 )]
+position = Vector2( 1600, -112 )
+
+[node name="WarningMark22" parent="WarningArea2/Marks" index="23" instance=ExtResource( 15 )]
+position = Vector2( 1856, -112 )
+
+[node name="WarningMark27" parent="WarningArea2/Marks" index="24" instance=ExtResource( 15 )]
+position = Vector2( 1728, 16 )
+
+[node name="WarningMark26" parent="WarningArea2/Marks" index="25" instance=ExtResource( 15 )]
+position = Vector2( 1600, 144 )
+
+[node name="WarningMark25" parent="WarningArea2/Marks" index="26" instance=ExtResource( 15 )]
+position = Vector2( 1856, 144 )
+
+[node name="WarningMark30" parent="WarningArea2/Marks" index="27" instance=ExtResource( 15 )]
+position = Vector2( 2112, -112 )
+
+[node name="WarningMark29" parent="WarningArea2/Marks" index="28" instance=ExtResource( 15 )]
+position = Vector2( 1984, 16 )
+
+[node name="WarningMark28" parent="WarningArea2/Marks" index="29" instance=ExtResource( 15 )]
+position = Vector2( 2240, 16 )
+
+[node name="WarningMark33" parent="WarningArea2/Marks" index="30" instance=ExtResource( 15 )]
+position = Vector2( 2112, 144 )
+
+[node name="WarningMark32" parent="WarningArea2/Marks" index="31" instance=ExtResource( 15 )]
+position = Vector2( 2368, -112 )
+
+[node name="WarningMark31" parent="WarningArea2/Marks" index="32" instance=ExtResource( 15 )]
+position = Vector2( 2624, -112 )
+
+[node name="WarningMark36" parent="WarningArea2/Marks" index="33" instance=ExtResource( 15 )]
+position = Vector2( 2368, 144 )
+
+[node name="WarningMark35" parent="WarningArea2/Marks" index="34" instance=ExtResource( 15 )]
+position = Vector2( 2624, 144 )
+
+[node name="WarningMark34" parent="WarningArea2/Marks" index="35" instance=ExtResource( 15 )]
+position = Vector2( 2496, 16 )
+
+[editable path="Pivot/Attacks/Wait"]
+
+[editable path="Pivot/Attacks/Wait/DamageSource"]
+
+[editable path="Pivot/Attacks/Wait/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/Wait/AdditionalEffects/MovementEffect/Motion"]
+
+[editable path="Pivot/Attacks/SlashUp"]
+
+[editable path="Pivot/Attacks/SlashUp/DamageSource"]
+
+[editable path="Pivot/Attacks/SlashUp/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/SlashUp/AdditionalEffects/MovementEffect/Motion"]
+
+[editable path="Pivot/Attacks/Wait2"]
+
+[editable path="Pivot/Attacks/Wait2/DamageSource"]
+
+[editable path="Pivot/Attacks/Wait2/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/Wait2/AdditionalEffects/MovementEffect/Motion"]
+
+[editable path="Pivot/Attacks/Lunge"]
+
+[editable path="Pivot/Attacks/Lunge/DamageSource"]
+
+[editable path="Pivot/Attacks/Lunge/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/Lunge/AdditionalEffects/MovementEffect/Motion"]
+
+[editable path="WarningArea"]
+
+[editable path="WarningArea/WarningMarkScanner"]
+
+[editable path="WarningArea2"]
+
+[editable path="WarningArea2/WarningMarkScanner"]

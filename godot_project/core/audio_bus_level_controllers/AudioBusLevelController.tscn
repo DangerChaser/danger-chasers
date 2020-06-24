@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
+[ext_resource path="res://core/audio_bus_level_controllers/AudioBusLevelController.gd" type="Script" id=2]
+[ext_resource path="res://interface/kenney_pixel_ui/Colored/grey.png" type="Texture" id=5]
+[ext_resource path="res://interface/kenney_pixel_ui/Colored/green.png" type="Texture" id=6]
+
+[node name="AudioBusLevelController" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = -920.0
+margin_bottom = -240.0
+rect_min_size = Vector2( 40, 300 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+value = 50.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
+fill_mode = 3
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]
+bus = "Sfx"

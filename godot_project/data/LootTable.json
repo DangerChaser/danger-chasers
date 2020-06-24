@@ -1,0 +1,34 @@
+{
+  "GREENWOOD_HILLS": {
+    "ItemCountMin": 1,
+    "ItemCountMax": 2,
+    "Item0Name": "GOLD",
+    "Item0Chance": 80,
+    "Item0MinQ": 2,
+    "Item0MaxQ": 5,
+    "Item1Name": "IRON_SWORD",
+    "Item1Chance": 15,
+    "Item1MinQ": 1,
+    "Item1MaxQ": 1,
+    "Item2Name": null,
+    "Item2Chance": null,
+    "Item2MinQ": null,
+    "Item2MaxQ": null
+  },
+  "GOLD_100": {
+    "ItemCountMin": 1,
+    "ItemCountMax": 1,
+    "Item0Name": "GOLD",
+    "Item0Chance": 100,
+    "Item0MinQ": 90,
+    "Item0MaxQ": 110,
+    "Item1Name": null,
+    "Item1Chance": null,
+    "Item1MinQ": null,
+    "Item1MaxQ": null,
+    "Item2Name": null,
+    "Item2Chance": null,
+    "Item2MinQ": null,
+    "Item2MaxQ": null
+  }
+}

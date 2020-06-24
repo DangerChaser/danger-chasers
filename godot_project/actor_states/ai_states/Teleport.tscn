@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://actor_states/ai_states/Teleport.gd" type="Script" id=1]
+
+[node name="Teleport" type="Node2D"]
+script = ExtResource( 1 )

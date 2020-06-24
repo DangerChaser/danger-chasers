@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://autoload/PlayerManager.gd" type="Script" id=1]
+[ext_resource path="res://actor_framework/stats/Stats.gd" type="Script" id=2]
+[ext_resource path="res://actor_framework/stats/growth_stats/DefaultGrowthStats.tres" type="Resource" id=3]
+[ext_resource path="res://actors/judge/Judge.tres" type="Resource" id=4]
+[ext_resource path="res://actors/judge/weapons/job/TillSummon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/judge/weapons/job/QuickAttack1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actors/judge/weapons/job/QuickAttack2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/judge/weapons/job/CharSummon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://actors/judge/weapons/job/BerzerkerSummon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actors/judge/weapons/job/SkullSummon.tscn" type="PackedScene" id=11]
+[ext_resource path="res://actors/judge/weapons/job/ShareSummon.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actors/judge/weapons/job/LavaLauncher.tscn" type="PackedScene" id=13]
+[ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=14]
+
+[node name="PlayerManager" type="Node"]
+script = ExtResource( 1 )
+
+[node name="JobSkills" type="Node" parent="."]
+
+[node name="Sniper" type="Node" parent="JobSkills"]
+script = ExtResource( 2 )
+growth_stats = ExtResource( 3 )
+character_stats = ExtResource( 4 )
+
+[node name="Weapons" parent="JobSkills/Sniper" instance=ExtResource( 14 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 11 ) ]
+initialize_on_start = false
+
+[node name="TillSummon" type="Node" parent="JobSkills"]
+script = ExtResource( 2 )
+growth_stats = ExtResource( 3 )
+character_stats = ExtResource( 4 )
+
+[node name="Weapons" parent="JobSkills/TillSummon" instance=ExtResource( 14 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 6 ) ]
+initialize_on_start = false
+
+[node name="LavaLauncher" type="Node" parent="JobSkills"]
+script = ExtResource( 2 )
+growth_stats = ExtResource( 3 )
+character_stats = ExtResource( 4 )
+
+[node name="Weapons" parent="JobSkills/LavaLauncher" instance=ExtResource( 14 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 13 ) ]
+initialize_on_start = false
+
+[node name="QuickAttack" type="Node" parent="JobSkills"]
+script = ExtResource( 2 )
+growth_stats = ExtResource( 3 )
+character_stats = ExtResource( 4 )
+
+[node name="Weapons" parent="JobSkills/QuickAttack" instance=ExtResource( 14 )]
+weapon_levels = [ 0, 1 ]
+weapons = [ ExtResource( 7 ), ExtResource( 8 ) ]
+initialize_on_start = false
+
+[node name="MagicKnight" type="Node" parent="JobSkills"]
+script = ExtResource( 2 )
+growth_stats = ExtResource( 3 )
+character_stats = ExtResource( 4 )
+
+[node name="Weapons" parent="JobSkills/MagicKnight" instance=ExtResource( 14 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 9 ) ]
+initialize_on_start = false
+
+[node name="AxeThrower" type="Node" parent="JobSkills"]
+script = ExtResource( 2 )
+growth_stats = ExtResource( 3 )
+character_stats = ExtResource( 4 )
+
+[node name="Weapons" parent="JobSkills/AxeThrower" instance=ExtResource( 14 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 10 ) ]
+initialize_on_start = false
+
+[node name="ShotgunBlast" type="Node" parent="JobSkills"]
+script = ExtResource( 2 )
+growth_stats = ExtResource( 3 )
+character_stats = ExtResource( 4 )
+
+[node name="Weapons" parent="JobSkills/ShotgunBlast" instance=ExtResource( 14 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 12 ) ]
+initialize_on_start = false

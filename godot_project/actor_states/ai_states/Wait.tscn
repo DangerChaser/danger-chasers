@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://actor_states/ai_states/Wait.gd" type="Script" id=1]
+[ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=2]
+
+[node name="Wait" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+animation = "idle"
+
+[node name="Timer" type="Timer" parent="." index="3"]
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

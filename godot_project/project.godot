@@ -1,0 +1,768 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "ActivationArea",
+"language": "GDScript",
+"path": "res://core/utils/ActivationArea.gd"
+}, {
+"base": "KinematicBody2DMirror",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://actor_framework/Actor.gd"
+}, {
+"base": "Node2D",
+"class": "ActorExternal",
+"language": "GDScript",
+"path": "res://objects/actor_external/ActorExternal.gd"
+}, {
+"base": "Attack",
+"class": "ActorSpawnAttack",
+"language": "GDScript",
+"path": "res://combat/weapons/actor_spawners/ActorSpawnAttack.gd"
+}, {
+"base": "ObjectSpawner",
+"class": "ActorSpawner",
+"language": "GDScript",
+"path": "res://core/ActorSpawner.gd"
+}, {
+"base": "AnimationPlayer",
+"class": "ActorWithWeaponAnimationPlayer",
+"language": "GDScript",
+"path": "res://actor_framework/AnimationPlayer.gd"
+}, {
+"base": "AttackState",
+"class": "AirAttackState",
+"language": "GDScript",
+"path": "res://actor_framework/player/states/AirAttack.gd"
+}, {
+"base": "MotionState",
+"class": "AirState",
+"language": "GDScript",
+"path": "res://actor_states/motion/Air.gd"
+}, {
+"base": "Node2D",
+"class": "Arena",
+"language": "GDScript",
+"path": "res://level/Arena.gd"
+}, {
+"base": "Node2D",
+"class": "Attack",
+"language": "GDScript",
+"path": "res://combat/weapons/Attack.gd"
+}, {
+"base": "Node2D",
+"class": "AttackAdditionalEffect",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/AttackAdditionalEffect.gd"
+}, {
+"base": "AttackAdditionalEffect",
+"class": "AttackParticlesEffect",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/AttackParticlesEffect.gd"
+}, {
+"base": "State",
+"class": "AttackState",
+"language": "GDScript",
+"path": "res://actor_states/AttackState.gd"
+}, {
+"base": "Node2D",
+"class": "Attacks",
+"language": "GDScript",
+"path": "res://combat/weapons/Attacks.gd"
+}, {
+"base": "Control",
+"class": "AudioBusLevelController",
+"language": "GDScript",
+"path": "res://core/audio_bus_level_controllers/AudioBusLevelController.gd"
+}, {
+"base": "AudioStreamPlayer2D",
+"class": "AudioStreamPlayer2DRandom",
+"language": "GDScript",
+"path": "res://core/utils/SfxRandom.gd"
+}, {
+"base": "AttackState",
+"class": "BackState",
+"language": "GDScript",
+"path": "res://actor_framework/player/states/Back.gd"
+}, {
+"base": "HBoxContainer",
+"class": "Bar",
+"language": "GDScript",
+"path": "res://interface/BattleHUD/Bar.gd"
+}, {
+"base": "Attack",
+"class": "Block",
+"language": "GDScript",
+"path": "res://combat/weapons/shields/Block.gd"
+}, {
+"base": "MovementEffect",
+"class": "BounceEffect",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/BounceEffect.gd"
+}, {
+"base": "Button",
+"class": "ButtonKey",
+"language": "GDScript",
+"path": "res://core/utils/ButtonKey.gd"
+}, {
+"base": "Node2D",
+"class": "CameraLimitPositions",
+"language": "GDScript",
+"path": "res://core/camera/CameraLimitPositions.gd"
+}, {
+"base": "Area2D",
+"class": "CameraLimitTrigger",
+"language": "GDScript",
+"path": "res://level/levels/CameraLimitTrigger.gd"
+}, {
+"base": "Resource",
+"class": "CharacterStats",
+"language": "GDScript",
+"path": "res://actor_framework/stats/CharacterStats.gd"
+}, {
+"base": "Button",
+"class": "ChoiceButton",
+"language": "GDScript",
+"path": "res://addons/radmatt.DialogueSystem2/other/Choices/_choice_button.gd"
+}, {
+"base": "Control",
+"class": "Choices",
+"language": "GDScript",
+"path": "res://addons/radmatt.DialogueSystem2/other/Choices/Choices.gd"
+}, {
+"base": "IdleState",
+"class": "ConstantMotion",
+"language": "GDScript",
+"path": "res://actor_framework/player/states/ConstantMotion.gd"
+}, {
+"base": "Node2D",
+"class": "Cutscene",
+"language": "GDScript",
+"path": "res://core/Cutscene.gd"
+}, {
+"base": "Area2D",
+"class": "DamageSource",
+"language": "GDScript",
+"path": "res://combat/weapons/damage_source/DamageSource.gd"
+}, {
+"base": "MotionState",
+"class": "DieState",
+"language": "GDScript",
+"path": "res://actor_states/motion/Die.gd"
+}, {
+"base": "Node2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://objects/doors/Door.gd"
+}, {
+"base": "Node2D",
+"class": "Effect",
+"language": "GDScript",
+"path": "res://combat/effects/Effect.gd"
+}, {
+"base": "Node2D",
+"class": "ExitArgs",
+"language": "GDScript",
+"path": "res://combat/weapons/ExitArgs.gd"
+}, {
+"base": "Node",
+"class": "ExternalMotion",
+"language": "GDScript",
+"path": "res://actor_states/motion/ExternalMotion.gd"
+}, {
+"base": "AttackAdditionalEffect",
+"class": "FinishInAirEffect",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/FinishInAirEffect.gd"
+}, {
+"base": "AttackAdditionalEffect",
+"class": "FinishOnFloorEffect",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/FinishOnFloorEffect.gd"
+}, {
+"base": "AttackState",
+"class": "ForwardState",
+"language": "GDScript",
+"path": "res://actor_framework/player/states/Forward.gd"
+}, {
+"base": "Node",
+"class": "Gravity",
+"language": "GDScript",
+"path": "res://actor_states/motion/Gravity.gd"
+}, {
+"base": "Resource",
+"class": "GrowthStats",
+"language": "GDScript",
+"path": "res://actor_framework/stats/growth_stats/GrowthStats.gd"
+}, {
+"base": "Bar",
+"class": "HealthBar",
+"language": "GDScript",
+"path": "res://interface/BattleHUD/HealthBar.gd"
+}, {
+"base": "Area2D",
+"class": "Hurtbox",
+"language": "GDScript",
+"path": "res://actor_framework/hurtbox/Hurtbox.gd"
+}, {
+"base": "State",
+"class": "IdleState",
+"language": "GDScript",
+"path": "res://actor_framework/player/states/Idle.gd"
+}, {
+"base": "Control",
+"class": "InputMenu",
+"language": "GDScript",
+"path": "res://interface/input_mapper/InputMenu.gd"
+}, {
+"base": "Node",
+"class": "InteractableScript",
+"language": "GDScript",
+"path": "res://interactable_scripts/InteractableScript.gd"
+}, {
+"base": "ActivationArea",
+"class": "InteractionArea",
+"language": "GDScript",
+"path": "res://interactable_scripts/base/InteractionArea.gd"
+}, {
+"base": "State",
+"class": "Job",
+"language": "GDScript",
+"path": "res://actor_framework/job_states/Job.gd"
+}, {
+"base": "State",
+"class": "JobState",
+"language": "GDScript",
+"path": "res://actor_states/JobState.gd"
+}, {
+"base": "Label",
+"class": "KeyLabel",
+"language": "GDScript",
+"path": "res://core/utils/KeyLabel.gd"
+}, {
+"base": "RichTextLabel",
+"class": "KeyRichTextLabel",
+"language": "GDScript",
+"path": "res://core/utils/KeyRichTextLabel.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "KinematicBody2DMirror",
+"language": "GDScript",
+"path": "res://core/KinematicBody2DMirror.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://level/Level.gd"
+}, {
+"base": "Container",
+"class": "LevelIntro",
+"language": "GDScript",
+"path": "res://level/LevelIntro.gd"
+}, {
+"base": "Node",
+"class": "LevelLoader",
+"language": "GDScript",
+"path": "res://core/LevelLoader.gd"
+}, {
+"base": "Area2D",
+"class": "LevelTransition",
+"language": "GDScript",
+"path": "res://core/LevelTransition.gd"
+}, {
+"base": "Control",
+"class": "LootPanel",
+"language": "GDScript",
+"path": "res://items/LootPanel.gd"
+}, {
+"base": "Control",
+"class": "Message",
+"language": "GDScript",
+"path": "res://addons/radmatt.DialogueSystem2/other/Message.gd"
+}, {
+"base": "State",
+"class": "MotionState",
+"language": "GDScript",
+"path": "res://actor_states/motion/Motion.gd"
+}, {
+"base": "Node",
+"class": "MotionSteering",
+"language": "GDScript",
+"path": "res://actor_states/motion/MotionSteering.gd"
+}, {
+"base": "State",
+"class": "MoveToState",
+"language": "GDScript",
+"path": "res://actor_states/ai_states/MoveTo.gd"
+}, {
+"base": "AttackAdditionalEffect",
+"class": "MovementEffect",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/MovementEffect.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "MovingPlatform",
+"language": "GDScript",
+"path": "res://objects/moving_platforms/MovingPlatform.gd"
+}, {
+"base": "Position2D",
+"class": "ObjectSpawner",
+"language": "GDScript",
+"path": "res://core/ObjectSpawner.gd"
+}, {
+"base": "State",
+"class": "PassArgs",
+"language": "GDScript",
+"path": "res://actor_states/ai_states/PassArgs.gd"
+}, {
+"base": "AttackAdditionalEffect",
+"class": "PlayAnimationEffect",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/PlayAnimationEffect.gd"
+}, {
+"base": "AttackAdditionalEffect",
+"class": "PlaySfxEffect",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/PlaySfxEffect.gd"
+}, {
+"base": "Actor",
+"class": "PlayerActor",
+"language": "GDScript",
+"path": "res://actor_framework/player/PlayerActor.gd"
+}, {
+"base": "Node2D",
+"class": "PlayerCutsceneManager",
+"language": "GDScript",
+"path": "res://core/PlayerCutsceneManager.gd"
+}, {
+"base": "KinematicBody2DMirror",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://combat/weapons/projectiles/Projectile.gd"
+}, {
+"base": "Node",
+"class": "Quest",
+"language": "GDScript",
+"path": "res://core/Quest.gd"
+}, {
+"base": "Button",
+"class": "QuestNameButton",
+"language": "GDScript",
+"path": "res://interface/quest_board/QuestNameButton.gd"
+}, {
+"base": "MovementEffect",
+"class": "QuickAttackEffect",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/QuickAttackEffect.gd"
+}, {
+"base": "RayCast2D",
+"class": "RayCastLine2D",
+"language": "GDScript",
+"path": "res://core/ray_cast_line_2d/RayCastLine2D.gd"
+}, {
+"base": "Node",
+"class": "RoundManager",
+"language": "GDScript",
+"path": "res://level/RoundManager.gd"
+}, {
+"base": "MotionState",
+"class": "RunState",
+"language": "GDScript",
+"path": "res://actor_states/ai_states/Run.gd"
+}, {
+"base": "Node2D",
+"class": "SfxParticle",
+"language": "GDScript",
+"path": "res://core/SfxParticle.gd"
+}, {
+"base": "ObjectSpawner",
+"class": "SfxParticleSpawner",
+"language": "GDScript",
+"path": "res://core/SfxParticleSpawner.gd"
+}, {
+"base": "Camera2D",
+"class": "ShakingCamera",
+"language": "GDScript",
+"path": "res://core/camera/ShakingCamera.gd"
+}, {
+"base": "Attack",
+"class": "SpawnGroup",
+"language": "GDScript",
+"path": "res://combat/weapons/projectile_launchers/SpawnGroup.gd"
+}, {
+"base": "AttackAdditionalEffect",
+"class": "SpawnHitParticlesEffect",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/SpawnHitParticlesEffect.gd"
+}, {
+"base": "Position2D",
+"class": "SpawnPoint",
+"language": "GDScript",
+"path": "res://core/SpawnPoint.gd"
+}, {
+"base": "MotionState",
+"class": "StaggerState",
+"language": "GDScript",
+"path": "res://actor_states/motion/Stagger.gd"
+}, {
+"base": "Node2D",
+"class": "State",
+"language": "GDScript",
+"path": "res://actor_states/State.gd"
+}, {
+"base": "Node2D",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://actor_states/StateMachine.gd"
+}, {
+"base": "MovementEffect",
+"class": "Stomp",
+"language": "GDScript",
+"path": "res://combat/weapons/attack_additional_effects/Stomp.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "TargetReticle",
+"language": "GDScript",
+"path": "res://interface/target_reticle/TargetReticle.gd"
+}, {
+"base": "Control",
+"class": "TargetReticleHUD",
+"language": "GDScript",
+"path": "res://interface/target_reticle/TargetReticleHUD.gd"
+}, {
+"base": "Control",
+"class": "Text",
+"language": "GDScript",
+"path": "res://addons/radmatt.DialogueSystem2/custom_text_node/Text.gd"
+}, {
+"base": "Line2D",
+"class": "Trail",
+"language": "GDScript",
+"path": "res://vfx/Trail.gd"
+}, {
+"base": "ColorRect",
+"class": "TransitionColor",
+"language": "GDScript",
+"path": "res://vfx/transitions/TransitionColor.gd"
+}, {
+"base": "Label",
+"class": "TypewriterLabel",
+"language": "GDScript",
+"path": "res://core/typewriter_label/TypewriterLabel.gd"
+}, {
+"base": "ActorExternal",
+"class": "Vehicle",
+"language": "GDScript",
+"path": "res://objects/vehicles/Vehicle.gd"
+}, {
+"base": "MotionState",
+"class": "WaitState",
+"language": "GDScript",
+"path": "res://actor_states/ai_states/Wait.gd"
+}, {
+"base": "Node2D",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://combat/weapons/Weapon.gd"
+} ]
+_global_script_class_icons={
+"ActivationArea": "",
+"Actor": "",
+"ActorExternal": "",
+"ActorSpawnAttack": "",
+"ActorSpawner": "",
+"ActorWithWeaponAnimationPlayer": "",
+"AirAttackState": "",
+"AirState": "",
+"Arena": "",
+"Attack": "",
+"AttackAdditionalEffect": "",
+"AttackParticlesEffect": "",
+"AttackState": "",
+"Attacks": "",
+"AudioBusLevelController": "",
+"AudioStreamPlayer2DRandom": "",
+"BackState": "",
+"Bar": "",
+"Block": "",
+"BounceEffect": "",
+"ButtonKey": "",
+"CameraLimitPositions": "",
+"CameraLimitTrigger": "",
+"CharacterStats": "",
+"ChoiceButton": "res://addons/radmatt.DialogueSystem2/icons/ChoiceButton.svg",
+"Choices": "res://addons/radmatt.DialogueSystem2/icons/Choices.svg",
+"ConstantMotion": "",
+"Cutscene": "",
+"DamageSource": "",
+"DieState": "",
+"Door": "",
+"Effect": "",
+"ExitArgs": "",
+"ExternalMotion": "",
+"FinishInAirEffect": "",
+"FinishOnFloorEffect": "",
+"ForwardState": "",
+"Gravity": "",
+"GrowthStats": "",
+"HealthBar": "",
+"Hurtbox": "",
+"IdleState": "",
+"InputMenu": "",
+"InteractableScript": "",
+"InteractionArea": "",
+"Job": "",
+"JobState": "",
+"KeyLabel": "",
+"KeyRichTextLabel": "",
+"KinematicBody2DMirror": "",
+"Level": "",
+"LevelIntro": "",
+"LevelLoader": "",
+"LevelTransition": "",
+"LootPanel": "",
+"Message": "res://addons/radmatt.DialogueSystem2/icons/Message.svg",
+"MotionState": "",
+"MotionSteering": "",
+"MoveToState": "",
+"MovementEffect": "",
+"MovingPlatform": "",
+"ObjectSpawner": "",
+"PassArgs": "",
+"PlayAnimationEffect": "",
+"PlaySfxEffect": "",
+"PlayerActor": "",
+"PlayerCutsceneManager": "",
+"Projectile": "",
+"Quest": "",
+"QuestNameButton": "",
+"QuickAttackEffect": "",
+"RayCastLine2D": "",
+"RoundManager": "",
+"RunState": "",
+"SfxParticle": "",
+"SfxParticleSpawner": "",
+"ShakingCamera": "",
+"SpawnGroup": "",
+"SpawnHitParticlesEffect": "",
+"SpawnPoint": "",
+"StaggerState": "",
+"State": "",
+"StateMachine": "",
+"Stomp": "",
+"TargetReticle": "",
+"TargetReticleHUD": "",
+"Text": "res://addons/radmatt.DialogueSystem2/icons/Text.svg",
+"Trail": "",
+"TransitionColor": "",
+"TypewriterLabel": "",
+"Vehicle": "",
+"WaitState": "",
+"Weapon": ""
+}
+
+[application]
+
+config/name="Fantasy Metroidvania"
+run/main_scene="res://core/Game.tscn"
+config/version="v0.4.0"
+
+[autoload]
+
+Steering="*res://autoload/Steering.gd"
+GameManager="*res://autoload/GameManager.gd"
+FrameFreeze="*res://autoload/FrameFreeze.gd"
+Effects="*res://autoload/Effects.tscn"
+PlayerManager="*res://autoload/PlayerManager.tscn"
+ImportData="*res://autoload/ImportData.gd"
+Transition="*res://autoload/Transition.tscn"
+PhysicsLayers="*res://autoload/PhysicsLayers.gd"
+Utilities="*res://autoload/Utilities.gd"
+Dialogue="*res://addons/radmatt.DialogueSystem2/Dialogue.tscn"
+CutsceneManager="*res://autoload/CutsceneManager.gd"
+QuestManager="*res://autoload/QuestManager.tscn"
+
+[debug]
+
+gdscript/warnings/treat_warnings_as_errors=true
+gdscript/warnings/unused_variable=false
+gdscript/warnings/shadowed_variable=false
+gdscript/warnings/unused_argument=false
+gdscript/warnings/narrowing_conversion=false
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/test_width=1280
+window/size/test_height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "radmatt.DialogueSystem2" )
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_select={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill_1={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill_2={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill_3={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill_4={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill_5={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill_6={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill_7={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill_8={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill_9={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":86,"unicode":0,"echo":false,"script":null)
+ ]
+}
+light_attack={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
+}
+continue_dialogue={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+}
+open_inventory={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":73,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Obstacles"
+2d_physics/layer_2="Actors"
+2d_physics/layer_3="DamageSource"
+2d_physics/layer_4="ActivationTrigger"
+2d_physics/layer_5="ActivationScanner"
+2d_physics/layer_6="PlayerStoppers"
+2d_physics/layer_7="DropThrough"
+2d_physics/layer_8="PassableActors"
+2d_physics/layer_9="EnemyStoppers"
+2d_physics/layer_10="WarningMarkTriggers"
+
+[locale]
+
+translations=PoolStringArray( "res://strings.en.translation" )
+
+[rendering]
+
+quality/2d/use_pixel_snap=true
+environment/default_environment="res://default_env.tres"

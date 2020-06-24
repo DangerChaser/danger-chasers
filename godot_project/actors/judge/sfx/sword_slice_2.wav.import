@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sword_slice_2.wav-b331089c741d9e517c2c08f548d8ad09.sample"
+
+[deps]
+
+source_file="res://actors/judge/sfx/sword_slice_2.wav"
+dest_files=[ "res://.import/sword_slice_2.wav-b331089c741d9e517c2c08f548d8ad09.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

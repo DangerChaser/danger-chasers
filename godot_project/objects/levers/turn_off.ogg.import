@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/turn_off.ogg-f32daf844d3598c609d8c86b312b73fd.oggstr"
+
+[deps]
+
+source_file="res://objects/levers/turn_off.ogg"
+dest_files=[ "res://.import/turn_off.ogg-f32daf844d3598c609d8c86b312b73fd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

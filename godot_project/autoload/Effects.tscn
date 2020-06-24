@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://core/utils/Effects.gd" type="Script" id=1]
+[ext_resource path="res://combat/effects/buffs/Invincible.tscn" type="PackedScene" id=2]
+[ext_resource path="res://combat/effects/buffs/TakesNoDamage.tscn" type="PackedScene" id=3]
+
+[node name="Effects" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Buffs" type="Node2D" parent="."]
+
+[node name="Invincible" parent="Buffs" instance=ExtResource( 2 )]
+
+[node name="TakesNoDamage" parent="Buffs" instance=ExtResource( 3 )]
+
+[node name="Debuffs" type="Node2D" parent="."]
+
+[node name="Miscellaneous" type="Node2D" parent="."]
+

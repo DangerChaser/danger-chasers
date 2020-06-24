@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/stomp_hit.wav-40ed42be57331604f8dd6bcc0db2e6ea.sample"
+
+[deps]
+
+source_file="res://actors/judge/sfx/stomp_hit.wav"
+dest_files=[ "res://.import/stomp_hit.wav-40ed42be57331604f8dd6bcc0db2e6ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

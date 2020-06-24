@@ -1,0 +1,117 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://vfx/shaders/scrolling_sprite.shader" type="Shader" id=1]
+[ext_resource path="res://level/levels/village/sprites/grassy_mountain/layers_fullcolor/clouds_front_fc.png" type="Texture" id=2]
+[ext_resource path="res://level/levels/village/sprites/grassy_mountain/layers_fullcolor/sky_fc.png" type="Texture" id=3]
+[ext_resource path="res://level/levels/village/sprites/grassy_mountain/layers_fullcolor/clouds_mid_fc.png" type="Texture" id=4]
+[ext_resource path="res://level/levels/village/sprites/grassy_mountain/layers_fullcolor/grassy_mountains_fc.png" type="Texture" id=5]
+[ext_resource path="res://level/levels/village/sprites/grassy_mountain/layers_fullcolor/far_mountains_fc.png" type="Texture" id=6]
+
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/direction = Vector2( 1, 0 )
+shader_param/scroll_speed = 0.0
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/direction = Vector2( 1, 0 )
+shader_param/scroll_speed = 0.02
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 1 )
+shader_param/direction = Vector2( 1, 0 )
+shader_param/scroll_speed = 0.04
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 1 )
+shader_param/direction = Vector2( 1, 0 )
+shader_param/scroll_speed = 0.08
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 1 )
+shader_param/direction = Vector2( 1, 0 )
+shader_param/scroll_speed = 0.1
+
+[node name="MountainBackgroundScrolling" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0.01 )
+motion_mirroring = Vector2( 4608, 0 )
+
+[node name="Sprite" type="TextureRect" parent="Sky"]
+material = SubResource( 1 )
+margin_top = -832.0
+margin_right = 1280.0
+margin_bottom = -616.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FarMountains" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.01, 0.01 )
+motion_mirroring = Vector2( 4608, 0 )
+
+[node name="Sprite" type="TextureRect" parent="FarMountains"]
+material = SubResource( 2 )
+margin_top = -448.0
+margin_right = 1280.0
+margin_bottom = -232.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloudsMid" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.02, 0.01 )
+motion_mirroring = Vector2( 4608, 0 )
+
+[node name="Sprite" type="TextureRect" parent="CloudsMid"]
+material = SubResource( 3 )
+margin_top = -448.0
+margin_right = 1280.0
+margin_bottom = -232.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrassyMountains" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.03, 0.01 )
+motion_mirroring = Vector2( 4608, 0 )
+
+[node name="Sprite" type="TextureRect" parent="GrassyMountains"]
+material = SubResource( 4 )
+margin_top = -128.0
+margin_right = 1152.0
+margin_bottom = 88.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloudsFront" type="ParallaxLayer" parent="."]
+position = Vector2( 0, 128 )
+motion_scale = Vector2( 0.04, 0.01 )
+motion_mirroring = Vector2( 4608, 0 )
+
+[node name="Sprite" type="TextureRect" parent="CloudsFront"]
+material = SubResource( 5 )
+margin_top = -256.0
+margin_right = 1280.0
+margin_bottom = -40.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

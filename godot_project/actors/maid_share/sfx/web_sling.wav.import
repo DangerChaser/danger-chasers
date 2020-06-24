@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/web_sling.wav-756d73768a92a75500ce42e72718a2b7.sample"
+
+[deps]
+
+source_file="res://actors/maid_share/sfx/web_sling.wav"
+dest_files=[ "res://.import/web_sling.wav-756d73768a92a75500ce42e72718a2b7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

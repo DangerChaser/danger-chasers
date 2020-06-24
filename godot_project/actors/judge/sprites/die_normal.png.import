@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/die_normal.png-944278cabf35d6e62a9bd2db369b8f68.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://actors/judge/sprites/die_normal.png"
+dest_files=[ "res://.import/die_normal.png-944278cabf35d6e62a9bd2db369b8f68.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

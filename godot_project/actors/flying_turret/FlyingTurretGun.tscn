@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/projectile_launchers/SpawnGroup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/turret/sfx/223_gunside_1.wav" type="AudioStream" id=4]
+[ext_resource path="res://actors/turret/sfx/223_gunside_2.wav" type="AudioStream" id=5]
+[ext_resource path="res://actors/turret/sfx/223_gunside_3.wav" type="AudioStream" id=6]
+[ext_resource path="res://actors/turret/BulletTurret.tscn" type="PackedScene" id=7]
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=8]
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "shoot"
+length = 0.3
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_cancel_animation"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/SpawnGroup")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ {
+
+} ],
+"method": "spawn"
+} ]
+}
+
+[node name="FlyingTurretGun" instance=ExtResource( 1 )]
+cooldown = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 1 )
+anims/shoot = SubResource( 2 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+grounded = false
+
+[node name="SpawnGroup" parent="Pivot/Attacks" index="0" instance=ExtResource( 2 )]
+actor_animation = "shoot"
+weapon_animation = "shoot"
+screen_shake_damp = 12.1089
+
+[node name="Sfx" parent="Pivot/Attacks/SpawnGroup" index="0"]
+sfx_list = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
+
+[node name="ObjectSpawner" parent="Pivot/Attacks/SpawnGroup/Spawners" index="0"]
+object = ExtResource( 7 )
+
+[node name="MovementEffect" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects" index="0" instance=ExtResource( 8 )]
+weapon_rotate = true
+
+[node name="Gravity" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect/Motion" index="2"]
+gravity = 0.0
+max_speed = 0.0
+
+[editable path="Pivot/Attacks/SpawnGroup"]
+
+[editable path="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect/Motion"]

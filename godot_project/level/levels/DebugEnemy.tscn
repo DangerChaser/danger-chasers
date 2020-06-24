@@ -1,0 +1,125 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/audio/music/Goldenbed River Battle Loop.ogg" type="AudioStream" id=2]
+[ext_resource path="res://level/levels/tidal_forest/vnitti_taiga.tres" type="TileSet" id=3]
+[ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://level/Arena.tscn" type="PackedScene" id=5]
+[ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/till/boss/TillBoss.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interface/CinemaBars.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 42.3202, 59.4714 )
+
+[sub_resource type="RectangleShape2D" id=3]
+resource_local_to_scene = true
+extents = Vector2( 90, 330 )
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 1238.11, 663.185 )
+
+[sub_resource type="RectangleShape2D" id=5]
+resource_local_to_scene = true
+extents = Vector2( 61.8209, 52.2615 )
+
+[sub_resource type="RectangleShape2D" id=6]
+resource_local_to_scene = true
+extents = Vector2( 304, 272 )
+
+[node name="DebugEnemy" instance=ExtResource( 1 )]
+skybox_color = Color( 0.635294, 0.839216, 0.870588, 1 )
+
+[node name="InitialMusic" parent="." index="0"]
+music = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="InitialMusic" index="0"]
+shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="Ground" index="0"]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 6
+format = 1
+tile_data = PoolIntArray( -1179653, 6, 0, -1179652, 6, 0, -1179651, 6, 0, -1179650, 6, 0, -1179649, 6, 0, -1245184, 6, 0, -1245183, 6, 0, -1245182, 6, 0, -1245181, 6, 0, -1245180, 6, 0, -1245179, 6, 0, -1245178, 6, 0, -1245177, 6, 0, -1245176, 6, 0, -1245175, 6, 0, -1245174, 6, 0, -1245173, 6, 0, -1245172, 6, 0, -1245171, 6, 0, -1245170, 6, 0, -1245169, 6, 0, -1245168, 6, 0, -1245167, 6, 0, -1245166, 6, 0, -1245165, 6, 0, -1245164, 6, 0, -1245163, 6, 0, -1245162, 6, 0, -1245161, 6, 0, -1245160, 6, 0, -1245159, 6, 0, -1245158, 6, 0, -1245157, 6, 0, -1245156, 6, 0, -1245155, 6, 0, -1245154, 6, 0, -1245153, 6, 0, -1245152, 6, 0, -1245151, 6, 0, -1245150, 6, 0, -1245149, 6, 0, -1114117, 6, 0, -1179613, 6, 0, -1048581, 6, 0, -1114077, 6, 0, -983045, 6, 0, -1048541, 6, 0, -917509, 6, 0, -983005, 6, 0, -851973, 6, 0, -917469, 6, 0, -786437, 6, 0, -851933, 6, 0, -720901, 6, 0, -786397, 6, 0, -655365, 6, 0, -720861, 6, 0, -589829, 6, 0, -655325, 6, 0, -524293, 6, 0, -589789, 6, 0, -458757, 6, 0, -524253, 6, 0, -393221, 6, 0, -458717, 6, 0, -327685, 6, 0, -393181, 6, 0, -262149, 6, 0, -327645, 6, 0, -196613, 6, 0, -262109, 6, 0, -131077, 6, 0, -196573, 6, 0, -65541, 6, 0, -131037, 6, 0, -5, 6, 0, -65501, 6, 0, 65531, 6, 0, 35, 6, 0, 131067, 6, 0, 65571, 6, 0, 196603, 6, 0, 131107, 6, 0, 262139, 6, 0, 196643, 6, 0, 327675, 6, 0, 262179, 6, 0, 393211, 6, 0, 327715, 6, 0, 458747, 6, 0, 393251, 6, 0, 524283, 6, 0, 458787, 6, 0, 589808, 6, 0, 589809, 6, 0, 589810, 6, 0, 589811, 6, 0, 589812, 6, 0, 589813, 6, 0, 589814, 6, 0, 589815, 6, 0, 589816, 6, 0, 589817, 6, 0, 589818, 6, 0, 589819, 6, 0, 524323, 6, 0, 524324, 6, 0, 524325, 6, 0, 524326, 6, 0, 524327, 6, 0, 524328, 6, 0, 524329, 6, 0, 524330, 6, 0, 524331, 6, 0, 524332, 6, 0, 524333, 6, 0, 524334, 6, 0, 917488, 6, 0, 917489, 6, 0, 917490, 6, 0, 917491, 6, 0, 917492, 6, 0, 917493, 6, 0, 917494, 6, 0, 917495, 6, 0, 917496, 6, 0, 917497, 6, 0, 917498, 6, 0, 917499, 6, 0, 917500, 6, 0, 917501, 6, 0, 917502, 6, 0, 917503, 6, 0, 851968, 6, 0, 851969, 6, 0, 851970, 6, 0, 851971, 6, 0, 851972, 6, 0, 851973, 6, 0, 851974, 6, 0, 851975, 6, 0, 851976, 6, 0, 851977, 6, 0, 851978, 6, 0, 851979, 6, 0, 851980, 6, 0, 851981, 6, 0, 851982, 6, 0, 851983, 6, 0, 851984, 6, 0, 851985, 6, 0, 851986, 6, 0, 851987, 6, 0, 851988, 6, 0, 851989, 6, 0, 851990, 6, 0, 851991, 6, 0, 851992, 6, 0, 851993, 6, 0, 851994, 6, 0, 851995, 6, 0, 851996, 6, 0, 851997, 6, 0, 851998, 6, 0, 851999, 6, 0, 852000, 6, 0, 852001, 6, 0, 852002, 6, 0, 852003, 6, 0, 852004, 6, 0, 852005, 6, 0, 852006, 6, 0, 852007, 6, 0, 852008, 6, 0, 852009, 6, 0, 852010, 6, 0, 852011, 6, 0, 852012, 6, 0, 852013, 6, 0, 852014, 6, 0 )
+
+[node name="Colliders" parent="." index="4"]
+visible = false
+
+[node name="TutorialMovement2" parent="LevelTransitions" index="0" instance=ExtResource( 4 )]
+position = Vector2( -1076.53, 132.44 )
+scale = Vector2( 2, 2 )
+map_path = "res://level/levels/TutorialMovement2.tscn"
+spawn_point = 1
+
+[node name="CollisionShape2D" parent="LevelTransitions/TutorialMovement2" index="0"]
+position = Vector2( -10, 290 )
+shape = SubResource( 2 )
+
+[node name="TutorialCombat2" parent="LevelTransitions" index="1" instance=ExtResource( 4 )]
+position = Vector2( 3199.79, 53.145 )
+scale = Vector2( 2, 2 )
+map_path = "res://level/levels/tutorial_combat/TutorialCombat2.tscn"
+
+[node name="CollisionShape2D" parent="LevelTransitions/TutorialCombat2" index="0"]
+position = Vector2( -10, 290 )
+shape = SubResource( 3 )
+
+[node name="Arena" parent="Arenas" index="0" instance=ExtResource( 5 )]
+position = Vector2( 644.683, -45.577 )
+change_camera = false
+
+[node name="ActivationArea" parent="Arenas/Arena" index="1"]
+position = Vector2( -685.618, 47.4543 )
+
+[node name="CollisionShape2D" parent="Arenas/Arena/ActivationArea" index="0"]
+position = Vector2( 1066.16, 209.063 )
+shape = SubResource( 4 )
+
+[node name="ActorSpawner" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
+object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="CameraLimitTrigger" parent="Arenas/Arena" index="4"]
+visible = false
+
+[node name="ColliderTrigger" parent="Arenas/Arena/CameraLimitTrigger" index="1"]
+shape = SubResource( 5 )
+
+[node name="0" parent="PlayerSpawnPoints" index="0"]
+position = Vector2( 3.36926, -0.168945 )
+
+[node name="CameraLimitTrigger" parent="PlayerSpawnPoints/0" index="0"]
+position = Vector2( 1003.12, 19.1069 )
+
+[node name="ColliderTrigger" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="1"]
+shape = SubResource( 6 )
+
+[node name="LevelHUD" parent="." index="12"]
+layer = 128
+
+[node name="CinemaBars" parent="LevelHUD" index="0" instance=ExtResource( 9 )]
+visible = false
+
+[editable path="InitialMusic"]
+
+[editable path="LevelTransitions/TutorialMovement2"]
+
+[editable path="LevelTransitions/TutorialCombat2"]
+
+[editable path="Arenas/Arena"]
+
+[editable path="Arenas/Arena/CameraLimitTrigger"]
+
+[editable path="PlayerSpawnPoints/0"]
+
+[editable path="PlayerSpawnPoints/0/CameraLimitTrigger"]

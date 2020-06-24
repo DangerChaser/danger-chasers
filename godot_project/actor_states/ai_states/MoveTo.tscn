@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://actor_states/ai_states/MoveTo.gd" type="Script" id=1]
+[ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=2]
+
+[node name="MoveTo" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Motion" parent="." instance=ExtResource( 2 )]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

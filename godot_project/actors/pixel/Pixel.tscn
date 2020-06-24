@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/pixel/sprites/FlyingEnemy_01.png" type="Texture" id=2]
+[ext_resource path="res://actor_states/motion/Spawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actors/pixel/PixelCharge.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actor_framework/stats/DefaultStats.tres" type="Resource" id=8]
+[ext_resource path="res://actors/pixel/Pivot.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 30.4899, 59.4388 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 23.0714, 51.2231 )
+
+[node name="Pixel" groups=[
+"enemies",
+] instance=ExtResource( 1 )]
+icon = ExtResource( 2 )
+
+[node name="Spawn" parent="StateMachine" index="0" instance=ExtResource( 3 )]
+next_state = "Wait"
+
+[node name="Gravity" parent="StateMachine/Spawn" index="2"]
+gravity = 0.0
+max_speed = 0.0
+
+[node name="Wait" parent="StateMachine" index="1" instance=ExtResource( 4 )]
+next_state = "AIAttack"
+
+[node name="Gravity" parent="StateMachine/Wait" index="2"]
+gravity = 0.0
+max_speed = 0.0
+
+[node name="AIAttack" parent="StateMachine" index="2" instance=ExtResource( 5 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 6 ) ]
+next_state = "Wait"
+
+[node name="Die" parent="StateMachine" index="3" instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0.637605, 3.44993 )
+shape = SubResource( 1 )
+
+[node name="CollisionBox" parent="." index="2"]
+position = Vector2( 1.76053, 3.96114 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Stats" parent="." index="5"]
+character_stats = ExtResource( 8 )
+
+[node name="Pivot" parent="." index="6" instance=ExtResource( 9 )]
+
+[editable path="StateMachine/Spawn"]
+
+[editable path="StateMachine/Wait"]
+
+[editable path="Hurtbox"]
+
+[editable path="Pivot"]
