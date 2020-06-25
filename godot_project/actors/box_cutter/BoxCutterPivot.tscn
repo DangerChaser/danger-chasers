@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://actors/box_cutter/BoxCutterChainGunPivot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=2]
@@ -250,7 +250,9 @@ tracks/16/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "defeat"
+resource_name = "backflip"
+
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:rotation_degrees")
 tracks/0/interp = 1
@@ -264,7 +266,7 @@ tracks/0/keys = {
 "values": [ 0.0, -90.0 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=6]
 resource_name = "defeat_loop"
 length = 0.8
 loop = true
@@ -329,10 +331,9 @@ tracks/4/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "die"
+[sub_resource type="Animation" id=7]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -408,8 +409,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -116 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "lunge"
+[sub_resource type="Animation" id=9]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -472,8 +472,7 @@ tracks/4/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "lunge_loop"
+[sub_resource type="Animation" id=10]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -537,8 +536,7 @@ tracks/4/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "prepare"
+[sub_resource type="Animation" id=11]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -601,8 +599,7 @@ tracks/4/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "prepare_loop"
+[sub_resource type="Animation" id=12]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -666,7 +663,7 @@ tracks/4/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -741,7 +738,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -116 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -817,7 +814,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -116 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=15]
 length = 0.4
 loop = true
 step = 0.05
@@ -882,7 +879,7 @@ tracks/4/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 length = 0.4
 loop = true
 step = 0.05
@@ -947,7 +944,7 @@ tracks/4/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=17]
 length = 1.8
 step = 0.05
 tracks/0/type = "value"
@@ -1023,7 +1020,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -116 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=18]
 length = 0.4
 loop = true
 step = 0.05
@@ -1100,8 +1097,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -116 ) ]
 }
 
-[sub_resource type="Animation" id=17]
-resource_name = "slash_up"
+[sub_resource type="Animation" id=19]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -1164,8 +1160,7 @@ tracks/4/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=18]
-resource_name = "slash_up_loop"
+[sub_resource type="Animation" id=20]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1229,7 +1224,7 @@ tracks/4/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=21]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1305,7 +1300,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -116 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=22]
 length = 0.4
 step = 0.05
 tracks/0/type = "value"
@@ -1369,7 +1364,7 @@ tracks/4/keys = {
 "values": [ 14, 13, 10, 3, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=23]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1477,25 +1472,26 @@ tracks/7/keys = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SETUP = SubResource( 3 )
-anims/defeat = SubResource( 4 )
-anims/defeat_loop = SubResource( 22 )
-anims/die = SubResource( 5 )
-anims/idle = SubResource( 6 )
-anims/lunge = SubResource( 7 )
-anims/lunge_loop = SubResource( 8 )
-anims/prepare = SubResource( 9 )
-anims/prepare_loop = SubResource( 10 )
-anims/rev = SubResource( 11 )
-anims/rev_loop = SubResource( 12 )
-anims/run = SubResource( 13 )
-anims/run_slash = SubResource( 14 )
-anims/slash = SubResource( 15 )
-anims/slash_loop = SubResource( 16 )
-anims/slash_up = SubResource( 17 )
-anims/slash_up_loop = SubResource( 18 )
-anims/stand = SubResource( 19 )
-anims/swing_up = SubResource( 20 )
-anims/walk = SubResource( 21 )
+anims/backflip = SubResource( 4 )
+anims/defeat = SubResource( 5 )
+anims/defeat_loop = SubResource( 6 )
+anims/die = SubResource( 7 )
+anims/idle = SubResource( 8 )
+anims/lunge = SubResource( 9 )
+anims/lunge_loop = SubResource( 10 )
+anims/prepare = SubResource( 11 )
+anims/prepare_loop = SubResource( 12 )
+anims/rev = SubResource( 13 )
+anims/rev_loop = SubResource( 14 )
+anims/run = SubResource( 15 )
+anims/run_slash = SubResource( 16 )
+anims/slash = SubResource( 17 )
+anims/slash_loop = SubResource( 18 )
+anims/slash_up = SubResource( 19 )
+anims/slash_up_loop = SubResource( 20 )
+anims/stand = SubResource( 21 )
+anims/swing_up = SubResource( 22 )
+anims/walk = SubResource( 23 )
 next/lunge = "lunge_loop"
 next/prepare = "prepare_loop"
 next/rev = "rev_loop"
@@ -1510,7 +1506,6 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
 normal_map = ExtResource( 16 )
 hframes = 8
-frame = 1
 
 [node name="Weapons" type="Node2D" parent="."]
 position = Vector2( -8.912, 14.489 )
@@ -1519,15 +1514,11 @@ position = Vector2( -8.912, 14.489 )
 
 [node name="ObjectSpawner" parent="FootstepsLand" index="0"]
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
 
 [node name="FootstepsLaunch" parent="." instance=ExtResource( 2 )]
 
 [node name="ObjectSpawner" parent="FootstepsLaunch" index="0"]
 object = ExtResource( 4 )
-random_degrees = 0.0
-random_radius = 0.0
 
 [node name="MSG_pos" type="Position2D" parent="."]
 position = Vector2( 0, -227.219 )

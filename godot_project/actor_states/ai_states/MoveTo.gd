@@ -3,7 +3,8 @@ class_name MoveToState
 
 export(String) var animation : String = "walk"
 export(String) var next_state : String = ""
-export(float) var roam_radius : float = 150.0
+export var max_roam_radius : float = 600.0
+export var min_roam_radius : float = 0.0
 export(bool) var disable_obstacle_collider := false
 export(bool) var stagger := false
 
@@ -42,20 +43,20 @@ func _physics_process(delta : float) -> void:
 	var buffer = 6.0
 	motion.move_to(target_position)
 	if owner.global_position.distance_to(target_position) < motion.steering.arrive_distance:
-		emit_signal("finished", next_state)
+		finished(next_state)
 
 
 func calculate_new_target_position() -> Vector2:
 	var random_angle = randf() * 2 * PI
-	var random_radius = randf() * roam_radius / 2
-	random_radius += roam_radius / 2
+	var percent = randf()
+	var random_radius = percent * (max_roam_radius - min_roam_radius) + min_roam_radius
 	return start_position + Vector2(cos(random_angle), sin(random_angle)) * random_radius
 
 
 func take_damage(args := {}):
 	if stagger:
-		emit_signal("finished", "Stagger", args)
+		finished("Stagger", args)
 
 
 func _on_Timer_timeout():
-	emit_signal("finished", next_state, motion.get_exit_args())
+	finished(next_state, motion.get_exit_args())

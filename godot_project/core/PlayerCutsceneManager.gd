@@ -43,8 +43,12 @@ func play_animation(anim_name : String) -> void:
 
 
 func show_player_hud() -> void:
+	if not player:
+		player = GameManager.get_player()
 	player.player_hud.visible = true
 
 
 func hide_player_hud() -> void:
+	if not player:
+		player = GameManager.get_player()
 	player.player_hud.visible = false

@@ -89,11 +89,10 @@ func _actor_rotate() -> void:
 
 
 func _weapon_rotate() -> void:
-	var weapon = owner.state_machine.get_current_state().weapon
 	var direction = motion.total_velocity.normalized()
 	if owner.target and owner.target.get_target():
 		direction = (owner.target.global_position - owner.global_position).normalized()
-	weapon.set_rotation(direction.angle())
+	weapon.set_global_rotation(direction.angle())
 
 
 func get_exit_args() -> Dictionary:

@@ -1,10 +1,8 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/box_cutter/SawBladesUp.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/box_cutter/SawBladesRight.tscn" type="PackedScene" id=4]
-[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actors/box_cutter/SawBladesParticles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=9]
 [ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnFloorEffect.gd" type="Script" id=11]
 [ext_resource path="res://common/particles/warning_mark/WarningMark.tscn" type="PackedScene" id=15]
@@ -41,10 +39,38 @@ tracks/1/keys = {
 "method": "disable"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pivot/Attacks/SlashUp/DamageSource/SawBladesParticles")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Pivot/Attacks/Lunge/DamageSource/SawBladesParticles")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 resource_name = "lunge"
-length = 1.1
+length = 2.1
 step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks")
@@ -53,7 +79,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.8, 0.9, 1 ),
+"times": PoolRealArray( 1.8, 1.9, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -67,47 +93,164 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("SfxParticleSpawner2")
+tracks/1/path = NodePath("Pivot/Attacks/Lunge/DamageSource")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [ null ],
-"method": "spawn"
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
 } ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("Pivot/Attacks/Lunge/DamageSource")
+tracks/2/path = NodePath("Pivot/Attacks/Lunge/DamageSource/SawBladesParticles")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [  ],
-"method": "enable"
+"args": [ Vector2( 0, 0 ), null, Vector2( 0, 0 ), null, Vector2( 0, 0 ) ],
+"method": "start"
 }, {
 "args": [  ],
-"method": "disable"
-}, {
-"args": [  ],
-"method": "enable"
-}, {
-"args": [  ],
-"method": "disable"
-}, {
-"args": [  ],
-"method": "enable"
-}, {
-"args": [  ],
-"method": "disable"
+"method": "stop"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pivot/Attacks/Lunge/DamageSource:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 335.513, 0 ), Vector2( 2955.91, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -148,7 +291,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=4]
 resource_name = "prepare_2"
 length = 1.1
 tracks/0/type = "method"
@@ -186,8 +329,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "slash_up"
+[sub_resource type="Animation" id=5]
 length = 1.1
 step = 0.05
 tracks/0/type = "method"
@@ -211,56 +353,116 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("SfxParticleSpawner")
+tracks/1/path = NodePath("Pivot/Attacks/SlashUp/DamageSource")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [ null ],
-"method": "spawn"
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
 } ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath("Pivot/Attacks/SlashUp/DamageSource")
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Attacks/SlashUp/DamageSource:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, -7.23047 ), Vector2( 320, -2695.64 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Pivot/Attacks/SlashUp/DamageSource/SawBladesParticles")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [  ],
-"method": "enable"
+"args": [ Vector2( 0, 0 ), null, Vector2( 0, 0 ), null, Vector2( 0, 0 ) ],
+"method": "start"
 }, {
 "args": [  ],
-"method": "disable"
-}, {
-"args": [  ],
-"method": "enable"
-}, {
-"args": [  ],
-"method": "disable"
-}, {
-"args": [  ],
-"method": "enable"
-}, {
-"args": [  ],
-"method": "disable"
+"method": "stop"
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 resource_local_to_scene = true
 extents = Vector2( 30, 30 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 resource_local_to_scene = true
-extents = Vector2( 181.117, 1552 )
+extents = Vector2( 182, 182 )
 
 [sub_resource type="RectangleShape2D" id=8]
 resource_local_to_scene = true
@@ -268,9 +470,9 @@ extents = Vector2( 30, 30 )
 
 [sub_resource type="RectangleShape2D" id=9]
 resource_local_to_scene = true
-extents = Vector2( 1456, 176 )
+extents = Vector2( 176, 176 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=10]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("WarningMarkScanner:position")
@@ -285,7 +487,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 3456 ), Vector2( 0, 448 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=11]
 resource_local_to_scene = true
 extents = Vector2( 576, 512 )
 
@@ -313,18 +515,10 @@ cooldown = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 anims/SETUP = SubResource( 1 )
-anims/lunge = SubResource( 10 )
+anims/lunge = SubResource( 2 )
 anims/prepare_1 = SubResource( 3 )
-anims/prepare_2 = SubResource( 11 )
-anims/slash_up = SubResource( 2 )
-
-[node name="SfxParticleSpawner" parent="." index="1" instance=ExtResource( 7 )]
-position = Vector2( 320, -1344 )
-object = ExtResource( 3 )
-
-[node name="SfxParticleSpawner2" parent="." index="2" instance=ExtResource( 7 )]
-position = Vector2( 1600, 0 )
-object = ExtResource( 4 )
+anims/prepare_2 = SubResource( 4 )
+anims/slash_up = SubResource( 5 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
@@ -339,13 +533,14 @@ position = Vector2( 10.8831, -130.596 )
 damage = 3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Wait/DamageSource" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 disabled = true
 
 [node name="AdditionalEffects" parent="Pivot/Attacks/Wait" index="1"]
 script = ExtResource( 11 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Wait/AdditionalEffects" index="0" instance=ExtResource( 2 )]
+initial_speed = 400.0
 
 [node name="MotionSteering" parent="Pivot/Attacks/Wait/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0
@@ -355,22 +550,25 @@ actor_animation = "slash_up"
 weapon_animation = "slash_up"
 
 [node name="DamageSource" parent="Pivot/Attacks/SlashUp" index="0"]
-position = Vector2( 320, -1344 )
+position = Vector2( 320, -2695.64 )
 damage = 3
 stagger_direction_while_right = Vector2( 0, -1 )
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/SlashUp/DamageSource" index="0"]
-shape = SubResource( 5 )
+shape = SubResource( 7 )
+
+[node name="SawBladesParticles" parent="Pivot/Attacks/SlashUp/DamageSource" index="1" instance=ExtResource( 4 )]
+queue_free_after_timer = false
 
 [node name="AdditionalEffects" parent="Pivot/Attacks/SlashUp" index="1"]
 script = ExtResource( 11 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashUp/AdditionalEffects" index="0" instance=ExtResource( 2 )]
-initial_speed = 800.0
+initial_speed = 1600.0
 
 [node name="MotionSteering" parent="Pivot/Attacks/SlashUp/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0
-mass = 8.0
+mass = 12.0
 
 [node name="Wait2" parent="Pivot/Attacks" index="2" instance=ExtResource( 9 )]
 actor_animation = "prepare"
@@ -389,6 +587,7 @@ disabled = true
 script = ExtResource( 11 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Wait2/AdditionalEffects" index="0" instance=ExtResource( 2 )]
+initial_speed = 400.0
 
 [node name="MotionSteering" parent="Pivot/Attacks/Wait2/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0
@@ -398,35 +597,37 @@ actor_animation = "lunge"
 weapon_animation = "lunge"
 
 [node name="DamageSource" parent="Pivot/Attacks/Lunge" index="0"]
-position = Vector2( 2064, -32 )
+position = Vector2( 2955.91, 0 )
 damage = 3
 stagger_direction_while_right = Vector2( 0, -1 )
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Lunge/DamageSource" index="0"]
-position = Vector2( -464, 16 )
 shape = SubResource( 9 )
+
+[node name="SawBladesParticles" parent="Pivot/Attacks/Lunge/DamageSource" index="1" instance=ExtResource( 4 )]
+queue_free_after_timer = false
 
 [node name="AdditionalEffects" parent="Pivot/Attacks/Lunge" index="1"]
 script = ExtResource( 11 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Lunge/AdditionalEffects" index="0" instance=ExtResource( 2 )]
-initial_speed = 800.0
+initial_speed = 1600.0
 
 [node name="MotionSteering" parent="Pivot/Attacks/Lunge/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0
-mass = 8.0
+mass = 12.0
 
-[node name="WarningArea" parent="." index="4" instance=ExtResource( 16 )]
+[node name="WarningArea" parent="." index="2" instance=ExtResource( 16 )]
 position = Vector2( 320, -2688 )
 
 [node name="AnimationPlayer" parent="WarningArea" index="0"]
-anims/start = SubResource( 6 )
+anims/start = SubResource( 10 )
 
 [node name="WarningMarkScanner" parent="WarningArea" index="1"]
 position = Vector2( 0, 3456 )
 
 [node name="CollisionShape2D" parent="WarningArea/WarningMarkScanner" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 11 )
 
 [node name="WarningMark" parent="WarningArea/Marks" index="0" instance=ExtResource( 15 )]
 
@@ -529,7 +730,7 @@ position = Vector2( 128, 2688 )
 [node name="WarningMark34" parent="WarningArea/Marks" index="33" instance=ExtResource( 15 )]
 position = Vector2( 0, 2816 )
 
-[node name="WarningArea2" parent="." index="5" instance=ExtResource( 16 )]
+[node name="WarningArea2" parent="." index="3" instance=ExtResource( 16 )]
 position = Vector2( 400, -16 )
 
 [node name="AnimationPlayer" parent="WarningArea2" index="0"]

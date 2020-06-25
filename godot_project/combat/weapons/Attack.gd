@@ -19,15 +19,17 @@ export(String) var weapon_animation := "attack"
 
 var combo_ready := false
 var input
+var weapon
 
 
 func _ready() -> void:
+	weapon = get_parent().get_parent().get_parent().get_parent()
 	for effect in additional_effects.get_children():
 		effect.connect("finished", self, "effect_finished")
-		effect.weapon = get_parent().get_parent().get_parent().get_parent()
+		effect.weapon = weapon
 	for effect in combo_effects.get_children():
 		effect.connect("finished", self, "effect_finished")
-		effect.weapon = get_parent().get_parent().get_parent().get_parent()
+		effect.weapon = weapon
 
 
 func effect_finished(next_state:="", args:={}):

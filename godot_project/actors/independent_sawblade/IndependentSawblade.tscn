@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/independent_sawblade/IndependentSawblade.tres" type="Resource" id=2]
+[ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/independent_sawblade/IndependentSawbladePivot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/independent_sawblade/IndependentSawbladeGun.tscn" type="PackedScene" id=9]
+[ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 50, 50 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 45.0629, 43.1385 )
+
+[node name="IndependentSawblade" groups=[
+"enemies",
+] instance=ExtResource( 1 )]
+
+[node name="Pivot" parent="." index="0" instance=ExtResource( 5 )]
+
+[node name="Sequence" parent="StateMachine" index="0" instance=ExtResource( 8 )]
+next_state = "Sequence"
+
+[node name="Wait" parent="StateMachine/Sequence" index="0" instance=ExtResource( 10 )]
+
+[node name="Gravity" parent="StateMachine/Sequence/Wait" index="2"]
+gravity = 0.0
+
+[node name="Timer" parent="StateMachine/Sequence/Wait" index="3"]
+wait_time = 0.001
+
+[node name="MoveTo" parent="StateMachine/Sequence" index="1" instance=ExtResource( 3 )]
+min_roam_radius = 300.0
+
+[node name="MotionSteering" parent="StateMachine/Sequence/MoveTo/Motion" index="1"]
+max_speed = 600.0
+mass = 8.0
+slow_radius = 400.0
+
+[node name="Gravity" parent="StateMachine/Sequence/MoveTo/Motion" index="2"]
+gravity = 0.0
+max_speed = 0.0
+
+[node name="Wait2" parent="StateMachine/Sequence" index="2" instance=ExtResource( 10 )]
+
+[node name="Gravity" parent="StateMachine/Sequence/Wait2" index="2"]
+gravity = 0.0
+
+[node name="Timer" parent="StateMachine/Sequence/Wait2" index="3"]
+wait_time = 0.001
+
+[node name="AIAttack" parent="StateMachine/Sequence" index="3" instance=ExtResource( 4 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 9 ) ]
+initialize_on_start = false
+stagger = false
+
+[node name="Stagger" parent="StateMachine" index="1" instance=ExtResource( 6 )]
+next_state = "Sequence"
+
+[node name="Die" parent="StateMachine" index="2" instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionBox" parent="." index="3"]
+position = Vector2( -2.19303, 12.6596 )
+shape = SubResource( 2 )
+
+[node name="Stats" parent="." index="6"]
+character_stats = ExtResource( 2 )
+
+[editable path="StateMachine/Sequence/Wait"]
+
+[editable path="StateMachine/Sequence/MoveTo"]
+
+[editable path="StateMachine/Sequence/MoveTo/Motion"]
+
+[editable path="StateMachine/Sequence/Wait2"]
+
+[editable path="Hurtbox"]

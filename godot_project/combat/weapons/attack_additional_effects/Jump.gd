@@ -20,7 +20,7 @@ func enter(args := {}) -> void:
 	if args.has("velocity") and take_previous_velocity:
 		motion.steering.velocity = args["velocity"]
 	
-	current_speed = initial_speed + max(motion.steering.max_speed * owner.global_scale.length(), motion.steering.velocity.length())
+	current_speed = initial_speed + sign(initial_speed) * max(motion.steering.max_speed * owner.global_scale.length(), motion.steering.velocity.length())
 	motion.steering.velocity.x = target_direction.x * current_speed + owner.get_floor_velocity().x
 	motion.steering.velocity.y = 0.0 # Ensures that jump height is even
 	

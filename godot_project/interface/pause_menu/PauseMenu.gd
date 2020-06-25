@@ -77,7 +77,7 @@ func _on_Resume_button_down():
 
 func _on_Restart_button_down():
 	yield(Transition.transition_in(restart_transition_in_animation, restart_transition_in_duration), "transition_in_finished")
-	GameManager.game.level_loader.change_level(GameManager.current_loaded_level, GameManager.initial_spawn_point)
+	GameManager.game.level_loader.change_level(GameManager.current_loaded_level, GameManager.initial_spawn_point, "left_to_right", 0.5)
 	unpause()
 
 

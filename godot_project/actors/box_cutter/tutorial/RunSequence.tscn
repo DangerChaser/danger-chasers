@@ -13,11 +13,18 @@
 [node name="Run" parent="." index="1" instance=ExtResource( 1 )]
 stagger = false
 
+[node name="MotionSteering" parent="Run" index="1"]
+mass = 12.0
+arrive_distance = 400.0
+
 [node name="Timer" parent="Run" index="3"]
 wait_time = 1.0
 
 [node name="Rev" parent="." index="2" instance=ExtResource( 5 )]
 animation = "rev"
+
+[node name="MotionSteering" parent="Rev" index="1"]
+mass = 12.0
 
 [node name="Timer" parent="Rev" index="3"]
 wait_time = 1.6
