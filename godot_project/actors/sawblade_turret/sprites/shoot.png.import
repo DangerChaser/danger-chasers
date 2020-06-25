@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/prepare.png-bdb16d9e87f7d1a7b3b691f4e3a6ea17.stex"
+path="res://.import/shoot.png-a8bbe5cc7f25f7213d1ea5dd261783fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://actors/independent_sawblade/sprites/prepare.png"
-dest_files=[ "res://.import/prepare.png-bdb16d9e87f7d1a7b3b691f4e3a6ea17.stex" ]
+source_file="res://actors/sawblade_turret/sprites/shoot.png"
+dest_files=[ "res://.import/shoot.png-a8bbe5cc7f25f7213d1ea5dd261783fa.stex" ]
 
 [params]
 

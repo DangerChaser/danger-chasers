@@ -959,6 +959,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Background" index="2"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 3072.0
 margin_top = 2752.0
 margin_right = 8072.0
@@ -997,9 +998,19 @@ position = Vector2( 6848, 13952 )
 
 [node name="IronMovingPlatform8x2" parent="Ground" index="7" instance=ExtResource( 3 )]
 position = Vector2( 4672, 8672 )
+editor_process = false
+speed = 400.0
+waypoints_path = NodePath("")
+loop = true
+autostart = true
 
 [node name="IronMovingPlatform8x3" parent="Ground" index="8" instance=ExtResource( 3 )]
 position = Vector2( 6592, 8672 )
+editor_process = false
+speed = 400.0
+waypoints_path = NodePath("")
+loop = true
+autostart = true
 
 [node name="Elevator" parent="Ground" index="9" instance=ExtResource( 16 )]
 position = Vector2( 12896, 6752 )
@@ -1007,9 +1018,19 @@ time_to_move_one_floor = 8.0
 
 [node name="IronMovingPlatform8x2" parent="Ground/Elevator/MovingPlatforms" index="0" instance=ExtResource( 3 )]
 position = Vector2( -32, 1536 )
+editor_process = false
+speed = 400.0
+waypoints_path = NodePath("")
+loop = true
+autostart = true
 
 [node name="IronMovingPlatform8x3" parent="Ground/Elevator/MovingPlatforms" index="1" instance=ExtResource( 3 )]
 position = Vector2( -32, -4480 )
+editor_process = false
+speed = 400.0
+waypoints_path = NodePath("")
+loop = true
+autostart = true
 
 [node name="Trolley" parent="Ground" index="10" instance=ExtResource( 23 )]
 position = Vector2( 7168, 12480 )
@@ -1239,6 +1260,8 @@ visible = false
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -1248, 12160 )
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
 
 [node name="CameraLimitTrigger" parent="PlayerSpawnPoints/0" index="0"]
 position = Vector2( -534.852, -133.712 )
@@ -1260,6 +1283,7 @@ position = Vector2( 17014.9, 2469.71 )
 [node name="1" parent="PlayerSpawnPoints" index="1" instance=ExtResource( 18 )]
 position = Vector2( 14784, 12512 )
 DRAW_COLOR = Color( 0.886275, 0.192157, 0.713726, 1 )
+transition_out_animation = "left_to_right"
 transition_out_duration = 0.5
 
 [node name="CameraLimitTrigger" parent="PlayerSpawnPoints/1" index="0"]

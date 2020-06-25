@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/idle.png-c018ec7f111c53d976f6bfd3007fd9a7.stex"
+path="res://.import/die.png-c1f664659b883e7600396ed06d7a4893.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://actors/independent_sawblade/sprites/idle.png"
-dest_files=[ "res://.import/idle.png-c018ec7f111c53d976f6bfd3007fd9a7.stex" ]
+source_file="res://actors/sawblade_turret/sprites/die.png"
+dest_files=[ "res://.import/die.png-c1f664659b883e7600396ed06d7a4893.stex" ]
 
 [params]
 

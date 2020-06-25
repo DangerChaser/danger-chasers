@@ -33,7 +33,7 @@ func lock_on(new_target=null) -> void:
 	
 	var closest_enemy
 	if owner.is_in_group("team_2") or owner.is_in_group("team_3"): # Reserved for enemies
-		closest_enemy = find_closest_enemy("team_1")
+		closest_enemy = find_closest_enemy("players")
 	else:
 		closest_enemy = find_closest_enemy("team_2")
 	

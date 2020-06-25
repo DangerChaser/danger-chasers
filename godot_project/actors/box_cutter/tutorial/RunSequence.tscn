@@ -15,7 +15,7 @@ stagger = false
 
 [node name="MotionSteering" parent="Run" index="1"]
 mass = 12.0
-arrive_distance = 400.0
+arrive_distance = 200.0
 
 [node name="Timer" parent="Run" index="3"]
 wait_time = 1.0
@@ -34,13 +34,8 @@ weapon_levels = [ 0 ]
 weapons = [ ExtResource( 2 ) ]
 stagger = false
 
-[node name="Wait2" parent="." index="4" instance=ExtResource( 5 )]
-animation = "slash_loop"
-
 [editable path="Wait"]
 
 [editable path="Run"]
 
 [editable path="Rev"]
-
-[editable path="Wait2"]

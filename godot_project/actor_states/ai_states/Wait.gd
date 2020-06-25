@@ -3,6 +3,7 @@ class_name WaitState
 
 export(String) var animation : String = "prepare"
 export(String) var next_state := ""
+export var skip_to_next_state := false
 export(bool) var wait_forever := false
 export(float) var duration_variation : float = 0.0
 export(bool) var stagger := false
@@ -16,6 +17,11 @@ onready var duration : float = $Timer.wait_time
 
 func enter(args := {}) -> void:
 	.enter(args)
+	
+	if skip_to_next_state:
+		go_to_next_state()
+		return
+	
 	if args.has("initial_animation"):
 		owner.animation_player.play(args["initial_animation"])
 	else:
@@ -44,7 +50,7 @@ func take_damage(args := {}):
 		finished("Stagger", args)
 
 
-func _on_Timer_timeout():
+func go_to_next_state() -> void:
 	var args = {
 		"velocity": steering.velocity, 
 		"gravity_speed":gravity.speed,
@@ -68,6 +74,10 @@ func _on_Timer_timeout():
 		args["target_direction"] = target_direction
 		args["target_position"] = target_position
 	finished(next_state, args)
+
+
+func _on_Timer_timeout():
+	go_to_next_state()
 
 
 func anim_finished(anim_name : String) -> void:

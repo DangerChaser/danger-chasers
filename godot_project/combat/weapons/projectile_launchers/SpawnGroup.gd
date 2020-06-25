@@ -13,7 +13,7 @@ func spawn(args:={}):
 	for spawner in $Spawners.get_children():
 		var projectile = spawner.spawn(GameManager.level.y_sort)
 		projectile.set_friendly_teams(friendly_teams)
-		projectile.initialize(Vector2.RIGHT.rotated(spawner.global_rotation))
+		projectile.initialize()
 		if muzzle_flash:
 			var new_muzzle_flash = muzzle_flash.instance()
 			new_muzzle_flash.start(spawner.global_position, spawner.global_rotation, spawner.global_scale, GameManager.level)

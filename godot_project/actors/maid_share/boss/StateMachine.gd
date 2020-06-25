@@ -47,11 +47,4 @@ func change_phase(new_phase : int) -> void:
 	in_phase_change = true
 	emit_signal("phase_change_started", new_phase)
 	emit_signal("phase_started")
-	kill_all_turrets()
-
-
-func kill_all_turrets():
-	for weapon in owner.weapons.get_children():
-		for attack in weapon.attacks.get_children():
-			if attack is ActorSpawnAttack:
-				attack.kill_actors()
+	owner.kill_spawned_actors()

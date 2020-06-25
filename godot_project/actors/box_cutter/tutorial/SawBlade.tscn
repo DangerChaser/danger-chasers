@@ -7,7 +7,7 @@
 [ext_resource path="res://actors/box_cutter/BoxCutterSlashHit.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 77.8133
+radius = 60.4373
 
 [sub_resource type="Animation" id=2]
 resource_name = "spawn"
@@ -86,7 +86,7 @@ collision_particles = ExtResource( 5 )
 max_speed = 500.0
 
 [node name="DamageSource" parent="." index="1"]
-damage = 10
+damage = 4
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
 shape = SubResource( 1 )

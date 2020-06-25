@@ -20,9 +20,7 @@ extents = Vector2( 45.3868, 85.6366 )
 resource_local_to_scene = true
 extents = Vector2( 41.9573, 87.6501 )
 
-[node name="Share" groups=[
-"players",
-] instance=ExtResource( 2 )]
+[node name="Share" instance=ExtResource( 2 )]
 collision_layer = 34
 collision_mask = 97
 icon = ExtResource( 9 )

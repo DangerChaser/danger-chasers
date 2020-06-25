@@ -1,12 +1,14 @@
 extends State
 class_name MoveToState
 
-export(String) var animation : String = "walk"
-export(String) var next_state : String = ""
-export var max_roam_radius : float = 600.0
-export var min_roam_radius : float = 0.0
-export(bool) var disable_obstacle_collider := false
-export(bool) var stagger := false
+export var animation := "walk"
+export var next_state := ""
+export var go_to_target := true
+export var y_offset := 0.0
+export var max_roam_radius := 600.0
+export var min_roam_radius := 0.0
+export var disable_obstacle_collider := false
+export var stagger := false
 
 onready var motion := $Motion
 onready var timer := $Timer
@@ -50,7 +52,15 @@ func calculate_new_target_position() -> Vector2:
 	var random_angle = randf() * 2 * PI
 	var percent = randf()
 	var random_radius = percent * (max_roam_radius - min_roam_radius) + min_roam_radius
-	return start_position + Vector2(cos(random_angle), sin(random_angle)) * random_radius
+	
+	var base_position = start_position
+	if go_to_target: 
+		var target = owner.target.get_target()
+		if target:
+			base_position = owner.target.get_target().global_position
+	base_position.y += y_offset
+	base_position += Vector2(cos(random_angle), sin(random_angle)) * random_radius
+	return base_position
 
 
 func take_damage(args := {}):

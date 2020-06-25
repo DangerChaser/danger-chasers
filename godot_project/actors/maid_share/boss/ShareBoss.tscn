@@ -378,7 +378,7 @@ character_stats = ExtResource( 9 )
 [node name="VisibilityEnabler2D" parent="." index="11"]
 position = Vector2( -20.2886, -3.07483 )
 scale = Vector2( 350.278, 343.952 )
-[connection signal="entered" from="StateMachine/Die" to="StateMachine" method="kill_all_turrets"]
+[connection signal="entered" from="StateMachine/Die" to="." method="kill_spawned_actors"]
 
 [editable path="Pivot"]
 
