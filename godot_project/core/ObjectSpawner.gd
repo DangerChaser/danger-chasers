@@ -48,16 +48,8 @@ func _set_position(object) -> void:
 
 
 func _set_rotation(object) -> void:
-	var _rotation = global_rotation
+	object.rotation = global_rotation
 	
-	if owner is KinematicBody2DMirror and not object is KinematicBody2DMirror:
-		if owner.look_direction == Vector2.LEFT:
-			_rotation += PI
-	
-	if not random_degrees > 0:
-		object.set_rotation(_rotation)
-		return
-	
-	var random_degree_change = randi() % int(random_degrees) - random_degrees / 2
-	_rotation += deg2rad(random_degree_change)
-	object.set_rotation(_rotation)
+	if random_degrees > 0:
+		var random_degree_change = randi() % int(random_degrees) - random_degrees / 2
+		object.rotation += deg2rad(random_degree_change)

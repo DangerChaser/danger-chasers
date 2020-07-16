@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/music/Goldenbed River Battle Loop.ogg" type="AudioStream" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://level/levels/greenwood_hills/forest.tres" type="TileSet" id=4]
 [ext_resource path="res://cutscenes/BoxCutterTutorialBossDieCutscene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=6]
-[ext_resource path="res://core/Cutscene.gd" type="Script" id=7]
 [ext_resource path="res://interactable_scripts/base/DialogueInteraction.tscn" type="PackedScene" id=8]
 [ext_resource path="res://cutscenes/CutsceneCamera.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level/RoundManager.gd" type="Script" id=14]
@@ -206,7 +205,6 @@ zoom = Vector2( 1.5, 1.5 )
 
 [node name="BoxCutterTutorialBossDieCutscene" parent="CutsceneTriggers" index="1" instance=ExtResource( 5 )]
 position = Vector2( 3712, 960 )
-script = ExtResource( 7 )
 
 [node name="RoundManager" type="Node" parent="." index="9"]
 script = ExtResource( 14 )
@@ -214,13 +212,15 @@ script = ExtResource( 14 )
 [node name="ForestBackground" parent="." index="10" instance=ExtResource( 15 )]
 
 [node name="BoxCutterTutorial" parent="YSort" index="0" instance=ExtResource( 3 )]
-position = Vector2( 4272, 960 )
+position = Vector2( 4272, 849.999 )
 
 [node name="Foreground" parent="." index="12"]
 visible = false
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
-position = Vector2( 2496, 960 )
+position = Vector2( 2496, 849.999 )
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
 
 [node name="ColliderTrigger" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="1"]
 shape = SubResource( 8 )

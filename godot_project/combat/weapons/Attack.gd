@@ -19,17 +19,15 @@ export(String) var weapon_animation := "attack"
 
 var combo_ready := false
 var input
-var weapon
 
 
 func _ready() -> void:
-	weapon = get_parent().get_parent().get_parent().get_parent()
 	for effect in additional_effects.get_children():
 		effect.connect("finished", self, "effect_finished")
-		effect.weapon = weapon
+		effect.weapon = get_parent().get_parent().get_parent().get_parent()
 	for effect in combo_effects.get_children():
 		effect.connect("finished", self, "effect_finished")
-		effect.weapon = weapon
+		effect.weapon = get_parent().get_parent().get_parent().get_parent()
 
 
 func effect_finished(next_state:="", args:={}):
@@ -73,6 +71,10 @@ func exit() -> void:
 			effect.exit()
 
 
-func confirm_hit(actor) -> void:
-	$HitParticles.spawn(($DamageSource.collider.global_position + actor.hurtbox.collider.global_position) / 2)
+func confirm_hit(hurtbox) -> void:
+	$HitParticles.spawn(($DamageSource.collider.global_position + hurtbox.collider.global_position) / 2)
 	emit_signal("hit_confirmed")
+
+
+func _on_DamageSource_hit_confirmed_hurtbox(hurtbox):
+	confirm_hit(hurtbox)

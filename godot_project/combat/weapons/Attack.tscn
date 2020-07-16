@@ -23,7 +23,7 @@ shape = SubResource( 1 )
 [node name="HitParticles" parent="." instance=ExtResource( 3 )]
 
 [node name="ExitArguments" type="Node2D" parent="."]
-[connection signal="hit_confirmed_actor" from="DamageSource" to="." method="confirm_hit"]
+[connection signal="hit_confirmed_hurtbox" from="DamageSource" to="." method="_on_DamageSource_hit_confirmed_hurtbox"]
 
 [editable path="DamageSource"]
 

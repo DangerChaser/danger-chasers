@@ -77,6 +77,9 @@ object = ExtResource( 7 )
 initial_speed = -1000.0
 weapon_rotate = true
 
+[node name="Motion" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect" index="0"]
+look_towards_move_direction = false
+
 [node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0
 mass = 12.0

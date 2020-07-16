@@ -10,6 +10,7 @@ export var actor_name := ""
 
 func spawn(parent=null):
 	var actor = .spawn(parent)
+	actor.set_rotation(Vector2.RIGHT.angle())
 	actor.connect("died", self, "actor_died")
 	if actor_name:
 		actor.name = actor_name

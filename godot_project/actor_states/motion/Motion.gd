@@ -44,11 +44,6 @@ func _physics_process(delta : float) -> void:
 	external.move()
 	gravity.apply(delta)
 	total_velocity = steering.velocity + gravity.velocity + external.velocity
-	
-	var direction = total_velocity.normalized()
-	last_move_direction = direction
-	if look_towards_move_direction:
-		update_look_direction(direction)
 
 
 func get_input_direction() -> Vector2:
@@ -61,10 +56,20 @@ func get_input_direction() -> Vector2:
 
 func move(move_direction : Vector2) -> void:
 	steering.move(move_direction)
+	
+	var direction = total_velocity.normalized()
+	last_move_direction = direction
+	if look_towards_move_direction:
+		update_look_direction(direction)
 
 
 func move_to(target_position : Vector2) -> void:
 	steering.move_to(target_position)
+	
+	var direction = total_velocity.normalized()
+	last_move_direction = direction
+	if look_towards_move_direction:
+		update_look_direction(direction)
 
 
 func update_look_direction(direction : Vector2) -> void:

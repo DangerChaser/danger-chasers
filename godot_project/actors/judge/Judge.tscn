@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://actor_states/JobState.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=2]
@@ -21,22 +21,13 @@
 [ext_resource path="res://actor_framework/player/states/Cutscene.tscn" type="PackedScene" id=21]
 [ext_resource path="res://actors/judge/JudgeGrowthStats.tres" type="Resource" id=22]
 [ext_resource path="res://actors/judge/sprites/icon.png" type="Texture" id=23]
-[ext_resource path="res://core/utils/ActivationArea.tscn" type="PackedScene" id=24]
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 45.3868, 85.6366 )
-
-[sub_resource type="RectangleShape2D" id=2]
-resource_local_to_scene = true
 extents = Vector2( 41.9573, 87.6501 )
 
-[sub_resource type="CircleShape2D" id=3]
-resource_local_to_scene = true
-radius = 1.0
-
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32.5314, 56.3854 )
 
 [node name="Player" groups=[
@@ -92,15 +83,11 @@ queue_free_on_die = false
 
 [node name="External" parent="StateMachine" index="10" instance=ExtResource( 3 )]
 
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 0, -95.0543 )
+[node name="CollisionBox" parent="." index="1"]
+position = Vector2( 0, 23.669 )
 shape = SubResource( 1 )
 
-[node name="CollisionBox" parent="." index="2"]
-position = Vector2( 0, -87.1227 )
-shape = SubResource( 2 )
-
-[node name="Stats" parent="." index="5"]
+[node name="Stats" parent="." index="4"]
 growth_stats = ExtResource( 22 )
 character_stats = ExtResource( 7 )
 
@@ -117,28 +104,17 @@ layer = 100
 
 [node name="Pivot" parent="." index="10" instance=ExtResource( 9 )]
 
-[node name="ActivationArea" parent="." index="12" instance=ExtResource( 24 )]
-collision_layer = 16
-collision_mask = 8
+[node name="VisibilityEnabler2D" parent="." index="11"]
+position = Vector2( 5.99158, 0 )
 
-[node name="CollisionShape2D" parent="ActivationArea" index="0"]
-position = Vector2( 0, -98.5982 )
-shape = SubResource( 3 )
-
-[node name="DropThroughArea" type="Area2D" parent="." index="13"]
+[node name="DropThroughArea" type="Area2D" parent="." index="12"]
+position = Vector2( 0, 106.787 )
 collision_layer = 64
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropThroughArea" index="0"]
 position = Vector2( 0, -139.673 )
-shape = SubResource( 4 )
-
-[node name="VisibilityEnabler2D" parent="." index="14"]
-position = Vector2( 5.99158, 0 )
+shape = SubResource( 2 )
 [connection signal="body_exited" from="DropThroughArea" to="." method="_on_DropThroughArea_body_exited"]
 
-[editable path="Hurtbox"]
-
 [editable path="PlayerHUDLayer/BattleHUD"]
-
-[editable path="ActivationArea"]

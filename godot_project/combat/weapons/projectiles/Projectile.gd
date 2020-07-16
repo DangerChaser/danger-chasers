@@ -8,7 +8,6 @@ export(PackedScene) var destroy_particles : PackedScene
 export(PackedScene) var collision_particles : PackedScene
 
 onready var motion := $Motion
-onready var pivot := $Pivot
 onready var target := $Target
 
 var target_direction : Vector2
@@ -21,7 +20,7 @@ func _ready() -> void:
 	set_physics_process(false)
 	visible = false
 	$DamageSource.disable()
-	$CollisionShape2D.set_deferred("disabled", true)
+	$CollisionBox.set_deferred("disabled", true)
 
 
 func initialize(initial_direction : Vector2 = Vector2()) -> void:
@@ -35,7 +34,7 @@ func initialize(initial_direction : Vector2 = Vector2()) -> void:
 	
 	visible = true
 	$DamageSource.enable()
-	$CollisionShape2D.set_deferred("disabled", false)
+	$CollisionBox.set_deferred("disabled", false)
 
 
 func _physics_process(delta : float) -> void:

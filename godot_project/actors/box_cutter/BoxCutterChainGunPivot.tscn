@@ -12,9 +12,7 @@
 [ext_resource path="res://actors/box_cutter/sfx/wind_down.wav" type="AudioStream" id=10]
 [ext_resource path="res://actors/box_cutter/sprites/basic_chaingun/active.png" type="Texture" id=11]
 
-
-
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "value"
@@ -42,7 +40,7 @@ tracks/1/keys = {
 "values": [ "base" ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=2]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -120,7 +118,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=3]
 resource_name = "lunge"
 length = 0.5
 loop = true
@@ -199,7 +197,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=4]
 resource_name = "prepare"
 length = 3.0
 tracks/0/type = "value"
@@ -277,7 +275,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=5]
 resource_name = "rev"
 length = 3.0
 tracks/0/type = "value"
@@ -355,7 +353,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=6]
 length = 0.4
 loop = true
 step = 0.05
@@ -434,7 +432,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=7]
 resource_name = "run_slash"
 length = 0.4
 loop = true
@@ -514,7 +512,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=8]
 resource_name = "slash"
 length = 2.3
 step = 0.05
@@ -621,7 +619,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 1.1 )
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=9]
 resource_name = "slash_up"
 length = 3.0
 tracks/0/type = "value"
@@ -699,7 +697,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=10]
 resource_name = "stand"
 length = 0.001
 tracks/0/type = "value"
@@ -727,7 +725,7 @@ tracks/1/keys = {
 "values": [ "base" ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=11]
 resource_name = "swing_up"
 length = 0.4
 step = 0.05
@@ -806,7 +804,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=12]
 resource_name = "walk"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:visible")
@@ -833,58 +831,59 @@ tracks/1/keys = {
 "values": [ "base" ]
 }
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 11 )
+region = Rect2( 128, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 11 )
-region = Rect2( 128, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 11 )
 region = Rect2( 256, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 3 )
 region = Rect2( 128, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 3 )
 region = Rect2( 256, 0, 128, 128 )
 
-[sub_resource type="SpriteFrames" id=30]
+[sub_resource type="SpriteFrames" id=19]
 animations = [ {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "active",
 "speed": 30.0
 }, {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "base",
 "speed": 30.0
 } ]
 
 [node name="BoxCutterChainGunPivot" type="Node2D"]
+position = Vector2( 0, 117.173 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/SETUP = SubResource( 17 )
-anims/idle = SubResource( 18 )
-anims/lunge = SubResource( 19 )
-anims/prepare = SubResource( 31 )
-anims/rev = SubResource( 20 )
-anims/run = SubResource( 21 )
-anims/run_slash = SubResource( 22 )
-anims/slash = SubResource( 23 )
-anims/slash_up = SubResource( 32 )
-anims/stand = SubResource( 24 )
-anims/swing_up = SubResource( 25 )
-anims/walk = SubResource( 26 )
+anims/SETUP = SubResource( 1 )
+anims/idle = SubResource( 2 )
+anims/lunge = SubResource( 3 )
+anims/prepare = SubResource( 4 )
+anims/rev = SubResource( 5 )
+anims/run = SubResource( 6 )
+anims/run_slash = SubResource( 7 )
+anims/slash = SubResource( 8 )
+anims/slash_up = SubResource( 9 )
+anims/stand = SubResource( 10 )
+anims/swing_up = SubResource( 11 )
+anims/walk = SubResource( 12 )
 script = ExtResource( 6 )
 grind_sfx = NodePath("../GrindSfx")
 grind_particles = NodePath("../GrindParticles")
@@ -923,9 +922,9 @@ position = Vector2( -233.211, 0 )
 position = Vector2( 64, -160 )
 rotation = -0.921534
 scale = Vector2( 4, 4 )
-frames = SubResource( 30 )
+frames = SubResource( 19 )
 animation = "base"
-frame = 2
+frame = 1
 playing = true
 
 [editable path="GrindParticles"]

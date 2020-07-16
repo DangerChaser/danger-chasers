@@ -8,7 +8,4 @@
 [node name="ActorSpawnAttack" parent="Pivot/Attacks" index="0" instance=ExtResource( 1 )]
 weapon_animation = "spawn"
 
-[node name="ActorSpawner" parent="Pivot/Attacks/ActorSpawnAttack/Spawners" index="0"]
-actor_name = ""
-
 [editable path="Pivot/Attacks/ActorSpawnAttack"]

@@ -82,7 +82,7 @@ func _rotate() -> void:
 func _actor_rotate() -> void:
 	var direction = Vector2()
 	if owner.target and owner.target.get_target():
-		direction = (owner.target.global_position - owner.global_position).normalized()
+		direction = owner.global_position.direction_to(owner.target.global_position)
 	else:
 		direction = motion.total_velocity.normalized()
 	owner.set_rotation(direction.angle())
@@ -91,8 +91,13 @@ func _actor_rotate() -> void:
 func _weapon_rotate() -> void:
 	var direction = motion.total_velocity.normalized()
 	if owner.target and owner.target.get_target():
-		direction = (owner.target.global_position - owner.global_position).normalized()
-	weapon.set_global_rotation(direction.angle())
+		direction = owner.global_position.direction_to(owner.target.global_position)
+	var angle = direction.angle()
+	
+	if owner is KinematicBody2DMirror and owner.look_direction == Vector2.LEFT:
+		angle = PI - angle
+	
+	weapon.set_rotation(angle)
 
 
 func get_exit_args() -> Dictionary:

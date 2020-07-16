@@ -91,9 +91,6 @@ damage = 4
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D" parent="." index="2"]
-visible = true
-
 [node name="Sprite" parent="Pivot" index="0"]
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )

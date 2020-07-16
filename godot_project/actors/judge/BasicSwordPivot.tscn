@@ -3018,6 +3018,7 @@ tracks/1/keys = {
 }
 
 [node name="BasicSword" type="Node2D"]
+position = Vector2( 0, 76.7741 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 75.169, -73.9358 )

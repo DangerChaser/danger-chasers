@@ -10,7 +10,7 @@
 [ext_resource path="res://actor_states/motion/Launch.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=10]
-[ext_resource path="res://actors/sawblade_turret/SawbladeTurretPivot.tscn" type="PackedScene" id=11]
+[ext_resource path="res://core/camera/SawbladeTurretPivot.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

@@ -20,13 +20,10 @@ var state
 export(Texture) var icon : Texture
 
 onready var state_machine : StateMachine = $StateMachine
-onready var pivot := $Pivot setget , _get_pivot
 onready var animation_player : AnimationPlayer = pivot.get_node("AnimationPlayer")
 onready var weapons = pivot.get_node("Weapons")
 onready var target = $Target
 onready var stats = $Stats
-onready var hurtbox := $Hurtbox
-onready var collider : CollisionShape2D = $CollisionBox
 onready var effects := $Effects
 onready var buffs := effects.get_node("Buffs")
 onready var debuffs := effects.get_node("Debuffs")
@@ -45,7 +42,6 @@ var flashing := false
 
 func _ready():
 	state = States.NORMAL
-	hurtbox.disable()
 	animation_player.connect("animation_finished", state_machine, "anim_finished")
 	
 	if has_node("ActivationArea"):
@@ -62,10 +58,12 @@ func _ready():
 func initialize(_team : String = "", initial_target=null) -> void:
 	animation_player.play("SETUP")
 	
+	if pivot.has_node("Hurtbox"):
+		var hurtbox = pivot.get_node("Hurtbox")
+		hurtbox.connect("area_entered", self, "_on_Hurtbox_area_entered", [hurtbox])
+	
 	if _team:
 		set_team(_team)
-	
-	hurtbox.enable()
 	
 	for child in get_children():
 		if child.has_method("initialize"):
@@ -138,11 +136,11 @@ func get_stats() -> CharacterStats:
 	return $Stats.character_stats
 
 
-func _on_Hurtbox_area_entered(area):
+func _on_Hurtbox_area_entered(area, hurtbox : Hurtbox):
 	if state == States.INVINCIBLE or state_machine.get_current_state().name == "Die":
 		return
 	if area is DamageSource and not area.friendly_teams.has(team):
-		area.confirm_hit(self)
+		area.confirm_hit(self, hurtbox)
 		var direction
 		if area.stagger_direction_while_right:
 			direction = area.stagger_direction_while_right.normalized()
@@ -218,10 +216,6 @@ func add_weapon(weapon) -> void:
 	emit_signal("weapon_added", weapon)
 
 
-func _get_pivot():
-	return pivot if pivot else $Pivot
-
-
 func play_animation(anim_name : String) -> void:
 	animation_player.play(anim_name)
 
@@ -231,10 +225,3 @@ func face_actor(actor):
 	var look_direction = Vector2.RIGHT if direction.x >= 0 else Vector2.LEFT
 	print_debug(direction)
 	update_look_direction(look_direction)
-
-
-func kill_spawned_actors():
-	for weapon in weapons.get_children():
-		for attack in weapon.attacks.get_children():
-			if attack is ActorSpawnAttack:
-				attack.kill_actors()

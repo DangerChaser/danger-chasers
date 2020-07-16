@@ -5,6 +5,7 @@ extends Area2D
 class_name DamageSource
 
 signal hit_confirmed(hit_actor_position)
+signal hit_confirmed_hurtbox(hurtbox)
 signal hit_confirmed_actor(hit_actor)
 signal hit_confirmed_no_actor
 
@@ -35,9 +36,10 @@ func add_damage(additional_damage : int = 0) -> void:
 	damage += additional_damage
 
 
-func confirm_hit(actor) -> void:
+func confirm_hit(actor, hurtbox : Hurtbox) -> void:
 	emit_signal("hit_confirmed", actor.global_position)
 	emit_signal("hit_confirmed_actor", actor)
+	emit_signal("hit_confirmed_hurtbox", hurtbox)
 	emit_signal("hit_confirmed_no_actor")
 	FrameFreeze.request(delay_milliseconds)
 	shake_screen()
