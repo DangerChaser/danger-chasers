@@ -2255,34 +2255,42 @@ frame = 4
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -4.93277 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 35 )
-normal_map = ExtResource( 34 )
-hframes = 21
-frame = 20
+texture = ExtResource( 5 )
+normal_map = ExtResource( 22 )
+vframes = 5
+hframes = 5
 
 [node name="JumpDust" parent="." instance=ExtResource( 13 )]
 position = Vector2( 0, 111.067 )
 
 [node name="ObjectSpawner" parent="JumpDust" index="0"]
 object = ExtResource( 14 )
+random_degrees = 0.0
+random_radius = 0.0
 
 [node name="LandDust" parent="." instance=ExtResource( 13 )]
 position = Vector2( 0, 111.067 )
 
 [node name="ObjectSpawner" parent="LandDust" index="0"]
 object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
 
 [node name="FootstepsLand" parent="." instance=ExtResource( 13 )]
 position = Vector2( 16.04, 111.067 )
 
 [node name="ObjectSpawner" parent="FootstepsLand" index="0"]
 object = ExtResource( 16 )
+random_degrees = 0.0
+random_radius = 0.0
 
 [node name="FootstepsLaunch" parent="." instance=ExtResource( 13 )]
 position = Vector2( -11.882, 111.067 )
 
 [node name="ObjectSpawner" parent="FootstepsLaunch" index="0"]
 object = ExtResource( 17 )
+random_degrees = 0.0
+random_radius = 0.0
 
 [node name="MSG_pos" type="Position2D" parent="."]
 position = Vector2( 0, -128.751 )

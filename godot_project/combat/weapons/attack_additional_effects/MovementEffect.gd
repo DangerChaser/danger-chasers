@@ -66,6 +66,7 @@ func enter(args := {}) -> void:
 
 
 func exit() -> void:
+	target_direction = Vector2()
 	active = false
 	.exit()
 	motion.exit()

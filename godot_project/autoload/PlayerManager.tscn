@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://autoload/PlayerManager.gd" type="Script" id=1]
 [ext_resource path="res://actor_framework/stats/Stats.gd" type="Script" id=2]
 [ext_resource path="res://actor_framework/stats/growth_stats/DefaultGrowthStats.tres" type="Resource" id=3]
 [ext_resource path="res://actors/judge/Judge.tres" type="Resource" id=4]
+[ext_resource path="res://actors/judge/weapons/job/Dash.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/judge/weapons/job/TillSummon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/judge/weapons/job/QuickAttack1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/judge/weapons/job/QuickAttack2.tscn" type="PackedScene" id=8]
@@ -18,6 +19,16 @@
 script = ExtResource( 1 )
 
 [node name="JobSkills" type="Node" parent="."]
+
+[node name="Dash" type="Node" parent="JobSkills"]
+script = ExtResource( 2 )
+growth_stats = ExtResource( 3 )
+character_stats = ExtResource( 4 )
+
+[node name="Weapons" parent="JobSkills/Dash" instance=ExtResource( 14 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 5 ) ]
+initialize_on_start = false
 
 [node name="Sniper" type="Node" parent="JobSkills"]
 script = ExtResource( 2 )

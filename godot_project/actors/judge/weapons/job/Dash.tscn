@@ -1,0 +1,170 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/judge/sfx/sword_slice.wav" type="AudioStream" id=2]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=4]
+[ext_resource path="res://core/utils/SfxRandom.gd" type="Script" id=6]
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=6]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks/Dash/DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "attack"
+length = 0.31
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_cancel_animation"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/Dash/DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pivot/Attacks/Dash/Sfx")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+resource_local_to_scene = true
+extents = Vector2( 30, 30 )
+
+[node name="Dash" instance=ExtResource( 1 )]
+cooldown = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 6 )
+anims/attack = SubResource( 4 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+grounded = false
+
+[node name="Dash" parent="Pivot/Attacks" index="0" instance=ExtResource( 4 )]
+position = Vector2( -70, 70 )
+actor_animation = "quick_attack"
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Dash" index="0"]
+stream = ExtResource( 2 )
+bus = "Sfx"
+script = ExtResource( 6 )
+random_pitch_low = 0.98
+random_pitch_high = 1.02
+
+[node name="DamageSource" parent="Pivot/Attacks/Dash" index="1"]
+position = Vector2( 55.9467, -20 )
+damage = 8
+delay_milliseconds = 2
+screen_shake_amplitude = 5.0
+
+[node name="MovementEffect" parent="Pivot/Attacks/Dash/AdditionalEffects" index="0" instance=ExtResource( 7 )]
+initial_speed = 5069.0
+initialize_y = true
+
+[node name="MotionSteering" parent="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 3000.0
+mass = 20.0
+
+[node name="Gravity" parent="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect/Motion" index="2"]
+gravity = 4000.0
+max_speed = 2400.0
+
+[node name="Dash2" parent="Pivot/Attacks" index="1" instance=ExtResource( 4 )]
+position = Vector2( -70, 70 )
+actor_animation = "quick_attack"
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Dash2" index="0"]
+stream = ExtResource( 2 )
+bus = "Sfx"
+script = ExtResource( 6 )
+random_pitch_low = 0.98
+random_pitch_high = 1.02
+
+[node name="DamageSource" parent="Pivot/Attacks/Dash2" index="1"]
+visible = false
+position = Vector2( 55.9467, -20 )
+damage = 8
+delay_milliseconds = 2
+screen_shake_amplitude = 5.0
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/Dash2/DamageSource" index="0"]
+shape = SubResource( 7 )
+disabled = true
+
+[node name="MovementEffect" parent="Pivot/Attacks/Dash2/AdditionalEffects" index="0" instance=ExtResource( 7 )]
+initial_speed = 5069.0
+initialize_y = true
+
+[node name="MotionSteering" parent="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 3000.0
+mass = 20.0
+[connection signal="hit_confirmed" from="Pivot/Attacks/Dash" to="Pivot/Attacks/Dash/Sfx" method="play"]
+[connection signal="hit_confirmed" from="Pivot/Attacks/Dash2" to="Pivot/Attacks/Dash2/Sfx" method="play"]
+
+[editable path="Pivot/Attacks/Dash"]
+
+[editable path="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect/Motion"]
+
+[editable path="Pivot/Attacks/Dash2"]
+
+[editable path="Pivot/Attacks/Dash2/DamageSource"]
+
+[editable path="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect/Motion"]

@@ -56,6 +56,7 @@ func get_input_direction() -> Vector2:
 
 func move(move_direction : Vector2) -> void:
 	steering.move(move_direction)
+	total_velocity = steering.velocity + gravity.velocity + external.velocity
 	
 	var direction = total_velocity.normalized()
 	last_move_direction = direction

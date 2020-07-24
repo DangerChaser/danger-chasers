@@ -19,6 +19,7 @@ func _ready() -> void:
 #	PlayerManager.activate_skill("TillSummon")
 #	PlayerManager.activate_skill("ShotgunBlast")
 #	PlayerManager.activate_skill("LavaLauncher")
+	PlayerManager.activate_skill("Dash")
 
 
 func _input(event : InputEvent) -> void:
