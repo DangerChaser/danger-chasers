@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://actor_states/JobState.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://actors/judge/weapons/Sword.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actor_states/motion/Air.tscn" type="PackedScene" id=14]
 [ext_resource path="res://actors/judge/weapons/BlastZone.tscn" type="PackedScene" id=15]
+[ext_resource path="res://core/utils/ActivationScanner.tscn" type="PackedScene" id=16]
 [ext_resource path="res://actors/judge/weapons/RollingThunder.tscn" type="PackedScene" id=17]
 [ext_resource path="res://actors/judge/weapons/Jump.tscn" type="PackedScene" id=18]
 [ext_resource path="res://actor_framework/player/states/Idle.tscn" type="PackedScene" id=20]
@@ -115,6 +116,8 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropThroughArea" index="0"]
 position = Vector2( 0, -139.673 )
 shape = SubResource( 2 )
+
+[node name="ActivationScanner" parent="." index="13" instance=ExtResource( 16 )]
 [connection signal="body_exited" from="DropThroughArea" to="." method="_on_DropThroughArea_body_exited"]
 
 [editable path="PlayerHUDLayer/BattleHUD"]

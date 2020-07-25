@@ -67,19 +67,11 @@ func next_round_started(current_round : int) -> void:
 
 
 func spawn_actors(index : int, percent : float) -> void:
-	var actor_team_pairs = actor_spawn_groups.spawn_actors(index, percent, y_sort)
-	call_deferred("initialize_actors", actor_team_pairs)
-
-
-func initialize_actors(actor_team_pairs : Array) -> void:
-	actors = []
-	for actor_team in actor_team_pairs:
-		var actor = actor_team["actor"]
+	var new_actors = actor_spawn_groups.spawn_actors(index, percent, y_sort)
+	for actor in new_actors:
 		actors.push_back(actor)
-		actor.initialize(actor_team["team"])
-		actor.target.call_deferred("lock_on") # Call lock on after initializing teams, or else actors will target each other
 		actor.connect("died", self, "actor_died")
-	number_actors += actors.size()
+	number_actors += new_actors.size()
 
 
 func actor_died(actor) -> void:

@@ -69,11 +69,12 @@ func attack_if_ready(args := {}) -> void:
 	if grounded and not owner.is_on_floor():
 		return
 	
+	if current_index >= get_child_count() and can_loop:
+		reset()
+	
 	if current_index < get_child_count():
 		attack(args)
 
-	if current_index >= get_child_count() and can_loop:
-		reset()
 
 func attack(args := {}):
 	state = State.IDLE

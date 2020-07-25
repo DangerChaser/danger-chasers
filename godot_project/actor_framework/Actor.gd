@@ -18,6 +18,7 @@ enum States { NORMAL, INVINCIBLE }
 var state
 
 export(Texture) var icon : Texture
+export var team := "team_2"
 
 onready var state_machine : StateMachine = $StateMachine
 onready var animation_player : AnimationPlayer = pivot.get_node("AnimationPlayer")
@@ -34,34 +35,34 @@ onready var hud := $ActorInterface
 
 var character_stats setget set_stats, get_stats
 var previous_position : Vector2
-var team : String
 var last_move_direction : Vector2
 var flashing := false
+var initialize_on_ready := true # Set to false before adding to tree to delay initialization
 
 
 
 func _ready():
+	animation_player.play("SETUP")
+	
 	state = States.NORMAL
 	animation_player.connect("animation_finished", state_machine, "anim_finished")
 	
-	if has_node("ActivationArea"):
-		#disable and reenable it in case spawns right on top of activation scanner
-		$ActivationArea.disable()
-		yield(get_tree().create_timer(0.01), "timeout")
-		$ActivationArea.enable()
-	
 	if state_machine.has_state("Stagger"):
-		state_machine.get_state("Stagger").connect("revenge_updated", hud, "revenge_updated")
-	
-	#initialize()
-
-func initialize(_team : String = "", initial_target=null) -> void:
-	animation_player.play("SETUP")
-	
+		var stagger_state = state_machine.get_state("Stagger")
+		stagger_state.connect("revenge_updated", hud, "revenge_updated")
 	if pivot.has_node("Hurtbox"):
 		var hurtbox = pivot.get_node("Hurtbox")
 		hurtbox.connect("area_entered", self, "_on_Hurtbox_area_entered", [hurtbox])
+	if state_machine.pause_offscreen:
+		$VisibilityEnabler2D.connect("screen_entered", state_machine, "enable")
+		$VisibilityEnabler2D.connect("screen_exited", state_machine, "disable")
 	
+	if initialize_on_ready:
+		yield(get_tree().create_timer(0.01), "timeout")
+		call_deferred("initialize", team)
+
+
+func initialize(_team : String = "", initial_target=null) -> void:
 	if _team:
 		set_team(_team)
 	
@@ -71,10 +72,8 @@ func initialize(_team : String = "", initial_target=null) -> void:
 	
 	if initial_target:
 		target.lock_on(initial_target)
-	
-	if state_machine.pause_offscreen:
-		$VisibilityEnabler2D.connect("screen_entered", state_machine, "enable")
-		$VisibilityEnabler2D.connect("screen_exited", state_machine, "disable")
+	else:
+		target.lock_on()
 	
 	emit_signal("initialized")
 
@@ -137,6 +136,8 @@ func get_stats() -> CharacterStats:
 
 
 func _on_Hurtbox_area_entered(area, hurtbox : Hurtbox):
+	if state_machine.states_stack.size() == 0:
+		return
 	if state == States.INVINCIBLE or state_machine.get_current_state().name == "Die":
 		return
 	if area is DamageSource and not area.friendly_teams.has(team):
@@ -199,7 +200,6 @@ func unflash() -> void:
 func _on_FlashDuration_timeout():
 	flash_timer.stop()
 	unflash()
-
 
 func _on_DropThroughArea_body_exited(body):
 	if body == self:

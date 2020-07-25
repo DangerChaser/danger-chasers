@@ -15,3 +15,7 @@ func set_all_children_owner(parent) -> void:
 		child.owner = parent.owner
 		if child.get_child_count() > 0:
 			set_all_children_owner(child)
+
+
+func tile2unit(tiles : float) -> float:
+	return tiles * GameManager.TILE_SIZE.x

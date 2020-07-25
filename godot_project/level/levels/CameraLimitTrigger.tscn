@@ -24,7 +24,6 @@ one_way_collision = true
 [node name="CameraLimitPositions" type="Node2D" parent="."]
 script = ExtResource( 2 )
 line_color = Color( 0.611765, 1, 0.639216, 1 )
-line_width = 10.0
 
 [node name="TopLeft" type="Position2D" parent="CameraLimitPositions"]
 position = Vector2( -1347.69, -759.467 )

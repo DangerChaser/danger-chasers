@@ -21,9 +21,7 @@ func spawn_actors(index : int, percent : float, parent=null) -> Array:
 		used_indeces.push_back(new_index)
 		var spawner = group.get_child(new_index)
 		var actor = spawner.spawn(parent)
-		var team = spawner.team
-		var actor_team = { "actor" : actor, "team" : team }
-		actors.push_back(actor_team)
+		actors.push_back(actor)
 		current_percent += float(1) / num_indeces
 	
 	return actors

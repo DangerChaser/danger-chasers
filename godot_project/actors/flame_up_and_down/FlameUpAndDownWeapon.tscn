@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/attack_additional_effects/UpAndDownEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks/UpAndDown/DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "up_and_down"
+length = 6.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 5.2, 5.3, 5.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_cancel_animation"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/UpAndDown/DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+resource_local_to_scene = true
+extents = Vector2( 60.4867, 57.3265 )
+
+[node name="FlameUpAndDownWeapon" instance=ExtResource( 1 )]
+cooldown = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 1 )
+anims/up_and_down = SubResource( 2 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+can_loop = true
+grounded = false
+
+[node name="UpAndDown" parent="Pivot/Attacks" index="0" instance=ExtResource( 11 )]
+actor_animation = "fly"
+weapon_animation = "up_and_down"
+
+[node name="DamageSource" parent="Pivot/Attacks/UpAndDown" index="0"]
+position = Vector2( 0.513336, -6.67345 )
+damage = 10
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/UpAndDown/DamageSource" index="0"]
+shape = SubResource( 3 )
+
+[node name="UpAndDownEffect" parent="Pivot/Attacks/UpAndDown/AdditionalEffects" index="0" instance=ExtResource( 2 )]
+tiles_one_way = 5.0
+
+[editable path="Pivot/Attacks/UpAndDown"]
+
+[editable path="Pivot/Attacks/UpAndDown/DamageSource"]

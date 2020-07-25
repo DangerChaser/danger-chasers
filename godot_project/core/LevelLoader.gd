@@ -61,6 +61,7 @@ func spawn_player(target_spawn_point : int):
 	
 	player.reset(spawn.global_position)
 	GameManager.players.append(player)
+	player.initialize_on_ready = false
 	level.y_sort.add_child(player)
 	player.call_deferred("initialize", "team_1")
 	GameManager.current_camera.get_parent().global_position = spawn.global_position

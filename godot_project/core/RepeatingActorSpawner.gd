@@ -9,10 +9,8 @@ var actors = []
 func _ready() -> void:
 	parent = get_node(parent)
 
-
 func enable() -> void:
 	$Timer.start()
-
 
 func disable() -> void:
 	$Timer.stop()
@@ -25,11 +23,6 @@ func spawn(_parent=null):
 	
 	if repeat_on_spawn:
 		enable()
-
-
-func initialize_actor(actor) -> void:
-	actor.initialize(team)
-	actor.target.call_deferred("lock_on") # Call lock on after initializing teams, or else enemies will target each other
 
 
 func actor_died(actor) -> void:
