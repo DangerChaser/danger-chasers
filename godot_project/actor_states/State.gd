@@ -3,6 +3,7 @@ class_name State
 
 signal entered
 signal finished(next_state_name)
+signal exited
 
 export var pushdown : bool = false
 
@@ -23,6 +24,7 @@ func exit() -> void:
 	set_process(false)
 	set_physics_process(false)
 	set_process_input(false)
+	emit_signal("exited")
 
 
 func anim_finished(anim_name : String) -> void:
