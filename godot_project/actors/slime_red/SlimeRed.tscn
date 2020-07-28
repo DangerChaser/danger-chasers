@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/motion/Launch.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/slime_red/SlimeRed.tres" type="Resource" id=8]
 [ext_resource path="res://actors/slime_red/Pivot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://common/particles/DeathExplosion.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -35,9 +36,7 @@ next_state = "Wait"
 next_state = "Wait"
 
 [node name="Die" parent="StateMachine" index="4" instance=ExtResource( 7 )]
-
-[node name="MotionSteering" parent="StateMachine/Die" index="1"]
-max_speed = 0.0
+die_particles_scene = ExtResource( 10 )
 
 [node name="CollisionBox" parent="." index="1"]
 position = Vector2( 2.16453, -0.399871 )
@@ -51,7 +50,5 @@ character_stats = ExtResource( 8 )
 [editable path="StateMachine/Wait"]
 
 [editable path="StateMachine/Stagger"]
-
-[editable path="StateMachine/Die"]
 
 [editable path="Pivot"]

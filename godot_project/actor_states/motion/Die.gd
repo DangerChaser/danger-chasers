@@ -8,8 +8,13 @@ onready var die_particles := $DieParticles
 export var animation : String = "die"
 export var queue_free_on_die := true
 export var distance_multiplier : float = 3.0
+export var die_particles_scene : PackedScene
 
 const QUEUE_FREE_BUFFER := 5.0
+
+
+func _ready():
+	die_particles.object_spawner.object = die_particles_scene
 
 
 func enter(args := {}) -> void:

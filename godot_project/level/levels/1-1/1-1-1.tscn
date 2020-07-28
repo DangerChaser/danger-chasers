@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/levels/greenwood_hills/forest.tres" type="TileSet" id=2]
@@ -32,6 +32,9 @@ extents = Vector2( 2016, 672 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 320, 1408 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 3840, 288 )
 
 [sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
@@ -170,6 +173,13 @@ position = Vector2( 2368, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena/Walls/RightWall" index="0"]
 shape = SubResource( 4 )
+
+[node name="TopWall" type="StaticBody2D" parent="Arenas/Arena/Walls" index="2"]
+position = Vector2( 2368, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena/Walls/TopWall" index="0"]
+position = Vector2( -1920, -224 )
+shape = SubResource( 8 )
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena" index="4"]
 position = Vector2( 288, -233.448 )
@@ -349,13 +359,20 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="LeftWall" type="StaticBody2D" parent="Arenas/Arena2/Walls" index="0"]
+[node name="TopWall" type="StaticBody2D" parent="Arenas/Arena2/Walls" index="0"]
+position = Vector2( 2816, -1120 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena2/Walls/TopWall" index="0"]
+position = Vector2( -1920, -224 )
+shape = SubResource( 8 )
+
+[node name="LeftWall" type="StaticBody2D" parent="Arenas/Arena2/Walls" index="1"]
 position = Vector2( -3232, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena2/Walls/LeftWall" index="0"]
 shape = SubResource( 4 )
 
-[node name="RightWall" type="StaticBody2D" parent="Arenas/Arena2/Walls" index="1"]
+[node name="RightWall" type="StaticBody2D" parent="Arenas/Arena2/Walls" index="2"]
 position = Vector2( 4672, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena2/Walls/RightWall" index="0"]
@@ -365,7 +382,7 @@ shape = SubResource( 4 )
 position = Vector2( 288, -233.448 )
 
 [node name="Camera2D" parent="Arenas/Arena2/CameraLimitTrigger" index="0"]
-zoom = Vector2( 1.6, 1.6 )
+zoom = Vector2( 2, 2 )
 
 [node name="ColliderTrigger" parent="Arenas/Arena2/CameraLimitTrigger" index="1"]
 shape = SubResource( 6 )

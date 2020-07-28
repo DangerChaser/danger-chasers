@@ -81,7 +81,7 @@ tracks/2/keys = {
 
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
-extents = Vector2( 71.7507, 32.6504 )
+extents = Vector2( 128, 96 )
 
 [node name="CloudJumpWeapon" instance=ExtResource( 1 )]
 cooldown = 0.0
@@ -94,7 +94,7 @@ anims/charge = SubResource( 2 )
 can_loop = true
 
 [node name="Jump" parent="Pivot/Attacks" index="0" instance=ExtResource( 11 )]
-actor_animation = "run"
+actor_animation = "jump"
 weapon_animation = "charge"
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Jump" index="0"]
@@ -102,9 +102,11 @@ stream = ExtResource( 2 )
 bus = "Sfx"
 
 [node name="DamageSource" parent="Pivot/Attacks/Jump" index="1"]
+position = Vector2( 0, -96 )
 damage = 5
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Jump/DamageSource" index="0"]
+position = Vector2( 0, 32 )
 shape = SubResource( 3 )
 
 [node name="JumpEffect" parent="Pivot/Attacks/Jump/AdditionalEffects" index="0" instance=ExtResource( 3 )]

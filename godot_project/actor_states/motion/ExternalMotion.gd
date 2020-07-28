@@ -1,6 +1,8 @@
 extends Node
 class_name ExternalMotion
 
+const SPEED_BUFFER := 6.0
+
 var velocity : Vector2
 var target_direction := Vector2.UP
 var target_speed := 0.0
@@ -23,6 +25,8 @@ func set_mass(new_mass : float) -> void:
 
 
 func move() -> void:
+	if target_speed < SPEED_BUFFER and velocity.length() < SPEED_BUFFER:
+		return
 	var target_position : Vector2 = owner.global_position + target_direction.normalized() * target_speed
 	velocity = Steering.follow(velocity, owner.global_position, target_position, target_speed * owner.global_scale.length(), mass)
 	owner.move_and_slide(velocity, Vector2.UP)

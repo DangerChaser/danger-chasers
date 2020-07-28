@@ -22,11 +22,13 @@ func apply(delta : float) -> void:
 	if owner.is_on_floor():
 		var floor_velocity = owner.get_floor_velocity()
 		speed = floor_velocity.y
+		velocity = direction * speed
+		return
 	else:
 		speed = min(speed + gravity * delta, max_speed)
-	velocity = direction * speed
+		velocity = direction * speed
 #	owner.move_and_slide_with_snap(velocity + owner.get_floor_velocity(), snap, -direction, true)
-	owner.move_and_slide(velocity + owner.get_floor_velocity(), -direction, true)
+	owner.move_and_slide(velocity, -direction, true)
 
 
 func enable() -> void:
