@@ -7,10 +7,11 @@
 [node name="Die" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Gravity" parent="." index="2"]
-gravity = 0.0
-max_speed = 0.0
-
 [node name="DieParticles" parent="." index="3" instance=ExtResource( 3 )]
+
+[node name="ObjectSpawner" parent="DieParticles" index="0"]
+object = null
+random_degrees = 0.0
+random_radius = 0.0
 
 [editable path="DieParticles"]

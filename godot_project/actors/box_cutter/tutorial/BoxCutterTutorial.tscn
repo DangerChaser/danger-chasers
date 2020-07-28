@@ -25,12 +25,12 @@ extents = Vector2( 42.3857, 87.028 )
 script = ExtResource( 5 )
 pause_offscreen = false
 
-[node name="SpawnSawbladeTurret" parent="StateMachine" index="0" instance=ExtResource( 6 )]
+[node name="Sequence1" parent="StateMachine" index="0" instance=ExtResource( 1 )]
+
+[node name="SpawnSawbladeTurret" parent="StateMachine" index="1" instance=ExtResource( 6 )]
 weapon_levels = [ 0 ]
 weapons = [ ExtResource( 14 ) ]
 stagger = false
-
-[node name="Sequence1" parent="StateMachine" index="1" instance=ExtResource( 1 )]
 
 [node name="Stagger" parent="StateMachine" index="2" instance=ExtResource( 4 )]
 invincibility_buffer = 0.2

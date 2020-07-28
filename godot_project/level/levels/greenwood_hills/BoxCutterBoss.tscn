@@ -204,7 +204,7 @@ current = true
 zoom = Vector2( 1.5, 1.5 )
 
 [node name="BoxCutterTutorialBossDieCutscene" parent="CutsceneTriggers" index="1" instance=ExtResource( 5 )]
-position = Vector2( 3712, 960 )
+position = Vector2( 3712, 847.754 )
 
 [node name="RoundManager" type="Node" parent="." index="9"]
 script = ExtResource( 14 )
@@ -212,7 +212,7 @@ script = ExtResource( 14 )
 [node name="ForestBackground" parent="." index="10" instance=ExtResource( 15 )]
 
 [node name="BoxCutterTutorial" parent="YSort" index="0" instance=ExtResource( 3 )]
-position = Vector2( 4272, 849.999 )
+position = Vector2( 4272, 827.55 )
 
 [node name="Foreground" parent="." index="12"]
 visible = false
@@ -224,6 +224,9 @@ transition_out_duration = 0.5
 
 [node name="ColliderTrigger" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="1"]
 shape = SubResource( 8 )
+
+[node name="CameraLimitPositions" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="2"]
+line_width = 10.0
 
 [node name="TopLeft" parent="PlayerSpawnPoints/0/CameraLimitTrigger/CameraLimitPositions" index="0"]
 position = Vector2( -576, -1408 )

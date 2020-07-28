@@ -85,7 +85,7 @@ queue_free_on_die = false
 [node name="External" parent="StateMachine" index="10" instance=ExtResource( 3 )]
 
 [node name="CollisionBox" parent="." index="1"]
-position = Vector2( 0, 23.669 )
+position = Vector2( 0, -87.2057 )
 shape = SubResource( 1 )
 
 [node name="Stats" parent="." index="4"]
@@ -109,7 +109,7 @@ layer = 100
 position = Vector2( 5.99158, 0 )
 
 [node name="DropThroughArea" type="Area2D" parent="." index="12"]
-position = Vector2( 0, 106.787 )
+position = Vector2( 0, -4.08774 )
 collision_layer = 64
 collision_mask = 64
 
@@ -118,6 +118,7 @@ position = Vector2( 0, -139.673 )
 shape = SubResource( 2 )
 
 [node name="ActivationScanner" parent="." index="13" instance=ExtResource( 16 )]
+position = Vector2( 0, -110.875 )
 [connection signal="body_exited" from="DropThroughArea" to="." method="_on_DropThroughArea_body_exited"]
 
 [editable path="PlayerHUDLayer/BattleHUD"]

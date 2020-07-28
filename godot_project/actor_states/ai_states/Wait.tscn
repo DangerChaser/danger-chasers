@@ -5,6 +5,7 @@
 
 [node name="Wait" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+look_towards_move_direction = false
 animation = "idle"
 
 [node name="Timer" type="Timer" parent="." index="3"]

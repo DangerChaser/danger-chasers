@@ -22,7 +22,10 @@ func exit() -> void:
 
 
 func move(direction : Vector2) -> void:
-	move_to(owner.global_position + direction.normalized() * max_speed)
+	if direction:
+		move_to(owner.global_position + direction.normalized() * max_speed)
+	else:
+		move_to(owner.global_position)
 
 
 func move_to(target_position : Vector2) -> void:

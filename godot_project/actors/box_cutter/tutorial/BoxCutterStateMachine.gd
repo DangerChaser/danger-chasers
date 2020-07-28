@@ -8,10 +8,6 @@ func _decide_on_next_state() -> State:
 	
 	match has_opened:
 		0:
-			if health_percent <= 0.75:
-				has_opened += 1
-				return get_state("SpawnSawbladeTurret")
-		1:
 			if health_percent <= 0.5:
 				has_opened += 1
 				return get_state("SpawnSawbladeTurret")

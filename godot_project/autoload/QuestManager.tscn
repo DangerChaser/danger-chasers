@@ -13,6 +13,16 @@ func get_active_quests() -> Array:
 [node name="QuestManager" type="Node"]
 script = SubResource( 1 )
 
+[node name="Tutorial" parent="." instance=ExtResource( 1 )]
+quest_name_key = "TRIAL_RUN"
+quest_description_key = "TRIAL_RUN_DESCRIPTION"
+level_path = "res://level/levels/tutorial_spirit/TutorialSpirit1.tscn"
+
+[node name="1-1" parent="." instance=ExtResource( 1 )]
+quest_name_key = "TRIAL_RUN"
+quest_description_key = "TRIAL_RUN_DESCRIPTION"
+level_path = "res://level/levels/1-1/1-1-1.tscn"
+
 [node name="GreenwoodHills" parent="." instance=ExtResource( 1 )]
 quest_name_key = "TRIAL_RUN"
 quest_description_key = "TRIAL_RUN_DESCRIPTION"
@@ -32,3 +42,8 @@ level_path = "res://level/levels/greenwood_hills/TillBoss.tscn"
 quest_name_key = "SAFE_AREA_CR-1"
 quest_description_key = "SAFE_AREA_CR-1_DESCRIPTION"
 level_path = "res://level/levels/copper_maze/ShareBoss.tscn"
+
+[node name="DebugEnemy" parent="." instance=ExtResource( 1 )]
+quest_name_key = "SAFE_AREA_CR-1"
+quest_description_key = "SAFE_AREA_CR-1_DESCRIPTION"
+level_path = "res://level/levels/DebugEnemy.tscn"

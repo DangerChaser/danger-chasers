@@ -16,8 +16,12 @@ func set_rotation_degrees(value : float) -> void:
 	_correct_rotation()
 
 func update_look_direction(_look_direction : Vector2) -> void:
-	var x = 1 if _look_direction.x >= 0 else - 1
-	set_rotation(Vector2(x, 0).angle())
+	if _look_direction.x > 0:
+		var x = 1  
+		set_rotation(Vector2(x, 0).angle())
+	elif _look_direction.x < 0:
+		var x = -1
+		set_rotation(Vector2(x, 0).angle())
 
 
 func _correct_rotation():

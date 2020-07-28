@@ -32,6 +32,13 @@ func enter(args := {}) -> void:
 		external.target_direction = external_args["target_direction"]
 		external.target_speed = external_args["target_speed"]
 		external.mass = external_args["mass"]
+	
+	total_velocity = steering.velocity + gravity.velocity + external.velocity
+	
+	var direction = total_velocity.normalized()
+	last_move_direction = direction
+	if look_towards_move_direction:
+		update_look_direction(direction)
 
 
 func exit() -> void:

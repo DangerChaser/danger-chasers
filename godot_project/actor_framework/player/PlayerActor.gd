@@ -15,8 +15,8 @@ func _ready() -> void:
 	job = $StateMachine/Job.current_job
 	player_hud.set_hotbars(job)
 	
-	for skill in PlayerManager.active_skills:
-		PlayerManager.activate_skill(skill)
+#	for skill in PlayerManager.active_skills:
+#		PlayerManager.activate_skill(skill)
 #	PlayerManager.activate_skill("TillSummon")
 #	PlayerManager.activate_skill("ShotgunBlast")
 #	PlayerManager.activate_skill("LavaLauncher")

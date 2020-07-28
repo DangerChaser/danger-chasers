@@ -10,6 +10,7 @@ export(bool) var stagger := false
 export var launch_stagger := false
 export(NodePath) var target_node
 export var look_direction := Vector2()
+export var face_target := true
 
 onready var timer := $Timer
 onready var duration : float = $Timer.wait_time
@@ -40,6 +41,12 @@ func enter(args := {}) -> void:
 func exit() -> void:
 	.exit()
 	timer.stop()
+
+
+func _physics_process(delta):
+	move(Vector2())
+	if face_target and owner.target.get_target() and not look_towards_move_direction:
+		owner.update_look_direction(owner.global_position.direction_to(owner.target.global_position))
 
 
 func take_damage(args := {}):

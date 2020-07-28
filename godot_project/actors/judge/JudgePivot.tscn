@@ -2252,33 +2252,32 @@ hframes = 8
 frame = 4
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -4.93277 )
+position = Vector2( 0, -117.363 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 5 )
-normal_map = ExtResource( 22 )
-vframes = 5
-hframes = 5
+texture = ExtResource( 1 )
+normal_map = ExtResource( 19 )
+hframes = 6
 
 [node name="JumpDust" parent="." instance=ExtResource( 13 )]
-position = Vector2( 0, 111.067 )
+position = Vector2( 0, -0.656166 )
 
 [node name="ObjectSpawner" parent="JumpDust" index="0"]
 object = ExtResource( 14 )
 
 [node name="LandDust" parent="." instance=ExtResource( 13 )]
-position = Vector2( 0, 111.067 )
+position = Vector2( 0, -0.656166 )
 
 [node name="ObjectSpawner" parent="LandDust" index="0"]
 object = ExtResource( 15 )
 
 [node name="FootstepsLand" parent="." instance=ExtResource( 13 )]
-position = Vector2( 16.04, 111.067 )
+position = Vector2( 16.04, -0.656166 )
 
 [node name="ObjectSpawner" parent="FootstepsLand" index="0"]
 object = ExtResource( 16 )
 
 [node name="FootstepsLaunch" parent="." instance=ExtResource( 13 )]
-position = Vector2( -11.882, 111.067 )
+position = Vector2( -11.882, -0.656166 )
 
 [node name="ObjectSpawner" parent="FootstepsLaunch" index="0"]
 object = ExtResource( 17 )
@@ -2289,6 +2288,7 @@ position = Vector2( 0, -128.751 )
 [node name="Weapons" type="Node2D" parent="."]
 
 [node name="Hurtbox" parent="." instance=ExtResource( 42 )]
+position = Vector2( 16.9706, -84.853 )
 
 [editable path="QuickAttackTrailingSprites"]
 

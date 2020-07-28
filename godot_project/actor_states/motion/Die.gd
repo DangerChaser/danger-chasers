@@ -38,4 +38,4 @@ func initialize(direction : Vector2, force : float, initial_mass : int, duration
 	force *= distance_multiplier
 	external.velocity = direction * force
 	external.apply(direction, force, initial_mass)
-	owner.set_rotation(direction.angle())
+#	owner.set_rotation(direction.angle())

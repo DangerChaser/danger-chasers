@@ -84,6 +84,8 @@ func actor_died(actor) -> void:
 
 func finish() -> void:
 	disable_walls()
+	if change_camera:
+		camera_limit.reset()
 	emit_signal("finished")
 
 
