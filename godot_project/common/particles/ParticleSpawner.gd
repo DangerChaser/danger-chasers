@@ -1,6 +1,13 @@
 extends Node2D
+class_name ParticleSpawner
 
-onready var object_spawner = $ObjectSpawner
+export var particles : PackedScene
+onready var object_spawner : ObjectSpawner = $ObjectSpawner
+
+
+func _ready():
+	if not object_spawner.object:
+		object_spawner.object = particles
 
 
 func spawn(_global_position : Vector2 = global_position, \

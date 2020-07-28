@@ -93,3 +93,8 @@ func get_target():
 
 func get_target_wr() -> WeakRef:
 	return target_wr.get_ref()
+
+
+func get_distance() -> float:
+	var target = get_target()
+	return owner.global_position.distance_to(target.global_position) if target else 0.0

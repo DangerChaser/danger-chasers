@@ -4,7 +4,7 @@ class_name AirState
 export(String) var up_animation := "jump"
 export(String) var fall_animation : String = "air"
 
-onready var ceiling_collision_particles : SfxParticleSpawner = $CeilingCollisionParticles
+onready var ceiling_collision_particles : ParticleSpawner = $CeilingCollisionParticles
 
 enum State { UP, FALL }
 var state
@@ -45,7 +45,7 @@ func _physics_process(delta : float) -> void:
 		
 		var collision = owner.get_slide_collision(0)
 		ceiling_collision_particles.global_position = collision.position
-		ceiling_collision_particles.spawn()
+		ceiling_collision_particles.play()
 	
 	var direction = Vector2(get_input_direction().x, 0.0)
 	move(direction)

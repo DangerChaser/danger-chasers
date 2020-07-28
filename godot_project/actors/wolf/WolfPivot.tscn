@@ -1,26 +1,27 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/wolf/sprites/idle.png" type="Texture" id=2]
-[ext_resource path="res://actors/wolf/sprites/jump_back.png" type="Texture" id=3]
+[ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/wolf/sprites/run.png" type="Texture" id=4]
 [ext_resource path="res://actors/fox/sprites/spawn.png" type="Texture" id=5]
 [ext_resource path="res://actors/fox/sprites/spin.png" type="Texture" id=6]
 [ext_resource path="res://actors/wolf/sprites/stagger.png" type="Texture" id=7]
 [ext_resource path="res://actors/wolf/sprites/walk.png" type="Texture" id=8]
 [ext_resource path="res://actor_framework/AnimationPlayer.gd" type="Script" id=9]
+[ext_resource path="res://actors/wolf/particles/JumpDust.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/fox/sprites/spin_normal.png" type="Texture" id=11]
 [ext_resource path="res://actors/wolf/sprites/run_normal.png" type="Texture" id=12]
-[ext_resource path="res://actors/wolf/sprites/jump_back_normal.png" type="Texture" id=13]
 [ext_resource path="res://actors/wolf/sprites/growl.png" type="Texture" id=14]
 [ext_resource path="res://actors/wolf/sprites/stagger_normal.png" type="Texture" id=15]
 [ext_resource path="res://actors/fox/sprites/walk_normal.png" type="Texture" id=16]
 [ext_resource path="res://actors/fox/sprites/spawn_normal.png" type="Texture" id=17]
+[ext_resource path="res://actors/wolf/particles/FootstepsLand.tscn" type="PackedScene" id=18]
 [ext_resource path="res://actors/wolf/sprites/growl_normal.png" type="Texture" id=19]
 [ext_resource path="res://actors/wolf/sprites/idle_normal.png" type="Texture" id=20]
-[ext_resource path="res://actors/wolf/sprites/walk_flipped_normal.png" type="Texture" id=21]
-[ext_resource path="res://actors/wolf/sprites/walk_flipped.png" type="Texture" id=22]
 [ext_resource path="res://vfx/Trail.gd" type="Script" id=23]
+[ext_resource path="res://actors/wolf/particles/FootstepsLaunch.tscn" type="PackedScene" id=24]
+[ext_resource path="res://actors/wolf/particles/LandDust.tscn" type="PackedScene" id=25]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -436,82 +437,19 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 91.6649, -155.932 ), Vector2( 100.364, -183.152 ), Vector2( 104.293, -171.927 ) ]
 }
-
-[sub_resource type="Animation" id=7]
-resource_name = "jump_back"
-length = 0.3
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
+tracks/6/type = "method"
+tracks/6/path = NodePath("JumpDust")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 3 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:vframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:normal_map")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 13 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("EyePosition2D:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -99.8518, -155.071 ) ]
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -587,6 +525,20 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 109.216, -123.451 ), Vector2( 102.609, -106.934 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("LandDust")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -664,6 +616,34 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ Vector2( 93.1705, -156.487 ), Vector2( 100.25, -182.915 ), Vector2( 104.025, -170.551 ), Vector2( 116.767, -139.969 ), Vector2( 108.744, -122.979 ), Vector2( 102.137, -107.311 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("FootstepsLaunch")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("FootstepsLand")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.28 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -945,82 +925,6 @@ tracks/5/keys = {
 "values": [ Vector2( 112.048, -118.581 ), Vector2( 112.048, -126.661 ), Vector2( 112.048, -130.954 ), Vector2( 112.048, -130.823 ), Vector2( 112.048, -127.187 ), Vector2( 112.048, -118.581 ), Vector2( 112.048, -126.661 ), Vector2( 112.048, -130.954 ), Vector2( 112.048, -130.823 ), Vector2( 112.048, -127.187 ) ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "walk_flipped"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 22 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 21 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 10 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("EyePosition2D:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -112.122, -118.581 ), Vector2( -112.122, -126.604 ), Vector2( -112.122, -130.38 ), Vector2( -112.122, -130.38 ), Vector2( -112.122, -127.548 ), Vector2( -112.122, -118.581 ), Vector2( -112.122, -126.604 ), Vector2( -112.122, -130.38 ), Vector2( -112.122, -130.38 ), Vector2( -112.122, -127.548 ) ]
-}
-
 [sub_resource type="RectangleShape2D" id=15]
 resource_local_to_scene = true
 extents = Vector2( 128.514, 96.2177 )
@@ -1037,23 +941,22 @@ anims/die = SubResource( 3 )
 anims/growl = SubResource( 4 )
 anims/idle = SubResource( 5 )
 anims/jump = SubResource( 6 )
-anims/jump_back = SubResource( 7 )
 anims/land = SubResource( 8 )
 anims/run = SubResource( 9 )
 anims/spawn = SubResource( 10 )
 anims/spin = SubResource( 11 )
 anims/stagger = SubResource( 12 )
 anims/walk = SubResource( 13 )
-anims/walk_flipped = SubResource( 14 )
 next/jump = "air"
 script = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -243.246 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
-normal_map = ExtResource( 20 )
-hframes = 8
+texture = ExtResource( 4 )
+normal_map = ExtResource( 12 )
+hframes = 6
+frame = 4
 
 [node name="Weapons" type="Node2D" parent="."]
 
@@ -1072,6 +975,18 @@ script = ExtResource( 23 )
 target_path = NodePath("../EyePosition2D")
 
 [node name="EyePosition2D" type="Position2D" parent="."]
-position = Vector2( 100.071, -139.929 )
+position = Vector2( 108.744, -122.979 )
+
+[node name="FootstepsLand" parent="." instance=ExtResource( 3 )]
+particles = ExtResource( 18 )
+
+[node name="FootstepsLaunch" parent="." instance=ExtResource( 3 )]
+particles = ExtResource( 24 )
+
+[node name="JumpDust" parent="." instance=ExtResource( 3 )]
+particles = ExtResource( 10 )
+
+[node name="LandDust" parent="." instance=ExtResource( 3 )]
+particles = ExtResource( 25 )
 
 [editable path="Hurtbox"]

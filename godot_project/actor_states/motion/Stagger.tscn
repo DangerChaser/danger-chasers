@@ -5,6 +5,8 @@
 
 [node name="Stagger" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+look_towards_move_direction = false
+look_away_from_move_direction = true
 
 [node name="Timer" type="Timer" parent="." index="3"]
 one_shot = true

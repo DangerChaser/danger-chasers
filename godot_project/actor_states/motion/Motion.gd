@@ -1,7 +1,8 @@
 extends State
 class_name MotionState
 
-export(bool) var look_towards_move_direction := true
+export var look_towards_move_direction := true
+export var look_away_from_move_direction := false
 
 const LOOK_DIRECTION_SPEED_THRESHOLD := 6.0
 
@@ -39,6 +40,8 @@ func enter(args := {}) -> void:
 	last_move_direction = direction
 	if look_towards_move_direction:
 		update_look_direction(direction)
+	elif look_away_from_move_direction:
+		update_look_direction(-direction)
 
 
 func exit() -> void:
@@ -69,6 +72,8 @@ func move(move_direction : Vector2) -> void:
 	last_move_direction = direction
 	if look_towards_move_direction:
 		update_look_direction(direction)
+	elif look_away_from_move_direction:
+		update_look_direction(-direction)
 
 
 func move_to(target_position : Vector2) -> void:
@@ -78,6 +83,8 @@ func move_to(target_position : Vector2) -> void:
 	last_move_direction = direction
 	if look_towards_move_direction:
 		update_look_direction(direction)
+	elif look_away_from_move_direction:
+		update_look_direction(-direction)
 
 
 func update_look_direction(direction : Vector2) -> void:

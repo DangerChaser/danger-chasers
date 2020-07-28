@@ -125,7 +125,7 @@ anims/wind_down = SubResource( 3 )
 can_loop = true
 
 [node name="JumpBack" parent="Pivot/Attacks" index="0" instance=ExtResource( 11 )]
-actor_animation = "jump_back"
+actor_animation = "jump"
 weapon_animation = "jump_back"
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/JumpBack" index="0"]
@@ -146,6 +146,10 @@ disable_x_input = true
 jump_force = 2400.0
 finish_on_release = false
 
+[node name="Motion" parent="Pivot/Attacks/JumpBack/AdditionalEffects/JumpEffect" index="0"]
+look_towards_move_direction = false
+look_away_from_move_direction = true
+
 [node name="MotionSteering" parent="Pivot/Attacks/JumpBack/AdditionalEffects/JumpEffect/Motion" index="1"]
 max_speed = 1000.0
 mass = 32.0
@@ -157,7 +161,7 @@ gravity = 1600.0
 [node name="NextAttackOnFloor" parent="Pivot/Attacks/JumpBack/AdditionalEffects" index="1" instance=ExtResource( 4 )]
 
 [node name="WindDown" parent="Pivot/Attacks" index="1" instance=ExtResource( 11 )]
-actor_animation = "walk_flipped"
+actor_animation = "land"
 weapon_animation = "wind_down"
 
 [node name="DamageSource" parent="Pivot/Attacks/WindDown" index="0"]
@@ -169,7 +173,11 @@ shape = SubResource( 5 )
 disabled = true
 
 [node name="MovementEffect" parent="Pivot/Attacks/WindDown/AdditionalEffects" index="0" instance=ExtResource( 13 )]
-initial_speed = 1000.0
+initial_speed = -1000.0
+
+[node name="Motion" parent="Pivot/Attacks/WindDown/AdditionalEffects/MovementEffect" index="0"]
+look_towards_move_direction = false
+look_away_from_move_direction = true
 
 [node name="MotionSteering" parent="Pivot/Attacks/WindDown/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0

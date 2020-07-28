@@ -9,6 +9,7 @@ export var max_roam_radius := 600.0
 export var min_roam_radius := 0.0
 export var disable_obstacle_collider := false
 export var stagger := false
+export var arrive_distance := 6.0
 
 onready var motion := $Motion
 onready var timer := $Timer
@@ -44,7 +45,7 @@ func exit() -> void:
 func _physics_process(delta : float) -> void:
 	var buffer = 6.0
 	motion.move_to(target_position)
-	if owner.global_position.distance_to(target_position) < motion.steering.arrive_distance:
+	if owner.global_position.distance_to(target_position) <= arrive_distance:
 		finished(next_state)
 
 

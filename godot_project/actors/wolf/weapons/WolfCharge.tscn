@@ -81,15 +81,15 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "wind_down"
 length = 0.2
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
 extents = Vector2( 71.7507, 32.6504 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
 extents = Vector2( 30, 30 )
 
@@ -99,7 +99,7 @@ cooldown = 0.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 anims/SETUP = SubResource( 1 )
 anims/charge = SubResource( 2 )
-anims/wind_down = SubResource( 5 )
+anims/wind_down = SubResource( 3 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 can_loop = true
@@ -116,7 +116,7 @@ bus = "Sfx"
 damage = 10
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Charge/DamageSource" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="JumpEffect" parent="Pivot/Attacks/Charge/AdditionalEffects" index="0" instance=ExtResource( 3 )]
 initial_speed = 1700.0
@@ -142,7 +142,7 @@ visible = false
 damage = 1
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/WindDown/DamageSource" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 disabled = true
 
 [node name="MovementEffect" parent="Pivot/Attacks/WindDown/AdditionalEffects" index="0" instance=ExtResource( 13 )]
