@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/judge/sfx/sword_slice.wav" type="AudioStream" id=2]
 [ext_resource path="res://combat/weapons/attack_additional_effects/DisableActorCollisionEffect.tscn" type="PackedScene" id=3]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/judge/particles/QuickAttackHit.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/utils/SfxRandom.gd" type="Script" id=6]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=7]
 
@@ -27,7 +28,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
-length = 0.31
+length = 0.35
 step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks")
@@ -36,7 +37,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 0.25, 0.3 ),
+"times": PoolRealArray( 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -56,7 +57,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -112,9 +113,10 @@ random_pitch_high = 1.02
 
 [node name="DamageSource" parent="Pivot/Attacks/Dash" index="1"]
 position = Vector2( 113.929, -108.065 )
-damage = 14
-delay_milliseconds = 2
-screen_shake_amplitude = 5.0
+damage = 15
+delay_milliseconds = 4
+screen_shake_amplitude = 100.0
+screen_shake_duration = 0.2
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Dash/DamageSource" index="0"]
 position = Vector2( 95.2441, 20.6362 )
@@ -134,6 +136,9 @@ max_speed = 2400.0
 
 [node name="DisableActorCollisionEffect" parent="Pivot/Attacks/Dash/AdditionalEffects" index="1" instance=ExtResource( 3 )]
 
+[node name="HitParticles" parent="Pivot/Attacks/Dash" index="4"]
+particles = ExtResource( 5 )
+
 [node name="Dash2" parent="Pivot/Attacks" index="1" instance=ExtResource( 4 )]
 actor_animation = "quick_attack"
 
@@ -147,7 +152,7 @@ random_pitch_high = 1.02
 [node name="DamageSource" parent="Pivot/Attacks/Dash2" index="1"]
 visible = false
 position = Vector2( 55.9467, -20 )
-damage = 8
+damage = 15
 delay_milliseconds = 2
 screen_shake_amplitude = 5.0
 

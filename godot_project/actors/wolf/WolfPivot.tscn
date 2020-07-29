@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/wolf/sprites/idle.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://actors/wolf/particles/JumpDust.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/fox/sprites/spin_normal.png" type="Texture" id=11]
 [ext_resource path="res://actors/wolf/sprites/run_normal.png" type="Texture" id=12]
+[ext_resource path="res://core/utils/TrailingSprites.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actors/wolf/sprites/growl.png" type="Texture" id=14]
 [ext_resource path="res://actors/wolf/sprites/stagger_normal.png" type="Texture" id=15]
 [ext_resource path="res://actors/fox/sprites/walk_normal.png" type="Texture" id=16]
@@ -452,7 +453,7 @@ tracks/6/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -541,7 +542,7 @@ tracks/6/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 0.42
 loop = true
 step = 0.07
@@ -646,7 +647,7 @@ tracks/7/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -710,7 +711,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 17 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -774,7 +775,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 11 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -850,7 +851,7 @@ tracks/5/keys = {
 "values": [ Vector2( 72.4052, -159.224 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -925,11 +926,11 @@ tracks/5/keys = {
 "values": [ Vector2( 112.048, -118.581 ), Vector2( 112.048, -126.661 ), Vector2( 112.048, -130.954 ), Vector2( 112.048, -130.823 ), Vector2( 112.048, -127.187 ), Vector2( 112.048, -118.581 ), Vector2( 112.048, -126.661 ), Vector2( 112.048, -130.954 ), Vector2( 112.048, -130.823 ), Vector2( 112.048, -127.187 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=13]
 resource_local_to_scene = true
 extents = Vector2( 128.514, 96.2177 )
 
-[sub_resource type="Curve" id=16]
+[sub_resource type="Curve" id=14]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Pivot" type="Node2D"]
@@ -941,22 +942,68 @@ anims/die = SubResource( 3 )
 anims/growl = SubResource( 4 )
 anims/idle = SubResource( 5 )
 anims/jump = SubResource( 6 )
-anims/land = SubResource( 8 )
-anims/run = SubResource( 9 )
-anims/spawn = SubResource( 10 )
-anims/spin = SubResource( 11 )
-anims/stagger = SubResource( 12 )
-anims/walk = SubResource( 13 )
+anims/land = SubResource( 7 )
+anims/run = SubResource( 8 )
+anims/spawn = SubResource( 9 )
+anims/spin = SubResource( 10 )
+anims/stagger = SubResource( 11 )
+anims/walk = SubResource( 12 )
 next/jump = "air"
 script = ExtResource( 9 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="TrailingSprites" parent="." instance=ExtResource( 13 )]
+sprite_path = NodePath("../Sprite")
+active_animations = [ "jump" ]
+
+[node name="Timer" parent="TrailingSprites" index="0"]
+wait_time = 0.005
+
+[node name="Sprite" type="Sprite" parent="TrailingSprites/Sprites" index="0"]
+visible = false
 position = Vector2( 0, -243.246 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
 normal_map = ExtResource( 12 )
 hframes = 6
-frame = 4
+
+[node name="Sprite2" type="Sprite" parent="TrailingSprites/Sprites" index="1"]
+visible = false
+position = Vector2( 0, -243.246 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 12 )
+hframes = 6
+
+[node name="Sprite3" type="Sprite" parent="TrailingSprites/Sprites" index="2"]
+visible = false
+position = Vector2( 0, -243.246 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 12 )
+hframes = 6
+
+[node name="Sprite4" type="Sprite" parent="TrailingSprites/Sprites" index="3"]
+visible = false
+position = Vector2( 0, -243.246 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 12 )
+hframes = 6
+
+[node name="Sprite5" type="Sprite" parent="TrailingSprites/Sprites" index="4"]
+visible = false
+position = Vector2( 0, -243.246 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 12 )
+hframes = 6
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -243.246 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+normal_map = ExtResource( 20 )
+hframes = 8
 
 [node name="Weapons" type="Node2D" parent="."]
 
@@ -965,17 +1012,17 @@ visible = false
 position = Vector2( 5.30322, -92.0316 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 15 )
+shape = SubResource( 13 )
 
 [node name="Trail" type="Line2D" parent="."]
-position = Vector2( -74.4595, -203.903 )
-width_curve = SubResource( 16 )
+position = Vector2( 6.80545, -140.277 )
+width_curve = SubResource( 14 )
 default_color = Color( 0.831373, 0.0509804, 0.0509804, 1 )
 script = ExtResource( 23 )
 target_path = NodePath("../EyePosition2D")
 
 [node name="EyePosition2D" type="Position2D" parent="."]
-position = Vector2( 108.744, -122.979 )
+position = Vector2( 100.071, -139.929 )
 
 [node name="FootstepsLand" parent="." instance=ExtResource( 3 )]
 particles = ExtResource( 18 )
@@ -988,5 +1035,10 @@ particles = ExtResource( 10 )
 
 [node name="LandDust" parent="." instance=ExtResource( 3 )]
 particles = ExtResource( 25 )
+[connection signal="animation_changed" from="AnimationPlayer" to="TrailingSprites" method="stop"]
+[connection signal="animation_finished" from="AnimationPlayer" to="TrailingSprites" method="stop"]
+[connection signal="animation_started" from="AnimationPlayer" to="TrailingSprites" method="start"]
+
+[editable path="TrailingSprites"]
 
 [editable path="Hurtbox"]

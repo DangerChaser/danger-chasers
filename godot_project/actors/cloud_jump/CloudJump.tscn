@@ -11,7 +11,7 @@
 [ext_resource path="res://actor_states/motion/Launch.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actor_states/ai_states/PlayAnimation.tscn" type="PackedScene" id=11]
-[ext_resource path="res://common/particles/DeathExplosion.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actors/cloud_jump/CloudJumpDeathExplosion.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

@@ -57,7 +57,7 @@ one_shot = true
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 pause_mode = 2
-rect = Rect2( -210, -210, 420, 420 )
+rect = Rect2( -668, -668, 1337, 1337 )
 pause_animations = false
 freeze_bodies = false
 pause_particles = false

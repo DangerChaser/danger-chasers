@@ -217,7 +217,7 @@ random_pitch_high = 1.02
 position = Vector2( 55.9467, -20 )
 damage = 8
 delay_milliseconds = 2
-screen_shake_amplitude = 5.0
+screen_shake_amplitude = 10.0
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/SlashUp/DamageSource" index="0"]
 position = Vector2( 3.1579, -50.5264 )
@@ -252,7 +252,7 @@ random_pitch_high = 1.02
 position = Vector2( 64.3678, 35.7896 )
 damage = 8
 delay_milliseconds = 2
-screen_shake_amplitude = 5.0
+screen_shake_amplitude = 10.0
 screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/SlashDown/DamageSource" index="0"]

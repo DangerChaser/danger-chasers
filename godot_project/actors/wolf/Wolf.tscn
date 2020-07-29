@@ -11,7 +11,7 @@
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/wolf/WolfPivot.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/wolf/Wolf.tres" type="Resource" id=11]
-[ext_resource path="res://common/particles/DeathExplosion.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actors/wolf/particles/WolfDeathExplosion.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actors/wolf/WolfStateMachine.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]

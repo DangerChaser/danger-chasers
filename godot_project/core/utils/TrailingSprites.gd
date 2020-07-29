@@ -24,7 +24,8 @@ func start(animation : String = "") -> void:
 	enabled = true
 	set_process(true)
 
-func stop(animation : String = "") -> void:
+# new_animation is a dummy variable
+func stop(animation : String = "", new_animation = "") -> void:
 	if not animation in active_animations:
 		return
 	

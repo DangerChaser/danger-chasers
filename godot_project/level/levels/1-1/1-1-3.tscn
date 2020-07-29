@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/levels/greenwood_hills/forest.tres" type="TileSet" id=2]
@@ -25,9 +25,9 @@ resource_local_to_scene = true
 resource_local_to_scene = true
 extents = Vector2( 100, 816 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=8]
 resource_local_to_scene = true
-extents = Vector2( 2016, 672 )
+extents = Vector2( 3168, 224 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 128, 1280 )
@@ -39,6 +39,27 @@ extents = Vector2( 61.8209, 52.2615 )
 [sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
 extents = Vector2( 672, 704 )
+
+[sub_resource type="RectangleShape2D" id=9]
+resource_local_to_scene = true
+extents = Vector2( 672, 64 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 96, 288 )
+
+[sub_resource type="RectangleShape2D" id=11]
+resource_local_to_scene = true
+extents = Vector2( 61.8209, 52.2615 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 96, 512 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 96, 640 )
+
+[sub_resource type="RectangleShape2D" id=12]
+resource_local_to_scene = true
+extents = Vector2( 61.8209, 52.2615 )
 
 [sub_resource type="RectangleShape2D" id=6]
 resource_local_to_scene = true
@@ -163,57 +184,57 @@ position = Vector2( -4288, 512 )
 next_group_spawn_percent = [ "0.0", 0.33, 0.5 ]
 
 [node name="ActivationArea" parent="Arenas/Arena" index="1"]
-position = Vector2( -576, -608 )
+position = Vector2( -832, 1440 )
 
 [node name="CollisionShape2D" parent="Arenas/Arena/ActivationArea" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 8 )
 
 [node name="Wolf" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 position = Vector2( 128, -256 )
 object = ExtResource( 8 )
 
 [node name="RedSlime" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
-position = Vector2( -160, 96 )
+position = Vector2( 1088, -64 )
 object = ExtResource( 15 )
 
 [node name="RedSlime2" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
-position = Vector2( 640, 128 )
+position = Vector2( 1184, 32 )
 object = ExtResource( 15 )
 
 [node name="RedSlime3" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
-position = Vector2( 1152, 160 )
+position = Vector2( 1536, -32 )
 object = ExtResource( 15 )
 
 [node name="CloudJump" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
-position = Vector2( -1664, 160 )
+position = Vector2( -1440, -32 )
 object = ExtResource( 10 )
 
 [node name="Group2" type="Node2D" parent="Arenas/Arena/ActorSpawnGroups" index="1"]
 
 [node name="Wolf" parent="Arenas/Arena/ActorSpawnGroups/Group2" index="0" instance=ExtResource( 6 )]
-position = Vector2( -3392, 170 )
+position = Vector2( -3222, 10 )
 object = ExtResource( 8 )
 
 [node name="Wolf2" parent="Arenas/Arena/ActorSpawnGroups/Group2" index="1" instance=ExtResource( 6 )]
-position = Vector2( -2688, 170 )
+position = Vector2( -2518, 10 )
 object = ExtResource( 8 )
 
 [node name="Group3" type="Node2D" parent="Arenas/Arena/ActorSpawnGroups" index="2"]
 
 [node name="Wolf" parent="Arenas/Arena/ActorSpawnGroups/Group3" index="0" instance=ExtResource( 6 )]
-position = Vector2( -3392, 170 )
+position = Vector2( -3254, 42 )
 object = ExtResource( 8 )
 
 [node name="Wolf2" parent="Arenas/Arena/ActorSpawnGroups/Group3" index="1" instance=ExtResource( 6 )]
-position = Vector2( -2688, 170 )
+position = Vector2( -2550, 42 )
 object = ExtResource( 8 )
 
 [node name="Wolf3" parent="Arenas/Arena/ActorSpawnGroups/Group3" index="2" instance=ExtResource( 6 )]
-position = Vector2( 800, 234 )
+position = Vector2( 714, -54 )
 object = ExtResource( 8 )
 
 [node name="Wolf4" parent="Arenas/Arena/ActorSpawnGroups/Group3" index="3" instance=ExtResource( 6 )]
-position = Vector2( 1472, 202 )
+position = Vector2( 1386, -86 )
 object = ExtResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Arenas/Arena/Walls" index="0"]
@@ -226,16 +247,17 @@ shape = SubResource( 7 )
 position = Vector2( 288, -233.448 )
 
 [node name="Camera2D" parent="Arenas/Arena/CameraLimitTrigger" index="0"]
-zoom = Vector2( 2, 2 )
+position = Vector2( -1472, 1353.45 )
+zoom = Vector2( 1.8, 1.8 )
 
 [node name="ColliderTrigger" parent="Arenas/Arena/CameraLimitTrigger" index="1"]
 shape = SubResource( 4 )
 
 [node name="TopLeft" parent="Arenas/Arena/CameraLimitTrigger/CameraLimitPositions" index="0"]
-position = Vector2( -4320, -214.552 )
+position = Vector2( -4256, 361.448 )
 
 [node name="BottomRight" parent="Arenas/Arena/CameraLimitTrigger/CameraLimitPositions" index="1"]
-position = Vector2( 1472, 1865.45 )
+position = Vector2( 1472, 2249.45 )
 
 [node name="Arena2" parent="Arenas" index="1" instance=ExtResource( 5 )]
 position = Vector2( 2496, 64 )
@@ -285,23 +307,11 @@ shape = SubResource( 5 )
 position = Vector2( -1088, -1344 )
 object = ExtResource( 8 )
 
-[node name="Wolf2" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
-position = Vector2( -1696, 960 )
+[node name="Wolf5" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
+position = Vector2( 4128, -256 )
 object = ExtResource( 8 )
 
-[node name="Wolf3" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
-position = Vector2( 928, 960 )
-object = ExtResource( 8 )
-
-[node name="Wolf4" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
-position = Vector2( 64, 0 )
-object = ExtResource( 8 )
-
-[node name="Wolf5" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
-position = Vector2( 3680, -256 )
-object = ExtResource( 8 )
-
-[node name="Wolf6" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="5" instance=ExtResource( 6 )]
+[node name="Wolf6" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
 position = Vector2( 6016, -1248 )
 object = ExtResource( 8 )
 
@@ -309,7 +319,64 @@ object = ExtResource( 8 )
 visible = false
 position = Vector2( 288, -233.448 )
 
-[node name="Arena4" parent="Arenas" index="3" instance=ExtResource( 5 )]
+[node name="Arena5" parent="Arenas" index="3" instance=ExtResource( 5 )]
+position = Vector2( 15904, -2048 )
+next_group_spawn_percent = [ "0.0", 0.5 ]
+
+[node name="ActivationArea" parent="Arenas/Arena5" index="1"]
+position = Vector2( -384, -1152 )
+
+[node name="CollisionShape2D" parent="Arenas/Arena5/ActivationArea" index="0"]
+shape = SubResource( 9 )
+
+[node name="Wolf" parent="Arenas/Arena5/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
+position = Vector2( 512, 10 )
+object = ExtResource( 8 )
+
+[node name="Wolf2" parent="Arenas/Arena5/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
+position = Vector2( -448, 10 )
+object = ExtResource( 8 )
+
+[node name="Group2" type="Node2D" parent="Arenas/Arena5/ActorSpawnGroups" index="1"]
+
+[node name="Wolf" parent="Arenas/Arena5/ActorSpawnGroups/Group2" index="0" instance=ExtResource( 6 )]
+position = Vector2( -1440, 10 )
+object = ExtResource( 8 )
+
+[node name="Wolf2" parent="Arenas/Arena5/ActorSpawnGroups/Group2" index="1" instance=ExtResource( 6 )]
+position = Vector2( 1408, 10 )
+object = ExtResource( 8 )
+
+[node name="PlayerStopper" type="StaticBody2D" parent="Arenas/Arena5/Walls" index="0"]
+position = Vector2( -1408, 0 )
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena5/Walls/PlayerStopper" index="0"]
+shape = SubResource( 10 )
+
+[node name="PlayerStopper2" type="StaticBody2D" parent="Arenas/Arena5/Walls" index="1"]
+position = Vector2( 1376, 0 )
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena5/Walls/PlayerStopper2" index="0"]
+shape = SubResource( 10 )
+
+[node name="Wall" type="StaticBody2D" parent="Arenas/Arena5/Walls" index="2"]
+position = Vector2( -1600, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena5/Walls/Wall" index="0"]
+shape = SubResource( 10 )
+
+[node name="Wall2" type="StaticBody2D" parent="Arenas/Arena5/Walls" index="3"]
+position = Vector2( 1568, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena5/Walls/Wall2" index="0"]
+shape = SubResource( 10 )
+
+[node name="ColliderTrigger" parent="Arenas/Arena5/CameraLimitTrigger" index="1"]
+shape = SubResource( 11 )
+
+[node name="Arena4" parent="Arenas" index="4" instance=ExtResource( 5 )]
 position = Vector2( 26720, -6656 )
 change_camera = false
 
@@ -382,6 +449,87 @@ object = ExtResource( 10 )
 [node name="CameraLimitTrigger" parent="Arenas/Arena4" index="4"]
 visible = false
 position = Vector2( 288, -233.448 )
+
+[node name="Arena6" parent="Arenas" index="5" instance=ExtResource( 5 )]
+position = Vector2( 44192, -1984 )
+
+[node name="ActivationArea" parent="Arenas/Arena6" index="1"]
+position = Vector2( 0, -2688 )
+
+[node name="CollisionShape2D" parent="Arenas/Arena6/ActivationArea" index="0"]
+shape = SubResource( 9 )
+
+[node name="CloudJump" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
+position = Vector2( -1408, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump2" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
+position = Vector2( -1280, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump3" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
+position = Vector2( -1088, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump4" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
+position = Vector2( -832, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump5" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
+position = Vector2( -512, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump6" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="5" instance=ExtResource( 6 )]
+position = Vector2( -224, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump7" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="6" instance=ExtResource( 6 )]
+position = Vector2( -32, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump8" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="7" instance=ExtResource( 6 )]
+position = Vector2( 352, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump9" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="8" instance=ExtResource( 6 )]
+position = Vector2( 640, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump10" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="9" instance=ExtResource( 6 )]
+position = Vector2( 832, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump11" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="10" instance=ExtResource( 6 )]
+position = Vector2( 1056, 224 )
+object = ExtResource( 10 )
+
+[node name="CloudJump12" parent="Arenas/Arena6/ActorSpawnGroups/Group1" index="11" instance=ExtResource( 6 )]
+position = Vector2( 1312, 224 )
+object = ExtResource( 10 )
+
+[node name="Wall" type="StaticBody2D" parent="Arenas/Arena6/Walls" index="0"]
+position = Vector2( -1600, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena6/Walls/Wall" index="0"]
+shape = SubResource( 13 )
+
+[node name="Wall2" type="StaticBody2D" parent="Arenas/Arena6/Walls" index="1"]
+position = Vector2( 1568, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena6/Walls/Wall2" index="0"]
+shape = SubResource( 14 )
+
+[node name="Camera2D" parent="Arenas/Arena6/CameraLimitTrigger" index="0"]
+zoom = Vector2( 1.6, 1.6 )
+
+[node name="ColliderTrigger" parent="Arenas/Arena6/CameraLimitTrigger" index="1"]
+shape = SubResource( 12 )
+
+[node name="TopLeft" parent="Arenas/Arena6/CameraLimitTrigger/CameraLimitPositions" index="0"]
+position = Vector2( -1568, -864 )
+
+[node name="BottomRight" parent="Arenas/Arena6/CameraLimitTrigger/CameraLimitPositions" index="1"]
+position = Vector2( 1568, 896 )
 
 [node name="RoundManager" type="Node" parent="." index="9"]
 script = ExtResource( 9 )
@@ -480,7 +628,15 @@ theme = ExtResource( 13 )
 
 [editable path="Arenas/Arena3"]
 
+[editable path="Arenas/Arena5"]
+
+[editable path="Arenas/Arena5/CameraLimitTrigger"]
+
 [editable path="Arenas/Arena4"]
+
+[editable path="Arenas/Arena6"]
+
+[editable path="Arenas/Arena6/CameraLimitTrigger"]
 
 [editable path="PlayerSpawnPoints/0"]
 
