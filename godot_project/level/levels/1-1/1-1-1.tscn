@@ -7,7 +7,7 @@
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/cloud_jump/CloudJump.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/audio/music/dova_syndrome/Jumping_to_the_moon.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/music/dont-use-in-final/1-03 Rivulets - For Hilltop Heights Act 1.ogg" type="AudioStream" id=8]
 [ext_resource path="res://level/RoundManager.gd" type="Script" id=9]
 [ext_resource path="res://level/levels/1-1/RainForeground.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level/levels/1-1/rain_thunder_ambience.ogg" type="AudioStream" id=11]
@@ -178,6 +178,7 @@ position = Vector2( 1696, 1513.45 )
 
 [node name="Arena2" parent="Arenas" index="1" instance=ExtResource( 5 )]
 position = Vector2( 10272, -2144 )
+next_group_spawn_percent = [ "0.0", 0.4, 0.5 ]
 
 [node name="ActivationArea" parent="Arenas/Arena2" index="1"]
 position = Vector2( 0, 704 )
@@ -208,60 +209,62 @@ object = ExtResource( 18 )
 [node name="Group2" type="Node2D" parent="Arenas/Arena2/ActorSpawnGroups" index="1"]
 
 [node name="CloudJump" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="0" instance=ExtResource( 6 )]
-position = Vector2( -896, 74 )
+position = Vector2( 192, 32 )
 object = ExtResource( 7 )
 
-[node name="CloudJump10" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="1" instance=ExtResource( 6 )]
-position = Vector2( -2560, 288 )
+[node name="CloudJump2" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="1" instance=ExtResource( 6 )]
+position = Vector2( -128, -32 )
 object = ExtResource( 7 )
 
-[node name="CloudJump11" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="2" instance=ExtResource( 6 )]
-position = Vector2( -2080, 384 )
+[node name="CloudJump3" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="2" instance=ExtResource( 6 )]
+position = Vector2( 640, 0 )
 object = ExtResource( 7 )
 
-[node name="CloudJump12" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="3" instance=ExtResource( 6 )]
-position = Vector2( 3520, 256 )
+[node name="CloudJump4" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="3" instance=ExtResource( 6 )]
+position = Vector2( 1120, 0 )
 object = ExtResource( 7 )
 
-[node name="CloudJump13" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="4" instance=ExtResource( 6 )]
-position = Vector2( 4064, 288 )
+[node name="CloudJump5" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="4" instance=ExtResource( 6 )]
+position = Vector2( 1664, -32 )
 object = ExtResource( 7 )
 
-[node name="CloudJump14" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="5" instance=ExtResource( 6 )]
-position = Vector2( 2944, 64 )
+[node name="CloudJump6" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="5" instance=ExtResource( 6 )]
+position = Vector2( 2176, -64 )
 object = ExtResource( 7 )
 
-[node name="CloudJump2" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="6" instance=ExtResource( 6 )]
-position = Vector2( -1184, 74 )
+[node name="Group3" type="Node2D" parent="Arenas/Arena2/ActorSpawnGroups" index="2"]
+
+[node name="CloudJump" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="0" instance=ExtResource( 6 )]
+position = Vector2( -2528, 256 )
 object = ExtResource( 7 )
 
-[node name="CloudJump3" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="7" instance=ExtResource( 6 )]
-position = Vector2( -416, 74 )
+[node name="CloudJump2" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="1" instance=ExtResource( 6 )]
+position = Vector2( -2208, 160 )
 object = ExtResource( 7 )
 
-[node name="CloudJump4" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="8" instance=ExtResource( 6 )]
-position = Vector2( 192, 74 )
+[node name="CloudJump3" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="2" instance=ExtResource( 6 )]
+position = Vector2( -1792, 32 )
 object = ExtResource( 7 )
 
-[node name="CloudJump5" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="9" instance=ExtResource( 6 )]
-position = Vector2( 864, 74 )
+[node name="CloudJump5" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="3" instance=ExtResource( 6 )]
+position = Vector2( 2976, 32 )
 object = ExtResource( 7 )
 
-[node name="CloudJump6" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="10" instance=ExtResource( 6 )]
-position = Vector2( 1312, 74 )
+[node name="CloudJump6" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="4" instance=ExtResource( 6 )]
+position = Vector2( 3584, 32 )
 object = ExtResource( 7 )
 
-[node name="CloudJump7" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="11" instance=ExtResource( 6 )]
-position = Vector2( 1920, 74 )
+[node name="CloudJump7" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="5" instance=ExtResource( 6 )]
+position = Vector2( 3968, 160 )
 object = ExtResource( 7 )
 
-[node name="CloudJump8" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="12" instance=ExtResource( 6 )]
-position = Vector2( 2368, 74 )
-object = ExtResource( 7 )
+[node name="RedSlime" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="6" instance=ExtResource( 6 )]
+position = Vector2( -1152, -32 )
+object = ExtResource( 18 )
 
-[node name="CloudJump9" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="13" instance=ExtResource( 6 )]
-position = Vector2( 2816, 74 )
-object = ExtResource( 7 )
+[node name="RedSlime2" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="7" instance=ExtResource( 6 )]
+position = Vector2( 2496, -32 )
+object = ExtResource( 18 )
 
 [node name="TopWall" type="StaticBody2D" parent="Arenas/Arena2/Walls" index="0"]
 position = Vector2( 2816, -1120 )

@@ -2274,10 +2274,11 @@ hframes = 8
 frame = 4
 
 [node name="Trail" parent="." instance=ExtResource( 49 )]
-width = 40.0
+width = 42.0
 width_curve = SubResource( 30 )
 default_color = Color( 0.0745098, 0.698039, 0.94902, 1 )
 target_path = NodePath("../Hurtbox")
+trail_length = 69
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -117.363 )
@@ -2317,10 +2318,10 @@ position = Vector2( 0, -128.751 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 42 )]
 position = Vector2( 16.9706, -84.853 )
-[connection signal="animation_finished" from="AnimationPlayer" to="Trail" method="stop"]
 [connection signal="animation_finished" from="AnimationPlayer" to="QuickAttackTrailingSprites" method="stop"]
-[connection signal="animation_started" from="AnimationPlayer" to="Trail" method="start"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Trail" method="stop"]
 [connection signal="animation_started" from="AnimationPlayer" to="QuickAttackTrailingSprites" method="start"]
+[connection signal="animation_started" from="AnimationPlayer" to="Trail" method="start"]
 
 [editable path="QuickAttackTrailingSprites"]
 
