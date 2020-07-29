@@ -225,3 +225,11 @@ func face_actor(actor):
 	var look_direction = Vector2.RIGHT if direction.x >= 0 else Vector2.LEFT
 	print_debug(direction)
 	update_look_direction(look_direction)
+
+
+func pause():
+	pause_mode = PAUSE_MODE_STOP
+
+
+func unpause():
+	pause_mode = PAUSE_MODE_INHERIT

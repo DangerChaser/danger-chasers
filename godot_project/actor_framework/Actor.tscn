@@ -56,9 +56,12 @@ wait_time = 0.2
 one_shot = true
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+pause_mode = 2
 process_parent = true
 physics_process_parent = true
 [connection signal="state_changed" from="StateMachine" to="ActorInterface" method="_on_StateMachine_state_changed"]
 [connection signal="stats_changed" from="Stats" to="ActorInterface" method="_on_Stats_stats_changed"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_FlashTimer_timeout"]
 [connection signal="timeout" from="FlashDuration" to="." method="_on_FlashDuration_timeout"]
+[connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="unpause"]
+[connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="pause"]

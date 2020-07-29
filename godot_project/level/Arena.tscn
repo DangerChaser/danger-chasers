@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://level/Arena.gd" type="Script" id=1]
 [ext_resource path="res://level/RoundManager.gd" type="Script" id=2]
@@ -13,10 +13,6 @@ extents = Vector2( 145.374, 176.194 )
 [sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
 extents = Vector2( 61.8209, 52.2615 )
-
-[sub_resource type="RectangleShape2D" id=3]
-resource_local_to_scene = true
-extents = Vector2( 1107.28, 960.731 )
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 1 )
@@ -41,13 +37,13 @@ script = ExtResource( 4 )
 
 [node name="CameraLimitTrigger" parent="." instance=ExtResource( 5 )]
 
-[node name="ColliderTrigger" parent="CameraLimitTrigger" index="0"]
+[node name="ColliderTrigger" parent="CameraLimitTrigger" index="1"]
 visible = false
 shape = SubResource( 2 )
 disabled = true
 
-[node name="CameraLimits" parent="CameraLimitTrigger" index="1"]
-shape = SubResource( 3 )
+[node name="CameraLimitPositions" parent="CameraLimitTrigger" index="2"]
+line_width = 10.0
 [connection signal="round_started" from="RoundManager" to="." method="next_round_started"]
 [connection signal="area_entered" from="ActivationArea" to="." method="_on_ActivationArea_area_entered"]
 
