@@ -36,3 +36,12 @@ func _on_Tween_tween_all_completed():
 			Tween.TRANS_QUAD, \
 			Tween.EASE_IN_OUT)
 	tween.start()
+
+
+
+
+func pause() -> void:
+	tween.stop_all()
+
+func unpause() -> void:
+	tween.resume_all()

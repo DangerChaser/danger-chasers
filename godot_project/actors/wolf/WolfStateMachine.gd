@@ -11,6 +11,8 @@ func _decide_on_next_state() -> State:
 			return get_state("ChargeSequence")
 		else:
 			return get_state("JumpBackSequence")
+	elif owner.is_on_wall():
+		return get_state("JumpBackSequence")
 	elif distance_to_target >= run_distance:
 		return get_state("RunSequence")
 	else:

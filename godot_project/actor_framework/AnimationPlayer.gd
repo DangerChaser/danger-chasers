@@ -21,11 +21,24 @@ func _ready() -> void:
 func play(name="", custom_blend:=-1.0, custom_speed:=1.0, from_end:=false):
 	if has_animation(name):
 		.play(name, custom_blend, custom_speed, from_end)
+	else:
+		.play("", custom_blend, custom_speed, from_end)
 	for layer in extra_layers:
 		var anim_player = layer.get_node("AnimationPlayer")
 		if anim_player.has_animation(name):
 			anim_player.stop()
-			anim_player.play(name)
+			anim_player.play(name, custom_blend, custom_speed, from_end)
+		else:
+			anim_player.stop()
+			anim_player.play("", custom_blend, custom_speed, from_end)
+
+
+func stop(reset := true):
+	.stop(reset)
+	for layer in extra_layers:
+		var anim_player = layer.get_node("AnimationPlayer")
+		if anim_player.has_animation(name):
+			anim_player.stop(reset)
 
 
 func set_all_children_owner(parent, _owner) -> void:

@@ -63,3 +63,15 @@ func skill_ready(input_key : String) -> bool:
 		var skill_to_check = input_to_skill[input_key]
 		return skill_to_check.weapon.is_ready()
 	return false
+
+
+func pause() -> void:
+	.pause()
+	if current_skill:
+		current_skill.pause()
+
+
+func unpause() -> void:
+	.unpause()
+	if current_skill:
+		current_skill.unpause()

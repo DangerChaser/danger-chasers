@@ -16,7 +16,7 @@ func _physics_process(delta : float) -> void:
 			var args = { "velocity": motion.steering.velocity }
 			args["input_key"] = "ui_down"
 			args["target_direction"] = Vector2(motion.steering.velocity.x, Vector2.DOWN.y)
-			emit_signal("finished", "Stomp", args)
+			finished("Stomp", args)
 			return
 	
 	if not owner.is_on_floor():

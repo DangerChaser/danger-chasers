@@ -1,15 +1,15 @@
 extends State
 
-export(String) var animation : String = "launch"
-export(String) var next_state := ""
-export(float) var initial_angle_deg := -90
-export(float) var random_angle := 0.0
-export(float) var force := 666.0
-export(float) var mass := 4.0
+export var animation : String = "launch"
+export var next_state := ""
+export var initial_angle_deg := -90
+export var random_angle := 0.0
+export var force := 666.0
+export var mass := 4.0
 export var land_animation := ""
 
-onready var timer := $Timer
-onready var motion := $Motion
+onready var timer : Timer = $Timer
+onready var motion : MotionState = $Motion
 var time_entered : float
 var target_direction : Vector2
 
@@ -55,3 +55,15 @@ func _physics_process(delta:float) -> void:
 		timer.stop()
 		var args = { "initial_animation" : land_animation } if land_animation else {}
 		finished(next_state, args)
+
+
+func pause() -> void:
+	.pause()
+	if timer:
+		timer.paused = true
+
+
+func unpause() -> void:
+	.unpause()
+	if timer:
+		timer.paused = false

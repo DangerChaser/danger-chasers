@@ -91,7 +91,7 @@ func enter(args := {}) -> void:
 		set_levelled_weapon()
 	
 	if weapon.attacks.grounded and not owner.is_on_floor():
-		emit_signal("finished", next_state, args)
+		finished(next_state, args)
 		return
 	if weapon.cd_timer.time_left > 0 or weapon.gcd_timer.time_left > 0:
 		not_ready()
@@ -140,9 +140,9 @@ func not_ready(args := {}) -> void:
 func weapon_finished(state_override := "", args := {}):
 	emit_signal("attack_finished")
 	if state_override == "":
-		emit_signal("finished", next_state, args)
+		finished(next_state, args)
 	else:
-		emit_signal("finished", state_override, args)
+		finished(state_override, args)
 
 
 func activate_combo() -> void:
@@ -155,4 +155,16 @@ func deactivate_combo() -> void:
 
 func take_damage(args := {}):
 	if stagger:
-		emit_signal("finished", "Stagger", args)
+		finished("Stagger", args)
+
+
+func pause() -> void:
+	.pause()
+	if weapon:
+		weapon.pause()
+
+
+func unpause() -> void:
+	.unpause()
+	if weapon:
+		weapon.unpause()

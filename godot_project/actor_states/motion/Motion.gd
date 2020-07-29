@@ -52,7 +52,8 @@ func exit() -> void:
 
 func _physics_process(delta : float) -> void:
 	external.move()
-	gravity.apply(delta)
+	if not owner.is_on_floor():
+		gravity.apply(delta)
 	total_velocity = steering.velocity + gravity.velocity + external.velocity
 
 
@@ -106,3 +107,13 @@ func get_exit_args() -> Dictionary:
 		}
 	}
 	return args
+
+
+func pause() -> void:
+	.pause()
+	set_physics_process(false)
+
+
+func unpause() -> void:
+	.unpause()
+	set_physics_process(true)

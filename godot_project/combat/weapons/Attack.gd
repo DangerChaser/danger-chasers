@@ -78,3 +78,17 @@ func confirm_hit(hurtbox) -> void:
 
 func _on_DamageSource_hit_confirmed_hurtbox(hurtbox):
 	confirm_hit(hurtbox)
+
+
+func pause() -> void:
+	for effect in additional_effects.get_children():
+		effect.pause()
+	for effect in combo_effects.get_children():
+		effect.pause()
+
+
+func unpause() -> void:
+	for effect in additional_effects.get_children():
+		effect.unpause()
+	for effect in combo_effects.get_children():
+		effect.unpause()

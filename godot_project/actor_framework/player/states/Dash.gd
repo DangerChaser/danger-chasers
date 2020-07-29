@@ -17,7 +17,6 @@ func assert_values() -> void:
 		print("Initial speed of Dash state of %s is 0." % owner.name)
 	if initial_dash_duration == 0:
 		print("Initial dash duration of Dash state of %s is 0 seconds." % owner.name)
-	assert (mass != 0)
 
 func make_initial_dash_timer() -> void:
 	initial_dash_timer = Timer.new()
@@ -60,8 +59,8 @@ func _input(event : InputEvent) -> void:
 	for i in range(1, 9):
 		var input_skill = "skill_" + str(i)
 		if event.is_action_pressed(input_skill):
-			emit_signal("finished", "Job", {"input":input_skill, "velocity":steering.velocity})
+			finished("Job", {"input":input_skill, "velocity":steering.velocity})
 
 
 func take_damage(args := {}):
-	emit_signal("finished", "Stagger", args)
+	finished("Stagger", args)

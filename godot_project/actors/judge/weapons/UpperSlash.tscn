@@ -6,8 +6,6 @@
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=5]
 [ext_resource path="res://common/particles/YellowSlashHit.tscn" type="PackedScene" id=6]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
@@ -119,7 +117,6 @@ max_speed = 800.0
 
 [node name="ObjectSpawner" parent="Pivot/Attacks/SlashUp/HitParticles" index="0"]
 object = ExtResource( 6 )
-random_radius = 0.0
 DRAW_COLOR = Color( 0.886275, 0.192157, 0.713726, 1 )
 
 [editable path="Pivot/Attacks/SlashUp"]

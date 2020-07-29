@@ -7,7 +7,7 @@ var to_state := ""
 
 func _input(event):
 	if Input.is_action_pressed("light_attack"):
-		emit_signal("finished", "LightAttack")
+		finished("LightAttack")
 
 
 func _physics_process(delta: float) -> void:
@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 		args["target_direction"] = Vector2.UP
 		args["input_key"] = "ui_up"
 		args["target_direction"].x = Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int 
-		emit_signal("finished", "Up", args)
+		finished("Up", args)
 		return
 	
 	if Input.is_action_pressed('ui_down'):
@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 			var args = { }
 			args["input_key"] = "ui_down"
 			args["target_direction"] = Vector2.DOWN 
-			emit_signal("finished", "Stomp", args)
+			finished("Stomp", args)
 	
 	var attacks = weapon.attacks
 	if attacks.state == attacks.State.LISTENING:
@@ -52,4 +52,4 @@ func _physics_process(delta: float) -> void:
 
 
 func take_damage(args := {}):
-	emit_signal("finished", "Stagger", args)
+	finished("Stagger", args)

@@ -21,7 +21,7 @@ func _physics_process(delta:float) -> void:
 			var args = { }
 			args["input_key"] = "ui_down"
 			args["target_direction"] = Vector2.DOWN 
-			emit_signal("finished", "Stomp", args)
+			finished("Stomp", args)
 	
 	if attacks.state == attacks.State.REGISTERED and attacks.ready_for_next_attack or attacks.can_cancel:
 		match to_state:
@@ -30,7 +30,7 @@ func _physics_process(delta:float) -> void:
 				args["input_key"] = "ui_up"
 				args["target_direction"] = Vector2.UP
 				args["target_direction"].x = Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int 
-				emit_signal("finished", to_state, args)
+				finished(to_state, args)
 			"Forward":
 				var args = weapon.get_exit_args()
 				if input == "ui_right":
@@ -39,9 +39,9 @@ func _physics_process(delta:float) -> void:
 				else:
 					args["input_key"] = "ui_right"
 					args["target_direction"] = Vector2.RIGHT
-				emit_signal("finished", to_state, args)
+				finished(to_state, args)
 		to_state = ""
 
 
 func take_damage(args := {}):
-	emit_signal("finished", "Stagger", args)
+	finished("Stagger", args)

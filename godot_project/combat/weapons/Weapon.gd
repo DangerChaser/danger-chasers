@@ -123,3 +123,13 @@ func set_owner(_owner) -> void:
 	owner = _owner
 	for child in Utilities.get_all_subchildren(self):
 		child.owner = owner
+
+
+func pause() -> void:
+	attacks.pause()
+	animation_player.stop(false)
+
+
+func unpause() -> void:
+	attacks.unpause()
+	animation_player.play()

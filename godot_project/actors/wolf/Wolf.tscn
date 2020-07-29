@@ -118,10 +118,6 @@ character_stats = ExtResource( 11 )
 
 [node name="Pivot" parent="." index="5" instance=ExtResource( 10 )]
 
-[node name="VisibilityEnabler2D" parent="." index="9"]
-position = Vector2( 2.87213, 69.642 )
-scale = Vector2( 196.174, 99.2212 )
-
 [editable path="StateMachine/WalkSequence/Wait"]
 
 [editable path="StateMachine/WalkSequence/MoveTo"]

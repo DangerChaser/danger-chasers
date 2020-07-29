@@ -57,8 +57,11 @@ one_shot = true
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 pause_mode = 2
-process_parent = true
-physics_process_parent = true
+rect = Rect2( -210, -210, 420, 420 )
+pause_animations = false
+freeze_bodies = false
+pause_particles = false
+pause_animated_sprites = false
 [connection signal="state_changed" from="StateMachine" to="ActorInterface" method="_on_StateMachine_state_changed"]
 [connection signal="stats_changed" from="Stats" to="ActorInterface" method="_on_Stats_stats_changed"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_FlashTimer_timeout"]

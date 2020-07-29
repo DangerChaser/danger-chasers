@@ -11,8 +11,8 @@ export var disable_obstacle_collider := false
 export var stagger := false
 export var arrive_distance := 6.0
 
-onready var motion := $Motion
-onready var timer := $Timer
+onready var motion : MotionState = $Motion
+onready var timer : Timer = $Timer
 
 var target_position : Vector2 = Vector2()
 var start_position : Vector2 = Vector2()
@@ -21,18 +21,18 @@ var start_position : Vector2 = Vector2()
 func enter(args := {}) -> void:
 	.enter(args)
 	motion.enter(args)
-	if owner.animation_player.has_animation(animation):
-		owner.animation_player.play(animation)
+	owner.animation_player.play(animation)
 	start_position = owner.global_position
-	if disable_obstacle_collider \
-			or (args.has("disable_collider_in_state") and args["disable_collider_in_state"] == true):
-		owner.set_collision_mask_bit(GameManager.Layers.OBSTACLES, false)
-	else:
-		timer.start()
+	timer.start()
+	
 	if args.has("target_position"):
 		target_position = args["target_position"]
 	else:
 		target_position = calculate_new_target_position()
+	
+	if disable_obstacle_collider \
+			or (args.has("disable_collider_in_state") and args["disable_collider_in_state"] == true):
+		owner.set_collision_mask_bit(GameManager.Layers.OBSTACLES, false)
 
 
 func exit() -> void:
@@ -45,7 +45,7 @@ func exit() -> void:
 func _physics_process(delta : float) -> void:
 	var buffer = 6.0
 	motion.move_to(target_position)
-	if owner.global_position.distance_to(target_position) <= arrive_distance:
+	if owner.global_position.distance_to(target_position) <= arrive_distance or owner.is_on_wall():
 		finished(next_state)
 
 
@@ -71,3 +71,17 @@ func take_damage(args := {}):
 
 func _on_Timer_timeout():
 	finished(next_state, motion.get_exit_args())
+
+
+func pause() -> void:
+	.pause()
+	if timer:
+		timer.paused = true
+		motion.pause()
+
+
+func unpause() -> void:
+	.unpause()
+	if timer:
+		timer.paused = false
+		motion.unpause()

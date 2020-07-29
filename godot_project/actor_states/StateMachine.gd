@@ -3,14 +3,10 @@ class_name StateMachine
 
 signal state_changed(states)
 
-export(Dictionary) var initial_args : Dictionary = {}.duplicate() # Duplicate to avoid all shared instances from sharing the same dictionary
-export(bool) var pause_offscreen := true
+export var initial_args : Dictionary = {}.duplicate() # Duplicate to avoid all shared instances from sharing the same dictionary
 
 var states_map : Dictionary = {}
 var states_stack : Array = []
-var enabled : bool = false
-var stored_state
-var stored_args := {}
 var can_change_state := true
 
 
@@ -19,7 +15,6 @@ func _ready():
 		state.set_owner(owner)
 		states_map[state.name] = state
 		state.connect("finished", self, "change_state")
-	disable()
 
 
 func initialize() -> void:
@@ -44,7 +39,6 @@ func get_state(state_name : String) -> State:
 func change_state(state_override := "", args := {}) -> void:
 	if not can_change_state:
 		return
-	
 	states_stack[0].exit()
 	
 	var new_state
@@ -60,12 +54,6 @@ func change_state(state_override := "", args := {}) -> void:
 		new_state = _decide_on_next_state()
 	
 	states_stack[0] = new_state
-
-	
-	if not enabled and pause_offscreen:
-		stored_args = args
-		stored_state = states_stack[0]
-		return
 	
 	emit_signal("state_changed", states_stack)
 	states_stack[0].enter(args)
@@ -92,23 +80,12 @@ func has_state(state_name : String) -> bool:
 	return states_map.has(state_name)
 
 
-func enable() -> void:
-	if not pause_offscreen:
-		return
-	
-	enabled = true
-	if stored_state:
-		emit_signal("state_changed", states_stack)
-		stored_state.enter(stored_args)
-	else:
-		initialize()
+func unpause() -> void:
+	get_current_state().unpause()
 
 
-func disable() -> void:
-	if not pause_offscreen:
-		return
-	
-	enabled = false
+func pause() -> void:
+	get_current_state().pause()
 
 
 func enable_state_change() -> void:

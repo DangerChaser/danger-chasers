@@ -3,7 +3,7 @@ extends AttackState
 export(bool) var can_loop : bool = false
 export var one_time := false
 
-onready var timer := $Timer
+onready var timer : Timer = $Timer
 
 
 func enter(args := {}) -> void:
@@ -33,3 +33,15 @@ func take_damage(args := {}):
 
 func _on_Timer_timeout():
 	weapon.emit_signal("finished")
+
+
+func pause() -> void:
+	.pause()
+	if timer:
+		timer.paused = true
+
+
+func unpause() -> void:
+	.unpause()
+	if timer:
+		timer.paused = false

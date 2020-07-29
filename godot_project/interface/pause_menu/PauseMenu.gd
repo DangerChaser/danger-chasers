@@ -21,8 +21,8 @@ func _ready() -> void:
 
 
 func pause() -> void:
-	change_menu(Menus.PAUSE)
 	get_tree().paused = true
+	change_menu(Menus.PAUSE)
 
 
 func unpause() -> void:

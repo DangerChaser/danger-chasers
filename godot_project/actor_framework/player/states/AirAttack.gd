@@ -13,4 +13,4 @@ func _input(event):
 			args["target_direction"] = Vector2.DOWN
 			args["target_direction"].x = Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int 
 			args["initial_animation"] = "stomp"
-			emit_signal("finished", "Stomp", args)
+			finished("Stomp", args)

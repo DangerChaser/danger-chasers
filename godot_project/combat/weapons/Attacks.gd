@@ -132,3 +132,13 @@ func enable_ready_for_next_attack() -> void:
 
 func enable_cancel_animation() -> void:
 	can_cancel = true
+
+
+func pause() -> void:
+	if current_attack:
+		current_attack.pause()
+
+
+func unpause() -> void:
+	if current_attack:
+		current_attack.unpause()

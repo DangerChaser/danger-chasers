@@ -47,6 +47,8 @@ script = ExtResource( 2 )
 
 [node name="0" parent="PlayerSpawnPoints" instance=ExtResource( 3 )]
 DRAW_COLOR = Color( 0.886275, 0.192157, 0.713726, 1 )
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
 
 [node name="LevelHUD" type="CanvasLayer" parent="."]
 [connection signal="initialized" from="." to="InitialMusic" method="change_music"]

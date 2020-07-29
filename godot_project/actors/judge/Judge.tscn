@@ -38,8 +38,6 @@ collision_layer = 2
 collision_mask = 97
 script = ExtResource( 5 )
 icon = ExtResource( 23 )
-
-[node name="StateMachine" parent="." index="0"]
 pause_offscreen = false
 
 [node name="Idle" parent="StateMachine" index="0" instance=ExtResource( 20 )]
@@ -106,7 +104,7 @@ layer = 100
 [node name="Pivot" parent="." index="10" instance=ExtResource( 9 )]
 
 [node name="VisibilityEnabler2D" parent="." index="11"]
-position = Vector2( 5.99158, 0 )
+position = Vector2( 16.26, -21.493 )
 
 [node name="DropThroughArea" type="Area2D" parent="." index="12"]
 position = Vector2( 0, -4.08774 )

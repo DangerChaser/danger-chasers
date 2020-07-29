@@ -4,9 +4,6 @@ Base class for Actor. Handles general movement.
 extends KinematicBody2DMirror
 class_name Actor
 
-const DROP_THRU_BIT = 6
-
-signal position_changed(new_position)
 signal died(actor)
 signal died_no_arg
 signal health_depleted(actor) # Emits as soon as enters Die state
@@ -19,6 +16,7 @@ var state
 
 export(Texture) var icon : Texture
 export var team := "team_2"
+export var pause_offscreen := true
 
 onready var state_machine : StateMachine = $StateMachine
 onready var animation_player : AnimationPlayer = pivot.get_node("AnimationPlayer")
@@ -53,9 +51,6 @@ func _ready():
 	if pivot.has_node("Hurtbox"):
 		var hurtbox = pivot.get_node("Hurtbox")
 		hurtbox.connect("area_entered", self, "_on_Hurtbox_area_entered", [hurtbox])
-	if state_machine.pause_offscreen:
-		$VisibilityEnabler2D.connect("screen_entered", state_machine, "enable")
-		$VisibilityEnabler2D.connect("screen_exited", state_machine, "disable")
 	
 	if initialize_on_ready:
 		yield(get_tree().create_timer(0.01), "timeout")
@@ -86,12 +81,6 @@ func set_team(_team : String) -> void:
 		pivot.get_node("DamageSource").friendly_teams = [team]
 	for weapon in $Pivot/Weapons.get_children():
 		weapon.set_friendly_teams([team])
-
-
-func _physics_process(delta : float) -> void:
-	if not global_position == previous_position:
-		previous_position = global_position
-		emit_signal("position_changed", global_position)
 
 
 func reset(target_global_position : Vector2) -> void:
@@ -208,7 +197,7 @@ func _on_DropThroughArea_body_exited(body):
 
 
 func stop_drop_through() -> void:
-	set_collision_mask_bit(DROP_THRU_BIT, true)
+	set_collision_mask_bit(Utilities.DROP_THRU_BIT, true)
 
 
 func add_weapon(weapon) -> void:
@@ -223,13 +212,16 @@ func play_animation(anim_name : String) -> void:
 func face_actor(actor):
 	var direction = global_position.direction_to(actor.global_position)
 	var look_direction = Vector2.RIGHT if direction.x >= 0 else Vector2.LEFT
-	print_debug(direction)
 	update_look_direction(look_direction)
 
 
 func pause():
-	pause_mode = PAUSE_MODE_STOP
+	if pause_offscreen:
+		state_machine.pause()
+		animation_player.stop(false)
 
 
 func unpause():
-	pause_mode = PAUSE_MODE_INHERIT
+	if pause_offscreen:
+		state_machine.unpause()
+		animation_player.play()

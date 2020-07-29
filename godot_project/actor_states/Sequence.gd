@@ -42,3 +42,15 @@ func go_to_next_state_in_sequence(args :={}) -> void:
 
 func take_damage(args := {}):
 	state_active.take_damage(args)
+
+
+func pause() -> void:
+	.pause()
+	if state_active:
+		state_active.pause()
+
+
+func unpause() -> void:
+	.unpause()
+	if state_active:
+		state_active.unpause()

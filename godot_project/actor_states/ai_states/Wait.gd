@@ -12,7 +12,7 @@ export(NodePath) var target_node
 export var look_direction := Vector2()
 export var face_target := true
 
-onready var timer := $Timer
+onready var timer : Timer = $Timer
 onready var duration : float = $Timer.wait_time
 
 
@@ -89,3 +89,15 @@ func _on_Timer_timeout():
 
 func anim_finished(anim_name : String) -> void:
 	owner.animation_player.play(animation)
+
+
+func pause() -> void:
+	.pause()
+	if timer:
+		timer.paused = true
+
+
+func unpause() -> void:
+	.unpause()
+	if timer:
+		timer.paused = false

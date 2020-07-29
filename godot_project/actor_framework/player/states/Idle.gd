@@ -46,7 +46,7 @@ func exit() -> void:
 func _input(event : InputEvent) -> void:
 	if owner.state_machine.has_state("LightAttack") and Input.is_action_just_pressed("light_attack"):
 		var args = {"target_direction" : Vector2(Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int , 0) }
-		emit_signal("finished", "LightAttack", args)
+		finished("LightAttack", args)
 		return
 	if event.is_action_pressed('ui_down'):
 		drop_through_timer.start()
@@ -67,7 +67,7 @@ func _physics_process(delta : float) -> void:
 			var args = { "velocity": motion.steering.velocity }
 			args["input_key"] = "ui_down"
 			args["target_direction"] = Vector2(motion.steering.velocity.x, Vector2.DOWN.y)
-			emit_signal("finished", "Stomp", args)
+			finished("Stomp", args)
 			return
 	
 	if not owner.is_on_floor():
@@ -88,7 +88,7 @@ func _physics_process(delta : float) -> void:
 
 func take_damage(args := {}):
 	air_timer.stop()
-	emit_signal("finished", "Stagger", args)
+	finished("Stagger", args)
 
 
 
@@ -111,12 +111,12 @@ func jump() -> void:
 	jump_registered = false
 	active = false
 	set_physics_process(false)
-	emit_signal("finished", "Up", args)
+	finished("Up", args)
 
 
 func _on_AirTimer_timeout():
 	if active and not owner.is_on_floor():
-		emit_signal("finished", "Air", {"velocity":motion.steering.velocity, "gravity_speed":0})
+		finished("Air", {"velocity":motion.steering.velocity, "gravity_speed":0})
 
 
 func register_jump() -> void:
