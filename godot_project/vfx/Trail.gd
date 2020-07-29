@@ -2,7 +2,7 @@ extends Line2D
 class_name Trail
 
 export(NodePath) var target_path
-export(Array, String) var active_animations : Array = ["quick_attack"]
+export(Array, String) var active_animations : Array = []
 export(int) var trail_length := 10
 export(bool) var autostart := true
 
@@ -33,13 +33,13 @@ func _process(delta):
 
 
 func start(animation : String = ""):
-	if not animation in active_animations:
+	if active_animations.size() > 0 and not animation in active_animations:
 		return
 	active = true
 
 
 func stop(animation : String = ""):
-	if not animation in active_animations:
+	if active_animations.size() > 0  and not animation in active_animations:
 		return
 	active = false
 

@@ -9,7 +9,7 @@
 [ext_resource path="res://actors/wolf/sprites/stagger.png" type="Texture" id=7]
 [ext_resource path="res://actors/wolf/sprites/walk.png" type="Texture" id=8]
 [ext_resource path="res://actor_framework/AnimationPlayer.gd" type="Script" id=9]
-[ext_resource path="res://actors/wolf/particles/JumpDust.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actors/direwolf/particles/FootstepsLaunch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/fox/sprites/spin_normal.png" type="Texture" id=11]
 [ext_resource path="res://actors/wolf/sprites/run_normal.png" type="Texture" id=12]
 [ext_resource path="res://core/utils/TrailingSprites.tscn" type="PackedScene" id=13]
@@ -17,12 +17,12 @@
 [ext_resource path="res://actors/wolf/sprites/stagger_normal.png" type="Texture" id=15]
 [ext_resource path="res://actors/fox/sprites/walk_normal.png" type="Texture" id=16]
 [ext_resource path="res://actors/fox/sprites/spawn_normal.png" type="Texture" id=17]
-[ext_resource path="res://actors/wolf/particles/FootstepsLand.tscn" type="PackedScene" id=18]
+[ext_resource path="res://actors/direwolf/particles/LandDust.tscn" type="PackedScene" id=18]
 [ext_resource path="res://actors/wolf/sprites/growl_normal.png" type="Texture" id=19]
 [ext_resource path="res://actors/wolf/sprites/idle_normal.png" type="Texture" id=20]
+[ext_resource path="res://actors/direwolf/particles/FootstepsLand.tscn" type="PackedScene" id=21]
+[ext_resource path="res://actors/direwolf/particles/JumpDust.tscn" type="PackedScene" id=22]
 [ext_resource path="res://vfx/Trail.gd" type="Script" id=23]
-[ext_resource path="res://actors/wolf/particles/FootstepsLaunch.tscn" type="PackedScene" id=24]
-[ext_resource path="res://actors/wolf/particles/LandDust.tscn" type="PackedScene" id=25]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -1057,16 +1057,16 @@ target_path = NodePath("../EyePosition2D")
 position = Vector2( 100.071, -139.929 )
 
 [node name="FootstepsLand" parent="." instance=ExtResource( 3 )]
-particles = ExtResource( 18 )
+particles = ExtResource( 21 )
 
 [node name="FootstepsLaunch" parent="." instance=ExtResource( 3 )]
-particles = ExtResource( 24 )
-
-[node name="JumpDust" parent="." instance=ExtResource( 3 )]
 particles = ExtResource( 10 )
 
+[node name="JumpDust" parent="." instance=ExtResource( 3 )]
+particles = ExtResource( 22 )
+
 [node name="LandDust" parent="." instance=ExtResource( 3 )]
-particles = ExtResource( 25 )
+particles = ExtResource( 18 )
 [connection signal="animation_changed" from="AnimationPlayer" to="TrailingSprites" method="stop"]
 [connection signal="animation_finished" from="AnimationPlayer" to="TrailingSprites" method="stop"]
 [connection signal="animation_started" from="AnimationPlayer" to="TrailingSprites" method="start"]

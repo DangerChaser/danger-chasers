@@ -1,7 +1,7 @@
 extends Node2D
 
 export(NodePath) var sprite_path : NodePath
-export(Array, String) var active_animations : Array = ["quick_attack"]
+export(Array, String) var active_animations : Array = []
 
 onready var base_sprite = get_node(sprite_path)
 
@@ -17,7 +17,7 @@ func _ready() -> void:
 			sprite.visible = false
 
 func start(animation : String = "") -> void:
-	if not animation in active_animations:
+	if active_animations.size() > 0 and not animation in active_animations:
 		return
 	
 	$Timer.start()
@@ -26,7 +26,7 @@ func start(animation : String = "") -> void:
 
 # new_animation is a dummy variable
 func stop(animation : String = "", new_animation = "") -> void:
-	if not animation in active_animations:
+	if active_animations.size() > 0 and not animation in active_animations:
 		return
 	
 	enabled = false
