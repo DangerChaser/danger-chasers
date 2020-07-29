@@ -39,6 +39,7 @@ func get_state(state_name : String) -> State:
 func change_state(state_override := "", args := {}) -> void:
 	if not can_change_state:
 		return
+	
 	states_stack[0].exit()
 	
 	var new_state

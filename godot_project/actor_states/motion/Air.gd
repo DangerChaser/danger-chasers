@@ -16,7 +16,7 @@ var animation_set_externally := false
 func enter(args := {}) -> void:
 	.enter(args)
 	steering.velocity.y = 0
-	external.velocity.y = 0
+#	external.velocity.y = 0
 	
 	if args.has("animation"):
 		owner.animation_player.play(args["animation"])

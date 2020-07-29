@@ -101,11 +101,10 @@ texture_scale = 5.0
 
 [node name="RedSpring" parent="Ground/Springs" index="0" instance=ExtResource( 29 )]
 position = Vector2( 6976, 0 )
-force = 5000.0
+force = 9001.0
 
 [node name="RedSpring2" parent="Ground/Springs" index="1" instance=ExtResource( 29 )]
 position = Vector2( 1792, -2368 )
-force = 5000.0
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
 modulate = Color( 0.721569, 0.764706, 1, 1 )

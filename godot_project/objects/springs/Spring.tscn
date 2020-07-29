@@ -9,7 +9,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 128, 64 )
+extents = Vector2( 128, 128 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "SETUP"
@@ -93,12 +93,11 @@ tracks/0/keys = {
 
 [node name="Spring" type="Node2D"]
 script = ExtResource( 1 )
-force = 8000.0
+input_disabled_duration = 0.2
 
 [node name="CollisionTrigger" parent="." instance=ExtResource( 4 )]
 
 [node name="CollisionShape2D" parent="CollisionTrigger" index="0"]
-position = Vector2( 0, 64 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
