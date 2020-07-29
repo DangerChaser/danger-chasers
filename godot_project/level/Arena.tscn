@@ -44,6 +44,7 @@ disabled = true
 
 [node name="CameraLimitPositions" parent="CameraLimitTrigger" index="2"]
 line_width = 10.0
+[connection signal="all_actors_died" from="." to="RoundManager" method="next_round"]
 [connection signal="round_started" from="RoundManager" to="." method="next_round_started"]
 [connection signal="area_entered" from="ActivationArea" to="." method="_on_ActivationArea_area_entered"]
 

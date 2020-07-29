@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/levels/greenwood_hills/forest.tres" type="TileSet" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://interface/CinemaBars.tscn" type="PackedScene" id=12]
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=13]
 [ext_resource path="res://assets/sprites/white_circle_gradient_4096x4096.png" type="Texture" id=14]
+[ext_resource path="res://actors/slime_red/SlimeRed.tscn" type="PackedScene" id=15]
 [ext_resource path="res://level/levels/greenwood_hills/forest_cave.tres" type="TileSet" id=25]
 [ext_resource path="res://objects/springs/RedSpring.tscn" type="PackedScene" id=29]
 
@@ -27,6 +28,9 @@ extents = Vector2( 100, 816 )
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
 extents = Vector2( 2016, 672 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 128, 1280 )
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
@@ -156,7 +160,7 @@ shape = SubResource( 2 )
 
 [node name="Arena" parent="Arenas" index="0" instance=ExtResource( 5 )]
 position = Vector2( -4288, 512 )
-change_camera = false
+next_group_spawn_percent = [ "0.0", 0.33, 0.5 ]
 
 [node name="ActivationArea" parent="Arenas/Arena" index="1"]
 position = Vector2( -576, -608 )
@@ -165,37 +169,73 @@ position = Vector2( -576, -608 )
 shape = SubResource( 3 )
 
 [node name="Wolf" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
-position = Vector2( -3392, 1216 )
+position = Vector2( 128, -256 )
 object = ExtResource( 8 )
 
-[node name="Wolf2" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
-position = Vector2( -2688, 1216 )
+[node name="RedSlime" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
+position = Vector2( -160, 96 )
+object = ExtResource( 15 )
+
+[node name="RedSlime2" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
+position = Vector2( 640, 128 )
+object = ExtResource( 15 )
+
+[node name="RedSlime3" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
+position = Vector2( 1152, 160 )
+object = ExtResource( 15 )
+
+[node name="CloudJump" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
+position = Vector2( -1664, 160 )
+object = ExtResource( 10 )
+
+[node name="Group2" type="Node2D" parent="Arenas/Arena/ActorSpawnGroups" index="1"]
+
+[node name="Wolf" parent="Arenas/Arena/ActorSpawnGroups/Group2" index="0" instance=ExtResource( 6 )]
+position = Vector2( -3392, 170 )
 object = ExtResource( 8 )
 
-[node name="Wolf3" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
-position = Vector2( 800, 1280 )
+[node name="Wolf2" parent="Arenas/Arena/ActorSpawnGroups/Group2" index="1" instance=ExtResource( 6 )]
+position = Vector2( -2688, 170 )
 object = ExtResource( 8 )
 
-[node name="Wolf4" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
-position = Vector2( 1472, 1248 )
+[node name="Group3" type="Node2D" parent="Arenas/Arena/ActorSpawnGroups" index="2"]
+
+[node name="Wolf" parent="Arenas/Arena/ActorSpawnGroups/Group3" index="0" instance=ExtResource( 6 )]
+position = Vector2( -3392, 170 )
 object = ExtResource( 8 )
 
-[node name="Wolf5" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
-position = Vector2( 6624, 1120 )
+[node name="Wolf2" parent="Arenas/Arena/ActorSpawnGroups/Group3" index="1" instance=ExtResource( 6 )]
+position = Vector2( -2688, 170 )
 object = ExtResource( 8 )
+
+[node name="Wolf3" parent="Arenas/Arena/ActorSpawnGroups/Group3" index="2" instance=ExtResource( 6 )]
+position = Vector2( 800, 234 )
+object = ExtResource( 8 )
+
+[node name="Wolf4" parent="Arenas/Arena/ActorSpawnGroups/Group3" index="3" instance=ExtResource( 6 )]
+position = Vector2( 1472, 202 )
+object = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Arenas/Arena/Walls" index="0"]
+position = Vector2( 1856, 800 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena/Walls/StaticBody2D" index="0"]
+shape = SubResource( 7 )
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena" index="4"]
-visible = false
 position = Vector2( 288, -233.448 )
+
+[node name="Camera2D" parent="Arenas/Arena/CameraLimitTrigger" index="0"]
+zoom = Vector2( 2, 2 )
 
 [node name="ColliderTrigger" parent="Arenas/Arena/CameraLimitTrigger" index="1"]
 shape = SubResource( 4 )
 
 [node name="TopLeft" parent="Arenas/Arena/CameraLimitTrigger/CameraLimitPositions" index="0"]
-position = Vector2( -2272, 361.448 )
+position = Vector2( -4320, -214.552 )
 
 [node name="BottomRight" parent="Arenas/Arena/CameraLimitTrigger/CameraLimitPositions" index="1"]
-position = Vector2( 1696, 1705.45 )
+position = Vector2( 1472, 1865.45 )
 
 [node name="Arena2" parent="Arenas" index="1" instance=ExtResource( 5 )]
 position = Vector2( 2496, 64 )

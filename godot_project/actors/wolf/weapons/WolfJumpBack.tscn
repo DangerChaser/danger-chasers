@@ -24,6 +24,20 @@ tracks/0/keys = {
 "method": "disable"
 } ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/WindDown/DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "jump_back"
@@ -50,29 +64,12 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/Attacks/JumpBack/DamageSource")
+tracks/1/path = NodePath("Pivot/Attacks/JumpBack/Sfx")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable"
-}, {
-"args": [  ],
-"method": "disable"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("Pivot/Attacks/JumpBack/Sfx")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {

@@ -7,7 +7,8 @@ signal all_actors_died
 signal actor_died(actor)
 signal finished
 
-export(bool) var change_camera := true
+export var change_camera := true
+export(Array, float) var next_group_spawn_percent := ["0.0"]
 
 onready var round_manager := $RoundManager
 onready var actor_spawn_groups := $ActorSpawnGroups
@@ -16,13 +17,13 @@ onready var camera_limit := $CameraLimitTrigger
 onready var activation_area := $ActivationArea
 
 var number_actors : int
+var current_round_max_actors : int
 var actors := []
 var y_sort
 
 
 func _ready() -> void:
 	disable_walls()
-	connect("all_actors_died", round_manager, "next_round")
 
 func initialize(target_y_sort : YSort) -> void:
 	y_sort = target_y_sort
@@ -72,6 +73,7 @@ func spawn_actors(index : int, percent : float) -> void:
 		actors.push_back(actor)
 		actor.connect("died", self, "actor_died")
 	number_actors += new_actors.size()
+	current_round_max_actors = number_actors
 
 
 func actor_died(actor) -> void:
@@ -80,6 +82,11 @@ func actor_died(actor) -> void:
 	number_actors -= 1
 	if number_actors == 0:
 		emit_signal("all_actors_died")
+	
+	var current_round = round_manager.current_round
+	if current_round + 1 < next_group_spawn_percent.size():
+		if float(number_actors) / current_round_max_actors <= next_group_spawn_percent[current_round + 1]:
+			round_manager.next_round()
 
 
 func finish() -> void:
