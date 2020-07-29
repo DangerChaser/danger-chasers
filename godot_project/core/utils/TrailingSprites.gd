@@ -1,25 +1,38 @@
 extends Node2D
 
 export(NodePath) var sprite_path : NodePath
+export(Array, String) var active_animations : Array = ["quick_attack"]
 
 onready var base_sprite = get_node(sprite_path)
 
 var sprite_transforms : Dictionary = {}
 var enabled := false
+var active_sprites : int = 0
+
 
 func _ready() -> void:
-	set_physics_process(false)
+	set_process(false)
+	if not enabled:
+		for sprite in $Sprites.get_children():
+			sprite.visible = false
 
-func start() -> void:
+func start(animation : String = "") -> void:
+	if not animation in active_animations:
+		return
+	
 	$Timer.start()
-	set_physics_process(true)
+	enabled = true
+	set_process(true)
 
-func stop() -> void:
-	$Timer.stop()
-	set_physics_process(false)
+func stop(animation : String = "") -> void:
+	if not animation in active_animations:
+		return
+	
+	enabled = false
+	set_process(false)
 
 
-func _physics_process(delta) -> void:
+func _process(delta) -> void:
 	for sprite in sprite_transforms.keys():
 		sprite.global_transform = sprite_transforms[sprite]
 
@@ -38,6 +51,13 @@ func update_sprite() -> void:
 	last_sprite.hframes = base_sprite.hframes
 	last_sprite.frame = base_sprite.frame
 	last_sprite.flip_h = base_sprite.flip_h
+	last_sprite.normal_map = base_sprite.normal_map
 	
-	if not enabled:
+	if enabled and active_sprites < $Sprites.get_child_count():
+		last_sprite.visible = true
+		active_sprites += 1
+	elif not enabled:
 		last_sprite.visible = false
+		active_sprites -= 1
+		if active_sprites <= 0:
+			$Timer.stop()

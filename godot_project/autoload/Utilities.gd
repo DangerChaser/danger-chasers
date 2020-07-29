@@ -1,5 +1,8 @@
 extends Node
 
+const DROP_THRU_BIT = 6
+const PASSABLE_ACTOR = 7
+
 
 func get_all_subchildren(root) -> Array:
 	var subchildren := []

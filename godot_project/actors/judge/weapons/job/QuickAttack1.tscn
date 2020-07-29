@@ -98,7 +98,6 @@ actor_animation = "quick_attack"
 
 [node name="ActorSpawner" parent="Pivot/Attacks/ActorSpawnAttack/Spawners" index="0"]
 object = ExtResource( 3 )
-actor_name = ""
 
 [node name="QuickAttackEffect" parent="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects" index="0" instance=ExtResource( 4 )]
 

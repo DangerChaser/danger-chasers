@@ -125,8 +125,7 @@ func exit() -> void:
 func attack(attack_animation : String) -> void:
 	emit_signal("attack_started")
 	owner.animation_player.stop()
-	if owner.animation_player.has_animation(attack_animation):
-		owner.animation_player.play(attack_animation)
+	owner.animation_player.play(attack_animation)
 	if weapon.global_cooldown:
 		for weapon_child in owner.weapons.get_children():
 			if weapon_child.global_cooldown:

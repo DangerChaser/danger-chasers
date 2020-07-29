@@ -1,9 +1,6 @@
 extends MovementEffect
 class_name QuickAttackEffect
 
-const DROP_THRU_BIT = 6
-const PASSABLE_ACTOR = 7
-
 export(String) var horizontal_animation := "quick_attack"
 export(String) var up_animation := "jump_up_slash"
 export(String) var down_animation := "stomp"
@@ -16,18 +13,14 @@ func enter(args := {}) -> void:
 		target_direction = Vector2(owner.pivot.scale.x, 0.0).normalized()
 	motion.steering.velocity = target_direction * initial_speed
 
-	owner.set_collision_mask_bit(DROP_THRU_BIT, false)
+	owner.set_collision_mask_bit(Utilities.DROP_THRU_BIT, false)
 	
 	call_deferred("_rotate")
-	if owner.pivot.has_node("QuickAttackTrailingSprites"):
-		owner.pivot.get_node("QuickAttackTrailingSprites").visible = true
 
 
 func exit() -> void:
 	.exit()
-	owner.set_collision_mask_bit(DROP_THRU_BIT, true)
-	if owner.pivot.has_node("QuickAttackTrailingSprites"):
-		owner.pivot.get_node("QuickAttackTrailingSprites").visible = false
+	owner.set_collision_mask_bit(Utilities.DROP_THRU_BIT, true)
 
 
 func move(move_direction : Vector2) -> void:

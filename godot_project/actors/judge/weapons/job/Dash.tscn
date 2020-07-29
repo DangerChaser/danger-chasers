@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/judge/sfx/sword_slice.wav" type="AudioStream" id=2]
+[ext_resource path="res://combat/weapons/attack_additional_effects/DisableActorCollisionEffect.tscn" type="PackedScene" id=3]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/utils/SfxRandom.gd" type="Script" id=6]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=7]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
@@ -24,7 +25,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "attack"
 length = 0.31
 step = 0.05
@@ -80,7 +81,11 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=3]
+resource_local_to_scene = true
+extents = Vector2( 326.517, 84.8332 )
+
+[sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
 extents = Vector2( 30, 30 )
 
@@ -88,17 +93,17 @@ extents = Vector2( 30, 30 )
 cooldown = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
-anims/SETUP = SubResource( 6 )
-anims/attack = SubResource( 4 )
+anims/SETUP = SubResource( 1 )
+anims/attack = SubResource( 2 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
 
 [node name="Dash" parent="Pivot/Attacks" index="0" instance=ExtResource( 4 )]
-position = Vector2( -70, 70 )
 actor_animation = "quick_attack"
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Dash" index="0"]
+position = Vector2( -1.88776, -94.3875 )
 stream = ExtResource( 2 )
 bus = "Sfx"
 script = ExtResource( 6 )
@@ -106,10 +111,14 @@ random_pitch_low = 0.98
 random_pitch_high = 1.02
 
 [node name="DamageSource" parent="Pivot/Attacks/Dash" index="1"]
-position = Vector2( 55.9467, -20 )
-damage = 8
+position = Vector2( 113.929, -108.065 )
+damage = 14
 delay_milliseconds = 2
 screen_shake_amplitude = 5.0
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/Dash/DamageSource" index="0"]
+position = Vector2( 95.2441, 20.6362 )
+shape = SubResource( 3 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Dash/AdditionalEffects" index="0" instance=ExtResource( 7 )]
 initial_speed = 5069.0
@@ -123,8 +132,9 @@ mass = 20.0
 gravity = 4000.0
 max_speed = 2400.0
 
+[node name="DisableActorCollisionEffect" parent="Pivot/Attacks/Dash/AdditionalEffects" index="1" instance=ExtResource( 3 )]
+
 [node name="Dash2" parent="Pivot/Attacks" index="1" instance=ExtResource( 4 )]
-position = Vector2( -70, 70 )
 actor_animation = "quick_attack"
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Dash2" index="0"]
@@ -142,7 +152,7 @@ delay_milliseconds = 2
 screen_shake_amplitude = 5.0
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Dash2/DamageSource" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="MovementEffect" parent="Pivot/Attacks/Dash2/AdditionalEffects" index="0" instance=ExtResource( 7 )]
@@ -152,10 +162,14 @@ initialize_y = true
 [node name="MotionSteering" parent="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 3000.0
 mass = 20.0
+
+[node name="DisableActorCollisionEffect" parent="Pivot/Attacks/Dash2/AdditionalEffects" index="1" instance=ExtResource( 3 )]
 [connection signal="hit_confirmed" from="Pivot/Attacks/Dash" to="Pivot/Attacks/Dash/Sfx" method="play"]
 [connection signal="hit_confirmed" from="Pivot/Attacks/Dash2" to="Pivot/Attacks/Dash2/Sfx" method="play"]
 
 [editable path="Pivot/Attacks/Dash"]
+
+[editable path="Pivot/Attacks/Dash/DamageSource"]
 
 [editable path="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect"]
 

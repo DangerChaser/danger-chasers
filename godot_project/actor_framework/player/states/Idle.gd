@@ -78,10 +78,11 @@ func _physics_process(delta : float) -> void:
 	
 	var direction = Vector2(motion.get_input_direction().x, 0.0)
 	motion.move(direction)
-	if owner.animation_player.current_animation == animation or owner.animation_player.current_animation == run_animation or owner.animation_player.current_animation == walk_animation:
-		if motion.steering.velocity.length() > motion.steering.max_speed * stand_still_threshold_percent:
+	var current_animation = owner.animation_player.current_animation
+	if current_animation == animation or current_animation == run_animation or current_animation == walk_animation:
+		if not current_animation == run_animation and motion.steering.velocity.length() > motion.steering.max_speed * stand_still_threshold_percent:
 			owner.animation_player.play(run_animation)
-		else:
+		elif not current_animation == animation and motion.steering.velocity.length() < motion.steering.max_speed * stand_still_threshold_percent:
 			owner.animation_player.play(animation)
 
 

@@ -24,6 +24,7 @@ func play(name="", custom_blend:=-1.0, custom_speed:=1.0, from_end:=false):
 	for layer in extra_layers:
 		var anim_player = layer.get_node("AnimationPlayer")
 		if anim_player.has_animation(name):
+			anim_player.stop()
 			anim_player.play(name)
 
 
