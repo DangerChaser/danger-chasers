@@ -32,6 +32,8 @@ func _on_CollisionTrigger_area_entered(area):
 			"mass" : mass
 		}
 		state_machine.change_state(state_to_switch_to, {"gravity_speed" : 0.0, "animation" : animation, "external" : external_args})
+		if state_machine.get_current_state() is MotionState:
+			state_machine.get_current_state().external.velocity = external_args["velocity"]
 		state_machine.disable_state_change()
 		yield(get_tree().create_timer(input_disabled_duration), "timeout")
 		state_machine.enable_state_change()

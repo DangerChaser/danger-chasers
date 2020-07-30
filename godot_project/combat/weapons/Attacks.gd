@@ -59,8 +59,8 @@ func _physics_process(delta : float) -> void:
 		var args = {}
 		if current_attack:
 			args = current_attack.get_exit_args()
-		if owner.state_machine.has_state("Up"):
-			weapon.finished("Up", args)
+		if owner.state_machine.has_state("Jump"):
+			weapon.finished("Jump", args)
 
 
 func attack_if_ready(args := {}) -> void:

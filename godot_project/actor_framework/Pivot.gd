@@ -26,8 +26,16 @@ func play(name="", custom_blend:=-1.0, custom_speed:=1.0, from_end:=false):
 			emit_signal("animation_play_requested", old_name, name)
 		animation_player.play(name, custom_blend, custom_speed, from_end)
 		emit_signal("animation_started", name)
-	for pivot_transform in sub_pivot_transforms:
-		get_node(pivot_transform).play(name, custom_blend, custom_speed, from_end)
+	for pivot_transform_node_path in sub_pivot_transforms:
+		var pivot_transform = get_node(pivot_transform_node_path)
+		if pivot_transform.pivot.has_animation(name):
+			pivot_transform.play(name, custom_blend, custom_speed, from_end)
+		else:
+			pivot_transform.play("SETUP", custom_blend, custom_speed, from_end)
+
+
+func has_animation(name : String) -> bool:
+	return animation_player.has_animation(name)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

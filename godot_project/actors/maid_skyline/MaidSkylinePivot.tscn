@@ -8,8 +8,10 @@
 [ext_resource path="res://actors/maid_skyline/sprites/walk_normal.png" type="Texture" id=6]
 [ext_resource path="res://actor_framework/AnimationPlayer.gd" type="Script" id=9]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=13]
-[ext_resource path="res://actors/judge/particles/FootstepsLand.tscn" type="PackedScene" id=16]
-[ext_resource path="res://actors/judge/particles/FootstepsLaunch.tscn" type="PackedScene" id=17]
+[ext_resource path="res://actors/ariko/particles/FootstepsLand.tscn" type="PackedScene" id=16]
+[ext_resource path="res://actors/ariko/particles/FootstepsLaunch.tscn" type="PackedScene" id=17]
+
+
 
 
 

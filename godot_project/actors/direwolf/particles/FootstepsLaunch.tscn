@@ -1,7 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actors/judge/sprites/particles/footstep_launch.png" type="Texture" id=2]
+[ext_resource path="res://actors/ariko/particles/sprites/footstep_launch.png" type="Texture" id=2]
+
+
+
+
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true

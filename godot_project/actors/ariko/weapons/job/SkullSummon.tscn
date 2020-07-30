@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://combat/weapons/actor_spawners/ActorSpawnerWeapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/skull/Skull.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "spawn"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_cancel_animation"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/ActorSpawnAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ {
+
+} ],
+"method": "spawn"
+} ]
+}
+
+[node name="SkullSummon" instance=ExtResource( 1 )]
+cooldown = 5.0
+global_cooldown = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 1 )
+anims/spawn = SubResource( 2 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+grounded = false
+
+[node name="ActorSpawnAttack" parent="Pivot/Attacks" index="0"]
+actor_animation = "slash"
+
+[node name="ActorSpawner" parent="Pivot/Attacks/ActorSpawnAttack/Spawners" index="0"]
+object = ExtResource( 3 )
+
+[node name="MovementEffect" parent="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects" index="0" instance=ExtResource( 2 )]
+
+[editable path="Pivot/Attacks/ActorSpawnAttack"]

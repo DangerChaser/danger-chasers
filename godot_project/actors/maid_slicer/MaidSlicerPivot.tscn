@@ -14,8 +14,10 @@
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actors/maid_slicer/sprites/stand_normal.png" type="Texture" id=14]
 [ext_resource path="res://actors/maid_slicer/sprites/bow_normal.png" type="Texture" id=15]
-[ext_resource path="res://actors/judge/particles/FootstepsLand.tscn" type="PackedScene" id=16]
-[ext_resource path="res://actors/judge/particles/FootstepsLaunch.tscn" type="PackedScene" id=17]
+[ext_resource path="res://actors/ariko/particles/FootstepsLand.tscn" type="PackedScene" id=16]
+[ext_resource path="res://actors/ariko/particles/FootstepsLaunch.tscn" type="PackedScene" id=17]
+
+
 
 
 

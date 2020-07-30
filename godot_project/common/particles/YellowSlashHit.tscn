@@ -2,7 +2,8 @@
 
 [ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://common/particles/yellow_slash.png" type="Texture" id=2]
-[ext_resource path="res://actors/judge/sfx/qubodup_slash.wav" type="AudioStream" id=3]
+[ext_resource path="res://actors/ariko/sfx/qubodup_slash.wav" type="AudioStream" id=3]
+
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true

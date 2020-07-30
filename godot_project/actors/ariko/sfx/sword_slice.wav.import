@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sword_slice.wav-a6334c1a08fdcdf5c4ea0cf213ed336b.sample"
+
+[deps]
+
+source_file="res://actors/ariko/sfx/sword_slice.wav"
+dest_files=[ "res://.import/sword_slice.wav-a6334c1a08fdcdf5c4ea0cf213ed336b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

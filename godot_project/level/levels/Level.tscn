@@ -25,8 +25,10 @@ autoplay = true
 bus = "Ambience"
 
 [node name="Background" type="Node2D" parent="."]
+z_index = -69
 
 [node name="Ground" type="Node2D" parent="."]
+z_index = -10
 
 [node name="Colliders" type="Node2D" parent="."]
 
@@ -42,6 +44,7 @@ script = ExtResource( 2 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Foreground" type="Node2D" parent="."]
+z_index = 10
 
 [node name="PlayerSpawnPoints" type="Node2D" parent="."]
 

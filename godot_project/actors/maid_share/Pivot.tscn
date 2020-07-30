@@ -32,11 +32,13 @@
 [ext_resource path="res://actors/maid_share/sprites/jump_prepare.png" type="Texture" id=30]
 [ext_resource path="res://actors/maid_share/sprites/arm_extend_normal.png" type="Texture" id=31]
 [ext_resource path="res://actors/maid_share/sprites/run.png" type="Texture" id=32]
-[ext_resource path="res://actors/judge/particles/FootstepsLaunch.tscn" type="PackedScene" id=33]
-[ext_resource path="res://actors/judge/particles/LandDust.tscn" type="PackedScene" id=34]
-[ext_resource path="res://actors/judge/particles/JumpDust.tscn" type="PackedScene" id=35]
-[ext_resource path="res://actors/judge/particles/FootstepsLand.tscn" type="PackedScene" id=36]
+[ext_resource path="res://actors/ariko/particles/FootstepsLaunch.tscn" type="PackedScene" id=33]
+[ext_resource path="res://actors/ariko/particles/LandDust.tscn" type="PackedScene" id=34]
+[ext_resource path="res://actors/ariko/particles/JumpDust.tscn" type="PackedScene" id=35]
+[ext_resource path="res://actors/ariko/particles/FootstepsLand.tscn" type="PackedScene" id=36]
 [ext_resource path="res://actors/maid_share/BasicShareShotgunPivot.tscn" type="PackedScene" id=37]
+
+
 
 
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ceiling_collision.wav-c50ee7b83e3a40bd4dfed6ad7f893827.sample"
+
+[deps]
+
+source_file="res://actors/ariko/sfx/ceiling_collision.wav"
+dest_files=[ "res://.import/ceiling_collision.wav-c50ee7b83e3a40bd4dfed6ad7f893827.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

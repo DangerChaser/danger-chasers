@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/audio/music/MusicPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/pause_menu/PauseMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/LevelLoader.gd" type="Script" id=5]
-[ext_resource path="res://actors/judge/Judge.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/ariko/Ariko.tscn" type="PackedScene" id=6]
 [ext_resource path="res://items/Inventory.tscn" type="PackedScene" id=7]
 [ext_resource path="res://core/camera/Camera.tscn" type="PackedScene" id=8]
 

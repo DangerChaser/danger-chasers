@@ -2,10 +2,12 @@
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/music/Zextillion - Noa's Redemption Soundtrack - 01 Noa.ogg" type="AudioStream" id=2]
-[ext_resource path="res://actors/judge/Judge.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/ariko/Ariko.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/levels/adventurers_guild/adventurers_guild_tileset.tres" type="TileSet" id=4]
 [ext_resource path="res://level/levels/tidal_forest/vnitti_taiga.tres" type="TileSet" id=5]
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=6]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
