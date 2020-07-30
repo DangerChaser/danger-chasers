@@ -1,3 +1,4 @@
+# TODO: Delete, legacy code
 extends AttackAdditionalEffect
 class_name SpawnHitParticlesEffect
 

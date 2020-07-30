@@ -9,7 +9,7 @@ func enter(args := {}) -> void:
 		update_look_direction(args["look_direction"])
 	
 	.enter(args)
-	owner.animation_player.play(animation)
+	owner.play_animation(animation)
 
 
 func anim_finished(anim_name : String) -> void:

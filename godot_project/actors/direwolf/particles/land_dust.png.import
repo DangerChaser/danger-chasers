@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jump_back.png-6e70b700b8e0670184e7a26511472c3a.stex"
+path="res://.import/land_dust.png-26cee2b7cc295e079b15daac1a7b711e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://actors/direwolf/sprites/jump_back.png"
-dest_files=[ "res://.import/jump_back.png-6e70b700b8e0670184e7a26511472c3a.stex" ]
+source_file="res://actors/direwolf/particles/land_dust.png"
+dest_files=[ "res://.import/land_dust.png-26cee2b7cc295e079b15daac1a7b711e.stex" ]
 
 [params]
 

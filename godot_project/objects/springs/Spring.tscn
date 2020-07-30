@@ -93,7 +93,6 @@ tracks/0/keys = {
 
 [node name="Spring" type="Node2D"]
 script = ExtResource( 1 )
-input_disabled_duration = 0.2
 
 [node name="CollisionTrigger" parent="." instance=ExtResource( 4 )]
 

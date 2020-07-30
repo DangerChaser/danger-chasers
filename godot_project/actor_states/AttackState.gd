@@ -114,7 +114,6 @@ func exit() -> void:
 	owner.set_rotation(rotation)
 	
 	weapon.exit()
-	owner.animation_player.stop()
 	
 	active = false
 	if set_weapon_buffer:
@@ -124,8 +123,7 @@ func exit() -> void:
 
 func attack(attack_animation : String) -> void:
 	emit_signal("attack_started")
-	owner.animation_player.stop()
-	owner.animation_player.play(attack_animation)
+	owner.play_animation(attack_animation)
 	if weapon.global_cooldown:
 		for weapon_child in owner.weapons.get_children():
 			if weapon_child.global_cooldown:

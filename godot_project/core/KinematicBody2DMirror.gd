@@ -3,7 +3,7 @@ extends KinematicBody2D
 class_name KinematicBody2DMirror
 
 var look_direction : Vector2 = Vector2.RIGHT # Unit vector
-onready var pivot := $Pivot
+onready var pivot : Pivot = $Pivot
 onready var collider := $CollisionBox
 
 func set_rotation(value : float) -> void:

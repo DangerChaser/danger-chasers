@@ -17,6 +17,8 @@
 [ext_resource path="res://common/particles/warning_mark/WarningMark.tscn" type="PackedScene" id=15]
 [ext_resource path="res://common/particles/warning_mark/WarningArea.tscn" type="PackedScene" id=16]
 
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001

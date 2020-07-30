@@ -1,10 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=2]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/judge/sfx/sword_slice.wav" type="AudioStream" id=4]
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=5]
-[ext_resource path="res://common/particles/YellowSlashHit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/judge/particles/SwordHit.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -77,9 +78,6 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 140.474
-
 [node name="UpperSlash" instance=ExtResource( 1 )]
 cooldown = 0.0
 
@@ -94,16 +92,13 @@ grounded = false
 actor_animation = "jump_up_slash"
 weapon_animation = "slash_up"
 
-[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/SlashUp" index="0"]
+[node name="DamageSource" parent="Pivot/Attacks/SlashUp" index="0" instance=ExtResource( 2 )]
+hit_particles = ExtResource( 6 )
+damage = 20
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/SlashUp" index="1"]
 stream = ExtResource( 4 )
 bus = "Sfx"
-
-[node name="DamageSource" parent="Pivot/Attacks/SlashUp" index="1"]
-position = Vector2( -1.20934, -44.3914 )
-damage = 8
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/SlashUp/DamageSource" index="0"]
-shape = SubResource( 3 )
 
 [node name="JumpEffect" parent="Pivot/Attacks/SlashUp/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
@@ -115,16 +110,8 @@ max_speed = 1200.0
 [node name="Gravity" parent="Pivot/Attacks/SlashUp/AdditionalEffects/JumpEffect/Motion" index="2"]
 max_speed = 800.0
 
-[node name="ObjectSpawner" parent="Pivot/Attacks/SlashUp/HitParticles" index="0"]
-object = ExtResource( 6 )
-DRAW_COLOR = Color( 0.886275, 0.192157, 0.713726, 1 )
-
 [editable path="Pivot/Attacks/SlashUp"]
-
-[editable path="Pivot/Attacks/SlashUp/DamageSource"]
 
 [editable path="Pivot/Attacks/SlashUp/AdditionalEffects/JumpEffect"]
 
 [editable path="Pivot/Attacks/SlashUp/AdditionalEffects/JumpEffect/Motion"]
-
-[editable path="Pivot/Attacks/SlashUp/HitParticles"]

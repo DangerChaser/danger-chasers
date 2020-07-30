@@ -28,6 +28,8 @@ func _ready() -> void:
 	for effect in combo_effects.get_children():
 		effect.connect("finished", self, "effect_finished")
 		effect.weapon = get_parent().get_parent().get_parent().get_parent()
+	if has_node("DamageSource"):
+		$DamageSource.connect("hit_confirmed_no_actor", self, "emit_signal", ["hit_confirmed"])
 
 
 func effect_finished(next_state:="", args:={}):
@@ -69,15 +71,6 @@ func exit() -> void:
 		combo_ready = false
 		for effect in combo_effects.get_children():
 			effect.exit()
-
-
-func confirm_hit(hurtbox) -> void:
-	$HitParticles.spawn(($DamageSource.collider.global_position + hurtbox.collider.global_position) / 2)
-	emit_signal("hit_confirmed")
-
-
-func _on_DamageSource_hit_confirmed_hurtbox(hurtbox):
-	confirm_hit(hurtbox)
 
 
 func pause() -> void:

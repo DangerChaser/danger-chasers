@@ -1,3 +1,4 @@
+# Only real use so far is to play an sfx once for an attack that loops (.e.g stomps/jumps)
 extends AttackAdditionalEffect
 class_name PlaySfxEffect
 

@@ -20,8 +20,9 @@ func apply(delta : float) -> void:
 		return
 	
 	if owner.is_on_floor():
-		var floor_velocity = owner.get_floor_velocity()
-		speed = floor_velocity.y
+#		var floor_velocity = owner.get_floor_velocity()
+#		speed = floor_velocity.y
+		speed = 0.0
 		velocity = direction * speed
 		return
 	else:

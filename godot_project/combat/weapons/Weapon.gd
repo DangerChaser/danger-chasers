@@ -61,9 +61,9 @@ func set_friendly_teams(_friendly_teams : Array) -> void:
 	for attack in $Pivot/Attacks.get_children():
 		if attack is SpawnGroup:
 			attack.friendly_teams = friendly_teams
-		for child in Utilities.get_all_subchildren(attack):
-			if child is DamageSource:
-				child.friendly_teams = friendly_teams
+	for child in Utilities.get_all_subchildren(self):
+		if child is DamageSource:
+			child.friendly_teams = friendly_teams
 
 
 func enter(args := {}) -> void:

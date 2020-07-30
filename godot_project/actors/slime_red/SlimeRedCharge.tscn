@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/judge/particles/SwordHit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=11]
 [ext_resource path="res://actors/goblin/sfx/swing.wav" type="AudioStream" id=12]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.gd" type="Script" id=13]
@@ -10,7 +12,7 @@
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/Attacks/Charge/DamageSource")
+tracks/0/path = NodePath("DamageSource")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -48,7 +50,7 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/Attacks/Charge/DamageSource")
+tracks/1/path = NodePath("DamageSource")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -65,7 +67,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("Pivot/Attacks/Charge/Sfx")
+tracks/2/path = NodePath("Sfx")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -81,7 +83,7 @@ tracks/2/keys = {
 
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
-extents = Vector2( 46.3324, 40.2843 )
+extents = Vector2( 96, 32 )
 
 [node name="RedSlime" instance=ExtResource( 1 )]
 cooldown = 0.0
@@ -90,6 +92,18 @@ cooldown = 0.0
 anims/SETUP = SubResource( 1 )
 anims/charge = SubResource( 2 )
 
+[node name="Sfx" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource( 12 )
+bus = "Sfx"
+
+[node name="DamageSource" parent="." index="2" instance=ExtResource( 2 )]
+hit_particles = ExtResource( 3 )
+damage = 5
+
+[node name="CollisionShape2D" parent="DamageSource" index="0"]
+position = Vector2( 32, 0 )
+shape = SubResource( 3 )
+
 [node name="Attacks" parent="Pivot" index="0"]
 can_loop = true
 
@@ -97,25 +111,14 @@ can_loop = true
 actor_animation = "jump"
 weapon_animation = "charge"
 
-[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Charge" index="0"]
-stream = ExtResource( 12 )
-bus = "Sfx"
-
-[node name="DamageSource" parent="Pivot/Attacks/Charge" index="1"]
-position = Vector2( 0.513336, -6.67345 )
-damage = 1
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/Charge/DamageSource" index="0"]
-shape = SubResource( 3 )
-
 [node name="Movement" type="Node2D" parent="Pivot/Attacks/Charge/AdditionalEffects" index="0"]
 script = ExtResource( 13 )
 initial_speed = 0.0
 
 [node name="Motion" parent="Pivot/Attacks/Charge/AdditionalEffects/Movement" index="0" instance=ExtResource( 14 )]
 
-[editable path="Pivot/Attacks/Charge"]
+[editable path="DamageSource"]
 
-[editable path="Pivot/Attacks/Charge/DamageSource"]
+[editable path="Pivot/Attacks/Charge"]
 
 [editable path="Pivot/Attacks/Charge/AdditionalEffects/Movement/Motion"]

@@ -28,8 +28,8 @@ func _physics_process(delta : float) -> void:
 	
 	var direction = Vector2.RIGHT.rotated(owner.get_rotation())
 	motion.move(direction)
-	if owner.animation_player.current_animation == animation or owner.animation_player.current_animation == run_animation or owner.animation_player.current_animation == walk_animation:
+	if owner.pivot.animation_player.current_animation == animation or owner.pivot.animation_player.current_animation == run_animation or owner.pivot.animation_player.current_animation == walk_animation:
 		if motion.steering.velocity.length() > motion.steering.max_speed * stand_still_threshold_percent:
-			owner.animation_player.play(run_animation)
+			owner.play_animation(run_animation)
 		else:
-			owner.animation_player.play(animation)
+			owner.play_animation(animation)

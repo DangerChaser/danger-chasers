@@ -28,7 +28,7 @@ func enter(args := {}) -> void:
 	
 	if animation_player and animation_player.has_animation(animation):
 		animation_player.play(animation)
-	owner.animation_player.play(owner_animation)
+	owner.play_animation(owner_animation)
 	owner.set_rotation(rotation)
 	
 	set_physics_process(true)

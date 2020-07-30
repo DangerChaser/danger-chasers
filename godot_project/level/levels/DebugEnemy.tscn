@@ -6,7 +6,7 @@
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/wolf/Wolf.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actors/direwolf/Direwolf.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/moving_platforms/IronMovingPlatform8x2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interface/CinemaBars.tscn" type="PackedScene" id=9]
 
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -262.064, 503.968 ), Vector2( 1852.08, 503.968 ) ]
+"values": [ Vector2( -0.000274658, 146.15 ), Vector2( 1852.08, 83.1541 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -54,7 +54,12 @@ extents = Vector2( 304, 272 )
 skybox_color = Color( 0.635294, 0.839216, 0.870588, 1 )
 
 [node name="IronMovingPlatform8x2" parent="." index="0" instance=ExtResource( 8 )]
-position = Vector2( -262.064, 503.968 )
+position = Vector2( 1659.15, 89.7162 )
+editor_process = false
+speed = 400.0
+waypoints_path = NodePath("")
+loop = true
+autostart = true
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="IronMovingPlatform8x2" index="4"]
 "anims/New Anim" = SubResource( 1 )
@@ -108,10 +113,6 @@ shape = SubResource( 5 )
 
 [node name="ActorSpawner" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 object = ExtResource( 7 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena" index="4"]
 visible = false
@@ -123,13 +124,8 @@ zoom = Vector2( 1.7, 1.7 )
 [node name="ColliderTrigger" parent="Arenas/Arena/CameraLimitTrigger" index="1"]
 shape = SubResource( 6 )
 
-[node name="CameraLimitPositions" parent="Arenas/Arena/CameraLimitTrigger" index="2"]
-line_width = 10.0
-
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( 3.36926, -0.168945 )
-transition_out_animation = "left_to_right"
-transition_out_duration = 0.5
 
 [node name="CameraLimitTrigger" parent="PlayerSpawnPoints/0" index="0"]
 position = Vector2( 1003.12, 19.1069 )

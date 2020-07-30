@@ -1,0 +1,237 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/fox/sfx/charge.wav" type="AudioStream" id=2]
+[ext_resource path="res://common/particles/warning_mark/WarningMark.tscn" type="PackedScene" id=3]
+[ext_resource path="res://common/particles/warning_mark/WarningArea.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/wolf/weapons/attack.png" type="Texture" id=7]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=11]
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "charge"
+length = 1.1
+step = 0.03
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.93, 0.96, 0.99 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_cancel_animation"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("ChargeSfx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pivot/Sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "slash"
+tracks/0/type = "method"
+tracks/0/path = NodePath("SlashSfx")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.51
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("WarningArea")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+
+[node name="DirewolfSlash" instance=ExtResource( 1 )]
+cooldown = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 1 )
+anims/charge = SubResource( 2 )
+anims/slash = SubResource( 3 )
+anims/spin = SubResource( 4 )
+
+[node name="ChargeSfx" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource( 2 )
+bus = "Sfx"
+
+[node name="SlashSfx" type="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource( 2 )
+bus = "Sfx"
+
+[node name="WarningArea" parent="." index="3" instance=ExtResource( 4 )]
+
+[node name="WarningMarkScanner" parent="WarningArea" index="1"]
+position = Vector2( 1792, 0 )
+
+[node name="WarningMark" parent="WarningArea/Marks" index="0" instance=ExtResource( 3 )]
+position = Vector2( 256, 0 )
+
+[node name="WarningMark2" parent="WarningArea/Marks" index="1" instance=ExtResource( 3 )]
+position = Vector2( 384, 0 )
+
+[node name="WarningMark3" parent="WarningArea/Marks" index="2" instance=ExtResource( 3 )]
+position = Vector2( 512, 0 )
+
+[node name="WarningMark4" parent="WarningArea/Marks" index="3" instance=ExtResource( 3 )]
+position = Vector2( 640, 0 )
+
+[node name="WarningMark5" parent="WarningArea/Marks" index="4" instance=ExtResource( 3 )]
+position = Vector2( 768, 0 )
+
+[node name="WarningMark6" parent="WarningArea/Marks" index="5" instance=ExtResource( 3 )]
+position = Vector2( 896, 0 )
+
+[node name="WarningMark7" parent="WarningArea/Marks" index="6" instance=ExtResource( 3 )]
+position = Vector2( 1024, 0 )
+
+[node name="WarningMark8" parent="WarningArea/Marks" index="7" instance=ExtResource( 3 )]
+position = Vector2( 1152, 0 )
+
+[node name="WarningMark9" parent="WarningArea/Marks" index="8" instance=ExtResource( 3 )]
+position = Vector2( 1280, 0 )
+
+[node name="WarningMark10" parent="WarningArea/Marks" index="9" instance=ExtResource( 3 )]
+position = Vector2( 1408, 0 )
+
+[node name="WarningMark11" parent="WarningArea/Marks" index="10" instance=ExtResource( 3 )]
+position = Vector2( 1536, 0 )
+
+[node name="WarningMark12" parent="WarningArea/Marks" index="11" instance=ExtResource( 3 )]
+position = Vector2( 1664, 0 )
+
+[node name="WarningMark13" parent="WarningArea/Marks" index="12" instance=ExtResource( 3 )]
+position = Vector2( 1792, 0 )
+
+[node name="Sprite" type="Sprite" parent="Pivot" index="0"]
+position = Vector2( 104, -128 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+hframes = 10
+
+[node name="Attacks" parent="Pivot" index="1"]
+can_loop = true
+
+[node name="Spin" parent="Pivot/Attacks" index="0" instance=ExtResource( 11 )]
+actor_animation = "spin"
+weapon_animation = "spin"
+
+[node name="Charge" parent="Pivot/Attacks" index="1" instance=ExtResource( 11 )]
+actor_animation = "idle"
+weapon_animation = "slash"
+
+[node name="MovementEffect" parent="Pivot/Attacks/Charge/AdditionalEffects" index="0" instance=ExtResource( 13 )]
+initial_speed = 10000.0
+
+[node name="MotionSteering" parent="Pivot/Attacks/Charge/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 0.0
+
+[node name="Slash" parent="Pivot/Attacks" index="2" instance=ExtResource( 11 )]
+actor_animation = "jump"
+weapon_animation = "charge"
+
+[editable path="WarningArea"]
+
+[editable path="Pivot/Attacks/Charge"]
+
+[editable path="Pivot/Attacks/Charge/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/Charge/AdditionalEffects/MovementEffect/Motion"]
+
+[editable path="Pivot/Attacks/Slash"]

@@ -13,6 +13,8 @@
 [ext_resource path="res://actors/ruby_golem_pilot/shoot_2_normal.png" type="Texture" id=11]
 [ext_resource path="res://actors/ruby_golem_pilot/shoot_2.png" type="Texture" id=12]
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 65.2144, 96 )

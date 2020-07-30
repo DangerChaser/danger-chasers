@@ -19,7 +19,7 @@ func enter(args := {}) -> void:
 #	external.velocity.y = 0
 	
 	if args.has("animation"):
-		owner.animation_player.play(args["animation"])
+		owner.play_animation(args["animation"])
 	
 	if total_velocity.y >= 0:
 		change_state(State.FALL)
@@ -30,9 +30,9 @@ func enter(args := {}) -> void:
 func change_state(new_state) -> void:
 	state = new_state
 	if state == State.UP:
-		owner.animation_player.play(up_animation)
+		owner.play_animation(up_animation)
 	else:
-		owner.animation_player.play(fall_animation)
+		owner.play_animation(fall_animation)
 
 
 func exit() -> void:

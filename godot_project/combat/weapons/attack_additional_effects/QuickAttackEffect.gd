@@ -27,8 +27,8 @@ func move(move_direction : Vector2) -> void:
 	.move(move_direction)
 	var angle = motion.total_velocity.angle()
 	if abs(angle - Vector2.UP.angle()) <= PI / 4:
-		owner.animation_player.play(up_animation)
+		owner.play_animation(up_animation)
 	elif abs(angle - Vector2.DOWN.angle()) <= PI / 4:
-		owner.animation_player.play(down_animation)
+		owner.play_animation(down_animation)
 	else:
-		owner.animation_player.play(horizontal_animation)
+		owner.play_animation(horizontal_animation)

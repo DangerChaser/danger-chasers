@@ -17,6 +17,8 @@
 
 
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 50, 50 )

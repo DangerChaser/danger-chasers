@@ -24,11 +24,11 @@ func start(animation : String = "") -> void:
 	enabled = true
 	set_process(true)
 
-# new_animation is a dummy variable
+
+# new_animation is a dummy variable for connecting to AnimationPlayer.animation_changed signal
 func stop(animation : String = "", new_animation = "") -> void:
 	if active_animations.size() > 0 and not animation in active_animations:
 		return
-	
 	enabled = false
 	set_process(false)
 

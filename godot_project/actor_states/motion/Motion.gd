@@ -48,6 +48,7 @@ func exit() -> void:
 	.exit()
 	steering.exit()
 	gravity.exit()
+	external.exit()
 
 
 func _physics_process(delta : float) -> void:

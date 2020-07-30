@@ -28,8 +28,7 @@ func make_initial_dash_timer() -> void:
 func enter(args := {}) -> void:
 	.enter(args)
 	initial_dash_timer.start()
-	if owner.animation_player.has_animation(animation):
-		owner.animation_player.play(animation)
+	owner.play_animation(animation)
 
 
 func exit() -> void:

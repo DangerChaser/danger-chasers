@@ -6,8 +6,7 @@ export(String) var next_state := ""
 
 func enter(args := {}) -> void:
 	.enter(args)
-	if owner.animation_player.has_animation(animation):
-		owner.animation_player.play(animation)
+	owner.play_animation(animation)
 
 
 func anim_finished(animation_name : String) -> void:

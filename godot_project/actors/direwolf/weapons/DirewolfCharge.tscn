@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/fox/sfx/charge.wav" type="AudioStream" id=2]
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=3]
 [ext_resource path="res://combat/weapons/attack_additional_effects/NextAttackOnFloor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/wolf/particles/AttackHit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/wolf/weapons/attack.png" type="Texture" id=7]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=11]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=13]
@@ -13,7 +13,7 @@
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/Attacks/Charge/DamageSource")
+tracks/0/path = NodePath("DamageSource")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -76,7 +76,7 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/Attacks/Charge/DamageSource")
+tracks/1/path = NodePath("DamageSource")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -96,7 +96,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("Pivot/Attacks/Charge/Sfx")
+tracks/2/path = NodePath("Sfx")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -162,14 +162,6 @@ tracks/6/keys = {
 resource_name = "wind_down"
 length = 0.2
 
-[sub_resource type="RectangleShape2D" id=4]
-resource_local_to_scene = true
-extents = Vector2( 128, 128 )
-
-[sub_resource type="RectangleShape2D" id=5]
-resource_local_to_scene = true
-extents = Vector2( 30, 30 )
-
 [node name="WolfCharge" instance=ExtResource( 1 )]
 cooldown = 0.0
 
@@ -177,6 +169,13 @@ cooldown = 0.0
 anims/SETUP = SubResource( 1 )
 anims/charge = SubResource( 2 )
 anims/wind_down = SubResource( 3 )
+
+[node name="DamageSource" parent="." index="1" instance=ExtResource( 5 )]
+damage = 9
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource( 2 )
+bus = "Sfx"
 
 [node name="Sprite" type="Sprite" parent="Pivot" index="0"]
 visible = false
@@ -201,19 +200,6 @@ can_loop = true
 actor_animation = "jump"
 weapon_animation = "charge"
 
-[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Charge" index="0"]
-stream = ExtResource( 2 )
-bus = "Sfx"
-
-[node name="DamageSource" parent="Pivot/Attacks/Charge" index="1"]
-damage = 10
-delay_milliseconds = 5
-screen_shake_amplitude = 30.0
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/Charge/DamageSource" index="0"]
-position = Vector2( 96, -96 )
-shape = SubResource( 4 )
-
 [node name="JumpEffect" parent="Pivot/Attacks/Charge/AdditionalEffects" index="0" instance=ExtResource( 3 )]
 initial_speed = 1700.0
 jump_force = 1400.0
@@ -229,20 +215,9 @@ gravity = 2000.0
 
 [node name="NextAttackOnFloor" parent="Pivot/Attacks/Charge/AdditionalEffects" index="1" instance=ExtResource( 4 )]
 
-[node name="HitParticles" parent="Pivot/Attacks/Charge" index="4"]
-particles = ExtResource( 5 )
-
 [node name="WindDown" parent="Pivot/Attacks" index="1" instance=ExtResource( 11 )]
 actor_animation = "land"
 weapon_animation = "wind_down"
-
-[node name="DamageSource" parent="Pivot/Attacks/WindDown" index="0"]
-visible = false
-damage = 1
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/WindDown/DamageSource" index="0"]
-shape = SubResource( 5 )
-disabled = true
 
 [node name="MovementEffect" parent="Pivot/Attacks/WindDown/AdditionalEffects" index="0" instance=ExtResource( 13 )]
 initial_speed = 1000.0
@@ -253,15 +228,11 @@ mass = 16.0
 
 [editable path="Pivot/Attacks/Charge"]
 
-[editable path="Pivot/Attacks/Charge/DamageSource"]
-
 [editable path="Pivot/Attacks/Charge/AdditionalEffects/JumpEffect"]
 
 [editable path="Pivot/Attacks/Charge/AdditionalEffects/JumpEffect/Motion"]
 
 [editable path="Pivot/Attacks/WindDown"]
-
-[editable path="Pivot/Attacks/WindDown/DamageSource"]
 
 [editable path="Pivot/Attacks/WindDown/AdditionalEffects/MovementEffect"]
 

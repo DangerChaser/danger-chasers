@@ -3,7 +3,6 @@
 [ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/judge/sprites/particles/footstep_launch.png" type="Texture" id=2]
 
-
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
 particles_anim_h_frames = 3
@@ -11,8 +10,8 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0.334884, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+offsets = PoolRealArray( 0.328612, 0.631728, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )

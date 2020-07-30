@@ -6,6 +6,8 @@
 
 
 
+
+
 [node name="Shield" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 

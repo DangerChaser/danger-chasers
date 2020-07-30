@@ -18,6 +18,8 @@
 [ext_resource path="res://common/particles/warning_mark/WarningArea.tscn" type="PackedScene" id=16]
 [ext_resource path="res://actors/till/particles/FireColumn20Across.tscn" type="PackedScene" id=17]
 
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001

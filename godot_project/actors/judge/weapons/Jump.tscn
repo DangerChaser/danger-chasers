@@ -8,20 +8,6 @@
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
-tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/Attacks/Jump/DamageSource")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "disable"
-} ]
-}
 
 [sub_resource type="Animation" id=2]
 resource_name = "jump"
@@ -77,10 +63,6 @@ weapon_animation = "jump"
 [node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Jump" index="0"]
 stream = ExtResource( 4 )
 bus = "Sfx"
-
-[node name="DamageSource" parent="Pivot/Attacks/Jump" index="1"]
-position = Vector2( 67.5257, 0 )
-damage = 1
 
 [node name="JumpEffect" parent="Pivot/Attacks/Jump/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0

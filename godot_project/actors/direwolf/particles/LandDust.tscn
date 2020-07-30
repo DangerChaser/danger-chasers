@@ -2,8 +2,7 @@
 
 [ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/judge/sfx/jump_dust.wav" type="AudioStream" id=2]
-[ext_resource path="res://actors/judge/sprites/particles/land_dust.png" type="Texture" id=3]
-
+[ext_resource path="res://actors/direwolf/particles/land_dust.png" type="Texture" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -12,8 +11,8 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0.583756, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+offsets = PoolRealArray( 0.303116, 0.583756, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )

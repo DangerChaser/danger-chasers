@@ -24,9 +24,9 @@ func enter(args := {}) -> void:
 		return
 	
 	if args.has("initial_animation"):
-		owner.animation_player.play(args["initial_animation"])
+		owner.play_animation(args["initial_animation"])
 	else:
-		owner.animation_player.play(animation)
+		owner.play_animation(animation)
 	
 	if look_direction:
 		update_look_direction(look_direction)
@@ -88,7 +88,7 @@ func _on_Timer_timeout():
 
 
 func anim_finished(anim_name : String) -> void:
-	owner.animation_player.play(animation)
+	owner.play_animation(animation)
 
 
 func pause() -> void:

@@ -9,19 +9,21 @@ signal hit_confirmed_hurtbox(hurtbox)
 signal hit_confirmed_actor(hit_actor)
 signal hit_confirmed_no_actor
 
-export(int) var damage : int = 0
+export var hit_particles : PackedScene
+export var damage : int = 0
 # var effect : StatusEffect = StatusEffect.new()
-export(float) var stagger_duration : float = 0.5
+export var stagger_duration := 0.5
 export var stagger_mass := 8.0
 export var stagger_force := 800.0
-export(int) var delay_milliseconds : int = 0
-export(float) var screen_shake_amplitude : float = 0.0
-export(float) var screen_shake_duration : float = 0.0
-export(float, EASE) var screen_shake_damp : float = 1.8
-export(Vector2) var stagger_direction_while_right := Vector2()
+export var delay_milliseconds : int = 0
+export var screen_shake_amplitude := 0.0
+export var screen_shake_duration := 0.0
+export(float, EASE) var screen_shake_damp := 1.8
+export var stagger_direction_while_right := Vector2()
 export var revenge_value := 1.0
 
 onready var collider : CollisionShape2D = $CollisionShape2D
+onready var hit_particles_spawner : ParticleSpawner = $HitParticlesSpawner
 
 var friendly_teams : Array = []
 var confirmed_hits = 0
@@ -30,6 +32,14 @@ var confirmed_hits = 0
 func _ready() -> void:
 	assert ($CollisionShape2D.shape != null)
 	assert (damage != 0)
+	if not hit_particles_spawner.particles:
+		hit_particles_spawner.particles = hit_particles
+
+
+#func set_owner(new_owner) -> void:
+#	owner = new_owner
+#	if owner.has_method("get_friendly_teams"):
+#		friendly_teams = owner.get_friendly_teams()
 
 
 func add_damage(additional_damage : int = 0) -> void:
@@ -43,6 +53,7 @@ func confirm_hit(actor, hurtbox : Hurtbox) -> void:
 	emit_signal("hit_confirmed_no_actor")
 	FrameFreeze.request(delay_milliseconds)
 	shake_screen()
+	hit_particles_spawner.spawn((collider.global_position + hurtbox.collider.global_position) / 2)
 
 
 func shake_screen() -> void:

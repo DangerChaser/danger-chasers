@@ -5,6 +5,8 @@
 [ext_resource path="res://common/particles/WeaponHit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/judge/sprites/air_spin.png" type="Texture" id=5]
 
+
+
 [sub_resource type="CircleShape2D" id=1]
 radius = 242.876
 

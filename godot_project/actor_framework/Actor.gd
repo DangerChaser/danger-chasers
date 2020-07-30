@@ -19,7 +19,6 @@ export var team := "team_2"
 export var pause_offscreen := true
 
 onready var state_machine : StateMachine = $StateMachine
-onready var animation_player : AnimationPlayer = pivot.get_node("AnimationPlayer")
 onready var weapons = pivot.get_node("Weapons")
 onready var target = $Target
 onready var stats = $Stats
@@ -40,10 +39,8 @@ var initialize_on_ready := true # Set to false before adding to tree to delay in
 
 
 func _ready():
-	animation_player.play("SETUP")
-	
 	state = States.NORMAL
-	animation_player.connect("animation_finished", state_machine, "anim_finished")
+	pivot.connect("animation_finished", state_machine, "anim_finished")
 	
 	if state_machine.has_state("Stagger"):
 		var stagger_state = state_machine.get_state("Stagger")
@@ -77,15 +74,17 @@ func set_team(_team : String) -> void:
 	team = _team
 	if not get_tree().get_nodes_in_group(team).has(self):
 		add_to_group(team)
-	if pivot.has_node("DamageSource"):
-		pivot.get_node("DamageSource").friendly_teams = [team]
 	for weapon in $Pivot/Weapons.get_children():
 		weapon.set_friendly_teams([team])
 
 
+func get_friendly_teams() -> Array:
+	return [team]
+
+
 func reset(target_global_position : Vector2) -> void:
 	global_position = target_global_position
-	get_node("Pivot/AnimationPlayer").play("SETUP")
+#	get_node("Pivot").play("SETUP")
 
 
 func kill(args := {}) -> void:
@@ -95,7 +94,11 @@ func kill(args := {}) -> void:
 		if pivot.has_node("DamageSource"):
 			pivot.get_node("DamageSource").disable()
 		
+		set_collision_layer_bit(PhysicsLayers.Actors, false)
 		set_collision_layer_bit(PhysicsLayers.PlayerStoppers, false)
+		set_collision_layer_bit(PhysicsLayers.EnemyStoppers, false)
+		set_collision_layer_bit(PhysicsLayers.PassableActors, false)
+		collider.set_deferred("disabled", true)
 	
 		state_machine.change_state("Die", args)
 		
@@ -206,7 +209,7 @@ func add_weapon(weapon) -> void:
 
 
 func play_animation(anim_name : String) -> void:
-	animation_player.play(anim_name)
+	pivot.play(anim_name)
 
 
 func face_actor(actor):
@@ -218,10 +221,10 @@ func face_actor(actor):
 func pause():
 	if pause_offscreen:
 		state_machine.pause()
-		animation_player.stop(false)
+#		pivot.animation_player.stop(false)
 
 
 func unpause():
 	if pause_offscreen:
 		state_machine.unpause()
-		animation_player.play()
+#		pivot.animation_player.play()

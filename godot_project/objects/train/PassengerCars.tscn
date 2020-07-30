@@ -4,6 +4,8 @@
 [ext_resource path="res://common/particles/loops/GrindParticles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/train/train_grind.wav" type="AudioStream" id=3]
 
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001

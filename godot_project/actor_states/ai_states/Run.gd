@@ -19,7 +19,7 @@ func enter(args := {}) -> void:
 	
 	timer.start()
 	
-	owner.animation_player.play(animation)
+	owner.play_animation(animation)
 	if args.has("target_position"):
 		target_position = args["target_position"]
 	if args.has("target_direction"):

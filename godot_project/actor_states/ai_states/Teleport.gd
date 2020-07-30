@@ -17,7 +17,7 @@ func enter(args := {}) -> void:
 	target = get_node(teleport_to[index])
 	
 	if teleport_in_animation:
-		owner.animation_player.play(teleport_in_animation)
+		owner.play_animation(teleport_in_animation)
 	else:
 		teleport()
 
@@ -29,7 +29,7 @@ func exit() -> void:
 func teleport() -> void:
 	owner.global_position = target.global_position
 	if teleport_out_animation:
-		owner.animation_player.play(teleport_out_animation)
+		owner.play_animation(teleport_out_animation)
 	else:
 		finished(next_state)
 

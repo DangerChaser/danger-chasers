@@ -1,28 +1,31 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actors/wolf/sprites/idle.png" type="Texture" id=2]
+[ext_resource path="res://actors/direwolf/sprites/idle_normal.png" type="Texture" id=2]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/wolf/sprites/run.png" type="Texture" id=4]
 [ext_resource path="res://actors/fox/sprites/spawn.png" type="Texture" id=5]
 [ext_resource path="res://actors/fox/sprites/spin.png" type="Texture" id=6]
-[ext_resource path="res://actors/wolf/sprites/stagger.png" type="Texture" id=7]
-[ext_resource path="res://actors/wolf/sprites/walk.png" type="Texture" id=8]
-[ext_resource path="res://actor_framework/AnimationPlayer.gd" type="Script" id=9]
+[ext_resource path="res://actors/direwolf/sprites/run_normal.png" type="Texture" id=7]
+[ext_resource path="res://actors/direwolf/sprites/stagger_normal.png" type="Texture" id=8]
+[ext_resource path="res://actor_framework/Pivot.gd" type="Script" id=9]
 [ext_resource path="res://actors/direwolf/particles/FootstepsLaunch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/fox/sprites/spin_normal.png" type="Texture" id=11]
 [ext_resource path="res://actors/wolf/sprites/run_normal.png" type="Texture" id=12]
 [ext_resource path="res://core/utils/TrailingSprites.tscn" type="PackedScene" id=13]
-[ext_resource path="res://actors/wolf/sprites/growl.png" type="Texture" id=14]
-[ext_resource path="res://actors/wolf/sprites/stagger_normal.png" type="Texture" id=15]
-[ext_resource path="res://actors/fox/sprites/walk_normal.png" type="Texture" id=16]
+[ext_resource path="res://actors/direwolf/sprites/stagger.png" type="Texture" id=14]
+[ext_resource path="res://actors/direwolf/sprites/walk_normal.png" type="Texture" id=15]
+[ext_resource path="res://actors/direwolf/sprites/walk.png" type="Texture" id=16]
 [ext_resource path="res://actors/fox/sprites/spawn_normal.png" type="Texture" id=17]
 [ext_resource path="res://actors/direwolf/particles/LandDust.tscn" type="PackedScene" id=18]
-[ext_resource path="res://actors/wolf/sprites/growl_normal.png" type="Texture" id=19]
+[ext_resource path="res://actors/direwolf/sprites/idle.png" type="Texture" id=19]
 [ext_resource path="res://actors/wolf/sprites/idle_normal.png" type="Texture" id=20]
 [ext_resource path="res://actors/direwolf/particles/FootstepsLand.tscn" type="PackedScene" id=21]
 [ext_resource path="res://actors/direwolf/particles/JumpDust.tscn" type="PackedScene" id=22]
 [ext_resource path="res://vfx/Trail.gd" type="Script" id=23]
+[ext_resource path="res://actors/direwolf/sprites/growl.png" type="Texture" id=24]
+[ext_resource path="res://actors/direwolf/sprites/growl_normal.png" type="Texture" id=26]
+[ext_resource path="res://actors/direwolf/sprites/run.png" type="Texture" id=27]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -49,7 +52,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 19 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:normal_map")
@@ -139,7 +142,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 27 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -151,7 +154,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 12 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -199,7 +202,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 115.879, -139.835 ) ]
+"values": [ Vector2( 224, -280 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -271,7 +274,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 14 ) ]
+"values": [ ExtResource( 24 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -283,7 +286,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 19 ) ]
+"values": [ ExtResource( 26 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -331,7 +334,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 100.879, -84.3351 ) ]
+"values": [ Vector2( 200, -168 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -347,7 +350,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 19 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:vframes")
@@ -395,7 +398,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 20 ) ]
+"values": [ ExtResource( 2 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("EyePosition2D:position")
@@ -404,10 +407,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.001, 0.5, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 100.071, -139.929 ), Vector2( 100.165, -138.432 ), Vector2( 100.352, -135.439 ), Vector2( 100.165, -138.432 ) ]
+"values": [ Vector2( 200, -280 ), Vector2( 200, -272 ), Vector2( 200, -280 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -424,7 +427,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 27 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -436,7 +439,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 12 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -484,7 +487,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 91.6649, -155.932 ), Vector2( 100.364, -183.152 ), Vector2( 104.293, -171.927 ) ]
+"values": [ Vector2( 184, -320 ), Vector2( 200, -368 ), Vector2( 200, -352 ) ]
 }
 tracks/6/type = "method"
 tracks/6/path = NodePath("JumpDust")
@@ -513,7 +516,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 27 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:vframes")
@@ -561,7 +564,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 12 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("EyePosition2D:position")
@@ -573,7 +576,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 109.216, -123.451 ), Vector2( 102.609, -106.934 ) ]
+"values": [ Vector2( 208, -256 ), Vector2( 192, -208 ) ]
 }
 tracks/6/type = "method"
 tracks/6/path = NodePath("LandDust")
@@ -604,7 +607,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 27 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:vframes")
@@ -652,7 +655,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 12 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("EyePosition2D:position")
@@ -664,7 +667,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 93.1705, -156.487 ), Vector2( 100.25, -182.915 ), Vector2( 104.025, -170.551 ), Vector2( 116.767, -139.969 ), Vector2( 108.744, -122.979 ), Vector2( 102.137, -107.311 ) ]
+"values": [ Vector2( 184, -320 ), Vector2( 200, -368 ), Vector2( 200, -352 ), Vector2( 224, -280 ), Vector2( 208, -256 ), Vector2( 192, -208 ) ]
 }
 tracks/6/type = "method"
 tracks/6/path = NodePath("FootstepsLaunch")
@@ -836,7 +839,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 7 ) ]
+"values": [ ExtResource( 14 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:vframes")
@@ -884,7 +887,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 15 ) ]
+"values": [ ExtResource( 8 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("EyePosition2D:position")
@@ -896,7 +899,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 72.4052, -159.224 ) ]
+"values": [ Vector2( 200, -184 ) ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -911,7 +914,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 16 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:vframes")
@@ -959,7 +962,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 16 ) ]
+"values": [ ExtResource( 15 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("EyePosition2D:position")
@@ -968,20 +971,21 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 112.048, -118.581 ), Vector2( 112.048, -126.661 ), Vector2( 112.048, -130.954 ), Vector2( 112.048, -130.823 ), Vector2( 112.048, -127.187 ), Vector2( 112.048, -118.581 ), Vector2( 112.048, -126.661 ), Vector2( 112.048, -130.954 ), Vector2( 112.048, -130.823 ), Vector2( 112.048, -127.187 ) ]
+"values": [ Vector2( 224, -240 ), Vector2( 224, -256 ), Vector2( 224, -272 ), Vector2( 224, -256 ), Vector2( 224, -240 ), Vector2( 224, -256 ), Vector2( 224, -272 ), Vector2( 224, -256 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=13]
 resource_local_to_scene = true
-extents = Vector2( 128.514, 96.2177 )
+extents = Vector2( 241.842, 176.477 )
 
 [sub_resource type="Curve" id=14]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Pivot" type="Node2D"]
+script = ExtResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SETUP = SubResource( 1 )
@@ -997,7 +1001,6 @@ anims/spin = SubResource( 10 )
 anims/stagger = SubResource( 11 )
 anims/walk = SubResource( 12 )
 next/jump = "air"
-script = ExtResource( 9 )
 
 [node name="TrailingSprites" parent="." instance=ExtResource( 13 )]
 sprite_path = NodePath("../Sprite")
@@ -1031,19 +1034,19 @@ normal_map = ExtResource( 12 )
 hframes = 6
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -243.246 )
+position = Vector2( 0, -488.301 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 19 )
 normal_map = ExtResource( 20 )
 hframes = 8
 
 [node name="Weapons" type="Node2D" parent="."]
 
 [node name="Hurtbox" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 5.30322, -92.0316 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -88.7241 )
 shape = SubResource( 13 )
 
 [node name="Trail" type="Line2D" parent="."]
@@ -1054,7 +1057,7 @@ script = ExtResource( 23 )
 target_path = NodePath("../EyePosition2D")
 
 [node name="EyePosition2D" type="Position2D" parent="."]
-position = Vector2( 100.071, -139.929 )
+position = Vector2( 208, -256 )
 
 [node name="FootstepsLand" parent="." instance=ExtResource( 3 )]
 particles = ExtResource( 21 )
@@ -1063,13 +1066,15 @@ particles = ExtResource( 21 )
 particles = ExtResource( 10 )
 
 [node name="JumpDust" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, 16 )
 particles = ExtResource( 22 )
 
 [node name="LandDust" parent="." instance=ExtResource( 3 )]
+position = Vector2( -64, 0 )
 particles = ExtResource( 18 )
-[connection signal="animation_changed" from="AnimationPlayer" to="TrailingSprites" method="stop"]
-[connection signal="animation_finished" from="AnimationPlayer" to="TrailingSprites" method="stop"]
-[connection signal="animation_started" from="AnimationPlayer" to="TrailingSprites" method="start"]
+[connection signal="animation_changed" from="." to="TrailingSprites" method="stop"]
+[connection signal="animation_play_requested" from="." to="TrailingSprites" method="stop"]
+[connection signal="animation_started" from="." to="TrailingSprites" method="start"]
 
 [editable path="TrailingSprites"]
 

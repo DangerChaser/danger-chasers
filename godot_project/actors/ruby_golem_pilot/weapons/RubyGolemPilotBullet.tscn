@@ -5,6 +5,8 @@
 [ext_resource path="res://actors/turret/BulletParticleCollision.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/turret/sprites/bullet.png" type="Texture" id=4]
 
+
+
 [sub_resource type="CircleShape2D" id=1]
 radius = 34.525
 

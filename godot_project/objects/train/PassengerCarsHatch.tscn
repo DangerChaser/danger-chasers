@@ -5,6 +5,8 @@
 [ext_resource path="res://objects/train/train_grind.wav" type="AudioStream" id=3]
 [ext_resource path="res://objects/train/passenger_car_hatch.png" type="Texture" id=4]
 
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001

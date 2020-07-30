@@ -4,6 +4,8 @@
 [ext_resource path="res://common/particles/explosion.png" type="Texture" id=2]
 [ext_resource path="res://actors/till/sfx/fireball_explosion.wav" type="AudioStream" id=3]
 
+
+
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
 particles_anim_h_frames = 4

@@ -23,7 +23,7 @@ func enter(args := {}) -> void:
 	owner.emit_signal("health_depleted", owner)
 	owner.emit_signal("health_depleted_no_arg")
 	
-	owner.animation_player.play(animation)
+	owner.play_animation(animation)
 	var direction : Vector2
 	if args.has("direction"):
 		direction = args["direction"]

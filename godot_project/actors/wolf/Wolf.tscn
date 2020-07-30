@@ -22,7 +22,9 @@ extents = Vector2( 124.688, 61.3919 )
 "enemies",
 ] instance=ExtResource( 1 )]
 
-[node name="StateMachine" parent="." index="0"]
+[node name="Pivot" parent="." index="0" instance=ExtResource( 10 )]
+
+[node name="StateMachine" parent="." index="1"]
 script = ExtResource( 13 )
 
 [node name="WalkSequence" parent="StateMachine" index="0" instance=ExtResource( 2 )]
@@ -109,14 +111,12 @@ revenge_state = "JumpBack"
 [node name="Die" parent="StateMachine" index="5" instance=ExtResource( 9 )]
 die_particles_scene = ExtResource( 12 )
 
-[node name="CollisionBox" parent="." index="1"]
+[node name="CollisionBox" parent="." index="2"]
 position = Vector2( -3.36357, -62.2723 )
 shape = SubResource( 1 )
 
-[node name="Stats" parent="." index="4"]
+[node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 11 )
-
-[node name="Pivot" parent="." index="5" instance=ExtResource( 10 )]
 
 [editable path="StateMachine/WalkSequence/Wait"]
 

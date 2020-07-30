@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=2]
@@ -6,24 +6,28 @@
 [ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/direwolf/weapons/DirewolfCharge.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/direwolf/DirewolfStateMachine.gd" type="Script" id=7]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=9]
-[ext_resource path="res://actors/wolf/WolfPivot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actors/direwolf/DirewolfPivot.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/direwolf/Direwolf.tres" type="Resource" id=11]
 [ext_resource path="res://actors/wolf/particles/WolfDeathExplosion.tscn" type="PackedScene" id=12]
-[ext_resource path="res://actors/wolf/WolfStateMachine.gd" type="Script" id=13]
+[ext_resource path="res://actors/direwolf/weapons/DirewolfSlash.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actors/direwolf/weapons/DirewolfJumpBack.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 124.688, 61.3919 )
+extents = Vector2( 227.364, 161.728 )
 
 [node name="Direwolf" groups=[
 "enemies",
 ] instance=ExtResource( 1 )]
+pause_offscreen = false
 
-[node name="StateMachine" parent="." index="0"]
-script = ExtResource( 13 )
+[node name="Pivot" parent="." index="0" instance=ExtResource( 10 )]
+
+[node name="StateMachine" parent="." index="1"]
+script = ExtResource( 7 )
 
 [node name="WalkSequence" parent="StateMachine" index="0" instance=ExtResource( 2 )]
 
@@ -38,10 +42,7 @@ max_roam_radius = 200.0
 stagger = true
 
 [node name="MotionSteering" parent="StateMachine/WalkSequence/MoveTo/Motion" index="1"]
-max_speed = 1000.0
-
-[node name="Timer" parent="StateMachine/WalkSequence/MoveTo" index="1"]
-wait_time = 0.5
+max_speed = 1337.0
 
 [node name="RunSequence" parent="StateMachine" index="1" instance=ExtResource( 2 )]
 
@@ -58,7 +59,7 @@ stagger = true
 arrive_distance = 900.0
 
 [node name="MotionSteering" parent="StateMachine/RunSequence/MoveTo/Motion" index="1"]
-max_speed = 1500.0
+max_speed = 2000.0
 
 [node name="Timer" parent="StateMachine/RunSequence/MoveTo" index="1"]
 wait_time = 2.0
@@ -84,23 +85,19 @@ animation = "growl"
 [node name="Timer" parent="StateMachine/ChargeSequence/Wait" index="3"]
 wait_time = 0.5
 
-[node name="AIAttack" parent="StateMachine/ChargeSequence" index="1" instance=ExtResource( 6 )]
+[node name="Jump" parent="StateMachine/ChargeSequence" index="1" instance=ExtResource( 6 )]
 weapon_levels = [ 0 ]
 weapons = [ ExtResource( 5 ) ]
 stagger = false
 
-[node name="JumpBackSequence" parent="StateMachine/ChargeSequence" index="2" instance=ExtResource( 2 )]
-
-[node name="Wait" parent="StateMachine/ChargeSequence/JumpBackSequence" index="0" instance=ExtResource( 3 )]
+[node name="SpinAround" parent="StateMachine/ChargeSequence" index="2" instance=ExtResource( 3 )]
 animation = "growl"
-stagger = true
+skip_to_next_state = true
 
-[node name="Timer" parent="StateMachine/ChargeSequence/JumpBackSequence/Wait" index="3"]
-wait_time = 0.2
-
-[node name="JumpBack" parent="StateMachine/ChargeSequence/JumpBackSequence" index="1" instance=ExtResource( 6 )]
+[node name="Slash" parent="StateMachine/ChargeSequence" index="3" instance=ExtResource( 6 )]
 weapon_levels = [ 0 ]
-weapons = [ ExtResource( 14 ) ]
+weapons = [ ExtResource( 13 ) ]
+stagger = false
 
 [node name="Stagger" parent="StateMachine" index="4" instance=ExtResource( 8 )]
 revenge_threshold = 5.0
@@ -109,14 +106,12 @@ revenge_state = "JumpBack"
 [node name="Die" parent="StateMachine" index="5" instance=ExtResource( 9 )]
 die_particles_scene = ExtResource( 12 )
 
-[node name="CollisionBox" parent="." index="1"]
-position = Vector2( -3.36357, -62.2723 )
+[node name="CollisionBox" parent="." index="2"]
+position = Vector2( -3.36357, -160 )
 shape = SubResource( 1 )
 
-[node name="Stats" parent="." index="4"]
+[node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 11 )
-
-[node name="Pivot" parent="." index="5" instance=ExtResource( 10 )]
 
 [editable path="StateMachine/WalkSequence/Wait"]
 
@@ -133,5 +128,3 @@ character_stats = ExtResource( 11 )
 [editable path="StateMachine/JumpBackSequence/Wait"]
 
 [editable path="StateMachine/ChargeSequence/Wait"]
-
-[editable path="StateMachine/ChargeSequence/JumpBackSequence/Wait"]

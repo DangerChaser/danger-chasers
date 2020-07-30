@@ -5,7 +5,7 @@
 [ext_resource path="res://actors/cloud_jump/sprites/idle_normal.png" type="Texture" id=3]
 [ext_resource path="res://actors/cloud_jump/sprites/air.png" type="Texture" id=4]
 [ext_resource path="res://actors/cloud_jump/sprites/stagger.png" type="Texture" id=5]
-[ext_resource path="res://actor_framework/AnimationPlayer.gd" type="Script" id=6]
+[ext_resource path="res://actor_framework/Pivot.gd" type="Script" id=6]
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/cloud_jump/sprites/idle.png" type="Texture" id=8]
 [ext_resource path="res://actors/cloud_jump/sprites/air_normal.png" type="Texture" id=9]
@@ -616,6 +616,7 @@ extents = Vector2( 117.09, 66.9087 )
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Pivot" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SETUP = SubResource( 1 )
@@ -626,13 +627,12 @@ anims/jump = SubResource( 5 )
 anims/land = SubResource( 6 )
 anims/stagger = SubResource( 7 )
 next/jump = "air"
-script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -116.227 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 10 )
-normal_map = ExtResource( 2 )
+texture = ExtResource( 8 )
+normal_map = ExtResource( 3 )
 hframes = 2
 
 [node name="Weapons" type="Node2D" parent="."]

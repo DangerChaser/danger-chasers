@@ -79,6 +79,7 @@
 [ext_resource path="res://actors/turret/sprites/Hit/Enemy01_Hit_01.png" type="Texture" id=77]
 [ext_resource path="res://actor_framework/AnimationPlayer.gd" type="Script" id=78]
 
+
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 96, 96 )

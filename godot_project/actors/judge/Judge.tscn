@@ -35,10 +35,12 @@ extents = Vector2( 32.5314, 56.3854 )
 "players",
 ] instance=ExtResource( 2 )]
 collision_layer = 2
-collision_mask = 97
+collision_mask = 225
 script = ExtResource( 5 )
 icon = ExtResource( 23 )
 pause_offscreen = false
+
+[node name="Pivot" parent="." index="0" instance=ExtResource( 9 )]
 
 [node name="Idle" parent="StateMachine" index="0" instance=ExtResource( 20 )]
 
@@ -48,7 +50,7 @@ weapons = [ ExtResource( 13 ) ]
 input = "light_attack"
 next_state = "Idle"
 
-[node name="Up" parent="StateMachine" index="2" instance=ExtResource( 26 )]
+[node name="Jump" parent="StateMachine" index="2" instance=ExtResource( 26 )]
 weapon_levels = [ 0, 1 ]
 weapons = [ ExtResource( 18 ), ExtResource( 8 ) ]
 input = "ui_up"
@@ -82,26 +84,24 @@ queue_free_on_die = false
 
 [node name="External" parent="StateMachine" index="10" instance=ExtResource( 3 )]
 
-[node name="CollisionBox" parent="." index="1"]
+[node name="CollisionBox" parent="." index="2"]
 position = Vector2( 0, -87.2057 )
 shape = SubResource( 1 )
 
-[node name="Stats" parent="." index="4"]
+[node name="Stats" parent="." index="5"]
 growth_stats = ExtResource( 22 )
 character_stats = ExtResource( 7 )
 
-[node name="CameraTargetPosition" type="Node2D" parent="." index="8"]
+[node name="CameraTargetPosition" type="Node2D" parent="." index="9"]
 position = Vector2( 125, 0 )
 script = ExtResource( 4 )
 
-[node name="PlayerHUDLayer" type="CanvasLayer" parent="." index="9"]
+[node name="PlayerHUDLayer" type="CanvasLayer" parent="." index="10"]
 layer = 100
 
 [node name="BattleHUD" parent="PlayerHUDLayer" index="0" instance=ExtResource( 12 )]
 
 [node name="TargetReticleHUD" parent="PlayerHUDLayer" index="1" instance=ExtResource( 11 )]
-
-[node name="Pivot" parent="." index="10" instance=ExtResource( 9 )]
 
 [node name="VisibilityEnabler2D" parent="." index="11"]
 position = Vector2( 16.26, -21.493 )

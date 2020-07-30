@@ -3,6 +3,8 @@
 [ext_resource path="res://assets/sprites/white_circle_gradient.png" type="Texture" id=2]
 [ext_resource path="res://common/particles/RainShort.tscn" type="PackedScene" id=3]
 
+
+
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
 emission_box_extents = Vector3( 1920, 1, 1 )

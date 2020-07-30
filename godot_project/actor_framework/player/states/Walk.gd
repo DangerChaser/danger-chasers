@@ -5,8 +5,7 @@ export(String) var animation : String = "walk"
 
 func enter(args := {}) -> void:
 	.enter(args)
-	if owner.animation_player.has_animation(animation):
-		owner.animation_player.play(animation)
+	owner.play_animation(animation)
 
 
 func _physics_process(delta : float) -> void:

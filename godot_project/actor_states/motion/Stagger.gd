@@ -33,9 +33,9 @@ func enter(args := {}) -> void:
 	emit_signal("revenge_updated", revenge_value, revenge_value, revenge_threshold)
 	
 	if args.has("animation"):
-		owner.animation_player.play(args["animation"])
+		owner.play_animation(args["animation"])
 	else:
-		owner.animation_player.play(animation)
+		owner.play_animation(animation)
 	
 	var duration
 	if use_internal_duration:

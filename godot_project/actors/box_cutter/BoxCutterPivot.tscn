@@ -34,6 +34,8 @@
 [ext_resource path="res://actors/box_cutter/sprites/lunge_normal.png" type="Texture" id=32]
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=33]
 
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001

@@ -21,7 +21,7 @@ var start_position : Vector2 = Vector2()
 func enter(args := {}) -> void:
 	.enter(args)
 	motion.enter(args)
-	owner.animation_player.play(animation)
+	owner.play_animation(animation)
 	start_position = owner.global_position
 	timer.start()
 	

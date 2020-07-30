@@ -7,7 +7,7 @@ export(bool) var stagger := false
 
 func enter(args := {}) -> void:
 	.enter(args)
-	owner.animation_player.play(animation)
+	owner.play_animation(animation)
 	
 	if args.has("look_direction"):
 		update_look_direction(args["look_direction"])

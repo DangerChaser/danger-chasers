@@ -5,6 +5,8 @@
 [ext_resource path="res://actors/judge/sfx/sword_slice.wav" type="AudioStream" id=3]
 [ext_resource path="res://actors/judge/sfx/sword_slice_2.wav" type="AudioStream" id=4]
 
+
+
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
 particles_anim_h_frames = 4

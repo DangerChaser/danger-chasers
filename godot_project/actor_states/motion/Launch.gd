@@ -30,8 +30,7 @@ func enter(args := {}) -> void:
 	var duration = args["duration"] if args.has("duration") else timer.wait_time
 	timer.start(duration)
 	
-	if owner.animation_player.has_animation(animation):
-		owner.animation_player.play(animation)
+	owner.play_animation(animation)
 
 
 func exit() -> void:
