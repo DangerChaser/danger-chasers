@@ -5,8 +5,6 @@
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/ariko/particles/CeilingCollisionParticles.tscn" type="PackedScene" id=4]
 
-
-
 [node name="Air" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 

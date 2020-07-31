@@ -5,7 +5,6 @@
 [ext_resource path="res://actors/ariko/sfx/jump.wav" type="AudioStream" id=4]
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=5]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001

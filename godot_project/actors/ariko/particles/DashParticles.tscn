@@ -1,40 +1,35 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://actors/ariko/particles/sprites/quick_attack_hit.png" type="Texture" id=1]
-[ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/ariko/sfx/qubodup_slash.wav" type="AudioStream" id=3]
+[ext_resource path="res://actors/ariko/particles/sprites/dash.png" type="Texture" id=1]
+[ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
-particles_anim_h_frames = 4
-particles_anim_v_frames = 4
+particles_anim_h_frames = 7
+particles_anim_v_frames = 7
 particles_anim_loop = false
 
 [sub_resource type="ParticlesMaterial" id=2]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
-angular_velocity = 24.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-angle = 360.0
-angle_random = 1.0
-scale = 8.0
+scale = 4.0
 anim_speed = 1.0
 
-[node name="KnifeHit" instance=ExtResource( 2 )]
+[node name="DashParticles" instance=ExtResource( 4 )]
 
 [node name="Sfx" parent="." index="0"]
-stream = ExtResource( 3 )
 attenuation = 0.659754
 random_pitch_low = 0.96
 random_pitch_high = 1.04
 
 [node name="Particles2D" parent="Pivot" index="0"]
 material = SubResource( 1 )
+position = Vector2( -256, -64 )
 emitting = false
 amount = 1
-lifetime = 0.5
+lifetime = 0.4
 one_shot = true
-local_coords = false
 process_material = SubResource( 2 )
 texture = ExtResource( 1 )

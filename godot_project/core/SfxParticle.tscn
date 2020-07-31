@@ -4,6 +4,7 @@
 [ext_resource path="res://core/SfxParticle.gd" type="Script" id=2]
 
 [node name="SfxParticle" type="Node2D"]
+z_index = 2
 script = ExtResource( 2 )
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="."]

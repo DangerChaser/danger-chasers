@@ -1,8 +1,8 @@
 extends MotionState
 class_name AirState
 
-export(String) var up_animation := "jump"
-export(String) var fall_animation : String = "air"
+export var up_animation := "jump_loop"
+export var fall_animation : String = "air"
 
 onready var ceiling_collision_particles : ParticleSpawner = $CeilingCollisionParticles
 
@@ -16,15 +16,18 @@ var animation_set_externally := false
 func enter(args := {}) -> void:
 	.enter(args)
 	steering.velocity.y = 0
-	external.velocity.y /= 2
+	external.velocity.y /= 3
+	gravity.speed = 0
+	gravity.velocity.y = 0
+	total_velocity = steering.velocity + gravity.velocity + external.velocity
+	
+	if total_velocity.y < 0:
+		change_state(State.UP)
+	else:
+		change_state(State.FALL)
 	
 	if args.has("animation"):
 		owner.play_animation(args["animation"])
-	
-	if total_velocity.y >= 0:
-		change_state(State.FALL)
-	else:
-		change_state(State.UP)
 
 
 func change_state(new_state) -> void:
@@ -37,6 +40,13 @@ func change_state(new_state) -> void:
 
 func exit() -> void:
 	.exit()
+
+
+func _process(delta):
+	if total_velocity.y < 0:
+		change_state(State.UP)
+	else:
+		change_state(State.FALL)
 
 
 func _physics_process(delta : float) -> void:
@@ -54,24 +64,15 @@ func _physics_process(delta : float) -> void:
 	if owner.is_on_wall():
 		steering.velocity.x = 0
 	
-	if state == State.UP:
-		if total_velocity.y >= 0:
-			change_state(State.FALL)
-	else:
-		if total_velocity.y < 0:
-			change_state(State.UP)
-	
 	if owner.is_on_floor():
-		emit_signal("finished", "Idle", {"velocity":steering.velocity, "gravity_speed": gravity.speed, "initial_animation":"land"})
-
-
-func _process(delta) -> void:
+		finished("Idle", {"velocity":steering.velocity, "gravity_speed": gravity.speed, "initial_animation":"land"})
+	
 	if owner.state_machine.has_state("Stomp") and Input.is_action_pressed("ui_down"):
 		var args = { "velocity": steering.velocity }
 		args["input_key"] = "ui_down"
 		args["target_direction"] = Vector2(steering.velocity.x, Vector2.DOWN.y) 
-		emit_signal("finished", "Stomp", args)
+		finished("Stomp", args)
 
 
 func take_damage(args := {}):
-	emit_signal("finished", "Stagger", args)
+	finished("Stagger", args)

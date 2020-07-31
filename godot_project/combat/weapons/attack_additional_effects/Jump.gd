@@ -27,7 +27,7 @@ func enter(args := {}) -> void:
 	
 	motion.gravity.speed = 0.0
 	
-	motion.external.apply(Vector2.UP, jump_force - owner.get_floor_velocity().y, 1.0)
+	motion.external.apply(Vector2.UP, jump_force, 1.0) #- owner.get_floor_velocity().y, 1.0)
 	motion.external.set_target_speed(0.0)
 	motion.external.set_mass(initial_mass)
 
@@ -37,6 +37,5 @@ func _physics_process(delta : float) -> void:
 		motion.steering.velocity.x = 0
 		current_speed = 0
 	
-	if Input.is_action_just_released(input):
-		if finish_on_release:
-			emit_signal("finished")
+	if finish_on_release and Input.is_action_just_released(input):
+		emit_signal("finished")

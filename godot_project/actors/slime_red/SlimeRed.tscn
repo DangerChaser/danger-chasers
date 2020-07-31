@@ -47,6 +47,9 @@ character_stats = ExtResource( 8 )
 
 [node name="Pivot" parent="." index="6" instance=ExtResource( 9 )]
 
+[node name="DeathExplosion" parent="Pivot" index="3"]
+z_index = 0
+
 [editable path="StateMachine/Wait"]
 
 [editable path="StateMachine/Stagger"]

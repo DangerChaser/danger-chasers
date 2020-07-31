@@ -14,10 +14,7 @@
 [ext_resource path="res://actors/ariko/particles/StabParticles.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actors/ariko/particles/SwordHit.tscn" type="PackedScene" id=13]
 
-
-
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks/SlashUp/DamageSource")
@@ -62,12 +59,12 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.001
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.4
-step = 0.01
+step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks")
 tracks/0/interp = 1
@@ -75,14 +72,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.08, 0.1, 0.2 ),
+"times": PoolRealArray( 0.1, 0.15, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
-"method": "enable_attack_input_listening"
+"method": "enable_cancel_animation"
 }, {
 "args": [  ],
-"method": "enable_cancel_animation"
+"method": "enable_attack_input_listening"
 }, {
 "args": [  ],
 "method": "enable_ready_for_next_attack"
@@ -134,8 +131,8 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
-length = 0.4
+[sub_resource type="Animation" id=4]
+length = 0.45
 step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks")
@@ -144,14 +141,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.05, 0.1, 0.2 ),
+"times": PoolRealArray( 0.1, 0.15, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
-"method": "enable_attack_input_listening"
+"method": "enable_cancel_animation"
 }, {
 "args": [  ],
-"method": "enable_cancel_animation"
+"method": "enable_attack_input_listening"
 }, {
 "args": [  ],
 "method": "enable_ready_for_next_attack"
@@ -203,10 +200,10 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "stab"
 length = 0.31
-step = 0.01
+step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks")
 tracks/0/interp = 1
@@ -214,14 +211,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.12, 0.3 ),
+"times": PoolRealArray( 0.1, 0.15, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
-"method": "enable_attack_input_listening"
+"method": "enable_cancel_animation"
 }, {
 "args": [  ],
-"method": "enable_cancel_animation"
+"method": "enable_attack_input_listening"
 }, {
 "args": [  ],
 "method": "enable_ready_for_next_attack"
@@ -273,11 +270,11 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 resource_local_to_scene = true
 extents = Vector2( 224, 64 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 resource_local_to_scene = true
 extents = Vector2( 224, 64 )
 
@@ -286,11 +283,11 @@ cooldown = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 autoplay = "SETUP"
-anims/SETUP = SubResource( 2 )
-anims/idle = SubResource( 3 )
-anims/slash_down = SubResource( 4 )
-anims/slash_up = SubResource( 5 )
-anims/stab = SubResource( 8 )
+anims/SETUP = SubResource( 1 )
+anims/idle = SubResource( 2 )
+anims/slash_down = SubResource( 3 )
+anims/slash_up = SubResource( 4 )
+anims/stab = SubResource( 5 )
 
 [node name="SwingSfx" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource( 3 )
@@ -313,11 +310,14 @@ particles = ExtResource( 9 )
 
 [node name="DamageSource" parent="Pivot/Attacks/SlashDown" index="1" instance=ExtResource( 2 )]
 hit_particles = ExtResource( 5 )
-damage = 10
+damage = 8
+delay_milliseconds = 2
+screen_shake_amplitude = 30.0
+screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/SlashDown/DamageSource" index="0"]
 position = Vector2( 256, -64 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashDown/AdditionalEffects" index="0" instance=ExtResource( 7 )]
 initial_speed = 3000.0
@@ -344,10 +344,13 @@ particles = ExtResource( 11 )
 [node name="DamageSource" parent="Pivot/Attacks/SlashUp" index="1" instance=ExtResource( 2 )]
 hit_particles = ExtResource( 5 )
 damage = 10
+delay_milliseconds = 2
+screen_shake_amplitude = 30.0
+screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/SlashUp/DamageSource" index="0"]
 position = Vector2( 256, -64 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashUp/AdditionalEffects" index="0" instance=ExtResource( 7 )]
 initial_speed = 3000.0
@@ -373,11 +376,14 @@ particles = ExtResource( 12 )
 
 [node name="DamageSource" parent="Pivot/Attacks/Stab" index="1" instance=ExtResource( 2 )]
 hit_particles = ExtResource( 13 )
-damage = 10
+damage = 15
+delay_milliseconds = 2
+screen_shake_amplitude = 30.0
+screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Stab/DamageSource" index="0"]
 position = Vector2( 256, -64 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Stab/AdditionalEffects" index="0" instance=ExtResource( 7 )]
 initial_speed = 3000.0

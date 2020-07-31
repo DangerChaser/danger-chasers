@@ -9,9 +9,6 @@
 [ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnFloorEffect.gd" type="Script" id=10]
 [ext_resource path="res://combat/weapons/ExitArgs.gd" type="Script" id=12]
 
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "DISABLE"
 length = 0.001

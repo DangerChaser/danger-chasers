@@ -21,7 +21,8 @@ func play(name="", custom_blend:=-1.0, custom_speed:=1.0, from_end:=false):
 	if animation_player.has_animation(name):
 		var old_name = animation_player.current_animation
 		if old_name == name:
-			animation_player.stop()
+			pass
+#			animation_player.stop()
 		else:
 			emit_signal("animation_play_requested", old_name, name)
 		animation_player.play(name, custom_blend, custom_speed, from_end)

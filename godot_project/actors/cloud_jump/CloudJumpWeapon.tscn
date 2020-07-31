@@ -104,7 +104,7 @@ stream = ExtResource( 2 )
 bus = "Sfx"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Jump/AdditionalEffects" index="0" instance=ExtResource( 3 )]
-jump_force = 1000.0
+jump_force = 1700.0
 finish_on_release = false
 
 [node name="MotionSteering" parent="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect/Motion" index="1"]

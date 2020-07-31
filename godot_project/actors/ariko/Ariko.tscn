@@ -58,7 +58,6 @@ input = "ui_up"
 next_state = "AirAttack"
 
 [node name="Air" parent="StateMachine" index="3" instance=ExtResource( 7 )]
-up_animation = "jump_loop"
 
 [node name="AirAttack" parent="StateMachine" index="4" instance=ExtResource( 11 )]
 weapon_levels = [ 0 ]
