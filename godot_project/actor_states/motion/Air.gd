@@ -42,6 +42,7 @@ func exit() -> void:
 func _physics_process(delta : float) -> void:
 	if owner.is_on_ceiling():
 		gravity.speed = abs(gravity.speed)
+		external.velocity.y = 0.0
 		
 		var collision = owner.get_slide_collision(0)
 		ceiling_collision_particles.global_position = collision.position

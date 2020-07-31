@@ -10,9 +10,16 @@
 script = ExtResource( 1 )
 
 [node name="Motion" parent="." instance=ExtResource( 2 )]
+look_towards_move_direction = false
 
 [node name="MotionSteering" parent="Motion" index="1"]
 max_speed = 4269.0
+arrive_distance = -1.0
+slow_down_if_faster_than_max_speed = false
+
+[node name="Gravity" parent="Motion" index="2"]
+gravity = 0.0
+max_speed = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

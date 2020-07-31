@@ -7,7 +7,7 @@
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/cloud_jump/CloudJump.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/audio/music/dont-use-in-final/1-03 Rivulets - For Hilltop Heights Act 1.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/music/dont-use-in-final/1-04 Downpour - For Hilltop Heights Act 2.ogg" type="AudioStream" id=8]
 [ext_resource path="res://level/RoundManager.gd" type="Script" id=9]
 [ext_resource path="res://level/levels/1-1/RainForeground.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level/levels/1-1/rain_thunder_ambience.ogg" type="AudioStream" id=11]
@@ -132,18 +132,34 @@ shape = SubResource( 3 )
 [node name="Slime" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 position = Vector2( 832, 1002 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="Slime2" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
 position = Vector2( 448, 1002 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="Slime3" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
 position = Vector2( -822, 1002 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="Slime4" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
 position = Vector2( -1430, 1002 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="LeftWall" type="StaticBody2D" parent="Arenas/Arena/Walls" index="0"]
 position = Vector2( -2336, 0 )
@@ -189,82 +205,158 @@ shape = SubResource( 3 )
 [node name="Slime" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 position = Vector2( -2102, 384 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="Slime2" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
 position = Vector2( 842, 64 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="Slime3" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
 position = Vector2( -694, -32 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="Slime4" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
 position = Vector2( 2538, -32 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="Slime5" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
 position = Vector2( 3818, 224 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="Group2" type="Node2D" parent="Arenas/Arena2/ActorSpawnGroups" index="1"]
 
 [node name="CloudJump" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="0" instance=ExtResource( 6 )]
 position = Vector2( 192, 32 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CloudJump2" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="1" instance=ExtResource( 6 )]
 position = Vector2( -128, -32 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CloudJump3" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="2" instance=ExtResource( 6 )]
 position = Vector2( 640, 0 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CloudJump4" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="3" instance=ExtResource( 6 )]
 position = Vector2( 1120, 0 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CloudJump5" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="4" instance=ExtResource( 6 )]
 position = Vector2( 1664, -32 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CloudJump6" parent="Arenas/Arena2/ActorSpawnGroups/Group2" index="5" instance=ExtResource( 6 )]
 position = Vector2( 2176, -64 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="Group3" type="Node2D" parent="Arenas/Arena2/ActorSpawnGroups" index="2"]
 
 [node name="CloudJump" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="0" instance=ExtResource( 6 )]
 position = Vector2( -2528, 256 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CloudJump2" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="1" instance=ExtResource( 6 )]
 position = Vector2( -2208, 160 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CloudJump3" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="2" instance=ExtResource( 6 )]
 position = Vector2( -1792, 32 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CloudJump5" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="3" instance=ExtResource( 6 )]
 position = Vector2( 2976, 32 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CloudJump6" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="4" instance=ExtResource( 6 )]
 position = Vector2( 3584, 32 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CloudJump7" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="5" instance=ExtResource( 6 )]
 position = Vector2( 3968, 160 )
 object = ExtResource( 7 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="RedSlime" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="6" instance=ExtResource( 6 )]
 position = Vector2( -1152, -32 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="RedSlime2" parent="Arenas/Arena2/ActorSpawnGroups/Group3" index="7" instance=ExtResource( 6 )]
 position = Vector2( 2496, -32 )
 object = ExtResource( 18 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="TopWall" type="StaticBody2D" parent="Arenas/Arena2/Walls" index="0"]
 position = Vector2( 2816, -1120 )

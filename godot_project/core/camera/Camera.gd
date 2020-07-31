@@ -1,5 +1,10 @@
 extends KinematicBody2D
 
+
+func _ready():
+	$Motion.enter()
+
+
 func _process(delta):
 	if GameManager.players.size() > 0:
 		$Motion.move_to(GameManager.get_player().get_node("CameraTargetPosition").global_position)

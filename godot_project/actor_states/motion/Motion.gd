@@ -13,6 +13,7 @@ onready var external := $ExternalMotion
 var total_velocity := Vector2()
 var last_move_direction := Vector2()
 var gravity_enabled := true
+var snap := 16.0
 
 
 func _ready() -> void:
@@ -56,6 +57,7 @@ func _physics_process(delta : float) -> void:
 	if not owner.is_on_floor():
 		gravity.apply(delta)
 	total_velocity = steering.velocity + gravity.velocity + external.velocity
+	owner.move_and_slide_with_snap(total_velocity, gravity.direction * snap, -gravity.direction, true)
 
 
 func get_input_direction() -> Vector2:

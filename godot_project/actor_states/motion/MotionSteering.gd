@@ -3,11 +3,10 @@ class_name MotionSteering
 
 export var max_speed := 1000.0
 export var mass := 4.0
-export var arrive_distance := 6.0
+export var arrive_distance := -1.0 # Set to a negative value to never "jump" to the destination
 export var slow_radius := 200.0
 export var slow_down_if_faster_than_max_speed := true
 
-onready var snap = Vector2.DOWN * 32
 var velocity : Vector2
 var max_speed_reached_currently := 0.0
 
@@ -34,6 +33,5 @@ func move_to(target_position : Vector2) -> void:
 	var target_speed = normal_max_speed if slow_down_if_faster_than_max_speed else max(normal_max_speed, max_speed_reached_currently)
 	velocity = Steering.arrive_to(velocity, owner.global_position, target_position, target_speed, mass, slow_radius)
 #	owner.move_and_slide_with_snap(velocity - owner.get_floor_velocity(), snap, Vector2.UP, true)
-	owner.move_and_slide_with_snap(velocity, snap, Vector2.UP, true)
 	if owner.global_position.distance_to(target_position) < arrive_distance:
 		owner.global_position = target_position

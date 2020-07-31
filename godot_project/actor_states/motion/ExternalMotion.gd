@@ -29,7 +29,7 @@ func move() -> void:
 		return
 	var target_position : Vector2 = owner.global_position + target_direction.normalized() * target_speed
 	velocity = Steering.follow(velocity, owner.global_position, target_position, target_speed * owner.global_scale.length(), mass)
-	owner.move_and_slide(velocity, Vector2.UP)
+#	owner.move_and_slide(velocity, Vector2.UP)
 
 
 func exit():

@@ -8,10 +8,11 @@ var input : String
 var current_speed : float
 
 func _ready() -> void:
-	motion.steering.snap = Vector2()
+	motion.snap = 0.0
 
 
 func enter(args := {}) -> void:
+	motion.snap = 0.0
 	var weapon = get_parent().get_parent().get_parent().get_parent().get_parent()
 	input = weapon.input
 	
