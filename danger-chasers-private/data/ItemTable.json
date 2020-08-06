@@ -1,0 +1,130 @@
+{
+  "Sheet1": {
+    "Iron Sword": {
+      "ItemName": "Iron Sword",
+      "ItemAttack": 10,
+      "ItemDefense": 0,
+      "ItemWeight": 5,
+      "ItemDurability": 100
+    },
+    "Iron Mace": {
+      "ItemName": "Iron Mace",
+      "ItemAttack": 9,
+      "ItemDefense": 0,
+      "ItemWeight": 7,
+      "ItemDurability": 100
+    },
+    "Iron Spear": {
+      "ItemName": "Iron Spear",
+      "ItemAttack": 12,
+      "ItemDefense": 0,
+      "ItemWeight": 8,
+      "ItemDurability": 100
+    },
+    "Steel Sword": {
+      "ItemName": "Steel Sword",
+      "ItemAttack": 15,
+      "ItemDefense": 0,
+      "ItemWeight": 5,
+      "ItemDurability": 175
+    },
+    "Steel Mace": {
+      "ItemName": "Steel Mace",
+      "ItemAttack": 14,
+      "ItemDefense": 0,
+      "ItemWeight": 7,
+      "ItemDurability": 175
+    },
+    "Steel Spear": {
+      "ItemName": "Steel Spear",
+      "ItemAttack": 18,
+      "ItemDefense": 0,
+      "ItemWeight": 8,
+      "ItemDurability": 175
+    },
+    "Iron Gauntlets": {
+      "ItemName": "Iron Gauntlets",
+      "ItemAttack": 0,
+      "ItemDefense": 10,
+      "ItemWeight": 1,
+      "ItemDurability": 120
+    },
+    "Iron Boots": {
+      "ItemName": "Iron Boots",
+      "ItemAttack": 0,
+      "ItemDefense": 10,
+      "ItemWeight": 2,
+      "ItemDurability": 120
+    },
+    "Iron Cuirass": {
+      "ItemName": "Iron Cuirass",
+      "ItemAttack": 0,
+      "ItemDefense": 18,
+      "ItemWeight": 5,
+      "ItemDurability": 120
+    },
+    "Iron Helmet": {
+      "ItemName": "Iron Helmet",
+      "ItemAttack": 0,
+      "ItemDefense": 12,
+      "ItemWeight": 2,
+      "ItemDurability": 120
+    },
+    "Steel Gauntlets": {
+      "ItemName": "Steel Gauntlets",
+      "ItemAttack": 0,
+      "ItemDefense": 14,
+      "ItemWeight": 1,
+      "ItemDurability": 180
+    },
+    "Steel Boots": {
+      "ItemName": "Steel Boots",
+      "ItemAttack": 0,
+      "ItemDefense": 15,
+      "ItemWeight": 2,
+      "ItemDurability": 180
+    },
+    "Steel Cuirass": {
+      "ItemName": "Steel Cuirass",
+      "ItemAttack": 0,
+      "ItemDefense": 25,
+      "ItemWeight": 5,
+      "ItemDurability": 180
+    },
+    "Steel Helmet": {
+      "ItemName": "Steel Helmet",
+      "ItemAttack": 0,
+      "ItemDefense": 16,
+      "ItemWeight": 1,
+      "ItemDurability": 180
+    },
+    "Iron Ore": {
+      "ItemName": "Iron Ore",
+      "ItemAttack": 0,
+      "ItemDefense": 0,
+      "ItemWeight": 0.5,
+      "ItemDurability": 0
+    },
+    "Iron Ingot": {
+      "ItemName": "Iron Ingot",
+      "ItemAttack": 0,
+      "ItemDefense": 0,
+      "ItemWeight": 1,
+      "ItemDurability": 0
+    },
+    "Charcoal": {
+      "ItemName": "Charcoal",
+      "ItemAttack": 0,
+      "ItemDefense": 0,
+      "ItemWeight": 0.25,
+      "ItemDurability": 0
+    },
+    "Steel Ingot": {
+      "ItemName": "Steel Ingot",
+      "ItemAttack": 0,
+      "ItemDefense": 0,
+      "ItemWeight": 1,
+      "ItemDurability": 0
+    }
+  }
+}

@@ -15,6 +15,7 @@ func enter(args:={}):
 func exit():
 	for child in get_children():
 		child.exit()
+		child.queue_free()
 
 
 func finished(next_state := "Idle", args := {}) -> void:

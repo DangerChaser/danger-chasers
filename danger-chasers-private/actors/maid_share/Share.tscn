@@ -1,0 +1,64 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://actor_framework/stats/growth_stats/DefaultGrowthStats.tres" type="Resource" id=1]
+[ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actor_framework/stats/DefaultStats.tres" type="Resource" id=3]
+[ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actor_states/motion/Spawn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://combat/effects/buffs/Invincible.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/maid_share/sprites/icon.png" type="Texture" id=9]
+[ext_resource path="res://actors/maid_share/Pivot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actors/maid_share/ShareSpinAttack.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 45.3868, 85.6366 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 41.9573, 87.6501 )
+
+[node name="Share" instance=ExtResource( 2 )]
+collision_layer = 34
+collision_mask = 97
+icon = ExtResource( 9 )
+
+[node name="Pivot" parent="." index="0" instance=ExtResource( 10 )]
+
+[node name="StateMachine" parent="." index="1"]
+pause_offscreen = false
+
+[node name="Sequence" parent="StateMachine" index="0" instance=ExtResource( 8 )]
+
+[node name="Spawn" parent="StateMachine/Sequence" index="0" instance=ExtResource( 6 )]
+
+[node name="AIAttack" parent="StateMachine/Sequence" index="1" instance=ExtResource( 5 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 11 ) ]
+
+[node name="Die" parent="StateMachine/Sequence" index="2" instance=ExtResource( 4 )]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -95.0543 )
+shape = SubResource( 1 )
+
+[node name="CollisionBox" parent="." index="3"]
+position = Vector2( 0, -87.4849 )
+shape = SubResource( 2 )
+
+[node name="Target" parent="." index="5"]
+max_distance = 1337.0
+
+[node name="Stats" parent="." index="6"]
+growth_stats = ExtResource( 1 )
+character_stats = ExtResource( 3 )
+
+[node name="Invincible" parent="Effects/Buffs" index="0" instance=ExtResource( 7 )]
+lasts_forever = true
+
+[node name="VisibilityEnabler2D" parent="." index="10"]
+position = Vector2( 5.99158, 0 )
+
+[editable path="Hurtbox"]

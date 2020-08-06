@@ -2816,7 +2816,8 @@ particles = ExtResource( 14 )
 [node name="LandDust" parent="." index="7" instance=ExtResource( 13 )]
 particles = ExtResource( 15 )
 
-[node name="MSG_pos" type="Position2D" parent="." index="8"]
+[node name="BubblePosition" type="Position2D" parent="." index="8"]
+position = Vector2( 0, -230.039 )
 
 [node name="Weapons" type="Node2D" parent="." index="9"]
 

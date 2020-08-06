@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://combat/weapons/attack_additional_effects/QuickAttackEffect.gd" type="Script" id=1]
+[ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=2]
+
+[node name="QuickAttackEffect" type="Node2D"]
+script = ExtResource( 1 )
+initial_speed = 5000.0
+actor_rotate = true
+disable_y_input = false
+gets_input_direction = true
+up_animation = "quick_attack"
+down_animation = "quick_attack"
+
+[node name="Motion" parent="." instance=ExtResource( 2 )]
+
+[node name="MotionSteering" parent="Motion" index="1"]
+mass = 12.0
+
+[node name="Gravity" parent="Motion" index="2"]
+gravity = 0.0
+max_speed = 0.0
+
+[editable path="Motion"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bong_001.wav-6257b861166e4a76b7f9e97e54dead1e.sample"
+
+[deps]
+
+source_file="res://addons/radmatt.DialogueSystem2/sfx/kenney/bong_001.wav"
+dest_files=[ "res://.import/bong_001.wav-6257b861166e4a76b7f9e97e54dead1e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

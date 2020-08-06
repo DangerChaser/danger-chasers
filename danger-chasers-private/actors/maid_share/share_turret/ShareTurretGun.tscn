@@ -1,0 +1,202 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/lasers/LaserAttack.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/maid_share/ShareBulletLaser.tscn" type="PackedScene" id=3]
+[ext_resource path="res://core/ray_cast_line_2d/Red5.tscn" type="PackedScene" id=5]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=9]
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks/Attack/Red5")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Attacks/Attack/Red5:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "attack"
+length = 0.3
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_cancel_animation"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/LaserAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pivot/Attacks/Attack/Red5")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pivot/Attacks/Attack/Red5:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.9
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/Attack/Red5")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Attacks/Attack/Red5:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 30, 30 )
+
+[node name="ShareTurretGun" instance=ExtResource( 1 )]
+cooldown = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 1 )
+anims/attack = SubResource( 2 )
+anims/prepare = SubResource( 3 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+grounded = false
+
+[node name="Attack" parent="Pivot/Attacks" index="0" instance=ExtResource( 9 )]
+actor_animation = "prepare"
+weapon_animation = "prepare"
+
+[node name="Red5" parent="Pivot/Attacks/Attack" index="0" instance=ExtResource( 5 )]
+visible = false
+collision_mask = 1
+
+[node name="DamageSource" parent="Pivot/Attacks/Attack" index="1"]
+visible = false
+damage = 1
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/Attack/DamageSource" index="0"]
+shape = SubResource( 4 )
+disabled = true
+
+[node name="LaserAttack" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
+
+[node name="ShareBulletLaser" parent="Pivot/Attacks/LaserAttack/Lasers" index="0" instance=ExtResource( 3 )]
+
+[node name="DamageSource" parent="Pivot/Attacks/LaserAttack" index="1"]
+damage = 5
+
+[editable path="Pivot/Attacks/Attack"]
+
+[editable path="Pivot/Attacks/Attack/DamageSource"]
+
+[editable path="Pivot/Attacks/LaserAttack"]

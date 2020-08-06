@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/error_005.wav-996cb143816de78d67cf5e169755486b.sample"
+
+[deps]
+
+source_file="res://addons/radmatt.DialogueSystem2/sfx/kenney/error_005.wav"
+dest_files=[ "res://.import/error_005.wav-996cb143816de78d67cf5e169755486b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

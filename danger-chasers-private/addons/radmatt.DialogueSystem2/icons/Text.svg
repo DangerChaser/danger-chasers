@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="16"
+   viewBox="0 0 16 16"
+   width="16"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="Text.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="32"
+     inkscape:cx="7.531268"
+     inkscape:cy="8.5224188"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2127" />
+  <g
+     id="g868"
+     transform="matrix(1.0677869,0,0,1.0677869,-0.54229492,-0.6525892)">
+    <g
+       id="g892"
+       transform="translate(0,0.09348901)">
+      <g
+         id="g856"
+         transform="translate(-0.2262741)">
+        <g
+           transform="matrix(1,0,0,1.1868221,0.11087464,-2.5451031)"
+           id="g883">
+          <g
+             id="g932"
+             transform="translate(0,-3.3159837)" />
+          <g
+             transform="translate(0,-0.03219325)"
+             id="g938" />
+          <g
+             id="g944"
+             transform="translate(0,3.2515957)" />
+          <g
+             transform="translate(-0.11560528,-4.0976294)"
+             id="g2127">
+            <g
+               style="font-style:normal;font-weight:normal;font-size:17.1752px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#a5efac;fill-opacity:1;stroke:none;stroke-width:0.429381"
+               id="text2188"
+               transform="scale(1.0894136,0.91792501)"
+               aria-label="T">
+              <path
+                 id="path2193"
+                 style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#a5efac;fill-opacity:1;stroke-width:0.429381"
+                 d="M 13.035495,10.342729 H 9.135853 v 10.07198 H 5.9155031 V 10.342729 H 2.0158606 V 7.9274669 H 13.035495 Z" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

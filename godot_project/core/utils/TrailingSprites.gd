@@ -61,4 +61,7 @@ func update_sprite() -> void:
 		last_sprite.visible = false
 		active_sprites -= 1
 		if active_sprites <= 0:
+			for sprite in $Sprites.get_children():
+				# Just to make sure ;)
+				sprite.visible = false
 			$Timer.stop()

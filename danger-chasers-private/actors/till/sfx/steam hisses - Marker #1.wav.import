@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/steam hisses - Marker #1.wav-62bd0600e3399862eddafd8e76a08706.sample"
+
+[deps]
+
+source_file="res://actors/till/sfx/steam hisses - Marker #1.wav"
+dest_files=[ "res://.import/steam hisses - Marker #1.wav-62bd0600e3399862eddafd8e76a08706.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

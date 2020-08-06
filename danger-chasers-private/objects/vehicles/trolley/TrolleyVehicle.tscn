@@ -1,0 +1,188 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://objects/vehicles/trolley/TrolleyVehicle.gd" type="Script" id=1]
+[ext_resource path="res://common/particles/loops/GrindParticles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actor_framework/player/states/ConstantMotion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/vehicles/trolley/TrolleyHit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/vehicles/trolley/TrolleyExplosion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/vehicles/Vehicle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://core/utils/SfxRandom.gd" type="Script" id=7]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=8]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/vehicles/trolley/grinding.wav" type="AudioStream" id=10]
+[ext_resource path="res://objects/vehicles/trolley/trolley.png" type="Texture" id=11]
+[ext_resource path="res://actor_states/motion/Air.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actors/ariko/weapons/Jump.tscn" type="PackedScene" id=13]
+[ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=14]
+
+
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "exit"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("TrolleyExplosion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "move"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("GrindSfx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GrindParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "move_loop"
+length = 0.001
+loop = true
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 11 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 11 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=9]
+resource_local_to_scene = true
+extents = Vector2( 304, 272 )
+
+[node name="TrolleyVehicle" instance=ExtResource( 6 )]
+script = ExtResource( 1 )
+animation = "move"
+owner_animation = "trolley"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" index="0"]
+anims/SETUP = SubResource( 1 )
+anims/exit = SubResource( 2 )
+anims/move = SubResource( 3 )
+anims/move_loop = SubResource( 4 )
+next/move = "move_loop"
+
+[node name="GrindSfx" type="AudioStreamPlayer2D" parent="Pivot" index="1"]
+stream = ExtResource( 10 )
+bus = "Sfx"
+script = ExtResource( 7 )
+decay = 1.0
+
+[node name="Sprite" type="AnimatedSprite" parent="Pivot" index="2"]
+position = Vector2( 0, -124.277 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 8 )
+frame = 1
+playing = true
+
+[node name="GrindParticles" parent="Pivot" index="3" instance=ExtResource( 2 )]
+
+[node name="TrolleyHitSpawner" parent="Pivot" index="4" instance=ExtResource( 9 )]
+position = Vector2( 192, -96 )
+object = ExtResource( 4 )
+
+[node name="TrolleyExplosion" parent="Pivot" index="5" instance=ExtResource( 5 )]
+queue_free_after_timer = false
+
+[node name="DamageSource" parent="Pivot" index="6" instance=ExtResource( 8 )]
+damage = 1
+stagger_duration = 1.0
+stagger_mass = 24.0
+stagger_force = 8000.0
+delay_milliseconds = 6
+screen_shake_amplitude = 8.0
+screen_shake_duration = 0.5
+stagger_direction_while_right = Vector2( 1.5, -1 )
+
+[node name="Idle" parent="StateMachine" index="0" instance=ExtResource( 3 )]
+
+[node name="MotionSteering" parent="StateMachine/Idle/Motion" index="1"]
+max_speed = 2400.0
+
+[node name="Up" parent="StateMachine" index="1" instance=ExtResource( 14 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 13 ) ]
+input = "ui_up"
+next_state = "Air"
+
+[node name="Air" parent="StateMachine" index="2" instance=ExtResource( 12 )]
+
+[node name="JumpRegisteredTimer" type="Timer" parent="." index="3"]
+wait_time = 0.1
+
+[node name="ColliderTrigger" parent="CameraLimitTrigger" index="1"]
+shape = SubResource( 9 )
+
+[node name="TopLeft" parent="CameraLimitTrigger/CameraLimitPositions" index="0"]
+position = Vector2( -3584, -1600 )
+
+[node name="BottomRight" parent="CameraLimitTrigger/CameraLimitPositions" index="1"]
+position = Vector2( 2944, 1664 )
+[connection signal="hit_confirmed_no_actor" from="Pivot/DamageSource" to="Pivot/TrolleyHitSpawner" method="spawn"]
+
+[editable path="StateMachine/Idle"]
+
+[editable path="StateMachine/Idle/Motion"]
+
+[editable path="CameraLimitTrigger"]

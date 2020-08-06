@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://core/audio_bus_level_controllers/AudioBusLevelController.tscn" type="PackedScene" id=1]
+[ext_resource path="res://level/levels/main_menu/blue_bird/bird_chirp.wav" type="AudioStream" id=7]
+
+[node name="AmbienceLevelController" instance=ExtResource( 1 )]
+bus_name = "Ambience"
+
+[node name="Sfx" parent="." index="1"]
+stream = ExtResource( 7 )

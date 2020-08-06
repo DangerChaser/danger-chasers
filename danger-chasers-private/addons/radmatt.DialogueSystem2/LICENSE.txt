@@ -1,0 +1,9 @@
+LICENSE:
+
+Copyright 2020 (C) by radmatt / radmattsoftware@gmail.com
+
+Do not tell people that you made this. Do not re-sell or share this project
+You can use it in your commercial projects. Please don't use this code in open-source projects.
+Having a right to sell this code helps me develop high quality software
+and frameworks for everyone to enjoy. Thanks!
+

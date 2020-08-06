@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/radmatt.DialogueSystem2/other/Choices/_choice_button.gd" type="Script" id=2]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/sfx/kenney/bong_001.wav" type="AudioStream" id=3]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/sfx/kenney/click_001.wav" type="AudioStream" id=4]
+
+[node name="_choice_button" type="Button"]
+margin_right = 145.0
+margin_bottom = 20.0
+text = "THIS IS A LONG TEXT"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+focus_sound = ExtResource( 3 )
+select_sound = ExtResource( 4 )
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/223_gunside_1.wav-2458f2a24ecec4cf1034dd62d6471910.sample"
+
+[deps]
+
+source_file="res://actors/turret/sfx/223_gunside_1.wav"
+dest_files=[ "res://.import/223_gunside_1.wav-2458f2a24ecec4cf1034dd62d6471910.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

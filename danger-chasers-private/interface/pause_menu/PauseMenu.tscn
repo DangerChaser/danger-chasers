@@ -1,0 +1,199 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
+[ext_resource path="res://interface/pause_menu/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://interface/dynamic_fonts/Silver_128.tres" type="DynamicFont" id=3]
+[ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=4]
+[ext_resource path="res://core/utils/ButtonKey.gd" type="Script" id=5]
+[ext_resource path="res://interface/pause_menu/unpause.wav" type="AudioStream" id=6]
+[ext_resource path="res://interface/pause_menu/pause.wav" type="AudioStream" id=7]
+[ext_resource path="res://core/audio_bus_level_controllers/MusicLevelController.tscn" type="PackedScene" id=8]
+[ext_resource path="res://core/audio_bus_level_controllers/SoundLevelController.tscn" type="PackedScene" id=9]
+[ext_resource path="res://interface/input_mapper/InputMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://core/audio_bus_level_controllers/AmbienceLevelController.tscn" type="PackedScene" id=11]
+
+[node name="PauseMenu" type="CanvasLayer"]
+pause_mode = 2
+layer = 127
+script = ExtResource( 2 )
+game_path = "res://core/Game.tscn"
+main_menu_path = "res://level/levels/main_menu/MainMenu.tscn"
+restart_transition_in_animation = "left_to_right"
+quit_transition_in_animation = "left_to_right"
+
+[node name="Pause" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pause"]
+anchor_right = 1.0
+margin_top = -1.86757
+margin_bottom = 134.132
+custom_fonts/font = ExtResource( 3 )
+text = "PAUSED"
+align = 1
+valign = 1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="HBoxContainer" parent="Pause"]
+anchor_right = 1.0
+margin_top = 126.758
+margin_bottom = 202.758
+custom_constants/separation = 32
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Button" parent="Pause/Buttons"]
+margin_left = 352.0
+margin_right = 632.0
+margin_bottom = 76.875
+rect_min_size = Vector2( 280, 60 )
+text = "RESUME"
+script = ExtResource( 5 )
+
+[node name="Restart" type="Button" parent="Pause/Buttons"]
+margin_left = 664.0
+margin_right = 944.0
+margin_bottom = 76.875
+rect_min_size = Vector2( 280, 60 )
+text = "RESTART"
+script = ExtResource( 5 )
+
+[node name="Settings" type="Button" parent="Pause/Buttons"]
+margin_left = 976.0
+margin_right = 1256.0
+margin_bottom = 76.875
+rect_min_size = Vector2( 280, 60 )
+text = "SETTINGS"
+script = ExtResource( 5 )
+
+[node name="Quit" type="Button" parent="Pause/Buttons"]
+margin_left = 1288.0
+margin_right = 1568.0
+margin_bottom = 76.875
+rect_min_size = Vector2( 280, 60 )
+text = "QUIT_TO_MENU"
+script = ExtResource( 5 )
+
+[node name="PauseSfx" type="AudioStreamPlayer" parent="Pause"]
+stream = ExtResource( 7 )
+bus = "Sfx"
+
+[node name="UnpauseSfx" type="AudioStreamPlayer" parent="Pause"]
+stream = ExtResource( 6 )
+bus = "Sfx"
+
+[node name="Settings" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Settings"]
+anchor_right = 1.0
+margin_top = -1.86757
+margin_bottom = 134.132
+custom_fonts/font = ExtResource( 3 )
+text = "SETTINGS"
+align = 1
+valign = 1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="HBoxContainer" parent="Settings"]
+anchor_right = 1.0
+margin_top = 126.758
+margin_bottom = 202.758
+custom_constants/separation = 32
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="Button" parent="Settings/Buttons"]
+margin_left = 396.0
+margin_right = 596.0
+margin_bottom = 76.875
+rect_min_size = Vector2( 200, 60 )
+text = "MUSIC"
+script = ExtResource( 5 )
+
+[node name="Sfx" type="Button" parent="Settings/Buttons"]
+margin_left = 628.0
+margin_right = 828.0
+margin_bottom = 76.875
+rect_min_size = Vector2( 200, 60 )
+text = "SFX"
+script = ExtResource( 5 )
+
+[node name="Ambience" type="Button" parent="Settings/Buttons"]
+margin_left = 860.0
+margin_right = 1060.0
+margin_bottom = 76.875
+rect_min_size = Vector2( 200, 60 )
+text = "AMBIENCE"
+script = ExtResource( 5 )
+
+[node name="Controls" type="Button" parent="Settings/Buttons"]
+margin_left = 1092.0
+margin_right = 1292.0
+margin_bottom = 76.875
+rect_min_size = Vector2( 200, 60 )
+text = "CONTROLS"
+script = ExtResource( 5 )
+
+[node name="Back" type="Button" parent="Settings/Buttons"]
+margin_left = 1324.0
+margin_right = 1524.0
+margin_bottom = 76.875
+rect_min_size = Vector2( 200, 60 )
+text = "BACK"
+script = ExtResource( 5 )
+
+[node name="MusicLevelController" parent="Settings" instance=ExtResource( 8 )]
+margin_left = -488.551
+margin_top = -259.31
+margin_right = -448.551
+margin_bottom = 40.6903
+
+[node name="SoundLevelController" parent="Settings" instance=ExtResource( 9 )]
+margin_left = -253.211
+margin_top = -257.241
+margin_right = -213.211
+margin_bottom = 42.759
+
+[node name="AmbienceLevelController" parent="Settings" instance=ExtResource( 11 )]
+margin_left = -28.5145
+margin_top = -255.519
+margin_right = 11.4855
+margin_bottom = 44.4807
+
+[node name="InputMenu" parent="." instance=ExtResource( 10 )]
+visible = false
+[connection signal="button_down" from="Pause/Buttons/Resume" to="." method="_on_Resume_button_down"]
+[connection signal="button_down" from="Pause/Buttons/Restart" to="." method="_on_Restart_button_down"]
+[connection signal="button_down" from="Pause/Buttons/Settings" to="." method="_on_Settings_button_down"]
+[connection signal="button_down" from="Pause/Buttons/Quit" to="." method="_on_Quit_button_down"]
+[connection signal="button_down" from="Settings/Buttons/Music" to="." method="_on_Music_button_down"]
+[connection signal="focus_exited" from="Settings/Buttons/Music" to="." method="_on_Music_focus_exited"]
+[connection signal="button_down" from="Settings/Buttons/Sfx" to="." method="_on_Sfx_button_down"]
+[connection signal="focus_exited" from="Settings/Buttons/Sfx" to="." method="_on_Sfx_focus_exited"]
+[connection signal="button_down" from="Settings/Buttons/Ambience" to="." method="_on_Ambience_button_down"]
+[connection signal="focus_exited" from="Settings/Buttons/Ambience" to="." method="_on_Ambience_focus_exited"]
+[connection signal="button_down" from="Settings/Buttons/Controls" to="." method="_on_Controls_button_down"]
+[connection signal="button_down" from="Settings/Buttons/Back" to="." method="_on_SettingsBack_button_down"]
+[connection signal="finished" from="InputMenu" to="." method="_on_InputMenu_finished"]

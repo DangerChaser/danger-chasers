@@ -82,11 +82,13 @@ func has_state(state_name : String) -> bool:
 
 
 func unpause() -> void:
-	get_current_state().unpause()
+	if states_stack.size() > 0:
+		get_current_state().unpause()
 
 
 func pause() -> void:
-	get_current_state().pause()
+	if states_stack.size() > 0:
+		get_current_state().pause()
 
 
 func enable_state_change() -> void:

@@ -212,7 +212,9 @@ func play_animation(anim_name : String) -> void:
 	pivot.play(anim_name)
 
 
-func face_actor(actor):
+func face_actor(actor=null):
+	if not actor:
+		actor = target.get_target()
 	var direction = global_position.direction_to(actor.global_position)
 	var look_direction = Vector2.RIGHT if direction.x >= 0 else Vector2.LEFT
 	update_look_direction(look_direction)

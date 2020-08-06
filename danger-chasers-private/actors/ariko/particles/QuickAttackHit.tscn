@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://actors/ariko/sfx/sword_slice.wav" type="AudioStream" id=1]
+[ext_resource path="res://actors/ariko/particles/sprites/quick_attack_hit.png" type="Texture" id=2]
+[ext_resource path="res://actors/ariko/sfx/sword_slice_2.wav" type="AudioStream" id=3]
+[ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 24.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+anim_speed = 1.0
+
+[node name="QuickAttackHit" instance=ExtResource( 4 )]
+
+[node name="Sfx" parent="." index="0"]
+attenuation = 0.659754
+sfx_list = [ ExtResource( 1 ), ExtResource( 3 ) ]
+random_pitch_low = 0.96
+random_pitch_high = 1.04
+
+[node name="Particles2D" parent="Pivot" index="0"]
+material = SubResource( 1 )
+scale = Vector2( 4, 4 )
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )

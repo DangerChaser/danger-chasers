@@ -15,9 +15,7 @@ func enable_and_sync_movement() -> void:
 
 
 func enable() -> void:
-	player = GameManager.get_player()
-	#global_transform = player.global_transform
-	player.state_machine.change_state("Cutscene")
+	PlayerManager.disable_input()
 	hide_player_hud()
 
 func sync_movement() -> void:
@@ -27,8 +25,7 @@ func sync_movement() -> void:
 func disable() -> void:
 	set_physics_process(false)
 	movement_synced = false
-	if player and player.state_machine.get_current_state().name == "Cutscene":
-		player.state_machine.initialize()
+	PlayerManager.enable_input()
 	show_player_hud()
 
 func _physics_process(delta):

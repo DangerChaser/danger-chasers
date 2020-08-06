@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/kenney_pixel_ui/space.png" type="Texture" id=1]
+[ext_resource path="res://core/utils/KeyLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://items/ItemButton.gd" type="Script" id=3]
+
+[node name="ItemButton" type="HBoxContainer"]
+margin_right = 1164.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 0, 84 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemBackground" type="TextureRect" parent="."]
+margin_right = 84.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 84, 84 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton" type="TextureButton" parent="ItemBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+
+[node name="QuantityLabel" parent="ItemBackground/ItemButton" instance=ExtResource( 2 )]
+text = "0"
+align = 1
+valign = 1
+
+[node name="ItemNameLabel" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 88.0
+margin_right = 1164.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+valign = 1

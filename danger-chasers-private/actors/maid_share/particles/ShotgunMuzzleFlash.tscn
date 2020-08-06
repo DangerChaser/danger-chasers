@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/maid_share/sprites/muzzle_flash.png" type="Texture" id=2]
+[ext_resource path="res://actors/maid_share/sfx/shoot.wav" type="AudioStream" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+anim_speed = 1.0
+
+[node name="ShotgunMuzzleFlash" instance=ExtResource( 1 )]
+queue_free_after_timer = false
+
+[node name="Sfx" parent="." index="0"]
+stream = ExtResource( 3 )
+random_pitch_low = 0.96
+random_pitch_high = 1.04
+decay = 1.0
+
+[node name="Particles2D" parent="Pivot" index="0"]
+material = SubResource( 1 )
+position = Vector2( 93.6275, 0 )
+scale = Vector2( 4, 4 )
+emitting = false
+amount = 1
+lifetime = 0.15
+one_shot = true
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )

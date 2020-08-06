@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bunny_jump.wav-630c66f6d6578646c2ec880c62f914d2.sample"
+
+[deps]
+
+source_file="res://actors/rabbit/bunny_jump.wav"
+dest_files=[ "res://.import/bunny_jump.wav-630c66f6d6578646c2ec880c62f914d2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

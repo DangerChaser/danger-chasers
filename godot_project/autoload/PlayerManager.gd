@@ -27,3 +27,13 @@ func activate_skill(name : String, experience:=-1) -> void:
 	
 	if not active_skills.has(name):
 		active_skills.append(name)
+
+
+func enable_input() -> void:
+	var player = GameManager.get_player()
+	if player and player.state_machine.get_current_state().name == "Wait":
+		player.state_machine.initialize()
+
+
+func disable_input() -> void:
+	GameManager.get_player().state_machine.change_state("Wait")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/attack_additional_effects/Stomp.gd" type="Script" id=2]
+
+[node name="StompEffect" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+
+[editable path="Motion"]

@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://actors/ariko/sfx/sword_slice.wav" type="AudioStream" id=1]
+[ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=3]
+[ext_resource path="res://combat/weapons/actor_spawners/ActorSpawnerWeapon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/till/sprites/icon.png" type="Texture" id=5]
+[ext_resource path="res://actors/till/Till.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks/ActorSpawnAttack/DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "spawn"
+length = 0.4
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_cancel_animation"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/ActorSpawnAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ {
+
+} ],
+"method": "spawn"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pivot/Attacks/ActorSpawnAttack/DamageSource")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 164.269
+
+[node name="TillSummon" instance=ExtResource( 4 )]
+icon = ExtResource( 5 )
+cooldown = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 1 )
+anims/spawn = SubResource( 2 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+grounded = false
+
+[node name="ActorSpawnAttack" parent="Pivot/Attacks" index="0"]
+actor_animation = "spin"
+
+[node name="Sfx" parent="Pivot/Attacks/ActorSpawnAttack" index="0"]
+stream = ExtResource( 1 )
+
+[node name="ActorSpawner" parent="Pivot/Attacks/ActorSpawnAttack/Spawners" index="0"]
+object = ExtResource( 6 )
+
+[node name="JumpEffect" parent="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects" index="0" instance=ExtResource( 2 )]
+initial_speed = 400.0
+disable_x_input = true
+initialize_x = true
+initialize_y = true
+jump_force = 2000.0
+finish_on_release = false
+take_previous_velocity = false
+
+[node name="MotionSteering" parent="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects/JumpEffect/Motion" index="1"]
+max_speed = 800.0
+mass = 16.0
+
+[node name="Gravity" parent="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects/JumpEffect/Motion" index="2"]
+gravity = 3600.0
+
+[node name="DamageSource" parent="Pivot/Attacks/ActorSpawnAttack" index="5" instance=ExtResource( 3 )]
+damage = 1
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/ActorSpawnAttack/DamageSource" index="0"]
+position = Vector2( -20.9001, -83.6002 )
+shape = SubResource( 3 )
+
+[editable path="Pivot/Attacks/ActorSpawnAttack"]
+
+[editable path="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects/JumpEffect"]
+
+[editable path="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects/JumpEffect/Motion"]
+
+[editable path="Pivot/Attacks/ActorSpawnAttack/DamageSource"]

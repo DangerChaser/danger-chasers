@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/radmatt.DialogueSystem2/Dialogue.gd" type="Script" id=1]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/other/Box/BoxMessage.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/other/Bubble/BubbleMessage.tscn" type="PackedScene" id=3]
+
+[node name="Dialogue" type="CanvasLayer"]
+pause_mode = 2
+layer = 100
+script = ExtResource( 1 )
+dialogue_next_input = "continue_dialogue"
+
+[node name="BubbleMessage" parent="." instance=ExtResource( 3 )]
+margin_left = 523.639
+margin_top = 129.238
+margin_right = 523.639
+margin_bottom = 129.238
+
+[node name="BoxMessage" parent="." instance=ExtResource( 2 )]
+margin_left = 0.049988
+margin_right = 0.0500488
+
+[editable path="BubbleMessage"]
+
+[editable path="BoxMessage"]

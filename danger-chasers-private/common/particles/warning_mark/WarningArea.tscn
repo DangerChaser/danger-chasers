@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://common/particles/warning_mark/WarningArea.gd" type="Script" id=1]
+[ext_resource path="res://common/particles/warning_mark/WarningMarkScanner.tscn" type="PackedScene" id=2]
+
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "start"
+length = 0.6
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 531.001, 128 )
+
+[node name="WarningArea" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/start = SubResource( 1 )
+
+[node name="WarningMarkScanner" parent="." instance=ExtResource( 2 )]
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="WarningMarkScanner" index="0"]
+shape = SubResource( 2 )
+
+[node name="Marks" type="Node2D" parent="."]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[editable path="WarningMarkScanner"]

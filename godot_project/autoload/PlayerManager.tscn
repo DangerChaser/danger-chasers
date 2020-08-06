@@ -15,8 +15,6 @@
 [ext_resource path="res://actors/ariko/weapons/job/LavaLauncher.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=14]
 
-
-
 [node name="PlayerManager" type="Node"]
 script = ExtResource( 1 )
 

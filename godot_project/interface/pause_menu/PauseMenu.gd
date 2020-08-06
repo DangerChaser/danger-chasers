@@ -10,8 +10,9 @@ export(float) var quit_transition_in_duration := 0.5
 onready var pause_menu : Control = $Pause
 onready var settings_menu : Control = $Settings
 onready var input_menu : InputMenu = $InputMenu
-onready var menus = [pause_menu, settings_menu]
-enum Menus { PAUSE, SETTINGS, INPUT }
+onready var audio_menu := $AudioSettingsHUD
+onready var menus = [pause_menu, settings_menu, input_menu, audio_menu]
+enum Menus { PAUSE, SETTINGS, INPUT, AUDIO }
 
 var current_menu
 
@@ -21,14 +22,16 @@ func _ready() -> void:
 
 
 func pause() -> void:
-	get_tree().paused = true
+#	get_tree().paused = true
+	PlayerManager.disable_input()
 	change_menu(Menus.PAUSE)
 
 
 func unpause() -> void:
+	PlayerManager.enable_input()
 	for menu in menus:
 		menu.visible = false
-	get_tree().paused = false
+#	get_tree().paused = false
 	pause_menu.get_node("UnpauseSfx").play()
 
 
@@ -44,7 +47,9 @@ func _input(event : InputEvent) -> void:
 			change_menu(Menus.PAUSE)
 		elif current_menu == Menus.INPUT:
 			change_menu(Menus.SETTINGS)
-
+		elif current_menu == Menus.AUDIO:
+			change_menu(Menus.SETTINGS)
+			audio_menu.disable()
 
 
 func change_menu(new_menu) -> void:
@@ -62,13 +67,14 @@ func change_menu(new_menu) -> void:
 	elif current_menu == Menus.INPUT:
 		pause_menu.get_node("PauseSfx").play()
 		input_menu.enable()
+	elif current_menu == Menus.AUDIO:
+		pause_menu.get_node("PauseSfx").play()
+		audio_menu.enable()
 
 
 func hide_menus() -> void:
 	for menu in menus:
 		menu.visible = false
-
-
 
 
 func _on_Resume_button_down():
@@ -93,22 +99,6 @@ func _on_Settings_button_down():
 	change_menu(Menus.SETTINGS)
 
 
-func _on_Music_button_down():
-	settings_menu.get_node("MusicLevelController").enable()
-
-
-func _on_Music_focus_exited():
-	settings_menu.get_node("MusicLevelController").disable()
-
-
-func _on_Sfx_button_down():
-	settings_menu.get_node("SoundLevelController").enable()
-
-
-func _on_Sfx_focus_exited():
-	settings_menu.get_node("SoundLevelController").disable()
-
-
 func _on_Controls_button_down():
 	change_menu(Menus.INPUT)
 
@@ -121,9 +111,9 @@ func _on_InputMenu_finished():
 	change_menu(Menus.SETTINGS)
 
 
-func _on_Ambience_button_down():
-	settings_menu.get_node("AmbienceLevelController").enable()
+func _on_Audio_button_down():
+	change_menu(Menus.AUDIO)
 
 
-func _on_Ambience_focus_exited():
-	settings_menu.get_node("AmbienceLevelController").disable()
+func _on_AudioSettingsHUD_finished():
+	change_menu(Menus.SETTINGS)

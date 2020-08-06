@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/skull/Pivot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actor_framework/stats/DefaultStats.tres" type="Resource" id=3]
+[ext_resource path="res://actor_states/motion/Spawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/skull/SkullGun.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/skull/sprites/Death/Death_01.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 21.7428, 54.9713 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 23.0714, 52.9394 )
+
+[node name="Sniper" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 1
+
+[node name="Pivot" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="Sprite" parent="Pivot" index="1"]
+texture = ExtResource( 9 )
+
+[node name="Weapons" parent="Pivot" index="2"]
+position = Vector2( 30.1776, -8.51163 )
+
+[node name="StateMachine" parent="." index="1"]
+ai_max_target_distance = 999999.0
+
+[node name="Spawn" parent="StateMachine" index="0" instance=ExtResource( 4 )]
+animation = "SETUP"
+next_state = "Wait"
+
+[node name="Gravity" parent="StateMachine/Spawn" index="2"]
+gravity = 0.0
+max_speed = 0.0
+
+[node name="Wait" parent="StateMachine" index="1" instance=ExtResource( 5 )]
+animation = "run"
+next_state = "Shoot"
+
+[node name="Timer" parent="StateMachine/Wait" index="3"]
+wait_time = 0.4
+
+[node name="Shoot" parent="StateMachine" index="2" instance=ExtResource( 6 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 7 ) ]
+next_state = "Die"
+
+[node name="Die" parent="StateMachine" index="3" instance=ExtResource( 8 )]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionBox" parent="." index="3"]
+position = Vector2( 1.25436, 4.73273 )
+shape = SubResource( 2 )
+
+[node name="Target" parent="." index="5"]
+max_distance = 1337.0
+
+[node name="Stats" parent="." index="6"]
+character_stats = ExtResource( 3 )
+
+[editable path="Pivot"]
+
+[editable path="StateMachine/Spawn"]
+
+[editable path="StateMachine/Wait"]
+
+[editable path="StateMachine/Die"]
+
+[editable path="Hurtbox"]

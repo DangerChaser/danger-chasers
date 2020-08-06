@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/radmatt.DialogueSystem2/custom_text_node/Text.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="Text" type="PanelContainer"]
+margin_right = 175.0
+margin_bottom = 23.0
+grow_vertical = 0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 175.0
+margin_bottom = 23.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/line_spacing = 4
+text = "sdsdssaa"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Label"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/line_separation = 4
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

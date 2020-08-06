@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
+[ext_resource path="res://interface/dynamic_fonts/Silver_128.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interactable_scripts/base/MouseButton.gd" type="Script" id=3]
+[ext_resource path="res://interface/kenney_pixel_ui/Colored/grey.png" type="Texture" id=5]
+[ext_resource path="res://interface/kenney_pixel_ui/Colored/grey_pressed.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="Pin" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -60.0
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 120, 120 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Background" type="AnimatedSprite" parent="."]
+position = Vector2( 69.3793, 58.4962 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="KeyLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -314.5
+margin_top = -68.0
+margin_right = 314.5
+margin_bottom = 68.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "INTERACTION_KEY"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -208.0
+margin_right = 96.0
+margin_bottom = 208.0
+flat = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

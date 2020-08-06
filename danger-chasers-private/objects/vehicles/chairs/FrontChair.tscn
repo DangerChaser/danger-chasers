@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://objects/vehicles/Vehicle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/vehicles/chairs/Chair.gd" type="Script" id=3]
+[ext_resource path="res://objects/vehicles/chairs/sit.wav" type="AudioStream" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "sit"
+tracks/0/type = "audio"
+tracks/0/path = NodePath("SitSfx")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 304, 272 )
+
+[node name="FrontChair" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+animation = "sit"
+owner_animation = "sit_front"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" index="0"]
+anims/sit = SubResource( 1 )
+
+[node name="SitSfx" type="AudioStreamPlayer2D" parent="Pivot" index="1"]
+stream = ExtResource( 4 )
+bus = "Sfx"
+
+[node name="Wait" parent="StateMachine" index="0" instance=ExtResource( 2 )]
+animation = "sit_front"
+wait_forever = true
+
+[node name="MotionSteering" parent="StateMachine/Wait" index="1"]
+max_speed = 0.0
+
+[node name="Gravity" parent="StateMachine/Wait" index="2"]
+gravity = 0.0
+
+[node name="Camera2D" parent="CameraLimitTrigger" index="0"]
+zoom = Vector2( 1.1, 1.1 )
+
+[node name="ColliderTrigger" parent="CameraLimitTrigger" index="1"]
+shape = SubResource( 2 )
+
+[editable path="StateMachine/Wait"]
+
+[editable path="CameraLimitTrigger"]

@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/projectile_launchers/SpawnGroup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/ruby_golem_pilot/weapons/RubyGolemPilotBullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/ruby_golem_pilot/shoot.wav" type="AudioStream" id=4]
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "shoot"
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_cancel_animation"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/SpawnGroup")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ {
+
+} ],
+"method": "spawn"
+} ]
+}
+
+[node name="RubyGolemPilotGun" instance=ExtResource( 1 )]
+cooldown = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 1 )
+anims/shoot = SubResource( 2 )
+
+[node name="SpawnGroup" parent="Pivot/Attacks" index="0" instance=ExtResource( 2 )]
+actor_animation = "shoot_1"
+weapon_animation = "shoot"
+screen_shake_damp = 12.1089
+
+[node name="Sfx" parent="Pivot/Attacks/SpawnGroup" index="0"]
+stream = ExtResource( 4 )
+random_pitch_low = 0.98
+random_pitch_high = 1.02
+
+[node name="ObjectSpawner" parent="Pivot/Attacks/SpawnGroup/Spawners" index="0"]
+object = ExtResource( 3 )
+
+[node name="MovementEffect" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects" index="0" instance=ExtResource( 8 )]
+initial_speed = 20.0
+
+[node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 20.0
+mass = 999.0
+
+[node name="SpawnGroup2" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
+actor_animation = "shoot_2"
+weapon_animation = "shoot"
+screen_shake_damp = 12.1089
+
+[node name="Sfx" parent="Pivot/Attacks/SpawnGroup2" index="0"]
+stream = ExtResource( 4 )
+random_pitch_low = 0.98
+random_pitch_high = 1.02
+
+[node name="ObjectSpawner" parent="Pivot/Attacks/SpawnGroup2/Spawners" index="0"]
+object = ExtResource( 3 )
+
+[node name="MovementEffect" parent="Pivot/Attacks/SpawnGroup2/AdditionalEffects" index="0" instance=ExtResource( 8 )]
+initial_speed = 20.0
+
+[node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup2/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 20.0
+
+[editable path="Pivot/Attacks/SpawnGroup"]
+
+[editable path="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect/Motion"]
+
+[editable path="Pivot/Attacks/SpawnGroup2"]
+
+[editable path="Pivot/Attacks/SpawnGroup2/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/SpawnGroup2/AdditionalEffects/MovementEffect/Motion"]

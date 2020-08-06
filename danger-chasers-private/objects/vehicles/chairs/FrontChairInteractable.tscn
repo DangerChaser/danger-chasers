@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/vehicles/VehicleInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/vehicles/chairs/FrontChair.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level/levels/tutorials/passenger_car_chair_1.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 256, 256 )
+
+[sub_resource type="CircleShape2D" id=2]
+resource_local_to_scene = true
+radius = 60.0
+
+[node name="FrontChairInteractable" instance=ExtResource( 1 )]
+vehicle = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="CollisionTrigger" index="0"]
+shape = SubResource( 1 )
+
+[node name="InteractionArea" parent="." index="1"]
+visible = true
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+shape = SubResource( 2 )
+disabled = false
+
+[node name="Sprite" type="Sprite" parent="." index="3"]
+position = Vector2( 0, -51.3619 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[editable path="CollisionTrigger"]
+
+[editable path="InteractionArea"]

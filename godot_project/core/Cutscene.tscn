@@ -37,8 +37,8 @@ disable_on_trigger = true
 [node name="CollisionShape2D" parent="InteractionArea" index="0"]
 shape = SubResource( 2 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="area_entered" from="CollisionTrigger" to="." method="_on_CollisionTrigger_area_entered"]
-[connection signal="interacted_with_actor" from="InteractionArea" to="." method="_on_InteractionArea_interacted_with_actor"]
+[connection signal="area_entered" from="CollisionTrigger" to="." method="start"]
+[connection signal="interacted" from="InteractionArea" to="." method="start"]
 
 [editable path="CollisionTrigger"]
 

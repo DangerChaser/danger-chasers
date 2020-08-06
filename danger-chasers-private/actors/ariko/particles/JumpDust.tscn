@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://actors/ariko/particles/sprites/jump_dust.png" type="Texture" id=1]
+[ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.416244, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 4.0
+color_ramp = SubResource( 3 )
+anim_speed = 1.0
+
+[node name="JumpDust" instance=ExtResource( 2 )]
+
+[node name="Sfx" parent="." index="0"]
+attenuation = 0.659754
+
+[node name="Particles2D" parent="Pivot" index="0"]
+material = SubResource( 1 )
+position = Vector2( -1.14804, -11.4977 )
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.87
+randomness = 1.0
+process_material = SubResource( 4 )
+texture = ExtResource( 1 )

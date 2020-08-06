@@ -1,6 +1,8 @@
 extends Node2D
 class_name Cutscene
 
+signal ended
+
 onready var animation_player : AnimationPlayer = $AnimationPlayer
 onready var player_cutscene_manager : PlayerCutsceneManager = $PlayerCutsceneManager
 
@@ -10,8 +12,6 @@ func _ready() -> void:
 
 func start() -> void:
 	CutsceneManager.current_cutscene = self
-	if not Dialogue.is_connected("dialogue_ended", self, "end"):
-		Dialogue.connect("dialogue_ended", self, "end")
 	play("start")
 
 func play(var name : String ="", var custom_blend : float =-1, var custom_speed : float = 1.0, var from_end : bool = false ) -> void:
@@ -23,7 +23,7 @@ func enable() -> void:
 
 
 func disable() -> void:
-	play("end")
+	end()
 	player_cutscene_manager.disable()
 
 
@@ -32,22 +32,14 @@ func start_from_actor_death(actor) -> void:
 
 
 func end():
-	Dialogue.disconnect("dialogue_ended", self, "end")
 	play("end")
-
-
-func _on_CollisionTrigger_area_entered(area):
-	start()
-
-
-func _on_InteractionArea_interacted_with_actor(actor):
-	start()
+	emit_signal("ended")
 
 
 func next_dialogue(box_icon : Texture = null) -> void:
+	set_dialogue_icon(box_icon)
 	Dialogue.set_next(Dialogue.get_dialogue_node_by_id(Dialogue.current_id).next)
 	Dialogue.next()
-	set_dialogue_icon(box_icon)
 
 
 func set_dialogue_icon(texture : Texture) -> void:

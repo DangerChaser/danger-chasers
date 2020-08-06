@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/goblin/sfx/swing.wav" type="AudioStream" id=4]
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks/Slash/DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "slash"
+length = 0.4
+step = 0.02
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.26, 0.3, 0.34 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_cancel_animation"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/Slash/DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pivot/Attacks/Slash/Sfx")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[node name="GoblinSword" instance=ExtResource( 1 )]
+cooldown = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 1 )
+anims/slash = SubResource( 2 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+can_loop = true
+
+[node name="Slash" parent="Pivot/Attacks" index="0" instance=ExtResource( 3 )]
+actor_animation = "stab"
+weapon_animation = "slash"
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Slash" index="0"]
+stream = ExtResource( 4 )
+bus = "Sfx"
+
+[node name="DamageSource" parent="Pivot/Attacks/Slash" index="1"]
+damage = 10
+
+[node name="MovementEffect" parent="Pivot/Attacks/Slash/AdditionalEffects" index="0" instance=ExtResource( 5 )]
+initial_speed = 800.0
+
+[node name="MotionSteering" parent="Pivot/Attacks/Slash/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 0.0
+mass = 8.0
+
+[editable path="Pivot/Attacks/Slash"]
+
+[editable path="Pivot/Attacks/Slash/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/Slash/AdditionalEffects/MovementEffect/Motion"]

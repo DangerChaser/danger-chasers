@@ -1,6 +1,8 @@
 extends Control
 class_name AudioBusLevelController
 
+signal enabled
+
 export var bus_name := ""
 onready var bus_index = AudioServer.get_bus_index(bus_name)
 onready var texture_progress : TextureProgress = $TextureProgress
@@ -18,6 +20,7 @@ func enable() -> void:
 	visible = true
 	set_process_input(true)
 	enabled = true
+	emit_signal("enabled")
 
 
 func disable() -> void:
@@ -48,8 +51,8 @@ func change_volume(delta : float) -> void:
 	volume += delta
 	volume = clamp(volume, 0.0, 1.0)
 	AudioServer.set_bus_volume_db(bus_index, linear2db(volume))
-	print(volume)
 	AudioServer.set_bus_mute(bus_index, volume == 0.0)
+	print_debug(bus_name + " bus volume: "+ str(volume))
 	
 	texture_progress.value = volume * 100
 	sfx.play()

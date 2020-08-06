@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://combat/weapons/actor_spawners/ActorSpawnerWeapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/maid_share/share_turret/ShareTurret.tscn" type="PackedScene" id=5]
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+
+[sub_resource type="Animation" id=2]
+length = 0.8
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_attack_input_listening"
+}, {
+"args": [  ],
+"method": "enable_ready_for_next_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/ActorSpawnAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ {
+
+} ],
+"method": "spawn"
+} ]
+}
+
+[node name="ShareTurretSpawner" instance=ExtResource( 1 )]
+cooldown = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 1 )
+anims/spawn = SubResource( 2 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+grounded = false
+
+[node name="ActorSpawnAttack" parent="Pivot/Attacks" index="0"]
+actor_animation = "land"
+
+[node name="ActorSpawner" parent="Pivot/Attacks/ActorSpawnAttack/Spawners" index="0"]
+position = Vector2( -256, -192 )
+object = ExtResource( 5 )
+actor_name = ""
+
+[editable path="Pivot/Attacks/ActorSpawnAttack"]

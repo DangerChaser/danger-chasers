@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shitty_roll.wav-852aef72ddba7028c545dcc0f447ec96.sample"
+
+[deps]
+
+source_file="res://actors/ariko/sfx/shitty_roll.wav"
+dest_files=[ "res://.import/shitty_roll.wav-852aef72ddba7028c545dcc0f447ec96.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

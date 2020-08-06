@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/swing.wav-97ba2fd6735a5027ea2186444767198e.sample"
+
+[deps]
+
+source_file="res://actors/mushroom/sfx/swing.wav"
+dest_files=[ "res://.import/swing.wav-97ba2fd6735a5027ea2186444767198e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
