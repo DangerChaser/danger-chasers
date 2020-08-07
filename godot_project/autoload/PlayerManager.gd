@@ -30,10 +30,14 @@ func activate_skill(name : String, experience:=-1) -> void:
 
 
 func enable_input() -> void:
-	var player = GameManager.get_player()
-	if player and player.state_machine.get_current_state().name == "Wait":
-		player.state_machine.initialize()
+	if GameManager.players.size() > 0:
+		var player = GameManager.get_player()
+		if player and player.state_machine.get_current_state().name == "Wait":
+			player.state_machine.initialize()
 
 
 func disable_input() -> void:
-	GameManager.get_player().state_machine.change_state("Wait")
+	if GameManager.players.size() > 0:
+		var player = GameManager.get_player()
+		if player:
+			player.state_machine.change_state("Wait")
