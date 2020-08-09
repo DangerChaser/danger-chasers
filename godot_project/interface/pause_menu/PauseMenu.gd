@@ -11,8 +11,9 @@ onready var pause_menu : Control = $Pause
 onready var settings_menu : Control = $Settings
 onready var input_menu : InputMenu = $InputMenu
 onready var audio_menu := $AudioSettingsHUD
-onready var menus = [pause_menu, settings_menu, input_menu, audio_menu]
-enum Menus { PAUSE, SETTINGS, INPUT, AUDIO }
+onready var graphics_menu := $GraphicsMenu
+onready var menus = [pause_menu, settings_menu, input_menu, audio_menu, graphics_menu]
+enum Menus { PAUSE, SETTINGS, INPUT, AUDIO, GRAPHICS }
 
 var current_menu
 
@@ -47,9 +48,13 @@ func _input(event : InputEvent) -> void:
 			change_menu(Menus.PAUSE)
 		elif current_menu == Menus.INPUT:
 			change_menu(Menus.SETTINGS)
+			input_menu.disable()
 		elif current_menu == Menus.AUDIO:
 			change_menu(Menus.SETTINGS)
 			audio_menu.disable()
+		elif current_menu == Menus.GRAPHICS:
+			change_menu(Menus.SETTINGS)
+			graphics_menu.disable()
 
 
 func change_menu(new_menu) -> void:
@@ -70,6 +75,9 @@ func change_menu(new_menu) -> void:
 	elif current_menu == Menus.AUDIO:
 		pause_menu.get_node("PauseSfx").play()
 		audio_menu.enable()
+	elif current_menu == Menus.GRAPHICS:
+		pause_menu.get_node("PauseSfx").play()
+		graphics_menu.enable()
 
 
 func hide_menus() -> void:
@@ -116,4 +124,12 @@ func _on_Audio_button_down():
 
 
 func _on_AudioSettingsHUD_finished():
+	change_menu(Menus.SETTINGS)
+
+
+func _on_Graphics_button_down():
+	change_menu(Menus.GRAPHICS)
+
+
+func _on_GraphicsMenu_finished():
 	change_menu(Menus.SETTINGS)

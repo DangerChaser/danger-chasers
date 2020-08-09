@@ -191,7 +191,7 @@ position = Vector2( 0, 32 )
 hit_particles = ExtResource( 7 )
 damage = 15
 delay_milliseconds = 6
-screen_shake_amplitude = 30.0
+screen_shake_amplitude = 20.0
 screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Stomp/DamageSource" index="0"]
@@ -224,8 +224,8 @@ position = Vector2( 0, 64 )
 hit_particles = ExtResource( 10 )
 damage = 5
 delay_milliseconds = 2
-screen_shake_amplitude = 20.0
-screen_shake_duration = 0.2
+screen_shake_amplitude = 42.0
+screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Recover/DamageSource" index="0"]
 shape = SubResource( 5 )

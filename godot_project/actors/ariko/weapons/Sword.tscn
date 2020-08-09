@@ -312,8 +312,8 @@ particles = ExtResource( 9 )
 hit_particles = ExtResource( 5 )
 damage = 8
 delay_milliseconds = 2
-screen_shake_amplitude = 30.0
-screen_shake_duration = 0.3
+screen_shake_amplitude = 42.0
+screen_shake_duration = 0.4
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/SlashDown/DamageSource" index="0"]
 position = Vector2( 256, -64 )
@@ -345,8 +345,8 @@ particles = ExtResource( 11 )
 hit_particles = ExtResource( 5 )
 damage = 10
 delay_milliseconds = 2
-screen_shake_amplitude = 30.0
-screen_shake_duration = 0.3
+screen_shake_amplitude = 42.0
+screen_shake_duration = 0.4
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/SlashUp/DamageSource" index="0"]
 position = Vector2( 256, -64 )
@@ -378,8 +378,8 @@ particles = ExtResource( 12 )
 hit_particles = ExtResource( 13 )
 damage = 15
 delay_milliseconds = 2
-screen_shake_amplitude = 30.0
-screen_shake_duration = 0.3
+screen_shake_amplitude = 42.0
+screen_shake_duration = 0.4
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Stab/DamageSource" index="0"]
 position = Vector2( 256, -64 )

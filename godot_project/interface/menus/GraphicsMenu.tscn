@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=1]
+[ext_resource path="res://interface/menus/GraphicsMenu.gd" type="Script" id=2]
+[ext_resource path="res://core/utils/ButtonKey.gd" type="Script" id=3]
+[ext_resource path="res://interface/themes/General.tres" type="Theme" id=4]
+
+[node name="GraphicsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 72.0
+margin_bottom = 86.0
+text = "GRAPHICS"
+align = 1
+script = ExtResource( 1 )
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+margin_top = 128.0
+margin_bottom = 232.0
+custom_constants/separation = 64
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScreenShake" type="HBoxContainer" parent="Buttons"]
+margin_right = 1920.0
+margin_bottom = 76.0
+
+[node name="KeyLabel" type="Label" parent="Buttons/ScreenShake"]
+margin_top = 4.0
+margin_right = 958.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+text = "SCREEN_SHAKE"
+script = ExtResource( 1 )
+
+[node name="ScreenShakeButton" type="Button" parent="Buttons/ScreenShake"]
+margin_left = 962.0
+margin_right = 1920.0
+margin_bottom = 76.875
+size_flags_horizontal = 3
+text = "ON"
+script = ExtResource( 3 )
+
+[node name="BackButton" type="Button" parent="Buttons"]
+margin_top = 140.0
+margin_right = 1920.0
+margin_bottom = 216.875
+size_flags_horizontal = 3
+text = "BACK"
+script = ExtResource( 3 )
+[connection signal="button_down" from="Buttons/ScreenShake/ScreenShakeButton" to="." method="_on_ScreenShakeButton_button_down"]
+[connection signal="button_down" from="Buttons/BackButton" to="." method="_on_BackButton_button_down"]

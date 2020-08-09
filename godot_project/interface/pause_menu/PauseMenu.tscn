@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
 [ext_resource path="res://interface/pause_menu/PauseMenu.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://interface/pause_menu/unpause.wav" type="AudioStream" id=6]
 [ext_resource path="res://interface/pause_menu/pause.wav" type="AudioStream" id=7]
 [ext_resource path="res://core/audio_bus_level_controllers/AudioSettingsHUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://interface/menus/GraphicsMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/input_mapper/InputMenu.tscn" type="PackedScene" id=10]
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -123,24 +124,32 @@ __meta__ = {
 }
 
 [node name="Audio" type="Button" parent="Settings/Buttons"]
-margin_left = 628.0
-margin_right = 828.0
+margin_left = 512.0
+margin_right = 712.0
 margin_bottom = 76.875
 rect_min_size = Vector2( 200, 60 )
 text = "AUDIO"
 script = ExtResource( 5 )
 
 [node name="Controls" type="Button" parent="Settings/Buttons"]
-margin_left = 860.0
-margin_right = 1060.0
+margin_left = 744.0
+margin_right = 944.0
 margin_bottom = 76.875
 rect_min_size = Vector2( 200, 60 )
 text = "CONTROLS"
 script = ExtResource( 5 )
 
+[node name="Graphics" type="Button" parent="Settings/Buttons"]
+margin_left = 976.0
+margin_right = 1176.0
+margin_bottom = 76.875
+rect_min_size = Vector2( 200, 60 )
+text = "GRAPHICS"
+script = ExtResource( 5 )
+
 [node name="Back" type="Button" parent="Settings/Buttons"]
-margin_left = 1092.0
-margin_right = 1292.0
+margin_left = 1208.0
+margin_right = 1408.0
 margin_bottom = 76.875
 rect_min_size = Vector2( 200, 60 )
 text = "BACK"
@@ -151,12 +160,16 @@ visible = false
 
 [node name="AudioSettingsHUD" parent="." instance=ExtResource( 8 )]
 visible = false
+
+[node name="GraphicsMenu" parent="." instance=ExtResource( 9 )]
 [connection signal="button_down" from="Pause/Buttons/Resume" to="." method="_on_Resume_button_down"]
 [connection signal="button_down" from="Pause/Buttons/Restart" to="." method="_on_Restart_button_down"]
 [connection signal="button_down" from="Pause/Buttons/Settings" to="." method="_on_Settings_button_down"]
 [connection signal="button_down" from="Pause/Buttons/Quit" to="." method="_on_Quit_button_down"]
 [connection signal="button_down" from="Settings/Buttons/Audio" to="." method="_on_Audio_button_down"]
 [connection signal="button_down" from="Settings/Buttons/Controls" to="." method="_on_Controls_button_down"]
+[connection signal="button_down" from="Settings/Buttons/Graphics" to="." method="_on_Graphics_button_down"]
 [connection signal="button_down" from="Settings/Buttons/Back" to="." method="_on_SettingsBack_button_down"]
 [connection signal="finished" from="InputMenu" to="." method="_on_InputMenu_finished"]
 [connection signal="finished" from="AudioSettingsHUD" to="." method="_on_AudioSettingsHUD_finished"]
+[connection signal="finished" from="GraphicsMenu" to="." method="_on_GraphicsMenu_finished"]

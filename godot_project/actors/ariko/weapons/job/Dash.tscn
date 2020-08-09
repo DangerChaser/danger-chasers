@@ -127,8 +127,8 @@ particles = ExtResource( 10 )
 hit_particles = ExtResource( 7 )
 damage = 18
 delay_milliseconds = 6
-screen_shake_amplitude = 130.0
-screen_shake_duration = 0.2
+screen_shake_amplitude = 200.0
+screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
 position = Vector2( 115.153, -105.714 )

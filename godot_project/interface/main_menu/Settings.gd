@@ -16,6 +16,7 @@ func start():
 	visible = true
 	$AudioSettingsHUD.visible = false
 	$InputMenu.visible = false
+	$GraphicsMenu.visible = false
 	yield(get_tree().create_timer(animation_player.current_animation_length), "timeout")
 	$Buttons/HBoxContainer/Audio.grab_focus()
 
@@ -40,3 +41,12 @@ func _on_InputMenu_finished():
 func _on_Controls_button_down():
 	transition_out()
 	$InputMenu.enable()
+
+
+func _on_Graphics_button_down():
+	transition_out()
+	$GraphicsMenu.enable()
+
+
+func _on_GraphicsMenu_finished():
+	start()

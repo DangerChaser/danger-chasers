@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=1]
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=2]
@@ -11,8 +11,9 @@
 [ext_resource path="res://interface/main_menu/Settings.gd" type="Script" id=9]
 [ext_resource path="res://core/audio_bus_level_controllers/AudioSettingsHUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://interface/input_mapper/InputMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://interface/menus/GraphicsMenu.tscn" type="PackedScene" id=12]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "loop"
 loop = true
 tracks/0/type = "value"
@@ -28,8 +29,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "start"
+[sub_resource type="Animation" id=2]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
@@ -168,7 +168,7 @@ tracks/3/keys = {
 "values": [ Vector2( 1175.45, 630.366 ), Vector2( 1995.79, 630.366 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "exit"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Buttons:rect_position")
@@ -207,8 +207,7 @@ tracks/2/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "start"
+[sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Buttons:rect_position")
@@ -247,7 +246,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=6]
 resource_name = "transition_in"
 length = 0.5
 tracks/0/type = "value"
@@ -275,8 +274,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -123.005 ), Vector2( 0, 149.643 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "transition_out"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Buttons:rect_position")
 tracks/0/interp = 1
@@ -302,7 +300,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 149.643 ), Vector2( 0, -123.005 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "finished"
 tracks/0/type = "value"
 tracks/0/path = NodePath("NewGameLabel:rect_position")
@@ -353,8 +351,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "start"
+[sub_resource type="Animation" id=9]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("NewGameLabel:rect_position")
@@ -393,8 +390,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1042.76, 1155.17 ), Vector2( 1216, 448 ), Vector2( 1152, 512 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "transition_out"
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("NewGameLabel:rect_position")
 tracks/0/interp = 1
@@ -526,7 +522,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 832 ), Vector2( 0, 1152 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=14]
 resource_name = "start"
 length = 0.4
 tracks/0/type = "value"
@@ -554,7 +550,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 1088 ), Vector2( 0, 640 ), Vector2( 0, 704 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 resource_name = "transition_out"
 tracks/0/type = "value"
 tracks/0/path = NodePath("SettingsLabel:rect_position")
@@ -597,7 +593,7 @@ anchor_bottom = 0.5
 margin_top = -390.357
 margin_bottom = -322.356
 size_flags_horizontal = 3
-text = "Danger Chaser"
+text = "DANGER CHASER"
 align = 1
 script = ExtResource( 1 )
 __meta__ = {
@@ -614,8 +610,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PressAnyButton"]
-anims/loop = SubResource( 2 )
-anims/start = SubResource( 1 )
+anims/loop = SubResource( 1 )
+anims/start = SubResource( 2 )
 anims/transition_out = SubResource( 3 )
 next/start = "loop"
 
@@ -635,7 +631,7 @@ margin_left = -1331.95
 margin_top = 90.3661
 margin_right = -987.953
 margin_bottom = 158.366
-text = "Press"
+text = "PRESS"
 align = 1
 script = ExtResource( 1 )
 __meta__ = {
@@ -651,7 +647,7 @@ margin_left = -172.0
 margin_top = 568.697
 margin_right = 172.0
 margin_bottom = 636.697
-text = "Any"
+text = "ANY"
 align = 1
 script = ExtResource( 1 )
 
@@ -664,7 +660,7 @@ margin_left = 1035.79
 margin_top = 90.3661
 margin_right = 1379.79
 margin_bottom = 158.366
-text = "Button"
+text = "BUTTON"
 align = 1
 script = ExtResource( 1 )
 
@@ -709,7 +705,7 @@ margin_right = 477.0
 margin_bottom = 76.875
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Exit"
+text = "EXIT"
 script = ExtResource( 5 )
 
 [node name="NewGameButton" type="Button" parent="Main/Buttons/HBoxContainer"]
@@ -718,7 +714,7 @@ margin_right = 958.0
 margin_bottom = 76.875
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "New Game"
+text = "NEW_GAME"
 script = ExtResource( 5 )
 
 [node name="ContinueButton" type="Button" parent="Main/Buttons/HBoxContainer"]
@@ -727,7 +723,7 @@ margin_right = 1439.0
 margin_bottom = 76.875
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Continue"
+text = "CONTINUE"
 script = ExtResource( 5 )
 
 [node name="SettingsButton" type="Button" parent="Main/Buttons/HBoxContainer"]
@@ -736,14 +732,14 @@ margin_right = 1920.0
 margin_bottom = 76.875
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Settings"
+text = "SETTINGS"
 script = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Main"]
-anims/exit = SubResource( 6 )
-anims/start = SubResource( 4 )
-anims/transition_in = SubResource( 10 )
-anims/transition_out = SubResource( 5 )
+anims/exit = SubResource( 4 )
+anims/start = SubResource( 5 )
+anims/transition_in = SubResource( 6 )
+anims/transition_out = SubResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="Main"]
 anchor_right = 1.0
@@ -763,7 +759,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = 153.066
 margin_bottom = 221.066
-text = "Begin your adventures?"
+text = "NEW_GAME"
 align = 1
 script = ExtResource( 1 )
 __meta__ = {
@@ -776,7 +772,7 @@ margin_top = 512.0
 margin_right = 740.0
 margin_bottom = 588.875
 rect_min_size = Vector2( 420, 0 )
-text = "Yes"
+text = "YES"
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -788,7 +784,7 @@ margin_top = 512.0
 margin_right = 1572.0
 margin_bottom = 588.875
 rect_min_size = Vector2( 420, 0 )
-text = "No"
+text = "NO"
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -803,9 +799,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NewGame"]
-anims/finished = SubResource( 9 )
-anims/start = SubResource( 7 )
-anims/transition_out = SubResource( 8 )
+anims/finished = SubResource( 8 )
+anims/start = SubResource( 9 )
+anims/transition_out = SubResource( 10 )
 
 [node name="Continue" type="Control" parent="."]
 visible = false
@@ -820,7 +816,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = 153.066
 margin_bottom = 221.066
-text = "Load"
+text = "CONTINUE"
 align = 1
 script = ExtResource( 1 )
 __meta__ = {
@@ -835,7 +831,7 @@ margin_top = 292.0
 margin_right = -0.000366211
 margin_bottom = 368.875
 rect_min_size = Vector2( 420, 0 )
-text = "Back"
+text = "BACK"
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -855,6 +851,7 @@ anims/start = SubResource( 12 )
 anims/transition_out = SubResource( 13 )
 
 [node name="Settings" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 9 )
@@ -896,40 +893,54 @@ __meta__ = {
 }
 
 [node name="Audio" type="Button" parent="Settings/Buttons/HBoxContainer"]
-margin_right = 637.0
+margin_right = 477.0
 margin_bottom = 76.875
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Audio"
+text = "AUDIO"
 script = ExtResource( 5 )
 
 [node name="Controls" type="Button" parent="Settings/Buttons/HBoxContainer"]
-margin_left = 641.0
-margin_right = 1278.0
+margin_left = 481.0
+margin_right = 958.0
 margin_bottom = 76.875
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Controls"
+text = "CONTROLS"
+script = ExtResource( 5 )
+
+[node name="Graphics" type="Button" parent="Settings/Buttons/HBoxContainer"]
+margin_left = 962.0
+margin_right = 1439.0
+margin_bottom = 76.875
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "GRAPHICS"
 script = ExtResource( 5 )
 
 [node name="BackButton" type="Button" parent="Settings/Buttons/HBoxContainer"]
-margin_left = 1282.0
+margin_left = 1443.0
 margin_right = 1920.0
 margin_bottom = 76.875
 size_flags_horizontal = 3
-text = "Back"
+text = "BACK"
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Settings"]
-anims/start = SubResource( 15 )
-anims/transition_out = SubResource( 16 )
+anims/start = SubResource( 14 )
+anims/transition_out = SubResource( 15 )
 
 [node name="AudioSettingsHUD" parent="Settings" instance=ExtResource( 10 )]
+visible = false
 
 [node name="InputMenu" parent="Settings" instance=ExtResource( 11 )]
+visible = false
+
+[node name="GraphicsMenu" parent="Settings" instance=ExtResource( 12 )]
+visible = false
 [connection signal="finished" from="PressAnyButton" to="." method="_on_PressAnyButton_finished"]
 [connection signal="continue_button_pressed" from="Main" to="." method="_on_Main_continue_button_pressed"]
 [connection signal="new_game_button_pressed" from="Main" to="." method="_on_Main_new_game_button_pressed"]
@@ -947,6 +958,8 @@ anims/transition_out = SubResource( 16 )
 [connection signal="back_selected" from="Settings" to="." method="_on_Settings_back_selected"]
 [connection signal="button_down" from="Settings/Buttons/HBoxContainer/Audio" to="Settings" method="_on_Audio_button_down"]
 [connection signal="button_down" from="Settings/Buttons/HBoxContainer/Controls" to="Settings" method="_on_Controls_button_down"]
+[connection signal="button_down" from="Settings/Buttons/HBoxContainer/Graphics" to="Settings" method="_on_Graphics_button_down"]
 [connection signal="button_down" from="Settings/Buttons/HBoxContainer/BackButton" to="Settings" method="_on_BackButton_button_down"]
 [connection signal="finished" from="Settings/AudioSettingsHUD" to="Settings" method="_on_AudioSettingsHUD_finished"]
 [connection signal="finished" from="Settings/InputMenu" to="Settings" method="_on_InputMenu_finished"]
+[connection signal="finished" from="Settings/GraphicsMenu" to="Settings" method="_on_GraphicsMenu_finished"]
