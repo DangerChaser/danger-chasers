@@ -15,5 +15,7 @@ func _draw() -> void:
 	draw_rect(rect, DRAW_COLOR, false)
 
 
-func spawn() -> void:
+func spawn(actor) -> void:
 	$CameraLimitTrigger.change()
+	GameManager.current_camera.global_position = global_position
+	actor.global_position = global_position

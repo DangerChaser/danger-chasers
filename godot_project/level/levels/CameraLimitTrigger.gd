@@ -6,8 +6,8 @@ signal started
 onready var camera : Camera2D = $Camera2D
 onready var camera_limit_positions : CameraLimitPositions = $CameraLimitPositions
 
-export var limits_lerp_value := 0.1
-export var zoom_lerp_value := 0.1
+export var limits_tween_duration := 0.5
+export var zoom_tween_duration := 0.5
 export var change_limits := true
 export var change_zoom := true
 
@@ -43,15 +43,15 @@ func reset() -> void:
 
 
 func _change_limits(limit_left : float, limit_top : float, limit_right : float, limit_bottom : float) -> void:
-	previous_limit_left = GameManager.current_camera.target_limit_left
-	previous_limit_top = GameManager.current_camera.target_limit_top
-	previous_limit_right = GameManager.current_camera.target_limit_right
-	previous_limit_bottom = GameManager.current_camera.target_limit_bottom
+	previous_limit_left = GameManager.current_camera.limit_left
+	previous_limit_top = GameManager.current_camera.limit_top
+	previous_limit_right = GameManager.current_camera.limit_right
+	previous_limit_bottom = GameManager.current_camera.limit_bottom
 	
-	GameManager.current_camera.change_limits(limit_left, limit_top, limit_right, limit_bottom, limits_lerp_value)
+	GameManager.current_camera.change_limits(limit_left, limit_top, limit_right, limit_bottom, limits_tween_duration)
 	emit_signal("started")
 
 
 func _change_zoom(new_zoom : Vector2) -> void:
-	previous_zoom = GameManager.current_camera.target_zoom
-	GameManager.current_camera.change_target_zoom(new_zoom, zoom_lerp_value)
+	previous_zoom = GameManager.current_camera.zoom
+	GameManager.current_camera.change_target_zoom(new_zoom, zoom_tween_duration)

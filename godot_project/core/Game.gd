@@ -7,7 +7,7 @@ extends Node
 onready var level_loader : LevelLoader = $LevelLoader
 onready var music_player : AudioStreamPlayer = $MusicPlayer
 onready var Skybox : ColorRect = $Background/Skybox
-onready var camera := $Camera/Camera2D
+onready var camera := $Camera2D
 onready var pause_menu := $Interface/PauseMenu
 
 export(PackedScene) var LEVEL_START : PackedScene # Should only be used if testing directly from editor
@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	pause_menu.hide_menus()
 	GameManager.current_camera = camera
-	Dialogue.camera = camera.get_parent()
+	Dialogue.camera = camera
 	if not GameManager.current_loaded_level:
 		GameManager.current_loaded_level = LEVEL_START
 	level_loader.change_level(GameManager.current_loaded_level, 0, "left_to_right", 0.1)

@@ -9,8 +9,6 @@ func _ready() -> void:
 	yield(get_tree().create_timer(0.01), "timeout") # Give animation player time to play SETUP
 	
 	player_hud.initialize(self, icon)
-	if not get_node("Stats").is_connected("stats_changed", player_hud, "update_stats"):
-		get_node("Stats").connect("stats_changed", player_hud, "update_stats")
 	
 	job = $StateMachine/Job.current_job
 	player_hud.set_hotbars(job)

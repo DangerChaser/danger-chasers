@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://core/Game.gd" type="Script" id=1]
 [ext_resource path="res://level/levels/adventurers_guild/AdventurersGuild.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/audio/music/MusicPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/pause_menu/PauseMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/LevelLoader.gd" type="Script" id=5]
-[ext_resource path="res://actors/ariko/Ariko.tscn" type="PackedScene" id=6]
 [ext_resource path="res://items/Inventory.tscn" type="PackedScene" id=7]
-[ext_resource path="res://core/camera/Camera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://core/camera/Camera2D.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
@@ -36,7 +35,6 @@ layer = 100
 
 [node name="LevelLoader" type="Node" parent="."]
 script = ExtResource( 5 )
-player_scene = ExtResource( 6 )
 
-[node name="Camera" parent="." instance=ExtResource( 8 )]
+[node name="Camera2D" parent="." instance=ExtResource( 8 )]
 [connection signal="loaded" from="LevelLoader" to="." method="level_loaded"]

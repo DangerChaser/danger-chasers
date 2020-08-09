@@ -3,8 +3,6 @@ extends Node
 class_name LevelLoader
 signal loaded(level)
 
-export(PackedScene) var player_scene : PackedScene
-
 var player
 
 var level : Level
@@ -34,16 +32,12 @@ func _create_new_level(target_level : PackedScene, target_spawn_point : int):
 	GameManager.current_loaded_level = target_level
 	add_child(level)
 	
-	var spawn_point = level.player_spawn_points.get_child(target_spawn_point)
-	level.connect("initialized", self, "level_initialized", [target_spawn_point, spawn_point.transition_out_animation, spawn_point.transition_out_duration])
-	level.initialize()
-
-
-func level_initialized(target_spawn_point : int, transition_out_animation : String, transition_out_duration) -> void:
 	GameManager.players = []
 	spawn_player(target_spawn_point)
-	emit_signal("loaded", level)
-	yield(Transition.transition_out(transition_out_animation, transition_out_duration), "transition_out_finished")
+	
+	var spawn_point = level.player_spawn_points.get_child(target_spawn_point)
+	level.connect("initialized", self, "level_initialized", [spawn_point.transition_out_animation, spawn_point.transition_out_duration])
+	level.initialize()
 
 
 func spawn_player(target_spawn_point : int):
@@ -52,18 +46,14 @@ func spawn_player(target_spawn_point : int):
 		print("    Defaulted to spawn point 0.")
 		target_spawn_point = 0
 	var spawn = level.player_spawn_points.get_child(target_spawn_point)
-	spawn.spawn()
-	
-	if level.player_scene:
-		player = level.player_scene.instance()
-	else:
-		player = player_scene.instance()
-	
-	player.reset(spawn.global_position)
-	GameManager.players.append(player)
+	player = level.player_scene.instance()
 	player.initialize_on_ready = false
 	level.y_sort.add_child(player)
+	spawn.spawn(player)
+	GameManager.players.append(player)
+
+
+func level_initialized(transition_out_animation : String, transition_out_duration) -> void:
+	emit_signal("loaded", level)
+	yield(Transition.transition_out(transition_out_animation, transition_out_duration), "transition_out_finished")
 	player.call_deferred("initialize", "team_1")
-	GameManager.current_camera.get_parent().global_position = spawn.global_position
-	yield(get_tree().create_timer(0.01), "timeout")
-	GameManager.current_camera.reset_smoothing()
