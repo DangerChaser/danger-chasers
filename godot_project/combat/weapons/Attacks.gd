@@ -51,6 +51,8 @@ func _physics_process(delta : float) -> void:
 	if state == State.IDLE:
 		return
 	
+	if not PlayerManager.input_enabled:
+		return
 	if Input.is_action_pressed(input):
 		register_attack()
 	if Input.is_action_just_pressed("ui_up") and owner.is_in_group("players"):

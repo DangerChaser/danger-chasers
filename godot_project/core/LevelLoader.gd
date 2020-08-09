@@ -57,3 +57,4 @@ func level_initialized(transition_out_animation : String, transition_out_duratio
 	emit_signal("loaded", level)
 	yield(Transition.transition_out(transition_out_animation, transition_out_duration), "transition_out_finished")
 	player.call_deferred("initialize", "team_1")
+	PlayerManager.enable_input()

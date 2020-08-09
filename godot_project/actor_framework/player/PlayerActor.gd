@@ -6,6 +6,8 @@ var job : Job
 
 
 func _ready() -> void:
+	set_process_input(false)
+	
 	yield(get_tree().create_timer(0.01), "timeout") # Give animation player time to play SETUP
 	
 	player_hud.initialize(self, icon)
@@ -19,6 +21,11 @@ func _ready() -> void:
 #	PlayerManager.activate_skill("ShotgunBlast")
 #	PlayerManager.activate_skill("LavaLauncher")
 	PlayerManager.activate_skill("Dash")
+
+
+func initialize(_team : String = "", initial_target=null) -> void:
+	.initialize()
+	set_process_input(true)
 
 
 func _input(event : InputEvent) -> void:

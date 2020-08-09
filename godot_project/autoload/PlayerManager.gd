@@ -1,5 +1,6 @@
 extends Node
 
+var input_enabled := true
 var skills := {}
 var gold := 0
 
@@ -30,14 +31,8 @@ func activate_skill(name : String, experience:=-1) -> void:
 
 
 func enable_input() -> void:
-	if GameManager.players.size() > 0:
-		var player = GameManager.get_player()
-		if player and player.state_machine.get_current_state().name == "Wait":
-			player.state_machine.initialize()
+	input_enabled = true
 
 
 func disable_input() -> void:
-	if GameManager.players.size() > 0:
-		var player = GameManager.get_player()
-		if player:
-			player.state_machine.change_state("Wait")
+	input_enabled = false

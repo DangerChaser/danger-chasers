@@ -44,6 +44,8 @@ func exit() -> void:
 
 
 func _input(event : InputEvent) -> void:
+	if not PlayerManager.input_enabled:
+		return
 	if Input.is_action_just_pressed("light_attack") and owner.state_machine.has_state("LightAttack"):
 		var args = {"target_direction" : Vector2(Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int , 0) }
 		finished("LightAttack", args)
@@ -55,12 +57,16 @@ func _input(event : InputEvent) -> void:
 
 func _physics_process(delta : float) -> void:
 	if Input.is_action_pressed('ui_up'):
+		if not PlayerManager.input_enabled:
+			return
 		register_jump()
 	
 	if not active:
 		return
 	
 	if owner.state_machine.has_state("Stomp") and Input.is_action_pressed('ui_down'):
+		if not PlayerManager.input_enabled:
+			return
 		air_timer.stop()
 		air_timer_duration = 0.05
 		if not owner.is_on_floor():

@@ -15,7 +15,11 @@ func enable_and_sync_movement() -> void:
 
 
 func enable() -> void:
+	if not player:
+		player = GameManager.get_player()
 	PlayerManager.disable_input()
+	player.state_machine.change_state("Wait")
+	player.face_actor()
 	hide_player_hud()
 
 func sync_movement() -> void:
@@ -23,8 +27,11 @@ func sync_movement() -> void:
 	movement_synced = true
 
 func disable() -> void:
+	if not player:
+		player = GameManager.get_player()
 	set_physics_process(false)
 	movement_synced = false
+	player.state_machine.change_state("Idle")
 	PlayerManager.enable_input()
 	show_player_hud()
 
