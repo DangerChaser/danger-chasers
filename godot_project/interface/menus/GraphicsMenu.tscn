@@ -48,15 +48,37 @@ margin_left = 962.0
 margin_right = 1920.0
 margin_bottom = 76.875
 size_flags_horizontal = 3
+text = "NORMAL"
+script = ExtResource( 3 )
+
+[node name="FrameFreeze" type="HBoxContainer" parent="Buttons"]
+margin_top = 140.0
+margin_right = 1920.0
+margin_bottom = 216.0
+
+[node name="KeyLabel" type="Label" parent="Buttons/FrameFreeze"]
+margin_top = 4.0
+margin_right = 958.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+text = "FRAME_FREEZE"
+script = ExtResource( 1 )
+
+[node name="FrameFreezeButton" type="Button" parent="Buttons/FrameFreeze"]
+margin_left = 962.0
+margin_right = 1920.0
+margin_bottom = 76.875
+size_flags_horizontal = 3
 text = "ON"
 script = ExtResource( 3 )
 
 [node name="BackButton" type="Button" parent="Buttons"]
-margin_top = 140.0
+margin_top = 280.0
 margin_right = 1920.0
-margin_bottom = 216.875
+margin_bottom = 356.875
 size_flags_horizontal = 3
 text = "BACK"
 script = ExtResource( 3 )
 [connection signal="button_down" from="Buttons/ScreenShake/ScreenShakeButton" to="." method="_on_ScreenShakeButton_button_down"]
+[connection signal="button_down" from="Buttons/FrameFreeze/FrameFreezeButton" to="." method="_on_FrameFreezeButton_button_down"]
 [connection signal="button_down" from="Buttons/BackButton" to="." method="_on_BackButton_button_down"]

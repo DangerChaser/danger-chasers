@@ -1,8 +1,6 @@
 extends Node
 
-var enabled : bool = true
-
 func request(delay_milliseconds : int) -> void:
-	if not enabled:
+	if not Settings.frame_freeze_enabled:
 		return
 	OS.delay_msec(delay_milliseconds)

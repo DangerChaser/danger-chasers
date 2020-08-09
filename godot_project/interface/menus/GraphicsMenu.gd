@@ -3,12 +3,14 @@ extends Control
 signal finished
 
 onready var screen_shake_button := $Buttons/ScreenShake/ScreenShakeButton
+onready var frame_freeze_button := $Buttons/FrameFreeze/FrameFreezeButton
 onready var back_button := $Buttons/BackButton
 onready var last_button := screen_shake_button
 
 func _ready() -> void:
 	visible = false
 	_update_screen_shake()
+	_update_frame_freeze()
 
 
 func enable() -> void:
@@ -54,6 +56,18 @@ func _on_ScreenShakeButton_button_down():
 		Settings.ScreenShakeIntensity.VOMIT:
 			Settings.screen_shake = Settings.ScreenShakeIntensity.DISABLED
 	_update_screen_shake()
+
+
+func _on_FrameFreezeButton_button_down():
+	Settings.frame_freeze_enabled = not Settings.frame_freeze_enabled
+	_update_frame_freeze()
+
+
+func _update_frame_freeze():
+	if Settings.frame_freeze_enabled:
+		frame_freeze_button.set_key("ON")
+	else:
+		frame_freeze_button.set_key("OFF")
 
 
 func _on_BackButton_button_down():
