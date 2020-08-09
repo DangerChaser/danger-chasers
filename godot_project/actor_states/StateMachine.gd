@@ -49,8 +49,8 @@ func change_state(state_override := "", args := {}) -> void:
 			new_state = states_stack[0]
 		else:
 			new_state = get_state(state_override)
-			if new_state.pushdown:
-				states_stack.push_front(new_state)
+#			if new_state.pushdown:
+			states_stack.push_front(new_state)
 	else:
 		new_state = _decide_on_next_state()
 	

@@ -5,8 +5,6 @@ signal entered
 signal finished(next_state_name)
 signal exited
 
-export var pushdown : bool = false
-
 var finished_flag := false
 var finished_next_state := ""
 var finished_args := {}
