@@ -14,15 +14,12 @@ collision_layer = 2
 [node name="SETUP" parent="StateMachine" index="0" instance=ExtResource( 2 )]
 animation = "SETUP"
 next_state = "Wait"
-
-[node name="Timer" parent="StateMachine/SETUP" index="3"]
-wait_time = 0.05
+stagger_state = ""
+face_target = false
 
 [node name="Wait" parent="StateMachine" index="1" instance=ExtResource( 2 )]
-wait_forever = true
 
 [node name="Cutscene" parent="StateMachine" index="2" instance=ExtResource( 2 )]
-wait_forever = true
 
 [node name="CollisionBox" parent="." index="1"]
 position = Vector2( 0, -87.1227 )
@@ -31,5 +28,3 @@ disabled = true
 
 [node name="Stats" parent="." index="4"]
 character_stats = ExtResource( 3 )
-
-[editable path="StateMachine/SETUP"]

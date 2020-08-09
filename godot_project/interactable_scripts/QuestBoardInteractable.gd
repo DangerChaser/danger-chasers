@@ -10,8 +10,8 @@ func interact(actor) -> void:
 	interacted_actor = actor
 	.interact(interacted_actor)
 	$QuestBoardUI.enable()
-	interacted_actor.state_machine.change_state("Cutscene")
+	PlayerManager.disable_input()
 
 
 func _on_QuestBoardUI_disabled():
-	interacted_actor.state_machine.initialize()
+	PlayerManager.enable_input()

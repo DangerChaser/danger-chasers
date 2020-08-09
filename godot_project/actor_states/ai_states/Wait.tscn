@@ -7,7 +7,3 @@
 script = ExtResource( 1 )
 look_towards_move_direction = false
 animation = "idle"
-
-[node name="Timer" type="Timer" parent="." index="3"]
-one_shot = true
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

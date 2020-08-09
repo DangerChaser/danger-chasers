@@ -44,7 +44,7 @@ func exit() -> void:
 
 
 func _input(event : InputEvent) -> void:
-	if owner.state_machine.has_state("LightAttack") and Input.is_action_just_pressed("light_attack"):
+	if Input.is_action_just_pressed("light_attack") and owner.state_machine.has_state("LightAttack"):
 		var args = {"target_direction" : Vector2(Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int , 0) }
 		finished("LightAttack", args)
 		return
@@ -89,7 +89,6 @@ func _physics_process(delta : float) -> void:
 func take_damage(args := {}):
 	air_timer.stop()
 	finished("Stagger", args)
-
 
 
 func anim_finished(anim_name : String) -> void:

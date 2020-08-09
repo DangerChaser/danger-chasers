@@ -2,7 +2,7 @@
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/wolf/weapons/WolfCharge.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=6]
@@ -29,11 +29,7 @@ script = ExtResource( 13 )
 
 [node name="WalkSequence" parent="StateMachine" index="0" instance=ExtResource( 2 )]
 
-[node name="Wait" parent="StateMachine/WalkSequence" index="0" instance=ExtResource( 3 )]
-stagger = true
-
-[node name="Timer" parent="StateMachine/WalkSequence/Wait" index="3"]
-wait_time = 0.5
+[node name="WaitTime" parent="StateMachine/WalkSequence" index="0" instance=ExtResource( 3 )]
 
 [node name="MoveTo" parent="StateMachine/WalkSequence" index="1" instance=ExtResource( 4 )]
 max_roam_radius = 200.0
@@ -47,11 +43,7 @@ wait_time = 0.5
 
 [node name="RunSequence" parent="StateMachine" index="1" instance=ExtResource( 2 )]
 
-[node name="Wait" parent="StateMachine/RunSequence" index="0" instance=ExtResource( 3 )]
-stagger = true
-
-[node name="Timer" parent="StateMachine/RunSequence/Wait" index="3"]
-wait_time = 0.5
+[node name="WaitTime" parent="StateMachine/RunSequence" index="0" instance=ExtResource( 3 )]
 
 [node name="MoveTo" parent="StateMachine/RunSequence" index="1" instance=ExtResource( 4 )]
 animation = "run"
@@ -67,12 +59,7 @@ wait_time = 2.0
 
 [node name="JumpBackSequence" parent="StateMachine" index="2" instance=ExtResource( 2 )]
 
-[node name="Wait" parent="StateMachine/JumpBackSequence" index="0" instance=ExtResource( 3 )]
-animation = "growl"
-stagger = true
-
-[node name="Timer" parent="StateMachine/JumpBackSequence/Wait" index="3"]
-wait_time = 0.2
+[node name="WaitTime" parent="StateMachine/JumpBackSequence" index="0" instance=ExtResource( 3 )]
 
 [node name="JumpBack" parent="StateMachine/JumpBackSequence" index="1" instance=ExtResource( 6 )]
 weapon_levels = [ 0 ]
@@ -80,12 +67,8 @@ weapons = [ ExtResource( 7 ) ]
 
 [node name="ChargeSequence" parent="StateMachine" index="3" instance=ExtResource( 2 )]
 
-[node name="Wait" parent="StateMachine/ChargeSequence" index="0" instance=ExtResource( 3 )]
-animation = "growl"
-stagger = true
-
-[node name="Timer" parent="StateMachine/ChargeSequence/Wait" index="3"]
-wait_time = 0.5
+[node name="WaitTime" parent="StateMachine/ChargeSequence" index="0" instance=ExtResource( 3 )]
+animation = "prepare"
 
 [node name="AIAttack" parent="StateMachine/ChargeSequence" index="1" instance=ExtResource( 6 )]
 weapon_levels = [ 0 ]
@@ -93,12 +76,7 @@ weapons = [ ExtResource( 5 ) ]
 
 [node name="JumpBackSequence" parent="StateMachine/ChargeSequence" index="2" instance=ExtResource( 2 )]
 
-[node name="Wait" parent="StateMachine/ChargeSequence/JumpBackSequence" index="0" instance=ExtResource( 3 )]
-animation = "growl"
-stagger = true
-
-[node name="Timer" parent="StateMachine/ChargeSequence/JumpBackSequence/Wait" index="3"]
-wait_time = 0.2
+[node name="WaitTime" parent="StateMachine/ChargeSequence/JumpBackSequence" index="0" instance=ExtResource( 3 )]
 
 [node name="JumpBack" parent="StateMachine/ChargeSequence/JumpBackSequence" index="1" instance=ExtResource( 6 )]
 weapon_levels = [ 0 ]
@@ -118,20 +96,10 @@ shape = SubResource( 1 )
 [node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 11 )
 
-[editable path="StateMachine/WalkSequence/Wait"]
-
 [editable path="StateMachine/WalkSequence/MoveTo"]
 
 [editable path="StateMachine/WalkSequence/MoveTo/Motion"]
 
-[editable path="StateMachine/RunSequence/Wait"]
-
 [editable path="StateMachine/RunSequence/MoveTo"]
 
 [editable path="StateMachine/RunSequence/MoveTo/Motion"]
-
-[editable path="StateMachine/JumpBackSequence/Wait"]
-
-[editable path="StateMachine/ChargeSequence/Wait"]
-
-[editable path="StateMachine/ChargeSequence/JumpBackSequence/Wait"]

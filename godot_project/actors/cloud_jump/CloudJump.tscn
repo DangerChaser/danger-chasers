@@ -5,7 +5,7 @@
 [ext_resource path="res://actors/cloud_jump/CloudJumpWeapon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/cloud_jump/CloudJump.tres" type="Resource" id=5]
-[ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actor_states/motion/Launch.tscn" type="PackedScene" id=9]
@@ -28,8 +28,8 @@ next_state = "Sequence"
 [node name="Sequence" parent="StateMachine" index="1" instance=ExtResource( 10 )]
 next_state = "Sequence"
 
-[node name="Wait" parent="StateMachine/Sequence" index="0" instance=ExtResource( 6 )]
-stagger = true
+[node name="WaitTime" parent="StateMachine/Sequence" index="0" instance=ExtResource( 6 )]
+duration = 1.0
 
 [node name="AIAttack" parent="StateMachine/Sequence" index="1" instance=ExtResource( 8 )]
 weapon_levels = [ 0 ]

@@ -84,7 +84,6 @@ queue_free_on_die = false
 [node name="External" parent="StateMachine" index="9" instance=ExtResource( 19 )]
 
 [node name="Wait" parent="StateMachine" index="10" instance=ExtResource( 17 )]
-wait_forever = true
 face_target = false
 
 [node name="CollisionBox" parent="." index="2"]
