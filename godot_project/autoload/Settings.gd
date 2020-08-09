@@ -1,3 +1,4 @@
 extends Node
 
-var screen_shake_enabled : bool = true
+enum ScreenShakeIntensity { DISABLED, LOW, NORMAL, HIGH, EXTREME, VOMIT }
+var screen_shake = ScreenShakeIntensity.NORMAL

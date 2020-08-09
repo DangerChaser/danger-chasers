@@ -23,14 +23,36 @@ func disable() -> void:
 
 
 func _update_screen_shake():
-	if Settings.screen_shake_enabled:
-		screen_shake_button.set_key("ON")
-	else:
-		screen_shake_button.set_key("OFF")
+	match Settings.screen_shake:
+		Settings.ScreenShakeIntensity.DISABLED:
+			screen_shake_button.set_key("DISABLED")
+		Settings.ScreenShakeIntensity.LOW:
+			screen_shake_button.set_key("LOW")
+		Settings.ScreenShakeIntensity.NORMAL:
+			screen_shake_button.set_key("NORMAL")
+		Settings.ScreenShakeIntensity.HIGH:
+			screen_shake_button.set_key("HIGH")
+		Settings.ScreenShakeIntensity.EXTREME:
+			screen_shake_button.set_key("EXTREME")
+		Settings.ScreenShakeIntensity.VOMIT:
+			screen_shake_button.set_key("VOMIT")
+
 
 func _on_ScreenShakeButton_button_down():
 	last_button = screen_shake_button
-	Settings.screen_shake_enabled = not Settings.screen_shake_enabled
+	match Settings.screen_shake:
+		Settings.ScreenShakeIntensity.DISABLED:
+			Settings.screen_shake = Settings.ScreenShakeIntensity.LOW
+		Settings.ScreenShakeIntensity.LOW:
+			Settings.screen_shake = Settings.ScreenShakeIntensity.NORMAL
+		Settings.ScreenShakeIntensity.NORMAL:
+			Settings.screen_shake = Settings.ScreenShakeIntensity.HIGH
+		Settings.ScreenShakeIntensity.HIGH:
+			Settings.screen_shake = Settings.ScreenShakeIntensity.EXTREME
+		Settings.ScreenShakeIntensity.EXTREME:
+			Settings.screen_shake = Settings.ScreenShakeIntensity.VOMIT
+		Settings.ScreenShakeIntensity.VOMIT:
+			Settings.screen_shake = Settings.ScreenShakeIntensity.DISABLED
 	_update_screen_shake()
 
 

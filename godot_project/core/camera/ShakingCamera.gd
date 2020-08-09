@@ -47,14 +47,26 @@ func request_shake(new_amplitude : float, \
 					new_damping : float) -> void:
 	amplitude = new_amplitude if new_amplitude > amplitude else amplitude
 	damping = new_damping
+	match Settings.screen_shake:
+		Settings.ScreenShakeIntensity.LOW:
+			amplitude *= 0.5
+		Settings.ScreenShakeIntensity.HIGH:
+			amplitude *= 2
+		Settings.ScreenShakeIntensity.EXTREME:
+			amplitude *= 3
+			duration *= 3
+		Settings.ScreenShakeIntensity.VOMIT:
+			amplitude *= 5
+			duration *= 5
 	timer.wait_time = duration
 	timer.stop()
 	timer.start()
 	set_process(true)
 
 func shake() -> void:
-	if not Settings.screen_shake_enabled:
+	if Settings.ScreenShakeIntensity.DISABLED:
 		return
+	
 	var _damping := ease(timer.time_left / timer.wait_time, damping)
 	amplitude *= _damping
 	offset = Vector2(rand_range(amplitude, -amplitude), rand_range(amplitude, -amplitude))
