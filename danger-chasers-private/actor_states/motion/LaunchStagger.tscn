@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=1]
-
-[node name="LaunchStagger" instance=ExtResource( 1 )]
-finish_on_floor = true
-
-[node name="Timer" parent="." index="3"]
-wait_time = 5.0
