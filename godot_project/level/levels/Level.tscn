@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://level/Level.gd" type="Script" id=1]
-[ext_resource path="res://level/CameraLimits.gd" type="Script" id=2]
 [ext_resource path="res://core/SpawnPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/MusicChangeTrigger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/ariko/Ariko.tscn" type="PackedScene" id=5]
@@ -34,12 +33,11 @@ z_index = -10
 
 [node name="Colliders" type="Node2D" parent="."]
 
+[node name="CameraLimits" type="Node2D" parent="."]
+
 [node name="LevelTransitions" type="Node2D" parent="."]
 
 [node name="Arenas" type="Node2D" parent="."]
-
-[node name="CameraLimits" type="Node2D" parent="."]
-script = ExtResource( 2 )
 
 [node name="CutsceneTriggers" type="Node2D" parent="."]
 

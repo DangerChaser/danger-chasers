@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rain_thunder_ambience.ogg-d654906427adbbc11509071c5f39a5fb.oggstr"
+
+[deps]
+
+source_file="res://level/levels/1-2/rain_thunder_ambience.ogg"
+dest_files=[ "res://.import/rain_thunder_ambience.ogg-d654906427adbbc11509071c5f39a5fb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -3,6 +3,7 @@ extends Position2D
 
 class_name SpawnPoint
 
+export var camera_limit_trigger : NodePath # Should be CameraLimitTrigger
 export var DRAW_COLOR : = Color("#e231b6")
 export var transition_out_animation : String = "left_to_right"
 export var transition_out_duration := 0.5
@@ -16,6 +17,8 @@ func _draw() -> void:
 
 
 func spawn(actor) -> void:
-	$CameraLimitTrigger.change()
+	assert(camera_limit_trigger)
+	get_node(camera_limit_trigger).change()
+	
 	GameManager.current_camera.global_position = global_position
 	actor.global_position = global_position

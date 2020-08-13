@@ -3,11 +3,11 @@ class_name CameraLimitTrigger
 
 signal started
 
-onready var camera : Camera2D = $Camera2D
 onready var camera_limit_positions : CameraLimitPositions = $CameraLimitPositions
 
-export var limits_tween_duration := 0.5
-export var zoom_tween_duration := 0.5
+export var zoom : Vector2 = Vector2(1.4, 1.4)
+export var limits_tween_duration := 0.0
+export var zoom_tween_duration := 0.0
 export var change_limits := true
 export var change_zoom := true
 
@@ -32,7 +32,7 @@ func change() -> void:
 				camera_limit_positions.get_limit_right(), \
 				camera_limit_positions.get_limit_bottom())
 	if change_zoom:
-		_change_zoom(camera.zoom)
+		_change_zoom(zoom)
 
 
 func reset() -> void:
