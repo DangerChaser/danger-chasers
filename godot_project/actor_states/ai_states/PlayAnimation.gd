@@ -8,9 +8,6 @@ export(bool) var stagger := false
 func enter(args := {}) -> void:
 	.enter(args)
 	owner.play_animation(animation)
-	
-	if args.has("look_direction"):
-		update_look_direction(args["look_direction"])
 
 
 func take_damage(args := {}):

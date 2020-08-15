@@ -474,7 +474,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://actor_states/ai_states/UpAndDown.gd"
 }, {
-"base": "ActorExternal",
+"base": "ManagedState",
 "class": "Vehicle",
 "language": "GDScript",
 "path": "res://objects/vehicles/Vehicle.gd"

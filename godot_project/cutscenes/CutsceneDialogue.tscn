@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://cutscenes/CutsceneDialogue.gd" type="Script" id=1]
-[ext_resource path="res://core/DialogueStarter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -13,20 +12,6 @@ length = 0.001
 [sub_resource type="Animation" id=3]
 resource_name = "start"
 length = 0.001
-tracks/0/type = "method"
-tracks/0/path = NodePath("Dialogues/DialogueStarter")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "start"
-} ]
-}
 
 [sub_resource type="GDScript" id=4]
 script/source = "extends AnimationPlayer
@@ -45,5 +30,3 @@ anims/start = SubResource( 3 )
 script = SubResource( 4 )
 
 [node name="Dialogues" type="Node" parent="." index="1"]
-
-[node name="DialogueStarter" parent="Dialogues" index="0" instance=ExtResource( 2 )]

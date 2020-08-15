@@ -18,6 +18,8 @@ export(Texture) var icon : Texture
 export var team := "team_2"
 export var pause_offscreen := true
 
+onready var pivot : Pivot = $Pivot
+onready var collider := $CollisionBox
 onready var state_machine : StateMachine = $StateMachine
 onready var weapons = pivot.get_node("Weapons")
 onready var target = $Target
@@ -216,8 +218,9 @@ func face_actor(actor=null):
 	if not actor:
 		actor = target.get_target()
 	var direction = global_position.direction_to(actor.global_position)
-	var look_direction = Vector2.RIGHT if direction.x >= 0 else Vector2.LEFT
-	update_look_direction(look_direction)
+	if not direction.x == 0.0:
+		var look_direction = Vector2.RIGHT if direction.x > 0 else Vector2.LEFT
+		set_rotation(look_direction.angle())
 
 
 func pause():

@@ -13,16 +13,13 @@ func enter(args := {}) -> void:
 		owner.play_animation(args["initial_animation"])
 	else:
 		owner.play_animation(animation)
-	
-	if args.has("look_direction"):
-		update_look_direction(args["look_direction"])
 
 
 func _physics_process(delta):
 	move(Vector2())
 	if face_target and owner.target.get_target():
 		var direction = owner.global_position.direction_to(owner.target.global_position)
-		owner.update_look_direction(direction)
+		owner.set_rotation(direction.angle())
 
 
 func take_damage(args := {}):

@@ -43,6 +43,8 @@ func enter(args := {}) -> void:
 		update_look_direction(direction)
 	elif look_away_from_move_direction:
 		update_look_direction(-direction)
+	if args.has("look_direction"):
+		update_look_direction(args["look_direction"])
 
 
 func exit() -> void:
@@ -97,7 +99,7 @@ func update_look_direction(direction : Vector2) -> void:
 	if abs(total_velocity.x) < LOOK_DIRECTION_SPEED_THRESHOLD:
 		return
 	var look_direction = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	owner.update_look_direction(look_direction)
+	owner.set_rotation(look_direction.angle())
 
 
 func get_exit_args() -> Dictionary:

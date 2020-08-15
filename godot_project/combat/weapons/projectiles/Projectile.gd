@@ -1,13 +1,15 @@
 extends KinematicBody2DMirror
 class_name Projectile
 
-export(int) var initial_speed : int = 400
-export(bool) var pierces_all_enemies : bool = false
-export(int) var max_enemies_pierced : int = 1
-export(PackedScene) var destroy_particles : PackedScene
-export(PackedScene) var collision_particles : PackedScene
+export var initial_speed := 400
+export var pierces_all_enemies := false
+export var max_enemies_pierced := 1
+export var destroy_particles : PackedScene
+export var collision_particles : PackedScene
 
-onready var motion := $Motion
+onready var pivot : Pivot = $Pivot
+onready var collider := $CollisionBox
+onready var motion : MotionState = $Motion
 onready var target := $Target
 
 var target_direction : Vector2

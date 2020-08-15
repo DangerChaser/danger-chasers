@@ -1,4 +1,5 @@
-extends ActorExternal
+### Probably broken as of the ManagedState refactor ###
+extends ManagedState
 class_name Vehicle
 
 onready var pivot := $Pivot
