@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/music/Zextillion - Noa's Redemption Soundtrack - 01 Noa.ogg" type="AudioStream" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://level/levels/village/Houses.tres" type="TileSet" id=4]
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=6]
-[ext_resource path="res://actors/judge_pajamas/JudgePajamas.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/levels/main_menu/sprites/bed.png" type="Texture" id=8]
 [ext_resource path="res://core/utils/ActivationArea.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sprites/white_circle_gradient.png" type="Texture" id=10]
@@ -100,13 +99,8 @@ radius = 54.8036
 resource_local_to_scene = true
 extents = Vector2( 746, 330 )
 
-[sub_resource type="RectangleShape2D" id=17]
-resource_local_to_scene = true
-extents = Vector2( 304, 272 )
-
 [node name="MainMenu" instance=ExtResource( 1 )]
 skybox_color = Color( 0.635294, 0.905882, 1, 1 )
-player_scene = ExtResource( 7 )
 
 [node name="InitialMusic" parent="." index="0"]
 music = ExtResource( 2 )
@@ -217,7 +211,7 @@ margin_bottom = 364.0
 position = Vector2( -928, 544 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 7 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="ActivationArea" parent="Ground/MenuObjects/MusicPlayer" index="0" instance=ExtResource( 9 )]
@@ -255,7 +249,6 @@ margin_bottom = 359.856
 position = Vector2( -664.754, 432.33 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 11 )
-frame = 1
 playing = true
 
 [node name="ActivationArea" parent="Ground/MenuObjects/SoundController" index="0" instance=ExtResource( 9 )]
@@ -333,48 +326,6 @@ shape = SubResource( 16 )
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -1270.19, 256 )
-transition_out_animation = "left_to_right"
-transition_out_duration = 0.5
-
-[node name="CameraLimitTrigger" parent="PlayerSpawnPoints/0" index="0"]
-position = Vector2( 3212.91, -192 )
-
-[node name="Camera2D" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="0"]
-position = Vector2( -2902.72, 180 )
-zoom = Vector2( 1, 1 )
-
-[node name="ColliderTrigger" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="1"]
-shape = SubResource( 17 )
-
-[node name="CameraLimitPositions" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="2"]
-position = Vector2( -2588.05, 64 )
-line_width = 10.0
-
-[node name="TopLeft" parent="PlayerSpawnPoints/0/CameraLimitTrigger/CameraLimitPositions" index="0"]
-position = Vector2( -1306.67, -448 )
-
-[node name="BottomRight" parent="PlayerSpawnPoints/0/CameraLimitTrigger/CameraLimitPositions" index="1"]
-position = Vector2( 645.332, 608 )
-
-[node name="LevelHUD" parent="." index="12"]
-layer = 128
-
-[node name="Logo" type="Control" parent="LevelHUD" index="0"]
-margin_right = 40.0
-margin_bottom = 40.0
-theme = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GameNameLabel" type="Label" parent="LevelHUD/Logo" index="0"]
-margin_right = 40.0
-margin_bottom = 68.0
-text = "GAME_NAME"
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="button_down" from="Ground/MenuObjects/MusicLevelButton" to="Ground/MenuObjects/MusicLevelController" method="toggle"]
 [connection signal="area_entered_no_area" from="Ground/MenuObjects/MusicPlayer/ActivationArea" to="Ground/MenuObjects/MusicLevelController" method="enable"]
 [connection signal="area_exited_no_area" from="Ground/MenuObjects/MusicPlayer/ActivationArea" to="Ground/MenuObjects/MusicLevelController" method="disable"]
@@ -397,5 +348,3 @@ __meta__ = {
 [editable path="LevelTransitions/NextLevel"]
 
 [editable path="PlayerSpawnPoints/0"]
-
-[editable path="PlayerSpawnPoints/0/CameraLimitTrigger"]

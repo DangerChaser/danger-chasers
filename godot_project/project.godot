@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://actor_framework/Actor.gd"
 }, {
-"base": "Node2D",
-"class": "ActorExternal",
-"language": "GDScript",
-"path": "res://objects/actor_external/ActorExternal.gd"
-}, {
 "base": "Attack",
 "class": "ActorSpawnAttack",
 "language": "GDScript",
@@ -153,6 +148,11 @@ _global_script_classes=[ {
 "class": "DamageSource",
 "language": "GDScript",
 "path": "res://combat/weapons/damage_source/DamageSource.gd"
+}, {
+"base": "Node",
+"class": "DialogueStarter",
+"language": "GDScript",
+"path": "res://core/DialogueStarter.gd"
 }, {
 "base": "MotionState",
 "class": "DieState",
@@ -284,6 +284,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/LootPanel.gd"
 }, {
+"base": "State",
+"class": "ManagedState",
+"language": "GDScript",
+"path": "res://actor_states/ManagedState.gd"
+}, {
+"base": "Node2D",
+"class": "ManagedStateManager",
+"language": "GDScript",
+"path": "res://core/ActorManagedStateManager.gd"
+}, {
 "base": "Control",
 "class": "Message",
 "language": "GDScript",
@@ -343,11 +353,6 @@ _global_script_classes=[ {
 "class": "PlayerActor",
 "language": "GDScript",
 "path": "res://actor_framework/player/PlayerActor.gd"
-}, {
-"base": "Node2D",
-"class": "PlayerCutsceneManager",
-"language": "GDScript",
-"path": "res://core/PlayerCutsceneManager.gd"
 }, {
 "base": "KinematicBody2DMirror",
 "class": "Projectile",
@@ -487,7 +492,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "ActivationArea": "",
 "Actor": "",
-"ActorExternal": "",
 "ActorSpawnAttack": "",
 "ActorSpawner": "",
 "ActorWithWeaponAnimationPlayer": "",
@@ -514,6 +518,7 @@ _global_script_class_icons={
 "ConstantMotion": "",
 "Cutscene": "",
 "DamageSource": "",
+"DialogueStarter": "",
 "DieState": "",
 "Door": "",
 "Effect": "",
@@ -540,6 +545,8 @@ _global_script_class_icons={
 "LevelLoader": "",
 "LevelTransition": "",
 "LootPanel": "",
+"ManagedState": "",
+"ManagedStateManager": "",
 "Message": "res://addons/radmatt.DialogueSystem2/icons/Message.svg",
 "MotionState": "",
 "MotionSteering": "",
@@ -552,7 +559,6 @@ _global_script_class_icons={
 "Pivot": "",
 "PlaySfxEffect": "",
 "PlayerActor": "",
-"PlayerCutsceneManager": "",
 "Projectile": "",
 "Quest": "",
 "QuestNameButton": "",

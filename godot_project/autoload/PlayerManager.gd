@@ -5,6 +5,7 @@ var skills := {}
 var gold := 0
 
 var active_skills := []
+var player
 
 
 func _ready() -> void:
@@ -12,14 +13,13 @@ func _ready() -> void:
 		skills[skill.name] = skill
 		skill.get_node("Weapons").name = skill.name
 
-
 func activate_skill(name : String, experience:=-1) -> void:
 	var skill = skills[name]
 	if experience >= 0:
 		skill.set_experience(experience)
 	var new_skill = skill.get_node(name).duplicate()
 	skill.connect("stats_changed", new_skill, "set_weapon_through_stats")
-	var player = GameManager.get_player()
+	player = GameManager.get_player()
 	new_skill.input = "skill_" + str(player.job.get_child_count() + 1)
 	player.job.add_child(new_skill)
 	new_skill.owner = player
@@ -29,10 +29,16 @@ func activate_skill(name : String, experience:=-1) -> void:
 	if not active_skills.has(name):
 		active_skills.append(name)
 
-
 func enable_input() -> void:
 	input_enabled = true
 
-
 func disable_input() -> void:
 	input_enabled = false
+
+func show_player_hud() -> void:
+	player = GameManager.get_player()
+	player.player_hud.visible = true
+
+func hide_player_hud() -> void:
+	player = GameManager.get_player()
+	player.player_hud.visible = false

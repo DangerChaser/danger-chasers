@@ -3,7 +3,8 @@
 [ext_resource path="res://actors/audio_level_controller/AudioLevelControllerActor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_framework/Actor.gd" type="Script" id=2]
 [ext_resource path="res://core/audio_bus_level_controllers/AudioSettingsHUD.tscn" type="PackedScene" id=3]
-[ext_resource path="res://cutscenes/NPCDialogue.tscn" type="PackedScene" id=6]
+[ext_resource path="res://cutscenes/CutsceneDialogue.tscn" type="PackedScene" id=6]
+
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true

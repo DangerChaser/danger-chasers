@@ -22,12 +22,13 @@
 [ext_resource path="res://cutscenes/Elevator.tscn" type="PackedScene" id=27]
 [ext_resource path="res://actors/slime_blue/SlimeBlue.tscn" type="PackedScene" id=29]
 [ext_resource path="res://actors/maid_share/Pivot.tscn" type="PackedScene" id=30]
-[ext_resource path="res://cutscenes/NPCDialogue.tscn" type="PackedScene" id=31]
+[ext_resource path="res://cutscenes/CutsceneDialogue.tscn" type="PackedScene" id=31]
 [ext_resource path="res://actors/till/Pivot.tscn" type="PackedScene" id=32]
 [ext_resource path="res://objects/vehicles/trolley/TrolleyVehicleLeft.tscn" type="PackedScene" id=33]
 [ext_resource path="res://actors/breakable_wall/BreakableWall.tscn" type="PackedScene" id=34]
 [ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=35]
 [ext_resource path="res://actors/ruby_golem/RubyGolem.tscn" type="PackedScene" id=36]
+
 
 
 

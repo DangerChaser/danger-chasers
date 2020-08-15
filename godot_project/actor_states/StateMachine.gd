@@ -5,7 +5,6 @@ signal state_changed(states)
 
 export var initial_args : Dictionary = {}.duplicate() # Duplicate to avoid all shared instances from sharing the same dictionary
 
-var states_map : Dictionary = {}
 var states_stack : Array = []
 var can_change_state := true
 
@@ -13,7 +12,6 @@ var can_change_state := true
 func _ready():
 	for state in get_children():
 		state.set_owner(owner)
-		states_map[state.name] = state
 		state.connect("finished", self, "change_state")
 
 
@@ -30,7 +28,7 @@ func initialize() -> void:
 
 func get_state(state_name : String) -> State:
 	if has_state(state_name):
-		var state : State = states_map[state_name]
+		var state : State = get_node(state_name)
 		return state
 	else:
 		return null
@@ -78,7 +76,7 @@ func anim_finished(anim_name : String) -> void:
 
 
 func has_state(state_name : String) -> bool:
-	return states_map.has(state_name)
+	return has_node(state_name)
 
 
 func unpause() -> void:

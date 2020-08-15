@@ -39,7 +39,7 @@ z_index = -10
 
 [node name="Arenas" type="Node2D" parent="."]
 
-[node name="CutsceneTriggers" type="Node2D" parent="."]
+[node name="Triggers" type="Node2D" parent="."]
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -50,8 +50,6 @@ z_index = 10
 
 [node name="0" parent="PlayerSpawnPoints" instance=ExtResource( 3 )]
 DRAW_COLOR = Color( 0.886275, 0.192157, 0.713726, 1 )
-
-[node name="LevelHUD" type="CanvasLayer" parent="."]
 [connection signal="initialized" from="." to="InitialMusic" method="change_music"]
 
 [editable path="InitialMusic"]
