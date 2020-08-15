@@ -71,7 +71,6 @@ func set_weapon(weapon_scene : PackedScene) -> void:
 	weapon.connect("attack_started", self, "attack")
 	weapon.connect("not_ready", self, "not_ready")
 	weapon.connect("finished", self, "weapon_finished")
-	weapon.hide_sprite()
 	set_input_key(input)
 	owner.add_weapon(weapon)
 	weapon.set_owner(owner)
@@ -93,7 +92,7 @@ func enter(args := {}) -> void:
 	if weapon.attacks.grounded and not owner.is_on_floor():
 		finished(next_state, args)
 		return
-	if weapon.cd_timer.time_left > 0 or weapon.gcd_timer.time_left > 0:
+	if weapon.cooldown_timer.time_left > 0 or weapon.gcd_timer.time_left > 0:
 		not_ready()
 		return
 	

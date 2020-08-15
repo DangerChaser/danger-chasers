@@ -25,7 +25,7 @@ func set_skill(new_skill) -> void:
 func _process(delta : float) -> void:
 	if not skill:
 		return
-	var cd_left = skill.weapon.cd_timer.time_left
+	var cd_left = skill.weapon.cooldown_timer.time_left
 	set_cooldown_label(ceil(cd_left))
 	var gcd_left = skill.weapon.gcd_timer.time_left
 	icon.value = (1 - gcd_left) / GameManager.global_cooldown * 100

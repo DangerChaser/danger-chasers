@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=2]
@@ -15,9 +15,10 @@
 [ext_resource path="res://actors/ariko/particles/SwordHit.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
+resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/Attacks/SlashUp/DamageSource")
+tracks/0/path = NodePath("Pivot/Attacks/SlashDown/DamageSource")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -28,130 +29,6 @@ tracks/0/keys = {
 "values": [ {
 "args": [  ],
 "method": "disable"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/Attacks/SlashDown/DamageSource")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "disable"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("Pivot/Attacks/Stab/DamageSource")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "disable"
-} ]
-}
-
-[sub_resource type="Animation" id=2]
-length = 0.001
-
-[sub_resource type="Animation" id=3]
-length = 0.4
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/Attacks")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.15, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable_cancel_animation"
-}, {
-"args": [  ],
-"method": "enable_attack_input_listening"
-}, {
-"args": [  ],
-"method": "enable_ready_for_next_attack"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/Attacks/SlashDown/DamageSource")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.18 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable"
-}, {
-"args": [  ],
-"method": "disable"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("SwingSfx")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("Pivot/Attacks/SlashDown/ParticleSpawner")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "play"
-} ]
-}
-
-[sub_resource type="Animation" id=4]
-length = 0.45
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/Attacks")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.15, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable_cancel_animation"
-}, {
-"args": [  ],
-"method": "enable_attack_input_listening"
-}, {
-"args": [  ],
-"method": "enable_ready_for_next_attack"
 } ]
 }
 tracks/1/type = "method"
@@ -161,81 +38,11 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.18 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
-"method": "enable"
-}, {
 "args": [  ],
 "method": "disable"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("SwingSfx")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("Pivot/Attacks/SlashUp/ParticleSpawner2")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "play"
-} ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "stab"
-length = 0.31
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/Attacks")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.15, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable_cancel_animation"
-}, {
-"args": [  ],
-"method": "enable_attack_input_listening"
-}, {
-"args": [  ],
-"method": "enable_ready_for_next_attack"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("SwingSfx")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
 } ]
 }
 tracks/2/type = "method"
@@ -245,6 +52,44 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "slash_down"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "can_register_input"
+}, {
+"args": [  ],
+"method": "can_cancel_animation"
+}, {
+"args": [  ],
+"method": "can_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/SlashDown/DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -255,13 +100,13 @@ tracks/2/keys = {
 "method": "disable"
 } ]
 }
-tracks/3/type = "method"
-tracks/3/path = NodePath("Pivot/Attacks/Stab/ParticleSpawner")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pivot/Attacks/SlashDown/ParticleSpawner")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -270,24 +115,125 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="Animation" id=5]
+resource_name = "slash_up"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "can_register_input"
+}, {
+"args": [  ],
+"method": "can_cancel_animation"
+}, {
+"args": [  ],
+"method": "can_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/SlashUp/DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pivot/Attacks/SlashUp/ParticleSpawner2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "stab"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "can_register_input"
+}, {
+"args": [  ],
+"method": "can_cancel_animation"
+}, {
+"args": [  ],
+"method": "can_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/Stab/DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pivot/Attacks/Stab/ParticleSpawner")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
 extents = Vector2( 224, 64 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
 extents = Vector2( 224, 64 )
 
 [node name="Sword" instance=ExtResource( 1 )]
-cooldown = 0.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
-autoplay = "SETUP"
-anims/SETUP = SubResource( 1 )
-anims/idle = SubResource( 2 )
-anims/slash_down = SubResource( 3 )
-anims/slash_up = SubResource( 4 )
-anims/stab = SubResource( 5 )
 
 [node name="SwingSfx" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource( 3 )
@@ -295,6 +241,12 @@ bus = "Sfx"
 script = ExtResource( 6 )
 random_pitch_low = 0.98
 random_pitch_high = 1.02
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/SETUP = SubResource( 1 )
+anims/slash_down = SubResource( 4 )
+anims/slash_up = SubResource( 5 )
+anims/stab = SubResource( 6 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 can_loop = true
@@ -317,7 +269,7 @@ screen_shake_duration = 0.4
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/SlashDown/DamageSource" index="0"]
 position = Vector2( 256, -64 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashDown/AdditionalEffects" index="0" instance=ExtResource( 7 )]
 initial_speed = 3000.0
@@ -350,7 +302,7 @@ screen_shake_duration = 0.4
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/SlashUp/DamageSource" index="0"]
 position = Vector2( 256, -64 )
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashUp/AdditionalEffects" index="0" instance=ExtResource( 7 )]
 initial_speed = 3000.0
@@ -383,7 +335,7 @@ screen_shake_duration = 0.4
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Stab/DamageSource" index="0"]
 position = Vector2( 256, -64 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Stab/AdditionalEffects" index="0" instance=ExtResource( 7 )]
 initial_speed = 3000.0
