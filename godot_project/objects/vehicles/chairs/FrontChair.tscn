@@ -40,7 +40,6 @@ bus = "Sfx"
 
 [node name="Wait" parent="StateMachine" index="0" instance=ExtResource( 2 )]
 animation = "sit_front"
-wait_forever = true
 
 [node name="MotionSteering" parent="StateMachine/Wait" index="1"]
 max_speed = 0.0
@@ -48,10 +47,7 @@ max_speed = 0.0
 [node name="Gravity" parent="StateMachine/Wait" index="2"]
 gravity = 0.0
 
-[node name="Camera2D" parent="CameraLimitTrigger" index="0"]
-zoom = Vector2( 1.1, 1.1 )
-
-[node name="ColliderTrigger" parent="CameraLimitTrigger" index="1"]
+[node name="ColliderTrigger" parent="CameraLimitTrigger" index="0"]
 shape = SubResource( 2 )
 
 [editable path="StateMachine/Wait"]

@@ -5,7 +5,7 @@
 [ext_resource path="res://objects/vehicles/chairs/Chair.gd" type="Script" id=3]
 [ext_resource path="res://objects/vehicles/chairs/sit.wav" type="AudioStream" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "sit"
 tracks/0/type = "audio"
 tracks/0/path = NodePath("SitSfx")
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
 extents = Vector2( 304, 272 )
 
@@ -32,7 +32,7 @@ animation = "sit"
 owner_animation = "sit_side"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" index="0"]
-anims/sit = SubResource( 2 )
+anims/sit = SubResource( 1 )
 
 [node name="SitSfx" type="AudioStreamPlayer2D" parent="Pivot" index="1"]
 stream = ExtResource( 4 )
@@ -40,7 +40,6 @@ bus = "Sfx"
 
 [node name="Wait" parent="StateMachine" index="0" instance=ExtResource( 2 )]
 animation = "sit_front"
-wait_forever = true
 
 [node name="MotionSteering" parent="StateMachine/Wait" index="1"]
 max_speed = 0.0
@@ -48,11 +47,8 @@ max_speed = 0.0
 [node name="Gravity" parent="StateMachine/Wait" index="2"]
 gravity = 0.0
 
-[node name="Camera2D" parent="CameraLimitTrigger" index="0"]
-zoom = Vector2( 1.1, 1.1 )
-
-[node name="ColliderTrigger" parent="CameraLimitTrigger" index="1"]
-shape = SubResource( 1 )
+[node name="ColliderTrigger" parent="CameraLimitTrigger" index="0"]
+shape = SubResource( 2 )
 
 [editable path="StateMachine/Wait"]
 

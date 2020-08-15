@@ -1,5 +1,4 @@
-### Probably broken as of the ManagedState refactor ###
-extends ManagedState
+extends State
 class_name Vehicle
 
 onready var pivot := $Pivot
@@ -24,7 +23,6 @@ func _ready():
 
 func enter(args := {}) -> void:
 	.enter(args)
-	state_machine.initialize()
 	camera_limit_trigger.change()
 	
 	if animation_player and animation_player.has_animation(animation):

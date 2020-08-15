@@ -41,8 +41,8 @@ func _on_Stats_stats_changed(new_stats : CharacterStats) -> void:
 	stats_label.update_label(new_stats)
 
 
-func _on_StateMachine_state_changed(states : Array) -> void:
-	states_Label.update_label(states)
+func _on_StateMachine_state_changed(state : State) -> void:
+	states_Label.update_label(state)
 
 
 func revenge_updated(revenge_value, old_revenge_value, revenge_threshold) -> void:

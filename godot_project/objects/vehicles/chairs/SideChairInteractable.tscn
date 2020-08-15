@@ -24,10 +24,6 @@ visible = true
 shape = SubResource( 2 )
 disabled = false
 
-[node name="NinePatchRect" parent="InteractionArea" index="2"]
-margin_top = -192.0
-margin_bottom = -72.0
-
 [editable path="CollisionTrigger"]
 
 [editable path="InteractionArea"]

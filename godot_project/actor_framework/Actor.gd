@@ -130,7 +130,7 @@ func get_stats() -> CharacterStats:
 
 
 func _on_Hurtbox_area_entered(area, hurtbox : Hurtbox):
-	if state_machine.states_stack.size() == 0:
+	if not state_machine.get_current_state():
 		return
 	if state == States.INVINCIBLE or state_machine.get_current_state().name == "Die":
 		return

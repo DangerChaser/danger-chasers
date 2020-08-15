@@ -5,7 +5,7 @@ signal state_changed(states)
 
 export var initial_args : Dictionary = {}.duplicate() # Duplicate to avoid all shared instances from sharing the same dictionary
 
-var states_stack : Array = []
+var current_state : State
 var can_change_state := true
 
 
@@ -17,13 +17,8 @@ func _ready():
 
 func initialize() -> void:
 	assert (get_child_count() > 0)
-	for state in states_stack:
-		state.exit()
-	states_stack.clear()
-	
-	var initial_state = get_child(0)
-	states_stack.push_front(initial_state)
-	states_stack[0].enter(initial_args)
+	current_state = get_child(0)
+	current_state.enter(initial_args)
 
 
 func get_state(state_name : String) -> State:
@@ -38,24 +33,10 @@ func change_state(state_override := "", args := {}) -> void:
 	if not can_change_state:
 		return
 	
-	states_stack[0].exit()
-	
-	var new_state
-	if state_override:
-		if state_override == "previous":
-			states_stack.pop_front()
-			new_state = states_stack[0]
-		else:
-			new_state = get_state(state_override)
-#			if new_state.pushdown: # Legacy code
-			states_stack.push_front(new_state)
-	else:
-		new_state = _decide_on_next_state()
-	
-	states_stack[0] = new_state
-	
-	emit_signal("state_changed", states_stack)
-	states_stack[0].enter(args)
+	current_state.exit()
+	current_state = get_state(state_override) if state_override else _decide_on_next_state()
+	current_state.enter(args)
+	emit_signal("state_changed", current_state)
 
 "'Virtual function, dependent on specific state machines'"
 func _decide_on_next_state() -> State:
@@ -63,7 +44,7 @@ func _decide_on_next_state() -> State:
 
 
 func get_current_state() -> State:
-	return states_stack[0]
+	return current_state
 
 
 func _ai_check() -> void:
@@ -71,8 +52,8 @@ func _ai_check() -> void:
 
 
 func anim_finished(anim_name : String) -> void:
-	if states_stack.size() > 0:
-		get_current_state().anim_finished(anim_name)
+	if current_state:
+		current_state.anim_finished(anim_name)
 
 
 func has_state(state_name : String) -> bool:
@@ -80,13 +61,13 @@ func has_state(state_name : String) -> bool:
 
 
 func unpause() -> void:
-	if states_stack.size() > 0:
-		get_current_state().unpause()
+	if current_state:
+		current_state.unpause()
 
 
 func pause() -> void:
-	if states_stack.size() > 0:
-		get_current_state().pause()
+	if current_state:
+		current_state.pause()
 
 
 func enable_state_change() -> void:
@@ -95,3 +76,10 @@ func enable_state_change() -> void:
 
 func disable_state_change() -> void:
 	can_change_state = false
+
+
+func add_child(node, legible_unique_name := false) -> void:
+	assert(node is State)
+	.add_child(node, legible_unique_name)
+	node.set_owner(owner)
+	node.connect("finished", self, "change_state")
