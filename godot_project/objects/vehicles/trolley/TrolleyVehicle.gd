@@ -17,7 +17,7 @@ func enter(args := {}) -> void:
 	damage_source.friendly_teams.append(owner.team)
 	damage_source.collider.set_deferred("disabled", false)
 	
-	var camera_target_position = GameManager.get_player().get_node("CameraTargetPosition")
+	var camera_target_position = PlayerManager.player.get_node("CameraTargetPosition")
 	original_offset = camera_target_position.offset
 	camera_target_position.offset = camera_offset
 
@@ -25,7 +25,7 @@ func enter(args := {}) -> void:
 func exit() -> void:
 	owner.collision_mask = actor_original_collision_layer_mask
 	owner.set_rotation(0)
-	GameManager.get_player().get_node("CameraTargetPosition").offset = original_offset
+	PlayerManager.player.get_node("CameraTargetPosition").offset = original_offset
 	.exit()
 
 

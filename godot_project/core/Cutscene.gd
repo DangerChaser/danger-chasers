@@ -26,3 +26,9 @@ func play(var name : String ="", var custom_blend : float =-1, var custom_speed 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "end":
 		emit_signal("finished")
+
+func show_player_hud() -> void:
+	PlayerManager.show_player_hud()
+
+func hide_player_hud() -> void:
+	PlayerManager.hide_player_hud()

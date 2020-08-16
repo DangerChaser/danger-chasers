@@ -1,12 +1,13 @@
 extends Node2D
-class_name ManagedStateManager
+class_name ActorManagedStateManager
 
 export var actor_path : NodePath
 export var managed_state : PackedScene
-onready var actor := get_node(actor_path)
+var actor : Actor
 
 
 func enable() -> void:
+	actor = get_node(actor_path)
 	var state : ManagedState = managed_state.instance()
 	actor.state_machine.add_child(state)
 	actor.state_machine.change_state(state.name, {"manager": self})

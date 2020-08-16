@@ -4,10 +4,6 @@ var level
 var current_camera
 var current_loaded_level : PackedScene
 var initial_spawn_point : int
-var players = []
-
-var num_players : int
-var player_animation_players : Array
 
 var global_cooldown := 0.5
 
@@ -20,15 +16,11 @@ enum Layers { OBSTACLES=0, ACTORS=1, DAMAGE_SOURCES=2, ACTIVATION_TRIGGERS=3, AC
 
 
 func _ready() -> void:
-	#OS.window_fullscreen = true
-	randomize() # Big brain time, only needs to be called once, EVER
-
-
-func get_player():
-	return players[0]
+#	OS.window_fullscreen = true
+#	randomize(
+	pass
 
 
 func clear():
-	players = []
 	level = null
 	game = null

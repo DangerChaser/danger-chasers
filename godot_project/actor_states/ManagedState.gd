@@ -23,4 +23,4 @@ func _physics_process(delta):
 func finished(_next_state:="", args:={}) -> void:
 	if not _next_state:
 		_next_state = next_state
-	finished(_next_state, args)
+	.finished(_next_state)

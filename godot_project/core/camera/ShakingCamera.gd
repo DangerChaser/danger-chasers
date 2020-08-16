@@ -17,8 +17,8 @@ func _process(delta: float) -> void:
 	shake()
 
 func _physics_process(delta : float) -> void:
-	if GameManager.players.size() > 0:
-		global_position = lerp(global_position, GameManager.get_player().get_node("CameraTargetPosition").global_position, position_lerp)
+	if PlayerManager.player:
+		global_position = lerp(global_position, PlayerManager.player.get_node("CameraTargetPosition").global_position, position_lerp)
 
 func change_target_zoom(new_zoom : Vector2, tween_duration : float) -> void:
 	tween.stop(self, "zoom")

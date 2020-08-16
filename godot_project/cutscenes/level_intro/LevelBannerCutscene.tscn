@@ -1,0 +1,406 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://interface/fonts/Silver.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://interface/dynamic_fonts/Silver_128.tres" type="DynamicFont" id=2]
+[ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://cutscenes/level_intro/banner.png" type="Texture" id=4]
+[ext_resource path="res://cutscenes/level_intro/LevelBannerCutscene.gd" type="Script" id=5]
+[ext_resource path="res://core/utils/KeyLabel.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=9]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Control/LevelNameLabel:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Control/ActLabel:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/Control/LevelNameLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/Control/ActLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "end"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2.63902, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1088 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Control:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "start"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control/Banner:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.517632, 1 ),
+"update": 0,
+"values": [ Vector2( 156.612, -208 ), Vector2( 156.612, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Control/Banner:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.366021, 1 ),
+"update": 0,
+"values": [ Vector2( 73, 48 ), Vector2( 73, 256 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Control/LevelNameBanner:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/Control/ActBanner:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/Control/LevelNameBanner:rect_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2, 1.3 ),
+"transitions": PoolRealArray( 0.659754, 1 ),
+"update": 0,
+"values": [ Vector2( 45, 48 ), Vector2( 45, 391 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/Control/ActBanner:rect_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.4, 1.5 ),
+"transitions": PoolRealArray( 0.450625, 1 ),
+"update": 0,
+"values": [ Vector2( 28, 48 ), Vector2( 28, 254 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/Control:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CanvasLayer/Control:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CanvasLayer/Control/LevelNameLabel:percent_visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CanvasLayer/Control/ActLabel:percent_visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CanvasLayer/Control/ActLabel:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CanvasLayer/Control/LevelNameLabel:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="StyleBoxTexture" id=1]
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 3.25
+margin_right = 3.375
+margin_top = 3.5
+margin_bottom = 5.375
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color( 0.203922, 0.203922, 0.203922, 1 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 2.5
+margin_right = 2.75
+margin_top = 2.5
+margin_bottom = 2.25
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color( 0.203922, 0.203922, 0.203922, 1 )
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id=3]
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 3.5
+margin_right = 3.5
+margin_top = 3.125
+margin_bottom = 5.625
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=12]
+default_font = SubResource( 4 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = SubResource( 2 )
+Panel/styles/panel = SubResource( 3 )
+Panel/styles/panelf = null
+Panel/styles/panelnc = null
+
+[sub_resource type="DynamicFont" id=13]
+size = 256
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 4 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = SubResource( 2 )
+Panel/styles/panel = SubResource( 3 )
+Panel/styles/panelf = null
+Panel/styles/panelnc = null
+
+[node name="LevelBannerCutscene" instance=ExtResource( 3 )]
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="." index="0"]
+anims/SETUP = SubResource( 9 )
+anims/end = SubResource( 10 )
+anims/start = SubResource( 11 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
+layer = 128
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActBanner" type="NinePatchRect" parent="CanvasLayer/Control" index="0"]
+margin_left = 224.0
+margin_top = 672.0
+margin_right = 252.0
+margin_bottom = 926.0
+rect_rotation = -90.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+patch_margin_left = 8
+patch_margin_top = 16
+patch_margin_right = 8
+patch_margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelNameBanner" type="NinePatchRect" parent="CanvasLayer/Control" index="1"]
+margin_left = 256.0
+margin_top = 416.0
+margin_right = 301.0
+margin_bottom = 807.0
+rect_rotation = -90.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+patch_margin_left = 8
+patch_margin_top = 16
+patch_margin_right = 8
+patch_margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Banner" type="NinePatchRect" parent="CanvasLayer/Control" index="2"]
+margin_left = 156.612
+margin_right = 229.612
+margin_bottom = 256.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+patch_margin_left = 8
+patch_margin_top = 16
+patch_margin_right = 8
+patch_margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelNameLabel" parent="CanvasLayer/Control" index="3" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 512.0
+margin_right = 1760.0
+margin_bottom = 320.0
+theme = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+text = "LEVEL NAME"
+valign = 2
+
+[node name="ActLabel" parent="CanvasLayer/Control" index="4" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 544.0
+margin_top = 480.0
+margin_right = 1380.0
+margin_bottom = 616.0
+theme = SubResource( 8 )
+custom_fonts/font = ExtResource( 2 )
+text = "ACT ONE"
+valign = 2

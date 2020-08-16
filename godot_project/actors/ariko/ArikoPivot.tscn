@@ -2799,10 +2799,10 @@ autostart = false
 
 [node name="Sprite" type="Sprite" parent="." index="3"]
 scale = Vector2( 4, 4 )
-texture = ExtResource( 1 )
-normal_map = ExtResource( 19 )
+texture = ExtResource( 3 )
+normal_map = ExtResource( 21 )
 offset = Vector2( 0, -29 )
-hframes = 8
+hframes = 4
 
 [node name="FootstepsLand" parent="." index="4" instance=ExtResource( 13 )]
 particles = ExtResource( 16 )
@@ -2828,18 +2828,17 @@ position = Vector2( 0, -110 )
 shape = SubResource( 28 )
 
 [node name="RightHand" parent="." index="11" instance=ExtResource( 50 )]
-position = Vector2( -54, -70 )
+position = Vector2( -46, -82 )
 
 [node name="RightHandWeapon" parent="RightHand" index="0" instance=ExtResource( 50 )]
-rotation = -3.735
-scale = Vector2( 1, -1 )
+rotation = -4.36332
 pivot_scene = ExtResource( 10 )
-[connection signal="animation_changed" from="." to="Trail" method="stop"]
 [connection signal="animation_changed" from="." to="TrailingSprites" method="stop"]
-[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_changed" from="." to="Trail" method="stop"]
 [connection signal="animation_play_requested" from="." to="TrailingSprites" method="stop"]
-[connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
 [connection signal="animation_started" from="." to="TrailingSprites" method="start"]
+[connection signal="animation_started" from="." to="Trail" method="start"]
 
 [editable path="TrailingSprites"]
 

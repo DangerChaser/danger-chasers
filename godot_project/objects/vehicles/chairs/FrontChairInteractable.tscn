@@ -25,9 +25,12 @@ visible = true
 shape = SubResource( 2 )
 disabled = false
 
+[node name="ActorPosition" parent="." index="2"]
+position = Vector2( 0, 32 )
+
 [node name="Sprite" type="Sprite" parent="." index="3"]
-position = Vector2( 0, -51.3619 )
-scale = Vector2( 4, 4 )
+position = Vector2( 0, -78.7694 )
+scale = Vector2( 6, 6 )
 texture = ExtResource( 3 )
 
 [editable path="CollisionTrigger"]

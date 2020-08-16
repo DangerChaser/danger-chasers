@@ -52,7 +52,7 @@ func _physics_process(delta : float) -> void:
 		State.NOT_READY:
 			pass # Do nothing
 		State.LISTENING:
-			if not PlayerManager.input_enabled:
+			if not owner.input_enabled:
 				return
 			if Input.is_action_pressed(input):
 				register_attack()

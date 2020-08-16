@@ -6,19 +6,18 @@
 resource_name = "SETUP"
 length = 0.001
 
-[sub_resource type="Animation" id=3]
-resource_name = "end"
-length = 0.001
-
 [sub_resource type="Animation" id=2]
+resource_name = "end"
+
+[sub_resource type="Animation" id=3]
 resource_name = "start"
-length = 0.001
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "SETUP"
 anims/SETUP = SubResource( 1 )
-anims/end = SubResource( 3 )
-anims/start = SubResource( 2 )
+anims/end = SubResource( 2 )
+anims/start = SubResource( 3 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

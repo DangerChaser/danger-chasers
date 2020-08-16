@@ -6,41 +6,44 @@ signal initialized
 signal level_change_requested(level)
 
 onready var player_spawn_points : = $PlayerSpawnPoints
-onready var camera_limits := $CameraLimits
 onready var arenas := $Arenas
 onready var y_sort := $YSort
 
-export(Color) var skybox_color : Color = Color(0.5, 0.5, 0.5, 1)
-export(PackedScene) var player_scene : PackedScene
+export var level_name_key : String
+export var act := 1
+export var skybox_color : Color = Color(0.5, 0.5, 0.5, 1)
+export var player_scene : PackedScene
+
 
 func request_change(level_path:String, target_spawn_point:int, transition_in_animation:String, transition_in_duration:float) -> void:
 	emit_signal("level_change_requested", load(level_path), target_spawn_point, transition_in_animation, transition_in_duration)
 
 
 func initialize() -> void:
-#	for actor in get_tree().get_nodes_in_group("actors"):
-#		actor.initialize("team_0") # Call before any other actor initializations
-	
 	GameManager.level = self
-	
-	for door in get_doors():
+	for door in get_tree().get_nodes_in_group("doors"):
 		door.connect("player_entered", self, "request_change")
-	
-	if has_node("LevelHUD/LevelIntro"):
-		$LevelHUD/LevelIntro.connect("finished", self, "emit_signal", ["initialized"])
-		$LevelHUD/LevelIntro.start()
-	else:
-		emit_signal("initialized")
-	
 	for arena in arenas.get_children():
 		arena.initialize($YSort)
+	
+	emit_signal("initialized")
+	
+	if $IntroCutscene.get_child_count() > 0:
+		var intro_cutscene = $IntroCutscene.get_child(0)
+		intro_cutscene.set_level(level_name_key)
+		intro_cutscene.set_act(act)
+		intro_cutscene.start()
 
 
-func get_doors() -> Array:
-	var doors = []
-	for door in get_tree().get_nodes_in_group("doors"):
-		assert(door is LevelTransition)
-		if not is_a_parent_of(door):
-			continue
-		doors.push_back(door)
-	return doors
+func spawn_player(target_spawn_point : int):
+	if target_spawn_point >= player_spawn_points.get_child_count():
+		print(str(target_spawn_point) + " is more than the number of spawn points in " + name +".")
+		print("    Defaulted to spawn point 0.")
+		target_spawn_point = 0
+	var spawn = player_spawn_points.get_child(target_spawn_point)
+	var player = player_scene.instance()
+	player.initialize_on_ready = false
+	y_sort.add_child(player)
+	spawn.spawn(player)
+	player.call_deferred("initialize", "team_1")
+	PlayerManager.player = player

@@ -65,7 +65,7 @@ func _physics_process(delta : float) -> void:
 func get_input_direction() -> Vector2:
 	var input_direction : Vector2 = Vector2()
 	if owner.is_in_group("players"):
-		if not PlayerManager.input_enabled:
+		if not owner.input_enabled:
 			return Vector2()
 		input_direction.x = Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int
 		input_direction.y = Input.is_action_pressed("ui_down") as int - Input.is_action_pressed("ui_up") as int

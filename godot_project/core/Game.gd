@@ -28,7 +28,7 @@ func _ready() -> void:
 func level_loaded(level : Level) -> void:
 	Skybox.color = level.skybox_color
 	
-	connect_player(level_loader.player)
+	connect_player(PlayerManager.player)
 	
 	yield(get_tree().create_timer(0.1), "timeout") # Prevents bug where level will immediately transition if player ended up inside a level transition from the previous level
 	level.connect("level_change_requested", level_loader, "change_level")

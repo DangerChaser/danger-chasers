@@ -2,11 +2,14 @@ extends Actor
 class_name PlayerActor
 
 onready var player_hud := $PlayerHUDLayer/BattleHUD
+onready var activation_scanner : ActivationArea = $ActivationScanner
 var job : Job
+var input_enabled := true
 
 
 func _ready() -> void:
 	set_process_input(false)
+	activation_scanner.disable()
 	
 	yield(get_tree().create_timer(0.01), "timeout") # Give animation player time to play SETUP
 	
@@ -26,9 +29,13 @@ func _ready() -> void:
 func initialize(_team : String = "", initial_target=null) -> void:
 	.initialize()
 	set_process_input(true)
+	activation_scanner.enable()
 
 
 func _input(event : InputEvent) -> void:
+	if not input_enabled:
+		return
+	
 	var state = state_machine.get_current_state()
 	if state != state_machine.get_state("Die") and state != state_machine.get_state("Stagger") and state != state_machine.get_state("Cutscene"):
 		for i in range(1, 9):

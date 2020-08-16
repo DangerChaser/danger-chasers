@@ -33,7 +33,8 @@ func change_state(state_override := "", args := {}) -> void:
 	if not can_change_state:
 		return
 	
-	current_state.exit()
+	if current_state:
+		current_state.exit()
 	current_state = get_state(state_override) if state_override else _decide_on_next_state()
 	current_state.enter(args)
 	emit_signal("state_changed", current_state)
