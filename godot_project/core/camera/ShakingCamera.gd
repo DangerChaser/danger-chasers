@@ -60,9 +60,10 @@ func request_shake(new_amplitude : float, \
 		Settings.ScreenShakeIntensity.VOMIT:
 			amplitude *= 5
 			duration *= 5
-	timer.wait_time = duration
-	timer.stop()
-	timer.start()
+	if duration > 0:
+		timer.wait_time = duration
+		timer.stop()
+		timer.start()
 	set_process(true)
 
 func shake() -> void:

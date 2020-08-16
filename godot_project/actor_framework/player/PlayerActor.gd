@@ -4,7 +4,6 @@ class_name PlayerActor
 onready var player_hud := $PlayerHUDLayer/BattleHUD
 onready var activation_scanner : ActivationArea = $ActivationScanner
 var job : Job
-var input_enabled := true
 
 
 func _ready() -> void:

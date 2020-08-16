@@ -37,7 +37,7 @@ var previous_position : Vector2
 var last_move_direction : Vector2
 var flashing := false
 var initialize_on_ready := true # Set to false before adding to tree to delay initialization
-
+var input_enabled := true
 
 
 func _ready():
