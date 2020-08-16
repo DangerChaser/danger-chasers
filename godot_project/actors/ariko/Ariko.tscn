@@ -1,18 +1,16 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://actors/ariko/Ariko.tres" type="Resource" id=1]
 [ext_resource path="res://actor_framework/player/CameraTargetPosition.gd" type="Script" id=2]
 [ext_resource path="res://actors/ariko/sprites/icon.png" type="Texture" id=3]
 [ext_resource path="res://actor_framework/player/PlayerActor.gd" type="Script" id=4]
-[ext_resource path="res://actors/ariko/weapons/RollingThunder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/utils/ActivationScanner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_states/motion/Air.tscn" type="PackedScene" id=7]
-[ext_resource path="res://actors/ariko/weapons/BlastZone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/ariko/weapons/Stomp.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actors/ariko/weapons/Jump.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/target_reticle/TargetReticleHUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=11]
-[ext_resource path="res://actors/ariko/weapons/UpperSlash.tscn" type="PackedScene" id=12]
-[ext_resource path="res://actors/ariko/weapons/Sword.tscn" type="PackedScene" id=13]
+[ext_resource path="res://actors/ariko/weapons/Knife.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actors/ariko/ArikoPivot.tscn" type="PackedScene" id=14]
 [ext_resource path="res://actor_framework/player/states/Idle.tscn" type="PackedScene" id=15]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=16]
@@ -51,36 +49,30 @@ input = "light_attack"
 next_state = "Idle"
 
 [node name="Jump" parent="StateMachine" index="2" instance=ExtResource( 11 )]
-weapon_levels = [ 0, 1 ]
-weapons = [ ExtResource( 9 ), ExtResource( 12 ) ]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 9 ) ]
 input = "ui_up"
-next_state = "AirAttack"
+next_state = "Air"
 
 [node name="Air" parent="StateMachine" index="3" instance=ExtResource( 7 )]
 
-[node name="AirAttack" parent="StateMachine" index="4" instance=ExtResource( 11 )]
-weapon_levels = [ 0 ]
-weapons = [ ExtResource( 5 ) ]
-input = "ui_up"
-next_state = "Idle"
-
-[node name="Stomp" parent="StateMachine" index="5" instance=ExtResource( 11 )]
+[node name="Stomp" parent="StateMachine" index="4" instance=ExtResource( 11 )]
 weapon_levels = [ 0 ]
 weapons = [ ExtResource( 8 ) ]
 input = "ui_down"
 next_state = "Idle"
 
-[node name="Stagger" parent="StateMachine" index="6" instance=ExtResource( 16 )]
+[node name="Stagger" parent="StateMachine" index="5" instance=ExtResource( 16 )]
 next_state = "Idle"
 keep_staggering = false
 invincibility_buffer = 0.5
 
-[node name="Die" parent="StateMachine" index="7" instance=ExtResource( 23 )]
+[node name="Die" parent="StateMachine" index="6" instance=ExtResource( 23 )]
 queue_free_on_die = false
 
-[node name="Job" parent="StateMachine" index="8" instance=ExtResource( 18 )]
+[node name="Job" parent="StateMachine" index="7" instance=ExtResource( 18 )]
 
-[node name="Wait" parent="StateMachine" index="9" instance=ExtResource( 17 )]
+[node name="Wait" parent="StateMachine" index="8" instance=ExtResource( 17 )]
 face_target = false
 
 [node name="CollisionBox" parent="." index="2"]

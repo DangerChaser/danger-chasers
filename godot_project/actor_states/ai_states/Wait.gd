@@ -19,7 +19,7 @@ func _physics_process(delta):
 	move(Vector2())
 	if face_target and owner.target.get_target():
 		var direction = owner.global_position.direction_to(owner.target.global_position)
-		owner.set_rotation(direction.angle())
+		owner.set_rotation(Vector2(sign(direction.x), 0).angle())
 
 
 func take_damage(args := {}):

@@ -14,29 +14,12 @@ resource_name = "jump"
 length = 0.4
 step = 0.05
 tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/path = NodePath("Pivot/Attacks/Jump/Sfx")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable_attack_input_listening"
-}, {
-"args": [  ],
-"method": "enable_ready_for_next_attack"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/Attacks/Jump/Sfx")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -46,10 +29,9 @@ tracks/1/keys = {
 }
 
 [node name="Jump" instance=ExtResource( 1 )]
-cooldown = 0.0
 next_state = "Air"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
 anims/jump = SubResource( 2 )
 

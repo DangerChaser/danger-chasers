@@ -36,7 +36,7 @@ func _input(event : InputEvent) -> void:
 			if event.is_action_pressed(input_skill):
 				var current_state = state_machine.get_current_state()
 				if current_state.name == "Job":
-					if not current_state.get_current_skill().attacks.can_cancel:
+					if not current_state.get_current_skill().attacks._can_cancel_animation:
 						return
 				if state_machine.get_state("Job").skill_ready(input_skill):
 					state_machine.change_state("Job", {"input_key":input_skill})

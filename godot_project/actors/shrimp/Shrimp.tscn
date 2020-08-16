@@ -1,21 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/motion/Spawn.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/ariko/weapons/QuickAttack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actor_framework/stats/DefaultStats.tres" type="Resource" id=6]
 [ext_resource path="res://actors/shrimp/Pivot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://combat/effects/buffs/Invincible.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/shrimp/sprites/icon.png" type="Texture" id=11]
 
-
 [sub_resource type="RectangleShape2D" id=1]
-resource_local_to_scene = true
-extents = Vector2( 88.8071, 118.948 )
-
-[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 45.0629, 97.0747 )
 
 [node name="Shrimp" groups=[
@@ -25,44 +19,30 @@ collision_layer = 2
 collision_mask = 97
 icon = ExtResource( 11 )
 
-[node name="StateMachine" parent="." index="0"]
-pause_offscreen = false
-
 [node name="Spawn" parent="StateMachine" index="0" instance=ExtResource( 2 )]
 next_state = "AIAttack"
 
 [node name="AIAttack" parent="StateMachine" index="1" instance=ExtResource( 3 )]
-weapon_levels = [ 0 ]
-weapons = [ ExtResource( 4 ) ]
 next_state = "Die"
 
 [node name="Die" parent="StateMachine" index="2" instance=ExtResource( 5 )]
 
-[node name="Hurtbox" parent="." index="1"]
-position = Vector2( 0, 38.965 )
-
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 0, -141.829 )
+[node name="CollisionBox" parent="." index="1"]
+position = Vector2( -2.19303, -100.36 )
 shape = SubResource( 1 )
 
-[node name="CollisionBox" parent="." index="2"]
-position = Vector2( -2.19303, -100.36 )
-shape = SubResource( 2 )
-
-[node name="Target" parent="." index="4"]
+[node name="Target" parent="." index="3"]
 max_distance = 1337.0
 
-[node name="Stats" parent="." index="5"]
+[node name="Stats" parent="." index="4"]
 character_stats = ExtResource( 6 )
-
-[node name="Pivot" parent="." index="6" instance=ExtResource( 7 )]
 
 [node name="Invincible" parent="Effects/Buffs" index="0" instance=ExtResource( 10 )]
 lasts_forever = true
 
-[node name="VisibilityEnabler2D" parent="." index="10"]
-position = Vector2( 5.99158, 0 )
+[node name="Pivot" parent="." index="6" instance=ExtResource( 7 )]
 
-[editable path="Hurtbox"]
+[node name="VisibilityEnabler2D" parent="." index="9"]
+position = Vector2( 5.99158, 0 )
 
 [editable path="Pivot"]

@@ -1,52 +1,19 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=2]
-[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/goblin/sfx/swing.wav" type="AudioStream" id=4]
-[ext_resource path="res://combat/weapons/attack_additional_effects/StompEffect.tscn" type="PackedScene" id=5]
-[ext_resource path="res://combat/weapons/attack_additional_effects/PlaySfxEffect.gd" type="Script" id=6]
-[ext_resource path="res://actors/ariko/particles/StompHit.tscn" type="PackedScene" id=7]
-[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=8]
-[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=9]
-[ext_resource path="res://actors/ariko/particles/Stomp.tscn" type="PackedScene" id=10]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/ariko/particles/Stomp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://combat/weapons/attack_additional_effects/StompEffect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://combat/weapons/attack_additional_effects/PlaySfxEffect.gd" type="Script" id=5]
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=6]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=7]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/goblin/sfx/swing.wav" type="AudioStream" id=9]
+[ext_resource path="res://actors/ariko/particles/StompHit.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
-tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/Attacks/Recover/DamageSource")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "disable"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/Attacks/Stomp/DamageSource")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "disable"
-} ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "recover"
-length = 0.2
-step = 0.01
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks/Stomp/DamageSource")
 tracks/0/interp = 1
@@ -68,7 +35,39 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "recover"
+length = 0.2
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks/Stomp/DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks/Recover/DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -79,46 +78,12 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("Pivot/Attacks/Recover/DamageSource")
+tracks/2/path = NodePath("StompParticleSpawner")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "shake_screen"
-} ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("Pivot/Attacks")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.1, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable_cancel_animation"
-}, {
-"args": [  ],
-"method": "enable_attack_input_listening"
-}, {
-"args": [  ],
-"method": "enable_cancel_animation"
-} ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath("StompParticleSpawner")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -128,9 +93,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-length = 0.2
-loop = true
-step = 0.01
+resource_name = "stomp"
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks/Stomp/DamageSource")
 tracks/0/interp = 1
@@ -145,20 +108,6 @@ tracks/0/keys = {
 "method": "enable"
 } ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/Attacks")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable_attack_input_listening"
-} ]
-}
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
@@ -168,27 +117,26 @@ extents = Vector2( 64, 30 )
 resource_local_to_scene = true
 extents = Vector2( 128, 64 )
 
-[node name="BlastZone" instance=ExtResource( 1 )]
-cooldown = 0.0
+[node name="Stomp" instance=ExtResource( 2 )]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="StompParticleSpawner" parent="." index="1" instance=ExtResource( 8 )]
+object = ExtResource( 3 )
+
+[node name="AnimationPlayer" parent="." index="2"]
 anims/SETUP = SubResource( 1 )
 anims/recover = SubResource( 2 )
 anims/stomp = SubResource( 3 )
 
-[node name="StompParticleSpawner" parent="." index="1" instance=ExtResource( 9 )]
-object = ExtResource( 10 )
-
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
 
-[node name="Stomp" parent="Pivot/Attacks" index="0" instance=ExtResource( 3 )]
+[node name="Stomp" parent="Pivot/Attacks" index="0" instance=ExtResource( 1 )]
 actor_animation = "stomp"
 weapon_animation = "stomp"
 
-[node name="DamageSource" parent="Pivot/Attacks/Stomp" index="0" instance=ExtResource( 2 )]
+[node name="DamageSource" parent="Pivot/Attacks/Stomp" index="0" instance=ExtResource( 7 )]
 position = Vector2( 0, 32 )
-hit_particles = ExtResource( 7 )
+hit_particles = ExtResource( 10 )
 damage = 15
 delay_milliseconds = 6
 screen_shake_amplitude = 20.0
@@ -198,10 +146,10 @@ screen_shake_duration = 0.3
 shape = SubResource( 4 )
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Stomp" index="1"]
-stream = ExtResource( 4 )
+stream = ExtResource( 9 )
 bus = "Sfx"
 
-[node name="StompEffect" parent="Pivot/Attacks/Stomp/AdditionalEffects" index="0" instance=ExtResource( 5 )]
+[node name="StompEffect" parent="Pivot/Attacks/Stomp/AdditionalEffects" index="0" instance=ExtResource( 4 )]
 initial_speed = 5000.0
 
 [node name="MotionSteering" parent="Pivot/Attacks/Stomp/AdditionalEffects/StompEffect/Motion" index="1"]
@@ -212,16 +160,16 @@ gravity = 5000.0
 max_speed = 4000.0
 
 [node name="PlayStompSfx" type="Node2D" parent="Pivot/Attacks/Stomp/AdditionalEffects" index="1"]
-script = ExtResource( 6 )
-sfx_node = NodePath("../../Sfx")
+script = ExtResource( 5 )
+sfx_node = NodePath("../../../../../../Stomp/Pivot/Attacks/Stomp/Sfx")
 
-[node name="Recover" parent="Pivot/Attacks" index="1" instance=ExtResource( 3 )]
+[node name="Recover" parent="Pivot/Attacks" index="1" instance=ExtResource( 1 )]
 actor_animation = "stomp_land"
 weapon_animation = "recover"
 
-[node name="DamageSource" parent="Pivot/Attacks/Recover" index="0" instance=ExtResource( 2 )]
+[node name="DamageSource" parent="Pivot/Attacks/Recover" index="0" instance=ExtResource( 7 )]
 position = Vector2( 0, 64 )
-hit_particles = ExtResource( 10 )
+hit_particles = ExtResource( 3 )
 damage = 5
 delay_milliseconds = 2
 screen_shake_amplitude = 42.0
@@ -230,7 +178,7 @@ screen_shake_duration = 0.3
 [node name="CollisionShape2D" parent="Pivot/Attacks/Recover/DamageSource" index="0"]
 shape = SubResource( 5 )
 
-[node name="MovementEffect" parent="Pivot/Attacks/Recover/AdditionalEffects" index="0" instance=ExtResource( 8 )]
+[node name="MovementEffect" parent="Pivot/Attacks/Recover/AdditionalEffects" index="0" instance=ExtResource( 6 )]
 
 [editable path="Pivot/Attacks/Stomp"]
 

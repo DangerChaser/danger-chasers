@@ -24,15 +24,16 @@ shader_param/scroll_speed = 0.005
 [node name="1-1 Background" type="ParallaxBackground"]
 
 [node name="Sky" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0, 0.05 )
-motion_mirroring = Vector2( 5120, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Sky"]
 material = SubResource( 1 )
-margin_top = -512.0
-margin_right = 1280.0
-margin_bottom = -208.0
-rect_scale = Vector2( 4, 4 )
+margin_top = -1304.9
+margin_right = 1584.0
+margin_bottom = -1000.9
+rect_scale = Vector2( 4, 8 )
 texture = ExtResource( 5 )
 stretch_mode = 2
 __meta__ = {
@@ -40,13 +41,14 @@ __meta__ = {
 }
 
 [node name="Clouds" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.02, 0.05 )
-motion_mirroring = Vector2( 4352, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Clouds"]
 visible = false
 margin_top = -448.0
-margin_right = 1088.0
+margin_right = 1600.0
 margin_bottom = -212.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
@@ -59,7 +61,7 @@ __meta__ = {
 visible = false
 margin_left = -64.0
 margin_top = -864.0
-margin_right = 1024.0
+margin_right = 1536.0
 margin_bottom = -628.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
@@ -69,12 +71,13 @@ __meta__ = {
 }
 
 [node name="Sea" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.03, 0.05 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Sea"]
 margin_top = 640.0
-margin_right = 1024.0
+margin_right = 1600.0
 margin_bottom = 736.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
@@ -84,14 +87,16 @@ __meta__ = {
 }
 
 [node name="BigTrees4" type="ParallaxLayer" parent="."]
+visible = false
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.05, 0.05 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="BigTrees4"]
-margin_top = -384.0
-margin_right = 1024.0
-margin_bottom = -64.0
-rect_scale = Vector2( 4, 4 )
+margin_top = -1345.67
+margin_right = 1600.0
+margin_bottom = -1025.67
+rect_scale = Vector2( 4, 8 )
 texture = ExtResource( 13 )
 stretch_mode = 2
 __meta__ = {
@@ -99,12 +104,14 @@ __meta__ = {
 }
 
 [node name="Far Grounds" type="ParallaxLayer" parent="."]
+visible = false
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.05, 0.05 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Far Grounds"]
 margin_top = 288.0
-margin_right = 616.0
+margin_right = 1600.0
 margin_bottom = 398.0
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
@@ -114,13 +121,14 @@ __meta__ = {
 }
 
 [node name="CanopyFar1" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.05, 0.05 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="CanopyFar1"]
-margin_top = -1152.0
-margin_right = 1024.0
-margin_bottom = -896.0
+margin_top = -1634.2
+margin_right = 1600.0
+margin_bottom = -1378.2
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 15 )
 stretch_mode = 2
@@ -129,13 +137,15 @@ __meta__ = {
 }
 
 [node name="BigTrees3" type="ParallaxLayer" parent="."]
+visible = false
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.06, 0.06 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="BigTrees3"]
-margin_top = -1088.0
-margin_right = 1024.0
-margin_bottom = -768.0
+margin_top = -2049.67
+margin_right = 1600.0
+margin_bottom = -1729.67
 rect_scale = Vector2( 4, 8 )
 texture = ExtResource( 14 )
 stretch_mode = 2
@@ -144,13 +154,14 @@ __meta__ = {
 }
 
 [node name="CanopyFar2" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.06, 0.06 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="CanopyFar2"]
-margin_top = -1184.0
-margin_right = 1024.0
-margin_bottom = -928.0
+margin_top = -1742.04
+margin_right = 1600.0
+margin_bottom = -1486.04
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 16 )
 stretch_mode = 2
@@ -158,29 +169,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BigTrees2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.07, 0.07 )
-motion_mirroring = Vector2( 4096, 0 )
-
-[node name="Sprite" type="TextureRect" parent="BigTrees2"]
-margin_top = -768.0
-margin_right = 1024.0
-margin_bottom = -448.0
-rect_scale = Vector2( 4, 4 )
-texture = ExtResource( 12 )
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Bg4" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.07, 0.07 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Bg4"]
-margin_top = 96.0
-margin_right = 1024.0
-margin_bottom = 416.0
+margin_top = 232.0
+margin_right = 1600.0
+margin_bottom = 552.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 6 )
 stretch_mode = 2
@@ -188,14 +185,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BigTrees2" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
+motion_scale = Vector2( 0.07, 0.07 )
+motion_mirroring = Vector2( 6144, 0 )
+
+[node name="Sprite" type="TextureRect" parent="BigTrees2"]
+margin_top = -1729.67
+margin_right = 1600.0
+margin_bottom = -1409.67
+rect_scale = Vector2( 4, 12 )
+texture = ExtResource( 12 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Canopy1" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.08, 0.07 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Canopy1"]
-margin_top = -1408.0
-margin_right = 1024.0
-margin_bottom = -1152.0
+margin_top = -2181.3
+margin_right = 1600.0
+margin_bottom = -1925.3
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 8 )
 stretch_mode = 2
@@ -204,14 +218,15 @@ __meta__ = {
 }
 
 [node name="BigTrees1" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.09, 0.08 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="BigTrees1"]
-margin_top = -1056.0
-margin_right = 1024.0
-margin_bottom = -736.0
-rect_scale = Vector2( 4, 6 )
+margin_top = -2017.67
+margin_right = 1600.0
+margin_bottom = -1697.67
+rect_scale = Vector2( 4, 12 )
 texture = ExtResource( 10 )
 stretch_mode = 2
 __meta__ = {
@@ -219,13 +234,14 @@ __meta__ = {
 }
 
 [node name="Canopy2" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.1, 0.08 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Canopy2"]
-margin_top = -1504.0
-margin_right = 1024.0
-margin_bottom = -1248.0
+margin_top = -2466.0
+margin_right = 1678.0
+margin_bottom = -2210.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 9 )
 stretch_mode = 2
@@ -234,29 +250,42 @@ __meta__ = {
 }
 
 [node name="Bg3" type="ParallaxLayer" parent="."]
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.12, 0.08 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Bg3"]
-margin_top = 256.0
-margin_right = 1024.0
-margin_bottom = 576.0
+margin_top = 1039.0
+margin_right = 1537.0
+margin_bottom = 1359.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
 stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sea2" type="ParallaxLayer" parent="."]
 visible = false
+position = Vector2( -71.2715, 28.5088 )
 motion_scale = Vector2( 0.03, 0.05 )
-motion_mirroring = Vector2( 4096, 0 )
+motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Sea2"]
-margin_top = 1344.0
-margin_right = 1024.0
-margin_bottom = 1440.0
+margin_top = 1544.0
+margin_right = 1569.0
+margin_bottom = 1640.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0.0980392 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

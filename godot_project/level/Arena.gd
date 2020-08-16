@@ -13,8 +13,8 @@ export(Array, float) var next_group_spawn_percent := ["0.0"]
 onready var round_manager := $RoundManager
 onready var actor_spawn_groups := $ActorSpawnGroups
 onready var walls := $Walls
-onready var camera_limit := $CameraLimitTrigger
 onready var activation_area := $ActivationArea
+onready var camera_limit := $CameraLimitTrigger
 
 var number_actors : int
 var current_round_max_actors : int

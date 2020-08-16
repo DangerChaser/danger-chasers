@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/idle.png-9708101c980a7ac9e430b6065f7581f1.stex"
+path="res://.import/idle_normal.png-de0649a89c1451b0f6d17347cbb52a04.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://actors/audio_level_controller/sprites/idle.png"
-dest_files=[ "res://.import/idle.png-9708101c980a7ac9e430b6065f7581f1.stex" ]
+source_file="res://actors/judge_pajamas/sprites/idle_normal.png"
+dest_files=[ "res://.import/idle_normal.png-de0649a89c1451b0f6d17347cbb52a04.stex" ]
 
 [params]
 

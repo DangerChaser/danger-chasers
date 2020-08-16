@@ -11,8 +11,11 @@
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/ariko/particles/DashParticles.tscn" type="PackedScene" id=10]
 
-[sub_resource type="Animation" id=1]
-resource_name = "SETUP"
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 211.778, 106.825 )
+
+[sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "method"
 tracks/0/path = NodePath("DamageSource")
@@ -29,8 +32,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "attack"
+[sub_resource type="Animation" id=3]
 length = 0.35
 step = 0.05
 tracks/0/type = "method"
@@ -44,13 +46,13 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
-"method": "enable_attack_input_listening"
+"method": "can_register_input"
 }, {
 "args": [  ],
-"method": "enable_cancel_animation"
+"method": "can_cancel_animation"
 }, {
 "args": [  ],
-"method": "enable_ready_for_next_attack"
+"method": "can_attack"
 } ]
 }
 tracks/1/type = "method"
@@ -108,16 +110,10 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
-resource_local_to_scene = true
-extents = Vector2( 211.778, 106.825 )
-
 [node name="Dash" instance=ExtResource( 2 )]
-cooldown = 3.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
-anims/SETUP = SubResource( 1 )
-anims/attack = SubResource( 2 )
+[node name="CooldownTimer" parent="." index="0"]
+wait_time = 3.0
 
 [node name="ParticleSpawner" parent="." index="1" instance=ExtResource( 9 )]
 position = Vector2( 288, -96 )
@@ -132,7 +128,7 @@ screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
 position = Vector2( 115.153, -105.714 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="." index="3"]
 position = Vector2( -1.88776, -94.3875 )
@@ -141,6 +137,10 @@ bus = "Sfx"
 script = ExtResource( 4 )
 random_pitch_low = 0.98
 random_pitch_high = 1.02
+
+[node name="AnimationPlayer" parent="." index="4"]
+anims/SETUP = SubResource( 2 )
+anims/attack = SubResource( 3 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
