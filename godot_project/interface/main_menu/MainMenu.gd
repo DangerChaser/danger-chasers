@@ -42,3 +42,17 @@ func _on_Continue_back_selected():
 func _on_Settings_back_selected():
 	$Settings.transition_out()
 	$Main.transition_in()
+
+
+
+
+
+
+
+
+
+
+
+
+
+

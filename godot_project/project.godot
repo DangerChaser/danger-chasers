@@ -631,7 +631,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "radmatt.DialogueSystem2" )
+enabled=PoolStringArray( "radmatt.DialogueSystem2", "ridiculous_coding" )
 
 [importer_defaults]
 
