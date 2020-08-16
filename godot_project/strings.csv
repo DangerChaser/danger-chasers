@@ -1,6 +1,6 @@
 ﻿keys,en
-NONE,
-GAME_NAME,Streams of Steel
+,
+GAME_NAME,Danger Chaser
 NEW_GAME,New Game
 PLAY,Play
 PRESS_ANY_BUTTON,Press any button
@@ -32,13 +32,78 @@ ui_up,Up
 ui_left,Left
 ui_right,Right
 ui_down,Down
+EXIT,Exit
+CONTINUE,Continue
+AUDIO,Audio
+GRAPHICS,Graphics
+SCREEN_SHAKE,Screen Shake
+FRAME_FREEZE,Frame Freeze
+ON,On
+OFF,Off
+DISABLED,Disabled
+LOW,Low
+NORMAL,Normal
+HIGH,High
+EXTREME,Extreme
+VOMIT,Vomit
+DECLINE,Decline
+ACCEPT,Accept
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
 QUIT_TO_MENU,Quit to Menu
 QUESTS,Quests
-TRIAL_RUN,Trial Run
-TRIAL_RUN_DESCRIPTION,"The forest right outside this city is filled with dangerous creatures to the average citizen. However, since they are pretty weak overall, we leave them be. We send new adventurers after them to taste their capabilities and decide what to do based on that performance. Well, good luck!"
-FOREST_GROVE,Forest Grove
-FOREST_GROVE_DESCRIPTION,A safe area inside the Greenwood Hills. Travelers frequently use this place to rest on their trip to the Ruby Mines. A fellow adventurer seems to want to spar here though...
-SAFE_AREA_CR-1,Safe Area CR-1
-SAFE_AREA_CR-1_DESCRIPTION,"CR is the code used to denote rest areas in the Ruby Mines. You've been ambushed by a peculiar maid, but it doesn't look like she wants to injure you. At least that's what you think."
-BOX_CUTTER_TUTORIAL_BOSS,Guild Training Area
-BOX_CUTTER_TUTORIAL_BOSS_DESCRIPTION,"Your new mentor, Box Cutter, is requesting to spar. She says this is for you to familiarize yourselves with the other's fighting style. You didn't have a problem with this until you saw her weapon."
+ACT,Act
+ZERO_LIMIT,Zero Limit
+ZERO_LIMIT_ACT_1,Zero Limit Act 1
+ZERO_LIMIT_ACT_1_DESCRIPTION,this is where I explain the story for now but nothing is here because reeeeeeeeee
+ZERO_LIMIT_ACT_2,Zero Limit Act 2
+ZERO_LIMIT_ACT_2_DESCRIPTION,insert description here lol
+DEBUG_ENEMY,Debug Enemy
+DEBUG_ENEMY_DESCRIPTION,I put enemies in here and test them out to make sure that they try to kill you the correct way.

@@ -93,7 +93,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "start"
-length = 6.0
+length = 5.0
 step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath("LevelBannerCutscene")
@@ -102,7 +102,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 2 ),
+"times": PoolRealArray( 1.75 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -130,7 +130,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1, 1.7, 2.1, 2.5, 2.8 ),
+"times": PoolRealArray( 0, 1, 1.35, 1.75, 2.15, 2.45 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "sit_front" ],
@@ -173,7 +173,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 2.1 ),
+"times": PoolRealArray( 0, 1.75 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 180.0, 0.0 ]
@@ -185,10 +185,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1, 1.7, 1.9, 2.1, 2.3, 2.5 ),
+"times": PoolRealArray( 0, 1, 1.35, 1.55, 1.75, 1.95, 2.15 ),
 "transitions": PoolRealArray( 9001, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -32 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 128, -256 ), Vector2( 256, 0 ), Vector2( 0.000106812, -256 ), Vector2( -256, 0 ) ]
+"values": [ Vector2( 0, -32 ), Vector2( -64, 0 ), Vector2( -64, 0 ), Vector2( 128, -256 ), Vector2( 256, 0 ), Vector2( 0.000106812, -256 ), Vector2( -256, 0 ) ]
 }
 tracks/6/type = "method"
 tracks/6/path = NodePath("CutsceneCamera")
@@ -229,7 +229,7 @@ anims/end = SubResource( 2 )
 anims/start = SubResource( 3 )
 
 [node name="PlayerManagedStateManager" parent="." index="2"]
-position = Vector2( 0, -32 )
+position = Vector2( 58.1818, -162.909 )
 rotation = 3.14159
 
 [node name="CutsceneCamera" parent="." index="3" instance=ExtResource( 2 )]

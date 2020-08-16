@@ -28,10 +28,12 @@ func activate_skill(name : String, experience:=-1) -> void:
 		active_skills.append(name)
 
 func enable_input() -> void:
-	player.input_enabled = true
+	if player:
+		player.input_enabled = true
 
 func disable_input() -> void:
-	player.input_enabled = false
+	if player:
+		player.input_enabled = false
 
 func show_player_hud() -> void:
 	player.player_hud.visible = true

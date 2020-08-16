@@ -1,8 +1,7 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/music/dova_syndrome/Nine_Jack.ogg" type="AudioStream" id=2]
-[ext_resource path="res://assets/audio/music/Red Gold.ogg" type="AudioStream" id=3]
 [ext_resource path="res://level/levels/copper_maze/generic_dungeon.tres" type="TileSet" id=4]
 [ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=7]
@@ -14,7 +13,7 @@
 [ext_resource path="res://actors/golem/Golem.tscn" type="PackedScene" id=14]
 [ext_resource path="res://actors/slime_red/SlimeRed.tscn" type="PackedScene" id=15]
 [ext_resource path="res://objects/doors/interactable_doors/InteractableDoor.tscn" type="PackedScene" id=16]
-[ext_resource path="res://level/levels/greenwood_hills/ForestBackground.tscn" type="PackedScene" id=24]
+[ext_resource path="res://level/levels/copper_maze/CopperMazeForestBackground.tscn" type="PackedScene" id=24]
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=25]
 [ext_resource path="res://actors/turret/Turret.tscn" type="PackedScene" id=26]
 [ext_resource path="res://actors/shrimp/icon.png" type="Texture" id=30]
@@ -29,18 +28,29 @@
 
 
 
-[sub_resource type="RectangleShape2D" id=1]
-resource_local_to_scene = true
 
-[sub_resource type="RectangleShape2D" id=2]
+
+
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 168.539, 569.445 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
 extents = Vector2( 24896, 9952 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="RectangleShape2D" id=3]
+resource_local_to_scene = true
+extents = Vector2( 304, 272 )
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 22304, 9344 )
+
+[sub_resource type="Animation" id=29]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "value"
@@ -56,7 +66,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=30]
 resource_name = "end"
 tracks/0/type = "method"
 tracks/0/path = NodePath("ActivateSkillCollectible/Effects/ActivateSkill")
@@ -101,7 +111,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=31]
 resource_name = "start"
 length = 0.2
 tracks/0/type = "method"
@@ -189,31 +199,17 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=32]
 resource_local_to_scene = true
 radius = 120.608
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=33]
 resource_local_to_scene = true
 radius = 200.0
-
-[sub_resource type="RectangleShape2D" id=9]
-resource_local_to_scene = true
-extents = Vector2( 304, 272 )
-
-[sub_resource type="RectangleShape2D" id=10]
-resource_local_to_scene = true
-extents = Vector2( 22304, 9344 )
 
 [node name="CopperMaze" instance=ExtResource( 1 )]
 music = ExtResource( 2 )
 skybox_color = Color( 0.207843, 0.172549, 0.219608, 1 )
-
-[node name="InitialMusic" parent="." index="0"]
-music = ExtResource( 3 )
-
-[node name="CollisionShape2D" parent="InitialMusic" index="0"]
-shape = SubResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Background" index="0"]
 layer = -5
@@ -261,13 +257,24 @@ collision_layer = 64
 format = 1
 tile_data = PoolIntArray( 8913686, 19, 0, 8913687, 19, 0, 8913688, 19, 0, 9372438, 19, 0, 9372439, 19, 0, 9372440, 19, 0, 10945215, 19, 0, 10945216, 19, 0, 10945217, 19, 0, 10945218, 19, 0, 10945219, 19, 0, 11862749, 19, 0, 11862750, 19, 0, 11862751, 19, 0, 11862752, 19, 0, 11862753, 19, 0, 11862754, 19, 0, 11862755, 19, 0, 11862756, 19, 0, 11862757, 19, 0, 11862758, 19, 0, 11862759, 19, 0, 11862760, 19, 0, 11862761, 19, 0, 11862762, 19, 0, 11862763, 19, 0, 11862764, 19, 0, 11862765, 19, 0, 11862766, 19, 0, 11862767, 19, 0, 11862768, 19, 0, 11862769, 19, 0, 11862770, 19, 0, 11862771, 19, 0, 11862772, 19, 0, 11862773, 19, 0, 11862774, 19, 0, 11862775, 19, 0, 11862776, 19, 0, 11862777, 19, 0, 11862778, 19, 0, 11862779, 19, 0, 11862780, 19, 0, 11862781, 19, 0, 11862782, 19, 0, 11862783, 19, 0, 11862784, 19, 0, 11862785, 19, 0, 11862786, 19, 0, 15336339, 19, 0, 15336340, 19, 0, 16319372, 19, 0, 16319373, 19, 0 )
 
-[node name="SecondHalfMovingPlatforms" type="Node2D" parent="Ground" index="3"]
+[node name="SleepingGiant" type="Node2D" parent="Ground" index="3"]
+position = Vector2( 26172.3, 6942.9 )
+
+[node name="TileMap" type="TileMap" parent="Ground/SleepingGiant" index="0"]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="SecondHalfMovingPlatforms" type="Node2D" parent="Ground" index="4"]
 position = Vector2( 26240, 3168 )
 
 [node name="MovingCastleWaypoints1" parent="Ground/SecondHalfMovingPlatforms" index="0" instance=ExtResource( 12 )]
 position = Vector2( -14912, -1600 )
 editor_process = false
 line_color = Color( 0.501961, 0.686275, 0.94902, 1 )
+triangle_color = Color( 1, 1, 1, 1 )
+line_width = 10.0
 
 [node name="Start" parent="Ground/SecondHalfMovingPlatforms/MovingCastleWaypoints1" index="0"]
 position = Vector2( 0, 672 )
@@ -276,14 +283,19 @@ position = Vector2( 0, 672 )
 position = Vector2( 0, -448 )
 
 [node name="IronMovingPlatform8x4" parent="Ground/SecondHalfMovingPlatforms" index="1" instance=ExtResource( 8 )]
-position = Vector2( -14912, -1034.67 )
+position = Vector2( -14912, -1521.34 )
 editor_process = true
+speed = 400.0
 waypoints_path = NodePath("../MovingCastleWaypoints1")
+loop = true
+autostart = true
 
 [node name="MovingCastleWaypoints2" parent="Ground/SecondHalfMovingPlatforms" index="2" instance=ExtResource( 12 )]
 position = Vector2( -14144, -4151.81 )
 editor_process = false
 line_color = Color( 0.501961, 0.686275, 0.94902, 1 )
+triangle_color = Color( 1, 1, 1, 1 )
+line_width = 10.0
 
 [node name="Start" parent="Ground/SecondHalfMovingPlatforms/MovingCastleWaypoints2" index="0"]
 position = Vector2( 0, 672 )
@@ -292,14 +304,19 @@ position = Vector2( 0, 672 )
 position = Vector2( 0, -448 )
 
 [node name="IronMovingPlatform8x5" parent="Ground/SecondHalfMovingPlatforms" index="3" instance=ExtResource( 8 )]
-position = Vector2( -14144, -3586.48 )
+position = Vector2( -14144, -4073.16 )
 editor_process = true
+speed = 400.0
 waypoints_path = NodePath("../MovingCastleWaypoints2")
+loop = true
+autostart = true
 
 [node name="MovingCastleWaypoints3" parent="Ground/SecondHalfMovingPlatforms" index="4" instance=ExtResource( 12 )]
 position = Vector2( -18304, -4356.86 )
 editor_process = false
 line_color = Color( 0.501961, 0.686275, 0.94902, 1 )
+triangle_color = Color( 1, 1, 1, 1 )
+line_width = 10.0
 
 [node name="Start" parent="Ground/SecondHalfMovingPlatforms/MovingCastleWaypoints3" index="0"]
 position = Vector2( 0, 516.863 )
@@ -312,6 +329,8 @@ position = Vector2( -18304, -3840 )
 editor_process = true
 speed = 600.0
 waypoints_path = NodePath("../MovingCastleWaypoints3")
+loop = true
+autostart = true
 
 [node name="ActorSensor" parent="Ground/SecondHalfMovingPlatforms/IronMovingPlatform8x6" index="4" instance=ExtResource( 10 )]
 actor_name = "Player"
@@ -320,6 +339,8 @@ actor_name = "Player"
 position = Vector2( -15328, -9984 )
 editor_process = false
 line_color = Color( 0.501961, 0.686275, 0.94902, 1 )
+triangle_color = Color( 1, 1, 1, 1 )
+line_width = 10.0
 
 [node name="Start" parent="Ground/SecondHalfMovingPlatforms/MovingCastleWaypoints4" index="0"]
 position = Vector2( -224, 1024 )
@@ -332,6 +353,8 @@ position = Vector2( -15552, -8960 )
 editor_process = true
 speed = 600.0
 waypoints_path = NodePath("../MovingCastleWaypoints4")
+loop = true
+autostart = true
 
 [node name="ActorSensor" parent="Ground/SecondHalfMovingPlatforms/IronMovingPlatform8x7" index="4" instance=ExtResource( 10 )]
 actor_name = "Player"
@@ -340,6 +363,8 @@ actor_name = "Player"
 position = Vector2( -5312, -10400 )
 editor_process = false
 line_color = Color( 0.501961, 0.686275, 0.94902, 1 )
+triangle_color = Color( 1, 1, 1, 1 )
+line_width = 10.0
 
 [node name="Start" parent="Ground/SecondHalfMovingPlatforms/MovingCastleWaypoints5" index="0"]
 position = Vector2( -224, 1024 )
@@ -352,13 +377,18 @@ position = Vector2( -5536, -9376 )
 editor_process = true
 speed = 600.0
 waypoints_path = NodePath("../MovingCastleWaypoints5")
+loop = true
+autostart = true
 
 [node name="ActorSensor" parent="Ground/SecondHalfMovingPlatforms/IronMovingPlatform8x8" index="4" instance=ExtResource( 10 )]
 actor_name = "Player"
 
 [node name="SleepingGiantWaypoints" parent="Ground/SecondHalfMovingPlatforms" index="10" instance=ExtResource( 12 )]
 position = Vector2( -1408, -3840 )
+editor_process = true
 line_color = Color( 0.501961, 0.686275, 0.94902, 1 )
+triangle_color = Color( 1, 1, 1, 1 )
+line_width = 10.0
 
 [node name="Start" parent="Ground/SecondHalfMovingPlatforms/SleepingGiantWaypoints" index="0"]
 position = Vector2( 2432, 96 )
@@ -371,6 +401,7 @@ position = Vector2( 1024, -3744 )
 speed = 500.0
 waypoints_path = NodePath("../SleepingGiantWaypoints")
 loop = false
+autostart = true
 
 [node name="ActorSensor" parent="Ground/SecondHalfMovingPlatforms/IronMovingPlatform8x2" index="4" instance=ExtResource( 10 )]
 position = Vector2( 0, 192 )
@@ -378,7 +409,10 @@ actor_name = "SleepingGiant"
 
 [node name="SleepingGiantWaypoints2" parent="Ground/SecondHalfMovingPlatforms" index="12" instance=ExtResource( 12 )]
 position = Vector2( 2272, -6176 )
+editor_process = true
 line_color = Color( 0.501961, 0.686275, 0.94902, 1 )
+triangle_color = Color( 1, 1, 1, 1 )
+line_width = 10.0
 
 [node name="Start" parent="Ground/SecondHalfMovingPlatforms/SleepingGiantWaypoints2" index="0"]
 position = Vector2( -4320, 4544 )
@@ -388,7 +422,10 @@ position = Vector2( -4320, 6720 )
 
 [node name="IronMovingPlatform8x3" parent="Ground/SecondHalfMovingPlatforms" index="13" instance=ExtResource( 8 )]
 position = Vector2( -2048, -1632 )
+speed = 400.0
 waypoints_path = NodePath("../SleepingGiantWaypoints2")
+loop = true
+autostart = true
 
 [node name="ActorSensor" parent="Ground/SecondHalfMovingPlatforms/IronMovingPlatform8x3" index="4" instance=ExtResource( 10 )]
 actor_name = "SleepingGiant"
@@ -406,7 +443,7 @@ map_path = "res://level/levels/copper_maze/CopperMaze.tscn"
 spawn_point = 1
 
 [node name="CollisionShape2D" parent="LevelTransitions/CopperMaze" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CopperMazeBoss" parent="LevelTransitions" index="1" instance=ExtResource( 7 )]
 position = Vector2( 14688, 10976 )
@@ -414,7 +451,7 @@ scale = Vector2( 2, 2 )
 map_path = "res://level/levels/copper_maze/CopperMazeBoss.tscn"
 
 [node name="CollisionShape2D" parent="LevelTransitions/CopperMazeBoss" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="MovingCastle" parent="Arenas" index="0" instance=ExtResource( 25 )]
 position = Vector2( 5856, 96 )
@@ -425,9 +462,17 @@ visible = false
 position = Vector2( 12064, 256 )
 
 [node name="CollisionShape2D" parent="Arenas/MovingCastle/ActivationArea" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
-[node name="RedSlime2" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
+[node name="RedSlime" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
+position = Vector2( 1984, 2656 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime2" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
 position = Vector2( 3008, 2624 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -435,7 +480,15 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime7" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
+[node name="RedSlime6" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
+position = Vector2( 704, 672 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime7" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
 position = Vector2( 1536, 704 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -443,7 +496,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime8" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
+[node name="RedSlime8" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
 position = Vector2( 5472, 2144 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -451,7 +504,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime9" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
+[node name="RedSlime9" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="5" instance=ExtResource( 6 )]
 position = Vector2( 6176, 2144 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -459,7 +512,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime10" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
+[node name="RedSlime10" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="6" instance=ExtResource( 6 )]
 position = Vector2( 6368, -32 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -467,7 +520,15 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime12" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="5" instance=ExtResource( 6 )]
+[node name="RedSlime11" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="7" instance=ExtResource( 6 )]
+position = Vector2( 5504, -64 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime12" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="8" instance=ExtResource( 6 )]
 position = Vector2( 4416, -32 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -475,7 +536,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime14" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="6" instance=ExtResource( 6 )]
+[node name="RedSlime14" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="9" instance=ExtResource( 6 )]
 position = Vector2( -1056, -4544 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -483,7 +544,15 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime16" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="7" instance=ExtResource( 6 )]
+[node name="RedSlime15" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="10" instance=ExtResource( 6 )]
+position = Vector2( 4960, -5664 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime16" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="11" instance=ExtResource( 6 )]
 position = Vector2( 5984, -5728 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -491,7 +560,15 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Turret" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="8" instance=ExtResource( 6 )]
+[node name="RedSlime17" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="12" instance=ExtResource( 6 )]
+position = Vector2( 7360, -5728 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="Turret" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="13" instance=ExtResource( 6 )]
 position = Vector2( -1184, 2848 )
 object = ExtResource( 26 )
 random_degrees = 0.0
@@ -502,7 +579,7 @@ actor_name = ""
 [node name="InitialLookDirection" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1/Turret/Initializations" index="1"]
 look_direction = Vector2( -1, 0 )
 
-[node name="Turret2" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="9" instance=ExtResource( 6 )]
+[node name="Turret2" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="14" instance=ExtResource( 6 )]
 position = Vector2( 0, 2432 )
 object = ExtResource( 26 )
 random_degrees = 0.0
@@ -513,7 +590,7 @@ actor_name = ""
 [node name="InitialLookDirection" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1/Turret2/Initializations" index="1"]
 look_direction = Vector2( -1, 0 )
 
-[node name="Turret3" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="10" instance=ExtResource( 6 )]
+[node name="Turret3" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="15" instance=ExtResource( 6 )]
 position = Vector2( 4544, 1984 )
 object = ExtResource( 26 )
 random_degrees = 0.0
@@ -524,8 +601,35 @@ actor_name = ""
 [node name="InitialLookDirection" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1/Turret3/Initializations" index="1"]
 look_direction = Vector2( -1, 0 )
 
-[node name="Turret5" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="11" instance=ExtResource( 6 )]
+[node name="Turret4" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="16" instance=ExtResource( 6 )]
+position = Vector2( 352, 512 )
+object = ExtResource( 26 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="Turret5" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="17" instance=ExtResource( 6 )]
 position = Vector2( 3360, -640 )
+object = ExtResource( 26 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="Turret6" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="18" instance=ExtResource( 6 )]
+position = Vector2( 5792, -7200 )
+object = ExtResource( 26 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="InitialLookDirection" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1/Turret6/Initializations" index="1"]
+look_direction = Vector2( -1, 0 )
+
+[node name="Turret7" parent="Arenas/MovingCastle/ActorSpawnGroups/Group1" index="19" instance=ExtResource( 6 )]
+position = Vector2( 7040, -7200 )
 object = ExtResource( 26 )
 random_degrees = 0.0
 random_radius = 0.0
@@ -544,9 +648,25 @@ visible = false
 position = Vector2( -7296, -320 )
 
 [node name="CollisionShape2D" parent="Arenas/Golems/ActivationArea" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
-[node name="RedSlime3" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
+[node name="RedSlime" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
+position = Vector2( -2048, 512 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime2" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
+position = Vector2( -1184, 576 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime3" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
 position = Vector2( 96, 448 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -554,7 +674,31 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime7" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
+[node name="RedSlime4" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
+position = Vector2( 704, 480 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime5" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
+position = Vector2( 1472, 448 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime6" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="5" instance=ExtResource( 6 )]
+position = Vector2( 2176, 704 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime7" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="6" instance=ExtResource( 6 )]
 position = Vector2( 1120, 480 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -562,7 +706,15 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime9" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
+[node name="RedSlime8" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="7" instance=ExtResource( 6 )]
+position = Vector2( 192, -704 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime9" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="8" instance=ExtResource( 6 )]
 position = Vector2( -1248, 7584 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -570,7 +722,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime10" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
+[node name="RedSlime10" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="9" instance=ExtResource( 6 )]
 position = Vector2( -640, 7584 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -578,7 +730,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime11" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
+[node name="RedSlime11" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="10" instance=ExtResource( 6 )]
 position = Vector2( 192, 7552 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -586,7 +738,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime12" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="5" instance=ExtResource( 6 )]
+[node name="RedSlime12" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="11" instance=ExtResource( 6 )]
 position = Vector2( 3296, 6784 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -594,7 +746,15 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime14" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="6" instance=ExtResource( 6 )]
+[node name="RedSlime13" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="12" instance=ExtResource( 6 )]
+position = Vector2( 4640, 6912 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime14" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="13" instance=ExtResource( 6 )]
 position = Vector2( 5952, 6880 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -602,7 +762,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime15" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="7" instance=ExtResource( 6 )]
+[node name="RedSlime15" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="14" instance=ExtResource( 6 )]
 position = Vector2( 8384, 7904 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -610,7 +770,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="RedSlime16" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="8" instance=ExtResource( 6 )]
+[node name="RedSlime16" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="15" instance=ExtResource( 6 )]
 position = Vector2( 10752, 6880 )
 object = ExtResource( 15 )
 random_degrees = 0.0
@@ -618,7 +778,47 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Golem" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="9" instance=ExtResource( 6 )]
+[node name="RedSlime17" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="16" instance=ExtResource( 6 )]
+position = Vector2( 11744, 6880 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime18" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="17" instance=ExtResource( 6 )]
+position = Vector2( 6944, 7584 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime19" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="18" instance=ExtResource( 6 )]
+position = Vector2( 10272, 7840 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime20" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="19" instance=ExtResource( 6 )]
+position = Vector2( 12672, 7232 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="RedSlime21" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="20" instance=ExtResource( 6 )]
+position = Vector2( 3904, 6592 )
+object = ExtResource( 15 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
+[node name="Golem" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="21" instance=ExtResource( 6 )]
 position = Vector2( 3136, -2144 )
 object = ExtResource( 14 )
 random_degrees = 0.0
@@ -626,7 +826,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = "SleepingGiant"
 
-[node name="Golem2" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="10" instance=ExtResource( 6 )]
+[node name="Golem2" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="22" instance=ExtResource( 6 )]
 position = Vector2( -224, 7296 )
 object = ExtResource( 14 )
 random_degrees = 0.0
@@ -634,7 +834,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Golem3" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="11" instance=ExtResource( 6 )]
+[node name="Golem3" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="23" instance=ExtResource( 6 )]
 position = Vector2( 12160, 6592 )
 object = ExtResource( 14 )
 random_degrees = 0.0
@@ -642,7 +842,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Golem4" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="12" instance=ExtResource( 6 )]
+[node name="Golem4" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="24" instance=ExtResource( 6 )]
 position = Vector2( -6272, 7968 )
 object = ExtResource( 14 )
 random_degrees = 0.0
@@ -650,7 +850,7 @@ random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Golem5" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="13" instance=ExtResource( 6 )]
+[node name="Golem5" parent="Arenas/Golems/ActorSpawnGroups/Group1" index="25" instance=ExtResource( 6 )]
 position = Vector2( -6208, 5184 )
 object = ExtResource( 14 )
 random_degrees = 0.0
@@ -661,13 +861,27 @@ actor_name = ""
 [node name="CameraLimitTrigger" parent="Arenas/Golems" index="4"]
 visible = false
 
+[node name="0" parent="PlayerSpawnPoints" index="0"]
+position = Vector2( -5312, 3200 )
+
+[node name="CameraLimitTrigger" parent="PlayerSpawnPoints/0" index="0"]
+position = Vector2( 1376, 256 )
+zoom = Vector2( 1.7, 1.7 )
+
+[node name="ColliderTrigger" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="0"]
+shape = SubResource( 3 )
+
+[node name="CameraLimits" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="1"]
+position = Vector2( 20736, -2912 )
+shape = SubResource( 4 )
+
 [node name="ShrimpCutscene" parent="CutsceneTriggers" index="0" instance=ExtResource( 32 )]
 position = Vector2( 21504, 8544 )
 
 [node name="AnimationPlayer" parent="CutsceneTriggers/ShrimpCutscene" index="0"]
-anims/SETUP = SubResource( 4 )
-anims/end = SubResource( 5 )
-anims/start = SubResource( 6 )
+anims/SETUP = SubResource( 29 )
+anims/end = SubResource( 30 )
+anims/start = SubResource( 31 )
 
 [node name="PlayerCutsceneManager" parent="CutsceneTriggers/ShrimpCutscene" index="1"]
 position = Vector2( 288, 64 )
@@ -681,7 +895,7 @@ visible = false
 position = Vector2( -96, 32 )
 
 [node name="CollisionShape2D" parent="CutsceneTriggers/ShrimpCutscene/ActivateSkillCollectible/Area2D" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 32 )
 disabled = true
 
 [node name="ActivateSkill" parent="CutsceneTriggers/ShrimpCutscene/ActivateSkillCollectible/Effects" index="0"]
@@ -710,7 +924,7 @@ json_name = "copper_maze_shrimp_get.json"
 visible = false
 
 [node name="CollisionShape2D" parent="CutsceneTriggers/ShrimpCutscene/MSG_Interaction/InteractionArea" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 33 )
 disabled = true
 
 [node name="MSG_pos" parent="CutsceneTriggers/ShrimpCutscene/MSG_Interaction" index="1"]
@@ -718,30 +932,11 @@ position = Vector2( 0, -160 )
 
 [node name="ForestBackground" parent="." index="10" instance=ExtResource( 24 )]
 
-[node name="PlayerSpawnPoints" parent="." index="11"]
-visible = false
-
-[node name="0" parent="PlayerSpawnPoints" index="0"]
-position = Vector2( -5312, 3200 )
-
-[node name="CameraLimitTrigger" parent="PlayerSpawnPoints/0" index="0"]
-position = Vector2( 1376, 256 )
-zoom = Vector2( 1.7, 1.7 )
-
-[node name="ColliderTrigger" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="0"]
-shape = SubResource( 9 )
-
-[node name="CameraLimits" parent="PlayerSpawnPoints/0/CameraLimitTrigger" index="1"]
-position = Vector2( 20736, -2912 )
-shape = SubResource( 10 )
-
-[node name="LevelHUD" parent="." index="12"]
+[node name="LevelHUD" parent="." index="11"]
 layer = 128
 
 [node name="CinemaBars" parent="LevelHUD" index="0" instance=ExtResource( 9 )]
 visible = false
-
-[editable path="InitialMusic"]
 
 [editable path="Ground/SecondHalfMovingPlatforms/MovingCastleWaypoints1"]
 
@@ -769,7 +964,13 @@ visible = false
 
 [editable path="Arenas/MovingCastle/ActorSpawnGroups/Group1/Turret3"]
 
+[editable path="Arenas/MovingCastle/ActorSpawnGroups/Group1/Turret6"]
+
 [editable path="Arenas/Golems"]
+
+[editable path="PlayerSpawnPoints/0"]
+
+[editable path="PlayerSpawnPoints/0/CameraLimitTrigger"]
 
 [editable path="CutsceneTriggers/ShrimpCutscene"]
 
@@ -782,7 +983,3 @@ visible = false
 [editable path="CutsceneTriggers/ShrimpCutscene/MSG_Interaction"]
 
 [editable path="CutsceneTriggers/ShrimpCutscene/MSG_Interaction/InteractionArea"]
-
-[editable path="PlayerSpawnPoints/0"]
-
-[editable path="PlayerSpawnPoints/0/CameraLimitTrigger"]

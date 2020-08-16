@@ -48,6 +48,8 @@ func request_shake(new_amplitude : float, \
 	amplitude = new_amplitude if new_amplitude > amplitude else amplitude
 	damping = new_damping
 	match Settings.screen_shake:
+		Settings.ScreenShakeIntensity.DISABLED:
+			amplitude = 0
 		Settings.ScreenShakeIntensity.LOW:
 			amplitude *= 0.5
 		Settings.ScreenShakeIntensity.HIGH:
