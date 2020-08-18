@@ -7,7 +7,6 @@ resource_local_to_scene = true
 extents = Vector2( 128, 64 )
 
 [node name="RedSpring" instance=ExtResource( 1 )]
-force = 9001.0
 
 [node name="CollisionShape2D" parent="CollisionTrigger" index="0"]
 shape = SubResource( 1 )

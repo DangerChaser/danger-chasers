@@ -967,7 +967,6 @@ visible = false
 [connection signal="button_down" from="Main/Buttons/HBoxContainer/NewGameButton" to="Main" method="_on_NewGameButton_button_down"]
 [connection signal="button_down" from="Main/Buttons/HBoxContainer/ContinueButton" to="Main" method="_on_ContinueButton_button_down"]
 [connection signal="button_down" from="Main/Buttons/HBoxContainer/SettingsButton" to="Main" method="_on_SettingsButton_button_down"]
-[connection signal="animation_finished" from="Main/AnimationPlayer" to="Main" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="no_selected" from="NewGame" to="." method="_on_NewGame_no_selected"]
 [connection signal="button_down" from="NewGame/YesButton" to="NewGame" method="_on_Yes_button_down"]
 [connection signal="button_down" from="NewGame/NoButton" to="NewGame" method="_on_No_button_down"]

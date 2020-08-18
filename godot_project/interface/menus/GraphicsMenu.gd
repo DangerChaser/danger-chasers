@@ -4,6 +4,7 @@ signal finished
 
 onready var screen_shake_button := $Buttons/ScreenShake/ScreenShakeButton
 onready var frame_freeze_button := $Buttons/FrameFreeze/FrameFreezeButton
+onready var window_mode_button := $Buttons/WindowMode/WindowModeButton
 onready var back_button := $Buttons/BackButton
 onready var last_button := screen_shake_button
 
@@ -11,6 +12,7 @@ func _ready() -> void:
 	visible = false
 	_update_screen_shake()
 	_update_frame_freeze()
+	_update_window_mode()
 
 
 func enable() -> void:
@@ -74,3 +76,18 @@ func _on_BackButton_button_down():
 	last_button = back_button
 	disable()
 	emit_signal("finished")
+
+
+func _on_WindowModeButton_button_down():
+	if Settings.window_mode == Settings.WindowModes.WINDOWED:
+		Settings.window_mode = Settings.WindowModes.FULL_SCREEN
+	elif Settings.window_mode == Settings.WindowModes.FULL_SCREEN:
+		Settings.window_mode = Settings.WindowModes.WINDOWED
+	_update_window_mode()
+
+
+func _update_window_mode():
+	if Settings.window_mode == Settings.WindowModes.WINDOWED:
+		window_mode_button.set_key("WINDOWED")
+	elif Settings.window_mode == Settings.WindowModes.FULL_SCREEN:
+		window_mode_button.set_key("FULL_SCREEN")

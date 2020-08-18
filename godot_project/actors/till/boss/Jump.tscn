@@ -8,9 +8,6 @@
 
 [node name="Wait" parent="." index="0" instance=ExtResource( 3 )]
 
-[node name="Timer" parent="Wait" index="3"]
-wait_time = 0.1
-
 [node name="Launch" parent="." index="1" instance=ExtResource( 4 )]
 animation = "jump"
 random_angle = 15.0

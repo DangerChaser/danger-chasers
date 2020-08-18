@@ -16,7 +16,6 @@ enum Layers { OBSTACLES=0, ACTORS=1, DAMAGE_SOURCES=2, ACTIVATION_TRIGGERS=3, AC
 
 
 func _ready() -> void:
-#	OS.window_fullscreen = true
 #	randomize(
 	pass
 

@@ -111,6 +111,8 @@ anims/launch = SubResource( 3 )
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
+max_distance = 6000.0
+attenuation = 0.5
 bus = "Sfx"
 script = ExtResource( 5 )
 [connection signal="area_entered" from="CollisionTrigger" to="." method="_on_CollisionTrigger_area_entered"]

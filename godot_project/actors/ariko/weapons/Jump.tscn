@@ -12,20 +12,6 @@ length = 0.001
 resource_name = "jump"
 length = 0.4
 step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/Attacks/Jump/Sfx")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
 
 [node name="Jump" instance=ExtResource( 1 )]
 next_state = "Air"
@@ -40,9 +26,6 @@ grounded = false
 [node name="Jump" parent="Pivot/Attacks" index="0" instance=ExtResource( 3 )]
 actor_animation = "jump"
 weapon_animation = "jump"
-
-[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Jump" index="0"]
-bus = "Sfx"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Jump/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
