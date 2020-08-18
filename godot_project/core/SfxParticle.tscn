@@ -8,6 +8,8 @@ z_index = 2
 script = ExtResource( 2 )
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+max_distance = 6000.0
+attenuation = 0.406126
 bus = "Sfx"
 script = ExtResource( 1 )
 

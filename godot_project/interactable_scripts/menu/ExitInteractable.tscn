@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://interactable_scripts/base/InteractionArea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface/themes/General.tres" type="Theme" id=2]
+[ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=3]
+[ext_resource path="res://level/levels/main_menu/sprites/bed.png" type="Texture" id=4]
+[ext_resource path="res://interactable_scripts/QuitInteractable.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+resource_local_to_scene = true
+radius = 116.647
+
+[node name="ExitInteractable" type="Sprite"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+
+[node name="QuitInteraction" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 16 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="CollisionShape2D" parent="QuitInteraction" index="0"]
+shape = SubResource( 1 )
+
+[node name="QuitLabel" type="Label" parent="QuitInteraction"]
+margin_left = -48.0048
+margin_top = -171.365
+margin_right = 35.9952
+margin_bottom = -103.365
+theme = ExtResource( 2 )
+text = "QUIT"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractableScript" type="Node" parent="QuitInteraction"]
+script = ExtResource( 5 )
+
+[editable path="QuitInteraction"]

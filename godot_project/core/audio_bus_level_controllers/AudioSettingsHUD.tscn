@@ -10,6 +10,7 @@
 [node name="AudioSettingsHUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 5 )
 script = ExtResource( 4 )
 __meta__ = {
@@ -25,18 +26,20 @@ margin_left = -321.0
 margin_top = -190.0
 margin_right = 321.0
 margin_bottom = 190.0
+mouse_filter = 2
 custom_constants/separation = 64
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Music" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 109.0
+margin_right = 103.0
 margin_bottom = 380.0
+mouse_filter = 2
 
 [node name="Button" type="Button" parent="HBoxContainer/Music"]
-margin_right = 109.625
-margin_bottom = 76.875
+margin_right = 103.0
+margin_bottom = 68.0
 text = "Music"
 script = ExtResource( 6 )
 
@@ -46,18 +49,20 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 80.0
-margin_right = 109.0
-margin_bottom = 380.0
+margin_top = 72.0
+margin_right = 103.0
+margin_bottom = 372.0
+mouse_filter = 2
 
 [node name="Sfx" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 173.0
-margin_right = 245.0
+margin_left = 167.0
+margin_right = 233.0
 margin_bottom = 380.0
+mouse_filter = 2
 
 [node name="Button" type="Button" parent="HBoxContainer/Sfx"]
-margin_right = 72.625
-margin_bottom = 76.875
+margin_right = 66.0
+margin_bottom = 68.0
 text = "Sfx"
 script = ExtResource( 6 )
 
@@ -67,18 +72,20 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 80.0
-margin_right = 72.0
-margin_bottom = 380.0
+margin_top = 72.0
+margin_right = 66.0
+margin_bottom = 372.0
+mouse_filter = 2
 
 [node name="Ambience" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 309.0
-margin_right = 484.0
+margin_left = 297.0
+margin_right = 466.0
 margin_bottom = 380.0
+mouse_filter = 2
 
 [node name="Button" type="Button" parent="HBoxContainer/Ambience"]
-margin_right = 175.625
-margin_bottom = 76.875
+margin_right = 169.0
+margin_bottom = 68.0
 text = "Ambience"
 script = ExtResource( 6 )
 
@@ -88,13 +95,14 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 80.0
-margin_right = 175.0
-margin_bottom = 380.0
+margin_top = 72.0
+margin_right = 169.0
+margin_bottom = 372.0
+mouse_filter = 2
 
 [node name="BackButton" type="Button" parent="HBoxContainer"]
-margin_left = 548.0
-margin_right = 642.625
+margin_left = 530.0
+margin_right = 618.0
 margin_bottom = 380.0
 text = "Back"
 script = ExtResource( 6 )

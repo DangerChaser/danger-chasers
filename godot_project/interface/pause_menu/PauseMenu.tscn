@@ -13,7 +13,7 @@
 
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
-layer = 127
+layer = 125
 script = ExtResource( 2 )
 game_path = "res://core/Game.tscn"
 main_menu_path = "res://level/levels/adventurers_guild/AdventurersGuild.tscn"
@@ -24,6 +24,7 @@ quit_transition_in_animation = "left_to_right"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -46,6 +47,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = 126.758
 margin_bottom = 202.758
+mouse_filter = 2
 custom_constants/separation = 32
 alignment = 1
 __meta__ = {
@@ -95,6 +97,7 @@ bus = "Sfx"
 [node name="Settings" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -117,6 +120,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = 126.758
 margin_bottom = 202.758
+mouse_filter = 2
 custom_constants/separation = 32
 alignment = 1
 __meta__ = {
@@ -126,7 +130,7 @@ __meta__ = {
 [node name="Audio" type="Button" parent="Settings/Buttons"]
 margin_left = 512.0
 margin_right = 712.0
-margin_bottom = 76.875
+margin_bottom = 75.0
 rect_min_size = Vector2( 200, 60 )
 text = "AUDIO"
 script = ExtResource( 5 )
@@ -134,7 +138,7 @@ script = ExtResource( 5 )
 [node name="Controls" type="Button" parent="Settings/Buttons"]
 margin_left = 744.0
 margin_right = 944.0
-margin_bottom = 76.875
+margin_bottom = 75.0
 rect_min_size = Vector2( 200, 60 )
 text = "CONTROLS"
 script = ExtResource( 5 )
@@ -142,7 +146,7 @@ script = ExtResource( 5 )
 [node name="Graphics" type="Button" parent="Settings/Buttons"]
 margin_left = 976.0
 margin_right = 1176.0
-margin_bottom = 76.875
+margin_bottom = 75.0
 rect_min_size = Vector2( 200, 60 )
 text = "GRAPHICS"
 script = ExtResource( 5 )
@@ -150,7 +154,7 @@ script = ExtResource( 5 )
 [node name="Back" type="Button" parent="Settings/Buttons"]
 margin_left = 1208.0
 margin_right = 1408.0
-margin_bottom = 76.875
+margin_bottom = 75.0
 rect_min_size = Vector2( 200, 60 )
 text = "BACK"
 script = ExtResource( 5 )

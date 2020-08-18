@@ -11,7 +11,6 @@
 [ext_resource path="res://interface/input_mapper/input_line/InputLine.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=10]
 
-
 [sub_resource type="GDScript" id=1]
 script/source = "extends OptionButton
 
@@ -25,6 +24,7 @@ func initialize(input_mapper):
 [node name="InputMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 10 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -57,6 +57,7 @@ margin_left = -720.0
 margin_top = -490.0
 margin_right = 720.0
 margin_bottom = 490.0
+mouse_filter = 2
 custom_constants/separation = 25
 __meta__ = {
 "_edit_use_anchors_": false
@@ -73,23 +74,23 @@ align = 1
 autowrap = true
 uppercase = true
 script = ExtResource( 4 )
-category = "input"
 key = "keybindings"
 
 [node name="ProfilesMenu" type="OptionButton" parent="Column"]
-margin_left = 709.0
+margin_left = 713.0
 margin_top = 93.0
-margin_right = 729.625
-margin_bottom = 169.875
+margin_right = 727.0
+margin_bottom = 161.0
 size_flags_horizontal = 4
 toggle_mode = false
 flat = true
 script = SubResource( 1 )
 
 [node name="Header" type="HBoxContainer" parent="Column"]
-margin_top = 194.0
+margin_top = 186.0
 margin_right = 1440.0
-margin_bottom = 262.0
+margin_bottom = 254.0
+mouse_filter = 2
 
 [node name="Action" type="Label" parent="Column/Header"]
 margin_right = 477.0
@@ -101,7 +102,6 @@ custom_constants/shadow_offset_y = 4
 text = "Action"
 uppercase = true
 script = ExtResource( 4 )
-category = "input"
 key = "action"
 
 [node name="Control" type="Label" parent="Column/Header"]
@@ -117,7 +117,6 @@ text = "Key"
 align = 1
 uppercase = true
 script = ExtResource( 4 )
-category = "input"
 key = "control"
 
 [node name="Change" type="Label" parent="Column/Header"]
@@ -132,18 +131,19 @@ custom_constants/shadow_offset_y = 4
 text = "Change"
 uppercase = true
 script = ExtResource( 4 )
-category = "input"
 key = "change"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Column"]
-margin_top = 287.0
+margin_top = 279.0
 margin_right = 1440.0
 margin_bottom = 891.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="ActionList" type="VBoxContainer" parent="Column/ScrollContainer"]
 margin_right = 1440.0
-margin_bottom = 604.0
+margin_bottom = 612.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 15
@@ -174,6 +174,7 @@ margin_left = -400.0
 margin_top = -80.0
 margin_right = 400.0
 margin_bottom = 80.0
+mouse_filter = 2
 script = ExtResource( 8 )
 
 [node name="Label" type="Label" parent="KeySelectMenu"]

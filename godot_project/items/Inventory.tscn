@@ -12,6 +12,7 @@
 [node name="Inventory" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 6 )
 script = ExtResource( 7 )
 __meta__ = {
@@ -26,6 +27,7 @@ margin_left = 64.0
 margin_top = 64.0
 margin_right = -64.0
 margin_bottom = -64.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
 __meta__ = {
@@ -39,6 +41,7 @@ margin_left = 96.0
 margin_top = 64.0
 margin_right = -96.0
 margin_bottom = -64.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -46,6 +49,7 @@ __meta__ = {
 [node name="Header" type="HBoxContainer" parent="Background/VBoxContainer"]
 margin_right = 1600.0
 margin_bottom = 68.0
+mouse_filter = 2
 
 [node name="KeyLabel" parent="Background/VBoxContainer/Header" instance=ExtResource( 2 )]
 anchor_right = 0.0
@@ -68,18 +72,21 @@ expand = true
 margin_top = 72.0
 margin_right = 1600.0
 margin_bottom = 824.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="Tabs" type="VBoxContainer" parent="Background/VBoxContainer/MainElements"]
 margin_right = 256.0
 margin_bottom = 752.0
 rect_min_size = Vector2( 256, 0 )
+mouse_filter = 2
 custom_constants/separation = 8
 
 [node name="Weapons" type="TextureButton" parent="Background/VBoxContainer/MainElements/Tabs"]
 margin_right = 256.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 0, 80 )
+mouse_filter = 2
 texture_normal = ExtResource( 4 )
 expand = true
 
@@ -93,6 +100,7 @@ margin_top = 88.0
 margin_right = 256.0
 margin_bottom = 168.0
 rect_min_size = Vector2( 0, 80 )
+mouse_filter = 2
 texture_normal = ExtResource( 4 )
 expand = true
 
@@ -106,6 +114,7 @@ margin_top = 176.0
 margin_right = 256.0
 margin_bottom = 256.0
 rect_min_size = Vector2( 0, 80 )
+mouse_filter = 2
 texture_normal = ExtResource( 4 )
 expand = true
 
@@ -119,6 +128,7 @@ margin_top = 264.0
 margin_right = 256.0
 margin_bottom = 344.0
 rect_min_size = Vector2( 0, 80 )
+mouse_filter = 2
 texture_normal = ExtResource( 4 )
 expand = true
 
@@ -132,6 +142,7 @@ margin_top = 352.0
 margin_right = 256.0
 margin_bottom = 432.0
 rect_min_size = Vector2( 0, 80 )
+mouse_filter = 2
 texture_normal = ExtResource( 4 )
 expand = true
 
@@ -145,11 +156,13 @@ margin_top = 440.0
 margin_right = 256.0
 margin_bottom = 568.0
 rect_min_size = Vector2( 0, 128 )
+mouse_filter = 2
 
 [node name="GoldIcon" type="TextureRect" parent="Background/VBoxContainer/MainElements/Tabs/Gold"]
 margin_right = 128.0
 margin_bottom = 128.0
 rect_min_size = Vector2( 128, 0 )
+mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
@@ -168,11 +181,13 @@ text = "69420"
 margin_left = 260.0
 margin_right = 1176.0
 margin_bottom = 752.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/MainElements/Weapons"]
 margin_right = 916.0
 margin_bottom = 752.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -181,11 +196,13 @@ visible = false
 margin_left = 720.0
 margin_right = 1176.0
 margin_bottom = 752.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/MainElements/Armor"]
 margin_right = 456.0
 margin_bottom = 752.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -194,11 +211,13 @@ visible = false
 margin_left = 490.0
 margin_right = 716.0
 margin_bottom = 752.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/MainElements/Crafting"]
 margin_right = 226.0
 margin_bottom = 752.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -207,11 +226,13 @@ visible = false
 margin_left = 566.0
 margin_right = 868.0
 margin_bottom = 752.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/MainElements/Consumables"]
 margin_right = 302.0
 margin_bottom = 752.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -220,11 +241,13 @@ visible = false
 margin_left = 720.0
 margin_right = 1176.0
 margin_bottom = 752.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/MainElements/Other"]
 margin_right = 456.0
 margin_bottom = 752.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -233,11 +256,13 @@ margin_left = 1180.0
 margin_right = 1600.0
 margin_bottom = 752.0
 rect_min_size = Vector2( 420, 0 )
+mouse_filter = 2
 custom_constants/separation = 16
 
 [node name="ItemInspector1" type="VBoxContainer" parent="Background/VBoxContainer/MainElements/ItemInspector"]
 margin_right = 420.0
 margin_bottom = 292.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="ItemNameLabel" parent="Background/VBoxContainer/MainElements/ItemInspector/ItemInspector1" instance=ExtResource( 2 )]
@@ -251,23 +276,27 @@ text = "ITEM_NAME"
 margin_top = 72.0
 margin_right = 420.0
 margin_bottom = 292.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Background/VBoxContainer/MainElements/ItemInspector/ItemInspector1/HBoxContainer"]
 margin_right = 352.0
 margin_bottom = 220.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Stats" type="VBoxContainer" parent="Background/VBoxContainer/MainElements/ItemInspector/ItemInspector1/HBoxContainer/ScrollContainer"]
 margin_right = 352.0
 margin_bottom = 220.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Attack" type="HBoxContainer" parent="Background/VBoxContainer/MainElements/ItemInspector/ItemInspector1/HBoxContainer/ScrollContainer/Stats"]
 margin_right = 352.0
 margin_bottom = 68.0
+mouse_filter = 2
 
 [node name="StatNameLabel" parent="Background/VBoxContainer/MainElements/ItemInspector/ItemInspector1/HBoxContainer/ScrollContainer/Stats/Attack" instance=ExtResource( 2 )]
 anchor_right = 0.0
@@ -291,12 +320,14 @@ margin_left = 356.0
 margin_right = 420.0
 margin_bottom = 220.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 expand = true
 
 [node name="ItemInspector2" type="VBoxContainer" parent="Background/VBoxContainer/MainElements/ItemInspector"]
 margin_top = 308.0
 margin_right = 420.0
 margin_bottom = 600.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="ItemNameLabel" parent="Background/VBoxContainer/MainElements/ItemInspector/ItemInspector2" instance=ExtResource( 2 )]
@@ -310,23 +341,27 @@ text = "ITEM_NAME"
 margin_top = 72.0
 margin_right = 420.0
 margin_bottom = 292.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Background/VBoxContainer/MainElements/ItemInspector/ItemInspector2/HBoxContainer"]
 margin_right = 352.0
 margin_bottom = 220.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Stats" type="VBoxContainer" parent="Background/VBoxContainer/MainElements/ItemInspector/ItemInspector2/HBoxContainer/ScrollContainer"]
 margin_right = 352.0
 margin_bottom = 220.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Attack" type="HBoxContainer" parent="Background/VBoxContainer/MainElements/ItemInspector/ItemInspector2/HBoxContainer/ScrollContainer/Stats"]
 margin_right = 352.0
 margin_bottom = 68.0
+mouse_filter = 2
 
 [node name="StatNameLabel" parent="Background/VBoxContainer/MainElements/ItemInspector/ItemInspector2/HBoxContainer/ScrollContainer/Stats/Attack" instance=ExtResource( 2 )]
 anchor_right = 0.0
@@ -350,6 +385,7 @@ margin_left = 356.0
 margin_right = 420.0
 margin_bottom = 220.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 expand = true
 
 [node name="Margin" type="Control" parent="Background/VBoxContainer/MainElements/ItemInspector"]
@@ -357,16 +393,19 @@ margin_top = 616.0
 margin_right = 420.0
 margin_bottom = 636.0
 rect_min_size = Vector2( 0, 20 )
+mouse_filter = 2
 
 [node name="Buttons" type="HBoxContainer" parent="Background/VBoxContainer/MainElements/ItemInspector"]
 margin_top = 652.0
 margin_right = 420.0
 margin_bottom = 752.0
+mouse_filter = 2
 
 [node name="TrashBin" type="TextureButton" parent="Background/VBoxContainer/MainElements/ItemInspector/Buttons"]
 margin_right = 100.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
+mouse_filter = 2
 texture_normal = ExtResource( 3 )
 expand = true
 
@@ -376,6 +415,7 @@ margin_top = 10.0
 margin_right = 420.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 80 )
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 texture_normal = ExtResource( 4 )

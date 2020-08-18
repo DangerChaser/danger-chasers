@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/music/Zextillion - Noa's Redemption Soundtrack - 01 Noa.ogg" type="AudioStream" id=2]
@@ -6,96 +6,69 @@
 [ext_resource path="res://level/levels/village/Houses.tres" type="TileSet" id=4]
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=6]
-[ext_resource path="res://level/levels/main_menu/sprites/bed.png" type="Texture" id=8]
+[ext_resource path="res://interactable_scripts/menu/NewGameInteractable.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interactable_scripts/menu/ExitInteractable.tscn" type="PackedScene" id=8]
 [ext_resource path="res://core/utils/ActivationArea.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sprites/white_circle_gradient.png" type="Texture" id=10]
-[ext_resource path="res://interactable_scripts/base/InteractionArea.tscn" type="PackedScene" id=11]
-[ext_resource path="res://interactable_scripts/QuitInteractable.gd" type="Script" id=12]
-[ext_resource path="res://level/levels/main_menu/sprites/drawer.png" type="Texture" id=14]
-[ext_resource path="res://interactable_scripts/ChangeLevelInteractableScript.gd" type="Script" id=15]
+[ext_resource path="res://interactable_scripts/menu/ControlsInteractable.tscn" type="PackedScene" id=11]
 [ext_resource path="res://level/levels/main_menu/sprites/record_player.png" type="Texture" id=16]
 [ext_resource path="res://core/audio_bus_level_controllers/MusicLevelController.tscn" type="PackedScene" id=17]
 [ext_resource path="res://core/audio_bus_level_controllers/SoundLevelController.tscn" type="PackedScene" id=18]
 [ext_resource path="res://level/levels/main_menu/blue_bird/idle.png" type="Texture" id=19]
 [ext_resource path="res://interface/dynamic_fonts/Silver_128.tres" type="DynamicFont" id=20]
 [ext_resource path="res://interface/input_mapper/InputMenu.tscn" type="PackedScene" id=21]
-[ext_resource path="res://level/levels/main_menu/sprites/piano.png" type="Texture" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 
-[sub_resource type="CircleShape2D" id=2]
-resource_local_to_scene = true
-radius = 96.0
-
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 16 )
 region = Rect2( 0, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 16 )
 region = Rect2( 128, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 16 )
 region = Rect2( 256, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 16 )
 region = Rect2( 384, 0, 128, 128 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
 } ]
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 19 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 19 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 19 )
 region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
 } ]
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=11]
 resource_local_to_scene = true
 
-[sub_resource type="CircleShape2D" id=13]
-resource_local_to_scene = true
-radius = 46.9708
-
-[sub_resource type="GDScript" id=14]
-script/source = "extends Sprite
-
-
-func enable_player() -> void:
-	GameManager.get_player()
-
-
-func disable_player() -> void:
-	GameManager.get_player()
-"
-
-[sub_resource type="CircleShape2D" id=15]
-resource_local_to_scene = true
-radius = 54.8036
-
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=15]
 resource_local_to_scene = true
 extents = Vector2( 746, 330 )
 
@@ -150,33 +123,7 @@ tile_data = PoolIntArray( -524329, 30, 1, -524328, 30, 2, -524327, 30, 2, -52432
 
 [node name="MenuObjects" type="Node2D" parent="Ground" index="1"]
 
-[node name="Drawer" type="Sprite" parent="Ground/MenuObjects" index="0"]
-position = Vector2( -1248, 544 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 14 )
-
-[node name="NewGameInteraction" parent="Ground/MenuObjects/Drawer" index="0" instance=ExtResource( 11 )]
-scale = Vector2( 0.25, 0.25 )
-
-[node name="NewGame" type="Label" parent="Ground/MenuObjects/Drawer/NewGameInteraction" index="0"]
-margin_left = -82.0992
-margin_top = -171.365
-margin_right = 89.901
-margin_bottom = -103.365
-theme = ExtResource( 3 )
-text = "NEW_GAME"
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CollisionShape2D" parent="Ground/MenuObjects/Drawer/NewGameInteraction" index="1"]
-shape = SubResource( 2 )
-
-[node name="InteractableScript" type="Node" parent="Ground/MenuObjects/Drawer/NewGameInteraction" index="3"]
-script = ExtResource( 15 )
-level_path = "res://level/levels/greenwood_hills/Downwards.tscn"
-transition_in_duration = 1.0
+[node name="NewGameInteractable" parent="Ground/MenuObjects" index="0" instance=ExtResource( 7 )]
 
 [node name="MusicLevelButton" type="Button" parent="Ground/MenuObjects" index="1"]
 margin_left = -1056.0
@@ -210,8 +157,7 @@ margin_bottom = 364.0
 [node name="MusicPlayer" type="AnimatedSprite" parent="Ground/MenuObjects" index="3"]
 position = Vector2( -928, 544 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 7 )
-frame = 3
+frames = SubResource( 6 )
 playing = true
 
 [node name="ActivationArea" parent="Ground/MenuObjects/MusicPlayer" index="0" instance=ExtResource( 9 )]
@@ -248,41 +194,17 @@ margin_bottom = 359.856
 [node name="SoundController" type="AnimatedSprite" parent="Ground/MenuObjects" index="6"]
 position = Vector2( -664.754, 432.33 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 11 )
+frames = SubResource( 10 )
+frame = 1
 playing = true
 
 [node name="ActivationArea" parent="Ground/MenuObjects/SoundController" index="0" instance=ExtResource( 9 )]
 position = Vector2( 0, 26.75 )
 
 [node name="CollisionShape2D" parent="Ground/MenuObjects/SoundController/ActivationArea" index="0"]
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
-[node name="Bed" type="Sprite" parent="Ground/MenuObjects" index="7"]
-position = Vector2( -1632, 480 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 8 )
-
-[node name="QuitInteraction" parent="Ground/MenuObjects/Bed" index="0" instance=ExtResource( 11 )]
-position = Vector2( 0, 16 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="QuitLabel" type="Label" parent="Ground/MenuObjects/Bed/QuitInteraction" index="0"]
-margin_left = -48.0048
-margin_top = -171.365
-margin_right = 35.9952
-margin_bottom = -103.365
-theme = ExtResource( 3 )
-text = "QUIT"
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CollisionShape2D" parent="Ground/MenuObjects/Bed/QuitInteraction" index="1"]
-shape = SubResource( 13 )
-
-[node name="InteractableScript" type="Node" parent="Ground/MenuObjects/Bed/QuitInteraction" index="3"]
-script = ExtResource( 12 )
+[node name="ExitInteractable" parent="Ground/MenuObjects" index="7" instance=ExtResource( 8 )]
 
 [node name="InputMenuCanvasLAyer" type="CanvasLayer" parent="Ground/MenuObjects" index="8"]
 layer = 126
@@ -290,30 +212,7 @@ layer = 126
 [node name="InputMenu" parent="Ground/MenuObjects/InputMenuCanvasLAyer" index="0" instance=ExtResource( 21 )]
 visible = false
 
-[node name="Keybindings" type="Sprite" parent="Ground/MenuObjects" index="9"]
-position = Vector2( -320, 512 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 22 )
-script = SubResource( 14 )
-
-[node name="KeybindingsInteractable" parent="Ground/MenuObjects/Keybindings" index="0" instance=ExtResource( 11 )]
-position = Vector2( 0, 16 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="KeybindingsLabel" type="Label" parent="Ground/MenuObjects/Keybindings/KeybindingsInteractable" index="0"]
-margin_left = -102.393
-margin_top = -171.365
-margin_right = 125.607
-margin_bottom = -103.365
-theme = ExtResource( 3 )
-text = "KEYBINDINGS"
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CollisionShape2D" parent="Ground/MenuObjects/Keybindings/KeybindingsInteractable" index="1"]
-shape = SubResource( 15 )
+[node name="ControlsInteractable" parent="Ground/MenuObjects" index="9" instance=ExtResource( 11 )]
 
 [node name="NextLevel" parent="LevelTransitions" index="0" instance=ExtResource( 5 )]
 position = Vector2( 1581.04, -480 )
@@ -322,7 +221,7 @@ map_path = "res://level/levels/adventurers_guild/AdventurersGuild.tscn"
 
 [node name="CollisionShape2D" parent="LevelTransitions/NextLevel" index="0"]
 position = Vector2( -10, 290 )
-shape = SubResource( 16 )
+shape = SubResource( 15 )
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -1270.19, 256 )
@@ -332,18 +231,10 @@ position = Vector2( -1270.19, 256 )
 [connection signal="button_down" from="Ground/MenuObjects/SoundLevelButton" to="Ground/MenuObjects/SoundLevelController" method="toggle"]
 [connection signal="area_entered_no_area" from="Ground/MenuObjects/SoundController/ActivationArea" to="Ground/MenuObjects/SoundLevelController" method="enable"]
 [connection signal="area_exited_no_area" from="Ground/MenuObjects/SoundController/ActivationArea" to="Ground/MenuObjects/SoundLevelController" method="disable"]
-[connection signal="finished" from="Ground/MenuObjects/InputMenuCanvasLAyer/InputMenu" to="Ground/MenuObjects/Keybindings" method="enable_player"]
-[connection signal="interacted" from="Ground/MenuObjects/Keybindings/KeybindingsInteractable" to="Ground/MenuObjects/InputMenuCanvasLAyer/InputMenu" method="enable"]
 
 [editable path="InitialMusic"]
 
-[editable path="Ground/MenuObjects/Drawer/NewGameInteraction"]
-
 [editable path="Ground/MenuObjects/SoundController/ActivationArea"]
-
-[editable path="Ground/MenuObjects/Bed/QuitInteraction"]
-
-[editable path="Ground/MenuObjects/Keybindings/KeybindingsInteractable"]
 
 [editable path="LevelTransitions/NextLevel"]
 

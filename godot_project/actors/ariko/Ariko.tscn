@@ -94,6 +94,7 @@ layer = 100
 [node name="BattleHUD" parent="PlayerHUDLayer" index="0" instance=ExtResource( 20 )]
 
 [node name="TargetReticleHUD" parent="PlayerHUDLayer" index="1" instance=ExtResource( 10 )]
+mouse_filter = 2
 
 [node name="VisibilityEnabler2D" parent="." index="11"]
 position = Vector2( 16.26, -21.493 )
