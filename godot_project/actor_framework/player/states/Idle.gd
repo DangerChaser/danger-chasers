@@ -9,9 +9,7 @@ const DROP_THRU_BIT = 6
 
 onready var air_timer := $AirTimer
 onready var jump_registered_timer := $JumpRegisteredTimer
-onready var original_air_timer_duration : float = $AirTimer.wait_time
-onready var air_timer_duration := original_air_timer_duration
-onready var motion := $Motion
+onready var motion : MotionState = $Motion
 onready var drop_through_timer := $DropThroughTimer
 
 export var stand_still_threshold_percent := 0.25
@@ -21,26 +19,27 @@ var active := false
 
 
 func enter(args := {}) -> void:
-	active = true
 	.enter(args)
 	motion.enter(args)
 	
 	if jump_registered:
-		jump()
 		jump_registered_timer.stop()
+		jump()
 		return
 	
 	if args.has("initial_animation"):
 		owner.play_animation(args["initial_animation"])
 	else:
 		owner.play_animation(animation)
+	
+	active = true
 
 
 func exit() -> void:
 	.exit()
 	motion.exit()
 	active = false
-	set_physics_process(true)
+	set_process(true)
 
 
 func _input(event : InputEvent) -> void:
@@ -55,41 +54,45 @@ func _input(event : InputEvent) -> void:
 		owner.set_collision_mask_bit(DROP_THRU_BIT, false)
 
 
-func _physics_process(delta : float) -> void:
+func _process(delta):
 	if Input.is_action_pressed('ui_up'):
 		if not owner.input_enabled:
 			return
 		register_jump()
-	
-	if not active:
-		return
-	
-	if owner.state_machine.has_state("Stomp") and Input.is_action_pressed('ui_down'):
-		if not owner.input_enabled:
-			return
-		air_timer.stop()
-		air_timer_duration = 0.05
-		if not owner.is_on_floor():
-			var args = { "velocity": motion.steering.velocity }
-			args["input_key"] = "ui_down"
-			args["target_direction"] = Vector2(motion.steering.velocity.x, Vector2.DOWN.y)
-			finished("Stomp", args)
-			return
-	
+
+
+func _physics_process(delta : float) -> void:
 	if not owner.is_on_floor():
 		if air_timer.time_left <= 0.0:
-			air_timer.start(original_air_timer_duration)
+			air_timer.start()
 	else:
 		air_timer.stop()
 	
 	var direction = Vector2(motion.get_input_direction().x, 0.0)
 	motion.move(direction)
+	
 	var current_animation = owner.pivot.animation_player.current_animation
 	if current_animation == animation or current_animation == run_animation or current_animation == walk_animation:
 		if not current_animation == run_animation and motion.steering.velocity.length() > motion.steering.max_speed * stand_still_threshold_percent:
 			owner.play_animation(run_animation)
 		elif not current_animation == animation and motion.steering.velocity.length() < motion.steering.max_speed * stand_still_threshold_percent:
 			owner.play_animation(animation)
+	
+	if not owner.input_enabled:
+		return
+	
+	_check_stomp()
+
+
+func _check_stomp() -> void:
+	if owner.state_machine.has_state("Stomp") and Input.is_action_pressed('ui_down'):
+		air_timer.stop()
+		if not owner.is_on_floor():
+			var args = { "velocity": motion.steering.velocity }
+			args["input_key"] = "ui_down"
+			args["target_direction"] = Vector2(motion.steering.velocity.x, Vector2.DOWN.y)
+			finished("Stomp", args)
+			return
 
 
 func take_damage(args := {}):
@@ -121,7 +124,7 @@ func jump() -> void:
 
 func _on_AirTimer_timeout():
 	if active and not owner.is_on_floor():
-		finished("Air", {"velocity":motion.steering.velocity, "gravity_speed":0})
+		finished("Air", {"velocity":motion.steering.velocity, "gravity_speed":motion.gravity.speed})
 
 
 func register_jump() -> void:
@@ -135,6 +138,7 @@ func register_jump() -> void:
 func _on_JumpRegisteredTimer_timeout():
 	jump_registered = false
 	jump_registered_timer.stop()
+
 
 func _on_DropThroughTimer_timeout():
 	owner.stop_drop_through()

@@ -580,6 +580,7 @@ tracks/1/keys = {
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_clip_content = true
 theme = ExtResource( 2 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -670,7 +671,6 @@ anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
 
 [node name="Main" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
@@ -701,7 +701,7 @@ __meta__ = {
 }
 
 [node name="ExitButton" type="Button" parent="Main/Buttons/HBoxContainer"]
-margin_right = 477.0
+margin_right = 637.0
 margin_bottom = 76.875
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -709,8 +709,8 @@ text = "EXIT"
 script = ExtResource( 5 )
 
 [node name="NewGameButton" type="Button" parent="Main/Buttons/HBoxContainer"]
-margin_left = 481.0
-margin_right = 958.0
+margin_left = 641.0
+margin_right = 1278.0
 margin_bottom = 76.875
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -718,6 +718,7 @@ text = "NEW_GAME"
 script = ExtResource( 5 )
 
 [node name="ContinueButton" type="Button" parent="Main/Buttons/HBoxContainer"]
+visible = false
 margin_left = 962.0
 margin_right = 1439.0
 margin_bottom = 76.875
@@ -727,7 +728,7 @@ text = "CONTINUE"
 script = ExtResource( 5 )
 
 [node name="SettingsButton" type="Button" parent="Main/Buttons/HBoxContainer"]
-margin_left = 1443.0
+margin_left = 1282.0
 margin_right = 1920.0
 margin_bottom = 76.875
 size_flags_horizontal = 3

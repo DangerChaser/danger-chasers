@@ -68,7 +68,7 @@ func set_weapon(weapon_scene : PackedScene) -> void:
 	weapon = new_weapon
 	
 	weapon.set_friendly_teams([owner.team])
-	weapon.connect("attack_started", self, "attack")
+	weapon.connect("attack_started", self, "attack_started")
 	weapon.connect("not_ready", self, "not_ready")
 	weapon.connect("finished", self, "weapon_finished")
 	set_input_key(input)
@@ -120,7 +120,7 @@ func exit() -> void:
 		call_deferred("set_weapon", levelled_weapon)
 
 
-func attack(attack_animation : String) -> void:
+func attack_started(attack_animation : String) -> void:
 	emit_signal("attack_started")
 	owner.play_animation(attack_animation)
 	if weapon.global_cooldown:

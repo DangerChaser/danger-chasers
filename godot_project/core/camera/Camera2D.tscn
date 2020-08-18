@@ -4,7 +4,11 @@
 
 [node name="Camera2D" type="Camera2D"]
 current = true
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 8.0
 script = ExtResource( 1 )
+position_lerp = 0.2
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

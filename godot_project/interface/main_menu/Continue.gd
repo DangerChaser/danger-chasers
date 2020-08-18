@@ -14,7 +14,7 @@ func _on_BackButton_button_down():
 func start():
 	animation_player.play("start")
 	visible = true
-	yield(get_tree().create_timer(animation_player.current_animation_length), "timeout")
+	yield(get_tree().create_timer(0.1), "timeout")
 	$BackButton.grab_focus()
 
 

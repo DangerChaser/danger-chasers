@@ -40,7 +40,6 @@ func connect_player(player) -> void:
 
 
 func _on_player_died(player) -> void:
-	GameManager.players = []
-	level_loader.player = null
-	yield(get_tree().create_timer(3.0), "timeout")
+	PlayerManager.player = null
+	yield(get_tree().create_timer(1.0), "timeout")
 	pause_menu._on_Restart_button_down()

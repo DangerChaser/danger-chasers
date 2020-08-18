@@ -56,8 +56,7 @@ func exit() -> void:
 
 func _physics_process(delta : float) -> void:
 	external.move()
-	if not owner.is_on_floor():
-		gravity.apply(delta)
+	gravity.apply(delta)
 	total_velocity = steering.velocity + gravity.velocity + external.velocity
 	owner.move_and_slide_with_snap(total_velocity, gravity.direction * snap, -gravity.direction, true)
 
@@ -74,7 +73,6 @@ func get_input_direction() -> Vector2:
 
 func move(move_direction : Vector2) -> void:
 	steering.move(move_direction)
-	total_velocity = steering.velocity + gravity.velocity + external.velocity
 	
 	var direction = total_velocity.normalized()
 	last_move_direction = direction

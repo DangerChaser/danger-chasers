@@ -47,7 +47,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -768.0
+margin_left = -823.0
 margin_top = -348.0
 margin_right = 704.0
 margin_bottom = 356.0
@@ -92,7 +92,7 @@ size_flags_vertical = 3
 
 [node name="QuestDescriptionContainer" type="NinePatchRect" parent="Control/HBoxContainer"]
 margin_left = 516.0
-margin_right = 1472.0
+margin_right = 1527.0
 margin_bottom = 704.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -122,7 +122,7 @@ __meta__ = {
 [node name="QuestNameLabel" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 892.0
+margin_right = 947.0
 margin_bottom = 68.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "QUEST_NAME"
@@ -131,7 +131,7 @@ valign = 1
 
 [node name="QuestDescriptionLabel" type="RichTextLabel" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer"]
 margin_top = 72.0
-margin_right = 892.0
+margin_right = 947.0
 margin_bottom = 584.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -147,32 +147,33 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer"]
 margin_top = 588.0
-margin_right = 892.0
-margin_bottom = 664.0
+margin_right = 947.0
+margin_bottom = 656.0
 
 [node name="DeclineButton" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 8 )]
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_right = 313.0
+margin_bottom = 68.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
 text = "DECLINE"
-flat = true
 
 [node name="Spacer" type="Control" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer/HBoxContainer"]
-margin_left = 298.0
-margin_right = 592.0
-margin_bottom = 76.0
+margin_left = 317.0
+margin_right = 630.0
+margin_bottom = 68.0
 size_flags_horizontal = 3
 
 [node name="AcceptButton" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 8 )]
-margin_left = 596.0
-margin_right = 892.0
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_left = 634.0
+margin_right = 947.0
+margin_bottom = 68.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
 text = "ACCEPT"
-flat = true
 
 [node name="BackButton" type="Button" parent="Control"]
 margin_left = 128.0

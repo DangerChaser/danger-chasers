@@ -6,11 +6,12 @@
 [node name="QuestNameButton" type="Button"]
 margin_right = 512.0
 margin_bottom = 76.875
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NameLabel" parent="." instance=ExtResource( 2 )]
+margin_left = 16.0
 text = "QUEST_NAME"
+valign = 1

@@ -1,7 +1,7 @@
 extends Button
 class_name ButtonKey
 
-export(String) var key : String = ""
+export var key : String = ""
 
 
 func _ready() -> void:

@@ -43,7 +43,7 @@ func enter(args := {}) -> void:
 		combo_ready = true
 		for effect in combo_effects.get_children():
 			effect.enter(args)
-	get_parent()._attack_started(actor_animation, weapon_animation)
+	emit_signal("attack_started", actor_animation, weapon_animation)
 
 
 func get_exit_args() -> Dictionary:

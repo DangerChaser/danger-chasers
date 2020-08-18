@@ -54,6 +54,20 @@ tracks/2/keys = {
 "method": "show_player_hud"
 } ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("PlayerManagedStateManager")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_activation_scanner"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "start"
@@ -112,6 +126,20 @@ tracks/3/keys = {
 "values": [ {
 "args": [  ],
 "method": "hide_player_hud"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("PlayerManagedStateManager")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable_activation_scanner"
 } ]
 }
 

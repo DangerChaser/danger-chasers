@@ -9,5 +9,8 @@ export(float) var transition_in_duration := 0.2
 
 func interact(actor) -> void:
 	.interact(actor)
-	
+	GameManager.level.request_change(level_path, spawn_point, transition_in_animation, transition_in_duration)
+
+
+func change(anim_name):
 	GameManager.level.request_change(level_path, spawn_point, transition_in_animation, transition_in_duration)

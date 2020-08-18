@@ -19,15 +19,17 @@ var input : String
 func can_register_input() -> void:
 	state = State.LISTENING
 
-func can_attack() -> void:
-	_ready_for_next_attack = true
-
 func can_cancel_animation() -> void:
 	_can_cancel_animation = true
+
+func can_attack() -> void:
+	_ready_for_next_attack = true
 
 
 func _ready() -> void:
 	set_physics_process(false)
+	for attack in get_children():
+		attack.connect("attack_started", self, "_attack_started")
 
 
 func enter(args := {}) -> void:

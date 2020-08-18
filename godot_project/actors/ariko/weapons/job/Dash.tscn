@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=8]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/ariko/particles/DashParticles.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actors/ariko/sprites/icons/dash_icon.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -111,6 +112,7 @@ tracks/3/keys = {
 }
 
 [node name="Dash" instance=ExtResource( 2 )]
+icon = ExtResource( 11 )
 
 [node name="CooldownTimer" parent="." index="0"]
 wait_time = 3.0

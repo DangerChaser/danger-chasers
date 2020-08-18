@@ -16,7 +16,6 @@ func enter(args := {}) -> void:
 	var weapon = get_parent().get_parent().get_parent().get_parent().get_parent()
 	input = weapon.input
 	
-	target_direction.x = 0
 	.enter(args)
 	if args.has("velocity") and take_previous_velocity:
 		motion.steering.velocity = args["velocity"]

@@ -11,13 +11,15 @@ var current_camera
 var original_zoom : Vector2
 
 
+
 func _ready() -> void:
 	set_physics_process(false)
 
 
 func enable(tween_duration := -1.0) -> void:
 	current_camera = GameManager.current_camera
-	original_zoom = current_camera.zoom
+	if not original_zoom:
+		original_zoom = current_camera.zoom
 	
 	var _tween_duration = enable_tween_duration if tween_duration < 0 else tween_duration
 	tween.interpolate_property(current_camera, "zoom", original_zoom, zoom, _tween_duration, Tween.TRANS_SINE, Tween.EASE_IN_OUT)

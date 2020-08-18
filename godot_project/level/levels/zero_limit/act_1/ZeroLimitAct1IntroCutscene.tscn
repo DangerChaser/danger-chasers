@@ -7,18 +7,6 @@
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("FrontChairInteractable/InteractionArea/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=2]
 resource_name = "end"
@@ -78,8 +66,8 @@ tracks/3/keys = {
 "method": "disable"
 } ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("FrontChairInteractable/InteractionArea/CollisionShape2D:disabled")
+tracks/4/type = "method"
+tracks/4/path = NodePath("PlayerManagedStateManager")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -87,8 +75,10 @@ tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"values": [ {
+"args": [  ],
+"method": "enable_activation_scanner"
+} ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -204,8 +194,8 @@ tracks/6/keys = {
 "method": "enable"
 } ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("FrontChairInteractable/InteractionArea/CollisionShape2D:disabled")
+tracks/7/type = "method"
+tracks/7/path = NodePath("PlayerManagedStateManager")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -213,15 +203,17 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"values": [ {
+"args": [  ],
+"method": "disable_activation_scanner"
+} ]
 }
 
 [sub_resource type="CircleShape2D" id=4]
 resource_local_to_scene = true
 radius = 60.0
 
-[node name="ZeroLimitActOneIntroCutscene" instance=ExtResource( 1 )]
+[node name="ZeroLimitAct1IntroCutscene" instance=ExtResource( 1 )]
 
 [node name="AnimationPlayer" parent="." index="0"]
 anims/SETUP = SubResource( 1 )
@@ -229,17 +221,17 @@ anims/end = SubResource( 2 )
 anims/start = SubResource( 3 )
 
 [node name="PlayerManagedStateManager" parent="." index="2"]
-position = Vector2( 58.1818, -162.909 )
+position = Vector2( 0, -32 )
 rotation = 3.14159
 
 [node name="CutsceneCamera" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( 0, -448 )
 
 [node name="FrontChairInteractable" parent="." index="4" instance=ExtResource( 3 )]
 position = Vector2( 0, -96 )
 
 [node name="CollisionShape2D" parent="FrontChairInteractable/InteractionArea" index="0"]
 shape = SubResource( 4 )
-disabled = true
 
 [editable path="FrontChairInteractable"]
 

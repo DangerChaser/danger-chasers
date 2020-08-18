@@ -11,7 +11,6 @@ export var land_animation := ""
 onready var timer : Timer = $Timer
 onready var motion : MotionState = $Motion
 var time_entered : float
-var target_direction : Vector2
 
 func enter(args := {}) -> void:
 	.enter(args)
@@ -19,11 +18,8 @@ func enter(args := {}) -> void:
 	
 	time_entered = OS.get_ticks_msec()
 	
-	var _random_angle = deg2rad(randf() * random_angle)
+	var _random_angle = deg2rad(randf() * random_angle * 2) - random_angle
 	var direction = Vector2.RIGHT.rotated(deg2rad(initial_angle_deg) + _random_angle)
-	target_direction = Vector2()
-	target_direction.x = direction.x * sign(owner.pivot.scale.x)
-	direction.x = 0
 	motion.external.apply(direction, force, 1.0)
 	motion.external.set_mass(mass)
 	
@@ -44,8 +40,6 @@ func _on_Timer_timeout():
 
 
 func _physics_process(delta:float) -> void:
-	motion.steering.move(target_direction)
-	
 	var current_tick = OS.get_ticks_msec()
 	var BUFFER = 100
 	if current_tick - time_entered < BUFFER:

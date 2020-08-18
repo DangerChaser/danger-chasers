@@ -1,9 +1,9 @@
 extends Node
 class_name Gravity
 
-export(float) var gravity := 3600.0
-export(float) var max_speed := 2000.0
-export(Vector2) var direction := Vector2.DOWN
+export var gravity := 3600.0
+export var max_speed := 2000.0
+export var direction := Vector2.DOWN
 onready var snap = Vector2.DOWN * 32
 
 var speed : float
@@ -23,8 +23,7 @@ func apply(delta : float) -> void:
 #		var floor_velocity = owner.get_floor_velocity()
 #		speed = floor_velocity.y
 		speed = 0.0
-		velocity = direction * speed
-		return
+		velocity = Vector2()
 	else:
 		speed = min(speed + gravity * delta, max_speed)
 		velocity = direction * speed

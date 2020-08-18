@@ -20,8 +20,6 @@ func _ready():
 func enter(args := {}) -> void:
 	.enter()
 	emit_signal("entered")
-	owner.emit_signal("health_depleted", owner)
-	owner.emit_signal("health_depleted_no_arg")
 	
 	owner.play_animation(animation)
 	var direction : Vector2
@@ -30,11 +28,11 @@ func enter(args := {}) -> void:
 		if args.has("force") and args.has("mass") and args.has("duration"):
 			initialize(args["direction"], args["force"], args["mass"], args["duration"])
 	die_particles.spawn(owner.global_position, owner.global_rotation, owner.global_scale, owner.get_parent(), direction)
-	owner.emit_signal("died", owner)
 	emit_signal("died")
 
 
 func anim_finished(anim_name : String) -> void:
+	owner.emit_signal("died", owner)
 	if queue_free_on_die:
 		owner.call_deferred("queue_free")
 

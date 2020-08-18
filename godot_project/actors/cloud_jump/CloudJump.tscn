@@ -24,6 +24,7 @@ extents = Vector2( 96, 64 )
 [node name="Launch" parent="StateMachine" index="0" instance=ExtResource( 9 )]
 animation = "jump"
 next_state = "Sequence"
+random_angle = 120.0
 
 [node name="Sequence" parent="StateMachine" index="1" instance=ExtResource( 10 )]
 next_state = "Sequence"

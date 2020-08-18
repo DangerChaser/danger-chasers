@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/levels/zero_limit/forest.tres" type="TileSet" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://level/levels/zero_limit/RainForeground.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level/levels/zero_limit/rain_thunder_ambience.ogg" type="AudioStream" id=11]
 [ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=12]
+[ext_resource path="res://level/levels/zero_limit/act_2/ZeroLimitAct2IntroCutscene.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/sprites/white_circle_gradient.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/white_circle_gradient_4096x4096.png" type="Texture" id=15]
 [ext_resource path="res://actors/slime_red/SlimeRed.tscn" type="PackedScene" id=18]
@@ -21,29 +22,35 @@
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
 extents = Vector2( 304, 272 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 2014.27, 171.203 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 88.9941, 2267.81 )
+
+[sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
 extents = Vector2( 100, 816 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=6]
 resource_local_to_scene = true
 extents = Vector2( 2016, 672 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 320, 1408 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 3840, 288 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=9]
 resource_local_to_scene = true
 extents = Vector2( 61.8209, 52.2615 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=10]
 resource_local_to_scene = true
 extents = Vector2( 61.8209, 52.2615 )
 
@@ -118,7 +125,7 @@ zoom = Vector2( 2, 2 )
 
 [node name="ColliderTrigger" parent="CameraLimits/CameraLimitTrigger" index="0"]
 position = Vector2( 6825.4, -995.424 )
-shape = SubResource( 8 )
+shape = SubResource( 2 )
 
 [node name="TopLeft" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="0"]
 position = Vector2( -5952.37, -1520.85 )
@@ -132,7 +139,15 @@ zoom = Vector2( 2, 2 )
 
 [node name="ColliderTrigger" parent="CameraLimits/CameraLimitTrigger2" index="0"]
 position = Vector2( -4927.33, 622.448 )
-shape = SubResource( 8 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraLimits/CameraLimitTrigger2" index="1"]
+position = Vector2( 5000.18, -761.957 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraLimits/CameraLimitTrigger2" index="2"]
+position = Vector2( 3037.45, -3045.8 )
+shape = SubResource( 4 )
 
 [node name="TopLeft" parent="CameraLimits/CameraLimitTrigger2/CameraLimitPositions" index="0"]
 position = Vector2( -5952.37, -4080.81 )
@@ -140,13 +155,27 @@ position = Vector2( -5952.37, -4080.81 )
 [node name="BottomRight" parent="CameraLimits/CameraLimitTrigger2/CameraLimitPositions" index="1"]
 position = Vector2( 8366.72, 745.814 )
 
+[node name="CameraLimitTrigger3" parent="CameraLimits" index="2" instance=ExtResource( 12 )]
+position = Vector2( 18445.3, -5397.62 )
+zoom = Vector2( 2, 2 )
+
+[node name="ColliderTrigger" parent="CameraLimits/CameraLimitTrigger3" index="0"]
+position = Vector2( -87.332, 1790.45 )
+shape = SubResource( 2 )
+
+[node name="TopLeft" parent="CameraLimits/CameraLimitTrigger3/CameraLimitPositions" index="0"]
+position = Vector2( -3799.67, -945.948 )
+
+[node name="BottomRight" parent="CameraLimits/CameraLimitTrigger3/CameraLimitPositions" index="1"]
+position = Vector2( 1661.17, 2175.17 )
+
 [node name="Next" parent="LevelTransitions" index="0" instance=ExtResource( 4 )]
 position = Vector2( 20416, -6016 )
 scale = Vector2( 2, 2 )
 map_path = "res://level/levels/zero_limit/act_2/ZeroLimitAct2-2.tscn"
 
 [node name="CollisionShape2D" parent="LevelTransitions/Next" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="Arena" parent="Arenas" index="0" instance=ExtResource( 5 )]
 position = Vector2( 4000, -1216 )
@@ -155,7 +184,7 @@ position = Vector2( 4000, -1216 )
 position = Vector2( 0, 704 )
 
 [node name="CollisionShape2D" parent="Arenas/Arena/ActivationArea" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Slime" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 position = Vector2( 832, 1002 )
@@ -193,30 +222,30 @@ actor_name = ""
 position = Vector2( -2336, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena/Walls/LeftWall" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
 [node name="RightWall" type="StaticBody2D" parent="Arenas/Arena/Walls" index="1"]
 position = Vector2( 2368, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena/Walls/RightWall" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
 [node name="TopWall" type="StaticBody2D" parent="Arenas/Arena/Walls" index="2"]
-position = Vector2( 2368, 0 )
+position = Vector2( 2368, -307.421 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena/Walls/TopWall" index="0"]
 position = Vector2( -1920, -224 )
-shape = SubResource( 5 )
+shape = SubResource( 8 )
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena" index="4"]
 position = Vector2( 288, -233.448 )
-zoom = Vector2( 1.7, 1.7 )
+zoom = Vector2( 2, 2 )
 
 [node name="ColliderTrigger" parent="Arenas/Arena/CameraLimitTrigger" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 
 [node name="TopLeft" parent="Arenas/Arena/CameraLimitTrigger/CameraLimitPositions" index="0"]
-position = Vector2( -2352.82, 361.448 )
+position = Vector2( -2352.82, -66.9252 )
 
 [node name="BottomRight" parent="Arenas/Arena/CameraLimitTrigger/CameraLimitPositions" index="1"]
 position = Vector2( 1799.27, 1513.45 )
@@ -229,7 +258,7 @@ next_group_spawn_percent = [ "0.0", 0.4, 0.5 ]
 position = Vector2( 0, 704 )
 
 [node name="CollisionShape2D" parent="Arenas/Arena2/ActivationArea" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Slime" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 position = Vector2( -2102, 384 )
@@ -391,30 +420,32 @@ actor_name = ""
 position = Vector2( 2816, -1120 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena2/Walls/TopWall" index="0"]
-position = Vector2( -1920, -224 )
-shape = SubResource( 5 )
+position = Vector2( -1920, -1041.15 )
+shape = SubResource( 8 )
 
 [node name="LeftWall" type="StaticBody2D" parent="Arenas/Arena2/Walls" index="1"]
 position = Vector2( -3232, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena2/Walls/LeftWall" index="0"]
-shape = SubResource( 4 )
+position = Vector2( 0, -763.274 )
+shape = SubResource( 7 )
 
 [node name="RightWall" type="StaticBody2D" parent="Arenas/Arena2/Walls" index="2"]
 position = Vector2( 4672, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arenas/Arena2/Walls/RightWall" index="0"]
-shape = SubResource( 4 )
+position = Vector2( 0, -592.66 )
+shape = SubResource( 7 )
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena2" index="4"]
 position = Vector2( 288, -233.448 )
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 3, 3 )
 
 [node name="ColliderTrigger" parent="Arenas/Arena2/CameraLimitTrigger" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 10 )
 
 [node name="TopLeft" parent="Arenas/Arena2/CameraLimitTrigger/CameraLimitPositions" index="0"]
-position = Vector2( -3253.31, -889.329 )
+position = Vector2( -3253.31, -1751.38 )
 
 [node name="BottomRight" parent="Arenas/Arena2/CameraLimitTrigger/CameraLimitPositions" index="1"]
 position = Vector2( 4112.82, 853.448 )
@@ -463,11 +494,16 @@ texture = ExtResource( 14 )
 position = Vector2( -1984, 64 )
 camera_limit_trigger = NodePath("../../CameraLimits/CameraLimitTrigger")
 
+[node name="ZeroLimitAct2IntroCutscene" parent="IntroCutscene" index="0" instance=ExtResource( 13 )]
+position = Vector2( -4812.97, 576 )
+
 [editable path="InitialMusic"]
 
 [editable path="CameraLimits/CameraLimitTrigger"]
 
 [editable path="CameraLimits/CameraLimitTrigger2"]
+
+[editable path="CameraLimits/CameraLimitTrigger3"]
 
 [editable path="LevelTransitions/Next"]
 

@@ -100,7 +100,6 @@ func kill(args := {}) -> void:
 		set_collision_layer_bit(PhysicsLayers.PlayerStoppers, false)
 		set_collision_layer_bit(PhysicsLayers.EnemyStoppers, false)
 		set_collision_layer_bit(PhysicsLayers.PassableActors, false)
-		collider.set_deferred("disabled", true)
 	
 		state_machine.change_state("Die", args)
 		
@@ -216,7 +215,13 @@ func play_animation(anim_name : String) -> void:
 
 func face_actor(actor=null):
 	if not actor:
-		actor = target.get_target()
+		var _target = target.get_target()
+		if _target:
+			actor = _target
+	
+	if not actor:
+		return
+	
 	var direction = global_position.direction_to(actor.global_position)
 	if not direction.x == 0.0:
 		var look_direction = Vector2.RIGHT if direction.x > 0 else Vector2.LEFT
@@ -233,3 +238,10 @@ func unpause():
 	if pause_offscreen:
 		state_machine.unpause()
 #		pivot.animation_player.play()
+
+
+func enable_input() -> void:
+	input_enabled = true
+
+func disable_input() -> void:
+	input_enabled = false

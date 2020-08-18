@@ -10,12 +10,11 @@
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=11]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=13]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 128, 128 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "SETUP"
+[sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "method"
 tracks/0/path = NodePath("DamageSource")
@@ -56,8 +55,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "charge"
+[sub_resource type="Animation" id=3]
 length = 0.6
 step = 0.03
 tracks/0/type = "method"
@@ -163,8 +161,7 @@ tracks/6/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "wind_down"
+[sub_resource type="Animation" id=4]
 length = 0.2
 
 [node name="WolfCharge" instance=ExtResource( 1 )]
@@ -179,12 +176,12 @@ damage = 7
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
 position = Vector2( 128, -128 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." index="3"]
-anims/SETUP = SubResource( 1 )
-anims/charge = SubResource( 2 )
-anims/wind_down = SubResource( 3 )
+anims/SETUP = SubResource( 2 )
+anims/charge = SubResource( 3 )
+anims/wind_down = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Pivot" index="0"]
 position = Vector2( 104, -128 )

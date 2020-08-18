@@ -11,6 +11,9 @@ var last_button
 func start() -> void:
 	visible = true
 	animation_player.play("start")
+	last_button = $Buttons/HBoxContainer/NewGameButton
+	yield(get_tree().create_timer(0.1), "timeout")
+	last_button.grab_focus()
 
 
 func transition_out() -> void:
@@ -19,13 +22,8 @@ func transition_out() -> void:
 
 func transition_in() -> void:
 	animation_player.play("transition_in")
-
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "start":
-		$Buttons/HBoxContainer/ContinueButton.grab_focus()
-	if anim_name == "transition_in":
-		last_button.grab_focus()
+	yield(get_tree().create_timer(0.1), "timeout")
+	last_button.grab_focus()
 
 
 func _on_ExitButton_button_down():

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/end_sfx.wav-e18f4e11b76c1e2bdbf723c8afbf194b.sample"
+
+[deps]
+
+source_file="res://cutscenes/level_intro/end_sfx.wav"
+dest_files=[ "res://.import/end_sfx.wav-e18f4e11b76c1e2bdbf723c8afbf194b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

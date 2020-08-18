@@ -13,7 +13,7 @@ onready var input_menu : InputMenu = $InputMenu
 onready var audio_menu := $AudioSettingsHUD
 onready var graphics_menu := $GraphicsMenu
 onready var menus = [pause_menu, settings_menu, input_menu, audio_menu, graphics_menu]
-enum Menus { PAUSE, SETTINGS, INPUT, AUDIO, GRAPHICS }
+enum Menus { PAUSE, SETTINGS, INPUT, AUDIO, GRAPHICS, UNPAUSED }
 
 var current_menu
 
@@ -25,36 +25,28 @@ func _ready() -> void:
 func pause() -> void:
 #	get_tree().paused = true
 	PlayerManager.disable_input()
-	change_menu(Menus.PAUSE)
+	
+	if current_menu == Menus.PAUSE:
+		unpause()
+	elif current_menu == Menus.SETTINGS:
+		change_menu(Menus.PAUSE)
+	elif current_menu == Menus.INPUT:
+		change_menu(Menus.SETTINGS)
+		input_menu.disable()
+	elif current_menu == Menus.AUDIO:
+		change_menu(Menus.SETTINGS)
+		audio_menu.disable()
+	elif current_menu == Menus.GRAPHICS:
+		change_menu(Menus.SETTINGS)
+		graphics_menu.disable()
+	else:
+		change_menu(Menus.PAUSE)
 
 
 func unpause() -> void:
 	PlayerManager.enable_input()
-	for menu in menus:
-		menu.visible = false
+	change_menu(Menus.UNPAUSED)
 #	get_tree().paused = false
-	pause_menu.get_node("UnpauseSfx").play()
-
-
-func _input(event : InputEvent) -> void:
-	if event.is_action_pressed("pause"):
-		if not get_tree().paused:
-			pause()
-			return
-		
-		if current_menu == Menus.PAUSE:
-			unpause()
-		elif current_menu == Menus.SETTINGS:
-			change_menu(Menus.PAUSE)
-		elif current_menu == Menus.INPUT:
-			change_menu(Menus.SETTINGS)
-			input_menu.disable()
-		elif current_menu == Menus.AUDIO:
-			change_menu(Menus.SETTINGS)
-			audio_menu.disable()
-		elif current_menu == Menus.GRAPHICS:
-			change_menu(Menus.SETTINGS)
-			graphics_menu.disable()
 
 
 func change_menu(new_menu) -> void:
@@ -78,6 +70,15 @@ func change_menu(new_menu) -> void:
 	elif current_menu == Menus.GRAPHICS:
 		pause_menu.get_node("PauseSfx").play()
 		graphics_menu.enable()
+	else:
+		pause_menu.get_node("PauseSfx").play()
+
+
+func _input(event : InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		if not get_tree().paused:
+			pause()
+			return
 
 
 func hide_menus() -> void:

@@ -2,35 +2,13 @@
 
 [ext_resource path="res://interface/fonts/Silver.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="StyleBoxTexture" id=1]
-region_rect = Rect2( 0, 0, 48, 48 )
-margin_left = 3.25
-margin_right = 3.375
-margin_top = 3.5
-margin_bottom = 5.375
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-modulate_color = Color( 0.203922, 0.203922, 0.203922, 1 )
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.552941, 0.513726, 0.376471, 1 )
 
-[sub_resource type="StyleBoxTexture" id=2]
-region_rect = Rect2( 0, 0, 48, 48 )
-margin_left = 2.5
-margin_right = 2.75
-margin_top = 2.5
-margin_bottom = 2.25
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-modulate_color = Color( 0.203922, 0.203922, 0.203922, 1 )
-draw_center = false
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.305882, 0.243137, 0.243137, 1 )
 
-[sub_resource type="StyleBoxTexture" id=3]
-region_rect = Rect2( 0, 0, 48, 48 )
-margin_left = 3.5
-margin_right = 3.5
-margin_top = 3.125
-margin_bottom = 5.625
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 2
+[sub_resource type="StyleBoxFlat" id=7]
 
 [sub_resource type="DynamicFont" id=4]
 size = 64
@@ -46,9 +24,9 @@ Button/constants/hseparation = 2
 Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = null
-Button/styles/normal = SubResource( 1 )
-Button/styles/pressed = SubResource( 2 )
-Panel/styles/panel = SubResource( 3 )
+Button/styles/hover = SubResource( 6 )
+Button/styles/normal = SubResource( 5 )
+Button/styles/pressed = SubResource( 7 )
+Panel/styles/panel = null
 Panel/styles/panelf = null
 Panel/styles/panelnc = null

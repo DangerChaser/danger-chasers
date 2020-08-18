@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://interface/fonts/Silver.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://interface/dynamic_fonts/Silver_128.tres" type="DynamicFont" id=2]
@@ -6,8 +6,10 @@
 [ext_resource path="res://cutscenes/level_intro/banner.png" type="Texture" id=4]
 [ext_resource path="res://cutscenes/level_intro/LevelBannerCutscene.gd" type="Script" id=5]
 [ext_resource path="res://core/utils/KeyLabel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://cutscenes/level_intro/end_sfx.wav" type="AudioStream" id=7]
+[ext_resource path="res://cutscenes/level_intro/start_sfx.wav" type="AudioStream" id=8]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "value"
@@ -71,7 +73,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 resource_name = "end"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Control:rect_position")
@@ -97,8 +99,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("EndSfx")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=3]
 resource_name = "start"
 length = 4.0
 tracks/0/type = "value"
@@ -245,8 +261,22 @@ tracks/11/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/12/type = "method"
+tracks/12/path = NodePath("StartSfx")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="StyleBoxTexture" id=4]
 region_rect = Rect2( 0, 0, 48, 48 )
 margin_left = 3.25
 margin_right = 3.375
@@ -256,7 +286,7 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 modulate_color = Color( 0.203922, 0.203922, 0.203922, 1 )
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=5]
 region_rect = Rect2( 0, 0, 48, 48 )
 margin_left = 2.5
 margin_right = 2.75
@@ -267,7 +297,7 @@ axis_stretch_vertical = 2
 modulate_color = Color( 0.203922, 0.203922, 0.203922, 1 )
 draw_center = false
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=6]
 region_rect = Rect2( 0, 0, 48, 48 )
 margin_left = 3.5
 margin_right = 3.5
@@ -276,12 +306,12 @@ margin_bottom = 5.625
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 2
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 size = 64
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=12]
-default_font = SubResource( 4 )
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
@@ -291,18 +321,18 @@ Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = null
-Button/styles/normal = SubResource( 1 )
-Button/styles/pressed = SubResource( 2 )
-Panel/styles/panel = SubResource( 3 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 5 )
+Panel/styles/panel = SubResource( 6 )
 Panel/styles/panelf = null
 Panel/styles/panelnc = null
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=9]
 size = 256
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=8]
-default_font = SubResource( 4 )
+[sub_resource type="Theme" id=10]
+default_font = SubResource( 7 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
@@ -312,9 +342,9 @@ Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = null
-Button/styles/normal = SubResource( 1 )
-Button/styles/pressed = SubResource( 2 )
-Panel/styles/panel = SubResource( 3 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 5 )
+Panel/styles/panel = SubResource( 6 )
 Panel/styles/panelf = null
 Panel/styles/panelnc = null
 
@@ -322,11 +352,19 @@ Panel/styles/panelnc = null
 script = ExtResource( 5 )
 
 [node name="AnimationPlayer" parent="." index="0"]
-anims/SETUP = SubResource( 9 )
-anims/end = SubResource( 10 )
-anims/start = SubResource( 11 )
+anims/SETUP = SubResource( 1 )
+anims/end = SubResource( 2 )
+anims/start = SubResource( 3 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
+[node name="StartSfx" type="AudioStreamPlayer" parent="." index="1"]
+stream = ExtResource( 8 )
+bus = "Sfx"
+
+[node name="EndSfx" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource( 7 )
+bus = "Sfx"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 layer = 128
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
@@ -337,6 +375,7 @@ __meta__ = {
 }
 
 [node name="ActBanner" type="NinePatchRect" parent="CanvasLayer/Control" index="0"]
+visible = false
 margin_left = 224.0
 margin_top = 672.0
 margin_right = 252.0
@@ -353,6 +392,7 @@ __meta__ = {
 }
 
 [node name="LevelNameBanner" type="NinePatchRect" parent="CanvasLayer/Control" index="1"]
+visible = false
 margin_left = 256.0
 margin_top = 416.0
 margin_right = 301.0
@@ -370,8 +410,9 @@ __meta__ = {
 
 [node name="Banner" type="NinePatchRect" parent="CanvasLayer/Control" index="2"]
 margin_left = 156.612
+margin_top = -208.0
 margin_right = 229.612
-margin_bottom = 256.0
+margin_bottom = -160.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
 patch_margin_left = 8
@@ -383,24 +424,28 @@ __meta__ = {
 }
 
 [node name="LevelNameLabel" parent="CanvasLayer/Control" index="3" instance=ExtResource( 6 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 512.0
 margin_right = 1760.0
 margin_bottom = 320.0
-theme = SubResource( 12 )
-custom_fonts/font = SubResource( 13 )
+theme = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "LEVEL NAME"
 valign = 2
+percent_visible = 0.0
 
 [node name="ActLabel" parent="CanvasLayer/Control" index="4" instance=ExtResource( 6 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 544.0
 margin_top = 480.0
 margin_right = 1380.0
 margin_bottom = 616.0
-theme = SubResource( 8 )
+theme = SubResource( 10 )
 custom_fonts/font = ExtResource( 2 )
 text = "ACT ONE"
 valign = 2
+percent_visible = 0.0

@@ -16,7 +16,7 @@ pause_mode = 2
 layer = 127
 script = ExtResource( 2 )
 game_path = "res://core/Game.tscn"
-main_menu_path = "res://level/levels/main_menu/MainMenu.tscn"
+main_menu_path = "res://level/levels/adventurers_guild/AdventurersGuild.tscn"
 restart_transition_in_animation = "left_to_right"
 quit_transition_in_animation = "left_to_right"
 

@@ -4,11 +4,14 @@
 [ext_resource path="res://actor_states/motion/Die.gd" type="Script" id=2]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=3]
 
-
-
 [node name="Die" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="DieParticles" parent="." index="3" instance=ExtResource( 3 )]
+
+[node name="ObjectSpawner" parent="DieParticles" index="0"]
+object = null
+random_degrees = 0.0
+random_radius = 0.0
 
 [editable path="DieParticles"]

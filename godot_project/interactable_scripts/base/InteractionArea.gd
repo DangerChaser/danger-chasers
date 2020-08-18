@@ -11,6 +11,8 @@ onready var pin_offset : Vector2 = pin.rect_position
 onready var collider : CollisionShape2D = $CollisionShape2D
 
 export var keep_focus_on_interact := false
+export var actor_must_be_on_floor := false
+
 var triggered_area : Area2D
 
 
@@ -31,6 +33,8 @@ func _on_area_exited(area : Area2D) -> void:
 	
 	if area == triggered_area:
 		disable_interaction()
+	
+	triggered_area = null
 
 
 func enable_interaction() -> void:
@@ -54,6 +58,20 @@ func disable_interaction() -> void:
 
 func _process(delta):
 	pin.rect_global_position = global_position + pin_offset
+
+
+func _physics_process(delta):
+	if not actor_must_be_on_floor:
+		return
+	
+	if not triggered_area:
+		return
+	
+	var actor : Actor = triggered_area.owner
+	if not actor.is_on_floor():
+		disable_interaction()
+	else:
+		enable_interaction()
 
 
 func show_key() -> void:

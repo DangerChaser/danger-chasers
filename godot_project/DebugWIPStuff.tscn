@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/fonts/Silver.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 1 )
+
+[node name="DebugWIPStuff" type="CanvasLayer"]
+layer = 125
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -359.138
+margin_top = 12.5992
+margin_right = 299.862
+margin_bottom = 148.599
+custom_fonts/font = SubResource( 1 )
+text = "Work in Progress"

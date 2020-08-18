@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://interactable_scripts/base/InteractionArea.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/quest_board/QuestBoardUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interactable_scripts/QuestBoardInteractable.gd" type="Script" id=3]
-[ext_resource path="res://vfx/transitions/transition_masks/bottom_to_top.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 352, 256 )
@@ -16,7 +15,6 @@ shape = SubResource( 1 )
 
 [node name="InteractableScript" type="Node" parent="." index="3"]
 script = ExtResource( 3 )
-transition_in_texture = ExtResource( 4 )
 
 [node name="QuestBoardUI" parent="InteractableScript" index="0" instance=ExtResource( 2 )]
 [connection signal="disabled" from="InteractableScript/QuestBoardUI" to="InteractableScript" method="_on_QuestBoardUI_disabled"]

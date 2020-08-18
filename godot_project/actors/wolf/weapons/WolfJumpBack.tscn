@@ -26,13 +26,13 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
-"method": "enable_attack_input_listening"
+"method": "can_register_input"
 }, {
 "args": [  ],
-"method": "enable_cancel_animation"
+"method": "can_cancel_animation"
 }, {
 "args": [  ],
-"method": "enable_ready_for_next_attack"
+"method": "can_attack"
 } ]
 }
 tracks/1/type = "method"
@@ -64,20 +64,19 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
-"method": "enable_attack_input_listening"
+"method": "can_register_input"
 }, {
 "args": [  ],
-"method": "register_attack"
+"method": "can_cancel_animation"
 }, {
 "args": [  ],
-"method": "enable_ready_for_next_attack"
+"method": "can_attack"
 } ]
 }
 
 [node name="WolfJumpBack" instance=ExtResource( 1 )]
-cooldown = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
 anims/jump_back = SubResource( 2 )
 anims/wind_down = SubResource( 3 )

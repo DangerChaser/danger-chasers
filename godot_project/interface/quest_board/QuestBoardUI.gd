@@ -33,6 +33,8 @@ func enable() -> void:
 	quest_description_label.set_key(quest.quest_description_key)
 	current_quest_name_button.grab_focus()
 	control.visible = true
+	
+	set_process_input(true)
 
 
 func disable() -> void:
@@ -40,7 +42,12 @@ func disable() -> void:
 		quest.queue_free()
 	control.visible = false
 	emit_signal("disabled")
+	set_process_input(false)
 
+
+func _input(event) -> void:
+	if event.is_action_pressed("pause"):
+		disable()
 
 func _on_quest_name_button_down(quest_name_button : QuestNameButton) -> void:
 	current_quest_name_button = quest_name_button

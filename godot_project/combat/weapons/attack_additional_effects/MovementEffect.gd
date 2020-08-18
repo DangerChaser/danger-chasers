@@ -3,7 +3,7 @@ class_name MovementEffect
 
 const VECTOR_UP = Vector2(0, -1)
 
-onready var motion := $Motion
+onready var motion : MotionState = $Motion
 
 export(float) var initial_mass = 1.0
 export(float) var initial_speed := 840.0 # Positive pushes actor to target

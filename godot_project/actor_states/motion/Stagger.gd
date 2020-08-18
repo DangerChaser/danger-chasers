@@ -73,7 +73,7 @@ func initialize(direction : Vector2, force : float, initial_mass : int, duration
 	external.velocity = direction * force
 	external.apply(direction, force, initial_mass)
 	timer.wait_time = duration
-	owner.set_rotation(direction.angle())
+	owner.set_rotation(Vector2(direction.x, 0).angle())
 
 
 func _on_Timer_timeout():
