@@ -1,16 +1,16 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://level/levels/zero_limit/forest.tres" type="TileSet" id=2]
-[ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/audio/music/dova_syndrome/Sunrise.ogg" type="AudioStream" id=1]
+[ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://core/SpawnPoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/levels/zero_limit/forest.tres" type="TileSet" id=4]
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=5]
-[ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=6]
-[ext_resource path="res://objects/doors/interactable_doors/WoodDoor.tscn" type="PackedScene" id=11]
-[ext_resource path="res://core/SpawnPoint.tscn" type="PackedScene" id=16]
-[ext_resource path="res://actors/slime_red/SlimeRed.tscn" type="PackedScene" id=18]
-[ext_resource path="res://level/levels/zero_limit/forest_cave.tres" type="TileSet" id=25]
-[ext_resource path="res://assets/audio/music/dova_syndrome/Sunrise.ogg" type="AudioStream" id=26]
-[ext_resource path="res://objects/springs/RedSpring.tscn" type="PackedScene" id=29]
+[ext_resource path="res://actors/slime_red/SlimeRed.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/doors/interactable_doors/WoodDoor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=8]
+[ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/springs/RedSpring.tscn" type="PackedScene" id=10]
+[ext_resource path="res://level/levels/zero_limit/forest_cave.tres" type="TileSet" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -31,11 +31,11 @@ extents = Vector2( 12480, 9214.43 )
 resource_local_to_scene = true
 extents = Vector2( 61.8209, 52.2615 )
 
-[node name="GreenwoodHills" instance=ExtResource( 1 )]
+[node name="ZeroLimitAct3-2" instance=ExtResource( 8 )]
 skybox_color = Color( 0.454902, 0.890196, 0.960784, 1 )
 
 [node name="InitialMusic" parent="." index="0"]
-music = ExtResource( 26 )
+music = ExtResource( 1 )
 
 [node name="CollisionShape2D" parent="InitialMusic" index="0"]
 shape = SubResource( 1 )
@@ -48,7 +48,7 @@ follow_viewport_scale = 0.95
 [node name="TileMap" type="TileMap" parent="Background/ParallaxBackground" index="0"]
 modulate = Color( 0.666667, 0.666667, 0.666667, 1 )
 scale = Vector2( 4, 4 )
-tile_set = ExtResource( 25 )
+tile_set = ExtResource( 11 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 0
 collision_mask = 0
@@ -57,7 +57,7 @@ tile_data = PoolIntArray( -6094599, 1, 0, -6094598, 1, 1, -6094597, 1, 1, -60945
 
 [node name="HalfPlatforms" type="TileMap" parent="Ground" index="0"]
 scale = Vector2( 4, 4 )
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 64
 collision_mask = 0
@@ -69,7 +69,7 @@ __meta__ = {
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
 scale = Vector2( 4, 4 )
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 0
 format = 1
@@ -80,55 +80,55 @@ __meta__ = {
 
 [node name="Springs" type="Node2D" parent="Ground" index="2"]
 
-[node name="RedSpring" parent="Ground/Springs" index="0" instance=ExtResource( 29 )]
+[node name="RedSpring" parent="Ground/Springs" index="0" instance=ExtResource( 10 )]
 position = Vector2( 6208, 2048 )
 
-[node name="RedSpring2" parent="Ground/Springs" index="1" instance=ExtResource( 29 )]
+[node name="RedSpring2" parent="Ground/Springs" index="1" instance=ExtResource( 10 )]
 position = Vector2( -2048, 3840 )
 
-[node name="RedSpring3" parent="Ground/Springs" index="2" instance=ExtResource( 29 )]
+[node name="RedSpring3" parent="Ground/Springs" index="2" instance=ExtResource( 10 )]
 position = Vector2( 576, 6400 )
 
-[node name="RedSpring4" parent="Ground/Springs" index="3" instance=ExtResource( 29 )]
+[node name="RedSpring4" parent="Ground/Springs" index="3" instance=ExtResource( 10 )]
 position = Vector2( 9344, 10880 )
 
-[node name="RedSpring5" parent="Ground/Springs" index="4" instance=ExtResource( 29 )]
+[node name="RedSpring5" parent="Ground/Springs" index="4" instance=ExtResource( 10 )]
 position = Vector2( 11712, 12096 )
 
-[node name="RedSpring6" parent="Ground/Springs" index="5" instance=ExtResource( 29 )]
+[node name="RedSpring6" parent="Ground/Springs" index="5" instance=ExtResource( 10 )]
 position = Vector2( 12928, 10112 )
 
-[node name="RedSpring7" parent="Ground/Springs" index="6" instance=ExtResource( 29 )]
+[node name="RedSpring7" parent="Ground/Springs" index="6" instance=ExtResource( 10 )]
 position = Vector2( 28224, 14272 )
 
-[node name="RedSpring8" parent="Ground/Springs" index="7" instance=ExtResource( 29 )]
+[node name="RedSpring8" parent="Ground/Springs" index="7" instance=ExtResource( 10 )]
 position = Vector2( 28480, 14272 )
 
-[node name="RedSpring9" parent="Ground/Springs" index="8" instance=ExtResource( 29 )]
+[node name="RedSpring9" parent="Ground/Springs" index="8" instance=ExtResource( 10 )]
 position = Vector2( 19328, 14080 )
 
-[node name="RedSpring10" parent="Ground/Springs" index="9" instance=ExtResource( 29 )]
+[node name="RedSpring10" parent="Ground/Springs" index="9" instance=ExtResource( 10 )]
 position = Vector2( 22016, 11072 )
 
-[node name="RedSpring11" parent="Ground/Springs" index="10" instance=ExtResource( 29 )]
+[node name="RedSpring11" parent="Ground/Springs" index="10" instance=ExtResource( 10 )]
 position = Vector2( 25920, 7360 )
 
 [node name="Doors" type="Node2D" parent="Colliders" index="0"]
 position = Vector2( 0, -32 )
 
-[node name="WoodDoor" parent="Colliders/Doors" index="0" instance=ExtResource( 11 )]
+[node name="WoodDoor" parent="Colliders/Doors" index="0" instance=ExtResource( 7 )]
 position = Vector2( 6496, -896 )
 
-[node name="WoodDoor2" parent="Colliders/Doors" index="1" instance=ExtResource( 11 )]
+[node name="WoodDoor2" parent="Colliders/Doors" index="1" instance=ExtResource( 7 )]
 position = Vector2( 128, -64 )
 
-[node name="WoodDoor3" parent="Colliders/Doors" index="2" instance=ExtResource( 11 )]
+[node name="WoodDoor3" parent="Colliders/Doors" index="2" instance=ExtResource( 7 )]
 position = Vector2( 15200, 3776 )
 
-[node name="WoodDoor4" parent="Colliders/Doors" index="3" instance=ExtResource( 11 )]
+[node name="WoodDoor4" parent="Colliders/Doors" index="3" instance=ExtResource( 7 )]
 position = Vector2( 18048, 13440 )
 
-[node name="Downwards" parent="LevelTransitions" index="0" instance=ExtResource( 4 )]
+[node name="Downwards" parent="LevelTransitions" index="0" instance=ExtResource( 9 )]
 position = Vector2( -3584, -768 )
 scale = Vector2( 2, 2 )
 map_path = "res://level/levels/greenwood_hills/Downwards.tscn"
@@ -137,7 +137,7 @@ spawn_point = 1
 [node name="CollisionShape2D" parent="LevelTransitions/Downwards" index="0"]
 shape = SubResource( 2 )
 
-[node name="BigSlimeCorridor" parent="LevelTransitions" index="1" instance=ExtResource( 4 )]
+[node name="BigSlimeCorridor" parent="LevelTransitions" index="1" instance=ExtResource( 9 )]
 position = Vector2( 30944, 8224 )
 scale = Vector2( 2, 2 )
 map_path = "res://level/levels/greenwood_hills/BigSlimeCorridor.tscn"
@@ -160,121 +160,121 @@ position = Vector2( -1568, -248 )
 position = Vector2( 6592, 4600 )
 shape = SubResource( 4 )
 
-[node name="Slime" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
+[node name="Slime" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 2 )]
 position = Vector2( -2176, 6186 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime2" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
+[node name="Slime2" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 2 )]
 position = Vector2( -1856, 6186 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime3" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
+[node name="Slime3" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 2 )]
 position = Vector2( -1440, 6186 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime4" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
+[node name="Slime4" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 2 )]
 position = Vector2( -896, 6186 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime5" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
+[node name="Slime5" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 2 )]
 position = Vector2( -160, 6186 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime10" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="5" instance=ExtResource( 6 )]
+[node name="Slime10" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="5" instance=ExtResource( 2 )]
 position = Vector2( 10794, 9930 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime9" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="6" instance=ExtResource( 6 )]
+[node name="Slime9" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="6" instance=ExtResource( 2 )]
 position = Vector2( 11114, 9930 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime8" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="7" instance=ExtResource( 6 )]
+[node name="Slime8" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="7" instance=ExtResource( 2 )]
 position = Vector2( 11530, 9930 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime7" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="8" instance=ExtResource( 6 )]
+[node name="Slime7" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="8" instance=ExtResource( 2 )]
 position = Vector2( 12074, 9930 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime6" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="9" instance=ExtResource( 6 )]
+[node name="Slime6" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="9" instance=ExtResource( 2 )]
 position = Vector2( 12810, 9930 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime15" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="10" instance=ExtResource( 6 )]
+[node name="Slime15" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="10" instance=ExtResource( 2 )]
 position = Vector2( 20682, 10730 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime14" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="11" instance=ExtResource( 6 )]
+[node name="Slime14" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="11" instance=ExtResource( 2 )]
 position = Vector2( 21002, 10730 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime13" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="12" instance=ExtResource( 6 )]
+[node name="Slime13" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="12" instance=ExtResource( 2 )]
 position = Vector2( 21418, 10730 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime12" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="13" instance=ExtResource( 6 )]
+[node name="Slime12" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="13" instance=ExtResource( 2 )]
 position = Vector2( 21962, 10730 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
 actor_name = ""
 
-[node name="Slime11" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="14" instance=ExtResource( 6 )]
+[node name="Slime11" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="14" instance=ExtResource( 2 )]
 position = Vector2( 22698, 10730 )
-object = ExtResource( 18 )
+object = ExtResource( 6 )
 random_degrees = 0.0
 random_radius = 0.0
 team = "team_2"
@@ -289,10 +289,16 @@ shape = SubResource( 5 )
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -1984, 64 )
+camera_limit_trigger = NodePath("")
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
 
-[node name="1" parent="PlayerSpawnPoints" index="1" instance=ExtResource( 16 )]
+[node name="1" parent="PlayerSpawnPoints" index="1" instance=ExtResource( 3 )]
 position = Vector2( 18848, 13536 )
+camera_limit_trigger = NodePath("")
 DRAW_COLOR = Color( 0.886275, 0.192157, 0.713726, 1 )
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
 
 [editable path="InitialMusic"]
 

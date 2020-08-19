@@ -136,6 +136,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Sprite2" type="TextureRect" parent="CanopyFar1"]
+margin_top = -3325.62
+margin_right = 1600.0
+margin_bottom = -3069.62
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 15 )
+stretch_mode = 2
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BigTrees3" type="ParallaxLayer" parent="."]
 visible = false
 position = Vector2( -71.2715, 28.5088 )
@@ -165,6 +177,18 @@ margin_bottom = -1486.04
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 16 )
 stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="TextureRect" parent="CanopyFar2"]
+margin_top = -3330.41
+margin_right = 1600.0
+margin_bottom = -3074.41
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 16 )
+stretch_mode = 2
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -207,12 +231,24 @@ motion_scale = Vector2( 0.08, 0.07 )
 motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Canopy1"]
-margin_top = -2181.3
+margin_top = -2087.12
 margin_right = 1600.0
-margin_bottom = -1925.3
+margin_bottom = -1831.12
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 8 )
 stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="TextureRect" parent="Canopy1"]
+margin_top = -3099.58
+margin_right = 1600.0
+margin_bottom = -2843.58
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+stretch_mode = 2
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -239,12 +275,25 @@ motion_scale = Vector2( 0.1, 0.08 )
 motion_mirroring = Vector2( 6144, 0 )
 
 [node name="Sprite" type="TextureRect" parent="Canopy2"]
-margin_top = -2466.0
+margin_top = -2232.73
 margin_right = 1678.0
-margin_bottom = -2210.0
+margin_bottom = -1976.73
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 9 )
 stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="TextureRect" parent="Canopy2"]
+margin_top = -3032.75
+margin_right = 1678.0
+margin_bottom = -2776.75
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 9 )
+stretch_mode = 2
+flip_h = true
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

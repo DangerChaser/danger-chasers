@@ -7,7 +7,7 @@
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/cloud_jump/CloudJump.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/audio/music/dont-use-in-final/1-04 Downpour - For Hilltop Heights Act 2.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/music/dova_syndrome/Nine_Jack.ogg" type="AudioStream" id=8]
 [ext_resource path="res://level/RoundManager.gd" type="Script" id=9]
 [ext_resource path="res://level/levels/zero_limit/RainForeground.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level/levels/zero_limit/rain_thunder_ambience.ogg" type="AudioStream" id=11]
@@ -493,6 +493,8 @@ texture = ExtResource( 14 )
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -1984, 64 )
 camera_limit_trigger = NodePath("../../CameraLimits/CameraLimitTrigger")
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
 
 [node name="ZeroLimitAct2IntroCutscene" parent="IntroCutscene" index="0" instance=ExtResource( 13 )]
 position = Vector2( -4812.97, 576 )

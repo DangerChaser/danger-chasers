@@ -592,7 +592,8 @@ _global_script_class_icons={
 
 config/name="Danger Chaser"
 run/main_scene="res://interface/main_menu/MainMenu.tscn"
-config/version="v0.4.0"
+config/icon="res://icon.png"
+config/version="v0.6.1"
 
 [autoload]
 

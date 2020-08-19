@@ -102,8 +102,10 @@ QUESTS,Quests
 ACT,Act
 ZERO_LIMIT,Zero Limit
 ZERO_LIMIT_ACT_1,Zero Limit Act 1
-ZERO_LIMIT_ACT_1_DESCRIPTION,this is where I explain the story for now but nothing is here because oops
+ZERO_LIMIT_ACT_1_DESCRIPTION,This is supposed to be an easy tutorial stage for the player to get used to the controls.
 ZERO_LIMIT_ACT_2,Zero Limit Act 2
-ZERO_LIMIT_ACT_2_DESCRIPTION,insert description here lol
+ZERO_LIMIT_ACT_2_DESCRIPTION,"Another easy tutorial stage. This one has some ""Arenas"" that you can't pass until you beat all the enemies. More combat focused than the first level, but you can also skip a lot of encounters."
+ZERO_LIMIT_ACT_3,Zero Limit Act 3
+ZERO_LIMIT_ACT_3_DESCRIPTION,insert description here lol
 DEBUG_ENEMY,Debug Enemy
 DEBUG_ENEMY_DESCRIPTION,I put enemies in here and test them out to make sure that they try to kill you the correct way.
