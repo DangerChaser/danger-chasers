@@ -180,26 +180,14 @@ shape = SubResource( 6 )
 [node name="CloudJump" parent="Arenas/Arena4/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 4 )]
 position = Vector2( 2896, -2440 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump2" parent="Arenas/Arena4/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 4 )]
 position = Vector2( 1136, -2128 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump3" parent="Arenas/Arena4/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 4 )]
 position = Vector2( -2208, 304 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena4" index="4"]
 visible = false
@@ -215,26 +203,14 @@ shape = SubResource( 7 )
 [node name="CloudJump" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 4 )]
 position = Vector2( 1440, 192 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump2" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 4 )]
 position = Vector2( 8640, 704 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump3" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 4 )]
 position = Vector2( 10976, 672 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena3" index="4"]
 visible = false
@@ -253,66 +229,34 @@ shape = SubResource( 7 )
 [node name="CloudJump" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 4 )]
 position = Vector2( -1344, 768 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump2" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 4 )]
 position = Vector2( 576, 256 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump3" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 4 )]
 position = Vector2( 2112, -256 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump4" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 4 )]
 position = Vector2( 24320, -1216 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump5" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 4 )]
 position = Vector2( 26624, -704 )
 object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="SlimeRed" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="5" instance=ExtResource( 4 )]
 position = Vector2( 7296, 320 )
 object = ExtResource( 6 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="SlimeRed2" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="6" instance=ExtResource( 4 )]
 position = Vector2( 12736, 320 )
 object = ExtResource( 6 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="SlimeRed3" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="7" instance=ExtResource( 4 )]
 position = Vector2( 16192, 320 )
 object = ExtResource( 6 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena" index="4"]
 visible = false
@@ -328,13 +272,9 @@ change_camera = false
 position = Vector2( -3392, 256 )
 shape = SubResource( 10 )
 
-[node name="CloudJump" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 4 )]
+[node name="SlimeRed" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 4 )]
 position = Vector2( 1472, 448 )
-object = ExtResource( 5 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
+object = ExtResource( 6 )
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena2" index="4"]
 visible = false
@@ -369,9 +309,8 @@ actor_must_be_on_floor = true
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -1856, 0 )
 camera_limit_trigger = NodePath("../../CameraLimits/CameraLimitTrigger")
-[connection signal="interacted" from="Triggers/SignTutorialDropDialogue/InteractionArea2" to="Triggers/SignTutorialDropDialogue" method="start"]
-[connection signal="interacted" from="Triggers/SignTutorialStompDialogue/InteractionArea3" to="Triggers/SignTutorialStompDialogue" method="start"]
-[connection signal="interacted" from="Triggers/SignTutorialAttackDialogue/InteractionArea" to="Triggers/SignTutorialAttackDialogue" method="start"]
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
 
 [editable path="InitialMusic"]
 

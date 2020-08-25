@@ -138,7 +138,7 @@ weapon_animation = "stomp"
 [node name="DamageSource" parent="Pivot/Attacks/Stomp" index="0" instance=ExtResource( 7 )]
 position = Vector2( 0, 32 )
 hit_particles = ExtResource( 10 )
-damage = 15
+damage = 3
 delay_milliseconds = 6
 screen_shake_amplitude = 20.0
 screen_shake_duration = 0.3
@@ -171,7 +171,7 @@ weapon_animation = "recover"
 [node name="DamageSource" parent="Pivot/Attacks/Recover" index="0" instance=ExtResource( 7 )]
 position = Vector2( 0, 64 )
 hit_particles = ExtResource( 3 )
-damage = 5
+damage = 2
 delay_milliseconds = 2
 screen_shake_amplitude = 42.0
 screen_shake_duration = 0.3
