@@ -15,7 +15,9 @@ export var initialize_x := false
 export var initialize_y := false
 export var gets_input_direction := false
 export var offset := Vector2()
+# Don't have both take_previous_velocity and takes_previous_speed on at the same time
 export var take_previous_velocity := false
+export var takes_previous_speed := false
 
 var target_direction : Vector2
 var active := false
@@ -55,7 +57,11 @@ func enter(args := {}) -> void:
 		target_direction = Vector2.RIGHT.rotated(angle)
 	if gets_input_direction:
 		target_direction = motion.get_input_direction()
-	motion.steering.velocity = target_direction * initial_speed
+	
+	if takes_previous_speed and args.has("initial_speed"):
+		motion.steering.velocity = target_direction * max(args["initial_speed"], initial_speed)
+	else:
+		motion.steering.velocity = target_direction * initial_speed
 	
 	if initialize_x:
 		motion.steering.velocity.x = 0

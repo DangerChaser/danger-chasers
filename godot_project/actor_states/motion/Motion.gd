@@ -103,6 +103,7 @@ func update_look_direction(direction : Vector2) -> void:
 func get_exit_args() -> Dictionary:
 	var args = {
 		"velocity": steering.velocity, 
+		"initial_speed": steering.velocity.length(),
 		"gravity_speed":gravity.speed,
 		"external": {
 			"velocity" : external.velocity,

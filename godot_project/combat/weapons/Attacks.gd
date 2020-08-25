@@ -56,7 +56,7 @@ func _physics_process(delta : float) -> void:
 		State.LISTENING:
 			if not owner.input_enabled:
 				return
-			if Input.is_action_pressed(input):
+			if Input.is_action_just_pressed(input):
 				register_attack()
 			if owner.is_in_group("players") and Input.is_action_just_pressed("ui_up"):
 				register_jump()

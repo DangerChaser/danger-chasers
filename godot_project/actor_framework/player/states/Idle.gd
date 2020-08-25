@@ -39,26 +39,36 @@ func exit() -> void:
 	.exit()
 	motion.exit()
 	active = false
-	set_process(true)
+	set_process_input(true)
 
 
 func _input(event : InputEvent) -> void:
+	if event.is_action_pressed('ui_up'):
+		if not owner.input_enabled:
+			return
+		register_jump()
+	
+	if not active:
+		return
+	
 	if not owner.input_enabled:
 		return
-	if Input.is_action_just_pressed("light_attack") and owner.state_machine.has_state("LightAttack"):
+	if event.is_action_pressed("light_attack") and owner.state_machine.has_state("LightAttack"):
 		var args = {"target_direction" : Vector2(Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int , 0) }
 		finished("LightAttack", args)
 		return
 	if event.is_action_pressed('ui_down'):
 		drop_through_timer.start()
 		owner.set_collision_mask_bit(DROP_THRU_BIT, false)
-
-
-func _process(delta):
-	if Input.is_action_pressed('ui_up'):
-		if not owner.input_enabled:
-			return
-		register_jump()
+		
+		if owner.state_machine.has_state("Stomp"):
+			air_timer.stop()
+			if not owner.is_on_floor():
+				var args = { "velocity": motion.steering.velocity }
+				args["input_key"] = "ui_down"
+				args["target_direction"] = Vector2(motion.steering.velocity.x, Vector2.DOWN.y)
+				finished("Stomp", args)
+				return
 
 
 func _physics_process(delta : float) -> void:
@@ -77,22 +87,6 @@ func _physics_process(delta : float) -> void:
 			owner.play_animation(run_animation)
 		elif not current_animation == animation and motion.steering.velocity.length() < motion.steering.max_speed * stand_still_threshold_percent:
 			owner.play_animation(animation)
-	
-	if not owner.input_enabled:
-		return
-	
-	_check_stomp()
-
-
-func _check_stomp() -> void:
-	if owner.state_machine.has_state("Stomp") and Input.is_action_pressed('ui_down'):
-		air_timer.stop()
-		if not owner.is_on_floor():
-			var args = { "velocity": motion.steering.velocity }
-			args["input_key"] = "ui_down"
-			args["target_direction"] = Vector2(motion.steering.velocity.x, Vector2.DOWN.y)
-			finished("Stomp", args)
-			return
 
 
 func take_damage(args := {}):
