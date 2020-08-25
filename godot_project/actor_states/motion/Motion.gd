@@ -55,6 +55,9 @@ func exit() -> void:
 
 
 func _physics_process(delta : float) -> void:
+	if owner.paused:
+		return
+	
 	external.move()
 	gravity.apply(delta)
 	total_velocity = steering.velocity + gravity.velocity + external.velocity

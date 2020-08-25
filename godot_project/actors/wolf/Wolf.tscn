@@ -26,6 +26,8 @@ extents = Vector2( 124.688, 61.3919 )
 
 [node name="StateMachine" parent="." index="1"]
 script = ExtResource( 13 )
+attack_distance = 1200.0
+attack_chance = 0.9
 
 [node name="WalkSequence" parent="StateMachine" index="0" instance=ExtResource( 2 )]
 
@@ -43,48 +45,41 @@ wait_time = 0.5
 
 [node name="RunSequence" parent="StateMachine" index="1" instance=ExtResource( 2 )]
 
-[node name="WaitTime" parent="StateMachine/RunSequence" index="0" instance=ExtResource( 3 )]
-
-[node name="MoveTo" parent="StateMachine/RunSequence" index="1" instance=ExtResource( 4 )]
+[node name="MoveTo" parent="StateMachine/RunSequence" index="0" instance=ExtResource( 4 )]
 animation = "run"
 max_roam_radius = 0.0
-stagger = true
 arrive_distance = 900.0
 
 [node name="MotionSteering" parent="StateMachine/RunSequence/MoveTo/Motion" index="1"]
-max_speed = 1337.0
+max_speed = 1500.0
+mass = 8.0
 
 [node name="Timer" parent="StateMachine/RunSequence/MoveTo" index="1"]
 wait_time = 2.0
 
 [node name="JumpBackSequence" parent="StateMachine" index="2" instance=ExtResource( 2 )]
 
-[node name="WaitTime" parent="StateMachine/JumpBackSequence" index="0" instance=ExtResource( 3 )]
-
-[node name="JumpBack" parent="StateMachine/JumpBackSequence" index="1" instance=ExtResource( 6 )]
+[node name="JumpBack" parent="StateMachine/JumpBackSequence" index="0" instance=ExtResource( 6 )]
 weapon_levels = [ 0 ]
 weapons = [ ExtResource( 7 ) ]
+stagger = false
 
 [node name="ChargeSequence" parent="StateMachine" index="3" instance=ExtResource( 2 )]
+next_state = "JumpBackSequence"
 
 [node name="WaitTime" parent="StateMachine/ChargeSequence" index="0" instance=ExtResource( 3 )]
-animation = "prepare"
+animation = "growl"
+stagger_state = ""
+duration = 0.2
 
 [node name="AIAttack" parent="StateMachine/ChargeSequence" index="1" instance=ExtResource( 6 )]
 weapon_levels = [ 0 ]
 weapons = [ ExtResource( 5 ) ]
-
-[node name="JumpBackSequence" parent="StateMachine/ChargeSequence" index="2" instance=ExtResource( 2 )]
-
-[node name="WaitTime" parent="StateMachine/ChargeSequence/JumpBackSequence" index="0" instance=ExtResource( 3 )]
-
-[node name="JumpBack" parent="StateMachine/ChargeSequence/JumpBackSequence" index="1" instance=ExtResource( 6 )]
-weapon_levels = [ 0 ]
-weapons = [ ExtResource( 7 ) ]
+stagger = false
 
 [node name="Stagger" parent="StateMachine" index="4" instance=ExtResource( 8 )]
-revenge_threshold = 5.0
-revenge_state = "JumpBack"
+revenge_threshold = 3.0
+revenge_state = "JumpBackSequence"
 
 [node name="Die" parent="StateMachine" index="5" instance=ExtResource( 9 )]
 die_particles_scene = ExtResource( 12 )

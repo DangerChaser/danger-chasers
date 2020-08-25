@@ -985,6 +985,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "SETUP"
 anims/SETUP = SubResource( 1 )
 anims/air = SubResource( 2 )
 anims/die = SubResource( 3 )
@@ -1033,9 +1034,9 @@ hframes = 6
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -243.246 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 14 )
-normal_map = ExtResource( 19 )
-hframes = 6
+texture = ExtResource( 16 )
+normal_map = ExtResource( 21 )
+hframes = 8
 
 [node name="Weapons" type="Node2D" parent="."]
 

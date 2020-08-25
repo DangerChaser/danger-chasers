@@ -38,6 +38,7 @@ var last_move_direction : Vector2
 var flashing := false
 var initialize_on_ready := true # Set to false before adding to tree to delay initialization
 var input_enabled := true
+var paused := false
 
 
 func _ready():
@@ -142,18 +143,21 @@ func _on_Hurtbox_area_entered(area, hurtbox : Hurtbox):
 				direction.x *= -1
 		else:
 			direction = -(area.global_position - global_position).normalized()
-		take_damage(area.damage, area.stagger_duration, area.stagger_force, area.stagger_mass, direction, area.revenge_value)
+		
+		
+		
+		take_damage(area.damage, area.stagger_duration, area.stagger_force, area.stagger_mass, direction, area.revenge_value, area.hitstun_duration)
 
 
-func take_damage(base_damage : int, duration := 0.0, force := 0.0, mass := 1.0, direction := Vector2(), revenge_value := 0.0):
+func take_damage(base_damage : int, duration := 0.0, force := 0.0, mass := 1.0, direction := Vector2(), revenge_value := 0.0, hitstun_duration := 0.0):
 	if buffs.has("Invincible"):
 		return
 	
 	var damage = base_damage if not buffs.has("TakesNoDamage") else 0
 	var died = stats.take_damage(damage)
 	
-	flash_duration_timer.start()
 	flash_timer.start()
+	flash_duration_timer.start()
 	flash()
 	
 	var args = { 
@@ -172,6 +176,11 @@ func take_damage(base_damage : int, duration := 0.0, force := 0.0, mass := 1.0, 
 	
 	var current_state = state_machine.get_current_state()
 	current_state.take_damage(args)
+	
+	if hitstun_duration > 0.0:
+		pause()
+		yield(get_tree().create_timer(hitstun_duration), "timeout")
+		unpause()
 
 
 func _on_FlashTimer_timeout():
@@ -230,14 +239,16 @@ func face_actor(actor=null):
 
 func pause():
 	if pause_offscreen:
+		paused = true
 		state_machine.pause()
-#		pivot.animation_player.stop(false)
+		pivot.animation_player.stop(false)
 
 
 func unpause():
 	if pause_offscreen:
+		paused = false
 		state_machine.unpause()
-#		pivot.animation_player.play()
+		pivot.animation_player.play()
 
 
 func enable_input() -> void:

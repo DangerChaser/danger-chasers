@@ -43,6 +43,8 @@ func exit() -> void:
 
 
 func _physics_process(delta : float) -> void:
+	if go_to_target: 
+		calculate_new_target_position()
 	var buffer = 6.0
 	motion.move_to(target_position)
 	if owner.global_position.distance_to(target_position) <= arrive_distance or owner.is_on_wall():

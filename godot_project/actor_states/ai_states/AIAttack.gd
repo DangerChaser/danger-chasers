@@ -27,7 +27,7 @@ func _physics_process(delta:float) -> void:
 
 
 func take_damage(args := {}):
-	if stagger:
+	if stagger and owner.state_machine.has_state("Stagger"):
 		finished("Stagger", args)
 
 

@@ -12,6 +12,7 @@ signal hit_confirmed_no_actor
 export var hit_particles : PackedScene
 export var damage : int = 0
 # var effect : StatusEffect = StatusEffect.new()
+export var hitstun_duration := 0.1
 export var stagger_duration := 0.5
 export var stagger_mass := 8.0
 export var stagger_force := 800.0

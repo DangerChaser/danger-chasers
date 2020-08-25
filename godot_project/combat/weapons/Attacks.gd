@@ -50,6 +50,9 @@ func reset() -> void:
 
 
 func _physics_process(delta : float) -> void:
+	if owner.paused:
+		return
+	
 	match(state):
 		State.NOT_READY:
 			pass # Do nothing

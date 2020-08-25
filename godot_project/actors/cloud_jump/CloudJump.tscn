@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/cloud_jump/CloudJumpPivot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/cloud_jump/CloudJumpWeapon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/cloud_jump/CloudJump.tres" type="Resource" id=5]
 [ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=7]
@@ -39,10 +38,7 @@ weapons = [ ExtResource( 3 ) ]
 [node name="Land" parent="StateMachine/Sequence" index="2" instance=ExtResource( 11 )]
 animation = "land"
 
-[node name="Stagger" parent="StateMachine" index="2" instance=ExtResource( 4 )]
-next_state = "Sequence"
-
-[node name="Die" parent="StateMachine" index="3" instance=ExtResource( 7 )]
+[node name="Die" parent="StateMachine" index="2" instance=ExtResource( 7 )]
 die_particles_scene = ExtResource( 12 )
 
 [node name="CollisionBox" parent="." index="1"]
