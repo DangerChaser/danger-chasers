@@ -1,4 +1,4 @@
-extends Node2D
+extends Smoothing2D
 class_name Pivot
 
 signal animation_started(anim_name)

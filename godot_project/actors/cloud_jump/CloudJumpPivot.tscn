@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://actors/cloud_jump/sprites/jump.png" type="Texture" id=1]
 [ext_resource path="res://actors/cloud_jump/sprites/land_normal.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=14]
 [ext_resource path="res://actors/cloud_jump/LandDust.tscn" type="PackedScene" id=15]
 [ext_resource path="res://actors/cloud_jump/JumpDust.tscn" type="PackedScene" id=16]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=17]
+[ext_resource path="res://actors/cloud_jump/CloudJumpDeathExplosion.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -223,6 +225,20 @@ tracks/2/keys = {
 "values": [ {
 "args": [  ],
 "method": "stop"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("DeathParticleSpawner")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
 } ]
 }
 
@@ -671,5 +687,8 @@ particles = ExtResource( 16 )
 
 [node name="LandDust" parent="." instance=ExtResource( 14 )]
 particles = ExtResource( 15 )
+
+[node name="DeathParticleSpawner" parent="." instance=ExtResource( 17 )]
+object = ExtResource( 18 )
 
 [editable path="Hurtbox"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_framework/Pivot.gd" type="Script" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://actors/wolf/sprites/idle_normal.png" type="Texture" id=21]
 [ext_resource path="res://actors/fox/sprites/spin_normal.png" type="Texture" id=22]
 [ext_resource path="res://actors/wolf/sprites/stagger_normal.png" type="Texture" id=23]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=24]
+[ext_resource path="res://actors/wolf/particles/WolfDeathExplosion.tscn" type="PackedScene" id=25]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -255,6 +257,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("DeathExplosionSpawner")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -1068,6 +1084,9 @@ particles = ExtResource( 9 )
 
 [node name="LandDust" parent="." instance=ExtResource( 1 )]
 particles = ExtResource( 7 )
+
+[node name="DeathExplosionSpawner" parent="." instance=ExtResource( 24 )]
+object = ExtResource( 25 )
 [connection signal="animation_changed" from="." to="TrailingSprites" method="stop"]
 [connection signal="animation_play_requested" from="." to="TrailingSprites" method="stop"]
 [connection signal="animation_started" from="." to="TrailingSprites" method="start"]

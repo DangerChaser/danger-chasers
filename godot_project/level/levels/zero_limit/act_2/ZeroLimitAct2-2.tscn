@@ -82,6 +82,7 @@ follow_viewport_enable = true
 follow_viewport_scale = 0.95
 
 [node name="TileMap" type="TileMap" parent="Background/ParallaxBackground" index="0"]
+visible = false
 modulate = Color( 0.584314, 0.584314, 0.584314, 1 )
 scale = Vector2( 4, 4 )
 tile_set = ExtResource( 25 )
@@ -491,6 +492,8 @@ texture = ExtResource( 14 )
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -4896, -1248 )
 camera_limit_trigger = NodePath("../../CameraLimits/CameraLimitTrigger")
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
 
 [editable path="InitialMusic"]
 
