@@ -5,16 +5,17 @@ const VECTOR_UP = Vector2(0, -1)
 
 onready var motion : MotionState = $Motion
 
-export(float) var initial_mass = 1.0
-export(float) var initial_speed := 840.0 # Positive pushes actor to target
-export(bool) var actor_rotate := false # Takes priority over weapon_rotate
-export(bool) var weapon_rotate := false
-export(bool) var disable_x_input := false
-export(bool) var disable_y_input := true
-export(bool) var initialize_x := false
-export(bool) var initialize_y := false
-export(bool) var gets_input_direction := false
-export(Vector2) var offset := Vector2()
+export var initial_mass = 1.0
+export var initial_speed := 840.0 # Positive pushes actor to target
+export var actor_rotate := false # Takes priority over weapon_rotate
+export var weapon_rotate := false
+export var disable_x_input := false
+export var disable_y_input := true
+export var initialize_x := false
+export var initialize_y := false
+export var gets_input_direction := false
+export var offset := Vector2()
+export var take_previous_velocity := false
 
 var target_direction : Vector2
 var active := false
@@ -63,6 +64,9 @@ func enter(args := {}) -> void:
 		motion.gravity.speed = 0.0
 		motion.gravity.velocity.y = 0
 		motion.external.velocity.y = 0
+	
+	if args.has("velocity") and take_previous_velocity:
+		motion.steering.velocity = args["velocity"]
 
 
 func exit() -> void:

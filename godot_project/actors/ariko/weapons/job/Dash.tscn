@@ -153,6 +153,7 @@ actor_animation = "dash"
 [node name="MovementEffect" parent="Pivot/Attacks/Dash/AdditionalEffects" index="0" instance=ExtResource( 8 )]
 initial_speed = 5069.0
 initialize_y = true
+take_previous_velocity = true
 
 [node name="MotionSteering" parent="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 3000.0
@@ -170,6 +171,7 @@ actor_animation = "quick_attack"
 [node name="MovementEffect" parent="Pivot/Attacks/Dash2/AdditionalEffects" index="0" instance=ExtResource( 8 )]
 initial_speed = 5069.0
 initialize_y = true
+take_previous_velocity = true
 
 [node name="MotionSteering" parent="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 3000.0

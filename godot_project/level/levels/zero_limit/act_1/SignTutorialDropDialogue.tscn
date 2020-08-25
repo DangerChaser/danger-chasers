@@ -205,7 +205,7 @@ json_name = "sign_tutorial_drop.json"
 
 [node name="PlayerManagedStateManager" parent="." index="2" instance=ExtResource( 1 )]
 managed_state = ExtResource( 2 )
-face_target_node_path = NodePath("../../SignTutorialStompDialogue/Dialogues/DialogueStarter")
+face_target_node_path = NodePath("../Dialogues/DialogueStarter")
 
 [node name="WoodenSign" type="Sprite" parent="." index="3"]
 position = Vector2( 0.026062, -115.914 )

@@ -2,7 +2,6 @@ extends MovementEffect
 
 export var jump_force := 5000.0
 export var finish_on_release := true
-export var take_previous_velocity := true
 
 var input : String
 var current_speed : float
@@ -17,8 +16,6 @@ func enter(args := {}) -> void:
 	input = weapon.input
 	
 	.enter(args)
-	if args.has("velocity") and take_previous_velocity:
-		motion.steering.velocity = args["velocity"]
 	
 	current_speed = initial_speed + sign(initial_speed) * max(motion.steering.max_speed * owner.global_scale.length(), motion.steering.velocity.length())
 	motion.steering.velocity.x = target_direction.x * current_speed + owner.get_floor_velocity().x
