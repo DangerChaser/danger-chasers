@@ -137,7 +137,7 @@ func _on_Hurtbox_area_entered(area, hurtbox : Hurtbox):
 	if state == States.INVINCIBLE or state_machine.get_current_state().name == "Die":
 		return
 	if area is DamageSource and not area.friendly_teams.has(team):
-		if area.confirmed_hit_hurtboxes.has(hurtbox):
+		if area.hit_hurtboxes.has(hurtbox):
 			return
 		
 		area.confirm_hit(self, hurtbox)

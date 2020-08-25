@@ -17,6 +17,7 @@ func spawn(parent=null):
 	actor.initialize_on_ready = false
 	if parent:
 		parent.add_child(actor)
+	actor.get_node("Pivot").teleport()
 	initialize_actor(actor)
 	return actor
 

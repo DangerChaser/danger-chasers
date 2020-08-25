@@ -22,13 +22,14 @@ export var screen_shake_duration := 0.0
 export(float, EASE) var screen_shake_damp := 1.8
 export var stagger_direction_while_right := Vector2()
 export var revenge_value := 1.0
+export var track_hit_hurtboxes := true
 
 onready var collider : CollisionShape2D = $CollisionShape2D
 onready var hit_particles_spawner : ParticleSpawner = $HitParticlesSpawner
 
 var friendly_teams := []
 var confirmed_hits = 0
-var confirmed_hit_hurtboxes := []
+var hit_hurtboxes := []
 
 
 func _ready() -> void:
@@ -57,7 +58,8 @@ func confirm_hit(actor, hurtbox : Hurtbox) -> void:
 	shake_screen()
 	hit_particles_spawner.spawn((collider.global_position + hurtbox.collider.global_position) / 2)
 	confirmed_hits += 1
-	confirmed_hit_hurtboxes.append(hurtbox)
+	if track_hit_hurtboxes:
+		hit_hurtboxes.append(hurtbox)
 
 
 func shake_screen() -> void:
@@ -70,8 +72,8 @@ func set_active(value : bool) -> void:
 
 func enable() -> void:
 	set_active(true)
-	confirmed_hit_hurtboxes = []
+	hit_hurtboxes = []
 
 func disable() -> void:
 	set_active(false)
-	confirmed_hit_hurtboxes = []
+	hit_hurtboxes = []

@@ -238,6 +238,7 @@ shape = SubResource( 8 )
 [node name="Arena" parent="Arenas" index="0" instance=ExtResource( 5 )]
 position = Vector2( 4000, -352 )
 change_camera = false
+next_group_spawn_percent = null
 
 [node name="ActivationArea" parent="Arenas/Arena" index="1"]
 position = Vector2( -2933.05, -873.448 )
@@ -249,10 +250,6 @@ shape = SubResource( 9 )
 [node name="Wolf" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 position = Vector2( -1216, 224 )
 object = ExtResource( 8 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena" index="4"]
 visible = false
@@ -269,6 +266,7 @@ position = Vector2( 1280, 490 )
 [node name="Arena2" parent="Arenas" index="1" instance=ExtResource( 5 )]
 position = Vector2( 4000, -2496 )
 change_camera = false
+next_group_spawn_percent = null
 
 [node name="ActivationArea" parent="Arenas/Arena2" index="1"]
 position = Vector2( 2784, 1952 )
@@ -279,58 +277,30 @@ shape = SubResource( 11 )
 [node name="CloudJump" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 position = Vector2( -182, 32 )
 object = ExtResource( 7 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump2" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
 position = Vector2( 234, 32 )
 object = ExtResource( 7 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump3" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
 position = Vector2( -928, 32 )
 object = ExtResource( 7 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump4" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
 position = Vector2( -480, 32 )
 object = ExtResource( 7 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump5" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
 position = Vector2( 64, 32 )
 object = ExtResource( 7 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump6" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="5" instance=ExtResource( 6 )]
 position = Vector2( 672, 32 )
 object = ExtResource( 7 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump7" parent="Arenas/Arena2/ActorSpawnGroups/Group1" index="6" instance=ExtResource( 6 )]
 position = Vector2( 1120, 32 )
 object = ExtResource( 7 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena2" index="4"]
 visible = false
@@ -348,6 +318,7 @@ position = Vector2( 4032, 905.448 )
 [node name="Arena3" parent="Arenas" index="2" instance=ExtResource( 5 )]
 position = Vector2( 5568, -4896 )
 change_camera = false
+next_group_spawn_percent = null
 
 [node name="ActivationArea" parent="Arenas/Arena3" index="1"]
 position = Vector2( -3712, 2176 )
@@ -358,42 +329,22 @@ shape = SubResource( 11 )
 [node name="CloudJump" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 position = Vector2( -3257.77, 997.285 )
 object = ExtResource( 7 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CloudJump2" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="1" instance=ExtResource( 6 )]
 position = Vector2( -1265.54, 745.302 )
 object = ExtResource( 7 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="RedSlime" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="2" instance=ExtResource( 6 )]
 position = Vector2( -2497.1, 996.056 )
 object = ExtResource( 18 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="RedSlime2" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="3" instance=ExtResource( 6 )]
 position = Vector2( -898.826, 687.651 )
 object = ExtResource( 18 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="RedSlime3" parent="Arenas/Arena3/ActorSpawnGroups/Group1" index="4" instance=ExtResource( 6 )]
 position = Vector2( -543.342, 496.143 )
 object = ExtResource( 18 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena3" index="4"]
 visible = false
@@ -402,6 +353,7 @@ position = Vector2( 288, -233.448 )
 [node name="Arena4" parent="Arenas" index="3" instance=ExtResource( 5 )]
 position = Vector2( 18304, -4960 )
 change_camera = false
+next_group_spawn_percent = null
 
 [node name="ActivationArea" parent="Arenas/Arena4" index="1"]
 position = Vector2( -2880, 0 )
@@ -412,10 +364,6 @@ shape = SubResource( 11 )
 [node name="Wolf" parent="Arenas/Arena4/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 position = Vector2( 1344, 128 )
 object = ExtResource( 8 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena4" index="4"]
 visible = false
