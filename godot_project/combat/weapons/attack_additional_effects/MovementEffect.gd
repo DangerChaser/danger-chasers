@@ -105,7 +105,7 @@ func _weapon_rotate() -> void:
 		direction = owner.global_position.direction_to(owner.target.global_position)
 	var angle = direction.angle()
 	
-	if owner is KinematicBody2DMirror and owner.look_direction == Vector2.LEFT:
+	if owner is MirrorBody2D and owner.look_direction == Vector2.LEFT:
 		angle = PI - angle
 	
 	weapon.set_rotation(angle)

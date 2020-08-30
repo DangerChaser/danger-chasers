@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://core/utils/ActivationArea.gd"
 }, {
-"base": "KinematicBody2DMirror",
+"base": "MirrorBody2D",
 "class": "Actor",
 "language": "GDScript",
 "path": "res://actor_framework/Actor.gd"
@@ -259,11 +259,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://core/utils/KeyRichTextLabel.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "KinematicBody2DMirror",
-"language": "GDScript",
-"path": "res://core/KinematicBody2DMirror.gd"
-}, {
 "base": "Node2D",
 "class": "Level",
 "language": "GDScript",
@@ -298,6 +293,11 @@ _global_script_classes=[ {
 "class": "Message",
 "language": "GDScript",
 "path": "res://addons/radmatt.DialogueSystem2/other/Message.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "MirrorBody2D",
+"language": "GDScript",
+"path": "res://core/KinematicBody2DMirror.gd"
 }, {
 "base": "State",
 "class": "MotionState",
@@ -354,7 +354,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://actor_framework/player/PlayerActor.gd"
 }, {
-"base": "KinematicBody2DMirror",
+"base": "MirrorBody2D",
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://combat/weapons/projectiles/Projectile.gd"
@@ -545,7 +545,6 @@ _global_script_class_icons={
 "JobState": "",
 "KeyLabel": "",
 "KeyRichTextLabel": "",
-"KinematicBody2DMirror": "",
 "Level": "",
 "LevelIntro": "",
 "LevelLoader": "",
@@ -553,6 +552,7 @@ _global_script_class_icons={
 "LootPanel": "",
 "ManagedState": "",
 "Message": "res://addons/radmatt.DialogueSystem2/icons/Message.svg",
+"MirrorBody2D": "",
 "MotionState": "",
 "MotionSteering": "",
 "MoveToState": "",

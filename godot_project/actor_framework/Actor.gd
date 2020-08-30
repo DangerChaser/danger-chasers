@@ -1,7 +1,7 @@
 """
 Base class for Actor. Handles general movement.
 """
-extends KinematicBody2DMirror
+extends MirrorBody2D
 class_name Actor
 
 signal died(actor)

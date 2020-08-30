@@ -1,4 +1,4 @@
-extends KinematicBody2DMirror
+extends MirrorBody2D
 class_name Projectile
 
 export var initial_speed := 400

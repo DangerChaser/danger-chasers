@@ -1,7 +1,7 @@
-### Flips the KinematicBody2D on the X-Axis based on its current rotation ###
-tool
+''' Flips the KinematicBody2D on the X-Axis based on its current rotation '''
+''' Assumes 0 degrees is the right vector '''
 extends KinematicBody2D
-class_name KinematicBody2DMirror
+class_name MirrorBody2D
 
 var look_direction := Vector2.RIGHT
 
@@ -13,8 +13,12 @@ func set_rotation_degrees(value : float) -> void:
 	rotation_degrees = value
 	_correct_rotation()
 
+func set_scale(value : Vector2) -> void:
+	print_debug("Error: can't manually set scale on a MirrorBody2D")
+
 func _correct_rotation():
 	# Check which direction the KinematicBody2D is facing
+	# if rotation is 0.0, do nothing
 	if cos(rotation) > 0.0:
 		look_direction = Vector2.RIGHT
 		scale = scale.abs()
