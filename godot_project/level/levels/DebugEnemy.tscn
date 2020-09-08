@@ -3,29 +3,29 @@
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/music/Goldenbed River Battle Loop.ogg" type="AudioStream" id=2]
 [ext_resource path="res://level/levels/tidal_forest/vnitti_taiga.tres" type="TileSet" id=3]
+[ext_resource path="res://actors/direwolf_kamikaze/DirewolfKamikaze.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/direwolf/Direwolf.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2014.77, 155.429 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 183.573, 1184.54 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
 extents = Vector2( 304, 272 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
 extents = Vector2( 1728.16, 880.724 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 resource_local_to_scene = true
 extents = Vector2( 61.8209, 52.2615 )
 
@@ -51,19 +51,19 @@ tile_data = PoolIntArray( -983063, 0, 65542, -983062, 0, 65543, -983061, 0, 6554
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Floor" index="0"]
 position = Vector2( 785.724, 1436.75 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground/Floor" index="1"]
 position = Vector2( 785.724, -921.821 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground/Floor" index="2"]
 position = Vector2( -1209.99, 111.315 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground/Floor" index="3"]
 position = Vector2( 2871.28, 107.951 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="Colliders" parent="." index="5"]
 visible = false
@@ -73,7 +73,7 @@ position = Vector2( 864, 40 )
 zoom = Vector2( 2, 2 )
 
 [node name="ColliderTrigger" parent="CameraLimits/CameraLimitTrigger" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="TopLeft" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="0"]
 position = Vector2( -1965.19, -879.467 )
@@ -86,17 +86,21 @@ position = Vector2( 863.789, 457.126 )
 change_camera = false
 
 [node name="CollisionShape2D" parent="Arenas/Arena/ActivationArea" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="ActorSpawner" parent="Arenas/Arena/ActorSpawnGroups/Group1" index="0" instance=ExtResource( 6 )]
 position = Vector2( 1184.2, 257.984 )
-object = ExtResource( 7 )
+object = ExtResource( 4 )
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="CameraLimitTrigger" parent="Arenas/Arena" index="4"]
 visible = false
 
 [node name="ColliderTrigger" parent="Arenas/Arena/CameraLimitTrigger" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -152.385, 1231.32 )

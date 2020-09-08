@@ -20,7 +20,7 @@
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=21]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=23]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 31.3801
 height = 113.05
 
@@ -78,7 +78,7 @@ face_target = false
 
 [node name="CollisionBox" parent="." index="2"]
 position = Vector2( 0, -87.2057 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 1 )
@@ -115,6 +115,9 @@ monitorable = false
 [node name="CollisionShape2D" parent="ActivationScanner" index="0"]
 shape = SubResource( 3 )
 disabled = true
+
+[node name="TargetPosition1" parent="TargetPositions" index="0"]
+position = Vector2( 0, -110.578 )
 [connection signal="body_exited" from="DropThroughArea" to="." method="_on_DropThroughArea_body_exited"]
 
 [editable path="PlayerHUDLayer/BattleHUD"]

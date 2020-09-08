@@ -1,6 +1,7 @@
 extends RayCast2D
 class_name RayCastLine2D
 
+export var ray_cast_collide := false
 
 onready var line : Line2D = $Line2D
 var length : float
@@ -11,7 +12,9 @@ func _ready() -> void:
 
 
 func line_cast() -> void:
-	length = (global_position - get_collision_point()).length() if get_collider() else cast_to.x
+	length = cast_to.x
+	if ray_cast_collide and get_collider():
+		length = (global_position - get_collision_point()).length()
 	line.points[1] = Vector2(length, 0)
 
 

@@ -1,4 +1,5 @@
 extends WaitState
+class_name WaitTime
 
 export var duration := 0.5
 export var duration_variation := 0.0
@@ -9,6 +10,7 @@ onready var timer : Timer = $Timer
 func enter(args := {}) -> void:
 	.enter(args)
 	timer.start(duration + randf() * duration_variation)
+	print_debug(timer.wait_time)
 
 
 func exit() -> void:

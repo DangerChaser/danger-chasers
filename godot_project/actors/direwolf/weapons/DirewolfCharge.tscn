@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/fox/sfx/charge.wav" type="AudioStream" id=2]
@@ -6,17 +6,18 @@
 [ext_resource path="res://combat/weapons/attack_additional_effects/NextAttackOnFloor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=5]
 [ext_resource path="res://combat/weapons/attack_additional_effects/PassThroughActorEffect.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/wolf/weapons/attack.png" type="Texture" id=7]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/direwolf/particles/AttackHit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/direwolf/particles/DirewolfChargeParticlesDown.tscn" type="PackedScene" id=9]
+[ext_resource path="res://actors/direwolf/particles/DirewolfChargeParticlesUp.tscn" type="PackedScene" id=10]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=11]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=13]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 192, 160 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "SETUP"
+[sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "method"
 tracks/0/path = NodePath("DamageSource")
@@ -32,33 +33,8 @@ tracks/0/keys = {
 "method": "disable"
 } ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Sprite:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Sprite2:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
 
-[sub_resource type="Animation" id=2]
-resource_name = "charge"
+[sub_resource type="Animation" id=3]
 length = 0.6
 step = 0.03
 tracks/0/type = "method"
@@ -88,7 +64,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.09, 0.24 ),
+"times": PoolRealArray( 0, 0.15, 0.24 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -115,57 +91,36 @@ tracks/2/keys = {
 "method": "play"
 } ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("Pivot/Sprite:frame")
+tracks/3/type = "method"
+tracks/3/path = NodePath("Pivot/DirewolfChargeParticlesUp")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+"times": PoolRealArray( 0.03 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("Pivot/Sprite:visible")
+tracks/4/type = "method"
+tracks/4/path = NodePath("Pivot/DirewolfChargeParticlesDown")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Pivot/Sprite2:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0.09, 0.39 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Pivot/Sprite2:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27, 0.3, 0.33, 0.36 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+"times": PoolRealArray( 0.09 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "wind_down"
+[sub_resource type="Animation" id=4]
 length = 0.2
 
 [node name="DirewolfCharge" instance=ExtResource( 1 )]
@@ -176,32 +131,24 @@ hit_particles = ExtResource( 8 )
 damage = 5
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="." index="2"]
 stream = ExtResource( 2 )
 bus = "Sfx"
 
 [node name="AnimationPlayer" parent="." index="3"]
-anims/SETUP = SubResource( 1 )
-anims/charge = SubResource( 2 )
-anims/wind_down = SubResource( 3 )
+anims/SETUP = SubResource( 2 )
+anims/charge = SubResource( 3 )
+anims/wind_down = SubResource( 4 )
 
-[node name="Sprite" type="Sprite" parent="Pivot" index="0"]
-visible = false
-position = Vector2( 360, -248 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 7 )
-hframes = 10
-frame = 9
+[node name="DirewolfChargeParticlesUp" parent="Pivot" index="0" instance=ExtResource( 7 )]
+position = Vector2( 512, -224 )
+object = ExtResource( 9 )
 
-[node name="Sprite2" type="Sprite" parent="Pivot" index="1"]
-visible = false
-position = Vector2( 360, -248 )
-scale = Vector2( 4, -4 )
-texture = ExtResource( 7 )
-hframes = 10
-frame = 7
+[node name="DirewolfChargeParticlesDown" parent="Pivot" index="1" instance=ExtResource( 7 )]
+position = Vector2( 608, -256 )
+object = ExtResource( 10 )
 
 [node name="Attacks" parent="Pivot" index="2"]
 can_loop = true

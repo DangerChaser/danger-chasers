@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/lasers/LaserAttack.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/maid_share/ShareBulletLaser.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/ray_cast_line_2d/Red5.tscn" type="PackedScene" id=5]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=9]
-
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -157,14 +156,9 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
-resource_local_to_scene = true
-extents = Vector2( 30, 30 )
-
 [node name="ShareTurretGun" instance=ExtResource( 1 )]
-cooldown = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
 anims/attack = SubResource( 2 )
 anims/prepare = SubResource( 3 )
@@ -180,23 +174,10 @@ weapon_animation = "prepare"
 visible = false
 collision_mask = 1
 
-[node name="DamageSource" parent="Pivot/Attacks/Attack" index="1"]
-visible = false
-damage = 1
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/Attack/DamageSource" index="0"]
-shape = SubResource( 4 )
-disabled = true
-
 [node name="LaserAttack" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
 
 [node name="ShareBulletLaser" parent="Pivot/Attacks/LaserAttack/Lasers" index="0" instance=ExtResource( 3 )]
 
-[node name="DamageSource" parent="Pivot/Attacks/LaserAttack" index="1"]
-damage = 5
-
 [editable path="Pivot/Attacks/Attack"]
-
-[editable path="Pivot/Attacks/Attack/DamageSource"]
 
 [editable path="Pivot/Attacks/LaserAttack"]

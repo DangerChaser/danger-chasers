@@ -62,6 +62,12 @@ pause_animations = false
 freeze_bodies = false
 pause_particles = false
 pause_animated_sprites = false
+
+[node name="TargetPositions" type="Node2D" parent="."]
+
+[node name="TargetPosition1" type="Position2D" parent="TargetPositions" groups=[
+"target_positions",
+]]
 [connection signal="state_changed" from="StateMachine" to="ActorInterface" method="_on_StateMachine_state_changed"]
 [connection signal="stats_changed" from="Stats" to="ActorInterface" method="_on_Stats_stats_changed"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_FlashTimer_timeout"]

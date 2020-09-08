@@ -4,6 +4,7 @@ onready var collider_shape : CollisionShape2D = $DamageSource/CollisionShape2D
 onready var damage_tick_timer : Timer = $DamageTick
 onready var damage_source = $DamageSource
 
+export var ray_cast_collide := false
 export var ray_cast_line_2d_scene : PackedScene
 export var laser_start_particles_scene : PackedScene
 export var laser_end_particles_scene : PackedScene
@@ -24,11 +25,12 @@ func _ready() -> void:
 	original_position = position
 	original_global_position = global_position
 	
-	set_damage_source(false)
+	_set_damage_source(false)
 	assert(ray_cast_line_2d_scene)
 	ray_cast_line = ray_cast_line_2d_scene.instance()
 	add_child(ray_cast_line)
 	ray_cast_line.disable()
+	ray_cast_line.ray_cast_collide = ray_cast_collide
 	
 	if laser_start_particles_scene:
 		var particles = laser_start_particles_scene.instance()
@@ -42,7 +44,7 @@ func _ready() -> void:
 		add_child(laser_end_particles)
 		laser_end_particles.stop()
 	
-	set_damage_source(false)
+	_set_damage_source(false)
 	
 	set_physics_process(false)
 
@@ -53,9 +55,9 @@ func enable() -> void:
 		original_global_position = global_position
 	
 	ray_cast_line.enable()
-	laser_cast()
+	_laser_cast()
 	
-	set_damage_source(true)
+	_set_damage_source(true)
 	
 	damage_tick_timer.start()
 	
@@ -69,7 +71,7 @@ func enable() -> void:
 
 func disable() -> void:
 	ray_cast_line.disable()
-	set_damage_source(false)
+	_set_damage_source(false)
 	
 	damage_tick_timer.stop()
 	if laser_start_particles:
@@ -81,29 +83,29 @@ func disable() -> void:
 func _physics_process(delta):
 	if not local_coordinates:
 		global_position = original_global_position
-	laser_cast()
+	_laser_cast()
 
 
-func laser_cast() -> void:
+func _laser_cast() -> void:
 	collider_shape.shape.length = ray_cast_line.length + hitbox_buffer_size
 	if laser_end_particles:
 		laser_end_particles.position = ray_cast_line.line.points[1]
 
 
 func _on_DamageTick_timeout():
-	toggle_damage_source()
+	_toggle_damage_source()
 
 
-func toggle_damage_source() -> void:
+func _toggle_damage_source() -> void:
 	if damage_source_enabled:
-		set_damage_source(false)
+		_set_damage_source(false)
 		if damage_tick_timer.one_shot:
 			ray_cast_line.disable()
 	else:
-		set_damage_source(true)
+		_set_damage_source(true)
 
 
-func set_damage_source(value : bool) -> void:
+func _set_damage_source(value : bool) -> void:
 	damage_source_enabled = value
 	if value == true:
 		damage_source.enable()

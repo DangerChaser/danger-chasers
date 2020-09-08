@@ -1,4 +1,4 @@
-extends WaitState
+extends WaitTime
 
 export var lerp_value := 1.0
 
@@ -8,9 +8,6 @@ var internal_rotation
 
 func enter(args := {}) -> void:
 	.enter(args)
-	if target_node:
-		target = get_node(target_node)
-		target_wr = weakref(target)
 	if not target or not target_wr.get_ref():
 		owner.target.lock_on()
 		target = owner.target.get_target()

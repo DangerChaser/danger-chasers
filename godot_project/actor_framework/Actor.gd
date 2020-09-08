@@ -31,6 +31,7 @@ onready var miscellaneous_effects := effects.get_node("Miscellaneous")
 onready var flash_timer : Timer = $FlashTimer
 onready var flash_duration_timer : Timer = $FlashDuration
 onready var hud := $ActorInterface
+onready var target_positions := $TargetPositions
 
 var character_stats setget set_stats, get_stats
 var previous_position : Vector2

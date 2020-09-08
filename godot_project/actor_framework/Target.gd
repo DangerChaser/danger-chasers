@@ -45,33 +45,43 @@ func lock_on(new_target=null) -> void:
 
 
 func find_closest_enemy(target_group : String) -> Actor:
-	var closest_enemy = null
+	var closest_target = null
 	if get_target():
-		closest_enemy = target
-	for enemy in get_tree().get_nodes_in_group(target_group):
-		if closest_enemy == null:
-			closest_enemy = enemy
-		var distance_to_enemy = owner.global_position.distance_to(enemy.global_position)
-		var distance_to_current_target = owner.global_position.distance_to(closest_enemy.global_position)
-		if distance_to_enemy < distance_to_current_target:
-			closest_enemy = enemy
-		distance_to_current_target = owner.global_position.distance_to(closest_enemy.global_position)
+		closest_target = target
+	
+	for target_position in get_tree().get_nodes_in_group("target_positions"):
+		if not target_position.owner.is_in_group(target_group):
+			continue
+		
+		if closest_target == null:
+			closest_target = target_position
+		
+		var distance_to_new_target = owner.global_position.distance_to(target_position.global_position)
+		var distance_to_current_target = owner.global_position.distance_to(closest_target.global_position)
+		if distance_to_new_target < distance_to_current_target:
+			closest_target = target_position
+		
+		distance_to_current_target = owner.global_position.distance_to(closest_target.global_position)
 		if max_distance >= 0.0 and distance_to_current_target > max_distance:
-			closest_enemy = null
-	return closest_enemy
+			closest_target = null
+	
+	return closest_target
 
 
 func change_target(new_target) -> void:
-	if get_target() and target.is_connected("health_depleted", self, "target_died"):
-		target.disconnect("health_depleted", self, "target_died")
+	if get_target() and target.owner.is_connected("health_depleted", self, "target_died"):
+		target.owner.disconnect("health_depleted", self, "target_died")
 	
 	if not new_target:
 		return
 	
+	if new_target is Actor:
+		new_target = new_target.target_positions.get_child(0)
+	
 	target = new_target
 	target_wr = weakref(target)
-	if not target.is_connected("health_depleted", self, "target_died"):
-		target.connect("health_depleted", self, "target_died")
+	if not target.owner.is_connected("health_depleted", self, "target_died"):
+		target.owner.connect("health_depleted", self, "target_died")
 	global_position = target.global_position
 
 
