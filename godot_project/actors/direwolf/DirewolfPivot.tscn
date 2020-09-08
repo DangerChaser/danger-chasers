@@ -1057,7 +1057,7 @@ script = ExtResource( 23 )
 target_path = NodePath("../EyePosition2D")
 
 [node name="EyePosition2D" type="Position2D" parent="."]
-position = Vector2( 208, -256 )
+position = Vector2( 224, -256 )
 
 [node name="FootstepsLand" parent="." instance=ExtResource( 3 )]
 particles = ExtResource( 21 )

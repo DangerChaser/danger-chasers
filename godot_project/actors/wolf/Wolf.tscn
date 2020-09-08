@@ -22,8 +22,6 @@ extents = Vector2( 124.688, 61.3919 )
 ] instance=ExtResource( 1 )]
 
 [node name="Pivot" parent="." index="0" instance=ExtResource( 10 )]
-target = NodePath("..")
-flags = 51
 
 [node name="StateMachine" parent="." index="1"]
 script = ExtResource( 13 )

@@ -64,12 +64,12 @@ func enter(args := {}) -> void:
 		motion.steering.velocity = target_direction * initial_speed
 	
 	if initialize_x:
-		motion.steering.velocity.x = 0
+		motion.steering.velocity.x = 0.0
 	if initialize_y:
-		motion.steering.velocity.y = 0
+		motion.steering.velocity.y = 0.0
 		motion.gravity.speed = 0.0
-		motion.gravity.velocity.y = 0
-		motion.external.velocity.y = 0
+		motion.gravity.velocity.y = 0.0
+		motion.external.velocity.y = 0.0
 	
 	if args.has("velocity") and take_previous_velocity:
 		motion.steering.velocity = args["velocity"]

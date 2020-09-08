@@ -62,6 +62,12 @@ func _physics_process(delta : float) -> void:
 	gravity.apply(delta)
 	total_velocity = steering.velocity + gravity.velocity + external.velocity
 	owner.move_and_slide_with_snap(total_velocity, gravity.direction * snap, -gravity.direction, true)
+	
+	var direction = total_velocity.normalized()
+	if look_towards_move_direction:
+		update_look_direction(direction)
+	elif look_away_from_move_direction:
+		update_look_direction(-direction)
 
 
 func get_input_direction() -> Vector2:

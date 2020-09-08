@@ -15,3 +15,8 @@ level_path = "res://level/levels/zero_limit/act_1/ZeroLimitAct1-1.tscn"
 quest_name_key = "ZERO_LIMIT_ACT_2"
 quest_description_key = "ZERO_LIMIT_ACT_2_DESCRIPTION"
 level_path = "res://level/levels/zero_limit/act_2/ZeroLimitAct2-1.tscn"
+
+[node name="Zero Limit Act Two2" parent="." instance=ExtResource( 1 )]
+quest_name_key = "DEBUG_ENEMY"
+quest_description_key = "DEBUG_ENEMY_DESCRIPTION"
+level_path = "res://level/levels/DebugEnemy.tscn"

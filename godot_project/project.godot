@@ -339,7 +339,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://actor_states/ai_states/PassArgs.gd"
 }, {
-"base": "Smoothing2D",
+"base": "Node2D",
 "class": "Pivot",
 "language": "GDScript",
 "path": "res://actor_framework/Pivot.gd"

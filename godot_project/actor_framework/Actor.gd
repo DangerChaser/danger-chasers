@@ -44,7 +44,7 @@ var paused := false
 func _ready():
 	state = States.NORMAL
 	
-	pivot.target = get_path()
+#	pivot.target = get_path()
 	pivot.connect("animation_finished", state_machine, "anim_finished")
 	
 	if state_machine.has_state("Stagger"):

@@ -47,5 +47,3 @@ shape = SubResource( 1 )
 character_stats = ExtResource( 5 )
 
 [node name="Pivot" parent="." index="5" instance=ExtResource( 2 )]
-target = NodePath("..")
-flags = 51

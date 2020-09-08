@@ -20,9 +20,9 @@
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=21]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=23]
 
-[sub_resource type="RectangleShape2D" id=1]
-resource_local_to_scene = true
-extents = Vector2( 41.9573, 87.6501 )
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 31.3801
+height = 113.05
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32.5314, 56.3854 )
@@ -67,7 +67,6 @@ next_state = "Idle"
 [node name="Stagger" parent="StateMachine" index="5" instance=ExtResource( 16 )]
 next_state = "Idle"
 keep_staggering = false
-invincibility_buffer = 0.5
 
 [node name="Die" parent="StateMachine" index="6" instance=ExtResource( 23 )]
 queue_free_on_die = false
@@ -79,7 +78,7 @@ face_target = false
 
 [node name="CollisionBox" parent="." index="2"]
 position = Vector2( 0, -87.2057 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 1 )

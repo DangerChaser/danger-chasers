@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/fox/sfx/charge.wav" type="AudioStream" id=2]
+[ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://combat/weapons/attack_additional_effects/NextAttackOnFloor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://combat/weapons/attack_additional_effects/PassThroughActorEffect.tscn" type="PackedScene" id=6]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=11]
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+
+[sub_resource type="Animation" id=3]
+length = 0.6
+step = 0.03
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.26, 0.3, 0.34 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "can_register_input"
+}, {
+"args": [  ],
+"method": "can_cancel_animation"
+}, {
+"args": [  ],
+"method": "can_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Sfx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.2
+
+[node name="DirewolfFakeout" instance=ExtResource( 1 )]
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource( 2 )
+bus = "Sfx"
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/SETUP = SubResource( 2 )
+anims/charge = SubResource( 3 )
+anims/wind_down = SubResource( 4 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+can_loop = true
+
+[node name="Charge" parent="Pivot/Attacks" index="0" instance=ExtResource( 11 )]
+actor_animation = "jump"
+weapon_animation = "charge"
+
+[node name="JumpEffect" parent="Pivot/Attacks/Charge/AdditionalEffects" index="0" instance=ExtResource( 3 )]
+initial_mass = 1.0
+initial_speed = 3000.0
+jump_force = 3600.0
+finish_on_release = false
+
+[node name="MotionSteering" parent="Pivot/Attacks/Charge/AdditionalEffects/JumpEffect/Motion" index="1"]
+max_speed = 2000.0
+mass = 14.0
+slow_down_if_faster_than_max_speed = true
+
+[node name="Gravity" parent="Pivot/Attacks/Charge/AdditionalEffects/JumpEffect/Motion" index="2"]
+gravity = 5000.0
+max_speed = 4000.0
+
+[node name="NextAttackOnFloor" parent="Pivot/Attacks/Charge/AdditionalEffects" index="1" instance=ExtResource( 4 )]
+
+[node name="PassThroughActorEffect" parent="Pivot/Attacks/Charge/AdditionalEffects" index="2" instance=ExtResource( 6 )]
+
+[node name="WindDown" parent="Pivot/Attacks" index="1" instance=ExtResource( 11 )]
+actor_animation = "land"
+weapon_animation = "wind_down"
+
+[node name="MovementEffect" parent="Pivot/Attacks/WindDown/AdditionalEffects" index="0" instance=ExtResource( 13 )]
+initial_speed = 1000.0
+
+[node name="MotionSteering" parent="Pivot/Attacks/WindDown/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 0.0
+mass = 16.0
+
+[editable path="Pivot/Attacks/Charge"]
+
+[editable path="Pivot/Attacks/Charge/AdditionalEffects/JumpEffect"]
+
+[editable path="Pivot/Attacks/Charge/AdditionalEffects/JumpEffect/Motion"]
+
+[editable path="Pivot/Attacks/WindDown"]
+
+[editable path="Pivot/Attacks/WindDown/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/WindDown/AdditionalEffects/MovementEffect/Motion"]
