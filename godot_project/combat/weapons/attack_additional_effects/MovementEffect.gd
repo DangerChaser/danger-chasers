@@ -18,6 +18,7 @@ export var offset := Vector2()
 # Don't have both take_previous_velocity and takes_previous_speed on at the same time
 export var take_previous_velocity := false
 export var takes_previous_speed := false
+export var flatten_vertical_movement := true
 
 var target_direction : Vector2
 var active := false
@@ -30,6 +31,10 @@ func _physics_process(delta:float) -> void:
 		target_direction.y = 0
 	if disable_x_input:
 		target_direction.x = 0
+	
+	if flatten_vertical_movement:
+		target_direction = Vector2(sign(target_direction.x), 0)
+	
 	move(target_direction)
 
 

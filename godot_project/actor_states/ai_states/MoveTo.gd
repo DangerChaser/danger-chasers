@@ -10,6 +10,7 @@ export var min_roam_radius := 0.0
 export var disable_obstacle_collider := false
 export var stagger := false
 export var arrive_distance := 6.0
+export var no_y := true
 
 onready var motion : MotionState = $Motion
 onready var timer : Timer = $Timer
@@ -63,6 +64,10 @@ func calculate_new_target_position() -> Vector2:
 			base_position = owner.target.get_target().global_position
 	base_position.y += y_offset
 	base_position += Vector2(cos(random_angle), sin(random_angle)) * random_radius
+	
+	if no_y:
+		base_position.y = start_position.y
+	
 	return base_position
 
 

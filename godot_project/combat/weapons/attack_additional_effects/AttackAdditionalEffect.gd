@@ -28,3 +28,6 @@ func unpause() -> void:
 	set_physics_process(true)
 	set_process(true)
 	set_process_input(true)
+
+func finished(next_state:="", args:={}):
+	emit_signal("finished", next_state, args)

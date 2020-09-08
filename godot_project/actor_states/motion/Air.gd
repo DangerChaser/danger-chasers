@@ -66,8 +66,10 @@ func _physics_process(delta : float) -> void:
 	
 	if owner.is_on_floor():
 		finished("Idle", {"velocity":steering.velocity, "gravity_speed": gravity.speed, "initial_animation":"land"})
-	
-	if owner.state_machine.has_state("Stomp") and Input.is_action_pressed("ui_down"):
+
+
+func _input(event : InputEvent):
+	if owner.state_machine.has_state("Stomp") and event.is_action_pressed("ui_down"):
 		var args = { "velocity": steering.velocity }
 		args["input_key"] = "ui_down"
 		args["target_direction"] = Vector2(steering.velocity.x, Vector2.DOWN.y) 
