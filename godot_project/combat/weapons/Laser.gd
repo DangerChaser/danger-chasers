@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var collider_shape : CollisionShape2D = $DamageSource/CollisionShape2D
+onready var damage_source_collider : CollisionShape2D = $DamageSource/CollisionShape2D
 onready var damage_tick_timer : Timer = $DamageTick
 onready var damage_source = $DamageSource
 
@@ -87,7 +87,11 @@ func _physics_process(delta):
 
 
 func _laser_cast() -> void:
-	collider_shape.shape.length = ray_cast_line.length + hitbox_buffer_size
+	for ray_cast in $RayCasts.get_children():
+		ray_cast.cast_to = ray_cast.cast_to.normalized() * (ray_cast_line.length + hitbox_buffer_size)
+	damage_source_collider.shape.extents.x = ray_cast_line.length
+	damage_source_collider.shape.extents.y = ($RayCasts/RayCastBottom.position.y - $RayCasts/RayCastTop.position.y) / 2
+	damage_source_collider.position = Vector2(ray_cast_line.length / 2, ($RayCasts/RayCastBottom.position.y + $RayCasts/RayCastTop.position.y) / 2)
 	if laser_end_particles:
 		laser_end_particles.position = ray_cast_line.line.points[1]
 

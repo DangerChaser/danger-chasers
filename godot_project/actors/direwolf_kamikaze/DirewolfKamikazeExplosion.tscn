@@ -23,11 +23,11 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 angle = 360.0
 angle_random = 1.0
-scale = 4.0
+scale = 8.0
 scale_curve = SubResource( 3 )
 anim_speed = 1.0
 
-[node name="FireballExplosion" instance=ExtResource( 1 )]
+[node name="DirewolfKamikazeExplosion" instance=ExtResource( 1 )]
 
 [node name="Particles2D" parent="Pivot" index="0"]
 material = SubResource( 1 )

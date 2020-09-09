@@ -5,10 +5,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 30, 30 )
 
 [node name="DamageSource" type="Area2D"]
-monitoring = false
+monitorable = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 1 )
@@ -18,3 +17,4 @@ screen_shake_damp = 1.0
 shape = SubResource( 1 )
 
 [node name="HitParticlesSpawner" parent="." instance=ExtResource( 2 )]
+[connection signal="area_entered" from="." to="." method="_on_DamageSource_area_entered"]

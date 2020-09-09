@@ -84,7 +84,6 @@ stagger = false
 [node name="WaitTime" parent="StateMachine/SlashSequence" index="0" instance=ExtResource( 12 )]
 animation = "growl"
 stagger_state = ""
-duration = 0.5
 
 [node name="Slash" parent="StateMachine/SlashSequence" index="1" instance=ExtResource( 6 )]
 weapon_levels = [ 0 ]

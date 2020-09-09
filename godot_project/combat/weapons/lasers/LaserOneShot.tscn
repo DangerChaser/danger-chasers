@@ -4,9 +4,8 @@
 [ext_resource path="res://combat/weapons/lasers/LaserStartParticlesOneShot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://combat/weapons/lasers/LaserEndParticlesOneShot.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RayShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-length = 100.0
 
 [node name="OneShotLaser" instance=ExtResource( 1 )]
 laser_start_particles_scene = ExtResource( 2 )

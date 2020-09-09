@@ -4,8 +4,6 @@
 [ext_resource path="res://common/particles/warning_mark/warning_mark.png" type="Texture" id=2]
 [ext_resource path="res://common/particles/warning_mark/warning_mark.wav" type="AudioStream" id=3]
 
-
-
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.00784314, 0.0196078, 0.0666667, 0.0784314, 0.117647, 0.137255, 0.4, 0.466667, 0.486275, 0.5, 0.517647, 0.576471, 0.588235, 0.631373, 0.647059, 0.878431, 0.94902 )
 colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
@@ -33,9 +31,6 @@ color_ramp = SubResource( 2 )
 [node name="WarningParticles" instance=ExtResource( 1 )]
 queue_free_after_timer = false
 
-[node name="Sfx" parent="." index="0"]
-stream = ExtResource( 3 )
-
 [node name="Particles2D" parent="Pivot" index="0"]
 scale = Vector2( 4, 4 )
 emitting = false
@@ -45,3 +40,6 @@ one_shot = true
 local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 2 )
+
+[node name="Sfx" parent="." index="1"]
+stream = ExtResource( 3 )

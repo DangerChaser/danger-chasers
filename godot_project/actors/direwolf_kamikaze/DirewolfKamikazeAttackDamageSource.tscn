@@ -6,9 +6,8 @@
 [ext_resource path="res://core/ray_cast_line_2d/White3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/direwolf/particles/AttackHit.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RayShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-length = 100.0
 
 [node name="DirewolfKamikazeAttackDamageSource" instance=ExtResource( 3 )]
 ray_cast_line_2d_scene = ExtResource( 4 )
@@ -25,5 +24,11 @@ screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
 shape = SubResource( 1 )
+
+[node name="RayCastTop" parent="RayCasts" index="0"]
+position = Vector2( 0, -64 )
+
+[node name="RayCastBottom" parent="RayCasts" index="1"]
+position = Vector2( 0, 64 )
 
 [editable path="DamageSource"]

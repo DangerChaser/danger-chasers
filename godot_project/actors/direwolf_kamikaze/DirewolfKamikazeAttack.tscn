@@ -1,11 +1,19 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=2]
 [ext_resource path="res://combat/weapons/attack_additional_effects/PassThroughActorEffect.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/direwolf_kamikaze/DirewolfKamikazeAttackDamageSource.tscn" type="PackedScene" id=4]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/ray_cast_line_2d/Red5.tscn" type="PackedScene" id=5]
+[ext_resource path="res://common/particles/warning_mark/WarningArea.tscn" type="PackedScene" id=6]
+[ext_resource path="res://common/particles/warning_mark/WarningMarkRightArrow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=9]
+[ext_resource path="res://actors/ariko/particles/DashParticles.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actors/direwolf/particles/AttackHit.tscn" type="PackedScene" id=11]
+[ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnFloor.tscn" type="PackedScene" id=12]
+[ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnWall.tscn" type="PackedScene" id=13]
+[ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnCeiling.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -24,25 +32,129 @@ tracks/0/keys = {
 "method": "disable"
 } ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
-step = 0.05
+step = 0.03
 tracks/0/type = "method"
-tracks/0/path = NodePath("DirewolfKamikazeAttackDamageSource")
+tracks/0/path = NodePath("DashParticleSpawner")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27, 0.3, 0.33, 0.36, 0.39, 0.42, 0.45, 0.48, 0.51, 0.54, 0.57, 0.6, 0.63, 0.66, 0.69, 0.72, 0.75, 0.78, 0.81, 0.84, 0.87, 0.9, 0.93 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [  ],
-"method": "enable"
+"args": [ null ],
+"method": "spawn"
 }, {
-"args": [  ],
-"method": "disable"
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
 } ]
 }
 
@@ -72,7 +184,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( -1, 0 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -82,6 +194,24 @@ tracks/1/keys = {
 "method": "disable"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("WarningArea")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 128, 64 )
 
 [node name="DirewolfKamikazeAttack" instance=ExtResource( 1 )]
 
@@ -90,7 +220,37 @@ anims/SETUP = SubResource( 1 )
 anims/attack = SubResource( 2 )
 anims/prepare = SubResource( 3 )
 
-[node name="DirewolfKamikazeAttackDamageSource" parent="." index="2" instance=ExtResource( 4 )]
+[node name="DashParticleSpawner" parent="." index="2" instance=ExtResource( 8 )]
+position = Vector2( 256, 0 )
+object = ExtResource( 10 )
+
+[node name="DamageSource" parent="." index="3" instance=ExtResource( 4 )]
+hit_particles = ExtResource( 11 )
+damage = 5
+stagger_force = 2400.0
+
+[node name="CollisionShape2D" parent="DamageSource" index="0"]
+shape = SubResource( 4 )
+
+[node name="WarningArea" parent="." index="4" instance=ExtResource( 6 )]
+
+[node name="WarningMarkRightArrow" parent="WarningArea/Marks" index="0" instance=ExtResource( 7 )]
+position = Vector2( 160, 64 )
+
+[node name="WarningMarkRightArrow2" parent="WarningArea/Marks" index="1" instance=ExtResource( 7 )]
+position = Vector2( 160, -64 )
+
+[node name="WarningMarkRightArrow3" parent="WarningArea/Marks" index="2" instance=ExtResource( 7 )]
+position = Vector2( 256, 0 )
+
+[node name="WarningMarkRightArrow4" parent="WarningArea/Marks" index="3" instance=ExtResource( 7 )]
+position = Vector2( 352, -64 )
+
+[node name="WarningMarkRightArrow6" parent="WarningArea/Marks" index="4" instance=ExtResource( 7 )]
+position = Vector2( 352, 64 )
+
+[node name="WarningMarkRightArrow5" parent="WarningArea/Marks" index="5" instance=ExtResource( 7 )]
+position = Vector2( 448, 0 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
@@ -100,6 +260,8 @@ actor_animation = "idle"
 weapon_animation = "prepare"
 
 [node name="Red5" parent="Pivot/Attacks/Prepare" index="0" instance=ExtResource( 5 )]
+visible = false
+exclude_parent = false
 collision_mask = 1
 
 [node name="Attack" parent="Pivot/Attacks" index="1" instance=ExtResource( 9 )]
@@ -108,7 +270,7 @@ actor_animation = "idle"
 [node name="PassThroughActorEffect" parent="Pivot/Attacks/Attack/AdditionalEffects" index="0" instance=ExtResource( 3 )]
 
 [node name="MovementEffect" parent="Pivot/Attacks/Attack/AdditionalEffects" index="1" instance=ExtResource( 2 )]
-initial_speed = 10000.0
+initial_speed = -3000.0
 disable_y_input = false
 flatten_vertical_movement = false
 
@@ -116,7 +278,21 @@ flatten_vertical_movement = false
 look_towards_move_direction = false
 
 [node name="MotionSteering" parent="Pivot/Attacks/Attack/AdditionalEffects/MovementEffect/Motion" index="1"]
-max_speed = 10000.0
+max_speed = 7000.0
+mass = 32.0
+
+[node name="Gravity" parent="Pivot/Attacks/Attack/AdditionalEffects/MovementEffect/Motion" index="2"]
+gravity = 0.0
+
+[node name="FinishOnCeiling" parent="Pivot/Attacks/Attack/AdditionalEffects" index="2" instance=ExtResource( 14 )]
+
+[node name="FinishOnFloor" parent="Pivot/Attacks/Attack/AdditionalEffects" index="3" instance=ExtResource( 12 )]
+
+[node name="FinishOnWall" parent="Pivot/Attacks/Attack/AdditionalEffects" index="4" instance=ExtResource( 13 )]
+
+[editable path="DamageSource"]
+
+[editable path="WarningArea"]
 
 [editable path="Pivot/Attacks/Attack"]
 

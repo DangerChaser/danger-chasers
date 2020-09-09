@@ -6,9 +6,8 @@
 [ext_resource path="res://combat/weapons/lasers/LaserStartParticles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/ray_cast_line_2d/Red5.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RayShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-length = 100.0
 
 [node name="Laser" type="Node2D"]
 script = ExtResource( 3 )
@@ -23,9 +22,21 @@ wait_time = 0.05
 damage = 5
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
-rotation = -1.5708
 shape = SubResource( 1 )
-disabled = true
+
+[node name="RayCasts" type="Node2D" parent="."]
+
+[node name="RayCastTop" type="RayCast2D" parent="RayCasts"]
+position = Vector2( 0, -8 )
+enabled = true
+cast_to = Vector2( 100, 0 )
+collision_mask = 4
+
+[node name="RayCastBottom" type="RayCast2D" parent="RayCasts"]
+position = Vector2( 0, 8 )
+enabled = true
+cast_to = Vector2( 100, 0 )
+collision_mask = 4
 [connection signal="timeout" from="DamageTick" to="." method="_on_DamageTick_timeout"]
 
 [editable path="DamageSource"]

@@ -3405,8 +3405,9 @@ tracks/5/keys = {
 [sub_resource type="Curve" id=27]
 _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 
-[sub_resource type="CircleShape2D" id=28]
-radius = 42.0
+[sub_resource type="CapsuleShape2D" id=28]
+radius = 30.0
+height = 100.0
 
 [node name="Pivot" instance=ExtResource( 9 )]
 z_index = 1

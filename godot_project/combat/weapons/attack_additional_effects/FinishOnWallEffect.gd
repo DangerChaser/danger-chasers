@@ -7,5 +7,5 @@ func enter(args := {}) -> void:
 
 
 func _physics_process(delta:float) -> void:
-	if owner.is_on_floor():
+	if owner.is_on_wall():
 		finished()

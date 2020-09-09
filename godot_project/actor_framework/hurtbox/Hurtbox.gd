@@ -5,6 +5,8 @@ Contrast with hitbox, which is the area that damages opponents
 extends Area2D
 class_name Hurtbox
 
+signal taken_damage
+
 onready var collider := $CollisionShape2D
 
 func _ready() -> void:
@@ -19,3 +21,7 @@ func enable() -> void:
 
 func disable() -> void:
 	set_active(false)
+
+
+func take_damage(damage_source):
+	emit_signal("taken_damage", damage_source, self)

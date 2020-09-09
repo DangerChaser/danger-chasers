@@ -53,7 +53,7 @@ func _ready():
 		stagger_state.connect("revenge_updated", hud, "revenge_updated")
 	if pivot.has_node("Hurtbox"):
 		var hurtbox = pivot.get_node("Hurtbox")
-		hurtbox.connect("area_entered", self, "_on_Hurtbox_area_entered", [hurtbox])
+		hurtbox.connect("taken_damage", self, "_on_Hurtbox_area_entered")
 	
 	if initialize_on_ready:
 		yield(get_tree().create_timer(0.01), "timeout")

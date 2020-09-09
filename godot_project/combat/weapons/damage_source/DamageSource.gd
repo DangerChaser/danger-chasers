@@ -77,3 +77,8 @@ func enable() -> void:
 func disable() -> void:
 	set_active(false)
 	hit_hurtboxes = []
+
+
+func _on_DamageSource_area_entered(area):
+	if area is Hurtbox:
+		area.take_damage(self)

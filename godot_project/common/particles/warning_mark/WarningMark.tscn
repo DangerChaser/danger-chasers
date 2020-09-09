@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://core/utils/CollisionTrigger.tscn" type="PackedScene" id=2]
 [ext_resource path="res://common/particles/warning_mark/warning_mark.png" type="Texture" id=4]
 [ext_resource path="res://common/particles/warning_mark/warning_mark.wav" type="AudioStream" id=5]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 24.0
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "start"
 length = 2.0
 step = 0.05
@@ -64,14 +60,6 @@ tracks/3/keys = {
 
 [node name="WarningMark" type="Node2D"]
 
-[node name="CollisionTrigger" parent="." instance=ExtResource( 2 )]
-monitorable = false
-collision_layer = 0
-collision_mask = 512
-
-[node name="CollisionShape2D" parent="CollisionTrigger" index="0"]
-shape = SubResource( 1 )
-
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
@@ -81,7 +69,4 @@ stream = ExtResource( 5 )
 bus = "Sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/start = SubResource( 2 )
-[connection signal="area_entered_no_area" from="CollisionTrigger" to="AnimationPlayer" method="play" binds= [ "start" ]]
-
-[editable path="CollisionTrigger"]
+anims/start = SubResource( 1 )
