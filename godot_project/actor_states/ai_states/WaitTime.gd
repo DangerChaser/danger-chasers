@@ -10,7 +10,6 @@ onready var timer : Timer = $Timer
 func enter(args := {}) -> void:
 	.enter(args)
 	timer.start(duration + randf() * duration_variation)
-	print_debug(timer.wait_time)
 
 
 func exit() -> void:

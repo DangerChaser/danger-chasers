@@ -3,7 +3,7 @@
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_framework/stats/DefaultStats.tres" type="Resource" id=2]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actor_states/motion/Spawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actor_states/motion/Launch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/direwolf_kamikaze/DirewolfKamikazePivot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_states/ai_states/RotateToTarget.tscn" type="PackedScene" id=7]
@@ -12,28 +12,42 @@
 [ext_resource path="res://actors/direwolf_kamikaze/DirewolfKamikazeExplode.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 101.193
+radius = 128.0
 
 [node name="DirewolfKamikaze" groups=[
 "enemies",
 ] instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 1
 pause_offscreen = false
 
 [node name="Pivot" parent="." index="0" instance=ExtResource( 6 )]
 
-[node name="Spawn" parent="StateMachine" index="0" instance=ExtResource( 4 )]
-next_state = "Sequence"
+[node name="Sequence" parent="StateMachine" index="0" instance=ExtResource( 8 )]
 
-[node name="Gravity" parent="StateMachine/Spawn" index="2"]
+[node name="Launch" parent="StateMachine/Sequence" index="0" instance=ExtResource( 4 )]
+animation = "spawn"
+random_angle = 80.0
+force = 3600.0
+mass = 16.0
+
+[node name="MotionSteering" parent="StateMachine/Sequence/Launch/Motion" index="1"]
+max_speed = 0.0
+mass = 16.0
+
+[node name="Gravity" parent="StateMachine/Sequence/Launch/Motion" index="2"]
 gravity = 0.0
+max_speed = 0.0
 
-[node name="Sequence" parent="StateMachine" index="1" instance=ExtResource( 8 )]
+[node name="Timer" parent="StateMachine/Sequence/Launch" index="1"]
+wait_time = 2.0
 
-[node name="RotateToTarget" parent="StateMachine/Sequence" index="0" instance=ExtResource( 7 )]
+[node name="RotateToTarget" parent="StateMachine/Sequence" index="1" instance=ExtResource( 7 )]
 animation = "idle"
 stagger_state = ""
 face_target = false
-duration = 4.0
+duration = 3.0
+duration_variation = 2.0
 lerp_value = 0.1
 
 [node name="MotionSteering" parent="StateMachine/Sequence/RotateToTarget" index="1"]
@@ -42,17 +56,17 @@ max_speed = 0.0
 [node name="Gravity" parent="StateMachine/Sequence/RotateToTarget" index="2"]
 gravity = 0.0
 
-[node name="AIAttack" parent="StateMachine/Sequence" index="1" instance=ExtResource( 5 )]
+[node name="AIAttack" parent="StateMachine/Sequence" index="2" instance=ExtResource( 5 )]
 weapon_levels = [ 0 ]
 weapons = [ ExtResource( 9 ) ]
 stagger = false
 
-[node name="Explode" parent="StateMachine/Sequence" index="2" instance=ExtResource( 5 )]
+[node name="Explode" parent="StateMachine/Sequence" index="3" instance=ExtResource( 5 )]
 weapon_levels = [ 0 ]
 weapons = [ ExtResource( 10 ) ]
 stagger = false
 
-[node name="Die" parent="StateMachine/Sequence" index="3" instance=ExtResource( 3 )]
+[node name="Die" parent="StateMachine/Sequence" index="4" instance=ExtResource( 3 )]
 
 [node name="CollisionBox" parent="." index="2"]
 shape = SubResource( 1 )
@@ -60,6 +74,8 @@ shape = SubResource( 1 )
 [node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 2 )
 
-[editable path="StateMachine/Spawn"]
+[editable path="StateMachine/Sequence/Launch"]
+
+[editable path="StateMachine/Sequence/Launch/Motion"]
 
 [editable path="StateMachine/Sequence/RotateToTarget"]

@@ -216,7 +216,7 @@ func _on_DropThroughArea_body_exited(body):
 
 
 func stop_drop_through() -> void:
-	set_collision_mask_bit(Utilities.DROP_THRU_BIT, true)
+	set_collision_mask_bit(Utilities.Layers.DROP_THROUGH, true)
 
 
 func add_weapon(weapon) -> void:

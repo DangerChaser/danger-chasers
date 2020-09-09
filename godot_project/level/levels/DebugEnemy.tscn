@@ -3,7 +3,7 @@
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/music/Goldenbed River Battle Loop.ogg" type="AudioStream" id=2]
 [ext_resource path="res://level/levels/tidal_forest/vnitti_taiga.tres" type="TileSet" id=3]
-[ext_resource path="res://actors/direwolf_kamikaze/DirewolfKamikaze.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/direwolf/Direwolf.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=8]

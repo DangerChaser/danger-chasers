@@ -50,7 +50,7 @@ func find_closest_enemy(target_group : String) -> Actor:
 		closest_target = target
 	
 	for target_position in get_tree().get_nodes_in_group("target_positions"):
-		if not target_position.owner.is_in_group(target_group):
+		if not target_position.get_parent().get_parent().is_in_group(target_group):
 			continue
 		
 		if closest_target == null:

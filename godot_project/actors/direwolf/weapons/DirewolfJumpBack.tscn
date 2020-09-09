@@ -54,8 +54,7 @@ stream = ExtResource( 2 )
 bus = "Sfx"
 
 [node name="JumpEffect" parent="Pivot/Attacks/JumpBack/AdditionalEffects" index="0" instance=ExtResource( 3 )]
-initial_speed = -2000.0
-disable_x_input = true
+initial_speed = -4000.0
 jump_force = 2400.0
 finish_on_release = false
 
@@ -64,9 +63,8 @@ look_towards_move_direction = false
 look_away_from_move_direction = true
 
 [node name="MotionSteering" parent="Pivot/Attacks/JumpBack/AdditionalEffects/JumpEffect/Motion" index="1"]
-max_speed = 1000.0
-mass = 32.0
-slow_down_if_faster_than_max_speed = true
+max_speed = -2000.0
+mass = 9000.0
 
 [node name="Gravity" parent="Pivot/Attacks/JumpBack/AdditionalEffects/JumpEffect/Motion" index="2"]
 gravity = 3600.0

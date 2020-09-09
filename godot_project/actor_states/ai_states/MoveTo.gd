@@ -14,9 +14,11 @@ export var no_y := true
 
 onready var motion : MotionState = $Motion
 onready var timer : Timer = $Timer
+onready var wall_check_timer : Timer = $WallCheckTimer
 
 var target_position : Vector2 = Vector2()
 var start_position : Vector2 = Vector2()
+var original_collision_mask_bit : bool
 
 
 func enter(args := {}) -> void:
@@ -25,22 +27,25 @@ func enter(args := {}) -> void:
 	owner.play_animation(animation)
 	start_position = owner.global_position
 	timer.start()
+	wall_check_timer.start()
 	
 	if args.has("target_position"):
 		target_position = args["target_position"]
 	else:
 		target_position = calculate_new_target_position()
 	
+	original_collision_mask_bit = owner.get_collision_mask_bit(Utilities.Layers.OBSTACLES)
 	if disable_obstacle_collider \
 			or (args.has("disable_collider_in_state") and args["disable_collider_in_state"] == true):
-		owner.set_collision_mask_bit(GameManager.Layers.OBSTACLES, false)
+		owner.set_collision_mask_bit(Utilities.Layers.OBSTACLES, false)
 
 
 func exit() -> void:
 	.exit()
 	motion.exit()
 	timer.stop()
-	owner.set_collision_mask_bit(GameManager.Layers.OBSTACLES, true)
+	wall_check_timer.stop()
+	owner.set_collision_mask_bit(Utilities.Layers.OBSTACLES, original_collision_mask_bit)
 
 
 func _physics_process(delta : float) -> void:
@@ -48,7 +53,7 @@ func _physics_process(delta : float) -> void:
 		calculate_new_target_position()
 	var buffer = 6.0
 	motion.move_to(target_position)
-	if owner.global_position.distance_to(target_position) <= arrive_distance or owner.is_on_wall():
+	if owner.global_position.distance_to(target_position) <= arrive_distance:
 		finished(next_state)
 
 
@@ -92,3 +97,8 @@ func unpause() -> void:
 	if timer:
 		timer.paused = false
 		motion.unpause()
+
+
+func _on_WallCheckTimer_timeout():
+	if owner.is_on_wall():
+		finished(next_state)

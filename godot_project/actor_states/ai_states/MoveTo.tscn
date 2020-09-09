@@ -10,4 +10,8 @@ script = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="WallCheckTimer" type="Timer" parent="."]
+wait_time = 0.1
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="WallCheckTimer" to="." method="_on_WallCheckTimer_timeout"]

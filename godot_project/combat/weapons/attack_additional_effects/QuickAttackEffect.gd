@@ -13,14 +13,14 @@ func enter(args := {}) -> void:
 		target_direction = Vector2(owner.pivot.scale.x, 0.0).normalized()
 	motion.steering.velocity = target_direction * initial_speed
 
-	owner.set_collision_mask_bit(Utilities.DROP_THRU_BIT, false)
+	owner.set_collision_mask_bit(Utilities.Layers.DROP_THROUGH, false)
 	
 	call_deferred("_rotate")
 
 
 func exit() -> void:
 	.exit()
-	owner.set_collision_mask_bit(Utilities.DROP_THRU_BIT, true)
+	owner.set_collision_mask_bit(Utilities.Layers.DROP_THROUGH, true)
 
 
 func move(move_direction : Vector2) -> void:

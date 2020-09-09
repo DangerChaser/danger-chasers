@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://actors/ariko/sfx/sword_slice.wav" type="AudioStream" id=2]
-[ext_resource path="res://actors/ariko/sfx/sword_slice_2.wav" type="AudioStream" id=3]
+[ext_resource path="res://actors/direwolf/sfx/slash.wav" type="AudioStream" id=1]
 [ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]
@@ -33,7 +32,5 @@ process_material = SubResource( 2 )
 texture = SubResource( 3 )
 
 [node name="Sfx" parent="." index="1"]
+stream = ExtResource( 1 )
 attenuation = 0.659754
-sfx_list = [ ExtResource( 2 ), ExtResource( 3 ) ]
-random_pitch_low = 0.96
-random_pitch_high = 1.04

@@ -38,7 +38,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05, 1, 1.1, 1.8, 2 ),
+"times": PoolRealArray( 0, 0.05, 0.8, 1, 1.8, 2 ),
 "transitions": PoolRealArray( 53.8174, 26.9087, 294.067, 1, 0.535887, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]

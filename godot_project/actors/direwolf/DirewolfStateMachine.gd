@@ -1,8 +1,8 @@
 extends StateMachine
 
-export var attack_distance := 900.0
-export var attack_chance := 0.9
-export var run_distance := 1500.0
+export var attack_distance := 1500.0
+export var attack_chance := 0.6
+export var run_distance := 1700.0
 export var fakeout_chance := 0.3
 
 func _decide_on_next_state() -> State:

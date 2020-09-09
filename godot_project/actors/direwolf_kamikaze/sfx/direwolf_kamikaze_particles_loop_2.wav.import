@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/direwolf_kamikaze_particles_loop_2.wav-877edec384d6d5bb8af4c1411afbe846.sample"
+
+[deps]
+
+source_file="res://actors/direwolf_kamikaze/sfx/direwolf_kamikaze_particles_loop_2.wav"
+dest_files=[ "res://.import/direwolf_kamikaze_particles_loop_2.wav-877edec384d6d5bb8af4c1411afbe846.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

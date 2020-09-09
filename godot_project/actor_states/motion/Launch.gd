@@ -18,8 +18,8 @@ func enter(args := {}) -> void:
 	
 	time_entered = OS.get_ticks_msec()
 	
-	var _random_angle = deg2rad(randf() * random_angle * 2) - random_angle
-	var direction = Vector2.RIGHT.rotated(deg2rad(initial_angle_deg) + _random_angle)
+	var _random_angle = randf() * random_angle * 2 - random_angle
+	var direction = Vector2.RIGHT.rotated(deg2rad(initial_angle_deg + _random_angle))
 	motion.external.apply(direction, force, 1.0)
 	motion.external.set_mass(mass)
 	
@@ -44,6 +44,11 @@ func _physics_process(delta:float) -> void:
 	var BUFFER = 100
 	if current_tick - time_entered < BUFFER:
 		return
+	
+	if owner.is_on_wall():
+		motion.external.velocity.x *= -1
+		motion.external.target_direction.x *= -1
+	
 	if owner.is_on_floor():
 		timer.stop()
 		var args = { "initial_animation" : land_animation } if land_animation else {}

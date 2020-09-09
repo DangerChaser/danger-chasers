@@ -8,7 +8,7 @@
 [ext_resource path="res://actors/direwolf/particles/DirewolfSlashParticles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/wolf/weapons/attack.png" type="Texture" id=7]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=8]
-[ext_resource path="res://actors/direwolf/particles/AttackHit.tscn" type="PackedScene" id=9]
+[ext_resource path="res://actors/direwolf/particles/SlashHit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=11]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=13]
 

@@ -18,7 +18,6 @@ export var offset := Vector2()
 # Don't have both take_previous_velocity and takes_previous_speed on at the same time
 export var take_previous_velocity := false
 export var takes_previous_speed := false
-export var flatten_vertical_movement := true
 
 var target_direction : Vector2
 var active := false
@@ -32,8 +31,7 @@ func _physics_process(delta:float) -> void:
 	if disable_x_input:
 		target_direction.x = 0
 	
-	if flatten_vertical_movement:
-		target_direction = Vector2(sign(target_direction.x), 0)
+	target_direction = target_direction.normalized()
 	
 	move(target_direction)
 
@@ -62,6 +60,13 @@ func enter(args := {}) -> void:
 		target_direction = Vector2.RIGHT.rotated(angle)
 	if gets_input_direction:
 		target_direction = motion.get_input_direction()
+	
+	if disable_y_input:
+		target_direction.y = 0
+	if disable_x_input:
+		target_direction.x = 0
+	
+	target_direction = target_direction.normalized()
 	
 	if takes_previous_speed and args.has("initial_speed"):
 		motion.steering.velocity = target_direction * max(args["initial_speed"], initial_speed)

@@ -29,9 +29,6 @@ anim_speed = 1.0
 
 [node name="AttackHit" instance=ExtResource( 1 )]
 
-[node name="Sfx" parent="." index="0"]
-stream = ExtResource( 3 )
-
 [node name="Particles2D" parent="Pivot" index="0"]
 material = SubResource( 1 )
 emitting = false
@@ -41,3 +38,6 @@ one_shot = true
 local_coords = false
 process_material = SubResource( 4 )
 texture = ExtResource( 2 )
+
+[node name="Sfx" parent="." index="1"]
+stream = ExtResource( 3 )

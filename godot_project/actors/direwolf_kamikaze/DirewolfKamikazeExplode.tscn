@@ -61,7 +61,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 256.0
+radius = 416.0
 
 [node name="DirewolfKamikazeExplode" instance=ExtResource( 1 )]
 
@@ -71,8 +71,6 @@ anims/explode = SubResource( 2 )
 
 [node name="SfxParticleSpawner" parent="." index="2" instance=ExtResource( 8 )]
 object = ExtResource( 2 )
-
-[node name="FireballExplosion" parent="SfxParticleSpawner" index="1" instance=ExtResource( 2 )]
 
 [node name="DamageSource" parent="." index="3" instance=ExtResource( 4 )]
 hit_particles = ExtResource( 11 )
@@ -88,7 +86,5 @@ grounded = false
 [node name="Explode" parent="Pivot/Attacks" index="0" instance=ExtResource( 9 )]
 actor_animation = "explode"
 weapon_animation = "explode"
-
-[editable path="SfxParticleSpawner/FireballExplosion"]
 
 [editable path="DamageSource"]
