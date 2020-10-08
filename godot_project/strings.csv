@@ -1,6 +1,6 @@
 ﻿keys,en
 ,
-GAME_NAME,Danger Chaser
+GAME_NAME,Danger Chasers
 NEW_GAME,New Game
 PLAY,Play
 PRESS_ANY_BUTTON,Press any button
@@ -109,3 +109,6 @@ ZERO_LIMIT_ACT_3,Zero Limit Act 3
 ZERO_LIMIT_ACT_3_DESCRIPTION,insert description here lol
 DEBUG_ENEMY,Debug Enemy
 DEBUG_ENEMY_DESCRIPTION,I put enemies in here and test them out to make sure that they try to kill you the correct way.
+EXIT TO DESKTOP,Exit to Desktop
+KEYBINDINGS,Keybindings
+PRESS ANY BUTTON,Press Any Button

@@ -2,12 +2,12 @@ extends Control
 
 signal finished
 
-onready var music_button := $HBoxContainer/Music/Button
-onready var sfx_button := $HBoxContainer/Sfx/Button
-onready var ambience_button := $HBoxContainer/Ambience/Button
-onready var music_level_controller : AudioBusLevelController = $HBoxContainer/Music/MusicLevelController
-onready var sfx_level_controller : AudioBusLevelController = $HBoxContainer/Sfx/SoundLevelController
-onready var ambience_level_controller : AudioBusLevelController = $HBoxContainer/Ambience/AmbienceLevelController
+onready var music_button := $Music/ButtonKey
+onready var sfx_button := $Sfx/ButtonKey
+onready var ambience_button := $Ambience/ButtonKey
+onready var music_level_controller : AudioBusLevelController = $Music/MusicLevelController
+onready var sfx_level_controller : AudioBusLevelController = $Sfx/SoundLevelController
+onready var ambience_level_controller : AudioBusLevelController = $Ambience/AmbienceLevelController
 
 onready var last_button = music_button
 
@@ -48,6 +48,6 @@ func _on_AmbienceLevelController_enabled():
 	sfx_level_controller.disable()
 
 
-func _on_BackButton_button_down():
+func _on_BackButton_pressed():
 	disable()
 	emit_signal("finished")

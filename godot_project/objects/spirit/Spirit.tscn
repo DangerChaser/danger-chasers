@@ -1,0 +1,183 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://actors/direwolf_kamikaze/sprites/white_square_red_glow.png" type="Texture" id=1]
+[ext_resource path="res://objects/spirit/spirit_sfx.wav" type="AudioStream" id=2]
+[ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SfxRandom:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "attack"
+length = 0.4
+loop = true
+step = 0.05
+
+[sub_resource type="Animation" id=3]
+resource_name = "die"
+length = 0.001
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpiritParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SfxRandom:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SfxRandom:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.4
+loop = true
+step = 0.05
+
+[sub_resource type="Animation" id=6]
+resource_name = "launch"
+length = 0.4
+loop = true
+step = 0.05
+
+[sub_resource type="Animation" id=7]
+length = 0.4
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath("SfxRandom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SfxRandom:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.420448, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpiritParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0.58567, 0.825545 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 0 ), 0.0, 12.04, 0, 0, Vector2( 0.122093, 0.993182 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+emission_shape = 1
+emission_sphere_radius = 32.0
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 15.0
+gravity = Vector3( 0, 1000, 0 )
+angular_velocity = 72.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 1.0
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 10 )
+
+[node name="Spirit" instance=ExtResource( 7 )]
+z_index = 1
+
+[node name="AnimationPlayer" parent="." index="0"]
+autoplay = "SETUP"
+anims/SETUP = SubResource( 1 )
+anims/attack = SubResource( 2 )
+anims/die = SubResource( 3 )
+anims/explode = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/launch = SubResource( 6 )
+anims/spawn = SubResource( 7 )
+next/spawn = "launch"
+
+[node name="SfxRandom" parent="." index="1" instance=ExtResource( 6 )]
+stream = ExtResource( 2 )
+random_pitch_low = 0.9
+random_pitch_high = 1.1
+
+[node name="SpiritParticles" type="Particles2D" parent="." index="2"]
+modulate = Color( 0.403922, 0.537255, 1, 1 )
+material = SubResource( 8 )
+amount = 64
+local_coords = false
+process_material = SubResource( 13 )
+texture = ExtResource( 1 )

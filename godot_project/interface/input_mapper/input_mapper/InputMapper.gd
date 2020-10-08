@@ -5,7 +5,6 @@ signal profile_changed(new_profile, is_customizable)
 var current_profile_id = 0
 var profiles = {
 	0: 'profile_normal',
-	#1: 'profile_alternate',
 	1: 'profile_custom',
 }
 var profile_normal = {
@@ -25,12 +24,6 @@ var profile_normal = {
 	'skill_7': KEY_E,
 	'skill_8': KEY_R,
 	'skill_9': KEY_V,
-}
-var profile_alternate = {
-	#'move_up': KEY_W,
-	#'move_down': KEY_S,
-	#'move_left': KEY_A,
-	#'move_right': KEY_D
 }
 var profile_custom = profile_normal
 

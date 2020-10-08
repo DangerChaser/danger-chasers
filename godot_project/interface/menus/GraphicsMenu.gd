@@ -42,7 +42,21 @@ func _update_screen_shake():
 			screen_shake_button.set_key("VOMIT")
 
 
-func _on_ScreenShakeButton_button_down():
+func _update_frame_freeze():
+	if Settings.frame_freeze_enabled:
+		frame_freeze_button.set_key("ON")
+	else:
+		frame_freeze_button.set_key("OFF")
+
+
+func _update_window_mode():
+	if Settings.window_mode == Settings.WindowModes.WINDOWED:
+		window_mode_button.set_key("WINDOWED")
+	elif Settings.window_mode == Settings.WindowModes.FULL_SCREEN:
+		window_mode_button.set_key("FULL_SCREEN")
+
+
+func _on_ScreenShakeButton_pressed():
 	last_button = screen_shake_button
 	match Settings.screen_shake:
 		Settings.ScreenShakeIntensity.DISABLED:
@@ -60,25 +74,12 @@ func _on_ScreenShakeButton_button_down():
 	_update_screen_shake()
 
 
-func _on_FrameFreezeButton_button_down():
+func _on_FrameFreezeButton_pressed():
 	Settings.frame_freeze_enabled = not Settings.frame_freeze_enabled
 	_update_frame_freeze()
 
 
-func _update_frame_freeze():
-	if Settings.frame_freeze_enabled:
-		frame_freeze_button.set_key("ON")
-	else:
-		frame_freeze_button.set_key("OFF")
-
-
-func _on_BackButton_button_down():
-	last_button = back_button
-	disable()
-	emit_signal("finished")
-
-
-func _on_WindowModeButton_button_down():
+func _on_WindowModeButton_pressed():
 	if Settings.window_mode == Settings.WindowModes.WINDOWED:
 		Settings.window_mode = Settings.WindowModes.FULL_SCREEN
 	elif Settings.window_mode == Settings.WindowModes.FULL_SCREEN:
@@ -86,8 +87,7 @@ func _on_WindowModeButton_button_down():
 	_update_window_mode()
 
 
-func _update_window_mode():
-	if Settings.window_mode == Settings.WindowModes.WINDOWED:
-		window_mode_button.set_key("WINDOWED")
-	elif Settings.window_mode == Settings.WindowModes.FULL_SCREEN:
-		window_mode_button.set_key("FULL_SCREEN")
+func _on_BackButton_pressed():
+	last_button = back_button
+	disable()
+	emit_signal("finished")

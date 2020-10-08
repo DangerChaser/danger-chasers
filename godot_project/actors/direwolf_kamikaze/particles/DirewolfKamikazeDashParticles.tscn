@@ -1,11 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://actors/ariko/particles/sprites/dash.png" type="Texture" id=1]
-[ext_resource path="res://actors/ariko/sfx/dash.wav" type="AudioStream" id=2]
+[ext_resource path="res://actors/direwolf_kamikaze/particles/dash_particles.png" type="Texture" id=1]
+[ext_resource path="res://actors/direwolf_kamikaze/particles/direwolf_kamikaze_dash.wav" type="AudioStream" id=2]
 [ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]
-blend_mode = 1
 particles_animation = true
 particles_anim_h_frames = 7
 particles_anim_v_frames = 7
@@ -16,14 +15,14 @@ flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale = 16.0
+scale = 4.0
 anim_speed = 1.0
 
 [node name="DashParticles" instance=ExtResource( 4 )]
 
 [node name="Particles2D" parent="Pivot" index="0"]
 material = SubResource( 1 )
-position = Vector2( -1024, -256 )
+position = Vector2( -576, -128 )
 emitting = false
 amount = 1
 lifetime = 0.4

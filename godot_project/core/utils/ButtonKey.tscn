@@ -10,3 +10,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Sfx"
+[connection signal="pressed" from="." to="." method="_on_ButtonKey_pressed"]

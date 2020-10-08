@@ -4,12 +4,12 @@
 [ext_resource path="res://interface/pause_menu/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://interface/dynamic_fonts/Silver_128.tres" type="DynamicFont" id=3]
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=4]
-[ext_resource path="res://core/utils/ButtonKey.gd" type="Script" id=5]
 [ext_resource path="res://interface/pause_menu/unpause.wav" type="AudioStream" id=6]
 [ext_resource path="res://interface/pause_menu/pause.wav" type="AudioStream" id=7]
 [ext_resource path="res://core/audio_bus_level_controllers/AudioSettingsHUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interface/menus/GraphicsMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/input_mapper/InputMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://core/utils/ButtonKey.tscn" type="PackedScene" id=11]
 
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
@@ -20,10 +20,26 @@ main_menu_path = "res://level/levels/adventurers_guild/AdventurersGuild.tscn"
 restart_transition_in_animation = "left_to_right"
 quit_transition_in_animation = "left_to_right"
 
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Pause" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 128.0
+margin_top = 128.0
+margin_right = -128.0
+margin_bottom = -128.0
 mouse_filter = 2
 theme = ExtResource( 1 )
 __meta__ = {
@@ -35,6 +51,7 @@ anchor_right = 1.0
 margin_top = -1.86757
 margin_bottom = 134.132
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PAUSED"
 align = 1
 valign = 1
@@ -46,7 +63,6 @@ __meta__ = {
 [node name="Buttons" type="HBoxContainer" parent="Pause"]
 anchor_right = 1.0
 margin_top = 126.758
-margin_bottom = 202.758
 mouse_filter = 2
 custom_constants/separation = 32
 alignment = 1
@@ -54,37 +70,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Resume" type="Button" parent="Pause/Buttons"]
-margin_left = 352.0
-margin_right = 632.0
-margin_bottom = 76.875
-rect_min_size = Vector2( 280, 60 )
+[node name="Resume" parent="Pause/Buttons" instance=ExtResource( 11 )]
+margin_right = 392.0
+margin_bottom = 68.0
 text = "RESUME"
-script = ExtResource( 5 )
 
-[node name="Restart" type="Button" parent="Pause/Buttons"]
-margin_left = 664.0
-margin_right = 944.0
-margin_bottom = 76.875
-rect_min_size = Vector2( 280, 60 )
+[node name="Restart" parent="Pause/Buttons" instance=ExtResource( 11 )]
+margin_left = 424.0
+margin_right = 816.0
+margin_bottom = 68.0
 text = "RESTART"
-script = ExtResource( 5 )
 
-[node name="Settings" type="Button" parent="Pause/Buttons"]
-margin_left = 976.0
-margin_right = 1256.0
-margin_bottom = 76.875
-rect_min_size = Vector2( 280, 60 )
+[node name="Settings" parent="Pause/Buttons" instance=ExtResource( 11 )]
+margin_left = 848.0
+margin_right = 1240.0
+margin_bottom = 68.0
 text = "SETTINGS"
-script = ExtResource( 5 )
 
-[node name="Quit" type="Button" parent="Pause/Buttons"]
-margin_left = 1288.0
-margin_right = 1568.0
-margin_bottom = 76.875
-rect_min_size = Vector2( 280, 60 )
+[node name="Quit" parent="Pause/Buttons" instance=ExtResource( 11 )]
+margin_left = 1272.0
+margin_right = 1664.0
+margin_bottom = 68.0
 text = "QUIT_TO_MENU"
-script = ExtResource( 5 )
 
 [node name="PauseSfx" type="AudioStreamPlayer" parent="Pause"]
 stream = ExtResource( 7 )
@@ -95,8 +102,13 @@ stream = ExtResource( 6 )
 bus = "Sfx"
 
 [node name="Settings" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 128.0
+margin_top = 128.0
+margin_right = -128.0
+margin_bottom = -128.0
 mouse_filter = 2
 theme = ExtResource( 1 )
 __meta__ = {
@@ -108,6 +120,7 @@ anchor_right = 1.0
 margin_top = -1.86757
 margin_bottom = 134.132
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "SETTINGS"
 align = 1
 valign = 1
@@ -127,53 +140,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Audio" type="Button" parent="Settings/Buttons"]
-margin_left = 512.0
-margin_right = 712.0
+[node name="Audio" parent="Settings/Buttons" instance=ExtResource( 11 )]
+margin_right = 392.0
 margin_bottom = 75.0
-rect_min_size = Vector2( 200, 60 )
 text = "AUDIO"
-script = ExtResource( 5 )
 
-[node name="Controls" type="Button" parent="Settings/Buttons"]
-margin_left = 744.0
-margin_right = 944.0
+[node name="Controls" parent="Settings/Buttons" instance=ExtResource( 11 )]
+margin_left = 424.0
+margin_right = 816.0
 margin_bottom = 75.0
-rect_min_size = Vector2( 200, 60 )
 text = "CONTROLS"
-script = ExtResource( 5 )
 
-[node name="Graphics" type="Button" parent="Settings/Buttons"]
-margin_left = 976.0
-margin_right = 1176.0
+[node name="Graphics" parent="Settings/Buttons" instance=ExtResource( 11 )]
+margin_left = 848.0
+margin_right = 1240.0
 margin_bottom = 75.0
-rect_min_size = Vector2( 200, 60 )
 text = "GRAPHICS"
-script = ExtResource( 5 )
 
-[node name="Back" type="Button" parent="Settings/Buttons"]
-margin_left = 1208.0
-margin_right = 1408.0
+[node name="Back" parent="Settings/Buttons" instance=ExtResource( 11 )]
+margin_left = 1272.0
+margin_right = 1664.0
 margin_bottom = 75.0
-rect_min_size = Vector2( 200, 60 )
 text = "BACK"
-script = ExtResource( 5 )
 
 [node name="InputMenu" parent="." instance=ExtResource( 10 )]
-visible = false
+margin_left = 128.0
+margin_top = 128.0
+margin_right = -128.0
+margin_bottom = -128.0
 
 [node name="AudioSettingsHUD" parent="." instance=ExtResource( 8 )]
 visible = false
+margin_left = 128.0
+margin_top = 128.0
+margin_right = -128.0
+margin_bottom = -128.0
 
 [node name="GraphicsMenu" parent="." instance=ExtResource( 9 )]
-[connection signal="button_down" from="Pause/Buttons/Resume" to="." method="_on_Resume_button_down"]
-[connection signal="button_down" from="Pause/Buttons/Restart" to="." method="_on_Restart_button_down"]
-[connection signal="button_down" from="Pause/Buttons/Settings" to="." method="_on_Settings_button_down"]
-[connection signal="button_down" from="Pause/Buttons/Quit" to="." method="_on_Quit_button_down"]
-[connection signal="button_down" from="Settings/Buttons/Audio" to="." method="_on_Audio_button_down"]
-[connection signal="button_down" from="Settings/Buttons/Controls" to="." method="_on_Controls_button_down"]
-[connection signal="button_down" from="Settings/Buttons/Graphics" to="." method="_on_Graphics_button_down"]
-[connection signal="button_down" from="Settings/Buttons/Back" to="." method="_on_SettingsBack_button_down"]
+visible = false
+margin_left = 128.0
+margin_top = 128.0
+margin_right = -128.0
+margin_bottom = -128.0
+[connection signal="pressed" from="Pause/Buttons/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Pause/Buttons/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Pause/Buttons/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Pause/Buttons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Settings/Buttons/Audio" to="." method="_on_Audio_pressed"]
+[connection signal="pressed" from="Settings/Buttons/Controls" to="." method="_on_Controls_pressed"]
+[connection signal="pressed" from="Settings/Buttons/Graphics" to="." method="_on_Graphics_pressed"]
+[connection signal="pressed" from="Settings/Buttons/Back" to="." method="_on_SettingsBack_pressed"]
 [connection signal="finished" from="InputMenu" to="." method="_on_InputMenu_finished"]
 [connection signal="finished" from="AudioSettingsHUD" to="." method="_on_AudioSettingsHUD_finished"]
 [connection signal="finished" from="GraphicsMenu" to="." method="_on_GraphicsMenu_finished"]

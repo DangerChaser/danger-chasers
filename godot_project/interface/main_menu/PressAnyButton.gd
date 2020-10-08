@@ -12,7 +12,6 @@ func _ready() -> void:
 func start() -> void:
 	visible = true
 	animation_player.play("start")
-	set_process_input(true)
 
 
 func _input(event : InputEvent) -> void:
@@ -27,3 +26,8 @@ func finish() -> void:
 
 func transition_out() -> void:
 	animation_player.play("transition_out")
+
+
+func _on_AnimationPlayer_animation_changed(old_name, new_name):
+	if old_name == "start":
+		set_process_input(true)

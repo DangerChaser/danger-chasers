@@ -24,6 +24,8 @@ func _ready() -> void:
 
 func pause() -> void:
 #	get_tree().paused = true
+	$Background.visible = true
+	
 	PlayerManager.disable_input()
 	
 	if current_menu == Menus.PAUSE:
@@ -44,6 +46,7 @@ func pause() -> void:
 
 
 func unpause() -> void:
+	$Background.visible = false
 	PlayerManager.enable_input()
 	change_menu(Menus.UNPAUSED)
 #	get_tree().paused = false
@@ -86,17 +89,17 @@ func hide_menus() -> void:
 		menu.visible = false
 
 
-func _on_Resume_button_down():
+func _on_Resume_pressed():
 	unpause()
 
 
-func _on_Restart_button_down():
+func _on_Restart_pressed():
 	yield(Transition.transition_in(restart_transition_in_animation, restart_transition_in_duration), "transition_in_finished")
 	GameManager.game.level_loader.change_level(GameManager.current_loaded_level, GameManager.initial_spawn_point, "left_to_right", 0.5)
 	unpause()
 
 
-func _on_Quit_button_down():
+func _on_Quit_pressed():
 	yield(Transition.transition_in(quit_transition_in_animation, quit_transition_in_duration), "transition_in_finished")
 	GameManager.clear()
 	GameManager.current_loaded_level = load(main_menu_path)
@@ -104,15 +107,15 @@ func _on_Quit_button_down():
 	unpause()
 
 
-func _on_Settings_button_down():
+func _on_Settings_pressed():
 	change_menu(Menus.SETTINGS)
 
 
-func _on_Controls_button_down():
+func _on_Controls_pressed():
 	change_menu(Menus.INPUT)
 
 
-func _on_SettingsBack_button_down():
+func _on_SettingsBack_pressed():
 	change_menu(Menus.PAUSE)
 
 
@@ -120,7 +123,7 @@ func _on_InputMenu_finished():
 	change_menu(Menus.SETTINGS)
 
 
-func _on_Audio_button_down():
+func _on_Audio_pressed():
 	change_menu(Menus.AUDIO)
 
 
@@ -128,7 +131,7 @@ func _on_AudioSettingsHUD_finished():
 	change_menu(Menus.SETTINGS)
 
 
-func _on_Graphics_button_down():
+func _on_Graphics_pressed():
 	change_menu(Menus.GRAPHICS)
 
 

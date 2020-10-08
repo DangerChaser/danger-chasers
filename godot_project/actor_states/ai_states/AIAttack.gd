@@ -32,6 +32,8 @@ func take_damage(args := {}):
 
 
 func _on_Timer_timeout():
+	if not active:
+		return
 	weapon.emit_signal("finished")
 
 

@@ -1,58 +1,49 @@
-extends Control
+extends Node2D
 
+onready var main_menu := $CanvasLayer/Control/Main
+onready var new_game_menu := $CanvasLayer/Control/NewGame
+onready var continue_menu := $CanvasLayer/Control/Continue
+onready var settings_menu := $CanvasLayer/Control/SettingsMenu
+onready var press_any_button_menu := $CanvasLayer/Control/PressAnyButton
 
 func _ready():
-	$Main.visible = false
-	$NewGame.visible = false
-	$Continue.visible = false
-	$Settings.visible = false
-	$PressAnyButton.start()
+	main_menu.visible = false
+	new_game_menu.visible = false
+	continue_menu.visible = false
+	settings_menu.visible = false
+	press_any_button_menu.start()
 
 
 func _on_PressAnyButton_finished():
-	$PressAnyButton.transition_out()
-	$Main.start()
+	press_any_button_menu.transition_out()
+	main_menu.start()
 
 
 func _on_Main_new_game_button_pressed():
-	$Main.transition_out()
-	$NewGame.start()
+	main_menu.transition_out()
+	new_game_menu.start()
 
 
 func _on_Main_continue_button_pressed():
-	$Main.transition_out()
-	$Continue.start()
+	main_menu.transition_out()
+	continue_menu.start()
 
 
 func _on_Main_settings_button_pressed():
-	$Main.transition_out()
-	$Settings.start()
+	main_menu.transition_out()
+	settings_menu.start()
 
 
 func _on_NewGame_no_selected():
-	$NewGame.transition_out()
-	$Main.transition_in()
+	new_game_menu.transition_out()
+	main_menu.transition_in()
 
 
 func _on_Continue_back_selected():
-	$Continue.transition_out()
-	$Main.transition_in()
+	continue_menu.transition_out()
+	main_menu.transition_in()
 
 
-func _on_Settings_back_selected():
-	$Settings.transition_out()
-	$Main.transition_in()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+func _on_SettingsMenu_back_selected():
+	settings_menu.transition_out()
+	main_menu.transition_in()

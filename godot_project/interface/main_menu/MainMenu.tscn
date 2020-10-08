@@ -1,20 +1,22 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=1]
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=2]
 [ext_resource path="res://interface/main_menu/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://interface/main_menu/PressAnyButton.gd" type="Script" id=4]
-[ext_resource path="res://core/utils/ButtonKey.gd" type="Script" id=5]
+[ext_resource path="res://interface/menus/SettingsMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/main_menu/Main.gd" type="Script" id=6]
 [ext_resource path="res://interface/main_menu/NewGame.gd" type="Script" id=7]
 [ext_resource path="res://interface/main_menu/Continue.gd" type="Script" id=8]
-[ext_resource path="res://interface/main_menu/Settings.gd" type="Script" id=9]
-[ext_resource path="res://core/audio_bus_level_controllers/AudioSettingsHUD.tscn" type="PackedScene" id=10]
-[ext_resource path="res://interface/input_mapper/InputMenu.tscn" type="PackedScene" id=11]
-[ext_resource path="res://interface/menus/GraphicsMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/audio/music/MusicPlayer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/audio/music/Crimson Gold - Menu.ogg" type="AudioStream" id=14]
+[ext_resource path="res://objects/spirit/Spirit.tscn" type="PackedScene" id=15]
+[ext_resource path="res://actors/direwolf_kamikaze/sprites/white_square_red_glow.png" type="Texture" id=16]
+[ext_resource path="res://core/utils/ButtonKey.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Animation" id=1]
 resource_name = "loop"
+length = 1.2
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Label:visible")
@@ -23,7 +25,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -44,67 +46,67 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Label/Press:rect_position")
+tracks/1/path = NodePath("../GameName:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.1, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.307786, 0.307786, 1 ),
 "update": 0,
-"values": [ Vector2( -362.386, 630.366 ), Vector2( -362.386, 630.366 ), Vector2( 501.001, 630.366 ) ]
+"values": [ Vector2( 0, -159.194 ), Vector2( 0, -159.194 ), Vector2( 0, 150 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Label/Any:rect_position")
+tracks/2/path = NodePath(".:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.1, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 788, 1158.92 ), Vector2( 788, 1158.92 ), Vector2( 788, 635.149 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Label/Button:rect_position")
+tracks/3/path = NodePath("../../../Spirit:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1.1, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 2 ),
+"transitions": PoolRealArray( 0.258816, 0.258816, 1 ),
 "update": 0,
-"values": [ Vector2( 1971.87, 630.366 ), Vector2( 1971.87, 630.366 ), Vector2( 1175.45, 630.366 ) ]
+"values": [ Vector2( 960, 1180 ), Vector2( 960, 1180 ), Vector2( 960, 360 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../GameName:rect_position")
+tracks/4/path = NodePath("../GameName:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 1.4 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 506 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("../GameName:visible")
+tracks/5/path = NodePath("../BlackBackground:rect_size")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 680, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath(".:visible")
+tracks/6/path = NodePath("../WhiteBackground:rect_size")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -112,13 +114,37 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 640, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../../../Camera2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 960, 540 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Label:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=3]
 resource_name = "transition_out"
-length = 0.3
+length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -126,474 +152,224 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Label/Press:rect_position")
+tracks/1/path = NodePath("../GameName:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 501.001, 630.366 ), Vector2( -371.953, 630.366 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Label/Any:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 788, 635.149 ), Vector2( 788, 1108.7 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Label/Button:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1175.45, 630.366 ), Vector2( 1995.79, 630.366 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=4]
 resource_name = "exit"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Buttons:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.378929, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 735.945 ), Vector2( 0, 1118.61 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../GameName:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.329877, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 149.643 ), Vector2( 0, -123.005 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("ColorRect:color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
-}
+length = 0.001
 
 [sub_resource type="Animation" id=5]
-length = 0.5
+length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("Buttons:rect_position")
+tracks/0/path = NodePath("../../../Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1.56917, 1, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1968.33, 807.694 ), Vector2( 44.515, 702.632 ), Vector2( 0, 735.945 ) ]
+"values": [ Vector2( 960, 540 ), Vector2( 620, 540 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../GameName:rect_position")
+tracks/1/path = NodePath("../WhiteBackground:rect_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.517632, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.757858, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 506 ), Vector2( 0, 149.643 ) ]
+"values": [ Vector2( 640, 0 ), Vector2( 640, 1080 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../GameName:visible")
+tracks/2/path = NodePath("../BlackBackground:rect_size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "transition_in"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Buttons:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5 ),
-"transitions": PoolRealArray( 2.07053, 1, 0.378929 ),
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.241484, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 1118.61 ), Vector2( 0, 704 ), Vector2( 0, 735.945 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../GameName:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.574349, 0.329877 ),
-"update": 0,
-"values": [ Vector2( 0, -123.005 ), Vector2( 0, 149.643 ) ]
-}
-
-[sub_resource type="Animation" id=7]
-tracks/0/type = "value"
-tracks/0/path = NodePath("Buttons:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.378929, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 735.945 ), Vector2( 0, 1118.61 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../GameName:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.329877, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 149.643 ), Vector2( 0, -123.005 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "finished"
-tracks/0/type = "value"
-tracks/0/path = NodePath("NewGameLabel:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.366021, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 153.066 ), Vector2( 0, -128 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("YesButton:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.659754, 1 ),
-"update": 0,
-"values": [ Vector2( 320, 512 ), Vector2( -128, 1152 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("NoButton:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.554784, 1 ),
-"update": 0,
-"values": [ Vector2( 1152, 512 ), Vector2( 1536, 1088 ) ]
+"values": [ Vector2( 680, 0 ), Vector2( 680, 1080 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("ColorRect:color")
+tracks/3/path = NodePath("Buttons:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.7 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"update": 1,
+"values": [ false, true ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Buttons:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 404 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GameNameMenu:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6 ),
+"transitions": PoolRealArray( 0.277392, 0.277392, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -128 ), Vector2( 0, -128 ), Vector2( 0, 150 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "transition_in"
+length = 0.001
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "finished"
+length = 0.001
 
 [sub_resource type="Animation" id=9]
-length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("NewGameLabel:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1.51572, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -93.2746 ), Vector2( 0, 169.808 ), Vector2( 0, 153.066 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("YesButton:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 960, 1152 ), Vector2( 256, 448 ), Vector2( 320, 512 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("NoButton:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.6, 0.7 ),
-"transitions": PoolRealArray( 2.21914, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1042.76, 1155.17 ), Vector2( 1216, 448 ), Vector2( 1152, 512 ) ]
-}
+length = 0.001
 
 [sub_resource type="Animation" id=10]
+length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewGameLabel:rect_position")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.366021, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 153.066 ), Vector2( 0, -128 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("YesButton:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.659754, 1 ),
-"update": 0,
-"values": [ Vector2( 320, 512 ), Vector2( -128, 1152 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("NoButton:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.554784, 1 ),
-"update": 0,
-"values": [ Vector2( 1152, 512 ), Vector2( 1536, 1088 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=11]
 resource_name = "finished"
-tracks/0/type = "value"
-tracks/0/path = NodePath("ContinueLabel:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.366021, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 153.066 ), Vector2( 0, -128 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("BackButton:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 2.21914, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 832 ), Vector2( 0, 1088 ) ]
-}
+length = 0.001
 
 [sub_resource type="Animation" id=12]
 resource_name = "start"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("ContinueLabel:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1.51572, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -93.2746 ), Vector2( 0, 169.808 ), Vector2( 0, 153.066 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("BackButton:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1.93187, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 1155.17 ), Vector2( 0, 768 ), Vector2( 0, 832 ) ]
-}
+length = 0.001
 
 [sub_resource type="Animation" id=13]
 resource_name = "transition_out"
+length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("ContinueLabel:rect_position")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.366021, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 153.066 ), Vector2( 0, -128 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("BackButton:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 0.420448, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 832 ), Vector2( 0, 1152 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "start"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("SettingsLabel:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1.51572, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -93.2746 ), Vector2( 0, 169.808 ), Vector2( 0, 153.066 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Buttons:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 1088 ), Vector2( 0, 640 ), Vector2( 0, 704 ) ]
-}
+[sub_resource type="Curve" id=16]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.13125, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Animation" id=15]
-resource_name = "transition_out"
-tracks/0/type = "value"
-tracks/0/path = NodePath("SettingsLabel:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.366021, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 153.066 ), Vector2( 0, -128 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Buttons:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.68302, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 704 ), Vector2( 0, 1152 ) ]
-}
+[sub_resource type="CurveTexture" id=17]
+curve = SubResource( 16 )
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="ParticlesMaterial" id=18]
+emission_shape = 2
+emission_box_extents = Vector3( 12800, 7200, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 360.0
+initial_velocity_random = 1.0
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.04
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 100.0
+radial_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 1.0
+scale_curve = SubResource( 17 )
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = true
-mouse_filter = 2
 theme = ExtResource( 2 )
-script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameName" type="Label" parent="."]
-anchor_top = 0.5
+[node name="BlackBackground" type="ColorRect" parent="CanvasLayer/Control"]
+margin_right = 680.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WhiteBackground" type="ColorRect" parent="CanvasLayer/Control"]
+margin_right = 640.0
+margin_bottom = 1080.0
+
+[node name="GameName" type="Label" parent="CanvasLayer/Control"]
 anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -390.357
-margin_bottom = -322.356
+margin_top = 150.0
+margin_bottom = 218.0
 size_flags_horizontal = 3
 text = "GAME_NAME"
 align = 1
@@ -602,8 +378,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PressAnyButton" type="Control" parent="."]
-visible = false
+[node name="PressAnyButton" type="Control" parent="CanvasLayer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -612,164 +387,150 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PressAnyButton"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/PressAnyButton"]
 anims/loop = SubResource( 1 )
 anims/start = SubResource( 2 )
 anims/transition_out = SubResource( 3 )
 next/start = "loop"
 
-[node name="Label" type="Control" parent="PressAnyButton"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/PressAnyButton"]
+visible = false
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Press" type="Label" parent="PressAnyButton/Label"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -1331.95
-margin_top = 90.3661
-margin_right = -987.953
-margin_bottom = 158.366
-text = "PRESS"
+margin_top = -180.0
+margin_bottom = -112.0
+text = "PRESS ANY BUTTON"
 align = 1
+valign = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Any" type="Label" parent="PressAnyButton/Label"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -172.0
-margin_top = 568.697
-margin_right = 172.0
-margin_bottom = 636.697
-text = "ANY"
-align = 1
-script = ExtResource( 1 )
-
-[node name="Button" type="Label" parent="PressAnyButton/Label"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 1035.79
-margin_top = 90.3661
-margin_right = 1379.79
-margin_bottom = 158.366
-text = "BUTTON"
-align = 1
-script = ExtResource( 1 )
-
-[node name="ColorRect" type="ColorRect" parent="PressAnyButton"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/PressAnyButton"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Main" type="Control" parent="."]
+[node name="Main" type="Control" parent="CanvasLayer/Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -1312.0
+margin_bottom = -32.0
 mouse_filter = 2
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="Control" parent="Main"]
-anchor_top = 0.5
+[node name="GameNameMenu" type="Label" parent="CanvasLayer/Control/Main"]
 anchor_right = 1.0
+margin_top = 150.0
+margin_right = 64.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 640, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "GAME_NAME"
+align = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Control" parent="CanvasLayer/Control/Main"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-margin_top = 195.945
-margin_bottom = 272.82
+margin_left = -288.0
+margin_top = -104.0
+margin_right = 288.0
+margin_bottom = 168.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Main/Buttons"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Main/Buttons"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main/Buttons"]
+[node name="BoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Main/Buttons"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitButton" type="Button" parent="Main/Buttons/HBoxContainer"]
-margin_right = 637.0
-margin_bottom = 76.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "EXIT"
-script = ExtResource( 5 )
-
-[node name="NewGameButton" type="Button" parent="Main/Buttons/HBoxContainer"]
-margin_left = 641.0
-margin_right = 1278.0
-margin_bottom = 76.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="NewGameButton" parent="CanvasLayer/Control/Main/Buttons/BoxContainer" instance=ExtResource( 17 )]
+margin_right = 576.0
+margin_bottom = 68.0
 text = "NEW_GAME"
-script = ExtResource( 5 )
 
-[node name="ContinueButton" type="Button" parent="Main/Buttons/HBoxContainer"]
-visible = false
-margin_left = 962.0
-margin_right = 1439.0
-margin_bottom = 76.875
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="ContinueButton" parent="CanvasLayer/Control/Main/Buttons/BoxContainer" instance=ExtResource( 17 )]
+margin_top = 84.0
+margin_right = 576.0
+margin_bottom = 152.0
 text = "CONTINUE"
-script = ExtResource( 5 )
 
-[node name="SettingsButton" type="Button" parent="Main/Buttons/HBoxContainer"]
-margin_left = 1282.0
-margin_right = 1920.0
-margin_bottom = 76.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="SettingsButton" parent="CanvasLayer/Control/Main/Buttons/BoxContainer" instance=ExtResource( 17 )]
+margin_top = 168.0
+margin_right = 576.0
+margin_bottom = 236.0
 text = "SETTINGS"
-script = ExtResource( 5 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Main"]
+[node name="ExitButton" parent="CanvasLayer/Control/Main/Buttons/BoxContainer" instance=ExtResource( 17 )]
+margin_top = 252.0
+margin_right = 576.0
+margin_bottom = 320.0
+text = "EXIT TO DESKTOP"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/Main"]
 anims/exit = SubResource( 4 )
 anims/start = SubResource( 5 )
 anims/transition_in = SubResource( 6 )
 anims/transition_out = SubResource( 7 )
 
-[node name="ColorRect" type="ColorRect" parent="Main"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Main"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 
-[node name="NewGame" type="Control" parent="."]
+[node name="NewGame" type="Control" parent="CanvasLayer/Control"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -1312.0
+margin_bottom = -32.0
 mouse_filter = 2
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NewGameLabel" type="Label" parent="NewGame"]
+[node name="NewGameLabel" type="Label" parent="CanvasLayer/Control/NewGame"]
 anchor_right = 1.0
 margin_top = 153.066
 margin_bottom = 221.066
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "NEW_GAME"
 align = 1
 script = ExtResource( 1 )
@@ -777,58 +538,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="YesButton" type="Button" parent="NewGame"]
-margin_left = 320.0
-margin_top = 512.0
-margin_right = 740.0
-margin_bottom = 588.875
-rect_min_size = Vector2( 420, 0 )
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/NewGame"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -70.0
+margin_bottom = 70.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesButton" parent="CanvasLayer/Control/NewGame/VBoxContainer" instance=ExtResource( 17 )]
+margin_right = 576.0
+margin_bottom = 68.0
 text = "YES"
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="NoButton" type="Button" parent="NewGame"]
-margin_left = 1152.0
-margin_top = 512.0
-margin_right = 1572.0
-margin_bottom = 588.875
-rect_min_size = Vector2( 420, 0 )
+[node name="NoButton" parent="CanvasLayer/Control/NewGame/VBoxContainer" instance=ExtResource( 17 )]
+margin_top = 84.0
+margin_right = 576.0
+margin_bottom = 152.0
 text = "NO"
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ColorRect" type="ColorRect" parent="NewGame"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/NewGame"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="NewGame"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/NewGame"]
 anims/finished = SubResource( 8 )
 anims/start = SubResource( 9 )
 anims/transition_out = SubResource( 10 )
 
-[node name="Continue" type="Control" parent="."]
+[node name="Continue" type="Control" parent="CanvasLayer/Control"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -1312.0
+margin_bottom = -32.0
 mouse_filter = 2
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ContinueLabel" type="Label" parent="Continue"]
+[node name="ContinueLabel" type="Label" parent="CanvasLayer/Control/Continue"]
 anchor_right = 1.0
 margin_top = 153.066
 margin_bottom = 221.066
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "CONTINUE"
 align = 1
 script = ExtResource( 1 )
@@ -836,21 +600,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" type="Button" parent="Continue"]
+[node name="BackButton" parent="CanvasLayer/Control/Continue" instance=ExtResource( 17 )]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 292.0
-margin_right = -0.000366211
-margin_bottom = 368.875
-rect_min_size = Vector2( 420, 0 )
+margin_top = -34.0
+margin_right = 0.0
+margin_bottom = 34.0
 text = "BACK"
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ColorRect" type="ColorRect" parent="Continue"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Continue"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -859,124 +618,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Continue"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/Continue"]
 anims/finished = SubResource( 11 )
 anims/start = SubResource( 12 )
 anims/transition_out = SubResource( 13 )
 
-[node name="Settings" type="Control" parent="."]
-visible = false
+[node name="SettingsMenu" parent="CanvasLayer/Control" instance=ExtResource( 5 )]
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 13 )]
+stream = ExtResource( 14 )
+autoplay = true
+
+[node name="Spirit" parent="." instance=ExtResource( 15 )]
+position = Vector2( 960, 360 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 620, 540 )
+current = true
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
-script = ExtResource( 9 )
+color = Color( 0, 0.0392157, 0.247059, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SettingsLabel" type="Label" parent="Settings"]
-anchor_right = 1.0
-margin_top = 153.066
-margin_bottom = 292.066
-text = "Settings"
-align = 1
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Buttons" type="Control" parent="Settings"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = 164.0
-margin_bottom = 240.876
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="Settings/Buttons"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Settings/Buttons"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Audio" type="Button" parent="Settings/Buttons/HBoxContainer"]
-margin_right = 477.0
-margin_bottom = 76.875
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "AUDIO"
-script = ExtResource( 5 )
-
-[node name="Controls" type="Button" parent="Settings/Buttons/HBoxContainer"]
-margin_left = 481.0
-margin_right = 958.0
-margin_bottom = 76.875
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "CONTROLS"
-script = ExtResource( 5 )
-
-[node name="Graphics" type="Button" parent="Settings/Buttons/HBoxContainer"]
-margin_left = 962.0
-margin_right = 1439.0
-margin_bottom = 76.875
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "GRAPHICS"
-script = ExtResource( 5 )
-
-[node name="BackButton" type="Button" parent="Settings/Buttons/HBoxContainer"]
-margin_left = 1443.0
-margin_right = 1920.0
-margin_bottom = 76.875
-size_flags_horizontal = 3
-text = "BACK"
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Settings"]
-anims/start = SubResource( 14 )
-anims/transition_out = SubResource( 15 )
-
-[node name="AudioSettingsHUD" parent="Settings" instance=ExtResource( 10 )]
-visible = false
-
-[node name="InputMenu" parent="Settings" instance=ExtResource( 11 )]
-visible = false
-
-[node name="GraphicsMenu" parent="Settings" instance=ExtResource( 12 )]
-visible = false
-[connection signal="finished" from="PressAnyButton" to="." method="_on_PressAnyButton_finished"]
-[connection signal="continue_button_pressed" from="Main" to="." method="_on_Main_continue_button_pressed"]
-[connection signal="new_game_button_pressed" from="Main" to="." method="_on_Main_new_game_button_pressed"]
-[connection signal="settings_button_pressed" from="Main" to="." method="_on_Main_settings_button_pressed"]
-[connection signal="button_down" from="Main/Buttons/HBoxContainer/ExitButton" to="Main" method="_on_ExitButton_button_down"]
-[connection signal="button_down" from="Main/Buttons/HBoxContainer/NewGameButton" to="Main" method="_on_NewGameButton_button_down"]
-[connection signal="button_down" from="Main/Buttons/HBoxContainer/ContinueButton" to="Main" method="_on_ContinueButton_button_down"]
-[connection signal="button_down" from="Main/Buttons/HBoxContainer/SettingsButton" to="Main" method="_on_SettingsButton_button_down"]
-[connection signal="no_selected" from="NewGame" to="." method="_on_NewGame_no_selected"]
-[connection signal="button_down" from="NewGame/YesButton" to="NewGame" method="_on_Yes_button_down"]
-[connection signal="button_down" from="NewGame/NoButton" to="NewGame" method="_on_No_button_down"]
-[connection signal="back_selected" from="Continue" to="." method="_on_Continue_back_selected"]
-[connection signal="button_down" from="Continue/BackButton" to="Continue" method="_on_BackButton_button_down"]
-[connection signal="back_selected" from="Settings" to="." method="_on_Settings_back_selected"]
-[connection signal="button_down" from="Settings/Buttons/HBoxContainer/Audio" to="Settings" method="_on_Audio_button_down"]
-[connection signal="button_down" from="Settings/Buttons/HBoxContainer/Controls" to="Settings" method="_on_Controls_button_down"]
-[connection signal="button_down" from="Settings/Buttons/HBoxContainer/Graphics" to="Settings" method="_on_Graphics_button_down"]
-[connection signal="button_down" from="Settings/Buttons/HBoxContainer/BackButton" to="Settings" method="_on_BackButton_button_down"]
-[connection signal="finished" from="Settings/AudioSettingsHUD" to="Settings" method="_on_AudioSettingsHUD_finished"]
-[connection signal="finished" from="Settings/InputMenu" to="Settings" method="_on_InputMenu_finished"]
-[connection signal="finished" from="Settings/GraphicsMenu" to="Settings" method="_on_GraphicsMenu_finished"]
+[node name="Particles2D" type="Particles2D" parent="Background"]
+modulate = Color( 0.831373, 0.956863, 1, 1 )
+position = Vector2( 982.738, 493.889 )
+scale = Vector2( 0.1, 0.1 )
+amount = 128
+lifetime = 2.0
+randomness = 1.0
+process_material = SubResource( 18 )
+texture = ExtResource( 16 )
+[connection signal="finished" from="CanvasLayer/Control/PressAnyButton" to="." method="_on_PressAnyButton_finished"]
+[connection signal="animation_changed" from="CanvasLayer/Control/PressAnyButton/AnimationPlayer" to="CanvasLayer/Control/PressAnyButton" method="_on_AnimationPlayer_animation_changed"]
+[connection signal="continue_button_pressed" from="CanvasLayer/Control/Main" to="." method="_on_Main_continue_button_pressed"]
+[connection signal="new_game_button_pressed" from="CanvasLayer/Control/Main" to="." method="_on_Main_new_game_button_pressed"]
+[connection signal="settings_button_pressed" from="CanvasLayer/Control/Main" to="." method="_on_Main_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main/Buttons/BoxContainer/NewGameButton" to="CanvasLayer/Control/Main" method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main/Buttons/BoxContainer/ContinueButton" to="CanvasLayer/Control/Main" method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main/Buttons/BoxContainer/SettingsButton" to="CanvasLayer/Control/Main" method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main/Buttons/BoxContainer/ExitButton" to="CanvasLayer/Control/Main" method="_on_ExitButton_pressed"]
+[connection signal="animation_finished" from="CanvasLayer/Control/Main/AnimationPlayer" to="CanvasLayer/Control/Main" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="no_selected" from="CanvasLayer/Control/NewGame" to="." method="_on_NewGame_no_selected"]
+[connection signal="pressed" from="CanvasLayer/Control/NewGame/VBoxContainer/YesButton" to="CanvasLayer/Control/NewGame" method="_on_YesButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/NewGame/VBoxContainer/NoButton" to="CanvasLayer/Control/NewGame" method="_on_NoButton_pressed"]
+[connection signal="back_selected" from="CanvasLayer/Control/Continue" to="." method="_on_Continue_back_selected"]
+[connection signal="pressed" from="CanvasLayer/Control/Continue/BackButton" to="CanvasLayer/Control/Continue" method="_on_BackButton_pressed"]
+[connection signal="back_selected" from="CanvasLayer/Control/SettingsMenu" to="." method="_on_SettingsMenu_back_selected"]

@@ -143,11 +143,11 @@ anims/charge = SubResource( 3 )
 anims/wind_down = SubResource( 4 )
 
 [node name="DirewolfChargeParticlesUp" parent="Pivot" index="0" instance=ExtResource( 7 )]
-position = Vector2( 512, -224 )
+position = Vector2( 800, -32 )
 object = ExtResource( 9 )
 
 [node name="DirewolfChargeParticlesDown" parent="Pivot" index="1" instance=ExtResource( 7 )]
-position = Vector2( 608, -256 )
+position = Vector2( 544, -416 )
 object = ExtResource( 10 )
 
 [node name="Attacks" parent="Pivot" index="2"]

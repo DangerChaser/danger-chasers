@@ -7,10 +7,6 @@ onready var animation_player : AnimationPlayer = $AnimationPlayer
 var game_path := "res://core/Game.tscn"
 
 
-func _on_BackButton_button_down():
-	emit_signal("back_selected")
-
-
 func start():
 	animation_player.play("start")
 	visible = true
@@ -20,3 +16,7 @@ func start():
 
 func transition_out():
 	animation_player.play("transition_out")
+
+
+func _on_BackButton_pressed():
+	emit_signal("back_selected")
