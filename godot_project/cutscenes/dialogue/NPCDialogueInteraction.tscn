@@ -7,55 +7,7 @@
 [ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
-length = 0.001
-
-[sub_resource type="Animation" id=2]
-length = 0.001
-tracks/0/type = "method"
-tracks/0/path = NodePath("PlayerManagedStateManager")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable_input"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerManagedStateManager")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ "idle" ],
-"method": "play_animation"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("PlayerManagedStateManager")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable_activation_scanner"
-} ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "start"
+resource_name = "0"
 length = 0.001
 tracks/0/type = "method"
 tracks/0/path = NodePath("PlayerManagedStateManager")
@@ -114,6 +66,54 @@ tracks/3/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=2]
+length = 0.001
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("PlayerManagedStateManager")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_input"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PlayerManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "idle" ],
+"method": "play_animation"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_activation_scanner"
+} ]
+}
+
 [sub_resource type="GDScript" id=4]
 script/source = "extends AnimationPlayer
 
@@ -124,9 +124,9 @@ func play(var name : String =\"\", var custom_blend : float =-1, var custom_spee
 [node name="NPCDialogueInteraction" instance=ExtResource( 4 )]
 
 [node name="AnimationPlayer" parent="." index="0"]
-anims/SETUP = SubResource( 1 )
-anims/end = SubResource( 2 )
-anims/start = SubResource( 3 )
+anims/0 = SubResource( 1 )
+anims/SETUP = SubResource( 2 )
+anims/end = SubResource( 3 )
 script = SubResource( 4 )
 
 [node name="DialogueStarter" parent="Dialogues" index="0" instance=ExtResource( 1 )]

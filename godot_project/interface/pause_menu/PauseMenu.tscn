@@ -1,15 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
 [ext_resource path="res://interface/pause_menu/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://interface/dynamic_fonts/Silver_128.tres" type="DynamicFont" id=3]
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=4]
+[ext_resource path="res://interface/sfx/button_click.wav" type="AudioStream" id=5]
 [ext_resource path="res://interface/pause_menu/unpause.wav" type="AudioStream" id=6]
 [ext_resource path="res://interface/pause_menu/pause.wav" type="AudioStream" id=7]
 [ext_resource path="res://core/audio_bus_level_controllers/AudioSettingsHUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interface/menus/GraphicsMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/input_mapper/InputMenu.tscn" type="PackedScene" id=10]
 [ext_resource path="res://core/utils/ButtonKey.tscn" type="PackedScene" id=11]
+[ext_resource path="res://interface/sfx/button_back.wav" type="AudioStream" id=12]
+[ext_resource path="res://interface/sfx/button_focus_enter.wav" type="AudioStream" id=13]
 
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
@@ -19,6 +22,14 @@ game_path = "res://core/Game.tscn"
 main_menu_path = "res://level/levels/adventurers_guild/AdventurersGuild.tscn"
 restart_transition_in_animation = "left_to_right"
 quit_transition_in_animation = "left_to_right"
+
+[node name="PauseSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "Sfx"
+
+[node name="UnpauseSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Sfx"
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
@@ -74,32 +85,32 @@ __meta__ = {
 margin_right = 392.0
 margin_bottom = 68.0
 text = "RESUME"
+press_sfx = ExtResource( 5 )
+focus_enter_sfx = ExtResource( 13 )
 
 [node name="Restart" parent="Pause/Buttons" instance=ExtResource( 11 )]
 margin_left = 424.0
 margin_right = 816.0
 margin_bottom = 68.0
 text = "RESTART"
+press_sfx = ExtResource( 5 )
+focus_enter_sfx = ExtResource( 13 )
 
 [node name="Settings" parent="Pause/Buttons" instance=ExtResource( 11 )]
 margin_left = 848.0
 margin_right = 1240.0
 margin_bottom = 68.0
 text = "SETTINGS"
+press_sfx = ExtResource( 5 )
+focus_enter_sfx = ExtResource( 13 )
 
 [node name="Quit" parent="Pause/Buttons" instance=ExtResource( 11 )]
 margin_left = 1272.0
 margin_right = 1664.0
 margin_bottom = 68.0
 text = "QUIT_TO_MENU"
-
-[node name="PauseSfx" type="AudioStreamPlayer" parent="Pause"]
-stream = ExtResource( 7 )
-bus = "Sfx"
-
-[node name="UnpauseSfx" type="AudioStreamPlayer" parent="Pause"]
-stream = ExtResource( 6 )
-bus = "Sfx"
+press_sfx = ExtResource( 12 )
+focus_enter_sfx = ExtResource( 13 )
 
 [node name="Settings" type="Control" parent="."]
 visible = false
@@ -144,24 +155,32 @@ __meta__ = {
 margin_right = 392.0
 margin_bottom = 75.0
 text = "AUDIO"
+press_sfx = ExtResource( 5 )
+focus_enter_sfx = ExtResource( 13 )
 
 [node name="Controls" parent="Settings/Buttons" instance=ExtResource( 11 )]
 margin_left = 424.0
 margin_right = 816.0
 margin_bottom = 75.0
 text = "CONTROLS"
+press_sfx = ExtResource( 5 )
+focus_enter_sfx = ExtResource( 13 )
 
 [node name="Graphics" parent="Settings/Buttons" instance=ExtResource( 11 )]
 margin_left = 848.0
 margin_right = 1240.0
 margin_bottom = 75.0
 text = "GRAPHICS"
+press_sfx = ExtResource( 5 )
+focus_enter_sfx = ExtResource( 13 )
 
 [node name="Back" parent="Settings/Buttons" instance=ExtResource( 11 )]
 margin_left = 1272.0
 margin_right = 1664.0
 margin_bottom = 75.0
 text = "BACK"
+press_sfx = ExtResource( 12 )
+focus_enter_sfx = ExtResource( 13 )
 
 [node name="InputMenu" parent="." instance=ExtResource( 10 )]
 margin_left = 128.0

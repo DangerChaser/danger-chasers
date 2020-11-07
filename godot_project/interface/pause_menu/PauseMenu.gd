@@ -23,8 +23,9 @@ func _ready() -> void:
 
 
 func pause() -> void:
-#	get_tree().paused = true
+	get_tree().paused = true
 	$Background.visible = true
+	$PauseSfx.play()
 	
 	PlayerManager.disable_input()
 	
@@ -49,7 +50,7 @@ func unpause() -> void:
 	$Background.visible = false
 	PlayerManager.enable_input()
 	change_menu(Menus.UNPAUSED)
-#	get_tree().paused = false
+	get_tree().paused = false
 
 
 func change_menu(new_menu) -> void:
@@ -59,22 +60,15 @@ func change_menu(new_menu) -> void:
 	if current_menu == Menus.PAUSE:
 		pause_menu.visible = true
 		pause_menu.get_node("Buttons").get_child(0).grab_focus()
-		pause_menu.get_node("PauseSfx").play()
 	elif current_menu == Menus.SETTINGS:
 		settings_menu.visible = true
 		settings_menu.get_node("Buttons").get_child(0).grab_focus()
-		pause_menu.get_node("PauseSfx").play()
 	elif current_menu == Menus.INPUT:
-		pause_menu.get_node("PauseSfx").play()
 		input_menu.enable()
 	elif current_menu == Menus.AUDIO:
-		pause_menu.get_node("PauseSfx").play()
 		audio_menu.enable()
 	elif current_menu == Menus.GRAPHICS:
-		pause_menu.get_node("PauseSfx").play()
 		graphics_menu.enable()
-	else:
-		pause_menu.get_node("PauseSfx").play()
 
 
 func _input(event : InputEvent) -> void:

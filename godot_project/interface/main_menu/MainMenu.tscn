@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=1]
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=2]
@@ -8,11 +8,16 @@
 [ext_resource path="res://interface/main_menu/Main.gd" type="Script" id=6]
 [ext_resource path="res://interface/main_menu/NewGame.gd" type="Script" id=7]
 [ext_resource path="res://interface/main_menu/Continue.gd" type="Script" id=8]
+[ext_resource path="res://interface/sfx/button_back.wav" type="AudioStream" id=9]
+[ext_resource path="res://interface/sfx/button_click.wav" type="AudioStream" id=10]
+[ext_resource path="res://interface/sfx/main_menu_start.wav" type="AudioStream" id=11]
+[ext_resource path="res://interface/sfx/button_focus_enter.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/audio/music/MusicPlayer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/audio/music/Crimson Gold - Menu.ogg" type="AudioStream" id=14]
 [ext_resource path="res://objects/spirit/Spirit.tscn" type="PackedScene" id=15]
 [ext_resource path="res://actors/direwolf_kamikaze/sprites/white_square_red_glow.png" type="Texture" id=16]
 [ext_resource path="res://core/utils/ButtonKey.tscn" type="PackedScene" id=17]
+[ext_resource path="res://level/levels/adventurers_guild/AdventurersGuild.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "loop"
@@ -29,6 +34,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("LoopSfx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -168,6 +187,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("TransitionOutSfx")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -314,13 +347,13 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Curve" id=16]
+[sub_resource type="Curve" id=14]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.13125, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=17]
-curve = SubResource( 16 )
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 14 )
 
-[sub_resource type="ParticlesMaterial" id=18]
+[sub_resource type="ParticlesMaterial" id=16]
 emission_shape = 2
 emission_box_extents = Vector3( 12800, 7200, 1 )
 flag_disable_z = true
@@ -339,7 +372,7 @@ radial_accel_random = 1.0
 angle = 360.0
 angle_random = 1.0
 scale_random = 1.0
-scale_curve = SubResource( 17 )
+scale_curve = SubResource( 15 )
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 3 )
@@ -367,6 +400,7 @@ margin_right = 640.0
 margin_bottom = 1080.0
 
 [node name="GameName" type="Label" parent="CanvasLayer/Control"]
+visible = false
 anchor_right = 1.0
 margin_top = 150.0
 margin_bottom = 218.0
@@ -379,6 +413,7 @@ __meta__ = {
 }
 
 [node name="PressAnyButton" type="Control" parent="CanvasLayer/Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -394,7 +429,6 @@ anims/transition_out = SubResource( 3 )
 next/start = "loop"
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/PressAnyButton"]
-visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -417,6 +451,14 @@ color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TransitionOutSfx" type="AudioStreamPlayer" parent="CanvasLayer/Control/PressAnyButton"]
+stream = ExtResource( 11 )
+bus = "Sfx"
+
+[node name="LoopSfx" type="AudioStreamPlayer" parent="CanvasLayer/Control/PressAnyButton"]
+stream = ExtResource( 10 )
+bus = "Sfx"
 
 [node name="Main" type="Control" parent="CanvasLayer/Control"]
 visible = false
@@ -481,24 +523,32 @@ __meta__ = {
 margin_right = 576.0
 margin_bottom = 68.0
 text = "NEW_GAME"
+press_sfx = ExtResource( 10 )
+focus_enter_sfx = ExtResource( 12 )
 
 [node name="ContinueButton" parent="CanvasLayer/Control/Main/Buttons/BoxContainer" instance=ExtResource( 17 )]
 margin_top = 84.0
 margin_right = 576.0
 margin_bottom = 152.0
 text = "CONTINUE"
+press_sfx = ExtResource( 10 )
+focus_enter_sfx = ExtResource( 12 )
 
 [node name="SettingsButton" parent="CanvasLayer/Control/Main/Buttons/BoxContainer" instance=ExtResource( 17 )]
 margin_top = 168.0
 margin_right = 576.0
 margin_bottom = 236.0
 text = "SETTINGS"
+press_sfx = ExtResource( 10 )
+focus_enter_sfx = ExtResource( 12 )
 
 [node name="ExitButton" parent="CanvasLayer/Control/Main/Buttons/BoxContainer" instance=ExtResource( 17 )]
 margin_top = 252.0
 margin_right = 576.0
 margin_bottom = 320.0
 text = "EXIT TO DESKTOP"
+press_sfx = ExtResource( 9 )
+focus_enter_sfx = ExtResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/Main"]
 anims/exit = SubResource( 4 )
@@ -525,6 +575,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+new_game_scene = ExtResource( 18 )
 
 [node name="NewGameLabel" type="Label" parent="CanvasLayer/Control/NewGame"]
 anchor_right = 1.0
@@ -553,12 +604,15 @@ __meta__ = {
 margin_right = 576.0
 margin_bottom = 68.0
 text = "YES"
+focus_enter_sfx = ExtResource( 12 )
 
 [node name="NoButton" parent="CanvasLayer/Control/NewGame/VBoxContainer" instance=ExtResource( 17 )]
 margin_top = 84.0
 margin_right = 576.0
 margin_bottom = 152.0
-text = "NO"
+text = "BACK"
+press_sfx = ExtResource( 9 )
+focus_enter_sfx = ExtResource( 12 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/NewGame"]
 modulate = Color( 1, 1, 1, 0 )
@@ -575,7 +629,6 @@ anims/start = SubResource( 9 )
 anims/transition_out = SubResource( 10 )
 
 [node name="Continue" type="Control" parent="CanvasLayer/Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
@@ -600,14 +653,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" parent="CanvasLayer/Control/Continue" instance=ExtResource( 17 )]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Continue"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -34.0
-margin_right = 0.0
-margin_bottom = 34.0
+margin_top = -70.0
+margin_bottom = 70.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesButton" parent="CanvasLayer/Control/Continue/VBoxContainer" instance=ExtResource( 17 )]
+margin_right = 576.0
+margin_bottom = 68.0
+text = "YES"
+press_sfx = ExtResource( 9 )
+focus_enter_sfx = ExtResource( 12 )
+
+[node name="BackButton" parent="CanvasLayer/Control/Continue/VBoxContainer" instance=ExtResource( 17 )]
+margin_top = 84.0
+margin_right = 576.0
+margin_bottom = 152.0
 text = "BACK"
+press_sfx = ExtResource( 9 )
+focus_enter_sfx = ExtResource( 12 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Continue"]
 anchor_right = 1.0
@@ -624,6 +694,7 @@ anims/start = SubResource( 12 )
 anims/transition_out = SubResource( 13 )
 
 [node name="SettingsMenu" parent="CanvasLayer/Control" instance=ExtResource( 5 )]
+visible = false
 
 [node name="MusicPlayer" parent="." instance=ExtResource( 13 )]
 stream = ExtResource( 14 )
@@ -654,7 +725,7 @@ scale = Vector2( 0.1, 0.1 )
 amount = 128
 lifetime = 2.0
 randomness = 1.0
-process_material = SubResource( 18 )
+process_material = SubResource( 16 )
 texture = ExtResource( 16 )
 [connection signal="finished" from="CanvasLayer/Control/PressAnyButton" to="." method="_on_PressAnyButton_finished"]
 [connection signal="animation_changed" from="CanvasLayer/Control/PressAnyButton/AnimationPlayer" to="CanvasLayer/Control/PressAnyButton" method="_on_AnimationPlayer_animation_changed"]
@@ -670,5 +741,6 @@ texture = ExtResource( 16 )
 [connection signal="pressed" from="CanvasLayer/Control/NewGame/VBoxContainer/YesButton" to="CanvasLayer/Control/NewGame" method="_on_YesButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/NewGame/VBoxContainer/NoButton" to="CanvasLayer/Control/NewGame" method="_on_NoButton_pressed"]
 [connection signal="back_selected" from="CanvasLayer/Control/Continue" to="." method="_on_Continue_back_selected"]
-[connection signal="pressed" from="CanvasLayer/Control/Continue/BackButton" to="CanvasLayer/Control/Continue" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Continue/VBoxContainer/YesButton" to="CanvasLayer/Control/Continue" method="_on_YesButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Continue/VBoxContainer/BackButton" to="CanvasLayer/Control/Continue" method="_on_BackButton_pressed"]
 [connection signal="back_selected" from="CanvasLayer/Control/SettingsMenu" to="." method="_on_SettingsMenu_back_selected"]

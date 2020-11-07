@@ -7,70 +7,7 @@
 [ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
-resource_name = "SETUP"
-length = 0.001
-
-[sub_resource type="Animation" id=2]
-resource_name = "end"
-tracks/0/type = "method"
-tracks/0/path = NodePath("LevelBannerCutscene")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "end"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerManagedStateManager")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "disable"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "show_player_hud"
-} ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("PlayerManagedStateManager")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "enable_activation_scanner"
-} ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "start"
+resource_name = "0"
 length = 4.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("LevelBannerCutscene")
@@ -143,14 +80,75 @@ tracks/4/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=2]
+length = 0.001
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "method"
+tracks/0/path = NodePath("LevelBannerCutscene")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "end"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PlayerManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show_player_hud"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("PlayerManagedStateManager")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_activation_scanner"
+} ]
+}
+
 [node name="LevelIntroCutscene" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" parent="." index="0"]
-anims/SETUP = SubResource( 1 )
-anims/end = SubResource( 2 )
-anims/start = SubResource( 3 )
-next/start = "end"
+anims/0 = SubResource( 1 )
+anims/SETUP = SubResource( 2 )
+anims/end = SubResource( 3 )
+next/0 = "end"
 
 [node name="LevelBannerCutscene" parent="." index="1" instance=ExtResource( 2 )]
 

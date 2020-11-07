@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://core/audio_bus_level_controllers/AmbienceLevelController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://core/audio_bus_level_controllers/SoundLevelController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://core/audio_bus_level_controllers/MusicLevelController.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/audio_bus_level_controllers/AudioSettingsHUD.gd" type="Script" id=4]
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=5]
+[ext_resource path="res://interface/sfx/button_back.wav" type="AudioStream" id=6]
 [ext_resource path="res://core/utils/KeyLabel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://core/utils/ButtonKey.tscn" type="PackedScene" id=8]
+[ext_resource path="res://interface/sfx/button_click.wav" type="AudioStream" id=9]
+[ext_resource path="res://interface/sfx/button_focus_enter.wav" type="AudioStream" id=10]
 
 [node name="AudioSettingsHUD" type="VBoxContainer"]
 anchor_right = 1.0
@@ -46,6 +49,8 @@ mouse_filter = 2
 margin_right = 1920.0
 margin_bottom = 68.0
 text = "MUSIC"
+press_sfx = ExtResource( 9 )
+focus_enter_sfx = ExtResource( 10 )
 
 [node name="MusicLevelController" parent="Music" instance=ExtResource( 3 )]
 anchor_left = 0.0
@@ -57,7 +62,6 @@ margin_top = 72.0
 margin_right = 1920.0
 margin_bottom = 112.0
 mouse_filter = 2
-unfocused_color = Color( 0.498039, 0.498039, 0.498039, 0.501961 )
 
 [node name="Spacer2" type="Control" parent="."]
 margin_top = 336.0
@@ -76,6 +80,8 @@ mouse_filter = 2
 margin_right = 1920.0
 margin_bottom = 68.0
 text = "SFX"
+press_sfx = ExtResource( 9 )
+focus_enter_sfx = ExtResource( 10 )
 
 [node name="SoundLevelController" parent="Sfx" instance=ExtResource( 2 )]
 anchor_left = 0.0
@@ -87,7 +93,6 @@ margin_top = 72.0
 margin_right = 1920.0
 margin_bottom = 112.0
 mouse_filter = 2
-unfocused_color = Color( 0.498039, 0.498039, 0.498039, 0.501961 )
 
 [node name="Spacer3" type="Control" parent="."]
 margin_top = 600.0
@@ -106,6 +111,8 @@ mouse_filter = 2
 margin_right = 1920.0
 margin_bottom = 68.0
 text = "AMBIENCE"
+press_sfx = ExtResource( 9 )
+focus_enter_sfx = ExtResource( 10 )
 
 [node name="AmbienceLevelController" parent="Ambience" instance=ExtResource( 1 )]
 anchor_left = 0.0
@@ -117,7 +124,6 @@ margin_top = 72.0
 margin_right = 1920.0
 margin_bottom = 112.0
 mouse_filter = 2
-unfocused_color = Color( 0.498039, 0.498039, 0.498039, 0.501961 )
 
 [node name="Spacer4" type="Control" parent="."]
 margin_top = 864.0
@@ -131,6 +137,8 @@ margin_top = 1012.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 text = "Back"
+press_sfx = ExtResource( 6 )
+focus_enter_sfx = ExtResource( 10 )
 [connection signal="pressed" from="Music/ButtonKey" to="Music/MusicLevelController" method="enable"]
 [connection signal="enabled" from="Music/MusicLevelController" to="." method="_on_MusicLevelController_enabled"]
 [connection signal="pressed" from="Sfx/ButtonKey" to="Sfx/SoundLevelController" method="enable"]

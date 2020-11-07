@@ -10,7 +10,7 @@ func _ready() -> void:
 	play("SETUP")
 
 func start() -> void:
-	play("start")
+	play("0")
 
 func end():
 	play("end")

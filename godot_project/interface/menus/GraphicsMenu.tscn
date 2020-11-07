@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=1]
 [ext_resource path="res://interface/menus/GraphicsMenu.gd" type="Script" id=2]
+[ext_resource path="res://interface/sfx/button_back.wav" type="AudioStream" id=3]
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=4]
 [ext_resource path="res://core/utils/ButtonKey.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/sfx/button_click.wav" type="AudioStream" id=6]
+[ext_resource path="res://interface/sfx/button_focus_enter.wav" type="AudioStream" id=7]
 
 [node name="GraphicsMenu" type="Control"]
 anchor_right = 1.0
@@ -55,6 +58,8 @@ margin_left = 962.0
 margin_right = 1920.0
 margin_bottom = 68.0
 text = "NORMAL"
+press_sfx = ExtResource( 6 )
+focus_enter_sfx = ExtResource( 7 )
 
 [node name="FrameFreeze" type="HBoxContainer" parent="Buttons"]
 margin_top = 132.0
@@ -75,6 +80,8 @@ margin_left = 962.0
 margin_right = 1920.0
 margin_bottom = 68.0
 text = "ON"
+press_sfx = ExtResource( 6 )
+focus_enter_sfx = ExtResource( 7 )
 
 [node name="WindowMode" type="HBoxContainer" parent="Buttons"]
 margin_top = 264.0
@@ -95,12 +102,16 @@ margin_left = 962.0
 margin_right = 1920.0
 margin_bottom = 68.0
 text = "WINDOWED"
+press_sfx = ExtResource( 6 )
+focus_enter_sfx = ExtResource( 7 )
 
 [node name="BackButton" parent="Buttons" instance=ExtResource( 5 )]
 margin_top = 396.0
 margin_right = 1920.0
 margin_bottom = 464.0
 text = "BACK"
+press_sfx = ExtResource( 3 )
+focus_enter_sfx = ExtResource( 7 )
 [connection signal="pressed" from="Buttons/ScreenShake/ScreenShakeButton" to="." method="_on_ScreenShakeButton_pressed"]
 [connection signal="pressed" from="Buttons/FrameFreeze/FrameFreezeButton" to="." method="_on_FrameFreezeButton_pressed"]
 [connection signal="pressed" from="Buttons/WindowMode/WindowModeButton" to="." method="_on_WindowModeButton_pressed"]

@@ -178,6 +178,5 @@ random_pitch_high = 1.1
 modulate = Color( 0.403922, 0.537255, 1, 1 )
 material = SubResource( 8 )
 amount = 64
-local_coords = false
 process_material = SubResource( 13 )
 texture = ExtResource( 1 )

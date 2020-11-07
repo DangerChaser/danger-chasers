@@ -14,7 +14,6 @@ LEVEL_START = ExtResource( 2 )
 
 [node name="MusicPlayer" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
-bus = "Music"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -128

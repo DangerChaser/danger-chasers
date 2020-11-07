@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://cutscenes/dialogue/CutsceneDialogue.gd" type="Script" id=2]
@@ -9,11 +9,7 @@ length = 0.001
 [sub_resource type="Animation" id=2]
 length = 0.001
 
-[sub_resource type="Animation" id=3]
-resource_name = "start"
-length = 0.001
-
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=3]
 script/source = "extends AnimationPlayer
 
 func play(var name : String =\"\", var custom_blend : float =-1, var custom_speed : float = 1.0, var from_end : bool = false ) -> void:
@@ -26,7 +22,6 @@ script = ExtResource( 2 )
 [node name="AnimationPlayer" parent="." index="0"]
 anims/SETUP = SubResource( 1 )
 anims/end = SubResource( 2 )
-anims/start = SubResource( 3 )
-script = SubResource( 4 )
+script = SubResource( 3 )
 
 [node name="Dialogues" type="Node2D" parent="." index="1"]

@@ -8,6 +8,7 @@ export var json_name := ""
 func start() -> void:
 	var json_path = "res://dialogue/"
 	json_path += json_name
+	json_path += ".json"
 	Dialogue.start_dialogue(json_path, self)
 	Dialogue.connect("dialogue_ended", self, "_on_Dialogue_ended")
 

@@ -11,10 +11,12 @@ onready var pivot : Pivot = $Pivot
 onready var collider := $CollisionBox
 onready var motion : MotionState = $Motion
 onready var target := $Target
+onready var startup_timer : Timer = $StartupDelay
 
 var target_direction : Vector2
 var velocity : Vector2
 var confirmed_hits : int = 0
+var paused := false
 
 
 func _ready() -> void:
@@ -23,6 +25,7 @@ func _ready() -> void:
 	visible = false
 	$DamageSource.disable()
 	$CollisionBox.set_deferred("disabled", true)
+
 
 
 func initialize(initial_direction : Vector2 = Vector2()) -> void:
@@ -37,6 +40,9 @@ func initialize(initial_direction : Vector2 = Vector2()) -> void:
 	visible = true
 	$DamageSource.enable()
 	$CollisionBox.set_deferred("disabled", false)
+	
+	if (startup_timer.wait_time <= 0.01):
+		start()
 
 
 func _physics_process(delta : float) -> void:
@@ -95,6 +101,10 @@ func _on_animation_finished(anim_name : String) -> void:
 		queue_free()
 
 func _on_StartupDelay_timeout():
+	start()
+
+
+func start() -> void:
 	motion.steering.velocity = target_direction * initial_speed
 	motion.enter()
 	if not $AnimationPlayer.current_animation == "spawn" and $AnimationPlayer.has_animation("motion"):

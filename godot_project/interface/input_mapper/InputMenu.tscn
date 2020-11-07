@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://interface/input_mapper/InputMenu.gd" type="Script" id=1]
 [ext_resource path="res://interface/input_mapper/input_mapper/InputMapper.tscn" type="PackedScene" id=2]
@@ -6,9 +6,11 @@
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=4]
 [ext_resource path="res://interface/input_mapper/input_line/ActionList.gd" type="Script" id=5]
 [ext_resource path="res://core/utils/ButtonKey.tscn" type="PackedScene" id=6]
+[ext_resource path="res://interface/sfx/button_back.wav" type="AudioStream" id=7]
 [ext_resource path="res://interface/input_mapper/KeySelectMenu.gd" type="Script" id=8]
 [ext_resource path="res://interface/input_mapper/input_line/InputLine.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=10]
+[ext_resource path="res://interface/sfx/button_focus_enter.wav" type="AudioStream" id=11]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends OptionButton
@@ -151,7 +153,9 @@ input_line = ExtResource( 9 )
 margin_top = 1012.0
 margin_right = 1920.0
 margin_bottom = 1080.0
-text = "CONFIRM"
+text = "BACK"
+press_sfx = ExtResource( 7 )
+focus_enter_sfx = ExtResource( 11 )
 
 [node name="KeySelectMenu" type="Panel" parent="."]
 visible = false

@@ -4,7 +4,7 @@ class_name MotionState
 export var look_towards_move_direction := true
 export var look_away_from_move_direction := false
 
-const LOOK_DIRECTION_SPEED_THRESHOLD := 6.0
+const LOOK_DIRECTION_SPEED_THRESHOLD := 50.0
 
 onready var steering := $MotionSteering
 onready var gravity := $Gravity

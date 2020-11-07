@@ -3,8 +3,10 @@ class_name ButtonKey
 
 export var key : String = ""
 export var press_sfx : AudioStream
+export var focus_enter_sfx : AudioStream
 
-onready var audio_stream_player : AudioStreamPlayer = $AudioStreamPlayer
+onready var press_sfx_player : AudioStreamPlayer = $PressSfxPlayer
+onready var focus_entered_player : AudioStreamPlayer = $FocusEnteredPlayer
 
 
 func _ready() -> void:
@@ -14,7 +16,9 @@ func _ready() -> void:
 		set_key(text)
 	
 	if press_sfx:
-		audio_stream_player.stream = press_sfx
+		press_sfx_player.stream = press_sfx
+	if focus_enter_sfx:
+		focus_entered_player.stream = focus_enter_sfx
 
 
 func set_key(new_key : String) -> void:
@@ -23,4 +27,8 @@ func set_key(new_key : String) -> void:
 
 
 func _on_ButtonKey_pressed():
-	audio_stream_player.play()
+	press_sfx_player.play()
+
+
+func _on_ButtonKey_focus_entered():
+	focus_entered_player.play()

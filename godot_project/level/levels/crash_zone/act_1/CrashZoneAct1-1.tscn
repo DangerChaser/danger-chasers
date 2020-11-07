@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://level/levels/zero_limit/rain_thunder_ambience.ogg" type="AudioStream" id=1]
+[ext_resource path="res://level/levels/zero_limit/forest.tres" type="TileSet" id=2]
+[ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interactable_scripts/base/DoorChangeLevelInteractionArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/audio/music/dova_syndrome/Jumping_to_the_moon.ogg" type="AudioStream" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 304, 272 )
+
+[node name="CrashZoneAct1-1" instance=ExtResource( 4 )]
+level_name_key = "ZERO_LIMIT"
+skybox_color = Color( 0.454902, 0.890196, 0.960784, 1 )
+
+[node name="InitialMusic" parent="." index="0"]
+music = ExtResource( 6 )
+
+[node name="CollisionShape2D" parent="InitialMusic" index="0"]
+shape = SubResource( 1 )
+
+[node name="Ambience" parent="." index="1"]
+stream = ExtResource( 1 )
+
+[node name="Half Platforms" type="TileMap" parent="Ground" index="0"]
+modulate = Color( 0.737255, 0.733333, 1, 1 )
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 64
+collision_mask = 2147483649
+format = 1
+
+[node name="Platform1" type="RigidBody2D" parent="Ground" index="1"]
+position = Vector2( 64, 1312 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/Platform1" index="0"]
+polygon = PoolVector2Array( -4160, -1056, 4096, -1056, 4096, 992, 3328, 992, -4160, -672 )
+
+[node name="BaseFloor1" type="RigidBody2D" parent="Ground" index="2"]
+position = Vector2( 6240, 4064 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/BaseFloor1" index="0"]
+polygon = PoolVector2Array( -4160, -1056, 15008, -1056, 15008, -672, -4160, -672 )
+
+[node name="Platform2" type="RigidBody2D" parent="Ground" index="3"]
+position = Vector2( 11264, 2240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/Platform2" index="0"]
+polygon = PoolVector2Array( -512, -64, 512, -64, 512, 64, -512, 64 )
+
+[node name="Platform3" type="RigidBody2D" parent="Ground" index="4"]
+position = Vector2( 13312, 2240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/Platform3" index="0"]
+polygon = PoolVector2Array( -512, -64, 512, -64, 512, 64, -512, 64 )
+
+[node name="Platform4" type="RigidBody2D" parent="Ground" index="5"]
+position = Vector2( 15360, 2240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/Platform4" index="0"]
+polygon = PoolVector2Array( -512, -64, 512, -64, 2560, -704, 4096, -704, 4096, 64, 2560, 64, 512, 64, -512, 64 )
+
+[node name="CameraLimitTrigger" parent="CameraLimits" index="0" instance=ExtResource( 3 )]
+position = Vector2( 7168, -640 )
+zoom = Vector2( 2, 2 )
+
+[node name="ColliderTrigger" parent="CameraLimits/CameraLimitTrigger" index="0"]
+shape = SubResource( 2 )
+
+[node name="TopLeft" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="0"]
+position = Vector2( -10752, -1216 )
+
+[node name="BottomRight" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="1"]
+position = Vector2( 9152, 1248 )
+
+[node name="DoorChangeLevelInteractionArea" parent="LevelTransitions" index="0" instance=ExtResource( 5 )]
+position = Vector2( 15168, -1304 )
+level_path = "res://level/levels/zero_limit/act_1/ZeroLimitAct1-2.tscn"
+
+[node name="0" parent="PlayerSpawnPoints" index="0"]
+position = Vector2( -1856, 0 )
+camera_limit_trigger = NodePath("../../../CrashZoneAct1-1/CameraLimits/CameraLimitTrigger")
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
+
+[editable path="InitialMusic"]
+
+[editable path="CameraLimits/CameraLimitTrigger"]
+
+[editable path="PlayerSpawnPoints/0"]

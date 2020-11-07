@@ -479,6 +479,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objects/vehicles/Vehicle.gd"
 }, {
+"base": "WaitState",
+"class": "WaitForTargetDistance",
+"language": "GDScript",
+"path": "res://actor_states/ai_states/WaitForTargetDistance.gd"
+}, {
 "base": "MotionState",
 "class": "WaitState",
 "language": "GDScript",
@@ -589,6 +594,7 @@ _global_script_class_icons={
 "TypewriterLabel": "",
 "UpAndDown": "",
 "Vehicle": "",
+"WaitForTargetDistance": "",
 "WaitState": "",
 "WaitTime": "",
 "Weapon": ""
@@ -789,11 +795,8 @@ open_inventory={
 
 translations=PoolStringArray( "res://strings.en.translation" )
 
-[physics]
-
-common/physics_jitter_fix=0.0
-
 [rendering]
 
 quality/2d/use_pixel_snap=true
+threads/thread_model=2
 environment/default_environment="res://default_env.tres"

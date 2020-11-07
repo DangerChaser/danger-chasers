@@ -2,6 +2,9 @@
 
 [ext_resource path="res://core/Cutscene.gd" type="Script" id=4]
 
+[sub_resource type="Animation" id=3]
+resource_name = "0"
+
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
@@ -9,15 +12,12 @@ length = 0.001
 [sub_resource type="Animation" id=2]
 resource_name = "end"
 
-[sub_resource type="Animation" id=3]
-resource_name = "start"
-
 [node name="Cutscene" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "SETUP"
+anims/0 = SubResource( 3 )
 anims/SETUP = SubResource( 1 )
 anims/end = SubResource( 2 )
-anims/start = SubResource( 3 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

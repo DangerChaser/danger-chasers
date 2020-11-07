@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
+[ext_resource path="res://interface/sfx/button_back.wav" type="AudioStream" id=1]
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=2]
 [ext_resource path="res://core/audio_bus_level_controllers/AudioSettingsHUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/utils/ButtonKey.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/menus/GraphicsMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/input_mapper/InputMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interface/main_menu/Settings.gd" type="Script" id=7]
+[ext_resource path="res://interface/sfx/button_click.wav" type="AudioStream" id=8]
+[ext_resource path="res://interface/sfx/button_focus_enter.wav" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "start"
@@ -247,24 +250,32 @@ __meta__ = {
 margin_right = 576.0
 margin_bottom = 20.0
 text = "AUDIO"
+press_sfx = ExtResource( 8 )
+focus_enter_sfx = ExtResource( 9 )
 
 [node name="Controls" parent="Buttons/BoxContainer" instance=ExtResource( 4 )]
 margin_top = 36.0
 margin_right = 576.0
 margin_bottom = 56.0
 text = "CONTROLS"
+press_sfx = ExtResource( 8 )
+focus_enter_sfx = ExtResource( 9 )
 
 [node name="Graphics" parent="Buttons/BoxContainer" instance=ExtResource( 4 )]
 margin_top = 72.0
 margin_right = 576.0
 margin_bottom = 92.0
 text = "GRAPHICS"
+press_sfx = ExtResource( 8 )
+focus_enter_sfx = ExtResource( 9 )
 
 [node name="BackButton" parent="Buttons/BoxContainer" instance=ExtResource( 4 )]
 margin_top = 108.0
 margin_right = 576.0
 margin_bottom = 128.0
 text = "BACK"
+press_sfx = ExtResource( 1 )
+focus_enter_sfx = ExtResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/start = SubResource( 1 )
