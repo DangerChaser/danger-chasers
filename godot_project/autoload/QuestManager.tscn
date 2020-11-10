@@ -25,3 +25,8 @@ level_path = "res://level/levels/DebugEnemy.tscn"
 quest_name_key = "CUTSCENE_DEBUG"
 quest_description_key = "DEBUG_ENEMY_DESCRIPTION"
 level_path = "res://level/levels/cutscene_levels/NewGameIntroCutscene01.tscn"
+
+[node name="Zero Limit Act Two4" parent="." instance=ExtResource( 1 )]
+quest_name_key = "CRASH_ZONE_ACT_ONE"
+quest_description_key = "DEBUG_ENEMY_DESCRIPTION"
+level_path = "res://level/levels/crash_zone/act_1/CrashZoneAct1-1.tscn"

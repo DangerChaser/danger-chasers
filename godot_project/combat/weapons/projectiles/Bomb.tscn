@@ -1,22 +1,49 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://combat/weapons/projectiles/Projectile.gd" type="Script" id=1]
+[ext_resource path="res://combat/weapons/projectiles/Bomb.gd" type="Script" id=1]
 [ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=2]
-[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actor_framework/Target.gd" type="Script" id=4]
+[ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 59.5189
+radius = 14.8311
 
 [sub_resource type="Animation" id=2]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=3]
-length = 0.001
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[node name="Projectile" type="KinematicBody2D"]
+[node name="Bomb" type="KinematicBody2D"]
 collision_layer = 0
 script = ExtResource( 1 )
+initial_speed = 1337
+
+[node name="Pivot" parent="." instance=ExtResource( 5 )]
 
 [node name="Motion" parent="." instance=ExtResource( 2 )]
 look_towards_move_direction = false
@@ -25,11 +52,7 @@ look_towards_move_direction = false
 max_speed = 1337.0
 
 [node name="Gravity" parent="Motion" index="2"]
-gravity = 0.0
-max_speed = 0.0
-
-[node name="DamageSource" parent="." instance=ExtResource( 3 )]
-collision_mask = 2
+max_speed = 10000.0
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -50,7 +73,6 @@ autostart = true
 wait_time = 0.01
 one_shot = true
 autostart = true
-[connection signal="hit_confirmed" from="DamageSource" to="." method="_on_hit_confirmed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 [connection signal="timeout" from="LifetimeTimer" to="." method="queue_free"]
 [connection signal="timeout" from="StartupDelay" to="." method="_on_StartupDelay_timeout"]

@@ -85,7 +85,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.21, 0.33 ),
+"times": PoolRealArray( 0, 0.3, 0.42 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -119,7 +119,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.21 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ null ],
@@ -134,7 +134,7 @@ stream = ExtResource( 6 )
 bus = "Sfx"
 
 [node name="DamageSource" parent="." index="2" instance=ExtResource( 1 )]
-position = Vector2( 104.389, -53.8782 )
+position = Vector2( 104.389, 0 )
 hit_particles = ExtResource( 8 )
 damage = 189
 
@@ -147,11 +147,11 @@ anims/recover = SubResource( 3 )
 anims/stab = SubResource( 4 )
 
 [node name="SfxParticleSpawner" parent="Pivot" index="0" instance=ExtResource( 5 )]
-position = Vector2( 104.389, -53.8782 )
+position = Vector2( 104.389, 0 )
 object = ExtResource( 7 )
 
 [node name="Stab" parent="Pivot/Attacks" index="0" instance=ExtResource( 4 )]
-actor_animation = "stab"
+actor_animation = "spear_stab"
 weapon_animation = "stab"
 
 [node name="MovementEffect" parent="Pivot/Attacks/Stab/AdditionalEffects" index="0" instance=ExtResource( 3 )]

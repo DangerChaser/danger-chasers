@@ -6,10 +6,10 @@ signal spawned(object)
 
 onready var initializations := $Initializations
 
-export(PackedScene) var object : PackedScene
-export(float) var random_degrees : float = 0
-export(float) var random_radius : float = 0
-export var DRAW_COLOR : = Color("#1418ff")
+export var object : PackedScene
+export var random_degrees : float = 0
+export var random_radius : float = 0
+export var DRAW_COLOR := Color("#1418ff")
 
 
 func _draw() -> void:
@@ -27,8 +27,6 @@ func spawn(parent=null):
 	var new_object = object.instance()
 	
 	_set_position(new_object)
-	if parent:
-		parent.add_child(new_object)
 	
 	_set_rotation(new_object)
 	
@@ -36,6 +34,9 @@ func spawn(parent=null):
 		function.initialize(new_object)
 	
 	emit_signal("spawned", new_object)
+	
+	if parent:
+		parent.add_child(new_object)
 	
 	return new_object
 

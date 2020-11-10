@@ -1,0 +1,33 @@
+[gd_scene format=2]
+
+[node name="CrashZoneSpawnSection1" type="Node2D"]
+
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2( 64, 1312 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform1"]
+polygon = PoolVector2Array( -4160, -1056, 4096, -1056, 4096, 992, 3328, 992, 3328, 1696, 1984, 1696, -4160, 1696, -4160, -672 )
+
+[node name="BaseFloor1" type="StaticBody2D" parent="."]
+position = Vector2( 6240, 4064 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BaseFloor1"]
+polygon = PoolVector2Array( -4192, -1056, 13216, -1056, 13216, -2528, 15008, -2528, 15008, -1056, 15008, -672, -4192, -672 )
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2( 11264, 2240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform2"]
+polygon = PoolVector2Array( -512, -64, 512, -64, 512, 64, -512, 64 )
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2( 13312, 2240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform3"]
+polygon = PoolVector2Array( -512, -64, 512, -64, 512, 64, -512, 64 )
+
+[node name="Platform4" type="StaticBody2D" parent="."]
+position = Vector2( 15360, 2240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform4"]
+polygon = PoolVector2Array( -512, -64, 512, -64, 2560, -704, 4096, -704, 4096, 64, 2560, 64, 512, 64, -512, 64 )

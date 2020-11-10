@@ -5,27 +5,13 @@ extends Node
 
 signal stats_changed(new_stats)
 
-export var growth_stats : Resource
 export var character_stats : Resource
-export(int) var experience := 0
 
 
 func _ready():
-	if growth_stats:
-		set_experience(experience)
-	else:
-		assert (character_stats)
-
-
-func initialize():
 	character_stats = character_stats.duplicate()
 	character_stats.reset()
 	change_stats(character_stats)
-
-
-func set_experience(_experience : int) -> void:
-	experience = _experience
-	change_stats(growth_stats.create_stats(experience))
 
 
 func change_stats(new_stats : CharacterStats):

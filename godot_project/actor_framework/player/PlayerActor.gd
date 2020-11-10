@@ -22,8 +22,8 @@ func _ready() -> void:
 #		PlayerManager.activate_skill(skill)
 #	PlayerManager.activate_skill("TillSummon")
 #	PlayerManager.activate_skill("ShotgunBlast")
-#	PlayerManager.activate_skill("LavaLauncher")
 	PlayerManager.activate_skill("Dash")
+	PlayerManager.activate_skill("LavaLauncher")
 
 
 func initialize(_team : String = "", initial_target=null) -> void:

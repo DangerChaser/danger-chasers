@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://combat/weapons/projectiles/Bomb.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/drones/weapons/bomb.png" type="Texture" id=2]
+[ext_resource path="res://actors/drones/weapons/DroneGrenadeExplosion.tscn" type="PackedScene" id=3]
+
+[node name="DroneGrenade" instance=ExtResource( 1 )]
+destroy_particles = ExtResource( 3 )
+
+[node name="bomb" type="Sprite" parent="Pivot" index="1"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+
+[editable path="Motion"]

@@ -15,8 +15,7 @@ onready var gcd_timer := Timer.new()
 export var icon : Texture
 export var global_cooldown := false
 export var next_state := ""
-
-var input : String
+export var input : String
 
 
 func _ready() -> void:

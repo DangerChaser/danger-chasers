@@ -1,7 +1,10 @@
 extends Node2D
 class_name SfxParticle
 
-export(bool) var can_rotate : bool = true
+signal started
+signal stopped
+
+export var can_rotate := true
 export var queue_free_after_timer := true
 
 onready var particles := $Pivot.get_children()
@@ -14,7 +17,7 @@ func _ready():
 		var max_lifetime = 0.0
 		for particle in $Pivot.get_children():
 			max_lifetime = max(max_lifetime, particle.lifetime)
-		timer.wait_time = max_lifetime + 1.0
+		timer.wait_time = max_lifetime
 		add_child(timer)
 
 
@@ -43,11 +46,14 @@ func start(_global_position := Vector2(), _global_rot_rad =null, _scale := Vecto
 		if direction:
 			particle.process_material.direction = Vector3(direction.x, direction.y, 0)
 		particle.emitting = true
+	
+	emit_signal("started")
 
 
 func stop() -> void:
 	$Sfx.stop()
 	disable_emitting()
+	emit_signal("stopped")
 
 
 func play():

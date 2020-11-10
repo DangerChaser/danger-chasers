@@ -14,7 +14,7 @@ signal weapon_added(weapon)
 enum States { NORMAL, INVINCIBLE }
 var state
 
-export(Texture) var icon : Texture
+export var icon : Texture
 export var team := "team_2"
 export var pause_offscreen := true
 
@@ -45,7 +45,6 @@ var paused := false
 func _ready():
 	state = States.NORMAL
 	
-#	pivot.target = get_path()
 	pivot.connect("animation_finished", state_machine, "anim_finished")
 	
 	if state_machine.has_state("Stagger"):
@@ -56,7 +55,6 @@ func _ready():
 		hurtbox.connect("taken_damage", self, "_on_Hurtbox_area_entered")
 	
 	if initialize_on_ready:
-		yield(get_tree().create_timer(0.01), "timeout")
 		call_deferred("initialize", team)
 
 
@@ -90,7 +88,6 @@ func get_friendly_teams() -> Array:
 
 func reset(target_global_position : Vector2) -> void:
 	global_position = target_global_position
-#	get_node("Pivot").play("SETUP")
 
 
 func kill(args := {}) -> void:

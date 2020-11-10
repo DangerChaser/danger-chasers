@@ -1,16 +1,17 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://actors/ariko/Ariko.tres" type="Resource" id=1]
+[ext_resource path="res://actors/ariko/ArikoLevel3.tres" type="Resource" id=1]
 [ext_resource path="res://actor_framework/player/CameraTargetPosition.gd" type="Script" id=2]
 [ext_resource path="res://actors/ariko/sprites/icons/icon.png" type="Texture" id=3]
 [ext_resource path="res://actor_framework/player/PlayerActor.gd" type="Script" id=4]
+[ext_resource path="res://actors/ariko/weapons/KnifeLevel3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/utils/ActivationScanner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_states/motion/Air.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/ariko/weapons/Stomp.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actors/ariko/weapons/Jump.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/target_reticle/TargetReticleHUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=11]
-[ext_resource path="res://actors/ariko/weapons/Knife.tscn" type="PackedScene" id=13]
+[ext_resource path="res://combat/effects/buffs/Invincible.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actors/ariko/ArikoPivot.tscn" type="PackedScene" id=14]
 [ext_resource path="res://actor_framework/player/states/Idle.tscn" type="PackedScene" id=15]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=16]
@@ -46,7 +47,7 @@ pause_offscreen = false
 
 [node name="LightAttack" parent="StateMachine" index="1" instance=ExtResource( 11 )]
 weapon_levels = [ 0 ]
-weapons = [ ExtResource( 13 ) ]
+weapons = [ ExtResource( 5 ) ]
 input = "light_attack"
 next_state = "Idle"
 
@@ -82,6 +83,9 @@ shape = SubResource( 1 )
 
 [node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 1 )
+
+[node name="Invincible" parent="Effects/Buffs" index="0" instance=ExtResource( 12 )]
+lasts_forever = true
 
 [node name="CameraTargetPosition" type="Node2D" parent="." index="9"]
 position = Vector2( 125, 0 )

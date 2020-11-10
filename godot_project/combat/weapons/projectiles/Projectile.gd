@@ -17,32 +17,19 @@ var target_direction : Vector2
 var velocity : Vector2
 var confirmed_hits : int = 0
 var paused := false
+var friendly_teams : Array
 
 
 func _ready() -> void:
-	$AnimationPlayer.play("SETUP")
-	set_physics_process(false)
-	visible = false
-	$DamageSource.disable()
-	$CollisionBox.set_deferred("disabled", true)
-
-
-
-func initialize(initial_direction : Vector2 = Vector2()) -> void:
-	initial_direction = Vector2.RIGHT.rotated(get_rotation()) if not initial_direction else initial_direction
-	target_direction = initial_direction
-	set_rotation(target_direction.angle())
+	target_direction = Vector2.RIGHT.rotated(get_rotation())
 	
-	$AnimationPlayer.stop()
 	if $AnimationPlayer.has_animation("spawn"):
 		$AnimationPlayer.play("spawn")
 	
-	visible = true
-	$DamageSource.enable()
-	$CollisionBox.set_deferred("disabled", false)
-	
 	if (startup_timer.wait_time <= 0.01):
 		start()
+	else:
+		startup_timer.start()
 
 
 func _physics_process(delta : float) -> void:
@@ -64,7 +51,9 @@ func rotate_to_move_direction() -> void:
 
 
 func set_friendly_teams(friendly_teams : Array) -> void:
-	$DamageSource.friendly_teams = friendly_teams
+	if (has_node("DamageSource")):
+		self.friendly_teams = friendly_teams
+		$DamageSource.friendly_teams = friendly_teams
 
 
 func _on_hit_confirmed(actor) -> void:
