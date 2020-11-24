@@ -251,7 +251,7 @@ tracks/11/keys = {
 "values": [ Vector2( 48, -108 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=3]
 resource_name = "die"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:visible")
@@ -304,7 +304,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -440,8 +440,7 @@ tracks/10/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "jump"
+[sub_resource type="Animation" id=5]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -577,7 +576,7 @@ tracks/10/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -725,8 +724,7 @@ tracks/11/keys = {
 "values": [ Vector2( -56, -60 ), Vector2( -56, -56 ), Vector2( 52, -60 ), Vector2( 16, -60 ), Vector2( 20, -60 ), Vector2( 16, -56 ), Vector2( 16, -60 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "stagger"
+[sub_resource type="Animation" id=7]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -898,7 +896,7 @@ tracks/13/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 1.6
 loop = true
 tracks/0/type = "value"
@@ -1046,7 +1044,7 @@ tracks/11/keys = {
 "values": [ Vector2( 12, -96 ), Vector2( 8, -92 ), Vector2( -44, -60 ), Vector2( -52, -56 ), Vector2( -72, -56 ), Vector2( 44, -136 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 resource_local_to_scene = true
 extents = Vector2( 128.514, 96.2177 )
 
@@ -1057,15 +1055,14 @@ script = ExtResource( 3 )
 autoplay = "SETUP"
 anims/SETUP = SubResource( 1 )
 anims/archer_shoot = SubResource( 2 )
-anims/die = SubResource( 9 )
-anims/idle = SubResource( 3 )
-anims/jump = SubResource( 4 )
-anims/spear_stab = SubResource( 5 )
-anims/stagger = SubResource( 6 )
-anims/throw = SubResource( 7 )
+anims/die = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/jump = SubResource( 5 )
+anims/spear_stab = SubResource( 6 )
+anims/stagger = SubResource( 7 )
+anims/throw = SubResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 0, -116.648 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 10 )
@@ -1080,7 +1077,7 @@ visible = false
 position = Vector2( 5.30322, -92.0316 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="FootstepsLand" parent="." instance=ExtResource( 1 )]
 particles = ExtResource( 24 )

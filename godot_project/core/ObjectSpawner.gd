@@ -49,8 +49,7 @@ func _set_position(object) -> void:
 
 
 func _set_rotation(object) -> void:
-	object.rotation = global_rotation
-	
+	var random_degree_change = 0
 	if random_degrees > 0:
-		var random_degree_change = randi() % int(random_degrees) - random_degrees / 2
-		object.rotation += deg2rad(random_degree_change)
+		random_degree_change = randi() % int(random_degrees) - random_degrees / 2
+	object.set_rotation(global_rotation + deg2rad(random_degree_change))

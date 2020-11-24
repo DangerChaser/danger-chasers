@@ -45,3 +45,6 @@ shape = SubResource( 1 )
 
 [node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 5 )
+
+[node name="TargetPosition1" parent="TargetPositions" index="0"]
+position = Vector2( 0, -64 )

@@ -9,6 +9,10 @@ onready var timer : Timer = $Timer
 
 func enter(args := {}) -> void:
 	.enter(args)
+	if (duration == 0.0):
+		go_to_next_state()
+		return
+	
 	timer.start(duration + randf() * duration_variation)
 
 

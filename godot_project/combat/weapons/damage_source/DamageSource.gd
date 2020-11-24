@@ -34,7 +34,6 @@ var hit_hurtboxes := []
 
 func _ready() -> void:
 	assert ($CollisionShape2D.shape != null)
-	assert (damage != 0)
 	if not hit_particles_spawner.particles:
 		hit_particles_spawner.particles = hit_particles
 

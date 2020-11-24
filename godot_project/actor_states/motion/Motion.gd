@@ -86,9 +86,9 @@ func move(move_direction : Vector2) -> void:
 	var direction = total_velocity.normalized()
 	last_move_direction = direction
 	if look_towards_move_direction:
-		update_look_direction(direction)
+		update_look_direction(move_direction)
 	elif look_away_from_move_direction:
-		update_look_direction(-direction)
+		update_look_direction(-move_direction)
 
 
 func move_to(target_position : Vector2) -> void:
@@ -105,8 +105,14 @@ func move_to(target_position : Vector2) -> void:
 func update_look_direction(direction : Vector2) -> void:
 	if abs(total_velocity.x) < LOOK_DIRECTION_SPEED_THRESHOLD:
 		return
+	if direction.x == 0:
+		return
 	var look_direction = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
 	owner.set_rotation(look_direction.angle())
+
+
+func rotate_to_move_direction() -> void:
+	owner.set_rotation(total_velocity.angle())
 
 
 func get_exit_args() -> Dictionary:

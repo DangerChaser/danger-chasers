@@ -6,7 +6,6 @@
 [ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 14.8311
 
 [sub_resource type="Animation" id=2]
 length = 0.001

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://combat/weapons/projectiles/Bomb.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/drones/weapons/bomb.png" type="Texture" id=2]
+[ext_resource path="res://actors/reina/weapons/ReinaExplosionParticles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.0
+
+[node name="ReinaMissile" instance=ExtResource( 1 )]
+initial_speed = 2000
+destroy_particles = ExtResource( 3 )
+homing = true
+
+[node name="bomb" type="Sprite" parent="Pivot" index="1"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+
+[node name="MotionSteering" parent="Motion" index="1"]
+max_speed = 2000.0
+mass = 16.0
+
+[node name="Gravity" parent="Motion" index="2"]
+max_speed = 0.0
+
+[node name="DamageSource" parent="." index="7" instance=ExtResource( 4 )]
+
+[node name="CollisionShape2D" parent="DamageSource" index="0"]
+shape = SubResource( 1 )
+[connection signal="hit_confirmed" from="DamageSource" to="." method="_on_hit_confirmed"]
+
+[editable path="Motion"]
+
+[editable path="DamageSource"]

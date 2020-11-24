@@ -6,6 +6,7 @@ export var pierces_all_enemies := false
 export var max_enemies_pierced := 1
 export var destroy_particles : PackedScene
 export var collision_particles : PackedScene
+export var homing := false
 
 onready var pivot : Pivot = $Pivot
 onready var collider := $CollisionBox
@@ -21,7 +22,9 @@ var friendly_teams : Array
 
 
 func _ready() -> void:
+	set_physics_process(false)
 	target_direction = Vector2.RIGHT.rotated(get_rotation())
+	motion.steering.velocity = target_direction * initial_speed
 	
 	if $AnimationPlayer.has_animation("spawn"):
 		$AnimationPlayer.play("spawn")
@@ -33,21 +36,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta : float) -> void:
+	if get_slide_count() > 0: # Should only collide with Obstacles layer
+		destroy()
+	
 	var target_object = $Target.get_target()
-	if target_object:
-		motion.move_to(target_object.global_position)
-		return
+	if homing and target_object:
+		target_direction = global_position.direction_to(target_object.global_position)
 	
 	motion.move(target_direction)
 	
-	rotate_to_move_direction()
-	
-	if get_slide_count() > 0: # Should only collide with Obstacles layer
-		destroy()
-
-
-func rotate_to_move_direction() -> void:
-	set_rotation(motion.total_velocity.angle())
+	motion.rotate_to_move_direction()
 
 
 func set_friendly_teams(friendly_teams : Array) -> void:
@@ -63,14 +61,15 @@ func _on_hit_confirmed(actor) -> void:
 	if pierces_all_enemies:
 		return
 	if confirmed_hits >= max_enemies_pierced:
-		destroy()
+		call_deferred("destroy")
 
 
-func destroy() -> void:
-	$AnimationPlayer.play("destroy")
+func destroy() -> SfxParticle:
 	set_physics_process(false)
-	$DamageSource.queue_free()
-	spawn_particles(destroy_particles)
+	$AnimationPlayer.play("destroy")
+	if has_node("DamageSource"):
+		$DamageSource.disable()
+	return spawn_particles(destroy_particles)
 
 
 func spawn_particles(particles_scene : PackedScene):
@@ -89,13 +88,15 @@ func _on_animation_finished(anim_name : String) -> void:
 	if anim_name == "destroy":
 		queue_free()
 
+
 func _on_StartupDelay_timeout():
 	start()
 
 
 func start() -> void:
-	motion.steering.velocity = target_direction * initial_speed
 	motion.enter()
 	if not $AnimationPlayer.current_animation == "spawn" and $AnimationPlayer.has_animation("motion"):
 		$AnimationPlayer.play("motion")
 	set_physics_process(true)
+	
+	$Target.lock_on()

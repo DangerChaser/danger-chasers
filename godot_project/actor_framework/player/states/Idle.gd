@@ -81,10 +81,12 @@ func _physics_process(delta : float) -> void:
 	var direction = Vector2(motion.get_input_direction().x, 0.0)
 	motion.move(direction)
 	
+	
 	var current_animation = owner.pivot.animation_player.current_animation
 	if current_animation == animation or current_animation == run_animation or current_animation == walk_animation:
-		if not current_animation == run_animation and motion.steering.velocity.length() > motion.steering.max_speed * stand_still_threshold_percent:
-			owner.play_animation(run_animation)
+		if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"):
+			if not current_animation == run_animation and motion.steering.velocity.length() > motion.LOOK_DIRECTION_SPEED_THRESHOLD:
+				owner.play_animation(run_animation)
 		elif not current_animation == animation and motion.steering.velocity.length() < motion.steering.max_speed * stand_still_threshold_percent:
 			owner.play_animation(animation)
 

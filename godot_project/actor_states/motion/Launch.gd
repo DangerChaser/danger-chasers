@@ -7,6 +7,7 @@ export var random_angle := 0.0
 export var force := 666.0
 export var mass := 4.0
 export var land_animation := ""
+export var finish_on_floor := true
 
 onready var timer : Timer = $Timer
 onready var motion : MotionState = $Motion
@@ -14,14 +15,16 @@ var time_entered : float
 
 func enter(args := {}) -> void:
 	.enter(args)
+	
+	var angle = rad2deg((Vector2.RIGHT.rotated(deg2rad(initial_angle_deg)) * sign(owner.look_direction.x)).angle())
+	var _random_angle = randf() * random_angle * 2 - random_angle
+	var direction = Vector2.RIGHT.rotated(deg2rad(angle + _random_angle))
+	motion.external.apply(direction, force, 1.0)
+	motion.external.set_mass(mass)
+	
 	motion.enter(args)
 	
 	time_entered = OS.get_ticks_msec()
-	
-	var _random_angle = randf() * random_angle * 2 - random_angle
-	var direction = Vector2.RIGHT.rotated(deg2rad(initial_angle_deg + _random_angle))
-	motion.external.apply(direction, force, 1.0)
-	motion.external.set_mass(mass)
 	
 	var duration = args["duration"] if args.has("duration") else timer.wait_time
 	timer.start(duration)
@@ -49,7 +52,7 @@ func _physics_process(delta:float) -> void:
 		motion.external.velocity.x *= -1
 		motion.external.target_direction.x *= -1
 	
-	if owner.is_on_floor():
+	if finish_on_floor and owner.is_on_floor():
 		timer.stop()
 		var args = { "initial_animation" : land_animation } if land_animation else {}
 		finished(next_state, args)

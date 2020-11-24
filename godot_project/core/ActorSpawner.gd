@@ -4,13 +4,12 @@ class_name ActorSpawner
 
 signal actor_died
 
-export(String) var team := "team_2"
+export var team := "team_2"
 export var actor_name := ""
 
 
 func spawn(parent=null):
 	var actor = .spawn()
-	actor.set_rotation(Vector2.RIGHT.angle())
 	actor.connect("died", self, "actor_died")
 	if actor_name:
 		actor.name = actor_name
@@ -27,4 +26,5 @@ func actor_died(actor):
 
 
 func initialize_actor(actor) -> void:
-	actor.initialize(team)
+	pass
+#	actor.initialize(team)
