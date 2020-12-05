@@ -81,7 +81,6 @@ func _physics_process(delta : float) -> void:
 	var direction = Vector2(motion.get_input_direction().x, 0.0)
 	motion.move(direction)
 	
-	
 	var current_animation = owner.pivot.animation_player.current_animation
 	if current_animation == animation or current_animation == run_animation or current_animation == walk_animation:
 		if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"):

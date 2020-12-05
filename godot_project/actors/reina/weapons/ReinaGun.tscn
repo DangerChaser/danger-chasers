@@ -1,18 +1,43 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/projectile_launchers/SpawnGroup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/reina/weapons/ReinaMissile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/ObjectSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=5]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/reina/sfx/reina_missile_muzzle_flash.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
 
+[sub_resource type="Animation" id=3]
+resource_name = "prepare"
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.3, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "can_cancel_animation"
+}, {
+"args": [  ],
+"method": "can_register_input"
+}, {
+"args": [  ],
+"method": "can_attack"
+} ]
+}
+
 [sub_resource type="Animation" id=2]
 resource_name = "shoot"
-length = 1.6
+length = 0.8
 step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks")
@@ -21,7 +46,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1.45, 1.5, 1.6 ),
+"times": PoolRealArray( 0.45, 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -41,7 +66,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.9 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ {
@@ -55,56 +80,62 @@ tracks/1/keys = {
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
+anims/prepare = SubResource( 3 )
 anims/shoot = SubResource( 2 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
 
-[node name="SpawnGroup" parent="Pivot/Attacks" index="0" instance=ExtResource( 2 )]
+[node name="Attack" parent="Pivot/Attacks" index="0" instance=ExtResource( 6 )]
+actor_animation = "spin_to_shoot"
+weapon_animation = "prepare"
+
+[node name="MovementEffect" parent="Pivot/Attacks/Attack/AdditionalEffects" index="0" instance=ExtResource( 5 )]
+
+[node name="MotionSteering" parent="Pivot/Attacks/Attack/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 0.0
+
+[node name="SpawnGroup" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
 position = Vector2( 141.493, -142.828 )
-actor_animation = "throw"
+actor_animation = "shoot"
 weapon_animation = "shoot"
 screen_shake_amplitude = 0.0
 screen_shake_duration = 0.0
 
+[node name="Sfx" parent="Pivot/Attacks/SpawnGroup" index="0"]
+stream = ExtResource( 7 )
+
 [node name="ObjectSpawner" parent="Pivot/Attacks/SpawnGroup/Spawners" index="0"]
-rotation = -1.5708
 object = ExtResource( 3 )
 random_degrees = 30.0
 random_radius = 48.0
 
 [node name="ObjectSpawner2" parent="Pivot/Attacks/SpawnGroup/Spawners" index="1" instance=ExtResource( 4 )]
-rotation = -1.5708
 object = ExtResource( 3 )
 random_degrees = 30.0
 random_radius = 48.0
 
 [node name="ObjectSpawner3" parent="Pivot/Attacks/SpawnGroup/Spawners" index="2" instance=ExtResource( 4 )]
-rotation = -1.5708
 object = ExtResource( 3 )
 random_degrees = 30.0
 random_radius = 48.0
 
 [node name="ObjectSpawner4" parent="Pivot/Attacks/SpawnGroup/Spawners" index="3" instance=ExtResource( 4 )]
-rotation = -1.5708
 object = ExtResource( 3 )
 random_degrees = 30.0
 random_radius = 48.0
 
 [node name="ObjectSpawner5" parent="Pivot/Attacks/SpawnGroup/Spawners" index="4" instance=ExtResource( 4 )]
-rotation = -1.5708
 object = ExtResource( 3 )
 random_degrees = 30.0
 random_radius = 48.0
 
 [node name="ObjectSpawner6" parent="Pivot/Attacks/SpawnGroup/Spawners" index="5" instance=ExtResource( 4 )]
-rotation = -1.5708
 object = ExtResource( 3 )
 random_degrees = 30.0
 random_radius = 48.0
 
 [node name="ObjectSpawner7" parent="Pivot/Attacks/SpawnGroup/Spawners" index="6" instance=ExtResource( 4 )]
-rotation = -1.5708
 object = ExtResource( 3 )
 random_degrees = 30.0
 random_radius = 48.0
@@ -116,6 +147,12 @@ look_towards_move_direction = false
 
 [node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0
+
+[editable path="Pivot/Attacks/Attack"]
+
+[editable path="Pivot/Attacks/Attack/AdditionalEffects/MovementEffect"]
+
+[editable path="Pivot/Attacks/Attack/AdditionalEffects/MovementEffect/Motion"]
 
 [editable path="Pivot/Attacks/SpawnGroup"]
 

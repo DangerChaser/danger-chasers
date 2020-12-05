@@ -4,7 +4,7 @@
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=2]
 [ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnFloorEffect.gd" type="Script" id=3]
 [ext_resource path="res://combat/weapons/actor_spawners/ActorSpawnerWeapon.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/drones/weapons/bomb.png" type="Texture" id=5]
+[ext_resource path="res://actors/reina/sprites/teleport.png" type="Texture" id=5]
 [ext_resource path="res://actors/reina/Reina.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
@@ -33,6 +33,10 @@ tracks/0/keys = {
 
 [node name="ReinaHomingMissiles" instance=ExtResource( 4 )]
 icon = ExtResource( 5 )
+global_cooldown = true
+
+[node name="CooldownTimer" parent="." index="0"]
+wait_time = 5.0
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )

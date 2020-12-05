@@ -8,6 +8,7 @@ export var autostart := true
 export var trail_decay := 2 # How many points get erased per frame if not active
 
 var target
+var target_wr # Checks if target was freed
 var point
 var active := false
 
@@ -20,10 +21,6 @@ func _ready():
 
 
 func _process(delta):
-	global_position = Vector2()
-	global_rotation = 0
-	global_scale = Vector2(1, 1)
-	
 	if not active:
 		for i in range(0, trail_decay):
 			if get_point_count() > 0:
@@ -31,6 +28,10 @@ func _process(delta):
 			else:
 				set_process(false)
 				return
+	
+	global_position = Vector2()
+	global_rotation = 0
+	global_scale = Vector2(1, 1)
 	
 	point = target.global_position
 	add_point(point)
@@ -47,6 +48,7 @@ func start(animation : String = ""):
 
 # new_animation is a dummy variable for connecting to AnimationPlayer.animation_changed signal
 func stop(animation : String = "", new_animation = "") -> void:
+	print_debug("e")
 	if active_animations.size() > 0  and not animation in active_animations:
 		return
 	active = false
@@ -55,3 +57,4 @@ func stop(animation : String = "", new_animation = "") -> void:
 func reset():
 	while get_point_count() > 0:
 		remove_point(0)
+

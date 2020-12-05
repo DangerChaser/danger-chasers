@@ -31,6 +31,10 @@ func _on_active_state_finished(state_override : String = "", args :={}) -> void:
 
 
 func go_to_next_state_in_sequence(args :={}) -> void:
+	if not state_active:
+		finished(next_state, args)
+		return
+	
 	state_active.exit()
 	var new_state_index = (state_active.get_index() + 1) % get_child_count()
 	if new_state_index == 0:

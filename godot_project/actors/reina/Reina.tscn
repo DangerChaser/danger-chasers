@@ -5,9 +5,9 @@
 [ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/drones/DroneSpear.tres" type="Resource" id=5]
-[ext_resource path="res://actors/drones/DroneSpearPivot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/reina/ReinaPivot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actor_states/ai_states/PlayAnimation.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/reina/weapons/ReinaGun.tscn" type="PackedScene" id=8]
-[ext_resource path="res://actor_states/motion/Launch.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -23,19 +23,8 @@ collision_mask = 1
 
 [node name="Sequence" parent="StateMachine" index="0" instance=ExtResource( 3 )]
 
-[node name="Launch" parent="StateMachine/Sequence" index="0" instance=ExtResource( 9 )]
-initial_angle_deg = 180
-force = 2000.0
-
-[node name="Motion" parent="StateMachine/Sequence/Launch" index="0"]
-look_towards_move_direction = false
-look_away_from_move_direction = true
-
-[node name="MotionSteering" parent="StateMachine/Sequence/Launch/Motion" index="1"]
-max_speed = 0.0
-
-[node name="Timer" parent="StateMachine/Sequence/Launch" index="1"]
-wait_time = 0.5
+[node name="PlayAnimation" parent="StateMachine/Sequence" index="0" instance=ExtResource( 7 )]
+animation = "teleport"
 
 [node name="AIAttack" parent="StateMachine/Sequence" index="1" instance=ExtResource( 4 )]
 weapon_levels = [ 0 ]
@@ -43,6 +32,7 @@ weapons = [ ExtResource( 8 ) ]
 stagger = false
 
 [node name="Die" parent="StateMachine/Sequence" index="2" instance=ExtResource( 2 )]
+animation = "teleport_out"
 
 [node name="CollisionBox" parent="." index="2"]
 position = Vector2( 0, -64 )
@@ -53,7 +43,3 @@ max_distance = 800.0
 
 [node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 5 )
-
-[editable path="StateMachine/Sequence/Launch"]
-
-[editable path="StateMachine/Sequence/Launch/Motion"]

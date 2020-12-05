@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/direwolf_kamikaze/sprites/white_square_red_glow.png" type="Texture" id=2]
+[ext_resource path="res://actors/reina/sprites/magic_circle.png" type="Texture" id=3]
+[ext_resource path="res://actors/reina/sfx/teleport_explosion.wav" type="AudioStream" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Curve" id=2]
+max_value = 8.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.056962, 7.27273 ), 0.683149, 0.683149, 0, 0, Vector2( 0.468354, 8 ), 0.0, 0.0, 0, 0, Vector2( 0.879747, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 69.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 3 )
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+
+[sub_resource type="Curve" id=6]
+max_value = 4.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.056962, 3.67273 ), 0.0, 0.0, 0, 0, Vector2( 0.481013, 4 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 563.23
+initial_velocity_random = 0.77
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 100.0
+scale = 0.0
+scale_random = 0.14
+scale_curve = SubResource( 7 )
+
+[node name="ReinaTeleportParticles" instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0.529412 )
+z_index = 1
+
+[node name="Particles2D" parent="Pivot" index="0"]
+material = SubResource( 1 )
+amount = 1
+local_coords = false
+process_material = SubResource( 4 )
+texture = ExtResource( 3 )
+
+[node name="Particles2D2" type="Particles2D" parent="Pivot" index="1"]
+material = SubResource( 5 )
+amount = 64
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 8 )
+texture = ExtResource( 2 )
+
+[node name="Sfx" parent="." index="1"]
+stream = ExtResource( 4 )

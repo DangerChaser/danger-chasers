@@ -1,4 +1,5 @@
-extends MirrorBody2D
+#extends MirrorBody2D
+extends KinematicBody2D
 class_name Projectile
 
 export var initial_speed := 400
@@ -26,6 +27,7 @@ func _ready() -> void:
 	target_direction = Vector2.RIGHT.rotated(get_rotation())
 	motion.steering.velocity = target_direction * initial_speed
 	
+	$AnimationPlayer.play("SETUP")
 	if $AnimationPlayer.has_animation("spawn"):
 		$AnimationPlayer.play("spawn")
 	
@@ -66,7 +68,8 @@ func _on_hit_confirmed(actor) -> void:
 
 func destroy() -> SfxParticle:
 	set_physics_process(false)
-	$AnimationPlayer.play("destroy")
+	if $AnimationPlayer.has_animation("destroy"):
+		$AnimationPlayer.play("destroy")
 	if has_node("DamageSource"):
 		$DamageSource.disable()
 	return spawn_particles(destroy_particles)

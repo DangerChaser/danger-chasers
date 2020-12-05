@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/reina_missile_muzzle_flash.wav-35d749d2fee0faafe4cff25408e54e7a.sample"
+
+[deps]
+
+source_file="res://actors/reina/sfx/reina_missile_muzzle_flash.wav"
+dest_files=[ "res://.import/reina_missile_muzzle_flash.wav-35d749d2fee0faafe4cff25408e54e7a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

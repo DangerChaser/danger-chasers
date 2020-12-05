@@ -18,8 +18,8 @@ func _physics_process(delta : float):
 		set_physics_process(false)
 
 func exit() -> void:
-	.exit()
 	timer.stop()
+	.exit()
 
 func _on_Timer_timeout():
 	go_to_next_state()

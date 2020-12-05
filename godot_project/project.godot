@@ -349,7 +349,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://actor_framework/player/PlayerActor.gd"
 }, {
-"base": "MirrorBody2D",
+"base": "KinematicBody2D",
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://combat/weapons/projectiles/Projectile.gd"
@@ -603,7 +603,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Danger Chasers"
-run/main_scene="res://interface/main_menu/MainMenu.tscn"
+run/main_scene="res://core/Game.tscn"
 config/icon="res://icon.png"
 config/version="v0.6.2"
 

@@ -4,7 +4,7 @@ class_name MotionState
 export var look_towards_move_direction := true
 export var look_away_from_move_direction := false
 
-const LOOK_DIRECTION_SPEED_THRESHOLD := 50.0
+const LOOK_DIRECTION_SPEED_THRESHOLD := 500.0
 
 onready var steering := $MotionSteering
 onready var gravity := $Gravity
@@ -17,7 +17,6 @@ var snap := 16.0
 
 
 func _ready() -> void:
-	call_deferred("assert", owner is KinematicBody2D)
 	for child in get_children():
 		child.owner = owner
 		child.set_physics_process(false)

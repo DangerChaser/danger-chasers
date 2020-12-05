@@ -4454,12 +4454,12 @@ rotation = -1.43815
 
 [node name="RightHand" parent="." index="14" instance=ExtResource( 50 )]
 position = Vector2( -34, -70 )
-[connection signal="animation_changed" from="." to="TrailingSprites" method="stop"]
 [connection signal="animation_changed" from="." to="Trail" method="stop"]
-[connection signal="animation_play_requested" from="." to="TrailingSprites" method="stop"]
+[connection signal="animation_changed" from="." to="TrailingSprites" method="stop"]
 [connection signal="animation_play_requested" from="." to="Trail" method="stop"]
-[connection signal="animation_started" from="." to="TrailingSprites" method="start"]
+[connection signal="animation_play_requested" from="." to="TrailingSprites" method="stop"]
 [connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_started" from="." to="TrailingSprites" method="start"]
 
 [editable path="TrailingSprites"]
 
