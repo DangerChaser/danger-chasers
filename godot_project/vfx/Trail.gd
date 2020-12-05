@@ -48,7 +48,6 @@ func start(animation : String = ""):
 
 # new_animation is a dummy variable for connecting to AnimationPlayer.animation_changed signal
 func stop(animation : String = "", new_animation = "") -> void:
-	print_debug("e")
 	if active_animations.size() > 0  and not animation in active_animations:
 		return
 	active = false
