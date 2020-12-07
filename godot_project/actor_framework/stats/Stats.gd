@@ -7,6 +7,10 @@ signal stats_changed(new_stats)
 
 export var character_stats : Resource
 
+onready var buffs := $Buffs
+onready var debuffs := $Debuffs
+onready var miscellaneous_effects := $Miscellaneous
+
 
 func _ready():
 	character_stats = character_stats.duplicate()

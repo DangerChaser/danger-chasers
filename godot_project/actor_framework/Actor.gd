@@ -11,9 +11,6 @@ signal health_depleted_no_arg # Emits as soon as enters Die state
 signal initialized
 signal weapon_added(weapon)
 
-enum States { NORMAL, INVINCIBLE }
-var state
-
 export var icon : Texture
 export var team := "team_2"
 export var pause_offscreen := true
@@ -24,10 +21,6 @@ onready var state_machine : StateMachine = $StateMachine
 onready var weapons = pivot.get_node("Weapons")
 onready var target = $Target
 onready var stats = $Stats
-onready var effects := $Effects
-onready var buffs := effects.get_node("Buffs")
-onready var debuffs := effects.get_node("Debuffs")
-onready var miscellaneous_effects := effects.get_node("Miscellaneous")
 onready var hud := $ActorInterface
 onready var target_positions := $TargetPositions
 onready var flash := $Flash
@@ -41,8 +34,6 @@ var paused := false
 
 
 func _ready():
-	state = States.NORMAL
-	
 	pivot.connect("animation_finished", state_machine, "anim_finished")
 	
 	if state_machine.has_state("Stagger"):
@@ -130,7 +121,7 @@ func get_stats() -> CharacterStats:
 func _on_Hurtbox_area_entered(area, hurtbox : Hurtbox):
 	if not state_machine.get_current_state():
 		return
-	if state == States.INVINCIBLE or state_machine.get_current_state().name == "Die":
+	if state_machine.get_current_state().name == "Die":
 		return
 	if area is DamageSource and not area.friendly_teams.has(team):
 		if area.hit_hurtboxes.has(hurtbox):
@@ -151,10 +142,10 @@ func _on_Hurtbox_area_entered(area, hurtbox : Hurtbox):
 
 
 func take_damage(base_damage : int, duration := 0.0, force := 0.0, mass := 1.0, direction := Vector2(), revenge_value := 0.0, hitstun_duration := 0.0):
-	if buffs.has("Invincible"):
+	if stats.buffs.has("Invincible"):
 		return
 	
-	var damage = base_damage if not buffs.has("TakesNoDamage") else 0
+	var damage = base_damage if not stats.buffs.has("TakesNoDamage") else 0
 	var died = stats.take_damage(damage)
 	
 	flash.start(duration)

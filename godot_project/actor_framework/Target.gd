@@ -3,23 +3,20 @@ extends Position2D
 signal target_acquired(new_target)
 signal unlocked
 
-export(float) var max_distance := -1.0 # Set negative number to lock on regardless of distance
+export var max_distance := -1.0 # Set negative number to lock on regardless of distance
 
 var target
-var target_wr # Checks if target was freed
 
 
 func initialize() -> void:
 	target = null
-	target_wr = null
 	lock_on()
 
 
 func _physics_process(delta : float) -> void:
-	if target and target_wr.get_ref():
-		if not target_wr.get_ref():
+	if target:
+		if not is_instance_valid(target):
 			target = null
-			target_wr = null
 			if owner.is_in_group("team_2") or owner.is_in_group("team_3"): # Reserved for enemies
 				lock_on()
 		global_position = target.global_position
@@ -33,9 +30,9 @@ func lock_on(new_target=null) -> void:
 	
 	var closest_enemy
 	if owner.is_in_group("team_2") or owner.is_in_group("team_3"): # Reserved for enemies
-		closest_enemy = find_closest_enemy("players")
+		closest_enemy = _find_closest_enemy("players")
 	else:
-		closest_enemy = find_closest_enemy("team_2")
+		closest_enemy = _find_closest_enemy("team_2")
 	
 	if closest_enemy:
 		change_target(closest_enemy)
@@ -44,7 +41,7 @@ func lock_on(new_target=null) -> void:
 		unlock()
 
 
-func find_closest_enemy(target_group : String) -> Actor:
+func _find_closest_enemy(target_group : String) -> Actor:
 	var closest_target = null
 	if get_target():
 		closest_target = target
@@ -79,7 +76,6 @@ func change_target(new_target) -> void:
 		new_target = new_target.target_positions.get_child(0)
 	
 	target = new_target
-	target_wr = weakref(target)
 	if not target.owner.is_connected("health_depleted", self, "target_died"):
 		target.owner.connect("health_depleted", self, "target_died")
 	global_position = target.global_position
@@ -87,22 +83,16 @@ func change_target(new_target) -> void:
 
 func target_died(old_target):
 	target = null
-	target_wr = null
 
 
 func unlock():
 	target = null
-	target_wr = null
 	emit_signal("unlocked")
 
 
 func get_target():
-	if target and target_wr.get_ref():
+	if target and is_instance_valid(target):
 		return target
-
-
-func get_target_wr() -> WeakRef:
-	return target_wr.get_ref()
 
 
 func get_distance() -> float:
