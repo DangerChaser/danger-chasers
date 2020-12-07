@@ -49,10 +49,6 @@ color_ramp = SubResource( 4 )
 
 [node name="Stomp" instance=ExtResource( 3 )]
 
-[node name="Sfx" parent="." index="0"]
-stream = ExtResource( 1 )
-attenuation = 0.659754
-
 [node name="Particles2D" parent="Pivot" index="0"]
 material = SubResource( 1 )
 scale = Vector2( 2, 2 )
@@ -73,3 +69,7 @@ explosiveness = 0.87
 randomness = 1.0
 local_coords = false
 process_material = SubResource( 7 )
+
+[node name="Sfx" parent="." index="1"]
+stream = ExtResource( 1 )
+attenuation = 0.659754

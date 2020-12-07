@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actor_framework/Actor.gd" type="Script" id=1]
 [ext_resource path="res://actor_states/StateMachine.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actor_framework/Flash.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/actor_debug/ActorInterface.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_framework/Target.gd" type="Script" id=5]
 [ext_resource path="res://actor_framework/stats/Stats.gd" type="Script" id=6]
@@ -48,13 +49,6 @@ script = ExtResource( 7 )
 [node name="Miscellaneous" type="Node2D" parent="Effects"]
 script = ExtResource( 7 )
 
-[node name="FlashTimer" type="Timer" parent="."]
-wait_time = 0.1
-
-[node name="FlashDuration" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 pause_mode = 2
 rect = Rect2( -668, -668, 1337, 1337 )
@@ -68,9 +62,9 @@ pause_animated_sprites = false
 [node name="TargetPosition1" type="Position2D" parent="TargetPositions" groups=[
 "target_positions",
 ]]
+
+[node name="Flash" parent="." instance=ExtResource( 3 )]
 [connection signal="state_changed" from="StateMachine" to="ActorInterface" method="_on_StateMachine_state_changed"]
 [connection signal="stats_changed" from="Stats" to="ActorInterface" method="_on_Stats_stats_changed"]
-[connection signal="timeout" from="FlashTimer" to="." method="_on_FlashTimer_timeout"]
-[connection signal="timeout" from="FlashDuration" to="." method="_on_FlashDuration_timeout"]
 [connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="unpause"]
 [connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="pause"]

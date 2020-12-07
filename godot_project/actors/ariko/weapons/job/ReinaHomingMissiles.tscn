@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://actors/ariko/sfx/sword_slice.wav" type="AudioStream" id=1]
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=2]
 [ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnFloorEffect.gd" type="Script" id=3]
 [ext_resource path="res://combat/weapons/actor_spawners/ActorSpawnerWeapon.tscn" type="PackedScene" id=4]
@@ -47,9 +46,6 @@ grounded = false
 
 [node name="ActorSpawnAttack" parent="Pivot/Attacks" index="0"]
 actor_animation = "jump"
-
-[node name="Sfx" parent="Pivot/Attacks/ActorSpawnAttack" index="0"]
-stream = ExtResource( 1 )
 
 [node name="ActorSpawner" parent="Pivot/Attacks/ActorSpawnAttack/Spawners" index="0"]
 object = ExtResource( 6 )

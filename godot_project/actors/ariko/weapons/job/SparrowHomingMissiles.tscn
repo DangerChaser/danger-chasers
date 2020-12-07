@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://actors/ariko/sfx/sword_slice.wav" type="AudioStream" id=1]
 [ext_resource path="res://combat/weapons/actor_spawners/ActorSpawnerWeapon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/reina/sprites/teleport.png" type="Texture" id=5]
 [ext_resource path="res://actors/sparrow/Sparrow.tscn" type="PackedScene" id=6]
@@ -44,10 +43,8 @@ anims/spawn = SubResource( 2 )
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
 
-[node name="Sfx" parent="Pivot/Attacks/ActorSpawnAttack" index="0"]
-stream = ExtResource( 1 )
-
 [node name="ActorSpawner" parent="Pivot/Attacks/ActorSpawnAttack/Spawners" index="0"]
+position = Vector2( 0, -316.784 )
 object = ExtResource( 6 )
 team = "team_1"
 

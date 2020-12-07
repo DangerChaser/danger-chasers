@@ -13,6 +13,7 @@ length = 0.001
 
 [sub_resource type="Animation" id=2]
 resource_name = "prepare"
+length = 1.3
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks")
 tracks/0/interp = 1
@@ -20,7 +21,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.3, 0.9 ),
+"times": PoolRealArray( 0.1, 0.3, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -190,7 +191,7 @@ anims/shoot = SubResource( 3 )
 grounded = false
 
 [node name="Attack" parent="Pivot/Attacks" index="0" instance=ExtResource( 6 )]
-actor_animation = "spin_to_shoot"
+actor_animation = "cannon_fire_prepare"
 weapon_animation = "prepare"
 
 [node name="MovementEffect" parent="Pivot/Attacks/Attack/AdditionalEffects" index="0" instance=ExtResource( 5 )]
@@ -200,7 +201,7 @@ max_speed = 0.0
 
 [node name="SpawnGroup" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
 position = Vector2( -1.34258, -212.124 )
-actor_animation = "shoot"
+actor_animation = "cannon_fire"
 weapon_animation = "shoot"
 screen_shake_amplitude = 0.0
 screen_shake_duration = 0.0

@@ -28,15 +28,13 @@ onready var effects := $Effects
 onready var buffs := effects.get_node("Buffs")
 onready var debuffs := effects.get_node("Debuffs")
 onready var miscellaneous_effects := effects.get_node("Miscellaneous")
-onready var flash_timer : Timer = $FlashTimer
-onready var flash_duration_timer : Timer = $FlashDuration
 onready var hud := $ActorInterface
 onready var target_positions := $TargetPositions
+onready var flash := $Flash
 
 var character_stats setget set_stats, get_stats
 var previous_position : Vector2
 var last_move_direction : Vector2
-var flashing := false
 var initialize_on_ready := true # Set to false before adding to tree to delay initialization
 var input_enabled := true
 var paused := false
@@ -159,9 +157,7 @@ func take_damage(base_damage : int, duration := 0.0, force := 0.0, mass := 1.0, 
 	var damage = base_damage if not buffs.has("TakesNoDamage") else 0
 	var died = stats.take_damage(damage)
 	
-	flash_timer.start()
-	flash_duration_timer.start()
-	flash()
+	flash.start(duration)
 	
 	var args = { 
 		"damage": damage,
@@ -185,26 +181,6 @@ func take_damage(base_damage : int, duration := 0.0, force := 0.0, mass := 1.0, 
 		yield(get_tree().create_timer(hitstun_duration), "timeout")
 		unpause()
 
-
-func _on_FlashTimer_timeout():
-	if flashing:
-		unflash()
-	else:
-		flash()
-
-func flash() -> void:
-	#To make sprite turn to white
-	pivot.modulate = Color(10,10,10,10)
-	flashing = true
-
-func unflash() -> void:
-	#and to return to normal color
-	pivot.modulate = Color(1,1,1,1)
-	flashing = false
-
-func _on_FlashDuration_timeout():
-	flash_timer.stop()
-	unflash()
 
 func _on_DropThroughArea_body_exited(body):
 	if body == self:
