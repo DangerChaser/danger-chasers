@@ -8,11 +8,6 @@ export var max_distance := -1.0 # Set negative number to lock on regardless of d
 var target
 
 
-func initialize() -> void:
-	target = null
-	lock_on()
-
-
 func _physics_process(delta : float) -> void:
 	if target:
 		if not is_instance_valid(target):

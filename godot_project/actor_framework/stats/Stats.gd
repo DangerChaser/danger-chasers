@@ -9,7 +9,7 @@ export var character_stats : Resource
 
 onready var buffs := $Buffs
 onready var debuffs := $Debuffs
-onready var miscellaneous_effects := $Miscellaneous
+onready var miscellaneous_effects := $MiscellaneousEffects
 
 
 func _ready():

@@ -136,4 +136,4 @@ func _on_JumpRegisteredTimer_timeout():
 
 
 func _on_DropThroughTimer_timeout():
-	owner.stop_drop_through()
+	owner.set_collision_mask_bit(Utilities.Layers.DROP_THROUGH, true)

@@ -4,6 +4,7 @@ class_name ActorSpawnAttack
 var actors : Array = []
 
 func spawn(args:={}):
+	$Sfx.play()
 	for spawner in $Spawners.get_children():
 		var actor = spawner.spawn(GameManager.level.y_sort)
 		actor.get_node("Target").call_deferred("lock_on")
@@ -11,8 +12,6 @@ func spawn(args:={}):
 		actor.connect("weapon_added", self, "_on_weapon_added")
 		actor.call_deferred("initialize", owner.team)
 		actors.push_back(actor)
-	$Sfx.play()
-
 
 
 func actor_died(actor) -> void:

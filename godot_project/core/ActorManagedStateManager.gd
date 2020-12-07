@@ -34,7 +34,7 @@ func play_animation(anim_name : String) -> void:
 func face_actor(target_actor=null):
 	if not actor:
 		return
-	actor.face_actor(target_actor)
+	actor.face_object(target_actor)
 	global_position = actor.global_position
 	scale = actor.scale
 	set_rotation(actor.rotation)

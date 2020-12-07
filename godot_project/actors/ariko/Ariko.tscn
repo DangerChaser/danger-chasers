@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://actors/ariko/ArikoLevel3.tres" type="Resource" id=1]
 [ext_resource path="res://actor_framework/player/CameraTargetPosition.gd" type="Script" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://actors/ariko/weapons/Jump.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/target_reticle/TargetReticleHUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=11]
-[ext_resource path="res://combat/effects/buffs/Invincible.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actor_framework/DropThroughArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actors/ariko/ArikoPivot.tscn" type="PackedScene" id=14]
 [ext_resource path="res://actor_framework/player/states/Idle.tscn" type="PackedScene" id=15]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=16]
@@ -24,9 +24,6 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.3801
 height = 113.05
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32.5314, 56.3854 )
 
 [sub_resource type="CircleShape2D" id=3]
 resource_local_to_scene = true
@@ -42,6 +39,13 @@ team = "team_1"
 pause_offscreen = false
 
 [node name="Pivot" parent="." index="0" instance=ExtResource( 14 )]
+
+[node name="CollisionBox" parent="." index="1"]
+position = Vector2( 0, -87.2057 )
+shape = SubResource( 1 )
+
+[node name="VisibilityEnabler2D" parent="." index="2"]
+position = Vector2( 16.26, -21.493 )
 
 [node name="Idle" parent="StateMachine" index="0" instance=ExtResource( 15 )]
 
@@ -77,15 +81,11 @@ queue_free_on_die = false
 [node name="Wait" parent="StateMachine" index="8" instance=ExtResource( 17 )]
 face_target = false
 
-[node name="CollisionBox" parent="." index="2"]
-position = Vector2( 0, -87.2057 )
-shape = SubResource( 1 )
-
-[node name="Stats" parent="." index="5"]
+[node name="Stats" parent="." index="6"]
 character_stats = ExtResource( 1 )
 
-[node name="Invincible" parent="Effects/Buffs" index="0" instance=ExtResource( 12 )]
-lasts_forever = true
+[node name="TargetPosition1" parent="TargetPositions" index="0"]
+position = Vector2( 0, -110.578 )
 
 [node name="CameraTargetPosition" type="Node2D" parent="." index="9"]
 position = Vector2( 125, 0 )
@@ -99,19 +99,9 @@ layer = 100
 [node name="TargetReticleHUD" parent="PlayerHUDLayer" index="1" instance=ExtResource( 10 )]
 mouse_filter = 2
 
-[node name="VisibilityEnabler2D" parent="." index="11"]
-position = Vector2( 16.26, -21.493 )
+[node name="DropThroughArea" parent="." index="11" instance=ExtResource( 12 )]
 
-[node name="DropThroughArea" type="Area2D" parent="." index="12"]
-position = Vector2( 0, -4.08774 )
-collision_layer = 64
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DropThroughArea" index="0"]
-position = Vector2( 0, -139.673 )
-shape = SubResource( 2 )
-
-[node name="ActivationScanner" parent="." index="13" instance=ExtResource( 6 )]
+[node name="ActivationScanner" parent="." index="12" instance=ExtResource( 6 )]
 position = Vector2( 0, -110.875 )
 monitoring = false
 monitorable = false
@@ -119,10 +109,6 @@ monitorable = false
 [node name="CollisionShape2D" parent="ActivationScanner" index="0"]
 shape = SubResource( 3 )
 disabled = true
-
-[node name="TargetPosition1" parent="TargetPositions" index="0"]
-position = Vector2( 0, -110.578 )
-[connection signal="body_exited" from="DropThroughArea" to="." method="_on_DropThroughArea_body_exited"]
 
 [editable path="PlayerHUDLayer/BattleHUD"]
 

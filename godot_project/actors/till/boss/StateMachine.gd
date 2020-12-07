@@ -9,12 +9,12 @@ var in_phase_change := false
 
 
 func _decide_on_next_state() -> State:
-	if owner.get_stats().get_health_percent() > 0.0:
-		if owner.get_stats().get_health_percent() >= 0.75:
+	if owner.stats.character_stats.get_health_percent() > 0.0:
+		if owner.stats.character_stats.get_health_percent() >= 0.75:
 			if not phase == Phases.PHASE_1:
 				change_phase(Phases.PHASE_1)
 				return get_state("Sequence1Opener")
-		elif owner.get_stats().get_health_percent() >= 0.33:
+		elif owner.stats.character_stats.get_health_percent() >= 0.33:
 			if not phase == Phases.PHASE_2:
 				change_phase(Phases.PHASE_2)
 				return get_state("Sequence2Opener")

@@ -35,7 +35,7 @@ gravity = 3600.0
 max_speed = 9000.0
 
 [node name="DamageSource" parent="." index="2"]
-damage = 135
+damage = 67
 delay_milliseconds = 2
 screen_shake_amplitude = 6.0
 screen_shake_duration = 0.5

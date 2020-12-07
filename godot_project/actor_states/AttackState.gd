@@ -32,10 +32,10 @@ func _ready() -> void:
 func set_levelled_weapon() -> void:
 	if active:
 		set_weapon_buffer = true
-		set_weapon_buffer_level = owner.get_stats().level
+		set_weapon_buffer_level = owner.stats.character_stats.level
 		return
 	
-	var levelled_weapon = get_levelled_weapon(owner.get_stats().level)
+	var levelled_weapon = get_levelled_weapon(owner.stats.character_stats.level)
 	set_weapon(levelled_weapon)
 
 

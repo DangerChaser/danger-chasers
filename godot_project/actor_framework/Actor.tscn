@@ -22,6 +22,14 @@ script = ExtResource( 1 )
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+pause_mode = 2
+rect = Rect2( -668, -668, 1337, 1337 )
+pause_animations = false
+freeze_bodies = false
+pause_particles = false
+pause_animated_sprites = false
+
 [node name="StateMachine" parent="." instance=ExtResource( 2 )]
 
 [node name="ActorInterface" parent="." instance=ExtResource( 4 )]
@@ -34,14 +42,6 @@ margin_bottom = -112.616
 [node name="Target" type="Position2D" parent="."]
 script = ExtResource( 5 )
 
-[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-pause_mode = 2
-rect = Rect2( -668, -668, 1337, 1337 )
-pause_animations = false
-freeze_bodies = false
-pause_particles = false
-pause_animated_sprites = false
-
 [node name="Stats" parent="." instance=ExtResource( 6 )]
 
 [node name="TargetPositions" type="Node2D" parent="."]
@@ -51,7 +51,7 @@ pause_animated_sprites = false
 ]]
 
 [node name="Flash" parent="." instance=ExtResource( 3 )]
-[connection signal="state_changed" from="StateMachine" to="ActorInterface" method="_on_StateMachine_state_changed"]
 [connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="unpause"]
 [connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="pause"]
+[connection signal="state_changed" from="StateMachine" to="ActorInterface" method="_on_StateMachine_state_changed"]
 [connection signal="stats_changed" from="Stats" to="ActorInterface" method="_on_Stats_stats_changed"]

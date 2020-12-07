@@ -16,15 +16,8 @@ func spawn(parent=null):
 	actor.initialize_on_ready = false
 	if parent:
 		parent.add_child(actor)
-#	actor.get_node("Pivot").teleport()
-	initialize_actor(actor)
 	return actor
 
 
 func actor_died(actor):
 	emit_signal("actor_died")
-
-
-func initialize_actor(actor) -> void:
-	pass
-#	actor.initialize(team)

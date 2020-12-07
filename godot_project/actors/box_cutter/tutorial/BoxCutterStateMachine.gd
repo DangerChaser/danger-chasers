@@ -4,7 +4,7 @@ var has_opened : int = 0
 
 
 func _decide_on_next_state() -> State:
-	var health_percent = owner.get_stats().get_health_percent()
+	var health_percent = owner.stats.character_stats.get_health_percent()
 	
 	match has_opened:
 		0:

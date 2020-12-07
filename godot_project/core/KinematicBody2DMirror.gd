@@ -25,3 +25,9 @@ func _correct_rotation():
 	elif cos(rotation) < 0.0:
 		look_direction = Vector2.LEFT
 		scale = Vector2(abs(scale.x), -abs(scale.y))
+
+func face_object(object) -> void:
+	var direction = global_position.direction_to(object.global_position)
+	if not direction.x == 0.0:
+		var look_direction = Vector2.RIGHT if direction.x > 0 else Vector2.LEFT
+		set_rotation(look_direction.angle())

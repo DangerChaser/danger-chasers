@@ -37,7 +37,7 @@ stream = ExtResource( 2 )
 
 [node name="DamageSource" parent="." index="2"]
 hit_particles = ExtResource( 4 )
-damage = 270
+damage = 135
 delay_milliseconds = 2
 screen_shake_amplitude = 90.0
 screen_shake_duration = 0.5
