@@ -5,9 +5,9 @@
 [ext_resource path="res://actors/reina/weapons/ReinaExplosionParticles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=4]
 [ext_resource path="res://vfx/Trail.tscn" type="PackedScene" id=5]
-[ext_resource path="res://core/ObjectSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/reina/weapons/ReinaMissile3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://combat/weapons/projectile_launchers/SpawnGroup.tscn" type="PackedScene" id=7]
-[ext_resource path="res://actors/reina/weapons/ReinaMissile2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://core/ObjectSpawner.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -85,15 +85,15 @@ homing = true
 
 [node name="SpawnGroup" parent="." index="0" instance=ExtResource( 7 )]
 
-[node name="ObjectSpawner" parent="SpawnGroup/Spawners" index="0"]
+[node name="ObjectSpawner2" parent="SpawnGroup/Spawners" index="0" instance=ExtResource( 8 )]
 position = Vector2( -299.813, 0 )
-rotation = 3.66519
-object = ExtResource( 8 )
+rotation = 4.18879
+object = ExtResource( 6 )
 
-[node name="ObjectSpawner2" parent="SpawnGroup/Spawners" index="1" instance=ExtResource( 6 )]
+[node name="ObjectSpawner" parent="SpawnGroup/Spawners" index="1"]
 position = Vector2( -299.813, 0 )
-rotation = 2.61799
-object = ExtResource( 8 )
+rotation = 2.0944
+object = ExtResource( 6 )
 
 [node name="Pivot" parent="." index="1"]
 visible = false

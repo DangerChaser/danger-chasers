@@ -2,6 +2,8 @@
 extends KinematicBody2D
 class_name Projectile
 
+signal team_set
+
 export var initial_speed := 400
 export var pierces_all_enemies := false
 export var max_enemies_pierced := 1
@@ -39,7 +41,12 @@ func _ready() -> void:
 
 func _physics_process(delta : float) -> void:
 	if get_slide_count() > 0: # Should only collide with Obstacles layer
-		destroy()
+		var particles = destroy()
+		if particles:
+			particles.start(global_position, \
+ 					motion.steering.velocity.angle() + PI, \
+					global_scale.abs(), \
+					get_parent())
 	
 	var target_object = $Target.get_target()
 	if homing and target_object:
@@ -51,19 +58,31 @@ func _physics_process(delta : float) -> void:
 
 
 func set_friendly_teams(friendly_teams : Array) -> void:
+	self.friendly_teams = friendly_teams
 	if (has_node("DamageSource")):
-		self.friendly_teams = friendly_teams
 		$DamageSource.friendly_teams = friendly_teams
+	emit_signal("team_set", friendly_teams)
 
 
 func _on_hit_confirmed(actor) -> void:
 	confirmed_hits += 1
-	spawn_particles(collision_particles)
+	var particles = spawn_particles(collision_particles)
+	if particles:
+		particles.start(global_position, \
+		 				motion.steering.velocity.angle() + PI, \
+						global_scale.abs(), \
+						get_parent())
 	
 	if pierces_all_enemies:
 		return
 	if confirmed_hits >= max_enemies_pierced:
-		call_deferred("destroy")
+		yield(get_tree(), "physics_frame")
+		particles = destroy()
+		if particles:
+			particles.start(global_position, \
+		 				motion.steering.velocity.angle() + PI, \
+						global_scale.abs(), \
+						get_parent())
 
 
 func destroy() -> SfxParticle:
@@ -79,8 +98,6 @@ func spawn_particles(particles_scene : PackedScene):
 	if not particles_scene:
 		return
 	var new_particles = particles_scene.instance()
-	var particles_angle = motion.steering.velocity.angle() + PI
-	new_particles.start(global_position, particles_angle, global_scale.abs(), get_parent())
 	return new_particles
 
 

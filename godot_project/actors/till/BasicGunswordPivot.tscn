@@ -628,6 +628,7 @@ script = ExtResource( 7 )
 decay = 0.2
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 30.2737, 0.0898333 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 

@@ -12,7 +12,7 @@
 resource_name = "SETUP"
 length = 0.001
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "prepare"
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks")
@@ -35,8 +35,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "shoot"
+[sub_resource type="Animation" id=3]
 length = 0.8
 step = 0.05
 tracks/0/type = "method"
@@ -80,8 +79,8 @@ tracks/1/keys = {
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
-anims/prepare = SubResource( 3 )
-anims/shoot = SubResource( 2 )
+anims/prepare = SubResource( 2 )
+anims/shoot = SubResource( 3 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false

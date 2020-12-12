@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/reina/sfx/teleport_explosion.wav" type="AudioStream" id=2]
+[ext_resource path="res://actors/reina/sprites/missile_explosion.png" type="Texture" id=3]
+[ext_resource path="res://core/SfxParticle.gd" type="Script" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 6
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 7.38
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 4.0
+anim_speed = 1.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "start"
+length = 0.5
+
+[node name="ArikoTrickSuccessParticle" type="Node2D"]
+z_index = 2
+script = ExtResource( 4 )
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Particles2D" type="Particles2D" parent="Pivot"]
+modulate = Color( 1, 1, 1, 0.831373 )
+light_mask = -2147483647
+material = SubResource( 1 )
+emitting = false
+amount = 1
+lifetime = 0.6
+one_shot = true
+speed_scale = 1.5
+local_coords = false
+process_material = SubResource( 2 )
+texture = ExtResource( 3 )
+
+[node name="Sfx" parent="." instance=ExtResource( 1 )]
+stream = ExtResource( 2 )
+random_pitch_low = 1.4
+random_pitch_high = 1.6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/start = SubResource( 3 )
+[connection signal="started" from="." to="AnimationPlayer" method="play" binds= [ "start" ]]

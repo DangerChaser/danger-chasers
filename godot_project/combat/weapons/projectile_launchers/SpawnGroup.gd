@@ -9,6 +9,10 @@ export(float, EASE) var screen_shake_damp : float = 1.8
 var friendly_teams : Array = []
 
 
+func set_friendly_teams(teams : Array):
+	friendly_teams = teams
+
+
 func spawn(args:={}):
 	for spawner in $Spawners.get_children():
 		var projectile = spawner.spawn(GameManager.level.y_sort)

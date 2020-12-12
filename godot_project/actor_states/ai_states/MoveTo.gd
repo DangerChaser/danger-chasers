@@ -19,6 +19,7 @@ onready var wall_check_timer : Timer = $WallCheckTimer
 var target_position : Vector2 = Vector2()
 var start_position : Vector2 = Vector2()
 var original_collision_mask_bit : bool
+var target
 
 
 func enter(args := {}) -> void:
@@ -28,6 +29,9 @@ func enter(args := {}) -> void:
 	start_position = owner.global_position
 	timer.start()
 	wall_check_timer.start()
+	
+	if args.has("target"):
+		target = args["target"]
 	
 	if args.has("target_position"):
 		target_position = args["target_position"]
@@ -63,10 +67,11 @@ func calculate_new_target_position() -> Vector2:
 	var random_radius = percent * (max_roam_radius - min_roam_radius) + min_roam_radius
 	
 	var base_position = start_position
-	if go_to_target: 
-		var target = owner.target.get_target()
+	if go_to_target:
+		if not target or not is_instance_valid(target):
+			target = owner.target.get_target()
 		if target:
-			base_position = owner.target.get_target().global_position
+			base_position = target.global_position
 	base_position.y += y_offset
 	base_position += Vector2(cos(random_angle), sin(random_angle)) * random_radius
 	

@@ -19,6 +19,9 @@ var input : String
 func can_register_input() -> void:
 	state = State.LISTENING
 
+func disable_register_input() -> void:
+	state = State.NOT_READY
+
 func can_cancel_animation() -> void:
 	_can_cancel_animation = true
 
@@ -61,6 +64,7 @@ func _physics_process(delta : float) -> void:
 				return
 			if Input.is_action_just_pressed(input):
 				register_attack()
+				return
 			if owner.is_in_group("players") and Input.is_action_just_pressed("ui_up"):
 				register_jump()
 		State.REGISTERED_ATTACK:

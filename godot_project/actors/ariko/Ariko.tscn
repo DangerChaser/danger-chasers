@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://actors/ariko/ArikoLevel3.tres" type="Resource" id=1]
 [ext_resource path="res://actor_framework/player/CameraTargetPosition.gd" type="Script" id=2]
@@ -12,20 +12,23 @@
 [ext_resource path="res://interface/target_reticle/TargetReticleHUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=11]
 [ext_resource path="res://actor_framework/DropThroughArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actor_framework/WallRunScanner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actors/ariko/ArikoPivot.tscn" type="PackedScene" id=14]
 [ext_resource path="res://actor_framework/player/states/Idle.tscn" type="PackedScene" id=15]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=16]
 [ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=17]
 [ext_resource path="res://actor_states/JobState.tscn" type="PackedScene" id=18]
+[ext_resource path="res://actor_states/WallRun.tscn" type="PackedScene" id=19]
 [ext_resource path="res://interface/BattleHUD/BattleHUD.tscn" type="PackedScene" id=20]
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=21]
+[ext_resource path="res://actors/ariko/weapons/Tricks.tscn" type="PackedScene" id=22]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=23]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.3801
 height = 113.05
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
 
 [node name="Ariko" groups=[
@@ -81,6 +84,14 @@ queue_free_on_die = false
 [node name="Wait" parent="StateMachine" index="8" instance=ExtResource( 17 )]
 face_target = false
 
+[node name="WallRun" parent="StateMachine" index="9" instance=ExtResource( 19 )]
+
+[node name="Tricks" parent="StateMachine" index="10" instance=ExtResource( 11 )]
+weapon_levels = [ 0 ]
+weapons = [ ExtResource( 22 ) ]
+input = "ui_up"
+next_state = "Air"
+
 [node name="Stats" parent="." index="6"]
 character_stats = ExtResource( 1 )
 
@@ -107,8 +118,10 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" parent="ActivationScanner" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 disabled = true
+
+[node name="WallRunScanner" parent="." index="13" instance=ExtResource( 13 )]
 
 [editable path="PlayerHUDLayer/BattleHUD"]
 

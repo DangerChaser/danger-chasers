@@ -34,4 +34,4 @@ func _physics_process(delta : float) -> void:
 		current_speed = 0
 	
 	if finish_on_release and Input.is_action_just_released(input):
-		emit_signal("finished")
+		finished()

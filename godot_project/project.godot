@@ -790,6 +790,7 @@ open_inventory={
 2d_physics/layer_8="PassableActors"
 2d_physics/layer_9="EnemyStoppers"
 2d_physics/layer_10="WarningMarkTriggers"
+2d_physics/layer_11="WallRun"
 
 [locale]
 
