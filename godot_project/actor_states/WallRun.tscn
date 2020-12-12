@@ -5,19 +5,20 @@
 
 [node name="WallRun" type="Node2D"]
 script = ExtResource( 1 )
+initial_speed = 1000.0
 animation = "wallrun"
 
 [node name="Motion" parent="." instance=ExtResource( 2 )]
 
 [node name="MotionSteering" parent="Motion" index="1"]
-max_speed = 1800.0
+max_speed = 2000.0
 mass = 5.0
 
 [node name="Gravity" parent="Motion" index="2"]
 gravity = 2800.0
 
 [node name="UiUpTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.01
 one_shot = true
 [connection signal="timeout" from="UiUpTimer" to="." method="_on_UiUpTimer_timeout"]
 

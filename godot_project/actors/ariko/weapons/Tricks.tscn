@@ -310,8 +310,8 @@ weapon_animation = "trick_1"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Trick1/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
-initial_speed = 1600.0
-jump_force = 2000.0
+initial_speed = 1800.0
+jump_force = 4000.0
 finish_on_release = false
 
 [node name="MotionSteering" parent="Pivot/Attacks/Trick1/AdditionalEffects/JumpEffect/Motion" index="1"]
@@ -329,8 +329,8 @@ weapon_animation = "trick_2"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Trick2/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
-initial_speed = 1600.0
-jump_force = 2000.0
+initial_speed = 1800.0
+jump_force = 4000.0
 finish_on_release = false
 
 [node name="MotionSteering" parent="Pivot/Attacks/Trick2/AdditionalEffects/JumpEffect/Motion" index="1"]
@@ -348,7 +348,7 @@ weapon_animation = "trick_3"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Trick3/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
-initial_speed = 1600.0
+initial_speed = 1800.0
 jump_force = 4000.0
 finish_on_release = false
 

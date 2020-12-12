@@ -155,8 +155,8 @@ max_speed = 3000.0
 mass = 20.0
 
 [node name="Gravity" parent="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect/Motion" index="2"]
-gravity = 4000.0
-max_speed = 2400.0
+gravity = 0.0
+max_speed = 0.0
 
 [node name="PassThroughActorEffect" parent="Pivot/Attacks/Dash/AdditionalEffects" index="1" instance=ExtResource( 3 )]
 
@@ -171,6 +171,10 @@ takes_previous_speed = true
 [node name="MotionSteering" parent="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 3000.0
 mass = 20.0
+
+[node name="Gravity" parent="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect/Motion" index="2"]
+gravity = 0.0
+max_speed = 0.0
 
 [node name="PassThroughActorEffect" parent="Pivot/Attacks/Dash2/AdditionalEffects" index="1" instance=ExtResource( 3 )]
 

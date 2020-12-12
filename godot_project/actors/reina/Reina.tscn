@@ -18,8 +18,13 @@ extents = Vector2( 64, 64 )
 ] instance=ExtResource( 1 )]
 collision_layer = 2147483650
 collision_mask = 1
+pause_offscreen = false
 
 [node name="Pivot" parent="." index="0" instance=ExtResource( 6 )]
+
+[node name="CollisionBox" parent="." index="1"]
+position = Vector2( 0, -64 )
+shape = SubResource( 1 )
 
 [node name="Sequence" parent="StateMachine" index="0" instance=ExtResource( 3 )]
 
@@ -34,12 +39,8 @@ stagger = false
 [node name="Die" parent="StateMachine/Sequence" index="2" instance=ExtResource( 2 )]
 animation = "teleport_out"
 
-[node name="CollisionBox" parent="." index="2"]
-position = Vector2( 0, -64 )
-shape = SubResource( 1 )
-
-[node name="Target" parent="." index="4"]
+[node name="Target" parent="." index="5"]
 max_distance = 800.0
 
-[node name="Stats" parent="." index="5"]
+[node name="Stats" parent="." index="6"]
 character_stats = ExtResource( 5 )

@@ -64,6 +64,9 @@ func _physics_process(delta : float) -> void:
 		finished(wall_state)
 		current_speed = 0
 	
+	if check_ui_up and Input.is_action_just_released("ui_up"):
+		motion.external.apply(motion.external.target_direction, motion.external.velocity.length() / 2, 1.0)
+	
 	if check_ui_up and Input.is_action_just_pressed("ui_up"):
 		finished(jump_state)
 

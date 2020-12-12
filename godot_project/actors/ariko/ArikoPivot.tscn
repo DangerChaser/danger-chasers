@@ -134,7 +134,7 @@ tracks/5/keys = {
 "values": [ 0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("GrindParticles:emitting")
+tracks/6/path = NodePath("WallrunParticles:emitting")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -367,7 +367,7 @@ tracks/16/keys = {
 "values": [ true ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("GrindParticles:emitting")
+tracks/17/path = NodePath("WallrunParticles:emitting")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -589,7 +589,7 @@ tracks/15/keys = {
 "values": [ true ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("GrindParticles:emitting")
+tracks/16/path = NodePath("WallrunParticles:emitting")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -755,7 +755,7 @@ tracks/9/keys = {
 "values": [ false ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("GrindParticles:emitting")
+tracks/10/path = NodePath("WallrunParticles:emitting")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -987,7 +987,7 @@ tracks/16/keys = {
 "values": [ Vector2( 46, -82 ), Vector2( 46, -78 ), Vector2( 50, -82 ), Vector2( 46, -78 ), Vector2( 46, -82 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("GrindParticles:emitting")
+tracks/17/path = NodePath("WallrunParticles:emitting")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -1221,7 +1221,7 @@ tracks/16/keys = {
 "values": [ 0 ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("GrindParticles:emitting")
+tracks/17/path = NodePath("WallrunParticles:emitting")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -1442,7 +1442,7 @@ tracks/15/keys = {
 "values": [ true ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("GrindParticles:emitting")
+tracks/16/path = NodePath("WallrunParticles:emitting")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -1665,7 +1665,7 @@ tracks/15/keys = {
 "values": [ true ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("GrindParticles:emitting")
+tracks/16/path = NodePath("WallrunParticles:emitting")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -1802,7 +1802,7 @@ tracks/8/keys = {
 "values": [ false ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("GrindParticles:emitting")
+tracks/9/path = NodePath("WallrunParticles:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1939,7 +1939,7 @@ tracks/8/keys = {
 "values": [ false ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("GrindParticles:emitting")
+tracks/9/path = NodePath("WallrunParticles:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -2207,7 +2207,7 @@ tracks/18/keys = {
 "values": [ true ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("GrindParticles:emitting")
+tracks/19/path = NodePath("WallrunParticles:emitting")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -2332,7 +2332,7 @@ tracks/7/keys = {
 "values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("GrindParticles:emitting")
+tracks/8/path = NodePath("WallrunParticles:emitting")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -2457,7 +2457,7 @@ tracks/7/keys = {
 "values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("GrindParticles:emitting")
+tracks/8/path = NodePath("WallrunParticles:emitting")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -2718,7 +2718,7 @@ tracks/18/keys = {
 "values": [ true ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("GrindParticles:emitting")
+tracks/19/path = NodePath("WallrunParticles:emitting")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -2979,7 +2979,7 @@ tracks/18/keys = {
 "values": [ true ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("GrindParticles:emitting")
+tracks/19/path = NodePath("WallrunParticles:emitting")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -3139,7 +3139,7 @@ tracks/10/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("GrindParticles:emitting")
+tracks/11/path = NodePath("WallrunParticles:emitting")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -3299,7 +3299,7 @@ tracks/10/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("GrindParticles:emitting")
+tracks/11/path = NodePath("WallrunParticles:emitting")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -3496,7 +3496,7 @@ tracks/14/keys = {
 "values": [ true ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("GrindParticles:emitting")
+tracks/15/path = NodePath("WallrunParticles:emitting")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -3744,7 +3744,7 @@ tracks/17/keys = {
 "values": [ true ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("GrindParticles:emitting")
+tracks/18/path = NodePath("WallrunParticles:emitting")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -3975,7 +3975,7 @@ tracks/16/keys = {
 "values": [ true ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("GrindParticles:emitting")
+tracks/17/path = NodePath("WallrunParticles:emitting")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -4111,7 +4111,7 @@ tracks/8/keys = {
 "values": [ false ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("GrindParticles:emitting")
+tracks/9/path = NodePath("WallrunParticles:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -4247,7 +4247,7 @@ tracks/8/keys = {
 "values": [ false ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("GrindParticles:emitting")
+tracks/9/path = NodePath("WallrunParticles:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -4467,7 +4467,7 @@ tracks/15/keys = {
 "values": [ true ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("GrindParticles:emitting")
+tracks/16/path = NodePath("WallrunParticles:emitting")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -4687,7 +4687,7 @@ tracks/15/keys = {
 "values": [ true ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("GrindParticles:emitting")
+tracks/16/path = NodePath("WallrunParticles:emitting")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -4716,7 +4716,7 @@ resource_name = "trick_1"
 length = 0.4
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("GrindParticles:emitting")
+tracks/0/path = NodePath("WallrunParticles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -4936,7 +4936,7 @@ tracks/17/keys = {
 resource_name = "trick_2"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("GrindParticles:emitting")
+tracks/0/path = NodePath("WallrunParticles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -5157,7 +5157,7 @@ resource_name = "trick_3"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("GrindParticles:emitting")
+tracks/0/path = NodePath("WallrunParticles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -5484,7 +5484,7 @@ tracks/8/keys = {
 "values": [ false ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("GrindParticles:emitting")
+tracks/9/path = NodePath("WallrunParticles:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -5596,7 +5596,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("GrindParticles:emitting")
+tracks/7/path = NodePath("WallrunParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -5852,7 +5852,7 @@ tracks/17/keys = {
 "values": [ true ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("GrindParticles:emitting")
+tracks/18/path = NodePath("WallrunParticles:emitting")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -5864,7 +5864,7 @@ tracks/18/keys = {
 "values": [ true ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("GrindParticles:position")
+tracks/19/path = NodePath("WallrunParticles:position")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -5976,11 +5976,10 @@ autostart = false
 [node name="Sprite" type="Sprite" parent="." index="3"]
 position = Vector2( -24, 0 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 57 )
+texture = ExtResource( 1 )
 normal_map = ExtResource( 19 )
 offset = Vector2( 0, -29 )
 hframes = 8
-frame = 7
 
 [node name="FootstepsLand" parent="." index="4" instance=ExtResource( 13 )]
 particles = ExtResource( 16 )
@@ -5997,7 +5996,7 @@ particles = ExtResource( 15 )
 [node name="DeathExplosion" parent="." index="8" instance=ExtResource( 13 )]
 particles = ExtResource( 4 )
 
-[node name="GrindParticles" parent="." index="9" instance=ExtResource( 51 )]
+[node name="WallrunParticles" parent="." index="9" instance=ExtResource( 51 )]
 position = Vector2( -80, -120 )
 
 [node name="GrindSfx" parent="." index="10" instance=ExtResource( 53 )]
