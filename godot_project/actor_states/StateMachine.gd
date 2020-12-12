@@ -30,7 +30,6 @@ func get_state(state_name : String) -> State:
 
 
 func change_state(state_override := "", args := {}) -> void:
-	print_debug(state_override)
 	if not can_change_state:
 		return
 	
