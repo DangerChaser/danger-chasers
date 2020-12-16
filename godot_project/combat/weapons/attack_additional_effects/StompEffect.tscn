@@ -6,5 +6,9 @@
 [node name="StompEffect" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="Timer" type="Timer" parent="." index="1"]
+wait_time = 0.001
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="Motion"]

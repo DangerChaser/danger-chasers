@@ -29,10 +29,6 @@ anim_speed = 1.0
 [node name="FireColumnLong" instance=ExtResource( 1 )]
 can_rotate = false
 
-[node name="Sfx" parent="." index="0"]
-stream = ExtResource( 2 )
-attenuation = 0.615571
-
 [node name="Particles2D" parent="Pivot" index="0"]
 material = SubResource( 1 )
 position = Vector2( -70.3236, 0 )
@@ -45,3 +41,7 @@ explosiveness = 0.95
 randomness = 1.0
 process_material = SubResource( 4 )
 texture = ExtResource( 4 )
+
+[node name="Sfx" parent="." index="1"]
+stream = ExtResource( 2 )
+attenuation = 0.615571

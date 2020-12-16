@@ -44,13 +44,13 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
-"method": "enable_attack_input_listening"
+"method": "can_register_input"
 }, {
 "args": [  ],
-"method": "enable_cancel_animation"
+"method": "can_cancel_animation"
 }, {
 "args": [  ],
-"method": "enable_ready_for_next_attack"
+"method": "can_attack"
 } ]
 }
 tracks/1/type = "method"
@@ -142,15 +142,14 @@ tracks/4/keys = {
 resource_local_to_scene = true
 extents = Vector2( 206.626, 1410.07 )
 
-[node name="TillGun" instance=ExtResource( 1 )]
-cooldown = 0.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
-anims/SETUP = SubResource( 1 )
-anims/shoot = SubResource( 2 )
+[node name="TillLavaLauncherWeapon" instance=ExtResource( 1 )]
 
 [node name="SfxParticleSpawner" parent="." index="1" instance=ExtResource( 8 )]
 object = ExtResource( 9 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/SETUP = SubResource( 1 )
+anims/shoot = SubResource( 2 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
