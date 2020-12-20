@@ -35,3 +35,10 @@ func _physics_process(delta : float) -> void:
 	
 	if finish_on_release and Input.is_action_just_released(input):
 		finished()
+
+
+func get_exit_args() -> Dictionary:
+	var args = .get_exit_args()
+	args["external"]["velocity"].y /= 3
+	args["target_direction"].x = Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int 
+	return args

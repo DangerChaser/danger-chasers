@@ -11,22 +11,22 @@ resource_local_to_scene = true
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2191.3, 1049.47 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2593.82, 482.277 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 4425.94, 155.429 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 183.573, 2177.15 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 806.49, 860.675 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 1181.32, 95.6365 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=8]
 resource_local_to_scene = true
 extents = Vector2( 304, 272 )
 
@@ -66,7 +66,7 @@ collision_mask = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/WallRunWall2" index="0"]
 position = Vector2( 20.1814, 1331.98 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="Ground" index="0"]
 scale = Vector2( 4, 4 )
@@ -81,37 +81,37 @@ tile_data = PoolIntArray( -2097055, 0, 65542, -2097054, 0, 65541, -2097053, 0, 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Floor" index="0"]
 position = Vector2( 2973.86, 1436.75 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground/Floor" index="1"]
 position = Vector2( 2754.1, -2140.95 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground/Floor" index="2"]
 position = Vector2( -1209.99, 111.315 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground/Floor" index="3"]
 position = Vector2( 6389.65, -111.711 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Ground/Floor" index="4"]
 position = Vector2( 5600.02, 601.813 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Ground/Floor" index="5"]
 position = Vector2( 41.5249, -671.451 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Colliders" parent="." index="5"]
 visible = false
 
 [node name="CameraLimitTrigger" parent="CameraLimits" index="0" instance=ExtResource( 8 )]
 position = Vector2( 864, 40 )
-zoom = Vector2( 1.7, 1.7 )
+zoom = Vector2( 3, 3 )
 
 [node name="ColliderTrigger" parent="CameraLimits/CameraLimitTrigger" index="0"]
-shape = SubResource( 5 )
+shape = SubResource( 8 )
 
 [node name="TopLeft" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="0"]
 position = Vector2( -2019.07, -2226.42 )

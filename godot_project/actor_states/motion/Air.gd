@@ -15,11 +15,6 @@ var animation_set_externally := false
 
 func enter(args := {}) -> void:
 	.enter(args)
-	steering.velocity.y = 0
-	external.velocity.y /= 3
-	gravity.speed = 0
-	gravity.velocity.y = 0
-	total_velocity = steering.velocity + gravity.velocity + external.velocity
 	
 	if total_velocity.y < 0:
 		change_state(State.UP)

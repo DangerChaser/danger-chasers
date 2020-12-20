@@ -122,7 +122,10 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="WallRunScanner" parent="." index="13" instance=ExtResource( 13 )]
+position = Vector2( 0, -103 )
 
 [editable path="PlayerHUDLayer/BattleHUD"]
 
 [editable path="ActivationScanner"]
+
+[editable path="WallRunScanner"]

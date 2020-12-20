@@ -17,7 +17,7 @@ extents = Vector2( 64, 64 )
 "enemies",
 ] instance=ExtResource( 1 )]
 collision_layer = 2147483650
-collision_mask = 1
+collision_mask = 2147483649
 pause_offscreen = false
 
 [node name="Pivot" parent="." index="0" instance=ExtResource( 6 )]

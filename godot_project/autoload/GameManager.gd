@@ -10,6 +10,8 @@ var global_cooldown := 0.5
 var game
 const TILE_SIZE : Vector2 = Vector2(64, 64)
 
+var DEBUG_MODE = true
+
 
 
 

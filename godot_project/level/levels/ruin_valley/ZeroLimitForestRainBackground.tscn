@@ -1,0 +1,271 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://vfx/shaders/scrolling_sprite.shader" type="Shader" id=1]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/sea.png" type="Texture" id=3]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/clouds.png" type="Texture" id=4]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/sky.png" type="Texture" id=5]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/bg_4.png" type="Texture" id=6]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/bg_3.png" type="Texture" id=7]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/canopy_1.png" type="Texture" id=8]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/canopy_2.png" type="Texture" id=9]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/big_trees_1.png" type="Texture" id=10]
+[ext_resource path="res://common/particles/RainLong.tscn" type="PackedScene" id=11]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/big_trees_2.png" type="Texture" id=12]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/big_trees_4.png" type="Texture" id=13]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/big_trees_3.png" type="Texture" id=14]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/canopy_far_1.png" type="Texture" id=15]
+[ext_resource path="res://level/levels/zero_limit/sprites/background/canopy_far_2.png" type="Texture" id=16]
+[ext_resource path="res://common/particles/RainVeryLong.tscn" type="PackedScene" id=17]
+[ext_resource path="res://common/particles/Rain.tscn" type="PackedScene" id=18]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/direction = Vector2( 1, 0 )
+shader_param/scroll_speed = 0.005
+
+[node name="ZeroLimitForestRainBackground" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0, 0.05 )
+motion_mirroring = Vector2( 10240, 0 )
+
+[node name="Sprite" type="TextureRect" parent="Sky"]
+modulate = Color( 0.219608, 0.219608, 0.219608, 1 )
+material = SubResource( 1 )
+margin_top = -736.493
+margin_right = 2560.0
+margin_bottom = -432.493
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clouds" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.02, 0.05 )
+motion_mirroring = Vector2( 8704, 0 )
+
+[node name="Sprite" type="TextureRect" parent="Clouds"]
+margin_top = -404.433
+margin_right = 2171.56
+margin_bottom = -168.433
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="TextureRect" parent="Clouds"]
+margin_top = -763.8
+margin_right = 2112.0
+margin_bottom = -527.8
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sea" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.03, 0.05 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="Sea"]
+margin_left = 23.9729
+margin_top = 415.507
+margin_right = 2071.97
+margin_bottom = 511.507
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BigTrees4" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.05, 0.05 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="BigTrees4"]
+margin_top = -1391.22
+margin_right = 2048.0
+margin_bottom = -1071.22
+rect_scale = Vector2( 4, 8 )
+texture = ExtResource( 13 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanopyFar1" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.05, 0.05 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="CanopyFar1"]
+margin_top = -1574.27
+margin_right = 2048.0
+margin_bottom = -1318.27
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 15 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BigTrees3" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.06, 0.06 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="BigTrees3"]
+margin_top = -1282.52
+margin_right = 2048.0
+margin_bottom = -962.523
+rect_scale = Vector2( 4, 8 )
+texture = ExtResource( 14 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanopyFar2" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.06, 0.06 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="CanopyFar2"]
+margin_top = -1642.57
+margin_right = 2048.0
+margin_bottom = -1386.57
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 16 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BigTrees2" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.07, 0.07 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="BigTrees2"]
+margin_top = -1697.3
+margin_right = 2048.0
+margin_bottom = -1377.3
+rect_scale = Vector2( 4, 8 )
+texture = ExtResource( 12 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg4" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.07, 0.07 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="Bg4"]
+margin_top = 93.7428
+margin_right = 2048.0
+margin_bottom = 413.743
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Canopy1" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.08, 0.07 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="Canopy1"]
+margin_top = -1994.94
+margin_right = 2048.0
+margin_bottom = -1738.94
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BigTrees1" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.09, 0.08 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="BigTrees1"]
+margin_top = -2127.51
+margin_right = 2048.0
+margin_bottom = -1807.51
+rect_scale = Vector2( 4, 12 )
+texture = ExtResource( 10 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Canopy2" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.1, 0.08 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="Canopy2"]
+margin_top = -2222.45
+margin_right = 2048.0
+margin_bottom = -1966.45
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 9 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg3" type="ParallaxLayer" parent="."]
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.12, 0.08 )
+motion_mirroring = Vector2( 8192, 0 )
+
+[node name="Sprite" type="TextureRect" parent="Bg3"]
+margin_top = 533.126
+margin_right = 2048.0
+margin_bottom = 853.127
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sea2" type="ParallaxLayer" parent="."]
+visible = false
+modulate = Color( 0.486275, 0.513726, 1, 1 )
+motion_scale = Vector2( 0.03, 0.05 )
+motion_mirroring = Vector2( 4096, 0 )
+
+[node name="Sprite" type="TextureRect" parent="Sea2"]
+margin_top = 1344.0
+margin_right = 2048.0
+margin_bottom = 1440.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RainVeryLong" parent="." instance=ExtResource( 17 )]
+
+[node name="RainLong" parent="." instance=ExtResource( 11 )]
+
+[node name="Rain" parent="." instance=ExtResource( 18 )]

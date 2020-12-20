@@ -33,6 +33,7 @@ func enter(args := {}) -> void:
 		external.target_direction = external_args["target_direction"]
 		external.target_speed = external_args["target_speed"]
 		external.mass = external_args["mass"]
+		print_debug(external.velocity.y)
 	
 	total_velocity = steering.velocity + gravity.velocity + external.velocity
 	

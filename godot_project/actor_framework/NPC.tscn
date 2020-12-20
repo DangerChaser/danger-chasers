@@ -11,6 +11,11 @@ extents = Vector2( 41.9573, 87.6501 )
 [node name="NPC" instance=ExtResource( 1 )]
 collision_layer = 2
 
+[node name="CollisionBox" parent="." index="0"]
+position = Vector2( 0, -87.1227 )
+shape = SubResource( 1 )
+disabled = true
+
 [node name="SETUP" parent="StateMachine" index="0" instance=ExtResource( 2 )]
 animation = "SETUP"
 next_state = "Wait"
@@ -21,10 +26,5 @@ face_target = false
 
 [node name="Cutscene" parent="StateMachine" index="2" instance=ExtResource( 2 )]
 
-[node name="CollisionBox" parent="." index="1"]
-position = Vector2( 0, -87.1227 )
-shape = SubResource( 1 )
-disabled = true
-
-[node name="Stats" parent="." index="4"]
+[node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 3 )

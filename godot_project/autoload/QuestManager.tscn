@@ -6,10 +6,10 @@
 [node name="QuestManager" type="Node"]
 script = ExtResource( 2 )
 
-[node name="Zero Limit Act One" parent="." instance=ExtResource( 1 )]
+[node name="Ruin Valley Act 1" parent="." instance=ExtResource( 1 )]
 quest_name_key = "ZERO_LIMIT_ACT_1"
 quest_description_key = "ZERO_LIMIT_ACT_1_DESCRIPTION"
-level_path = "res://level/levels/zero_limit/act_1/ZeroLimitAct1-1.tscn"
+level_path = "res://level/levels/ruin_valley/act_1/RuinValleyAct1-1.tscn"
 
 [node name="Zero Limit Act Two" parent="." instance=ExtResource( 1 )]
 quest_name_key = "ZERO_LIMIT_ACT_2"
