@@ -1065,9 +1065,9 @@ anims/throw = SubResource( 8 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -116.648 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 10 )
-normal_map = ExtResource( 9 )
-hframes = 16
+texture = ExtResource( 7 )
+normal_map = ExtResource( 8 )
+hframes = 8
 
 [node name="Weapons" type="Node2D" parent="."]
 position = Vector2( 48, -108 )
@@ -1103,7 +1103,6 @@ position = Vector2( -52, -56 )
 [node name="DroneGrenadePivot" parent="RightHandWeaponTransform" instance=ExtResource( 19 )]
 
 [node name="LeftHandPivot" parent="." instance=ExtResource( 18 )]
-visible = false
 position = Vector2( 36, -108 )
 rotation = -0.698132
 

@@ -18,6 +18,10 @@ extents = Vector2( 35.1545, 28.2436 )
 "enemies",
 ] instance=ExtResource( 1 )]
 
+[node name="CollisionBox" parent="." index="0"]
+position = Vector2( 2.16453, -29.5408 )
+shape = SubResource( 1 )
+
 [node name="Launch" parent="StateMachine" index="0" instance=ExtResource( 2 )]
 next_state = "Sequence"
 random_angle = 90.0
@@ -36,11 +40,7 @@ stagger = false
 
 [node name="Die" parent="StateMachine" index="2" instance=ExtResource( 7 )]
 
-[node name="CollisionBox" parent="." index="1"]
-position = Vector2( 2.16453, -0.399871 )
-shape = SubResource( 1 )
-
-[node name="Stats" parent="." index="4"]
+[node name="Stats" parent="." index="5"]
 character_stats = ExtResource( 8 )
 
 [node name="Pivot" parent="." index="6" instance=ExtResource( 9 )]

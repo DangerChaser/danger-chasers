@@ -11,8 +11,6 @@ radius = 71.5542
 
 [node name="ItemChest" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-unpressed_texture = null
-pressed_texture = null
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

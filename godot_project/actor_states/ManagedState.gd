@@ -16,8 +16,8 @@ func exit() -> void:
 
 func _physics_process(delta):
 	owner.global_position = manager.global_position
-	owner.scale = manager.scale
 	owner.set_rotation(manager.rotation)
+	owner.scale = manager.scale
 	owner.visible = manager.visible
 
 

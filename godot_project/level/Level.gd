@@ -23,7 +23,7 @@ func initialize() -> void:
 	GameManager.level = self
 	for door in get_tree().get_nodes_in_group("doors"):
 		door.connect("player_entered", self, "request_change")
-	for arena in arenas.get_children():
+	for arena in get_tree().get_nodes_in_group("arenas"):
 		arena.initialize($YSort)
 	
 	emit_signal("initialized")

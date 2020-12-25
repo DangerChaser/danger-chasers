@@ -7,14 +7,14 @@
 [ext_resource path="res://actors/drones/DroneSpear.tres" type="Resource" id=5]
 [ext_resource path="res://actors/drones/DroneSpearPivot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=7]
-[ext_resource path="res://actors/drones/weapons/DroneArcherBow.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/drones/weapons/DroneGunnerWeapon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actor_states/ai_states/WaitForTargetDistance.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 64, 64 )
 
-[node name="DroneArcher" groups=[
+[node name="DroneGunner" groups=[
 "enemies",
 ] instance=ExtResource( 1 )]
 

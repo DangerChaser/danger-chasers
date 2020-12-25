@@ -421,8 +421,8 @@ tracks/3/keys = {
 }
 
 [node name="Pivot" type="Node2D"]
+position = Vector2( 0, -24 )
 script = ExtResource( 6 )
-flags = 51
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "SETUP"

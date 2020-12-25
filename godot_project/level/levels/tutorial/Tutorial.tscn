@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/audio/music/Ruin Valley Act 1.ogg" type="AudioStream" id=1]
+[ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level/levels/tutorial/rooms/MovementIntro.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/levels/zero_limit/rain_thunder_ambience.ogg" type="AudioStream" id=6]
+[ext_resource path="res://level/levels/tutorial/rooms/WallrunIntro.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+
+[node name="Tutorial" instance=ExtResource( 2 )]
+level_name_key = "RUIN_VALLEY"
+skybox_color = Color( 0.454902, 0.890196, 0.960784, 1 )
+
+[node name="InitialMusic" parent="." index="0"]
+music = ExtResource( 1 )
+
+[node name="CollisionShape2D" parent="InitialMusic" index="0"]
+shape = SubResource( 1 )
+
+[node name="Ambience" parent="." index="1"]
+stream = ExtResource( 6 )
+
+[node name="MovementIntro" parent="Rooms" index="0" instance=ExtResource( 3 )]
+position = Vector2( -7168, -1536 )
+
+[node name="WallrunIntro" parent="Rooms" index="1" instance=ExtResource( 9 )]
+position = Vector2( 8960, -256 )
+
+[node name="0" parent="PlayerSpawnPoints" index="0"]
+position = Vector2( -10944, -1792 )
+camera_limit_trigger = NodePath("../../Rooms/MovementIntro/Triggers/CameraLimitTrigger")
+
+[editable path="InitialMusic"]
+
+[editable path="Rooms/MovementIntro"]
+
+[editable path="PlayerSpawnPoints/0"]

@@ -10,6 +10,7 @@ extents = Vector2( 41.9573, 87.6501 )
 
 [node name="NPC" instance=ExtResource( 1 )]
 collision_layer = 2
+pause_offscreen = false
 
 [node name="CollisionBox" parent="." index="0"]
 position = Vector2( 0, -87.1227 )

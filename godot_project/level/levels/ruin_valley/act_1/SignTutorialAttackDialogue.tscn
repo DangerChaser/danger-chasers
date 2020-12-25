@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://core/PlayerManagedStateManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://cutscenes/dialogue/CutsceneDialogue.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/DialogueStarter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://cutscenes/CutsceneCamera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://interactable_scripts/base/InteractionArea.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -214,3 +215,6 @@ texture = ExtResource( 3 )
 
 [node name="CutsceneCamera" parent="." index="4" instance=ExtResource( 6 )]
 zoom = Vector2( 1.4, 1.4 )
+
+[node name="InteractionArea" parent="." index="5" instance=ExtResource( 7 )]
+[connection signal="interacted" from="InteractionArea" to="." method="start"]

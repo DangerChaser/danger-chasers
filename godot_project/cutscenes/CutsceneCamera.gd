@@ -21,6 +21,8 @@ func enable(tween_duration := -1.0) -> void:
 	if not original_zoom:
 		original_zoom = current_camera.zoom
 	
+	print_debug(current_camera.name)
+	
 	var _tween_duration = enable_tween_duration if tween_duration < 0 else tween_duration
 	tween.interpolate_property(current_camera, "zoom", original_zoom, zoom, _tween_duration, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	tween.interpolate_property(current_camera, "global_position", current_camera.global_position, global_position, _tween_duration, Tween.TRANS_SINE, Tween.EASE_IN_OUT)

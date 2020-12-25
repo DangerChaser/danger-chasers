@@ -10,10 +10,10 @@ func _ready() -> void:
 	play("SETUP")
 
 func start() -> void:
-	if GameManager.DEBUG_MODE:
-		end()
-		return
-	play("0")
+#	if GameManager.DEBUG_MODE:
+#		end()
+#		return
+	play("start")
 
 func end():
 	play("end")

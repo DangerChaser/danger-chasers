@@ -61,7 +61,7 @@ func _physics_process(delta : float) -> void:
 	if owner.is_on_floor():
 		finished(floor_state)
 	if owner.is_on_wall():
-		finished(wall_state)
+#		finished(wall_state)
 		current_speed = 0
 	
 	if check_ui_up and Input.is_action_just_pressed("ui_down"):

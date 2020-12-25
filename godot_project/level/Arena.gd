@@ -72,6 +72,7 @@ func spawn_actors(index : int, percent : float) -> void:
 	for actor in new_actors:
 		actors.push_back(actor)
 		actor.connect("died", self, "actor_died")
+		actor.initialize(actor.team)
 	number_actors += new_actors.size()
 	current_round_max_actors = number_actors
 
@@ -97,15 +98,13 @@ func finish() -> void:
 
 
 func enable_walls() -> void:
-	for wall in walls.get_children():
-		var collider = wall.get_child(0)
+	for collider in walls.get_children():
 		assert (collider is CollisionShape2D or collider is CollisionPolygon2D)
 		collider.set_deferred("disabled", false)
 
 
 func disable_walls() -> void:
-	for wall in walls.get_children():
-		var collider = wall.get_child(0)
+	for collider in walls.get_children():
 		assert (collider is CollisionShape2D or collider is CollisionPolygon2D)
 		collider.set_deferred("disabled", true)
 
