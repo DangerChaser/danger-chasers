@@ -1,13 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/particles/FireballExplosion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=11]
-[ext_resource path="res://actors/ariko/sfx/stomp.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sfx/stomp.wav" type="AudioStream" id=12]
 [ext_resource path="res://combat/weapons/attack_additional_effects/BounceEffect.gd" type="Script" id=13]
-[ext_resource path="res://actors/ariko/particles/Stomp.tscn" type="PackedScene" id=14]
 [ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=15]
-
-
 
 
 [sub_resource type="Animation" id=1]
@@ -71,13 +69,9 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 371.717
-
 [node name="BoulderRoll" instance=ExtResource( 1 )]
-cooldown = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
 anims/roll = SubResource( 2 )
 
@@ -93,16 +87,9 @@ weapon_animation = "roll"
 stream = ExtResource( 12 )
 bus = "Sfx"
 
-[node name="DamageSource" parent="Pivot/Attacks/Roll" index="1"]
-position = Vector2( 19.4802, -58.4407 )
-damage = 5
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/Roll/DamageSource" index="0"]
-shape = SubResource( 3 )
-
 [node name="Bounce" type="Node2D" parent="Pivot/Attacks/Roll/AdditionalEffects" index="0"]
 script = ExtResource( 13 )
-sfx_particle = ExtResource( 14 )
+sfx_particle = ExtResource( 2 )
 
 [node name="Motion" parent="Pivot/Attacks/Roll/AdditionalEffects/Bounce" index="0" instance=ExtResource( 15 )]
 
@@ -110,7 +97,5 @@ sfx_particle = ExtResource( 14 )
 max_speed = 500.0
 
 [editable path="Pivot/Attacks/Roll"]
-
-[editable path="Pivot/Attacks/Roll/DamageSource"]
 
 [editable path="Pivot/Attacks/Roll/AdditionalEffects/Bounce/Motion"]

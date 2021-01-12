@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://assets/audio/music/dova_syndrome/Sunrise.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/music/dova_syndrome/Sunrise.ogg" type="AudioStream" id=1]
 [ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://core/SpawnPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/levels/zero_limit/forest.tres" type="TileSet" id=4]
@@ -11,6 +11,7 @@
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/springs/RedSpring.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level/levels/zero_limit/forest_cave.tres" type="TileSet" id=11]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

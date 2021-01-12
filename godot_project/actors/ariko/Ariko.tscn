@@ -2,7 +2,7 @@
 
 [ext_resource path="res://actors/ariko/ArikoLevel3.tres" type="Resource" id=1]
 [ext_resource path="res://actor_framework/player/CameraTargetPosition.gd" type="Script" id=2]
-[ext_resource path="res://actors/ariko/sprites/icons/icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/actors/ariko/icons/icon.png" type="Texture" id=3]
 [ext_resource path="res://actor_framework/player/PlayerActor.gd" type="Script" id=4]
 [ext_resource path="res://actors/ariko/weapons/KnifeLevel3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/utils/ActivationScanner.tscn" type="PackedScene" id=6]
@@ -23,6 +23,8 @@
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=21]
 [ext_resource path="res://actors/ariko/weapons/Tricks.tscn" type="PackedScene" id=22]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=23]
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.3801

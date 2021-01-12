@@ -1,24 +1,24 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/ariko/sfx/swing.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sfx/swing.wav" type="AudioStream" id=3]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/ariko/particles/KnifeHit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/particles/BlueSlash.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/utils/SfxRandom.gd" type="Script" id=6]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=7]
 [ext_resource path="res://combat/weapons/attack_additional_effects/FinishInAirEffect.gd" type="Script" id=8]
-[ext_resource path="res://actors/ariko/particles/Slash1Particles.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/particles/Slash1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=10]
-[ext_resource path="res://actors/ariko/particles/Slash2Particles.tscn" type="PackedScene" id=11]
-[ext_resource path="res://actors/ariko/particles/StabParticles.tscn" type="PackedScene" id=12]
-[ext_resource path="res://actors/ariko/particles/SwordHit.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/particles/Slash2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/particles/StabLine.tscn" type="PackedScene" id=12]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/SlashDownDamageSource")
+tracks/0/path = NodePath("SlashDownDamageSource")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -32,7 +32,7 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/SlashUpHitbox")
+tracks/1/path = NodePath("SlashUpHitbox")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -46,7 +46,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("Pivot/StabDamageSource")
+tracks/2/path = NodePath("StabDamageSource")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -65,7 +65,7 @@ resource_name = "slash_down"
 length = 0.4
 step = 0.02
 tracks/0/type = "method"
-tracks/0/path = NodePath("Pivot/SlashDownDamageSource")
+tracks/0/path = NodePath("SlashDownDamageSource")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -82,7 +82,7 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/SlashDownParticles")
+tracks/1/path = NodePath("SlashDownParticles")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -141,7 +141,7 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/SlashUpHitbox")
+tracks/1/path = NodePath("SlashUpHitbox")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -158,7 +158,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("Pivot/SlashUpParticleSpawner")
+tracks/2/path = NodePath("SlashUpParticleSpawner")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -197,7 +197,7 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("Pivot/StabDamageSource")
+tracks/1/path = NodePath("StabDamageSource")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -214,7 +214,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("Pivot/StabParticleSpawner")
+tracks/2/path = NodePath("StabParticleSpawner")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -250,6 +250,51 @@ anims/SETUP = SubResource( 1 )
 anims/slash_down = SubResource( 2 )
 anims/slash_up = SubResource( 3 )
 anims/stab = SubResource( 4 )
+
+[node name="SlashDownParticles" parent="." index="3" instance=ExtResource( 10 )]
+position = Vector2( 256, -32 )
+particles = ExtResource( 9 )
+
+[node name="SlashUpParticleSpawner" parent="." index="4" instance=ExtResource( 10 )]
+position = Vector2( 32, -64 )
+particles = ExtResource( 11 )
+
+[node name="StabParticleSpawner" parent="." index="5" instance=ExtResource( 10 )]
+position = Vector2( 256, -80 )
+particles = ExtResource( 12 )
+
+[node name="SlashDownDamageSource" parent="." index="6" instance=ExtResource( 2 )]
+hit_particles = ExtResource( 5 )
+damage = 8
+delay_milliseconds = 2
+screen_shake_amplitude = 42.0
+screen_shake_duration = 0.4
+
+[node name="CollisionShape2D" parent="SlashDownDamageSource" index="0"]
+position = Vector2( 256, -64 )
+shape = SubResource( 5 )
+
+[node name="SlashUpHitbox" parent="." index="7" instance=ExtResource( 2 )]
+hit_particles = ExtResource( 5 )
+damage = 10
+delay_milliseconds = 2
+screen_shake_amplitude = 42.0
+screen_shake_duration = 0.4
+
+[node name="CollisionShape2D" parent="SlashUpHitbox" index="0"]
+position = Vector2( 256, -64 )
+shape = SubResource( 6 )
+
+[node name="StabDamageSource" parent="." index="8" instance=ExtResource( 2 )]
+hit_particles = ExtResource( 5 )
+damage = 15
+delay_milliseconds = 2
+screen_shake_amplitude = 42.0
+screen_shake_duration = 0.4
+
+[node name="CollisionShape2D" parent="StabDamageSource" index="0"]
+position = Vector2( 256, -64 )
+shape = SubResource( 5 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 can_loop = true
@@ -321,50 +366,11 @@ initial_speed = 3000.0
 [node name="FinishInAir" type="Node2D" parent="Pivot/Attacks/Stab/AdditionalEffects" index="1"]
 script = ExtResource( 8 )
 
-[node name="SlashDownParticles" parent="Pivot" index="1" instance=ExtResource( 10 )]
-position = Vector2( 256, -32 )
-particles = ExtResource( 9 )
+[editable path="SlashDownDamageSource"]
 
-[node name="SlashUpParticleSpawner" parent="Pivot" index="2" instance=ExtResource( 10 )]
-position = Vector2( 32, -64 )
-particles = ExtResource( 11 )
+[editable path="SlashUpHitbox"]
 
-[node name="StabParticleSpawner" parent="Pivot" index="3" instance=ExtResource( 10 )]
-position = Vector2( 256, -80 )
-particles = ExtResource( 12 )
-
-[node name="SlashDownDamageSource" parent="Pivot" index="4" instance=ExtResource( 2 )]
-hit_particles = ExtResource( 5 )
-damage = 8
-delay_milliseconds = 2
-screen_shake_amplitude = 42.0
-screen_shake_duration = 0.4
-
-[node name="CollisionShape2D" parent="Pivot/SlashDownDamageSource" index="0"]
-position = Vector2( 256, -64 )
-shape = SubResource( 5 )
-
-[node name="SlashUpHitbox" parent="Pivot" index="5" instance=ExtResource( 2 )]
-hit_particles = ExtResource( 5 )
-damage = 10
-delay_milliseconds = 2
-screen_shake_amplitude = 42.0
-screen_shake_duration = 0.4
-
-[node name="CollisionShape2D" parent="Pivot/SlashUpHitbox" index="0"]
-position = Vector2( 256, -64 )
-shape = SubResource( 6 )
-
-[node name="StabDamageSource" parent="Pivot" index="6" instance=ExtResource( 2 )]
-hit_particles = ExtResource( 13 )
-damage = 15
-delay_milliseconds = 2
-screen_shake_amplitude = 42.0
-screen_shake_duration = 0.4
-
-[node name="CollisionShape2D" parent="Pivot/StabDamageSource" index="0"]
-position = Vector2( 256, -64 )
-shape = SubResource( 5 )
+[editable path="StabDamageSource"]
 
 [editable path="Pivot/Attacks/SlashDown"]
 
@@ -395,9 +401,3 @@ shape = SubResource( 5 )
 [editable path="Pivot/Attacks/Stab/AdditionalEffects/MovementEffect"]
 
 [editable path="Pivot/Attacks/Stab/AdditionalEffects/MovementEffect/Motion"]
-
-[editable path="Pivot/SlashDownDamageSource"]
-
-[editable path="Pivot/SlashUpHitbox"]
-
-[editable path="Pivot/StabDamageSource"]

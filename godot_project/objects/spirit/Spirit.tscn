@@ -1,9 +1,10 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://actors/direwolf_kamikaze/sprites/white_square_red_glow.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/misc/white_square_red_glow.png" type="Texture" id=1]
 [ext_resource path="res://objects/spirit/spirit_sfx.wav" type="AudioStream" id=2]
 [ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=7]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"

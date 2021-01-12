@@ -2,11 +2,12 @@
 
 [ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://core/MusicChangeTrigger.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/audio/music/Zextillion - Noa's Redemption Soundtrack - 01 Noa.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/music/Zextillion - Noa's Redemption Soundtrack - 01 Noa.ogg" type="AudioStream" id=3]
 [ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://autoload/Transition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interactable_scripts/base/ChangeLevelInteractionArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_framework/NPC.tscn" type="PackedScene" id=7]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "0"

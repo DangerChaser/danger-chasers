@@ -4,17 +4,19 @@
 [ext_resource path="res://actors/till/boss/BulletTillBoss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/ObjectSpawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/till/particles/FireballExplosion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/particles/FireballExplosion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://combat/weapons/projectile_launchers/SpawnGroup.tscn" type="PackedScene" id=8]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=9]
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=10]
 [ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnFloorEffect.gd" type="Script" id=11]
 [ext_resource path="res://combat/weapons/attack_additional_effects/StompEffect.tscn" type="PackedScene" id=12]
-[ext_resource path="res://actors/till/sfx/fire_shoot.wav" type="AudioStream" id=13]
-[ext_resource path="res://actors/till/particles/FireColumnLong.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/sfx/fire_shoot.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/particles/FireColumnLong.tscn" type="PackedScene" id=14]
 [ext_resource path="res://common/particles/warning_mark/WarningMark.tscn" type="PackedScene" id=15]
 [ext_resource path="res://common/particles/warning_mark/WarningArea.tscn" type="PackedScene" id=16]
+
+
 
 
 

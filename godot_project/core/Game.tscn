@@ -2,7 +2,7 @@
 
 [ext_resource path="res://core/Game.gd" type="Script" id=1]
 [ext_resource path="res://level/levels/adventurers_guild/AdventurersGuild.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/audio/music/MusicPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/music/MusicPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/pause_menu/PauseMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/LevelLoader.gd" type="Script" id=5]
 [ext_resource path="res://items/Inventory.tscn" type="PackedScene" id=7]

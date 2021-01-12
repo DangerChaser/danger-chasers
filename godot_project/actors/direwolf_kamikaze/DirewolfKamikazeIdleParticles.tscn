@@ -1,6 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://actors/direwolf_kamikaze/sprites/white_square_red_glow.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/misc/white_square_red_glow.png" type="Texture" id=1]
+
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 2

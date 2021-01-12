@@ -10,7 +10,8 @@
 [ext_resource path="res://actors/pixel/sprites/FlyingEnemy_02.png" type="Texture" id=8]
 [ext_resource path="res://actors/pixel/sprites/FlyingEnemy_05.png" type="Texture" id=9]
 [ext_resource path="res://actors/pixel/sprites/FlyingEnemy_04.png" type="Texture" id=10]
-[ext_resource path="res://actors/pixel/particles/TrailParticles.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/particles/TrailParticles.tscn" type="PackedScene" id=11]
+
 
 
 

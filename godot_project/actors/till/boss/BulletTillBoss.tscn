@@ -1,8 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://combat/weapons/projectiles/Projectile.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/till/particles/FireballExplosion.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/till/sprites/fireball.png" type="Texture" id=4]
+[ext_resource path="res://assets/particles/FireballExplosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/actors/till/fireball.png" type="Texture" id=4]
+
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 56.672

@@ -1,31 +1,43 @@
 [gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actors/direwolf/sprites/idle_normal.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/actors/direwolf/idle_normal.png" type="Texture" id=2]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/wolf/sprites/run.png" type="Texture" id=4]
-[ext_resource path="res://actors/fox/sprites/spawn.png" type="Texture" id=5]
-[ext_resource path="res://actors/fox/sprites/spin.png" type="Texture" id=6]
-[ext_resource path="res://actors/direwolf/sprites/run_normal.png" type="Texture" id=7]
-[ext_resource path="res://actors/direwolf/sprites/stagger_normal.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/actors/wolf/run.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/actors/fox/spawn.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/actors/fox/spin.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/actors/direwolf/run_normal.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/actors/direwolf/stagger_normal.png" type="Texture" id=8]
 [ext_resource path="res://actor_framework/Pivot.gd" type="Script" id=9]
-[ext_resource path="res://actors/direwolf/particles/FootstepsLaunch.tscn" type="PackedScene" id=10]
-[ext_resource path="res://actors/fox/sprites/spin_normal.png" type="Texture" id=11]
-[ext_resource path="res://actors/wolf/sprites/run_normal.png" type="Texture" id=12]
+[ext_resource path="res://assets/particles/RedFootstepsLaunch.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sprites/actors/fox/spin_normal.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/actors/wolf/run_normal.png" type="Texture" id=12]
 [ext_resource path="res://core/utils/TrailingSprites.tscn" type="PackedScene" id=13]
-[ext_resource path="res://actors/direwolf/sprites/stagger.png" type="Texture" id=14]
-[ext_resource path="res://actors/direwolf/sprites/walk_normal.png" type="Texture" id=15]
-[ext_resource path="res://actors/direwolf/sprites/walk.png" type="Texture" id=16]
-[ext_resource path="res://actors/fox/sprites/spawn_normal.png" type="Texture" id=17]
-[ext_resource path="res://actors/direwolf/particles/LandDust.tscn" type="PackedScene" id=18]
-[ext_resource path="res://actors/direwolf/sprites/idle.png" type="Texture" id=19]
-[ext_resource path="res://actors/wolf/sprites/idle_normal.png" type="Texture" id=20]
-[ext_resource path="res://actors/direwolf/particles/FootstepsLand.tscn" type="PackedScene" id=21]
-[ext_resource path="res://actors/direwolf/particles/JumpDust.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/sprites/actors/direwolf/stagger.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/actors/direwolf/walk_normal.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/actors/direwolf/walk.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/actors/fox/spawn_normal.png" type="Texture" id=17]
+[ext_resource path="res://assets/particles/RedLandDust.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/sprites/actors/direwolf/idle.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/actors/wolf/idle_normal.png" type="Texture" id=20]
+[ext_resource path="res://assets/particles/RedFootstepsLand.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/particles/RedJumpDust.tscn" type="PackedScene" id=22]
 [ext_resource path="res://vfx/Trail.gd" type="Script" id=23]
-[ext_resource path="res://actors/direwolf/sprites/growl.png" type="Texture" id=24]
-[ext_resource path="res://actors/direwolf/sprites/growl_normal.png" type="Texture" id=26]
-[ext_resource path="res://actors/direwolf/sprites/run.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/actors/direwolf/growl.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/actors/direwolf/growl_normal.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/actors/direwolf/run.png" type="Texture" id=27]
+
+
+
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"

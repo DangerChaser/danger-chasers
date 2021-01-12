@@ -1,20 +1,19 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnFloorEffect.gd" type="Script" id=2]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/till/particles/TillSpinHit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=5]
 [ext_resource path="res://combat/weapons/attack_additional_effects/StompEffect.tscn" type="PackedScene" id=6]
 [ext_resource path="res://combat/weapons/projectile_launchers/SpawnGroup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/till/boss/BulletTillBoss.tscn" type="PackedScene" id=8]
 [ext_resource path="res://core/ObjectSpawner.tscn" type="PackedScene" id=9]
-[ext_resource path="res://actors/till/sfx/fire_shoot.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/sfx/fire_shoot.wav" type="AudioStream" id=10]
 [ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=11]
-[ext_resource path="res://actors/till/particles/FireColumnLong.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/particles/FireColumnLong.tscn" type="PackedScene" id=12]
 [ext_resource path="res://common/particles/warning_mark/WarningMark.tscn" type="PackedScene" id=13]
 [ext_resource path="res://common/particles/warning_mark/WarningArea.tscn" type="PackedScene" id=14]
-[ext_resource path="res://actors/till/particles/FireballExplosion.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/particles/FireballExplosion.tscn" type="PackedScene" id=15]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=16]
 
 
@@ -428,298 +427,23 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="CircleShape2D" id=6]
-radius = 250.0
-
-[sub_resource type="RectangleShape2D" id=7]
-resource_local_to_scene = true
-extents = Vector2( 30, 30 )
-
-[sub_resource type="RectangleShape2D" id=8]
-resource_local_to_scene = true
-extents = Vector2( 30, 30 )
-
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=6]
 resource_local_to_scene = true
 extents = Vector2( 64, 1408 )
 
-[sub_resource type="Animation" id=10]
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("WarningMarkScanner:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 2432 ) ]
-}
-
-[sub_resource type="RectangleShape2D" id=11]
-resource_local_to_scene = true
-extents = Vector2( 531.001, 60.9998 )
-
-[sub_resource type="Animation" id=12]
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("WarningMarkScanner:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 2496 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="RectangleShape2D" id=13]
-resource_local_to_scene = true
-extents = Vector2( 2048, 60.9998 )
-
-[sub_resource type="Animation" id=14]
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("WarningMarkScanner:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 2432 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="RectangleShape2D" id=15]
-resource_local_to_scene = true
-extents = Vector2( 1984, 60.9998 )
-
-[sub_resource type="Animation" id=16]
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("WarningMarkScanner:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 2432 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="RectangleShape2D" id=17]
-resource_local_to_scene = true
-extents = Vector2( 1984, 60.9998 )
-
 [node name="TillBossSpecialSalamander" instance=ExtResource( 1 )]
-cooldown = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="SfxParticleSpawner" parent="." index="1" instance=ExtResource( 11 )]
+object = ExtResource( 12 )
+
+[node name="AnimationPlayer" parent="." index="2"]
 anims/SETUP = SubResource( 1 )
 anims/jump = SubResource( 2 )
 anims/shoot = SubResource( 3 )
 anims/stomp = SubResource( 4 )
 anims/wait = SubResource( 5 )
 
-[node name="SfxParticleSpawner" parent="." index="1" instance=ExtResource( 11 )]
-object = ExtResource( 12 )
-
-[node name="Attacks" parent="Pivot" index="0"]
-grounded = false
-
-[node name="Jump" parent="Pivot/Attacks" index="0" instance=ExtResource( 3 )]
-actor_animation = "jump"
-weapon_animation = "jump"
-
-[node name="DamageSource" parent="Pivot/Attacks/Jump" index="0"]
-position = Vector2( 10.8831, -130.596 )
-damage = 3
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/Jump/DamageSource" index="0"]
-shape = SubResource( 6 )
-disabled = true
-
-[node name="AdditionalEffects" parent="Pivot/Attacks/Jump" index="1"]
-script = ExtResource( 2 )
-
-[node name="JumpEffect" parent="Pivot/Attacks/Jump/AdditionalEffects" index="0" instance=ExtResource( 5 )]
-initial_mass = 12.0
-disable_x_input = true
-jump_force = 9000.0
-finish_on_release = false
-take_previous_velocity = false
-
-[node name="MotionSteering" parent="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect/Motion" index="1"]
-max_speed = 0.0
-mass = 16.0
-
-[node name="Gravity" parent="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect/Motion" index="2"]
-gravity = 0.0
-
-[node name="FinishOnFloor" type="Node2D" parent="Pivot/Attacks/Jump/AdditionalEffects" index="1"]
-script = ExtResource( 2 )
-
-[node name="ObjectSpawner" parent="Pivot/Attacks/Jump/HitParticles" index="0"]
-object = ExtResource( 4 )
-
-[node name="Wait" parent="Pivot/Attacks" index="1" instance=ExtResource( 3 )]
-actor_animation = "idle"
-weapon_animation = "wait"
-
-[node name="DamageSource" parent="Pivot/Attacks/Wait" index="0"]
-visible = false
-position = Vector2( 10.8831, -130.596 )
-damage = 3
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/Wait/DamageSource" index="0"]
-shape = SubResource( 7 )
-disabled = true
-
-[node name="AdditionalEffects" parent="Pivot/Attacks/Wait" index="1"]
-script = ExtResource( 2 )
-
-[node name="Stomp" parent="Pivot/Attacks" index="2" instance=ExtResource( 3 )]
-actor_animation = "spin_slash"
-weapon_animation = "stomp"
-
-[node name="DamageSource" parent="Pivot/Attacks/Stomp" index="0"]
-visible = false
-position = Vector2( 10.8831, -130.596 )
-damage = 3
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/Stomp/DamageSource" index="0"]
-shape = SubResource( 8 )
-disabled = true
-
-[node name="AdditionalEffects" parent="Pivot/Attacks/Stomp" index="1"]
-script = ExtResource( 2 )
-
-[node name="StompEffect" parent="Pivot/Attacks/Stomp/AdditionalEffects" index="0" instance=ExtResource( 6 )]
-initial_mass = 8.0
-initial_speed = 14000.0
-disable_x_input = true
-initialize_x = true
-initialize_y = true
-
-[node name="Gravity" parent="Pivot/Attacks/Stomp/AdditionalEffects/StompEffect/Motion" index="2"]
-max_speed = 6000.0
-
-[node name="SpawnGroup" parent="Pivot/Attacks" index="3" instance=ExtResource( 7 )]
-actor_animation = "slam_down"
-weapon_animation = "shoot"
-muzzle_flash = ExtResource( 15 )
-screen_shake_amplitude = 30.0
-screen_shake_duration = 2.0
-screen_shake_damp = 2.45887
-
-[node name="DamageSource" parent="Pivot/Attacks/SpawnGroup" index="0" instance=ExtResource( 16 )]
-damage = 10
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource" index="0"]
-position = Vector2( 0, -1408 )
-shape = SubResource( 9 )
-disabled = true
-
-[node name="DamageSource2R" parent="Pivot/Attacks/SpawnGroup" index="1" instance=ExtResource( 16 )]
-position = Vector2( 576, 0 )
-damage = 10
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource2R" index="0"]
-position = Vector2( 0, -1408 )
-shape = SubResource( 9 )
-disabled = true
-
-[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource2R" index="1" instance=ExtResource( 11 )]
-object = ExtResource( 12 )
-
-[node name="DamageSource2L" parent="Pivot/Attacks/SpawnGroup" index="2" instance=ExtResource( 16 )]
-position = Vector2( -576, 0 )
-damage = 10
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource2L" index="0"]
-position = Vector2( 0, -1408 )
-shape = SubResource( 9 )
-disabled = true
-
-[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource2L" index="1" instance=ExtResource( 11 )]
-object = ExtResource( 12 )
-
-[node name="DamageSource3R" parent="Pivot/Attacks/SpawnGroup" index="3" instance=ExtResource( 16 )]
-position = Vector2( 1152, 0 )
-damage = 10
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource3R" index="0"]
-position = Vector2( 0, -1408 )
-shape = SubResource( 9 )
-disabled = true
-
-[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource3R" index="1" instance=ExtResource( 11 )]
-object = ExtResource( 12 )
-
-[node name="DamageSource3L" parent="Pivot/Attacks/SpawnGroup" index="4" instance=ExtResource( 16 )]
-position = Vector2( -1152, 0 )
-damage = 10
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource3L" index="0"]
-position = Vector2( 0, -1408 )
-shape = SubResource( 9 )
-disabled = true
-
-[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource3L" index="1" instance=ExtResource( 11 )]
-object = ExtResource( 12 )
-
-[node name="DamageSource4R" parent="Pivot/Attacks/SpawnGroup" index="5" instance=ExtResource( 16 )]
-position = Vector2( 1728, 0 )
-damage = 10
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource4R" index="0"]
-position = Vector2( 0, -1408 )
-shape = SubResource( 9 )
-disabled = true
-
-[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource4R" index="1" instance=ExtResource( 11 )]
-object = ExtResource( 12 )
-
-[node name="DamageSource4L" parent="Pivot/Attacks/SpawnGroup" index="6" instance=ExtResource( 16 )]
-position = Vector2( -1728, 0 )
-damage = 10
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource4L" index="0"]
-position = Vector2( 0, -1408 )
-shape = SubResource( 9 )
-disabled = true
-
-[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource4L" index="1" instance=ExtResource( 11 )]
-object = ExtResource( 12 )
-
-[node name="Sfx" parent="Pivot/Attacks/SpawnGroup" index="7"]
-stream = ExtResource( 10 )
-random_pitch_low = 0.98
-random_pitch_high = 1.02
-
-[node name="ObjectSpawner" parent="Pivot/Attacks/SpawnGroup/Spawners" index="0"]
-object = ExtResource( 8 )
-
-[node name="ObjectSpawner2" parent="Pivot/Attacks/SpawnGroup/Spawners" index="1" instance=ExtResource( 9 )]
-rotation = 3.14159
-object = ExtResource( 8 )
-DRAW_COLOR = Color( 0.0784314, 0.0941176, 1, 1 )
-
 [node name="WarningAreaCenter" parent="." index="3" instance=ExtResource( 14 )]
-
-[node name="AnimationPlayer" parent="WarningAreaCenter" index="0"]
-anims/start = SubResource( 10 )
-
-[node name="CollisionShape2D" parent="WarningAreaCenter/WarningMarkScanner" index="0"]
-shape = SubResource( 11 )
 
 [node name="WarningMark" parent="WarningAreaCenter/Marks" index="0" instance=ExtResource( 13 )]
 position = Vector2( -128, 128 )
@@ -803,12 +527,6 @@ position = Vector2( 128, 2176 )
 position = Vector2( 0, 2304 )
 
 [node name="WarningArea2" parent="." index="4" instance=ExtResource( 14 )]
-
-[node name="AnimationPlayer" parent="WarningArea2" index="0"]
-anims/start = SubResource( 12 )
-
-[node name="CollisionShape2D" parent="WarningArea2/WarningMarkScanner" index="0"]
-shape = SubResource( 13 )
 
 [node name="WarningMark" parent="WarningArea2/Marks" index="0" instance=ExtResource( 13 )]
 position = Vector2( 512, 256 )
@@ -1130,15 +848,6 @@ position = Vector2( -1664, 2304 )
 
 [node name="WarningArea3" parent="." index="5" instance=ExtResource( 14 )]
 
-[node name="AnimationPlayer" parent="WarningArea3" index="0"]
-anims/start = SubResource( 14 )
-
-[node name="WarningMarkScanner" parent="WarningArea3" index="1"]
-position = Vector2( 0, 2432 )
-
-[node name="CollisionShape2D" parent="WarningArea3/WarningMarkScanner" index="0"]
-shape = SubResource( 15 )
-
 [node name="WarningMark" parent="WarningArea3/Marks" index="0" instance=ExtResource( 13 )]
 position = Vector2( 1088, 256 )
 
@@ -1303,12 +1012,6 @@ position = Vector2( -1088, 2304 )
 
 [node name="WarningArea4" parent="." index="6" instance=ExtResource( 14 )]
 
-[node name="AnimationPlayer" parent="WarningArea4" index="0"]
-anims/start = SubResource( 16 )
-
-[node name="CollisionShape2D" parent="WarningArea4/WarningMarkScanner" index="0"]
-shape = SubResource( 17 )
-
 [node name="WarningMark" parent="WarningArea4/Marks" index="0" instance=ExtResource( 13 )]
 position = Vector2( 1664, 256 )
 
@@ -1471,23 +1174,181 @@ position = Vector2( -1792, 2304 )
 [node name="WarningMark28" parent="WarningArea4/Marks" index="53" instance=ExtResource( 13 )]
 position = Vector2( -1664, 2304 )
 
-[editable path="Pivot/Attacks/Jump"]
+[node name="Attacks" parent="Pivot" index="0"]
+grounded = false
 
-[editable path="Pivot/Attacks/Jump/DamageSource"]
+[node name="Jump" parent="Pivot/Attacks" index="0" instance=ExtResource( 3 )]
+actor_animation = "jump"
+weapon_animation = "jump"
+
+[node name="AdditionalEffects" parent="Pivot/Attacks/Jump" index="0"]
+script = ExtResource( 2 )
+
+[node name="JumpEffect" parent="Pivot/Attacks/Jump/AdditionalEffects" index="0" instance=ExtResource( 5 )]
+initial_mass = 12.0
+disable_x_input = true
+jump_force = 9000.0
+finish_on_release = false
+
+[node name="MotionSteering" parent="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect/Motion" index="1"]
+max_speed = 0.0
+mass = 16.0
+
+[node name="Gravity" parent="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect/Motion" index="2"]
+gravity = 0.0
+
+[node name="FinishOnFloor" type="Node2D" parent="Pivot/Attacks/Jump/AdditionalEffects" index="1"]
+script = ExtResource( 2 )
+
+[node name="Wait" parent="Pivot/Attacks" index="1" instance=ExtResource( 3 )]
+actor_animation = "idle"
+weapon_animation = "wait"
+
+[node name="AdditionalEffects" parent="Pivot/Attacks/Wait" index="0"]
+script = ExtResource( 2 )
+
+[node name="Stomp" parent="Pivot/Attacks" index="2" instance=ExtResource( 3 )]
+actor_animation = "spin_slash"
+weapon_animation = "stomp"
+
+[node name="AdditionalEffects" parent="Pivot/Attacks/Stomp" index="0"]
+script = ExtResource( 2 )
+
+[node name="StompEffect" parent="Pivot/Attacks/Stomp/AdditionalEffects" index="0" instance=ExtResource( 6 )]
+initial_mass = 8.0
+initial_speed = 14000.0
+disable_x_input = true
+initialize_x = true
+initialize_y = true
+
+[node name="Gravity" parent="Pivot/Attacks/Stomp/AdditionalEffects/StompEffect/Motion" index="2"]
+max_speed = 6000.0
+
+[node name="SpawnGroup" parent="Pivot/Attacks" index="3" instance=ExtResource( 7 )]
+actor_animation = "slam_down"
+weapon_animation = "shoot"
+muzzle_flash = ExtResource( 15 )
+screen_shake_amplitude = 30.0
+screen_shake_duration = 2.0
+screen_shake_damp = 2.45887
+
+[node name="DamageSource" parent="Pivot/Attacks/SpawnGroup" index="0" instance=ExtResource( 16 )]
+hit_particles = ExtResource( 15 )
+damage = 10
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource" index="0"]
+position = Vector2( 0, -1408 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="DamageSource2R" parent="Pivot/Attacks/SpawnGroup" index="1" instance=ExtResource( 16 )]
+position = Vector2( 576, 0 )
+hit_particles = ExtResource( 15 )
+damage = 10
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource2R" index="0"]
+position = Vector2( 0, -1408 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource2R" index="1" instance=ExtResource( 11 )]
+object = ExtResource( 12 )
+
+[node name="DamageSource2L" parent="Pivot/Attacks/SpawnGroup" index="2" instance=ExtResource( 16 )]
+position = Vector2( -576, 0 )
+hit_particles = ExtResource( 15 )
+damage = 10
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource2L" index="0"]
+position = Vector2( 0, -1408 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource2L" index="1" instance=ExtResource( 11 )]
+object = ExtResource( 12 )
+
+[node name="DamageSource3R" parent="Pivot/Attacks/SpawnGroup" index="3" instance=ExtResource( 16 )]
+position = Vector2( 1152, 0 )
+hit_particles = ExtResource( 15 )
+damage = 10
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource3R" index="0"]
+position = Vector2( 0, -1408 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource3R" index="1" instance=ExtResource( 11 )]
+object = ExtResource( 12 )
+
+[node name="DamageSource3L" parent="Pivot/Attacks/SpawnGroup" index="4" instance=ExtResource( 16 )]
+position = Vector2( -1152, 0 )
+hit_particles = ExtResource( 15 )
+damage = 10
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource3L" index="0"]
+position = Vector2( 0, -1408 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource3L" index="1" instance=ExtResource( 11 )]
+object = ExtResource( 12 )
+
+[node name="DamageSource4R" parent="Pivot/Attacks/SpawnGroup" index="5" instance=ExtResource( 16 )]
+position = Vector2( 1728, 0 )
+hit_particles = ExtResource( 15 )
+damage = 10
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource4R" index="0"]
+position = Vector2( 0, -1408 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource4R" index="1" instance=ExtResource( 11 )]
+object = ExtResource( 12 )
+
+[node name="DamageSource4L" parent="Pivot/Attacks/SpawnGroup" index="6" instance=ExtResource( 16 )]
+position = Vector2( -1728, 0 )
+hit_particles = ExtResource( 15 )
+damage = 10
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/SpawnGroup/DamageSource4L" index="0"]
+position = Vector2( 0, -1408 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="FireColumn" parent="Pivot/Attacks/SpawnGroup/DamageSource4L" index="1" instance=ExtResource( 11 )]
+object = ExtResource( 12 )
+
+[node name="Sfx" parent="Pivot/Attacks/SpawnGroup" index="7"]
+stream = ExtResource( 10 )
+random_pitch_low = 0.98
+random_pitch_high = 1.02
+
+[node name="ObjectSpawner" parent="Pivot/Attacks/SpawnGroup/Spawners" index="0"]
+object = ExtResource( 8 )
+
+[node name="ObjectSpawner2" parent="Pivot/Attacks/SpawnGroup/Spawners" index="1" instance=ExtResource( 9 )]
+rotation = 3.14159
+object = ExtResource( 8 )
+DRAW_COLOR = Color( 0.0784314, 0.0941176, 1, 1 )
+
+[editable path="WarningAreaCenter"]
+
+[editable path="WarningArea2"]
+
+[editable path="WarningArea3"]
+
+[editable path="WarningArea4"]
+
+[editable path="Pivot/Attacks/Jump"]
 
 [editable path="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect"]
 
 [editable path="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect/Motion"]
 
-[editable path="Pivot/Attacks/Jump/HitParticles"]
-
 [editable path="Pivot/Attacks/Wait"]
 
-[editable path="Pivot/Attacks/Wait/DamageSource"]
-
 [editable path="Pivot/Attacks/Stomp"]
-
-[editable path="Pivot/Attacks/Stomp/DamageSource"]
 
 [editable path="Pivot/Attacks/Stomp/AdditionalEffects/StompEffect"]
 
@@ -1508,19 +1369,3 @@ position = Vector2( -1664, 2304 )
 [editable path="Pivot/Attacks/SpawnGroup/DamageSource4R"]
 
 [editable path="Pivot/Attacks/SpawnGroup/DamageSource4L"]
-
-[editable path="WarningAreaCenter"]
-
-[editable path="WarningAreaCenter/WarningMarkScanner"]
-
-[editable path="WarningArea2"]
-
-[editable path="WarningArea2/WarningMarkScanner"]
-
-[editable path="WarningArea3"]
-
-[editable path="WarningArea3/WarningMarkScanner"]
-
-[editable path="WarningArea4"]
-
-[editable path="WarningArea4/WarningMarkScanner"]

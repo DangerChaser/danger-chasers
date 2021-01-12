@@ -8,9 +8,12 @@
 [ext_resource path="res://actor_states/motion/Spawn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://combat/effects/buffs/Invincible.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=8]
-[ext_resource path="res://actors/maid_share/sprites/icon.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/actors/maid_share/icon.png" type="Texture" id=9]
 [ext_resource path="res://actors/maid_share/Pivot.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/maid_share/ShareSpinAttack.tscn" type="PackedScene" id=11]
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

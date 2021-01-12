@@ -1,6 +1,6 @@
 [gd_scene load_steps=191 format=2]
 
-[ext_resource path="res://assets/audio/music/dont-use-in-final/1-05 Prismatic - For Hilltop Heights Act 3.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/music/dont-use-in-final/1-05 Prismatic - For Hilltop Heights Act 3.ogg" type="AudioStream" id=1]
 [ext_resource path="res://level/levels/zero_limit/ZeroLimitForestBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://level/levels/zero_limit/forest.tres" type="TileSet" id=3]
 [ext_resource path="res://level/levels/zero_limit/sprites/grass/fg_grass_5.png" type="Texture" id=4]
@@ -16,6 +16,7 @@
 [ext_resource path="res://level/levels/zero_limit/act_3/ZeroLimitAct3IntroCutscene.tscn" type="PackedScene" id=14]
 [ext_resource path="res://level/levels/zero_limit/forest_cave.tres" type="TileSet" id=15]
 [ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=16]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

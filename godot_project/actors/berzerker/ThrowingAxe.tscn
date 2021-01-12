@@ -1,9 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://combat/weapons/projectiles/Projectile.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actors/ariko/particles/StompHit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/particles/FlashHit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://common/particles/WeaponHit.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/ariko/sprites/air_spin.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/actors/ariko/air_spin.png" type="Texture" id=5]
+
+
+
+
 
 
 

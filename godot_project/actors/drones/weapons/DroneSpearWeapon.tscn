@@ -5,9 +5,9 @@
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=3]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=5]
-[ext_resource path="res://actors/fox/sfx/charge.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sfx/bloody_slash.wav" type="AudioStream" id=6]
 [ext_resource path="res://actors/drones/weapons/DroneSpearParticles.tscn" type="PackedScene" id=7]
-[ext_resource path="res://actors/wolf/particles/AttackHit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/particles/RedClaw.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

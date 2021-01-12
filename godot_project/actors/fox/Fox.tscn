@@ -5,12 +5,13 @@
 [ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_states/AttackState.gd" type="Script" id=5]
-[ext_resource path="res://actors/fox/weapons/FoxCharge.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/fox/FoxCharge.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_states/motion/Bump.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/fox/Fox.tres" type="Resource" id=10]
 [ext_resource path="res://actors/fox/Pivot.tscn" type="PackedScene" id=11]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

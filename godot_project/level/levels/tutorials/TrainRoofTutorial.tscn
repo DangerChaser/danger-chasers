@@ -7,7 +7,8 @@
 [ext_resource path="res://level/levels/tutorials/MountainBackgroundScrolling.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/levels/tutorials/train_ambience.wav" type="AudioStream" id=6]
 [ext_resource path="res://vfx/transitions/transition_masks/top_to_bottom.png" type="Texture" id=7]
-[ext_resource path="res://assets/audio/music/dova_syndrome/Sunrise.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/music/dova_syndrome/Sunrise.ogg" type="AudioStream" id=9]
+
 
 
 

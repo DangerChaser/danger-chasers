@@ -12,11 +12,12 @@
 [ext_resource path="res://level/levels/zero_limit/RainForeground.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level/levels/zero_limit/rain_thunder_ambience.ogg" type="AudioStream" id=11]
 [ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/sprites/white_circle_gradient.png" type="Texture" id=14]
-[ext_resource path="res://assets/sprites/white_circle_gradient_4096x4096.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/misc/white_circle_gradient.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/misc/white_circle_gradient_4096x4096.png" type="Texture" id=15]
 [ext_resource path="res://actors/slime_red/SlimeRed.tscn" type="PackedScene" id=18]
 [ext_resource path="res://level/levels/zero_limit/forest_cave.tres" type="TileSet" id=25]
 [ext_resource path="res://objects/springs/RedSpring.tscn" type="PackedScene" id=29]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

@@ -1,10 +1,14 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://combat/weapons/projectiles/Projectile.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actors/box_cutter/sprites/sawblades/sawblades.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/actors/box_cutter/sawblades/sawblades.png" type="Texture" id=2]
 [ext_resource path="res://core/utils/AudioStreamPlayer2DRandom.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/box_cutter/sfx/grinding.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/grinding.wav" type="AudioStream" id=4]
 [ext_resource path="res://actors/box_cutter/BoxCutterSlashHit.tscn" type="PackedScene" id=5]
+
+
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 60.4373

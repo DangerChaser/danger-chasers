@@ -1,8 +1,11 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://actors/maid_share/sprites/shotgun.png" type="Texture" id=1]
-[ext_resource path="res://actors/maid_share/sprites/shotgun_normal.png" type="Texture" id=2]
-[ext_resource path="res://actors/maid_share/sprites/shotgun_backflip.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/actors/maid_share/shotgun.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/actors/maid_share/shotgun_normal.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/actors/maid_share/shotgun_backflip.png" type="Texture" id=3]
+
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"

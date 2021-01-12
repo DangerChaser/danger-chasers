@@ -1,17 +1,19 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://actors/ruby_golem_pilot/shoot_1_normal.png" type="Texture" id=1]
-[ext_resource path="res://actors/ruby_golem_pilot/shoot_1.png" type="Texture" id=2]
-[ext_resource path="res://actors/ruby_golem_pilot/stagger.png" type="Texture" id=3]
-[ext_resource path="res://actors/ruby_golem_pilot/jump.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/shoot_1_normal.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/shoot_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/stagger.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/jump.png" type="Texture" id=4]
 [ext_resource path="res://actor_framework/AnimationPlayer.gd" type="Script" id=5]
 [ext_resource path="res://common/particles/DeathExplosion.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/ruby_golem_pilot/idle_normal.png" type="Texture" id=7]
-[ext_resource path="res://actors/ruby_golem_pilot/stagger_normal.png" type="Texture" id=8]
-[ext_resource path="res://actors/ruby_golem_pilot/jump_normal.png" type="Texture" id=9]
-[ext_resource path="res://actors/ruby_golem_pilot/idle.png" type="Texture" id=10]
-[ext_resource path="res://actors/ruby_golem_pilot/shoot_2_normal.png" type="Texture" id=11]
-[ext_resource path="res://actors/ruby_golem_pilot/shoot_2.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/idle_normal.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/stagger_normal.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/jump_normal.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/idle.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/shoot_2_normal.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/shoot_2.png" type="Texture" id=12]
+
+
 
 
 

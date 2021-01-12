@@ -1,25 +1,31 @@
 [gd_scene load_steps=32 format=2]
 
-[ext_resource path="res://actors/reina/sprites/spin_to_shoot.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/actors/reina/spin_to_shoot.png" type="Texture" id=1]
 [ext_resource path="res://actors/reina/ReinaRiflePivot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/reina/sprites/idle.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/actors/reina/idle.png" type="Texture" id=3]
 [ext_resource path="res://common/particles/DeathExplosion.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/reina/sprites/shoot.png" type="Texture" id=5]
-[ext_resource path="res://actors/reina/sprites/teleport.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/actors/reina/shoot.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/actors/reina/teleport.png" type="Texture" id=6]
 [ext_resource path="res://actors/reina/ReinaTeleportParticles.tscn" type="PackedScene" id=7]
-[ext_resource path="res://actors/reina/sprites/magic_circle.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/actors/reina/magic_circle.png" type="Texture" id=8]
 [ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=9]
-[ext_resource path="res://actors/reina/sprites/side_magic_circle.png" type="Texture" id=10]
-[ext_resource path="res://actors/reina/sfx/teleport_in.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sprites/actors/reina/side_magic_circle.png" type="Texture" id=10]
+[ext_resource path="res://assets/sfx/teleport_in.wav" type="AudioStream" id=11]
 [ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=12]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=13]
-[ext_resource path="res://actors/ariko/particles/JumpDust.tscn" type="PackedScene" id=14]
-[ext_resource path="res://actors/ariko/particles/LandDust.tscn" type="PackedScene" id=15]
-[ext_resource path="res://actors/ariko/particles/FootstepsLand.tscn" type="PackedScene" id=16]
-[ext_resource path="res://actors/ariko/particles/FootstepsLaunch.tscn" type="PackedScene" id=17]
-[ext_resource path="res://actors/ariko/sprites/stagger_normal.png" type="Texture" id=23]
+[ext_resource path="res://assets/particles/JumpDust.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/particles/LandDust.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/particles/FootstepsLand.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/particles/FootstepsLaunch.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/sprites/actors/ariko/stagger_normal.png" type="Texture" id=23]
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=42]
 [ext_resource path="res://actor_framework/PivotTransform.tscn" type="PackedScene" id=50]
+
+
+
+
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"

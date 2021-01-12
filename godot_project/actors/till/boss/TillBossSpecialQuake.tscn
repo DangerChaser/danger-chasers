@@ -9,13 +9,14 @@
 [ext_resource path="res://actors/till/boss/BulletTillBoss.tscn" type="PackedScene" id=8]
 [ext_resource path="res://core/ObjectSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=11]
-[ext_resource path="res://actors/till/particles/FireColumnLong.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/particles/FireColumnLong.tscn" type="PackedScene" id=12]
 [ext_resource path="res://common/particles/warning_mark/WarningMark.tscn" type="PackedScene" id=13]
 [ext_resource path="res://common/particles/warning_mark/WarningArea.tscn" type="PackedScene" id=14]
-[ext_resource path="res://actors/till/particles/FireballExplosion.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/particles/FireballExplosion.tscn" type="PackedScene" id=15]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=16]
 [ext_resource path="res://common/particles/warning_mark/WarningMarkRightArrow.tscn" type="PackedScene" id=17]
 [ext_resource path="res://common/particles/warning_mark/WarningMarkLeftArrow.tscn" type="PackedScene" id=18]
+
 
 
 

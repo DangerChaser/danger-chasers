@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/audio/music/Zextillion - Noa's Redemption Soundtrack - 01 Noa.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/music/Zextillion - Noa's Redemption Soundtrack - 01 Noa.ogg" type="AudioStream" id=2]
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=3]
 [ext_resource path="res://level/levels/village/Houses.tres" type="TileSet" id=4]
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=5]
@@ -9,7 +9,7 @@
 [ext_resource path="res://interactable_scripts/menu/NewGameInteractable.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interactable_scripts/menu/ExitInteractable.tscn" type="PackedScene" id=8]
 [ext_resource path="res://core/utils/ActivationArea.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/sprites/white_circle_gradient.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/misc/white_circle_gradient.png" type="Texture" id=10]
 [ext_resource path="res://interactable_scripts/menu/ControlsInteractable.tscn" type="PackedScene" id=11]
 [ext_resource path="res://level/levels/main_menu/sprites/record_player.png" type="Texture" id=16]
 [ext_resource path="res://core/audio_bus_level_controllers/MusicLevelController.tscn" type="PackedScene" id=17]
@@ -17,6 +17,8 @@
 [ext_resource path="res://level/levels/main_menu/blue_bird/idle.png" type="Texture" id=19]
 [ext_resource path="res://interface/dynamic_fonts/Silver_128.tres" type="DynamicFont" id=20]
 [ext_resource path="res://interface/input_mapper/InputMenu.tscn" type="PackedScene" id=21]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

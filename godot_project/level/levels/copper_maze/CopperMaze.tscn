@@ -1,7 +1,7 @@
 [gd_scene load_steps=189 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/audio/music/Red Gold.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/music/Red Gold.ogg" type="AudioStream" id=2]
 [ext_resource path="res://objects/elevator/Elevator.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/levels/copper_maze/generic_dungeon.tres" type="TileSet" id=4]
 [ext_resource path="res://level/levels/zero_limit/sprites/tilemap_front.png" type="Texture" id=5]
@@ -22,6 +22,7 @@
 [ext_resource path="res://level/levels/zero_limit/sprites/tilemap_back.png" type="Texture" id=22]
 [ext_resource path="res://level/levels/copper_maze/CopperMazeForestBackground.tscn" type="PackedScene" id=24]
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=25]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

@@ -9,8 +9,10 @@
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actor_framework/stats/DefaultStats.tres" type="Resource" id=9]
 [ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=10]
-[ext_resource path="res://actors/till/sprites/icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/actors/till/icon.png" type="Texture" id=11]
 [ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=13]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

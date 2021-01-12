@@ -2,7 +2,7 @@
 
 [ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/audio/music/dova_syndrome/Sunrise.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/music/dova_syndrome/Sunrise.ogg" type="AudioStream" id=3]
 [ext_resource path="res://level/levels/zero_limit/act_1/ZeroLimitAct1IntroCutscene.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level/levels/zero_limit/rain_thunder_ambience.ogg" type="AudioStream" id=6]
 [ext_resource path="res://level/levels/zero_limit/forest.tres" type="TileSet" id=7]
@@ -12,6 +12,7 @@
 [ext_resource path="res://interactable_scripts/base/InteractionArea.tscn" type="PackedScene" id=11]
 [ext_resource path="res://level/levels/zero_limit/act_1/SignTutorialJumpDialogue.tscn" type="PackedScene" id=12]
 [ext_resource path="res://interactable_scripts/base/DoorChangeLevelInteractionArea.tscn" type="PackedScene" id=13]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

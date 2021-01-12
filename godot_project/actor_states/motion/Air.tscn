@@ -3,7 +3,9 @@
 [ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/motion/Air.gd" type="Script" id=2]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/ariko/particles/CeilingCollisionParticles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/particles/CeilingCollision.tscn" type="PackedScene" id=4]
+
+
 
 [node name="Air" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

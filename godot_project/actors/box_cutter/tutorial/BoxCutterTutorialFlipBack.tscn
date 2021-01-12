@@ -6,8 +6,11 @@
 [ext_resource path="res://combat/weapons/projectile_launchers/SpawnGroup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=5]
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/box_cutter/sfx/wind_down.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/chainsaw_wind_down.wav" type="AudioStream" id=7]
 [ext_resource path="res://actors/box_cutter/tutorial/SawBlade.tscn" type="PackedScene" id=8]
+
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"

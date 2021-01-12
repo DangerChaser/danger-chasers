@@ -1,13 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnFloorEffect.gd" type="Script" id=2]
+[ext_resource path="res://assets/sfx/swing.wav" type="AudioStream" id=3]
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=5]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/maid_share/ShareBulletLaser.tscn" type="PackedScene" id=7]
 [ext_resource path="res://combat/weapons/lasers/LaserAttack.tscn" type="PackedScene" id=8]
-[ext_resource path="res://actors/maid_share/sfx/prepare.wav" type="AudioStream" id=9]
-
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -56,29 +55,24 @@ tracks/0/keys = {
 "method": "attack_if_ready"
 } ]
 }
-tracks/1/type = "audio"
+tracks/1/type = "method"
 tracks/1/path = NodePath("Pivot/Attacks/Prepare/Sfx")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 9 )
-} ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
-resource_local_to_scene = true
-extents = Vector2( 30, 30 )
-
 [node name="ShareBossSpinBackflip" instance=ExtResource( 1 )]
-cooldown = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
 anims/backflip = SubResource( 2 )
 anims/prepare = SubResource( 3 )
@@ -90,19 +84,10 @@ grounded = false
 actor_animation = "shoot_prepare"
 weapon_animation = "prepare"
 
-[node name="DamageSource" parent="Pivot/Attacks/Prepare" index="0"]
-visible = false
-damage = 1
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/Prepare/DamageSource" index="0"]
-shape = SubResource( 4 )
-disabled = true
-
 [node name="JumpEffect" parent="Pivot/Attacks/Prepare/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 1.0
 initial_speed = 400.0
 jump_force = 1000.0
-take_previous_velocity = false
 
 [node name="MotionSteering" parent="Pivot/Attacks/Prepare/AdditionalEffects/JumpEffect/Motion" index="1"]
 max_speed = 100.0
@@ -110,8 +95,8 @@ max_speed = 100.0
 [node name="Gravity" parent="Pivot/Attacks/Prepare/AdditionalEffects/JumpEffect/Motion" index="2"]
 gravity = 3600.0
 
-[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Prepare" index="5"]
-stream = ExtResource( 9 )
+[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Prepare" index="3"]
+stream = ExtResource( 3 )
 bus = "Sfx"
 
 [node name="Backflip" parent="Pivot/Attacks" index="1" instance=ExtResource( 8 )]
@@ -134,7 +119,6 @@ initial_mass = 6.0
 initial_speed = -1600.0
 disable_x_input = true
 finish_on_release = false
-take_previous_velocity = false
 
 [node name="Motion" parent="Pivot/Attacks/Backflip/AdditionalEffects/JumpEffect" index="0"]
 look_towards_move_direction = false
@@ -150,8 +134,6 @@ gravity = 1600.0
 script = ExtResource( 2 )
 
 [editable path="Pivot/Attacks/Prepare"]
-
-[editable path="Pivot/Attacks/Prepare/DamageSource"]
 
 [editable path="Pivot/Attacks/Prepare/AdditionalEffects/JumpEffect"]
 

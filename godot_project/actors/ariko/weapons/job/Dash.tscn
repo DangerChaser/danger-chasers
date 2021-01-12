@@ -4,13 +4,20 @@
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://combat/weapons/attack_additional_effects/PassThroughActorEffect.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/ariko/sfx/sword_slice.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/sword_slice.wav" type="AudioStream" id=5]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/ariko/particles/QuickAttackHit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/particles/BlueSlash.tscn" type="PackedScene" id=7]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=8]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=9]
-[ext_resource path="res://actors/ariko/particles/DashParticles.tscn" type="PackedScene" id=10]
-[ext_resource path="res://actors/ariko/sprites/icons/dash_icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/particles/ArikoDash.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sprites/actors/ariko/icons/dash_icon.png" type="Texture" id=11]
+
+
+
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

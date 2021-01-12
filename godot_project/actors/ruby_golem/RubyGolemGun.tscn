@@ -7,7 +7,7 @@
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.gd" type="Script" id=5]
 [ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=6]
 [ext_resource path="res://core/ObjectSpawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://actors/ruby_golem/shoot.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sfx/shoot.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -55,9 +55,8 @@ tracks/1/keys = {
 }
 
 [node name="RubyGolemGun" instance=ExtResource( 1 )]
-cooldown = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
 anims/shoot = SubResource( 2 )
 
@@ -71,7 +70,7 @@ muzzle_flash = ExtResource( 3 )
 screen_shake_damp = 12.1089
 
 [node name="Sfx" parent="Pivot/Attacks/SpawnGroup" index="0"]
-stream = ExtResource( 9 )
+stream = ExtResource( 8 )
 
 [node name="ObjectSpawner" parent="Pivot/Attacks/SpawnGroup/Spawners" index="0"]
 position = Vector2( 256, 0 )

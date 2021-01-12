@@ -1,10 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/audio/music/Ruin Valley Act 1.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/music/Ruin Valley Act 1.ogg" type="AudioStream" id=1]
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=2]
 [ext_resource path="res://level/levels/tutorial/rooms/MovementIntro.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/levels/zero_limit/rain_thunder_ambience.ogg" type="AudioStream" id=6]
 [ext_resource path="res://level/levels/tutorial/rooms/WallrunIntro.tscn" type="PackedScene" id=9]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

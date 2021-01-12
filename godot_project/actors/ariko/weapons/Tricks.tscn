@@ -5,8 +5,8 @@
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=3]
 [ext_resource path="res://combat/weapons/attack_additional_effects/PassThroughActorEffect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=5]
-[ext_resource path="res://actors/reina/sprites/magic_circle.png" type="Texture" id=6]
-[ext_resource path="res://actors/ariko/particles/ArikoTrickSuccessParticle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprites/actors/reina/magic_circle.png" type="Texture" id=6]
+[ext_resource path="res://assets/particles/WhiteExplosion.tscn" type="PackedScene" id=7]
 [ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]

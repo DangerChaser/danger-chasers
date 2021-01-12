@@ -10,7 +10,9 @@
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actors/slime_big/Pivot.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/slime_big/SlimeBig.tres" type="Resource" id=10]
-[ext_resource path="res://actors/slime_blue/sprites/slime_blue_stagger.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/actors/slime_blue/slime_blue_stagger.png" type="Texture" id=11]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

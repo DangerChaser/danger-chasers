@@ -15,7 +15,8 @@
 [ext_resource path="res://core/SpawnPoint.tscn" type="PackedScene" id=18]
 [ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=19]
 [ext_resource path="res://level/levels/zero_limit/forest_cave.tres" type="TileSet" id=22]
-[ext_resource path="res://assets/audio/music/dova_syndrome/Sunrise.ogg" type="AudioStream" id=23]
+[ext_resource path="res://assets/music/dova_syndrome/Sunrise.ogg" type="AudioStream" id=23]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

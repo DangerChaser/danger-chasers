@@ -1,28 +1,28 @@
 [gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://actor_framework/Pivot.gd" type="Script" id=1]
-[ext_resource path="res://actors/till/particles/LandDust.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/till/particles/FootstepsLand.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/till/particles/FootstepsLaunch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/particles/FootstepsLaunch.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/particles/JumpDust.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/particles/FootstepsLand.tscn" type="PackedScene" id=4]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=5]
-[ext_resource path="res://actors/till/particles/JumpDust.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/till/sprites/spin_slash_smear.png" type="Texture" id=7]
-[ext_resource path="res://actors/till/sprites/spin_slash.png" type="Texture" id=8]
-[ext_resource path="res://actors/till/sprites/idle.png" type="Texture" id=9]
-[ext_resource path="res://actors/till/sprites/air.png" type="Texture" id=10]
+[ext_resource path="res://assets/particles/LandDust.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/actors/till/spin_slash_smear.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/actors/till/spin_slash.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/actors/till/idle.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/actors/till/air.png" type="Texture" id=10]
 [ext_resource path="res://actor_framework/AnimationPlayer.gd" type="Script" id=11]
-[ext_resource path="res://actors/till/sprites/jump.png" type="Texture" id=12]
-[ext_resource path="res://actors/till/sprites/jump_normal.png" type="Texture" id=13]
-[ext_resource path="res://actors/till/sprites/air_normal.png" type="Texture" id=14]
-[ext_resource path="res://actors/till/sprites/idle_normal.png" type="Texture" id=15]
-[ext_resource path="res://actors/till/sprites/stand.png" type="Texture" id=16]
-[ext_resource path="res://actors/till/sprites/stand_normal.png" type="Texture" id=17]
-[ext_resource path="res://actors/till/sprites/stand_annoyed.png" type="Texture" id=18]
-[ext_resource path="res://actors/till/sprites/stand_annoyed_normal.png" type="Texture" id=19]
-[ext_resource path="res://actors/till/sprites/stagger_normal.png" type="Texture" id=20]
-[ext_resource path="res://actors/till/sprites/stagger.png" type="Texture" id=21]
-[ext_resource path="res://actors/till/sprites/run_normal.png" type="Texture" id=22]
-[ext_resource path="res://actors/till/sprites/run.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/actors/till/jump.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/actors/till/jump_normal.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/actors/till/air_normal.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/actors/till/idle_normal.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/actors/till/stand.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/actors/till/stand_normal.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/actors/till/stand_annoyed.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/actors/till/stand_annoyed_normal.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/actors/till/stagger_normal.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/actors/till/stagger.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/actors/till/run_normal.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprites/actors/till/run.png" type="Texture" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -1198,34 +1198,18 @@ hframes = 6
 [node name="Weapons" type="Node2D" parent="."]
 
 [node name="JumpDust" parent="." instance=ExtResource( 5 )]
-
-[node name="ObjectSpawner" parent="JumpDust" index="0"]
-object = ExtResource( 6 )
+particles = ExtResource( 3 )
 
 [node name="LandDust" parent="." instance=ExtResource( 5 )]
-
-[node name="ObjectSpawner" parent="LandDust" index="0"]
-object = ExtResource( 2 )
+particles = ExtResource( 6 )
 
 [node name="FootstepsLand" parent="." instance=ExtResource( 5 )]
 position = Vector2( 16.04, 0 )
-
-[node name="ObjectSpawner" parent="FootstepsLand" index="0"]
-object = ExtResource( 3 )
+particles = ExtResource( 4 )
 
 [node name="FootstepsLaunch" parent="." instance=ExtResource( 5 )]
 position = Vector2( -11.882, 0 )
-
-[node name="ObjectSpawner" parent="FootstepsLaunch" index="0"]
-object = ExtResource( 4 )
+particles = ExtResource( 2 )
 
 [node name="MSG_pos" type="Position2D" parent="."]
 position = Vector2( 0, -224 )
-
-[editable path="JumpDust"]
-
-[editable path="LandDust"]
-
-[editable path="FootstepsLand"]
-
-[editable path="FootstepsLaunch"]

@@ -1,6 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://actors/ruby_golem/gun.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/actors/goblin_golem/gun.png" type="Texture" id=4]
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"

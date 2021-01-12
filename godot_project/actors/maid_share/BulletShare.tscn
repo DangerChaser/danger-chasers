@@ -1,8 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://actors/maid_share/sprites/bullet_share.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/actors/maid_share/bullet_share.png" type="Texture" id=1]
 [ext_resource path="res://combat/weapons/projectiles/Projectile.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/maid_share/particles/BulletParticleCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/particles/CircleHitMarker.tscn" type="PackedScene" id=3]
+
+
+
+
+
 
 
 [sub_resource type="RayShape2D" id=1]

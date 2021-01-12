@@ -4,7 +4,10 @@
 [ext_resource path="res://common/particles/WeaponHit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/turret/BulletParticleCollision.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/maid_share/sprites/bullet_share.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/actors/maid_share/bullet_share.png" type="Texture" id=5]
+
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 34.525

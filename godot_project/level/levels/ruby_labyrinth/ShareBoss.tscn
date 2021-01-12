@@ -6,13 +6,13 @@
 [ext_resource path="res://actors/maid_share/boss/ShareBoss.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/audio/music/Red Gold.ogg" type="AudioStream" id=7]
-[ext_resource path="res://actors/maid_share/sfx/screen_darken.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/music/Red Gold.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/screen_darken.wav" type="AudioStream" id=8]
 [ext_resource path="res://core/MusicChangeTrigger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://cutscenes/CutsceneCamera.tscn" type="PackedScene" id=10]
 [ext_resource path="res://interactable_scripts/base/DialogueInteraction.tscn" type="PackedScene" id=11]
 [ext_resource path="res://objects/springs/RedSpring.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/audio/music/silence.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/music/silence.wav" type="AudioStream" id=13]
 [ext_resource path="res://level/RoundManager.gd" type="Script" id=14]
 [ext_resource path="res://level/levels/ruby_labyrinth/RubyLabyrinthBackground.tscn" type="PackedScene" id=15]
 [ext_resource path="res://objects/elevator/Elevator.tscn" type="PackedScene" id=16]
@@ -23,13 +23,20 @@
 [ext_resource path="res://cutscenes/Elevator.tscn" type="PackedScene" id=21]
 [ext_resource path="res://level/levels/zero_limit/forest_cave.tres" type="TileSet" id=22]
 [ext_resource path="res://objects/vehicles/trolley/Trolley.tscn" type="PackedScene" id=23]
-[ext_resource path="res://actors/till/sprites/air.png" type="Texture" id=25]
-[ext_resource path="res://actors/till/sprites/air_normal.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/actors/till/air.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprites/actors/till/air_normal.png" type="Texture" id=26]
 [ext_resource path="res://actors/till/Pivot.tscn" type="PackedScene" id=27]
 [ext_resource path="res://actor_framework/NPC.tscn" type="PackedScene" id=28]
-[ext_resource path="res://actors/maid_share/sprites/land.png" type="Texture" id=29]
-[ext_resource path="res://actors/maid_share/sprites/land_normal.png" type="Texture" id=30]
-[ext_resource path="res://assets/audio/music/Share Theme.ogg" type="AudioStream" id=31]
+[ext_resource path="res://assets/sprites/actors/maid_share/land.png" type="Texture" id=29]
+[ext_resource path="res://assets/sprites/actors/maid_share/land_normal.png" type="Texture" id=30]
+[ext_resource path="res://assets/music/Share Theme.ogg" type="AudioStream" id=31]
+
+
+
+
+
+
+
 
 
 

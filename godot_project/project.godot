@@ -409,11 +409,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://combat/weapons/projectile_launchers/SpawnGroup.gd"
 }, {
-"base": "AttackAdditionalEffect",
-"class": "SpawnHitParticlesEffect",
-"language": "GDScript",
-"path": "res://combat/weapons/attack_additional_effects/SpawnHitParticlesEffect.gd"
-}, {
 "base": "Position2D",
 "class": "SpawnPoint",
 "language": "GDScript",
@@ -580,7 +575,6 @@ _global_script_class_icons={
 "ShakingCamera": "",
 "Smoothing2D": "",
 "SpawnGroup": "",
-"SpawnHitParticlesEffect": "",
 "SpawnPoint": "",
 "StaggerState": "",
 "State": "",

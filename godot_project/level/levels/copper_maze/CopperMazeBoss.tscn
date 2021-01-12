@@ -7,7 +7,7 @@
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=6]
 [ext_resource path="res://core/MusicChangeTrigger.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/audio/music/dova_syndrome/Tell_the_Truth.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/music/dova_syndrome/Tell_the_Truth.ogg" type="AudioStream" id=8]
 [ext_resource path="res://core/ActorSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/golem_boss/GolemBoss.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/golem_boss/GolemBossTileMap.tscn" type="PackedScene" id=11]
@@ -19,6 +19,7 @@
 [ext_resource path="res://core/collectibles/RollingThunderCollectible.tscn" type="PackedScene" id=17]
 [ext_resource path="res://level/levels/tidal_forest/sprites/back.png" type="Texture" id=20]
 [ext_resource path="res://level/levels/tidal_forest/sprites/middle.png" type="Texture" id=21]
+
 
 
 

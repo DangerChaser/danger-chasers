@@ -6,7 +6,9 @@
 [ext_resource path="res://core/ObjectSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=5]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/reina/sfx/reina_missile_muzzle_flash.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/blip.wav" type="AudioStream" id=7]
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"

@@ -5,10 +5,11 @@
 [ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/till/boss/BulletTillBoss.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/weapons/projectile_launchers/SpawnGroup.tscn" type="PackedScene" id=5]
-[ext_resource path="res://actors/till/particles/FireballExplosion.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/particles/FireballExplosion.tscn" type="PackedScene" id=6]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=7]
 [ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=8]
-[ext_resource path="res://actors/till/particles/FireColumn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/particles/FireColumn.tscn" type="PackedScene" id=9]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"

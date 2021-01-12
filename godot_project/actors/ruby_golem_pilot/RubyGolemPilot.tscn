@@ -5,12 +5,14 @@
 [ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/ruby_golem_pilot/weapons/RubyGolemPilotGun.tscn" type="PackedScene" id=5]
-[ext_resource path="res://actors/ruby_golem_pilot/jump_normal.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/jump_normal.png" type="Texture" id=6]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/ruby_golem_pilot/Pivot.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/ruby_golem_pilot/RubyGolemPilot.tres" type="Resource" id=11]
-[ext_resource path="res://actors/ruby_golem_pilot/idle.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/actors/goblin_pilot/idle.png" type="Texture" id=12]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

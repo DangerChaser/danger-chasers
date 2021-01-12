@@ -1,8 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://actors/ariko/sprites/basic_knife/basic_knife.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/actors/ariko/basic_knife/basic_knife.png" type="Texture" id=1]
 [ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/drones/weapons/bow.png" type="Texture" id=3]
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"

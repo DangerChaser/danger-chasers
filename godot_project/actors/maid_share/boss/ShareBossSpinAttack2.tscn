@@ -1,14 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/maid_share/sprites/one_sided_sword.png" type="Texture" id=3]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=4]
-[ext_resource path="res://core/utils/SfxRandom.gd" type="Script" id=5]
-[ext_resource path="res://actors/maid_share/sfx/spawn.wav" type="AudioStream" id=6]
-[ext_resource path="res://actors/maid_share/sfx/share_swing.wav" type="AudioStream" id=7]
-[ext_resource path="res://actors/maid_share/particles/SwordHit.tscn" type="PackedScene" id=8]
-
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -139,20 +133,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [ -90.0, -45.0, -70.7, 360.0 ]
 }
-tracks/7/type = "audio"
-tracks/7/path = NodePath("Pivot/Attacks/Attack/DamageSource/Sfx")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 6 )
-} ],
-"times": PoolRealArray( 0 )
-}
 
 [sub_resource type="Animation" id=3]
 resource_name = "throw"
@@ -254,41 +234,10 @@ tracks/6/keys = {
 "update": 0,
 "values": [ -70.7, 360.0, -360.0, 0.0 ]
 }
-tracks/7/type = "audio"
-tracks/7/path = NodePath("Pivot/Attacks/Attack/DamageSource/Sfx")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 7 )
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 7 )
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 7 )
-} ],
-"times": PoolRealArray( 0, 0.55, 1 )
-}
-
-[sub_resource type="CapsuleShape2D" id=4]
-radius = 15.2688
-height = 213.209
-
-[sub_resource type="RectangleShape2D" id=5]
-resource_local_to_scene = true
-extents = Vector2( 30, 30 )
 
 [node name="ShareBossSpinAttack2" instance=ExtResource( 1 )]
-cooldown = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
 anims/attack = SubResource( 2 )
 anims/throw = SubResource( 3 )
@@ -299,25 +248,6 @@ grounded = false
 [node name="Attack" parent="Pivot/Attacks" index="0" instance=ExtResource( 2 )]
 actor_animation = "sword_attack"
 
-[node name="DamageSource" parent="Pivot/Attacks/Attack" index="0"]
-position = Vector2( 800, -100 )
-damage = 5
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/Attack/DamageSource" index="0"]
-rotation = 1.5708
-shape = SubResource( 4 )
-disabled = true
-
-[node name="Sprite2D" type="Sprite" parent="Pivot/Attacks/Attack/DamageSource" index="1"]
-visible = false
-scale = Vector2( 1e-05, 1e-05 )
-texture = ExtResource( 3 )
-
-[node name="Sfx" type="AudioStreamPlayer2D" parent="Pivot/Attacks/Attack/DamageSource" index="2"]
-stream = ExtResource( 7 )
-bus = "Sfx"
-script = ExtResource( 5 )
-
 [node name="MovementEffect" parent="Pivot/Attacks/Attack/AdditionalEffects" index="0" instance=ExtResource( 4 )]
 initial_speed = 600.0
 
@@ -325,23 +255,9 @@ initial_speed = 600.0
 max_speed = 0.0
 mass = 32.0
 
-[node name="ObjectSpawner" parent="Pivot/Attacks/Attack/HitParticles" index="0"]
-object = ExtResource( 8 )
-
 [node name="Attack2" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
 actor_animation = "sword_attack_2"
 weapon_animation = "throw"
-
-[node name="DamageSource" parent="Pivot/Attacks/Attack2" index="0"]
-visible = false
-position = Vector2( -402.663, 0 )
-rotation = -1.5708
-damage = 1
-
-[node name="CollisionShape2D" parent="Pivot/Attacks/Attack2/DamageSource" index="0"]
-rotation = 1.5708
-shape = SubResource( 5 )
-disabled = true
 
 [node name="MovementEffect" parent="Pivot/Attacks/Attack2/AdditionalEffects" index="0" instance=ExtResource( 4 )]
 initial_speed = 1600.0
@@ -352,17 +268,11 @@ mass = 26.0
 
 [editable path="Pivot/Attacks/Attack"]
 
-[editable path="Pivot/Attacks/Attack/DamageSource"]
-
 [editable path="Pivot/Attacks/Attack/AdditionalEffects/MovementEffect"]
 
 [editable path="Pivot/Attacks/Attack/AdditionalEffects/MovementEffect/Motion"]
 
-[editable path="Pivot/Attacks/Attack/HitParticles"]
-
 [editable path="Pivot/Attacks/Attack2"]
-
-[editable path="Pivot/Attacks/Attack2/DamageSource"]
 
 [editable path="Pivot/Attacks/Attack2/AdditionalEffects/MovementEffect"]
 

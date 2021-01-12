@@ -1,23 +1,22 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://actors/cloud_jump/sprites/jump.png" type="Texture" id=1]
-[ext_resource path="res://actors/cloud_jump/sprites/land_normal.png" type="Texture" id=2]
-[ext_resource path="res://actors/cloud_jump/sprites/idle_normal.png" type="Texture" id=3]
-[ext_resource path="res://actors/cloud_jump/sprites/air.png" type="Texture" id=4]
-[ext_resource path="res://actors/cloud_jump/sprites/stagger.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/actors/cloud_jump/jump.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/actors/cloud_jump/land_normal.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/actors/cloud_jump/idle_normal.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/actors/cloud_jump/air.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/actors/cloud_jump/stagger.png" type="Texture" id=5]
 [ext_resource path="res://actor_framework/Pivot.gd" type="Script" id=6]
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=7]
-[ext_resource path="res://actors/cloud_jump/sprites/idle.png" type="Texture" id=8]
-[ext_resource path="res://actors/cloud_jump/sprites/air_normal.png" type="Texture" id=9]
-[ext_resource path="res://actors/cloud_jump/sprites/land.png" type="Texture" id=10]
-[ext_resource path="res://actors/cloud_jump/sprites/stagger_normal.png" type="Texture" id=11]
-[ext_resource path="res://actors/cloud_jump/sprites/jump_normal.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/actors/cloud_jump/idle.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/actors/cloud_jump/air_normal.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/actors/cloud_jump/land.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/actors/cloud_jump/stagger_normal.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/actors/cloud_jump/jump_normal.png" type="Texture" id=12]
 [ext_resource path="res://vfx/Trail.gd" type="Script" id=13]
-[ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=14]
-[ext_resource path="res://actors/cloud_jump/LandDust.tscn" type="PackedScene" id=15]
-[ext_resource path="res://actors/cloud_jump/JumpDust.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/particles/LandDust.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/particles/JumpDust.tscn" type="PackedScene" id=15]
 [ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=17]
-[ext_resource path="res://actors/cloud_jump/CloudJumpDeathExplosion.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/particles/LightningExplosion.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -647,8 +646,8 @@ next/jump = "air"
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -116.227 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 8 )
-normal_map = ExtResource( 3 )
+texture = ExtResource( 10 )
+normal_map = ExtResource( 2 )
 hframes = 2
 
 [node name="Weapons" type="Node2D" parent="."]
@@ -682,11 +681,9 @@ script = ExtResource( 13 )
 target_path = NodePath("../LHornPosition")
 trail_length = 5
 
-[node name="JumpDust" parent="." instance=ExtResource( 14 )]
-particles = ExtResource( 16 )
+[node name="JumpDust" parent="." instance=ExtResource( 15 )]
 
 [node name="LandDust" parent="." instance=ExtResource( 14 )]
-particles = ExtResource( 15 )
 
 [node name="DeathParticleSpawner" parent="." instance=ExtResource( 17 )]
 object = ExtResource( 18 )

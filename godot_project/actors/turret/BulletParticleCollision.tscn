@@ -1,8 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://core/SfxParticle.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actors/golem_boss/sfx/ice_spawn.wav" type="AudioStream" id=2]
+[ext_resource path="res://actors/golem_boss/sfx/ice_hit.wav" type="AudioStream" id=2]
 [ext_resource path="res://common/particles/weaponhit_spritesheet.png" type="Texture" id=3]
+
+
 
 
 

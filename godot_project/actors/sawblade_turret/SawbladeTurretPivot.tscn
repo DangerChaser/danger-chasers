@@ -2,8 +2,10 @@
 
 [ext_resource path="res://actor_framework/AnimationPlayer.gd" type="Script" id=1]
 [ext_resource path="res://common/particles/DeathExplosion.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/sawblade_turret/sprites/sawblades.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/objects/sawblades.png" type="Texture" id=3]
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=4]
+
+
 
 
 

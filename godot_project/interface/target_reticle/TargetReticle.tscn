@@ -3,7 +3,8 @@
 [ext_resource path="res://interface/target_reticle/TargetReticle.gd" type="Script" id=1]
 [ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/target_reticle/target_reticle.png" type="Texture" id=3]
-[ext_resource path="res://assets/audio/sfx/lock_on.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/lock_on.wav" type="AudioStream" id=4]
+
 
 
 
