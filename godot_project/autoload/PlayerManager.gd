@@ -21,7 +21,7 @@ func activate_skill(name : String, experience:=-1) -> void:
 	new_skill.input = "skill_" + str(player.job.get_child_count() + 1)
 	player.job.add_child(new_skill)
 	new_skill.owner = player
-	new_skill.set_weapon_through_stats(skill.character_stats)
+	new_skill.set_levelled_weapon()
 	player.player_hud.call_deferred("set_hotbars", player.job)
 	
 	if not active_skills.has(name):

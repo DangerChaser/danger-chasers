@@ -417,7 +417,7 @@ tracks/6/keys = {
 "values": [ Vector2( 29.0109, -153.043 ) ]
 }
 tracks/7/type = "method"
-tracks/7/path = NodePath("JumpDust")
+tracks/7/path = NodePath("JumpDustSpawner")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -426,8 +426,8 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
-"method": "play"
+"args": [ null ],
+"method": "spawn"
 } ]
 }
 
@@ -519,7 +519,7 @@ tracks/6/keys = {
 "values": [ Vector2( 49.1924, -92.0782 ) ]
 }
 tracks/7/type = "method"
-tracks/7/path = NodePath("LandDust")
+tracks/7/path = NodePath("LandDustSpawner")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -528,8 +528,8 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
-"method": "play"
+"args": [ null ],
+"method": "spawn"
 } ]
 }
 
@@ -681,11 +681,13 @@ script = ExtResource( 13 )
 target_path = NodePath("../LHornPosition")
 trail_length = 5
 
-[node name="JumpDust" parent="." instance=ExtResource( 15 )]
-
-[node name="LandDust" parent="." instance=ExtResource( 14 )]
-
 [node name="DeathParticleSpawner" parent="." instance=ExtResource( 17 )]
 object = ExtResource( 18 )
+
+[node name="JumpDustSpawner" parent="." instance=ExtResource( 17 )]
+object = ExtResource( 15 )
+
+[node name="LandDustSpawner" parent="." instance=ExtResource( 17 )]
+object = ExtResource( 14 )
 
 [editable path="Hurtbox"]

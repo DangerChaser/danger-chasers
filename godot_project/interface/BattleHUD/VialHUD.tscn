@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/BattleHUD/VialHUD.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "open"
+
+[node name="VialHUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SETUP = SubResource( 1 )
+anims/open = SubResource( 2 )

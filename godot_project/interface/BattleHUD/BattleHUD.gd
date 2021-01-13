@@ -40,3 +40,15 @@ func set_hotbars(job : Job) -> void:
 		var skill = job.get_child(i)
 		var hotbar_slot = $Hotbar.get_child(i)
 		hotbar_slot.set_skill(skill)
+
+
+func open_health_vial(max_value):
+	$HealthVials.open(max_value)
+
+
+func _on_HealthVials_ticked(value):
+	$HealthVials.tick(value)
+
+
+func _on_HealthVials_vial_finished():
+	$HealthVials.finished()

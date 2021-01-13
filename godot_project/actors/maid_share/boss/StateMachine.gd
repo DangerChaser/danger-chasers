@@ -11,7 +11,7 @@ var in_phase_change := false
 var SPAWN_TURRET_DISTANCE = 800
 
 func _decide_on_next_state() -> State:
-	if owner.stats.character_stats.get_health_percent() <= 0.0:
+	if owner.stats.get_health_percent() <= 0.0:
 		return get_state("Die")
 	
 	if not phase:
@@ -28,9 +28,9 @@ func _decide_on_next_state() -> State:
 		if owner.global_position.distance_to(target.global_position) >= SPAWN_TURRET_DISTANCE:
 			return get_state("SpawnTurretSequence")
 	
-	if owner.stats.character_stats.get_health_percent() >= 0.75:
+	if owner.stats.get_health_percent() >= 0.75:
 		return get_state("Sequence1")
-	elif owner.stats.character_stats.get_health_percent() >= 0.4:
+	elif owner.stats.get_health_percent() >= 0.4:
 		if not phase == Phases.PHASE_2:
 			change_phase(Phases.PHASE_2)
 			return get_state("Sequence2Opener")

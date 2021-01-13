@@ -8,7 +8,6 @@ signal attack_finished
 
 enum State { LISTENING, REGISTERED }
 
-export(Array, int) var weapon_levels : Array
 export(Array, PackedScene) var weapons : Array
 export(String) var input : String = ""
 export(String) var next_state : String = ""
@@ -24,7 +23,6 @@ var set_weapon_buffer_level := 0
 
 
 func _ready() -> void:
-	assert (weapon_levels.size() == weapons.size())
 	if initialize_on_start:
 		call_deferred("set_levelled_weapon") # Call deferred so state machine has chance to set attack state's owner
 
@@ -32,32 +30,10 @@ func _ready() -> void:
 func set_levelled_weapon() -> void:
 	if active:
 		set_weapon_buffer = true
-		set_weapon_buffer_level = owner.stats.character_stats.level
+		set_weapon_buffer_level = owner.stats.level
 		return
 	
-	var levelled_weapon = get_levelled_weapon(owner.stats.character_stats.level)
-	set_weapon(levelled_weapon)
-
-
-func set_weapon_through_stats(stats : CharacterStats) -> void:
-	if active:
-		set_weapon_buffer = true
-		set_weapon_buffer_level = stats.level
-		return
-		
-	var levelled_weapon = get_levelled_weapon(stats.level)
-	set_weapon(levelled_weapon)
-
-
-func get_levelled_weapon(level : int):
-	var levelled_weapon = weapons[0]
-	for i in range(weapon_levels.size()):
-		var weapon_level = weapon_levels[i]
-		if level >= weapon_level:
-			levelled_weapon = weapons[i]
-		else:
-			break
-	return levelled_weapon
+	set_weapon(weapons[0])
 
 
 func set_weapon(weapon_scene : PackedScene) -> void:
@@ -116,8 +92,7 @@ func exit() -> void:
 	
 	active = false
 	if set_weapon_buffer:
-		var levelled_weapon = get_levelled_weapon(set_weapon_buffer_level)
-		call_deferred("set_weapon", levelled_weapon)
+		call_deferred("set_weapon", weapons[0])
 
 
 func attack_started(attack_animation : String) -> void:

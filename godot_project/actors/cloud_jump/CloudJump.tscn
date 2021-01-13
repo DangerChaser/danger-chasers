@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/cloud_jump/CloudJumpPivot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/cloud_jump/CloudJumpWeapon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/cloud_jump/CloudJump.tres" type="Resource" id=5]
 [ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=8]
@@ -36,7 +35,6 @@ next_state = "Sequence"
 duration = 1.0
 
 [node name="AIAttack" parent="StateMachine/Sequence" index="1" instance=ExtResource( 8 )]
-weapon_levels = [ 0 ]
 weapons = [ ExtResource( 3 ) ]
 
 [node name="Land" parent="StateMachine/Sequence" index="2" instance=ExtResource( 11 )]
@@ -45,6 +43,3 @@ animation = "land"
 [node name="Die" parent="StateMachine" index="2" instance=ExtResource( 7 )]
 
 [node name="Pivot" parent="." index="5" instance=ExtResource( 2 )]
-
-[node name="Stats" parent="." index="6"]
-character_stats = ExtResource( 5 )

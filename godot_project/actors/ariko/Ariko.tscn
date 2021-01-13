@@ -1,6 +1,5 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://actors/ariko/ArikoLevel3.tres" type="Resource" id=1]
 [ext_resource path="res://actor_framework/player/CameraTargetPosition.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/actors/ariko/icons/icon.png" type="Texture" id=3]
 [ext_resource path="res://actor_framework/player/PlayerActor.gd" type="Script" id=4]
@@ -23,8 +22,6 @@
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=21]
 [ext_resource path="res://actors/ariko/weapons/Tricks.tscn" type="PackedScene" id=22]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=23]
-
-
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.3801
@@ -55,13 +52,11 @@ position = Vector2( 16.26, -21.493 )
 [node name="Idle" parent="StateMachine" index="0" instance=ExtResource( 15 )]
 
 [node name="LightAttack" parent="StateMachine" index="1" instance=ExtResource( 11 )]
-weapon_levels = [ 0 ]
 weapons = [ ExtResource( 5 ) ]
 input = "light_attack"
 next_state = "Idle"
 
 [node name="Jump" parent="StateMachine" index="2" instance=ExtResource( 11 )]
-weapon_levels = [ 0 ]
 weapons = [ ExtResource( 9 ) ]
 input = "ui_up"
 next_state = "Air"
@@ -69,7 +64,6 @@ next_state = "Air"
 [node name="Air" parent="StateMachine" index="3" instance=ExtResource( 7 )]
 
 [node name="Stomp" parent="StateMachine" index="4" instance=ExtResource( 11 )]
-weapon_levels = [ 0 ]
 weapons = [ ExtResource( 8 ) ]
 input = "ui_down"
 next_state = "Idle"
@@ -89,13 +83,12 @@ face_target = false
 [node name="WallRun" parent="StateMachine" index="9" instance=ExtResource( 19 )]
 
 [node name="Tricks" parent="StateMachine" index="10" instance=ExtResource( 11 )]
-weapon_levels = [ 0 ]
 weapons = [ ExtResource( 22 ) ]
 input = "ui_up"
 next_state = "Air"
 
 [node name="Stats" parent="." index="6"]
-character_stats = ExtResource( 1 )
+max_health = 1000
 
 [node name="TargetPosition1" parent="TargetPositions" index="0"]
 position = Vector2( 0, -110.578 )
@@ -125,6 +118,11 @@ disabled = true
 
 [node name="WallRunScanner" parent="." index="13" instance=ExtResource( 13 )]
 position = Vector2( 0, -103 )
+[connection signal="ticked" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_ticked"]
+[connection signal="vial_finished" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_vial_finished"]
+[connection signal="vial_started" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="open_health_vial"]
+
+[editable path="Stats"]
 
 [editable path="PlayerHUDLayer/BattleHUD"]
 

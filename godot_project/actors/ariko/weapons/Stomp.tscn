@@ -11,7 +11,6 @@
 [ext_resource path="res://assets/particles/FlashHit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/particles/FireballExplosion.tscn" type="PackedScene" id=11]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
@@ -163,7 +162,7 @@ max_speed = 4000.0
 
 [node name="PlayStompSfx" type="Node2D" parent="Pivot/Attacks/Stomp/AdditionalEffects" index="1"]
 script = ExtResource( 5 )
-sfx_node = NodePath("../../../../../../Stomp/Pivot/Attacks/Stomp/Sfx")
+sfx_node = NodePath("../../../../../Sfx")
 
 [node name="Recover" parent="Pivot/Attacks" index="1" instance=ExtResource( 1 )]
 actor_animation = "stomp_land"
