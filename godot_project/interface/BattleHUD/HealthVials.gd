@@ -4,7 +4,7 @@ var active_vial
 var index := 0
 
 func open(max_value):
-	if index >= get_child_count():
+	if index >= get_child_count() or active_vial:
 		return
 	
 	active_vial = get_child(index)

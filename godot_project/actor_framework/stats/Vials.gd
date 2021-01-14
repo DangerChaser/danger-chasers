@@ -13,7 +13,6 @@ func start() -> void:
 		return
 	
 	var vial = get_child(index)
-	index += 1
 	if not vial.active:
 		vial.connect("started", self, "vial_started")
 		vial.connect("finished", self, "vial_finished")
@@ -31,3 +30,4 @@ func vial_tick(value):
 
 func vial_finished() -> void:
 	emit_signal("vial_finished")
+	index += 1

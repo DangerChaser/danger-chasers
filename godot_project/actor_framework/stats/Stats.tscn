@@ -21,5 +21,9 @@ script = ExtResource( 2 )
 script = ExtResource( 4 )
 
 [node name="Vial" parent="HealthVials" instance=ExtResource( 3 )]
+
+[node name="Vial2" parent="HealthVials" instance=ExtResource( 3 )]
+
+[node name="Vial3" parent="HealthVials" instance=ExtResource( 3 )]
 [connection signal="ticked" from="HealthVials" to="." method="heal"]
 [connection signal="vial_finished" from="HealthVials" to="." method="_on_HealthVials_vial_finished"]
