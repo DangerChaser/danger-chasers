@@ -7,10 +7,10 @@ func spawn(args:={}):
 	$Sfx.play()
 	for spawner in $Spawners.get_children():
 		var actor = spawner.spawn(GameManager.level.y_sort)
-		actor.get_node("Target").call_deferred("lock_on")
 		actor.connect("died", self, "actor_died")
 		actor.connect("weapon_added", self, "_on_weapon_added")
 		actor.call_deferred("initialize", owner.team)
+		actor.get_node("Target").call_deferred("lock_on")
 		actors.push_back(actor)
 
 

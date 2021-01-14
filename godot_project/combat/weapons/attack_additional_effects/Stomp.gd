@@ -23,7 +23,7 @@ func exit() -> void:
 
 func _physics_process(delta:float) -> void:
 	if owner.is_on_floor():
-		var attacks = get_parent().get_parent().get_parent()
+		var attacks = weapon.get_node("Pivot/Attacks")
 		var jump_registered = attacks.state == attacks.State.REGISTERED_JUMP
 		attacks.attack()
 		if jump_registered:

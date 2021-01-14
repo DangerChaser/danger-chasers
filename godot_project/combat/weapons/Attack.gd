@@ -24,10 +24,10 @@ var input
 func _ready() -> void:
 	for effect in additional_effects.get_children():
 		effect.connect("finished", self, "effect_finished")
-		effect.weapon = get_parent().get_parent().get_parent().get_parent()
+		effect.weapon = get_parent().get_parent().get_parent()
 	for effect in combo_effects.get_children():
 		effect.connect("finished", self, "effect_finished")
-		effect.weapon = get_parent().get_parent().get_parent().get_parent()
+		effect.weapon = get_parent().get_parent().get_parent()
 	if has_node("DamageSource"):
 		$DamageSource.connect("hit_confirmed_no_actor", self, "emit_signal", ["hit_confirmed"])
 

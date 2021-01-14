@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://combat/weapons/actor_spawners/ActorSpawnAttack.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/projectile_launchers/ProjectileLauncher.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/drones/DroneGunner.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "spawn"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks/ActorSpawnAttack")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ {
+
+} ],
+"method": "spawn"
+} ]
+}
+
+[node name="DroneGunnerSpawner" instance=ExtResource( 2 )]
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/spawn = SubResource( 1 )
+
+[node name="ActorSpawnAttack" parent="Pivot/Attacks" index="0" instance=ExtResource( 1 )]
+weapon_animation = "spawn"
+
+[node name="ActorSpawner" parent="Pivot/Attacks/ActorSpawnAttack/Spawners" index="0"]
+object = ExtResource( 3 )
+
+[editable path="Pivot/Attacks/ActorSpawnAttack"]
