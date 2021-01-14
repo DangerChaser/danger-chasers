@@ -88,7 +88,7 @@ input = "ui_up"
 next_state = "Air"
 
 [node name="Stats" parent="." index="6"]
-max_health = 1000
+max_health = 100
 
 [node name="TargetPosition1" parent="TargetPositions" index="0"]
 position = Vector2( 0, -110.578 )

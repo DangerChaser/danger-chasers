@@ -17,6 +17,8 @@ export var global_cooldown := false
 export var next_state := ""
 export var input : String
 
+var active_after_exit : bool = false
+
 
 func _ready() -> void:
 	animation_player.play("SETUP")
@@ -60,6 +62,8 @@ func is_ready() -> bool:
 
 
 func exit() -> void:
+	if active_after_exit:
+		return
 	attacks.exit()
 	animation_player.stop()
 	if animation_player.has_animation("SETUP"):

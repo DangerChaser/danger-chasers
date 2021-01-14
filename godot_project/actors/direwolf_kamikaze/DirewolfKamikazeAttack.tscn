@@ -15,8 +15,6 @@
 [ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnWall.tscn" type="PackedScene" id=13]
 [ext_resource path="res://combat/weapons/attack_additional_effects/FinishOnCeiling.tscn" type="PackedScene" id=14]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001

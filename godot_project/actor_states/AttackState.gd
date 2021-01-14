@@ -9,17 +9,16 @@ signal attack_finished
 enum State { LISTENING, REGISTERED }
 
 export(Array, PackedScene) var weapons : Array
-export(String) var input : String = ""
-export(String) var next_state : String = ""
-export(bool) var initialize_on_start := true
-export(bool) var stagger := true
+export var input : String = ""
+export var next_state : String = ""
+export var initialize_on_start := true
+export var stagger := true
+export var active_after_exit := false
 
 var weapon
 var icon : Texture
 var combo_ready : bool = false
 var active := false
-var set_weapon_buffer := false
-var set_weapon_buffer_level := 0
 
 
 func _ready() -> void:
@@ -28,11 +27,6 @@ func _ready() -> void:
 
 
 func set_levelled_weapon() -> void:
-	if active:
-		set_weapon_buffer = true
-		set_weapon_buffer_level = owner.stats.level
-		return
-	
 	set_weapon(weapons[0])
 
 
@@ -50,6 +44,7 @@ func set_weapon(weapon_scene : PackedScene) -> void:
 	set_input_key(input)
 	owner.add_weapon(weapon)
 	weapon.set_owner(owner)
+	weapon.active_after_exit = active_after_exit
 	
 	icon = weapon.icon
 	call_deferred("emit_signal", "icon_set", icon)
@@ -88,11 +83,9 @@ func exit() -> void:
 	var rotation = 0.0 if owner.look_direction == Vector2.RIGHT else PI
 	owner.set_rotation(rotation)
 	
-	weapon.exit()
-	
 	active = false
-	if set_weapon_buffer:
-		call_deferred("set_weapon", weapons[0])
+	
+	weapon.exit()
 
 
 func attack_started(attack_animation : String) -> void:

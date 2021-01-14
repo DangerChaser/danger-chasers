@@ -13,7 +13,6 @@
 [ext_resource path="res://assets/particles/Slash2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/particles/StabLine.tscn" type="PackedScene" id=12]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001

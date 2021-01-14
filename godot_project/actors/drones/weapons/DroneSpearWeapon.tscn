@@ -136,7 +136,7 @@ bus = "Sfx"
 [node name="DamageSource" parent="." index="2" instance=ExtResource( 1 )]
 position = Vector2( 104.389, 0 )
 hit_particles = ExtResource( 8 )
-damage = 189
+damage = 15
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
 shape = SubResource( 1 )
