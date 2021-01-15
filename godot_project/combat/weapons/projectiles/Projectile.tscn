@@ -15,6 +15,7 @@ length = 0.001
 length = 0.001
 
 [node name="Projectile" type="KinematicBody2D"]
+z_index = 10
 collision_layer = 0
 script = ExtResource( 1 )
 

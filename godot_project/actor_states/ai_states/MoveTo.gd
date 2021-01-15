@@ -1,6 +1,7 @@
 extends State
 class_name MoveToState
 
+export var duration := 1.0
 export var animation := "walk"
 export var next_state := ""
 export var go_to_target := true
@@ -27,7 +28,7 @@ func enter(args := {}) -> void:
 	motion.enter(args)
 	owner.play_animation(animation)
 	start_position = owner.global_position
-	timer.start()
+	timer.start(duration)
 	wall_check_timer.start()
 	
 	if args.has("target"):

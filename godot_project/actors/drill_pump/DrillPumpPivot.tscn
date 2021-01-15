@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actor_framework/Pivot.gd" type="Script" id=9]
+[ext_resource path="res://assets/particles/RedFootstepsLaunch.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sprites/actors/direwolf/walk_normal.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/actors/direwolf/walk.png" type="Texture" id=16]
+[ext_resource path="res://assets/particles/RedLandDust.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/particles/RedFootstepsLand.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/particles/RedJumpDust.tscn" type="PackedScene" id=22]
+
+[sub_resource type="Animation" id=15]
+resource_name = "SETUP"
+length = 0.001
+
+[sub_resource type="RectangleShape2D" id=13]
+resource_local_to_scene = true
+extents = Vector2( 787.056, 840 )
+
+[node name="Pivot" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SETUP = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 64, -3168 )
+scale = Vector2( 16, 32 )
+z_index = -1
+texture = ExtResource( 16 )
+normal_map = ExtResource( 15 )
+hframes = 10
+region_enabled = true
+region_rect = Rect2( 0, 0, 3200, 200 )
+
+[node name="Weapons" type="Node2D" parent="."]
+position = Vector2( 0, -832 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5.30322, -92.0316 )
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( -301.303, -747.968 )
+shape = SubResource( 13 )
+
+[node name="FootstepsLand" parent="." instance=ExtResource( 3 )]
+particles = ExtResource( 21 )
+
+[node name="FootstepsLaunch" parent="." instance=ExtResource( 3 )]
+particles = ExtResource( 10 )
+
+[node name="JumpDust" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, 16 )
+particles = ExtResource( 22 )
+
+[node name="LandDust" parent="." instance=ExtResource( 3 )]
+position = Vector2( -64, 0 )
+particles = ExtResource( 18 )
+
+[editable path="Hurtbox"]
