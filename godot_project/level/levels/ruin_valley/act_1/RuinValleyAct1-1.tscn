@@ -1,32 +1,13 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/music/Ruin Valley Act 1 - Retro.ogg" type="AudioStream" id=3]
-[ext_resource path="res://level/tilesets/orange_map.tres" type="TileSet" id=4]
-[ext_resource path="res://cutscenes/dialogue/RuinValleyAct1-1-Cutscene01.tscn" type="PackedScene" id=5]
-[ext_resource path="res://level/levels/zero_limit/rain_thunder_ambience.ogg" type="AudioStream" id=6]
-[ext_resource path="res://level/levels/zero_limit/forest.tres" type="TileSet" id=7]
-[ext_resource path="res://level/levels/zero_limit/act_1/SignTutorialMovementDialogue.tscn" type="PackedScene" id=10]
-[ext_resource path="res://interactable_scripts/base/InteractionArea.tscn" type="PackedScene" id=11]
-[ext_resource path="res://level/levels/zero_limit/act_1/SignTutorialJumpDialogue.tscn" type="PackedScene" id=12]
-[ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=13]
-[ext_resource path="res://core/utils/ActivationArea.tscn" type="PackedScene" id=14]
-
+[ext_resource path="res://assets/tilesets/orange_map.tres" type="TileSet" id=4]
+[ext_resource path="res://assets/sfx/rain_thunder_ambience.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/tilesets/forest.tres" type="TileSet" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-
-[sub_resource type="RectangleShape2D" id=2]
-resource_local_to_scene = true
-extents = Vector2( 304, 272 )
-
-[sub_resource type="RectangleShape2D" id=3]
-resource_local_to_scene = true
-extents = Vector2( 100, 2144 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 256, 3968 )
 
 [node name="RuinValleyAct1-1" instance=ExtResource( 2 )]
 level_name_key = "RUIN_VALLEY"
@@ -56,69 +37,10 @@ collision_layer = 64
 collision_mask = 2147483649
 format = 1
 
-[node name="CameraLimitTrigger" parent="CameraLimits" index="0" instance=ExtResource( 1 )]
-position = Vector2( 7168, -640 )
-zoom = Vector2( 1.7, 1.7 )
-
-[node name="ColliderTrigger" parent="CameraLimits/CameraLimitTrigger" index="0"]
-shape = SubResource( 2 )
-
-[node name="TopLeft" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="0"]
-position = Vector2( -11577.9, -3331.66 )
-
-[node name="BottomRight" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="1"]
-position = Vector2( 8732.21, 1802.1 )
-
-[node name="LevelTransition" parent="LevelTransitions" index="0" instance=ExtResource( 13 )]
-position = Vector2( 16064, -1056 )
-map_path = "res://level/levels/ruin_valley/act_1/RuinValleyAct1-1-2.tscn"
-
-[node name="CollisionShape2D" parent="LevelTransitions/LevelTransition" index="0"]
-shape = SubResource( 3 )
-
-[node name="ActivationArea" parent="Triggers" index="0" instance=ExtResource( 14 )]
-position = Vector2( 9728, -3264 )
-disable_on_trigger = true
-
-[node name="CollisionShape2D" parent="Triggers/ActivationArea" index="0"]
-shape = SubResource( 4 )
-
-[node name="RuinValleyAct1-1-Cutscene01" parent="Triggers" index="1" instance=ExtResource( 5 )]
-position = Vector2( 10496, 512 )
-
-[node name="PlayerManagedStateManager" parent="Triggers/RuinValleyAct1-1-Cutscene01" index="3"]
-position = Vector2( 736, -512 )
-scale = Vector2( -1, 1 )
-
-[node name="SignTutorialMovementDialogue" parent="Triggers" index="2" instance=ExtResource( 10 )]
-position = Vector2( -4128, 512 )
-
-[node name="InteractionArea" parent="Triggers/SignTutorialMovementDialogue" index="3" instance=ExtResource( 11 )]
-position = Vector2( 0, -96 )
-actor_must_be_on_floor = true
-
-[node name="SignTutorialJumpDialogue" parent="Triggers" index="3" instance=ExtResource( 12 )]
-position = Vector2( -2112, 768 )
-
-[node name="InteractionArea" parent="Triggers/SignTutorialJumpDialogue" index="5" instance=ExtResource( 11 )]
-position = Vector2( 0, -88 )
-actor_must_be_on_floor = true
-
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -4128, 512 )
 camera_limit_trigger = NodePath("../../../RuinValleyAct1-1/CameraLimits/CameraLimitTrigger")
-[connection signal="area_entered_no_area" from="Triggers/ActivationArea" to="Triggers/RuinValleyAct1-1-Cutscene01" method="start"]
-[connection signal="interacted" from="Triggers/SignTutorialMovementDialogue/InteractionArea" to="Triggers/SignTutorialMovementDialogue" method="start"]
-[connection signal="interacted" from="Triggers/SignTutorialJumpDialogue/InteractionArea" to="Triggers/SignTutorialJumpDialogue" method="start"]
 
 [editable path="InitialMusic"]
-
-[editable path="CameraLimits/CameraLimitTrigger"]
-
-[editable path="LevelTransitions/LevelTransition"]
-
-[editable path="Triggers/ActivationArea"]
-
-[editable path="Triggers/RuinValleyAct1-1-Cutscene01"]
 
 [editable path="PlayerSpawnPoints/0"]

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/music/tidal_forest.ogg" type="AudioStream" id=2]
-[ext_resource path="res://level/levels/tidal_forest/vnitti_taiga.tres" type="TileSet" id=3]
+[ext_resource path="res://assets/tilesets/vnitti_taiga.tres" type="TileSet" id=3]
 [ext_resource path="res://objects/springs/Spring.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=6]
@@ -11,9 +11,13 @@
 [ext_resource path="res://core/RepeatingActorSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/boulder/Boulder.tscn" type="PackedScene" id=10]
 [ext_resource path="res://core/utils/ActivationArea.gd" type="Script" id=11]
-[ext_resource path="res://level/levels/tidal_forest/sprites/back.png" type="Texture" id=12]
-[ext_resource path="res://level/levels/tidal_forest/sprites/middle.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/tidal_forest_sprites/back.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/tidal_forest_sprites/middle.png" type="Texture" id=13]
 [ext_resource path="res://interface/CinemaBars.tscn" type="PackedScene" id=15]
+
+
+
+
 
 
 

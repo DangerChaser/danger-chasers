@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://level/levels/copper_maze/generic_dungeon.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/tilesets/generic_dungeon.tres" type="TileSet" id=1]
+
+
 
 
 [node name="GolemBossFootTileMap" type="Node2D"]

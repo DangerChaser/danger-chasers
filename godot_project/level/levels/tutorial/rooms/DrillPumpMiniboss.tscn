@@ -5,7 +5,8 @@
 [ext_resource path="res://level/Arena.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/levels/Room.tscn" type="PackedScene" id=6]
-[ext_resource path="res://level/tilesets/orange_map.tres" type="TileSet" id=7]
+[ext_resource path="res://assets/tilesets/orange_map.tres" type="TileSet" id=7]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 128, 640 )

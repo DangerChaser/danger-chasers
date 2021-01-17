@@ -3,7 +3,9 @@
 [ext_resource path="res://combat/weapons/projectiles/Projectile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/golem_boss/particles/IceHit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://common/particles/WeaponHit.tscn" type="PackedScene" id=3]
-[ext_resource path="res://level/levels/copper_maze/sprites/crystals.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/ruby_labyrinth_sprites/crystals.png" type="Texture" id=4]
+
+
 
 
 

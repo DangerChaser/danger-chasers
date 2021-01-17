@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://common/particles/RainShort.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/misc/white_circle_gradient.png" type="Texture" id=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 1920, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( -128, 294, 0 )
+initial_velocity = 86.33
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 1.0
+color = Color( 0.603922, 0.886275, 0.94902, 1 )
+
+[node name="RainForeground" type="CanvasLayer"]
+
+[node name="RainShort" parent="." instance=ExtResource( 1 )]
+process_material = SubResource( 1 )
+
+[node name="Fog" type="Sprite" parent="."]
+modulate = Color( 0.670588, 0.654902, 0.74902, 0.4 )
+position = Vector2( -992, -800 )
+scale = Vector2( 32, 16 )
+texture = ExtResource( 2 )
+
+[node name="Fog2" type="Sprite" parent="."]
+modulate = Color( 0.670588, 0.654902, 0.74902, 0.4 )
+position = Vector2( -1024, 1856 )
+scale = Vector2( 32, 16 )
+texture = ExtResource( 2 )
+
+[node name="Fog3" type="Sprite" parent="."]
+modulate = Color( 0.670588, 0.654902, 0.74902, 0.4 )
+position = Vector2( 3200, 1888 )
+scale = Vector2( 32, 16 )
+texture = ExtResource( 2 )
+
+[node name="Fog4" type="Sprite" parent="."]
+modulate = Color( 0.670588, 0.654902, 0.74902, 0.4 )
+position = Vector2( 3136, -768 )
+scale = Vector2( 32, 16 )
+texture = ExtResource( 2 )

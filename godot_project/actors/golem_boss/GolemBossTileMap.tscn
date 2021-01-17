@@ -1,7 +1,9 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://level/levels/copper_maze/generic_dungeon.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/tilesets/generic_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://core/collectibles/ActivateSkillCollectible.tscn" type="PackedScene" id=2]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1856, 32 )
