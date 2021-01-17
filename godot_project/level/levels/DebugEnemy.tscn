@@ -107,17 +107,17 @@ shape = SubResource( 7 )
 [node name="Colliders" parent="." index="6"]
 visible = false
 
-[node name="CameraLimitTrigger" parent="CameraLimits" index="0" instance=ExtResource( 8 )]
+[node name="CameraLimitTrigger" parent="Triggers" index="0" instance=ExtResource( 8 )]
 position = Vector2( 864, 40 )
 zoom = Vector2( 3, 3 )
 
-[node name="ColliderTrigger" parent="CameraLimits/CameraLimitTrigger" index="0"]
+[node name="ColliderTrigger" parent="Triggers/CameraLimitTrigger" index="0"]
 shape = SubResource( 8 )
 
-[node name="TopLeft" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="0"]
+[node name="TopLeft" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="0"]
 position = Vector2( -2019.07, -2226.42 )
 
-[node name="BottomRight" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="1"]
+[node name="BottomRight" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="1"]
 position = Vector2( 5504.1, 1403.03 )
 
 [node name="DrillPump" parent="YSort" index="0" instance=ExtResource( 4 )]
@@ -125,12 +125,12 @@ position = Vector2( 2010.96, 1104.28 )
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -152.385, 1231.32 )
-camera_limit_trigger = NodePath("../../CameraLimits/CameraLimitTrigger")
+camera_limit_trigger = NodePath("../../Triggers/CameraLimitTrigger")
 transition_out_animation = "left_to_right"
 transition_out_duration = 0.5
 
 [editable path="InitialMusic"]
 
-[editable path="CameraLimits/CameraLimitTrigger"]
+[editable path="Triggers/CameraLimitTrigger"]
 
 [editable path="PlayerSpawnPoints/0"]

@@ -9,7 +9,6 @@
 [ext_resource path="res://objects/vehicles/chairs/FrontChairInteractable.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interactable_scripts/menu/ExitInteractable.tscn" type="PackedScene" id=8]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 
@@ -79,16 +78,16 @@ position = Vector2( 1440, 933.061 )
 [node name="ControlsInteractable" parent="Interactables" index="5" instance=ExtResource( 3 )]
 position = Vector2( 1930.54, 896.434 )
 
-[node name="CameraLimitTrigger" parent="CameraLimits" index="0" instance=ExtResource( 6 )]
+[node name="CameraLimitTrigger" parent="Triggers" index="0" instance=ExtResource( 6 )]
 position = Vector2( 1480, 392 )
 
-[node name="ColliderTrigger" parent="CameraLimits/CameraLimitTrigger" index="0"]
+[node name="ColliderTrigger" parent="Triggers/CameraLimitTrigger" index="0"]
 shape = SubResource( 2 )
 
-[node name="TopLeft" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="0"]
+[node name="TopLeft" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="0"]
 position = Vector2( -1856, -759.467 )
 
-[node name="BottomRight" parent="CameraLimits/CameraLimitTrigger/CameraLimitPositions" index="1"]
+[node name="BottomRight" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="1"]
 position = Vector2( 1712, 745.814 )
 
 [node name="QuestBoard" parent="YSort" index="0" instance=ExtResource( 5 )]
@@ -96,12 +95,12 @@ position = Vector2( 864, 800 )
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( 846.587, 927.468 )
-camera_limit_trigger = NodePath("../../CameraLimits/CameraLimitTrigger")
+camera_limit_trigger = NodePath("../../Triggers/CameraLimitTrigger")
 transition_out_animation = "left_to_right"
 transition_out_duration = 0.5
 
 [editable path="InitialMusic"]
 
-[editable path="CameraLimits/CameraLimitTrigger"]
+[editable path="Triggers/CameraLimitTrigger"]
 
 [editable path="PlayerSpawnPoints/0"]

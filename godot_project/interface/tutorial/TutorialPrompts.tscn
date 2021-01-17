@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
+[ext_resource path="res://interface/tutorial/Movement.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/tutorial/TutorialPrompts.gd" type="Script" id=3]
+[ext_resource path="res://interface/tutorial/Jump.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/tutorial/Attack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/tutorial/Wallrun.tscn" type="PackedScene" id=6]
+
+[node name="TutorialPrompts" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Prompts" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Movement" parent="Prompts" instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="Jump" parent="Prompts" instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="Attack" parent="Prompts" instance=ExtResource( 5 )]
+
+[node name="Wallrun" parent="Prompts" instance=ExtResource( 6 )]

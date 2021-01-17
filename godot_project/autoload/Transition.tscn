@@ -9,17 +9,6 @@ layer = 120
 script = ExtResource( 1 )
 
 [node name="TransitionShader" parent="." instance=ExtResource( 2 )]
-
-[node name="Control" parent="TransitionShader" index="2"]
-mouse_filter = 2
-
-[node name="TextureRect" parent="TransitionShader/Control" index="0"]
-mouse_filter = 2
-
-[node name="KeyLabel" parent="TransitionShader/Control" index="1"]
-text = "LOADING"
-valign = 1
-key = ""
 [connection signal="animation_finished" from="TransitionShader/TransitionInAnimationPlayer" to="." method="_on_TransitionInAnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="TransitionShader/TransitionOutAnimationPlayer" to="." method="_on_TransitionOutAnimationPlayer_animation_finished"]
 

@@ -35,12 +35,6 @@ z_index = -10
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="Colliders" type="Node2D" parent="."]
-
-[node name="CameraLimits" type="Node2D" parent="."]
-
-[node name="LevelTransitions" type="Node2D" parent="."]
-
 [node name="Arenas" type="Node2D" parent="."]
 
 [node name="Triggers" type="Node2D" parent="."]
@@ -53,9 +47,10 @@ z_index = 10
 [node name="PlayerSpawnPoints" type="Node2D" parent="."]
 
 [node name="0" parent="PlayerSpawnPoints" instance=ExtResource( 3 )]
+camera_limit_trigger = NodePath("")
 DRAW_COLOR = Color( 0.886275, 0.192157, 0.713726, 1 )
-
-[node name="IntroCutscene" type="Node2D" parent="."]
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
 [connection signal="initialized" from="." to="InitialMusic" method="change_music"]
 
 [editable path="InitialMusic"]

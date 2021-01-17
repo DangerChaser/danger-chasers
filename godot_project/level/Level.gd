@@ -27,12 +27,6 @@ func initialize() -> void:
 		arena.initialize($YSort)
 	
 	emit_signal("initialized")
-	
-	if $IntroCutscene.get_child_count() > 0:
-		var intro_cutscene = $IntroCutscene.get_child(0)
-		intro_cutscene.set_level(level_name_key)
-		intro_cutscene.set_act(act)
-		intro_cutscene.start()
 
 
 func spawn_player(target_spawn_point : int):

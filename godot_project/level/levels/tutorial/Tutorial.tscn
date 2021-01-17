@@ -35,8 +35,6 @@ position = Vector2( 26624, 1280 )
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( -10944, -1792 )
 camera_limit_trigger = NodePath("../../Rooms/MovementIntro/Triggers/CameraLimitTrigger")
-transition_out_animation = "left_to_right"
-transition_out_duration = 0.5
 
 [editable path="InitialMusic"]
 
