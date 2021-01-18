@@ -1,9 +1,10 @@
 extends Node2D
 
-export(NodePath) var sprite_path : NodePath
 export(Array, String) var active_animations : Array = []
+export var number_of_sprites := 1
+export var tick_rate := 0.01
 
-onready var base_sprite = get_node(sprite_path)
+onready var base_sprite : Sprite = get_parent()
 
 var sprite_transforms : Dictionary = {}
 var enabled := false
@@ -12,6 +13,12 @@ var active_sprites : int = 0
 
 func _ready() -> void:
 	set_process(false)
+	
+	$Timer.wait_time = tick_rate
+	
+	for i in range(0, number_of_sprites):
+		$Sprites.add_child(Sprite.new())
+	
 	if not enabled:
 		for sprite in $Sprites.get_children():
 			sprite.visible = false

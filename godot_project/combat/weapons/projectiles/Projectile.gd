@@ -29,9 +29,9 @@ func _ready() -> void:
 	target_direction = Vector2.RIGHT.rotated(get_rotation())
 	motion.steering.velocity = target_direction * initial_speed
 	
-	$AnimationPlayer.play("SETUP")
-	if $AnimationPlayer.has_animation("spawn"):
-		$AnimationPlayer.play("spawn")
+	pivot.connect("animation_finished", self, "_on_animation_finished")
+	
+	pivot.play("spawn")
 	
 	if (startup_timer.wait_time <= 0.01):
 		start()
@@ -87,8 +87,7 @@ func _on_hit_confirmed(actor) -> void:
 
 func destroy() -> SfxParticle:
 	set_physics_process(false)
-	if $AnimationPlayer.has_animation("destroy"):
-		$AnimationPlayer.play("destroy")
+	pivot.play("destroy")
 	if has_node("DamageSource"):
 		$DamageSource.disable()
 	return spawn_particles(destroy_particles)
@@ -103,8 +102,7 @@ func spawn_particles(particles_scene : PackedScene):
 
 func _on_animation_finished(anim_name : String) -> void:
 	if anim_name == "spawn":
-		if $AnimationPlayer.has_animation("motion"):
-			$AnimationPlayer.play("motion")
+		pivot.play("motion")
 	if anim_name == "destroy":
 		queue_free()
 
@@ -115,8 +113,7 @@ func _on_StartupDelay_timeout():
 
 func start() -> void:
 	motion.enter()
-	if not $AnimationPlayer.current_animation == "spawn" and $AnimationPlayer.has_animation("motion"):
-		$AnimationPlayer.play("motion")
+	pivot.play("motion")
 	set_physics_process(true)
 	
 	$Target.lock_on()

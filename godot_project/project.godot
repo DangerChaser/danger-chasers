@@ -52,7 +52,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Arena",
 "language": "GDScript",
-"path": "res://level/Arena.gd"
+"path": "res://level/arena/Arena.gd"
 }, {
 "base": "Node2D",
 "class": "Attack",
@@ -122,7 +122,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "CameraLimitTrigger",
 "language": "GDScript",
-"path": "res://level/levels/CameraLimitTrigger.gd"
+"path": "res://level/CameraLimitTrigger.gd"
 }, {
 "base": "Resource",
 "class": "CharacterStats",
@@ -372,7 +372,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "RoundManager",
 "language": "GDScript",
-"path": "res://level/RoundManager.gd"
+"path": "res://level/arena/RoundManager.gd"
 }, {
 "base": "MotionState",
 "class": "RunState",

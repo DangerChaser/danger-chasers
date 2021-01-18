@@ -1,0 +1,501 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/till/boss/BulletTillBoss.tscn" type="PackedScene" id=2]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=3]
+[ext_resource path="res://core/ObjectSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/particles/FireballExplosion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://combat/weapons/projectile_launchers/SpawnGroup.tscn" type="PackedScene" id=8]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sfx/fire_shoot.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/particles/FireColumnLong.tscn" type="PackedScene" id=14]
+[ext_resource path="res://common/particles/warning_mark/WarningMark.tscn" type="PackedScene" id=15]
+[ext_resource path="res://common/particles/warning_mark/WarningArea.tscn" type="PackedScene" id=16]
+
+[sub_resource type="RectangleShape2D" id=6]
+resource_local_to_scene = true
+extents = Vector2( 1352, 96 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks/Jump/DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "aim"
+length = 2.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("WarningAreaLow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "can_register_input"
+}, {
+"args": [  ],
+"method": "can_attack"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("WarningAreaHigh")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "shoot_high"
+length = 1.1
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "can_register_input"
+}, {
+"args": [  ],
+"method": "can_attack"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("SfxParticleSpawner")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("DamageSource")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SfxParticleSpawner:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -502 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("DamageSource:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1352, -510 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("Pivot/Attacks/ShootHigh")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ {
+
+} ],
+"method": "spawn"
+}, {
+"args": [ {
+
+} ],
+"method": "spawn"
+}, {
+"args": [ {
+
+} ],
+"method": "spawn"
+}, {
+"args": [ {
+
+} ],
+"method": "spawn"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "shoot_low"
+length = 1.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks/ShootLow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ {
+
+} ],
+"method": "spawn"
+}, {
+"args": [ {
+
+} ],
+"method": "spawn"
+}, {
+"args": [ {
+
+} ],
+"method": "spawn"
+}, {
+"args": [ {
+
+} ],
+"method": "spawn"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pivot/Attacks")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "can_register_input"
+}, {
+"args": [  ],
+"method": "can_attack"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("SfxParticleSpawner")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("DamageSource")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SfxParticleSpawner:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -112 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("DamageSource:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1352, -120 ) ]
+}
+
+[node name="DrillPumpGun" instance=ExtResource( 1 )]
+
+[node name="SfxParticleSpawner" parent="." index="1" instance=ExtResource( 7 )]
+position = Vector2( 0, -502 )
+rotation = 1.5708
+object = ExtResource( 14 )
+
+[node name="DamageSource" parent="." index="2" instance=ExtResource( 3 )]
+position = Vector2( 1352, -510 )
+hit_particles = ExtResource( 5 )
+damage = 10
+
+[node name="CollisionShape2D" parent="DamageSource" index="0"]
+shape = SubResource( 6 )
+disabled = true
+
+[node name="AnimationPlayer" parent="." index="3"]
+anims/SETUP = SubResource( 1 )
+anims/aim = SubResource( 5 )
+anims/shoot_high = SubResource( 7 )
+anims/shoot_low = SubResource( 3 )
+
+[node name="WarningAreaLow" parent="." index="4" instance=ExtResource( 16 )]
+
+[node name="WarningMark" parent="WarningAreaLow/Marks" index="0" instance=ExtResource( 15 )]
+position = Vector2( 0, -104 )
+
+[node name="WarningMark2" parent="WarningAreaLow/Marks" index="1" instance=ExtResource( 15 )]
+position = Vector2( 160, -104 )
+
+[node name="WarningMark3" parent="WarningAreaLow/Marks" index="2" instance=ExtResource( 15 )]
+position = Vector2( 320, -104 )
+
+[node name="WarningMark4" parent="WarningAreaLow/Marks" index="3" instance=ExtResource( 15 )]
+position = Vector2( 480, -104 )
+
+[node name="WarningMark5" parent="WarningAreaLow/Marks" index="4" instance=ExtResource( 15 )]
+position = Vector2( 640, -104 )
+
+[node name="WarningMark6" parent="WarningAreaLow/Marks" index="5" instance=ExtResource( 15 )]
+position = Vector2( 800, -104 )
+
+[node name="WarningMark7" parent="WarningAreaLow/Marks" index="6" instance=ExtResource( 15 )]
+position = Vector2( 960, -104 )
+
+[node name="WarningMark8" parent="WarningAreaLow/Marks" index="7" instance=ExtResource( 15 )]
+position = Vector2( 1120, -104 )
+
+[node name="WarningMark9" parent="WarningAreaLow/Marks" index="8" instance=ExtResource( 15 )]
+position = Vector2( 1280, -104 )
+
+[node name="WarningMark10" parent="WarningAreaLow/Marks" index="9" instance=ExtResource( 15 )]
+position = Vector2( 1440, -104 )
+
+[node name="WarningMark11" parent="WarningAreaLow/Marks" index="10" instance=ExtResource( 15 )]
+position = Vector2( 1600, -104 )
+
+[node name="WarningMark12" parent="WarningAreaLow/Marks" index="11" instance=ExtResource( 15 )]
+position = Vector2( 1760, -104 )
+
+[node name="WarningMark13" parent="WarningAreaLow/Marks" index="12" instance=ExtResource( 15 )]
+position = Vector2( 1920, -104 )
+
+[node name="WarningMark14" parent="WarningAreaLow/Marks" index="13" instance=ExtResource( 15 )]
+position = Vector2( 2080, -104 )
+
+[node name="WarningMark15" parent="WarningAreaLow/Marks" index="14" instance=ExtResource( 15 )]
+position = Vector2( 2240, -104 )
+
+[node name="WarningMark16" parent="WarningAreaLow/Marks" index="15" instance=ExtResource( 15 )]
+position = Vector2( 2400, -104 )
+
+[node name="WarningMark17" parent="WarningAreaLow/Marks" index="16" instance=ExtResource( 15 )]
+position = Vector2( 2560, -104 )
+
+[node name="WarningMark18" parent="WarningAreaLow/Marks" index="17" instance=ExtResource( 15 )]
+position = Vector2( 2720, -104 )
+
+[node name="WarningAreaHigh" parent="." index="5" instance=ExtResource( 16 )]
+position = Vector2( 0, -406 )
+
+[node name="WarningMark" parent="WarningAreaHigh/Marks" index="0" instance=ExtResource( 15 )]
+position = Vector2( 0, -104 )
+
+[node name="WarningMark2" parent="WarningAreaHigh/Marks" index="1" instance=ExtResource( 15 )]
+position = Vector2( 160, -104 )
+
+[node name="WarningMark3" parent="WarningAreaHigh/Marks" index="2" instance=ExtResource( 15 )]
+position = Vector2( 320, -104 )
+
+[node name="WarningMark4" parent="WarningAreaHigh/Marks" index="3" instance=ExtResource( 15 )]
+position = Vector2( 480, -104 )
+
+[node name="WarningMark5" parent="WarningAreaHigh/Marks" index="4" instance=ExtResource( 15 )]
+position = Vector2( 640, -104 )
+
+[node name="WarningMark6" parent="WarningAreaHigh/Marks" index="5" instance=ExtResource( 15 )]
+position = Vector2( 800, -104 )
+
+[node name="WarningMark7" parent="WarningAreaHigh/Marks" index="6" instance=ExtResource( 15 )]
+position = Vector2( 960, -104 )
+
+[node name="WarningMark8" parent="WarningAreaHigh/Marks" index="7" instance=ExtResource( 15 )]
+position = Vector2( 1120, -104 )
+
+[node name="WarningMark9" parent="WarningAreaHigh/Marks" index="8" instance=ExtResource( 15 )]
+position = Vector2( 1280, -104 )
+
+[node name="WarningMark10" parent="WarningAreaHigh/Marks" index="9" instance=ExtResource( 15 )]
+position = Vector2( 1440, -104 )
+
+[node name="WarningMark11" parent="WarningAreaHigh/Marks" index="10" instance=ExtResource( 15 )]
+position = Vector2( 1600, -104 )
+
+[node name="WarningMark12" parent="WarningAreaHigh/Marks" index="11" instance=ExtResource( 15 )]
+position = Vector2( 1760, -104 )
+
+[node name="WarningMark13" parent="WarningAreaHigh/Marks" index="12" instance=ExtResource( 15 )]
+position = Vector2( 1920, -104 )
+
+[node name="WarningMark14" parent="WarningAreaHigh/Marks" index="13" instance=ExtResource( 15 )]
+position = Vector2( 2080, -104 )
+
+[node name="WarningMark15" parent="WarningAreaHigh/Marks" index="14" instance=ExtResource( 15 )]
+position = Vector2( 2240, -104 )
+
+[node name="WarningMark16" parent="WarningAreaHigh/Marks" index="15" instance=ExtResource( 15 )]
+position = Vector2( 2400, -104 )
+
+[node name="WarningMark17" parent="WarningAreaHigh/Marks" index="16" instance=ExtResource( 15 )]
+position = Vector2( 2560, -104 )
+
+[node name="WarningMark18" parent="WarningAreaHigh/Marks" index="17" instance=ExtResource( 15 )]
+position = Vector2( 2720, -104 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+grounded = false
+
+[node name="Aim" parent="Pivot/Attacks" index="0" instance=ExtResource( 9 )]
+actor_animation = "aim"
+weapon_animation = "aim"
+
+[node name="ShootLow" parent="Pivot/Attacks" index="1" instance=ExtResource( 8 )]
+actor_animation = "shoot_low"
+weapon_animation = "shoot_low"
+muzzle_flash = ExtResource( 5 )
+screen_shake_amplitude = 20.0
+screen_shake_duration = 1.0
+screen_shake_damp = 2.45887
+
+[node name="Sfx" parent="Pivot/Attacks/ShootLow" index="0"]
+stream = ExtResource( 13 )
+random_pitch_low = 0.98
+random_pitch_high = 1.02
+
+[node name="ObjectSpawner" parent="Pivot/Attacks/ShootLow/Spawners" index="0"]
+position = Vector2( 0, -106.34 )
+rotation = -0.523599
+object = ExtResource( 2 )
+
+[node name="ObjectSpawner2" parent="Pivot/Attacks/ShootLow/Spawners" index="1" instance=ExtResource( 4 )]
+position = Vector2( 0, -106.34 )
+rotation = 0.523599
+object = ExtResource( 2 )
+DRAW_COLOR = Color( 0.0784314, 0.0941176, 1, 1 )
+
+[node name="ShootHigh" parent="Pivot/Attacks" index="2" instance=ExtResource( 8 )]
+position = Vector2( 0, -256 )
+actor_animation = "shoot_high"
+weapon_animation = "shoot_high"
+muzzle_flash = ExtResource( 5 )
+screen_shake_amplitude = 20.0
+screen_shake_duration = 1.0
+screen_shake_damp = 2.45887
+
+[node name="Sfx" parent="Pivot/Attacks/ShootHigh" index="0"]
+stream = ExtResource( 13 )
+random_pitch_low = 0.98
+random_pitch_high = 1.02
+
+[node name="ObjectSpawner" parent="Pivot/Attacks/ShootHigh/Spawners" index="0"]
+position = Vector2( 0, -250.34 )
+rotation = -0.523599
+object = ExtResource( 2 )
+
+[node name="ObjectSpawner2" parent="Pivot/Attacks/ShootHigh/Spawners" index="1" instance=ExtResource( 4 )]
+position = Vector2( 0, -250.34 )
+rotation = 0.523599
+object = ExtResource( 2 )
+DRAW_COLOR = Color( 0.0784314, 0.0941176, 1, 1 )
+
+[editable path="DamageSource"]
+
+[editable path="WarningAreaLow"]
+
+[editable path="WarningAreaHigh"]
+
+[editable path="Pivot/Attacks/ShootLow"]
+
+[editable path="Pivot/Attacks/ShootHigh"]

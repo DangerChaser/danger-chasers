@@ -61,6 +61,7 @@ tracks/3/keys = {
 [node name="WarningMark" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.999999 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
 

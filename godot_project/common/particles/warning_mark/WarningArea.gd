@@ -11,6 +11,8 @@ var marks_enabled := 0
 
 
 func _ready() -> void:
+	for mark in $Marks.get_children():
+		mark.get_node("Sprite").visible = false
 	original_local_transform = transform
 	_add_timer()
 

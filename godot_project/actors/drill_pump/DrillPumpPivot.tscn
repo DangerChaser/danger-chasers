@@ -10,11 +10,11 @@
 [ext_resource path="res://assets/particles/RedFootstepsLand.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/particles/RedJumpDust.tscn" type="PackedScene" id=22]
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
 extents = Vector2( 787.056, 840 )
 
@@ -22,7 +22,7 @@ extents = Vector2( 787.056, 840 )
 script = ExtResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/SETUP = SubResource( 15 )
+anims/SETUP = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 64, -3168 )
@@ -35,14 +35,13 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 3200, 200 )
 
 [node name="Weapons" type="Node2D" parent="."]
-position = Vector2( 0, -832 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 1 )]
 position = Vector2( 5.30322, -92.0316 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( -301.303, -747.968 )
-shape = SubResource( 13 )
+shape = SubResource( 2 )
 
 [node name="FootstepsLand" parent="." instance=ExtResource( 3 )]
 particles = ExtResource( 21 )

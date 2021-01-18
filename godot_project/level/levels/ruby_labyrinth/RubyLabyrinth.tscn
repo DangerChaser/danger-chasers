@@ -15,12 +15,14 @@
 [ext_resource path="res://actors/slime_red/SlimeRed.tscn" type="PackedScene" id=15]
 [ext_resource path="res://objects/doors/interactable_doors/InteractableDoor.tscn" type="PackedScene" id=16]
 [ext_resource path="res://actors/goblin/Goblin.tscn" type="PackedScene" id=17]
-[ext_resource path="res://level/Arena.tscn" type="PackedScene" id=25]
+[ext_resource path="res://level/arena/Arena.tscn" type="PackedScene" id=25]
 [ext_resource path="res://objects/vehicles/trolley/Trolley.tscn" type="PackedScene" id=26]
 [ext_resource path="res://actors/slime_blue/SlimeBlue.tscn" type="PackedScene" id=29]
 [ext_resource path="res://actors/breakable_wall/BreakableWall.tscn" type="PackedScene" id=34]
-[ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=35]
+[ext_resource path="res://level/CameraLimitTrigger.tscn" type="PackedScene" id=35]
 [ext_resource path="res://actors/ruby_golem/RubyGolem.tscn" type="PackedScene" id=36]
+
+
 
 
 

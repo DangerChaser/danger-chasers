@@ -5,15 +5,17 @@
 [ext_resource path="res://assets/tilesets/vnitti_taiga.tres" type="TileSet" id=3]
 [ext_resource path="res://objects/springs/Spring.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/LevelTransition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://level/Arena.tscn" type="PackedScene" id=6]
+[ext_resource path="res://level/arena/Arena.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/doors/Door.tscn" type="PackedScene" id=7]
-[ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=8]
+[ext_resource path="res://level/CameraLimitTrigger.tscn" type="PackedScene" id=8]
 [ext_resource path="res://core/RepeatingActorSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/boulder/Boulder.tscn" type="PackedScene" id=10]
 [ext_resource path="res://core/utils/ActivationArea.gd" type="Script" id=11]
 [ext_resource path="res://assets/sprites/tidal_forest_sprites/back.png" type="Texture" id=12]
 [ext_resource path="res://assets/sprites/tidal_forest_sprites/middle.png" type="Texture" id=13]
 [ext_resource path="res://interface/CinemaBars.tscn" type="PackedScene" id=15]
+
+
 
 
 

@@ -4,6 +4,7 @@ class_name AttackAdditionalEffect
 signal finished
 
 var weapon
+var attack
 
 func _ready() -> void:
 	pause()

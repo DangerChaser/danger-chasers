@@ -19,7 +19,6 @@ func _ready() -> void:
 	
 	pause_menu.hide_menus()
 	GameManager.current_camera = camera
-	Dialogue.camera = camera
 	if not GameManager.current_loaded_level:
 		GameManager.current_loaded_level = LEVEL_START
 	level_loader.change_level(GameManager.current_loaded_level, 0, "left_to_right", 0.1)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://level/Arena.gd" type="Script" id=1]
-[ext_resource path="res://level/RoundManager.gd" type="Script" id=2]
+[ext_resource path="res://level/arena/Arena.gd" type="Script" id=1]
+[ext_resource path="res://level/arena/RoundManager.gd" type="Script" id=2]
 [ext_resource path="res://core/utils/ActivationArea.gd" type="Script" id=3]
-[ext_resource path="res://level/ActorSpawnGroups.gd" type="Script" id=4]
-[ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://level/arena/ActorSpawnGroups.gd" type="Script" id=4]
+[ext_resource path="res://level/CameraLimitTrigger.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

@@ -60,13 +60,6 @@
 [ext_resource path="res://assets/sprites/actors/ariko/walk.png" type="Texture" id=58]
 [ext_resource path="res://assets/sprites/actors/ariko/one_hand_out.png" type="Texture" id=59]
 
-
-
-
-
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
@@ -1972,7 +1965,7 @@ tracks/10/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=11]
 resource_name = "one_hand_out"
 length = 0.8
 loop = true
@@ -2109,8 +2102,7 @@ tracks/10/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "run"
+[sub_resource type="Animation" id=12]
 length = 0.8
 loop = true
 step = 0.05
@@ -2377,8 +2369,7 @@ tracks/20/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "sit_front"
+[sub_resource type="Animation" id=13]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -2502,8 +2493,7 @@ tracks/9/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "sit_side"
+[sub_resource type="Animation" id=14]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -2627,8 +2617,7 @@ tracks/9/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "slash_1"
+[sub_resource type="Animation" id=15]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -2888,8 +2877,7 @@ tracks/20/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=15]
-resource_name = "slash_2"
+[sub_resource type="Animation" id=16]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -3149,7 +3137,7 @@ tracks/20/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
@@ -3309,7 +3297,7 @@ tracks/12/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
@@ -3457,7 +3445,7 @@ tracks/11/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 length = 0.4
 loop = true
 step = 0.02
@@ -3666,7 +3654,7 @@ tracks/16/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=20]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -3914,7 +3902,7 @@ tracks/19/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=21]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -4145,7 +4133,7 @@ tracks/18/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=22]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -4281,7 +4269,7 @@ tracks/10/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=23]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -4417,7 +4405,7 @@ tracks/10/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=24]
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
@@ -4637,7 +4625,7 @@ tracks/17/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=25]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -4857,8 +4845,7 @@ tracks/17/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=25]
-resource_name = "trick_1"
+[sub_resource type="Animation" id=26]
 length = 0.4
 step = 0.05
 tracks/0/type = "value"
@@ -5078,8 +5065,7 @@ tracks/17/keys = {
 "values": [ -1, 0, -1 ]
 }
 
-[sub_resource type="Animation" id=26]
-resource_name = "trick_2"
+[sub_resource type="Animation" id=27]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("WallrunParticles:emitting")
@@ -5298,8 +5284,7 @@ tracks/17/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=27]
-resource_name = "trick_3"
+[sub_resource type="Animation" id=28]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -5519,7 +5504,7 @@ tracks/17/keys = {
 "values": [ 0, 0, -1, -1 ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=29]
 length = 1.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -5654,7 +5639,7 @@ tracks/10/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=30]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -5766,8 +5751,7 @@ tracks/8/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=30]
-resource_name = "walk"
+[sub_resource type="Animation" id=31]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -5903,7 +5887,7 @@ tracks/10/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=32]
 length = 0.4
 loop = true
 step = 0.025
@@ -6184,14 +6168,14 @@ tracks/21/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Curve" id=32]
+[sub_resource type="Curve" id=33]
 _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 
-[sub_resource type="Gradient" id=33]
+[sub_resource type="Gradient" id=34]
 offsets = PoolRealArray( 0, 0.331915, 0.765957, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1 )
 
-[sub_resource type="CapsuleShape2D" id=34]
+[sub_resource type="CapsuleShape2D" id=35]
 radius = 30.0
 height = 100.0
 
@@ -6211,28 +6195,28 @@ anims/jump_loop = SubResource( 7 )
 anims/land = SubResource( 8 )
 anims/lean = SubResource( 9 )
 anims/lean_one_eye_open = SubResource( 10 )
-anims/one_hand_out = SubResource( 35 )
-anims/run = SubResource( 11 )
-anims/sit_front = SubResource( 12 )
-anims/sit_side = SubResource( 13 )
-anims/slash_1 = SubResource( 14 )
-anims/slash_2 = SubResource( 15 )
-anims/slash_down = SubResource( 16 )
-anims/slash_up = SubResource( 17 )
-anims/spin = SubResource( 18 )
-anims/stab = SubResource( 19 )
-anims/stagger = SubResource( 20 )
-anims/stand = SubResource( 21 )
-anims/stand_front = SubResource( 22 )
-anims/stomp = SubResource( 23 )
-anims/stomp_land = SubResource( 24 )
-anims/trick_1 = SubResource( 25 )
-anims/trick_2 = SubResource( 26 )
-anims/trick_3 = SubResource( 27 )
-anims/victory = SubResource( 28 )
-anims/victory_loop = SubResource( 29 )
-anims/walk = SubResource( 30 )
-anims/wallrun = SubResource( 31 )
+anims/one_hand_out = SubResource( 11 )
+anims/run = SubResource( 12 )
+anims/sit_front = SubResource( 13 )
+anims/sit_side = SubResource( 14 )
+anims/slash_1 = SubResource( 15 )
+anims/slash_2 = SubResource( 16 )
+anims/slash_down = SubResource( 17 )
+anims/slash_up = SubResource( 18 )
+anims/spin = SubResource( 19 )
+anims/stab = SubResource( 20 )
+anims/stagger = SubResource( 21 )
+anims/stand = SubResource( 22 )
+anims/stand_front = SubResource( 23 )
+anims/stomp = SubResource( 24 )
+anims/stomp_land = SubResource( 25 )
+anims/trick_1 = SubResource( 26 )
+anims/trick_2 = SubResource( 27 )
+anims/trick_3 = SubResource( 28 )
+anims/victory = SubResource( 29 )
+anims/victory_loop = SubResource( 30 )
+anims/walk = SubResource( 31 )
+anims/wallrun = SubResource( 32 )
 next/jump = "jump_loop"
 next/stomp = "air"
 next/trick_1 = "spin"
@@ -6240,86 +6224,79 @@ next/trick_2 = "spin"
 next/trick_3 = "spin"
 next/victory = "victory_loop"
 
-[node name="TrailingSprites" parent="." index="1" instance=ExtResource( 12 )]
-sprite_path = NodePath("../Sprite")
-active_animations = [ "dash" ]
-
-[node name="Sprite" type="Sprite" parent="TrailingSprites/Sprites" index="0"]
-
-[node name="Sprite2" type="Sprite" parent="TrailingSprites/Sprites" index="1"]
-
-[node name="Sprite3" type="Sprite" parent="TrailingSprites/Sprites" index="2"]
-
-[node name="Sprite4" type="Sprite" parent="TrailingSprites/Sprites" index="3"]
-
-[node name="Trail" parent="." index="2" instance=ExtResource( 49 )]
+[node name="Trail" parent="." index="1" instance=ExtResource( 49 )]
 width = 42.0
-width_curve = SubResource( 32 )
+width_curve = SubResource( 33 )
 default_color = Color( 0.0745098, 0.698039, 0.94902, 1 )
 target_path = NodePath("../Hurtbox")
 active_animations = [ "dash" ]
 trail_length = 15
 autostart = false
 
-[node name="WallrunTrail" parent="." index="3" instance=ExtResource( 49 )]
-width_curve = SubResource( 32 )
+[node name="WallrunTrail" parent="." index="2" instance=ExtResource( 49 )]
+width_curve = SubResource( 33 )
 default_color = Color( 1, 0, 0, 1 )
-gradient = SubResource( 33 )
+gradient = SubResource( 34 )
 target_path = NodePath("../WallrunParticles")
 active_animations = [ "wallrun" ]
 trail_length = 40
 autostart = false
 
-[node name="Sprite" type="Sprite" parent="." index="4"]
+[node name="Sprite" type="Sprite" parent="." index="3"]
 scale = Vector2( 4, 4 )
-texture = ExtResource( 59 )
-normal_map = ExtResource( 28 )
+texture = ExtResource( 1 )
+normal_map = ExtResource( 19 )
 offset = Vector2( 0, -29 )
 hframes = 8
-frame = 5
 
-[node name="FootstepsLand" parent="." index="5" instance=ExtResource( 13 )]
+[node name="TrailingSprites" parent="Sprite" index="0" instance=ExtResource( 12 )]
+scale = Vector2( 0.25, 0.25 )
+active_animations = [ "dash" ]
+number_of_sprites = 4
+
+[node name="FootstepsLand" parent="." index="4" instance=ExtResource( 13 )]
 particles = ExtResource( 16 )
 
-[node name="FootstepsLaunch" parent="." index="6" instance=ExtResource( 13 )]
+[node name="FootstepsLaunch" parent="." index="5" instance=ExtResource( 13 )]
 particles = ExtResource( 17 )
 
-[node name="JumpDust" parent="." index="7" instance=ExtResource( 13 )]
+[node name="JumpDust" parent="." index="6" instance=ExtResource( 13 )]
 particles = ExtResource( 14 )
 
-[node name="LandDust" parent="." index="8" instance=ExtResource( 13 )]
+[node name="LandDust" parent="." index="7" instance=ExtResource( 13 )]
 particles = ExtResource( 15 )
 
-[node name="DeathExplosion" parent="." index="9" instance=ExtResource( 13 )]
+[node name="DeathExplosion" parent="." index="8" instance=ExtResource( 13 )]
 particles = ExtResource( 4 )
 
-[node name="WallrunParticles" parent="." index="10" instance=ExtResource( 51 )]
+[node name="WallrunParticles" parent="." index="9" instance=ExtResource( 51 )]
 position = Vector2( -80, -120 )
+emitting = false
 
-[node name="GrindSfx" parent="." index="11" instance=ExtResource( 53 )]
+[node name="GrindSfx" parent="." index="10" instance=ExtResource( 53 )]
 stream = ExtResource( 54 )
 random_pitch_low = 0.96
 random_pitch_high = 1.04
 
-[node name="BubblePosition" type="Position2D" parent="." index="12"]
+[node name="BubblePosition" type="Position2D" parent="." index="11"]
 position = Vector2( 0, -230.039 )
 
-[node name="Weapons" type="Node2D" parent="." index="13"]
+[node name="Weapons" type="Node2D" parent="." index="12"]
 
-[node name="Hurtbox" parent="." index="14" instance=ExtResource( 42 )]
+[node name="Hurtbox" parent="." index="13" instance=ExtResource( 42 )]
 position = Vector2( 0, -110 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 34 )
+shape = SubResource( 35 )
 
-[node name="RightHandWeapon" parent="." index="15" instance=ExtResource( 50 )]
+[node name="RightHandWeapon" parent="." index="14" instance=ExtResource( 50 )]
 visible = false
 position = Vector2( -24, -48 )
 rotation = 0.261799
 
 [node name="BasicKnifePivot" parent="RightHandWeapon" index="0" instance=ExtResource( 10 )]
 
-[node name="LeftHandWeapon" parent="." index="16" instance=ExtResource( 50 )]
+[node name="LeftHandWeapon" parent="." index="15" instance=ExtResource( 50 )]
 visible = false
 position = Vector2( 2.38421e-07, -112 )
 rotation = 3.31613
@@ -6328,18 +6305,16 @@ z_index = -1
 
 [node name="BasicKnifePivot" parent="LeftHandWeapon" index="0" instance=ExtResource( 10 )]
 
-[node name="RightHand" parent="." index="17" instance=ExtResource( 50 )]
+[node name="RightHand" parent="." index="16" instance=ExtResource( 50 )]
 position = Vector2( -22, -66 )
 [connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_changed" from="." to="Trail" method="stop"]
-[connection signal="animation_changed" from="." to="TrailingSprites" method="stop"]
+[connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
 [connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_play_requested" from="." to="Trail" method="stop"]
-[connection signal="animation_play_requested" from="." to="TrailingSprites" method="stop"]
+[connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
 [connection signal="animation_started" from="." to="WallrunTrail" method="start"]
 [connection signal="animation_started" from="." to="Trail" method="start"]
-[connection signal="animation_started" from="." to="TrailingSprites" method="start"]
-
-[editable path="TrailingSprites"]
+[connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]
 
 [editable path="Hurtbox"]

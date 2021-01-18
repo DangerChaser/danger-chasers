@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://level/levels/Room.tscn" type="PackedScene" id=1]
-[ext_resource path="res://level/levels/CameraLimitTrigger.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level/CameraLimitTrigger.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/springs/RedSpring.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/tilesets/orange_map.tres" type="TileSet" id=4]
 [ext_resource path="res://actors/breakable_wall/BreakableWall.tscn" type="PackedScene" id=5]
+
 
 
 [sub_resource type="RectangleShape2D" id=1]

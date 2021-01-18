@@ -18,6 +18,7 @@ export var next_state := ""
 export var input : String
 
 var active_after_exit : bool = false
+var active : bool
 
 
 func _ready() -> void:
@@ -46,6 +47,8 @@ func set_friendly_teams(_friendly_teams : Array) -> void:
 
 
 func enter(args := {}) -> void:
+	active = true
+	
 	if cooldown_timer.time_left > 0 or gcd_timer.time_left > 0:
 		emit_signal("not_ready", args)
 		return
@@ -62,8 +65,11 @@ func is_ready() -> bool:
 
 
 func exit() -> void:
+	active = false
+	
 	if active_after_exit:
 		return
+	
 	attacks.exit()
 	animation_player.stop()
 	if animation_player.has_animation("SETUP"):
@@ -103,11 +109,18 @@ func _on_Attacks_attack_started(actor_animation, weapon_animation):
 
 
 func _on_Attacks_finished(state_override : String = "", args := {}):
+	finish(state_override, args)
+
+
+func finish(state_override : String = "", args := {}) -> void:
 	var exit_args = get_exit_args()
 	for key in exit_args.keys():
 		args[key] = exit_args[key]
 	
 	if not state_override:
 		state_override = next_state
+	
+	if not active and active_after_exit:
+		return
 	
 	emit_signal("finished", state_override, args)

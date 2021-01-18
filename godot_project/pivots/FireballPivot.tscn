@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/sfx/spin_slash.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/sprites/actors/till/fireball.png" type="Texture" id=2]
+[ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://core/utils/TrailingSprites.tscn" type="PackedScene" id=12]
+[ext_resource path="res://vfx/Trail.tscn" type="PackedScene" id=49]
+[ext_resource path="res://assets/particles/WallrunGrind.tscn" type="PackedScene" id=51]
+[ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=53]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "motion"
+length = 0.6
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2, 0.21, 0.22, 0.23, 0.24, 0.25, 0.26, 0.27, 0.28, 0.29, 0.3, 0.31, 0.32, 0.33, 0.34, 0.35, 0.36, 0.37, 0.38, 0.39, 0.4, 0.41, 0.42, 0.43, 0.44, 0.45, 0.46, 0.47, 0.48, 0.49, 0.5, 0.51, 0.52, 0.53, 0.54, 0.55, 0.56, 0.57, 0.58, 0.59 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WallrunParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("MotionSfx")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[node name="Pivot" instance=ExtResource( 9 )]
+z_index = 1
+
+[node name="AnimationPlayer" parent="." index="0"]
+autoplay = "SETUP"
+anims/SETUP = SubResource( 1 )
+anims/motion = SubResource( 2 )
+
+[node name="Trail" parent="." index="1" instance=ExtResource( 49 )]
+width = 42.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+target_path = NodePath("../Sprite")
+active_animations = [ "motion" ]
+trail_length = 5
+autostart = false
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+rotation = -1.5708
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+vframes = 6
+hframes = 10
+
+[node name="TrailingSprites" parent="Sprite" index="0" instance=ExtResource( 12 )]
+scale = Vector2( 0.25, 0.25 )
+active_animations = [ "dash" ]
+number_of_sprites = 4
+
+[node name="WallrunParticles" parent="." index="3" instance=ExtResource( 51 )]
+position = Vector2( 16, 0 )
+
+[node name="MotionSfx" parent="." index="4" instance=ExtResource( 53 )]
+stream = ExtResource( 1 )
+random_pitch_low = 0.96
+random_pitch_high = 1.04
+
+[node name="Weapons" type="Node2D" parent="." index="5"]
+[connection signal="animation_changed" from="." to="Trail" method="stop"]
+[connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
+[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
+[connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]

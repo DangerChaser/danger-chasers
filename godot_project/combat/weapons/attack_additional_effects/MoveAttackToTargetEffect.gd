@@ -7,7 +7,7 @@ var target_position : Vector2
 func enter(args := {}) -> void:
 	.enter(args)
 	target_position = owner.target.global_position + offset
-	weapon.global_position = target_position
+	attack.global_position = target_position
 
 
 func exit() -> void:
@@ -15,4 +15,4 @@ func exit() -> void:
 
 
 func _physics_process(delta):
-	weapon.global_position = target_position
+	attack.global_position = target_position

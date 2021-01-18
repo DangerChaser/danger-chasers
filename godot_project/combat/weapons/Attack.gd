@@ -25,9 +25,11 @@ func _ready() -> void:
 	for effect in additional_effects.get_children():
 		effect.connect("finished", self, "effect_finished")
 		effect.weapon = get_parent().get_parent().get_parent()
+		effect.attack = self
 	for effect in combo_effects.get_children():
 		effect.connect("finished", self, "effect_finished")
 		effect.weapon = get_parent().get_parent().get_parent()
+		effect.attack = self
 	if has_node("DamageSource"):
 		$DamageSource.connect("hit_confirmed_no_actor", self, "emit_signal", ["hit_confirmed"])
 
@@ -43,6 +45,8 @@ func enter(args := {}) -> void:
 		combo_ready = true
 		for effect in combo_effects.get_children():
 			effect.enter(args)
+	if $AnimationPlayer.has_animation("attack"):
+		$AnimationPlayer.play("attack")
 	emit_signal("attack_started", actor_animation, weapon_animation)
 
 
