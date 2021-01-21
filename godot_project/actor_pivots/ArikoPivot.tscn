@@ -1,64 +1,64 @@
 [gd_scene load_steps=95 format=2]
 
-[ext_resource path="res://assets/sprites/actors/ariko/idle.png" type="Texture" id=1]
-[ext_resource path="res://assets/sprites/actors/ariko/air.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/actors/ariko/jump.png" type="Texture" id=3]
-[ext_resource path="res://common/particles/DeathExplosion.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/sprites/actors/ariko/dash_smear.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/actors/ariko/run.png" type="Texture" id=6]
+[ext_resource path="res://assets/sfx/wallrun_grinding.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/sprites/actors/ariko/die_normal.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/actors/ariko/slash_2.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/actors/ariko/thumbs_up_normal.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/actors/ariko/stand.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/actors/ariko/trick_3.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/actors/ariko/slash_up_normal.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/actors/ariko/stagger.png" type="Texture" id=8]
-[ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=9]
-[ext_resource path="res://actors/ariko/BasicKnifePivot.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_1.png" type="Texture" id=11]
-[ext_resource path="res://core/utils/TrailingSprites.tscn" type="PackedScene" id=12]
-[ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/particles/JumpDust.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/particles/LandDust.tscn" type="PackedScene" id=15]
-[ext_resource path="res://assets/particles/FootstepsLand.tscn" type="PackedScene" id=16]
-[ext_resource path="res://assets/particles/FootstepsLaunch.tscn" type="PackedScene" id=17]
-[ext_resource path="res://assets/sprites/actors/ariko/air_normal.png" type="Texture" id=18]
-[ext_resource path="res://assets/sprites/actors/ariko/idle_normal.png" type="Texture" id=19]
-[ext_resource path="res://assets/sprites/actors/ariko/run_normal.png" type="Texture" id=20]
-[ext_resource path="res://assets/sprites/actors/ariko/jump_normal.png" type="Texture" id=21]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_1_normal.png" type="Texture" id=22]
-[ext_resource path="res://assets/sprites/actors/ariko/stagger_normal.png" type="Texture" id=23]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_down_normal.png" type="Texture" id=24]
-[ext_resource path="res://assets/sprites/actors/ariko/stomp_smear.png" type="Texture" id=25]
-[ext_resource path="res://assets/sprites/actors/ariko/land_smear.png" type="Texture" id=26]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_2_normal.png" type="Texture" id=27]
-[ext_resource path="res://assets/sprites/actors/ariko/stand_normal.png" type="Texture" id=28]
-[ext_resource path="res://assets/sprites/actors/ariko/stand.png" type="Texture" id=29]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_down.png" type="Texture" id=30]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_up.png" type="Texture" id=31]
+[ext_resource path="res://assets/sprites/actors/ariko/slash_down_normal.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/actors/ariko/jump_normal.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/actors/ariko/jump.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/actors/ariko/stomp_smear.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/actors/ariko/dash_smear.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/actors/ariko/land_smear.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/actors/ariko/slash_2_normal.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/actors/ariko/air_normal.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/actors/ariko/slash_down.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/actors/ariko/lean_normal.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/actors/ariko/lean_one_eye_open.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/actors/ariko/run.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/actors/ariko/slash_up.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/actors/ariko/lean_one_eye_open_normal.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/actors/ariko/stand_front_normal.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprites/actors/ariko/sit_side.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/actors/ariko/trick_1.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/actors/ariko/sit_side_normal.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprites/actors/ariko/walk.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/actors/ariko/one_hand_out.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/actors/ariko/thumbs_up.png" type="Texture" id=28]
+[ext_resource path="res://assets/sprites/actors/ariko/lean.png" type="Texture" id=29]
+[ext_resource path="res://assets/sprites/actors/ariko/trick_2.png" type="Texture" id=30]
+[ext_resource path="res://assets/sprites/actors/ariko/slash_1.png" type="Texture" id=31]
 [ext_resource path="res://assets/sprites/actors/ariko/spin_smear.png" type="Texture" id=32]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_2.png" type="Texture" id=33]
-[ext_resource path="res://assets/sprites/actors/ariko/thumbs_up_normal.png" type="Texture" id=34]
-[ext_resource path="res://assets/sprites/actors/ariko/thumbs_up.png" type="Texture" id=35]
-[ext_resource path="res://assets/sprites/actors/ariko/die_normal.png" type="Texture" id=36]
-[ext_resource path="res://assets/sprites/actors/ariko/die.png" type="Texture" id=37]
-[ext_resource path="res://assets/sprites/actors/ariko/lean.png" type="Texture" id=38]
-[ext_resource path="res://assets/sprites/actors/ariko/lean_normal.png" type="Texture" id=39]
-[ext_resource path="res://assets/sprites/actors/ariko/lean_one_eye_open.png" type="Texture" id=40]
-[ext_resource path="res://assets/sprites/actors/ariko/lean_one_eye_open_normal.png" type="Texture" id=41]
-[ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=42]
-[ext_resource path="res://assets/sprites/actors/ariko/stand_front.png" type="Texture" id=43]
-[ext_resource path="res://assets/sprites/actors/ariko/stand_front_normal.png" type="Texture" id=44]
-[ext_resource path="res://assets/sprites/actors/ariko/sit_front_normal.png" type="Texture" id=45]
-[ext_resource path="res://assets/sprites/actors/ariko/sit_front.png" type="Texture" id=46]
-[ext_resource path="res://assets/sprites/actors/ariko/sit_side.png" type="Texture" id=47]
-[ext_resource path="res://assets/sprites/actors/ariko/sit_side_normal.png" type="Texture" id=48]
+[ext_resource path="res://assets/sprites/actors/ariko/idle.png" type="Texture" id=33]
+[ext_resource path="res://assets/sprites/actors/ariko/stagger.png" type="Texture" id=34]
+[ext_resource path="res://assets/sprites/actors/ariko/stand_normal.png" type="Texture" id=35]
+[ext_resource path="res://assets/sprites/actors/ariko/run_normal.png" type="Texture" id=36]
+[ext_resource path="res://assets/sprites/actors/ariko/air.png" type="Texture" id=37]
+[ext_resource path="res://assets/sprites/actors/ariko/slash_1_normal.png" type="Texture" id=38]
+[ext_resource path="res://assets/sprites/actors/ariko/die.png" type="Texture" id=39]
+[ext_resource path="res://assets/sprites/actors/ariko/stand_front.png" type="Texture" id=40]
+[ext_resource path="res://assets/sprites/actors/ariko/sit_front_normal.png" type="Texture" id=41]
+[ext_resource path="res://assets/sprites/actors/ariko/sit_front.png" type="Texture" id=42]
+[ext_resource path="res://assets/sprites/actors/ariko/idle_normal.png" type="Texture" id=43]
+[ext_resource path="res://assets/sprites/actors/ariko/wallrun.png" type="Texture" id=44]
+[ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=45]
+[ext_resource path="res://common/particles/DeathExplosion.tscn" type="PackedScene" id=46]
+[ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=47]
+[ext_resource path="res://assets/sprites/actors/ariko/stagger_normal.png" type="Texture" id=48]
 [ext_resource path="res://vfx/Trail.tscn" type="PackedScene" id=49]
-[ext_resource path="res://actor_framework/PivotTransform.tscn" type="PackedScene" id=50]
-[ext_resource path="res://assets/particles/WallrunGrind.tscn" type="PackedScene" id=51]
-[ext_resource path="res://assets/sprites/actors/ariko/wallrun.png" type="Texture" id=52]
-[ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=53]
-[ext_resource path="res://assets/sfx/wallrun_grinding.wav" type="AudioStream" id=54]
-[ext_resource path="res://assets/sprites/actors/ariko/trick_1.png" type="Texture" id=55]
-[ext_resource path="res://assets/sprites/actors/ariko/trick_2.png" type="Texture" id=56]
-[ext_resource path="res://assets/sprites/actors/ariko/trick_3.png" type="Texture" id=57]
-[ext_resource path="res://assets/sprites/actors/ariko/walk.png" type="Texture" id=58]
-[ext_resource path="res://assets/sprites/actors/ariko/one_hand_out.png" type="Texture" id=59]
+[ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=50]
+[ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=51]
+[ext_resource path="res://assets/particles/JumpDust.tscn" type="PackedScene" id=52]
+[ext_resource path="res://assets/particles/FootstepsLaunch.tscn" type="PackedScene" id=53]
+[ext_resource path="res://assets/particles/FootstepsLand.tscn" type="PackedScene" id=54]
+[ext_resource path="res://actor_framework/PivotTransform.tscn" type="PackedScene" id=55]
+[ext_resource path="res://assets/particles/LandDust.tscn" type="PackedScene" id=56]
+[ext_resource path="res://assets/particles/WallrunGrind.tscn" type="PackedScene" id=57]
+[ext_resource path="res://core/utils/TrailingSprites.tscn" type="PackedScene" id=58]
+[ext_resource path="res://actors/ariko/BasicKnifePivot.tscn" type="PackedScene" id=59]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -85,7 +85,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 1 ) ]
+"values": [ ExtResource( 33 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:normal_map")
@@ -97,7 +97,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 19 ) ]
+"values": [ ExtResource( 43 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Sprite:vframes")
@@ -174,7 +174,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 37 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -186,7 +186,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 18 ) ]
+"values": [ ExtResource( 15 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -408,7 +408,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 12 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:vframes")
@@ -627,7 +627,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ), ExtResource( 37 ) ]
+"values": [ ExtResource( 34 ), ExtResource( 39 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -639,7 +639,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 23 ), ExtResource( 36 ) ]
+"values": [ ExtResource( 48 ), ExtResource( 2 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -794,7 +794,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 1 ) ]
+"values": [ ExtResource( 33 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -806,7 +806,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 19 ) ]
+"values": [ ExtResource( 43 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -1026,7 +1026,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 10 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:vframes")
@@ -1148,7 +1148,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 21 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("RightHandWeapon:position")
@@ -1261,7 +1261,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 10 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -1273,7 +1273,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 21 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -1482,7 +1482,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 26 ) ]
+"values": [ ExtResource( 13 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:vframes")
@@ -1705,7 +1705,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 38 ) ]
+"values": [ ExtResource( 29 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -1717,7 +1717,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 39 ) ]
+"values": [ ExtResource( 17 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -1842,7 +1842,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 40 ) ]
+"values": [ ExtResource( 18 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -1854,7 +1854,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 41 ) ]
+"values": [ ExtResource( 21 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -1979,7 +1979,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 59 ) ]
+"values": [ ExtResource( 27 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -1991,7 +1991,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 28 ) ]
+"values": [ ExtResource( 35 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -2116,7 +2116,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ) ]
+"values": [ ExtResource( 19 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -2128,7 +2128,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 20 ) ]
+"values": [ ExtResource( 36 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -2382,7 +2382,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 46 ) ]
+"values": [ ExtResource( 42 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -2394,7 +2394,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 45 ) ]
+"values": [ ExtResource( 41 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -2506,7 +2506,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 47 ) ]
+"values": [ ExtResource( 23 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -2518,7 +2518,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 48 ) ]
+"values": [ ExtResource( 25 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -2630,7 +2630,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 11 ) ]
+"values": [ ExtResource( 31 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -2642,7 +2642,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 22 ) ]
+"values": [ ExtResource( 38 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -2890,7 +2890,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 33 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -2902,7 +2902,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 27 ) ]
+"values": [ ExtResource( 14 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -3150,7 +3150,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 30 ) ]
+"values": [ ExtResource( 16 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -3162,7 +3162,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 24 ) ]
+"values": [ ExtResource( 8 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -3310,7 +3310,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 31 ) ]
+"values": [ ExtResource( 20 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -3667,7 +3667,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 11 ) ]
+"values": [ ExtResource( 31 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -3679,7 +3679,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 22 ) ]
+"values": [ ExtResource( 38 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -3914,7 +3914,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 34 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -3926,7 +3926,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 23 ) ]
+"values": [ ExtResource( 48 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -4146,7 +4146,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 29 ) ]
+"values": [ ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -4158,7 +4158,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 28 ) ]
+"values": [ ExtResource( 35 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -4282,7 +4282,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ ExtResource( 40 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -4294,7 +4294,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 44 ) ]
+"values": [ ExtResource( 22 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -4418,7 +4418,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 25 ) ]
+"values": [ ExtResource( 11 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:vframes")
@@ -4638,7 +4638,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ), ExtResource( 2 ) ]
+"values": [ ExtResource( 10 ), ExtResource( 37 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -4650,7 +4650,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 21 ), ExtResource( 18 ) ]
+"values": [ ExtResource( 9 ), ExtResource( 15 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -4870,7 +4870,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 55 ) ]
+"values": [ ExtResource( 24 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -5089,7 +5089,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 56 ) ]
+"values": [ ExtResource( 30 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -5309,7 +5309,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 57 ) ]
+"values": [ ExtResource( 6 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -5516,7 +5516,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 35 ) ]
+"values": [ ExtResource( 28 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -5528,7 +5528,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 34 ) ]
+"values": [ ExtResource( 4 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -5652,7 +5652,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 35 ) ]
+"values": [ ExtResource( 28 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -5664,7 +5664,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 34 ) ]
+"values": [ ExtResource( 4 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -5764,7 +5764,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 58 ) ]
+"values": [ ExtResource( 26 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -5776,7 +5776,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 28 ) ]
+"values": [ ExtResource( 35 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -5901,7 +5901,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 52 ) ]
+"values": [ ExtResource( 44 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:normal_map")
@@ -5913,7 +5913,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 20 ) ]
+"values": [ ExtResource( 36 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:vframes")
@@ -6151,7 +6151,7 @@ tracks/20/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 54 )
+"stream": ExtResource( 1 )
 } ],
 "times": PoolRealArray( 0 )
 }
@@ -6179,7 +6179,7 @@ colors = PoolColorArray( 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1 )
 radius = 30.0
 height = 100.0
 
-[node name="Pivot" instance=ExtResource( 9 )]
+[node name="Pivot" instance=ExtResource( 47 )]
 z_index = 1
 sub_pivot_transforms = [ NodePath("RightHandWeapon") ]
 
@@ -6244,37 +6244,37 @@ autostart = false
 
 [node name="Sprite" type="Sprite" parent="." index="3"]
 scale = Vector2( 4, 4 )
-texture = ExtResource( 1 )
-normal_map = ExtResource( 19 )
+texture = ExtResource( 33 )
+normal_map = ExtResource( 43 )
 offset = Vector2( 0, -29 )
 hframes = 8
 
-[node name="TrailingSprites" parent="Sprite" index="0" instance=ExtResource( 12 )]
+[node name="TrailingSprites" parent="Sprite" index="0" instance=ExtResource( 58 )]
 scale = Vector2( 0.25, 0.25 )
 active_animations = [ "dash" ]
 number_of_sprites = 4
 
-[node name="FootstepsLand" parent="." index="4" instance=ExtResource( 13 )]
-particles = ExtResource( 16 )
+[node name="FootstepsLand" parent="." index="4" instance=ExtResource( 51 )]
+particles = ExtResource( 54 )
 
-[node name="FootstepsLaunch" parent="." index="5" instance=ExtResource( 13 )]
-particles = ExtResource( 17 )
+[node name="FootstepsLaunch" parent="." index="5" instance=ExtResource( 51 )]
+particles = ExtResource( 53 )
 
-[node name="JumpDust" parent="." index="6" instance=ExtResource( 13 )]
-particles = ExtResource( 14 )
+[node name="JumpDust" parent="." index="6" instance=ExtResource( 51 )]
+particles = ExtResource( 52 )
 
-[node name="LandDust" parent="." index="7" instance=ExtResource( 13 )]
-particles = ExtResource( 15 )
+[node name="LandDust" parent="." index="7" instance=ExtResource( 51 )]
+particles = ExtResource( 56 )
 
-[node name="DeathExplosion" parent="." index="8" instance=ExtResource( 13 )]
-particles = ExtResource( 4 )
+[node name="DeathExplosion" parent="." index="8" instance=ExtResource( 51 )]
+particles = ExtResource( 46 )
 
-[node name="WallrunParticles" parent="." index="9" instance=ExtResource( 51 )]
+[node name="WallrunParticles" parent="." index="9" instance=ExtResource( 57 )]
 position = Vector2( -80, -120 )
 emitting = false
 
-[node name="GrindSfx" parent="." index="10" instance=ExtResource( 53 )]
-stream = ExtResource( 54 )
+[node name="GrindSfx" parent="." index="10" instance=ExtResource( 45 )]
+stream = ExtResource( 1 )
 random_pitch_low = 0.96
 random_pitch_high = 1.04
 
@@ -6283,38 +6283,38 @@ position = Vector2( 0, -230.039 )
 
 [node name="Weapons" type="Node2D" parent="." index="12"]
 
-[node name="Hurtbox" parent="." index="13" instance=ExtResource( 42 )]
+[node name="Hurtbox" parent="." index="13" instance=ExtResource( 50 )]
 position = Vector2( 0, -110 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 35 )
 
-[node name="RightHandWeapon" parent="." index="14" instance=ExtResource( 50 )]
+[node name="RightHandWeapon" parent="." index="14" instance=ExtResource( 55 )]
 visible = false
 position = Vector2( -24, -48 )
 rotation = 0.261799
 
-[node name="BasicKnifePivot" parent="RightHandWeapon" index="0" instance=ExtResource( 10 )]
+[node name="BasicKnifePivot" parent="RightHandWeapon" index="0" instance=ExtResource( 59 )]
 
-[node name="LeftHandWeapon" parent="." index="15" instance=ExtResource( 50 )]
+[node name="LeftHandWeapon" parent="." index="15" instance=ExtResource( 55 )]
 visible = false
 position = Vector2( 2.38421e-07, -112 )
 rotation = 3.31613
 scale = Vector2( 1, -1 )
 z_index = -1
 
-[node name="BasicKnifePivot" parent="LeftHandWeapon" index="0" instance=ExtResource( 10 )]
+[node name="BasicKnifePivot" parent="LeftHandWeapon" index="0" instance=ExtResource( 59 )]
 
-[node name="RightHand" parent="." index="16" instance=ExtResource( 50 )]
+[node name="RightHand" parent="." index="16" instance=ExtResource( 55 )]
 position = Vector2( -22, -66 )
-[connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_changed" from="." to="Trail" method="stop"]
+[connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_started" from="." to="WallrunTrail" method="start"]
 [connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_started" from="." to="WallrunTrail" method="start"]
 [connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]
 
 [editable path="Hurtbox"]

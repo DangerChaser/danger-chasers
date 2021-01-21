@@ -1,0 +1,148 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/sfx/grinding.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/sprites/actors/time_dragon/hand.png" type="Texture" id=2]
+[ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=45]
+[ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=47]
+[ext_resource path="res://vfx/Trail.tscn" type="PackedScene" id=49]
+[ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=50]
+[ext_resource path="res://assets/particles/WallrunGrind.tscn" type="PackedScene" id=57]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("WallrunParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "slam_down"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "swipe"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("WallrunParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("WallrunParticles/GrindSfx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 936, 400 )
+
+[node name="Pivot" instance=ExtResource( 47 )]
+z_index = 1
+
+[node name="AnimationPlayer" parent="." index="0"]
+autoplay = "SETUP"
+anims/SETUP = SubResource( 1 )
+anims/slam_down = SubResource( 5 )
+anims/swipe = SubResource( 4 )
+
+[node name="Trail" parent="." index="1" instance=ExtResource( 49 )]
+width = 42.0
+width_curve = SubResource( 2 )
+default_color = Color( 0.0745098, 0.698039, 0.94902, 1 )
+target_path = NodePath("../Hurtbox")
+active_animations = [ "dash" ]
+trail_length = 15
+autostart = false
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -29 )
+
+[node name="WallrunParticles" parent="." index="3" instance=ExtResource( 57 )]
+position = Vector2( -904, 0 )
+
+[node name="GrindSfx" parent="WallrunParticles" index="0" instance=ExtResource( 45 )]
+stream = ExtResource( 1 )
+random_pitch_low = 0.96
+random_pitch_high = 1.04
+
+[node name="BubblePosition" type="Position2D" parent="." index="4"]
+position = Vector2( 0, -230.039 )
+
+[node name="Weapons" type="Node2D" parent="." index="5"]
+
+[node name="Hurtbox" parent="." index="6" instance=ExtResource( 50 )]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource( 3 )
+[connection signal="animation_changed" from="." to="Trail" method="stop"]
+[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_started" from="." to="Trail" method="start"]
+
+[editable path="Hurtbox"]

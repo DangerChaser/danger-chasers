@@ -145,6 +145,8 @@ func take_damage(base_damage : int, duration := 0.0, force := 0.0, mass := 1.0, 
 	var current_state = state_machine.get_current_state()
 	current_state.take_damage(args)
 	
+	if stats.buffs.has("NoHitstun"):
+		return
 	if hitstun_duration > 0.0:
 		pause()
 		yield(get_tree().create_timer(hitstun_duration), "timeout")

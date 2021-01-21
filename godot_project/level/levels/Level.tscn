@@ -3,7 +3,8 @@
 [ext_resource path="res://level/Level.gd" type="Script" id=1]
 [ext_resource path="res://core/SpawnPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/MusicChangeTrigger.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/ariko/Ariko.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actors/Ariko.tscn" type="PackedScene" id=5]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

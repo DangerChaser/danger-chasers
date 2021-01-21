@@ -1,0 +1,378 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=2]
+[ext_resource path="res://common/particles/warning_mark/WarningMarkRightArrow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/particles/BlueSlash.tscn" type="PackedScene" id=5]
+[ext_resource path="res://common/particles/warning_mark/WarningArea.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "slam_down"
+length = 6.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 4.6, 4.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "can_register_input"
+}, {
+"args": [  ],
+"method": "can_cancel_animation"
+}, {
+"args": [  ],
+"method": "can_attack"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "swipe"
+length = 3.0
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 768, 256 )
+
+[sub_resource type="RectangleShape2D" id=5]
+resource_local_to_scene = true
+extents = Vector2( 2176, 416 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("ImpactDamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "attack"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("ImpactDamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3.5, 3.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("DamageSource:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.5, 3.5 ),
+"transitions": PoolRealArray( 1, 6.9644, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -1536 ), Vector2( 0, -1536 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=8]
+resource_local_to_scene = true
+extents = Vector2( 544, 768 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "SETUP"
+tracks/0/type = "method"
+tracks/0/path = NodePath("DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "attack"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("WarningArea")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+
+[node name="DreamDragonSlamDownAndSwipe" instance=ExtResource( 1 )]
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/SETUP = SubResource( 1 )
+anims/slam_down = SubResource( 2 )
+anims/swipe = SubResource( 3 )
+
+[node name="Attacks" parent="Pivot" index="0"]
+can_loop = true
+grounded = false
+
+[node name="SlamDown" parent="Pivot/Attacks" index="0" instance=ExtResource( 4 )]
+actor_animation = "slam_down"
+weapon_animation = "slam_down"
+
+[node name="DamageSource" parent="Pivot/Attacks/SlamDown" index="0" instance=ExtResource( 2 )]
+position = Vector2( 0, -1536 )
+hit_particles = ExtResource( 5 )
+damage = 8
+delay_milliseconds = 2
+screen_shake_amplitude = 42.0
+screen_shake_duration = 0.4
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/SlamDown/DamageSource" index="0"]
+position = Vector2( -1248, 0 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pivot/Attacks/SlamDown/DamageSource" index="1"]
+position = Vector2( 1312, 0 )
+shape = SubResource( 4 )
+disabled = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ImpactDamageSource" parent="Pivot/Attacks/SlamDown" index="1" instance=ExtResource( 2 )]
+hit_particles = ExtResource( 5 )
+damage = 8
+delay_milliseconds = 2
+screen_shake_amplitude = 42.0
+screen_shake_duration = 0.4
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/SlamDown/ImpactDamageSource" index="0"]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="AnimationPlayer" parent="Pivot/Attacks/SlamDown" index="2"]
+anims/SETUP = SubResource( 6 )
+anims/attack = SubResource( 7 )
+
+[node name="Swipe" parent="Pivot/Attacks" index="1" instance=ExtResource( 4 )]
+actor_animation = "swipe"
+weapon_animation = "swipe"
+
+[node name="WarningArea" parent="Pivot/Attacks/Swipe" index="0" instance=ExtResource( 8 )]
+position = Vector2( 1024, 0 )
+
+[node name="WarningMarkRightArrow" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="0" instance=ExtResource( 3 )]
+position = Vector2( -1024, -768 )
+
+[node name="WarningMarkRightArrow2" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="1" instance=ExtResource( 3 )]
+position = Vector2( -1024, -512 )
+
+[node name="WarningMarkRightArrow3" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="2" instance=ExtResource( 3 )]
+position = Vector2( -1024, -256 )
+
+[node name="WarningMarkRightArrow4" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="3" instance=ExtResource( 3 )]
+position = Vector2( -1024, 0 )
+
+[node name="WarningMarkRightArrow5" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="4" instance=ExtResource( 3 )]
+position = Vector2( -1024, -1024 )
+
+[node name="WarningMarkRightArrow6" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="5" instance=ExtResource( 3 )]
+position = Vector2( -1024, -1280 )
+
+[node name="WarningMarkRightArrow7" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="6" instance=ExtResource( 3 )]
+position = Vector2( -1024, -1536 )
+
+[node name="WarningMarkRightArrow8" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="7" instance=ExtResource( 3 )]
+position = Vector2( -768, -768 )
+
+[node name="WarningMarkRightArrow9" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="8" instance=ExtResource( 3 )]
+position = Vector2( -768, -512 )
+
+[node name="WarningMarkRightArrow10" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="9" instance=ExtResource( 3 )]
+position = Vector2( -768, -256 )
+
+[node name="WarningMarkRightArrow11" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="10" instance=ExtResource( 3 )]
+position = Vector2( -768, 0 )
+
+[node name="WarningMarkRightArrow12" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="11" instance=ExtResource( 3 )]
+position = Vector2( -768, -1024 )
+
+[node name="WarningMarkRightArrow13" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="12" instance=ExtResource( 3 )]
+position = Vector2( -768, -1280 )
+
+[node name="WarningMarkRightArrow14" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="13" instance=ExtResource( 3 )]
+position = Vector2( -768, -1536 )
+
+[node name="WarningMarkRightArrow15" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="14" instance=ExtResource( 3 )]
+position = Vector2( -512, -768 )
+
+[node name="WarningMarkRightArrow16" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="15" instance=ExtResource( 3 )]
+position = Vector2( -512, -512 )
+
+[node name="WarningMarkRightArrow17" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="16" instance=ExtResource( 3 )]
+position = Vector2( -512, -256 )
+
+[node name="WarningMarkRightArrow18" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="17" instance=ExtResource( 3 )]
+position = Vector2( -512, 0 )
+
+[node name="WarningMarkRightArrow19" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="18" instance=ExtResource( 3 )]
+position = Vector2( -512, -1024 )
+
+[node name="WarningMarkRightArrow20" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="19" instance=ExtResource( 3 )]
+position = Vector2( -512, -1280 )
+
+[node name="WarningMarkRightArrow21" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="20" instance=ExtResource( 3 )]
+position = Vector2( -512, -1536 )
+
+[node name="WarningMarkRightArrow22" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="21" instance=ExtResource( 3 )]
+position = Vector2( -256, -768 )
+
+[node name="WarningMarkRightArrow23" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="22" instance=ExtResource( 3 )]
+position = Vector2( -256, -512 )
+
+[node name="WarningMarkRightArrow24" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="23" instance=ExtResource( 3 )]
+position = Vector2( -256, -256 )
+
+[node name="WarningMarkRightArrow25" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="24" instance=ExtResource( 3 )]
+position = Vector2( -256, 0 )
+
+[node name="WarningMarkRightArrow26" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="25" instance=ExtResource( 3 )]
+position = Vector2( -256, -1024 )
+
+[node name="WarningMarkRightArrow27" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="26" instance=ExtResource( 3 )]
+position = Vector2( -256, -1280 )
+
+[node name="WarningMarkRightArrow28" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="27" instance=ExtResource( 3 )]
+position = Vector2( -256, -1536 )
+
+[node name="WarningMarkRightArrow29" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="28" instance=ExtResource( 3 )]
+position = Vector2( 0, -768 )
+
+[node name="WarningMarkRightArrow30" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="29" instance=ExtResource( 3 )]
+position = Vector2( 0, -512 )
+
+[node name="WarningMarkRightArrow31" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="30" instance=ExtResource( 3 )]
+position = Vector2( 0, -256 )
+
+[node name="WarningMarkRightArrow32" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="31" instance=ExtResource( 3 )]
+
+[node name="WarningMarkRightArrow33" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="32" instance=ExtResource( 3 )]
+position = Vector2( 0, -1024 )
+
+[node name="WarningMarkRightArrow34" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="33" instance=ExtResource( 3 )]
+position = Vector2( 0, -1280 )
+
+[node name="WarningMarkRightArrow35" parent="Pivot/Attacks/Swipe/WarningArea/Marks" index="34" instance=ExtResource( 3 )]
+position = Vector2( 0, -1536 )
+
+[node name="DamageSource" parent="Pivot/Attacks/Swipe" index="1" instance=ExtResource( 2 )]
+position = Vector2( 32, -768 )
+hit_particles = ExtResource( 5 )
+damage = 15
+delay_milliseconds = 2
+screen_shake_amplitude = 42.0
+screen_shake_duration = 0.4
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/Swipe/DamageSource" index="0"]
+shape = SubResource( 8 )
+
+[node name="AnimationPlayer" parent="Pivot/Attacks/Swipe" index="2"]
+anims/SETUP = SubResource( 9 )
+anims/attack = SubResource( 10 )
+
+[editable path="Pivot/Attacks/SlamDown"]
+
+[editable path="Pivot/Attacks/SlamDown/DamageSource"]
+
+[editable path="Pivot/Attacks/SlamDown/ImpactDamageSource"]
+
+[editable path="Pivot/Attacks/Swipe"]
+
+[editable path="Pivot/Attacks/Swipe/WarningArea"]
+
+[editable path="Pivot/Attacks/Swipe/DamageSource"]

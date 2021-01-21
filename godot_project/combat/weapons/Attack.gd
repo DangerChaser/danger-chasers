@@ -32,6 +32,8 @@ func _ready() -> void:
 		effect.attack = self
 	if has_node("DamageSource"):
 		$DamageSource.connect("hit_confirmed_no_actor", self, "emit_signal", ["hit_confirmed"])
+	if $AnimationPlayer.has_animation("SETUP"):
+		$AnimationPlayer.play("SETUP")
 
 
 func effect_finished(next_state:="", args:={}):

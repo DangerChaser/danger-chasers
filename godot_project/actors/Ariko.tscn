@@ -12,7 +12,7 @@
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=11]
 [ext_resource path="res://actor_framework/DropThroughArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actor_framework/WallRunScanner.tscn" type="PackedScene" id=13]
-[ext_resource path="res://actors/ariko/ArikoPivot.tscn" type="PackedScene" id=14]
+[ext_resource path="res://actor_pivots/ArikoPivot.tscn" type="PackedScene" id=14]
 [ext_resource path="res://actor_framework/player/states/Idle.tscn" type="PackedScene" id=15]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=16]
 [ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=17]
@@ -22,6 +22,7 @@
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=21]
 [ext_resource path="res://actors/ariko/weapons/Tricks.tscn" type="PackedScene" id=22]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=23]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.3801

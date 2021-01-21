@@ -27,18 +27,6 @@
 [ext_resource path="res://assets/sprites/actors/direwolf/growl_normal.png" type="Texture" id=26]
 [ext_resource path="res://assets/sprites/actors/direwolf/run.png" type="Texture" id=27]
 
-
-
-
-
-
-
-
-
-
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
@@ -1015,7 +1003,6 @@ anims/walk = SubResource( 12 )
 next/jump = "air"
 
 [node name="TrailingSprites" parent="." instance=ExtResource( 13 )]
-sprite_path = NodePath("../Sprite")
 active_animations = [ "jump" ]
 
 [node name="Timer" parent="TrailingSprites" index="0"]

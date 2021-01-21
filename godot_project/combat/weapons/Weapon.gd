@@ -105,6 +105,9 @@ func _on_Attacks_attack_started(actor_animation, weapon_animation):
 	animation_player.stop()
 	animation_player.play(weapon_animation)
 	cooldown_timer.start()
+	
+	if not active:
+		return
 	emit_signal("attack_started", actor_animation)
 
 

@@ -409,6 +409,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://core/SpawnPoint.gd"
 }, {
+"base": "Node",
+"class": "Splat",
+"language": "GDScript",
+"path": "res://autoload/Splat.gd"
+}, {
 "base": "MotionState",
 "class": "StaggerState",
 "language": "GDScript",
@@ -565,6 +570,7 @@ _global_script_class_icons={
 "Smoothing2D": "",
 "SpawnGroup": "",
 "SpawnPoint": "",
+"Splat": "",
 "StaggerState": "",
 "State": "",
 "StateMachine": "",
@@ -604,10 +610,6 @@ CutsceneManager="*res://autoload/CutsceneManager.gd"
 QuestManager="*res://autoload/QuestManager.tscn"
 Settings="*res://autoload/Settings.gd"
 DebugWipStuff="*res://DebugWIPStuff.tscn"
-PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
-IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
-UserData="*res://addons/github-integration/scripts/user_data.gd"
-RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 
 [debug]
 
@@ -630,7 +632,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "github-integration", "ridiculous_coding", "smoothing" )
+enabled=PoolStringArray( "ridiculous_coding", "smoothing" )
 
 [importer_defaults]
 

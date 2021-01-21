@@ -9,9 +9,6 @@
 [ext_resource path="res://objects/vehicles/chairs/FrontChairInteractable.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interactable_scripts/menu/ExitInteractable.tscn" type="PackedScene" id=8]
 
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 
@@ -99,8 +96,6 @@ position = Vector2( 864, 800 )
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( 846.587, 927.468 )
 camera_limit_trigger = NodePath("../../Triggers/CameraLimitTrigger")
-transition_out_animation = "left_to_right"
-transition_out_duration = 0.5
 
 [editable path="InitialMusic"]
 
