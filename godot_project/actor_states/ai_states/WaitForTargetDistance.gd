@@ -13,6 +13,10 @@ export var transition_animation := ""
 var transition_out : bool = false
 
 
+func _ready() -> void:
+	duration = max(duration, 0.0001)
+
+
 func _physics_process(delta : float):
 	if transition_out:
 		return
@@ -31,7 +35,6 @@ func _on_Timer_timeout():
 	go_to_next_state()
 
 func pause() -> void:
-	print_debug("a")
 	.pause()
 	timer.paused = true
 

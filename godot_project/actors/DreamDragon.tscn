@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=2]
@@ -6,13 +6,15 @@
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_states/motion/SpawnActor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actor_pivots/TimeDragonPivot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actor_pivots/time_dragon/TimeDragonPivot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=8]
 [ext_resource path="res://weapons/DreamDragonSlamDownAndSwipe.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/DreamDragonShooter.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actor_states/ai_states/PlayAnimation.tscn" type="PackedScene" id=11]
 [ext_resource path="res://weapons/DrillPumpTripleWeapon.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=13]
 [ext_resource path="res://combat/effects/buffs/NoHitstun.tscn" type="PackedScene" id=14]
+[ext_resource path="res://actor_states/ai_states/WaitForTargetDistance.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -33,29 +35,41 @@ position = Vector2( 0, -640 )
 shape = SubResource( 1 )
 disabled = true
 
-[node name="FlyLeftToRight" parent="StateMachine" index="0" instance=ExtResource( 11 )]
-animation = "fly_left_to_right"
-next_state = "OpeningSequence"
-
-[node name="OpeningSequence" parent="StateMachine" index="1" instance=ExtResource( 2 )]
-next_state = "Sequence"
-
-[node name="WaitTime" parent="StateMachine/OpeningSequence" index="0" instance=ExtResource( 13 )]
+[node name="Wait" parent="StateMachine" index="0" instance=ExtResource( 8 )]
 stagger_state = ""
+face_target = false
 
-[node name="Gravity" parent="StateMachine/OpeningSequence/WaitTime" index="2"]
+[node name="Gravity" parent="StateMachine/Wait" index="2"]
 gravity = 0.0
 max_speed = 0.0
 
-[node name="FlyIn" parent="StateMachine/OpeningSequence" index="1" instance=ExtResource( 11 )]
+[node name="FlyIn" parent="StateMachine" index="1" instance=ExtResource( 11 )]
 animation = "fly_in"
+next_state = "WaitForTargetDistance"
 
-[node name="SlamDownAndSwipe" parent="StateMachine/OpeningSequence" index="2" instance=ExtResource( 4 )]
+[node name="WaitForTargetDistance" parent="StateMachine" index="2" instance=ExtResource( 15 )]
+animation = "idle"
+next_state = "OpeningSequence"
+stagger_state = ""
+duration = 0.0
+
+[node name="Gravity" parent="StateMachine/WaitForTargetDistance" index="2"]
+gravity = 0.0
+max_speed = 0.0
+
+[node name="OpeningSequence" parent="StateMachine" index="3" instance=ExtResource( 2 )]
+next_state = "Sequence"
+
+[node name="SlamDownAndSwipe" parent="StateMachine/OpeningSequence" index="0" instance=ExtResource( 4 )]
 weapons = [ ExtResource( 9 ) ]
 stagger = false
 active_after_exit = true
 
-[node name="Sequence" parent="StateMachine" index="2" instance=ExtResource( 2 )]
+[node name="FlyLeftToRight" parent="StateMachine/OpeningSequence" index="1" instance=ExtResource( 11 )]
+animation = "fly_left_to_right"
+next_state = "Sequence"
+
+[node name="Sequence" parent="StateMachine" index="4" instance=ExtResource( 2 )]
 next_state = "Sequence"
 
 [node name="WaitTime" parent="StateMachine/Sequence" index="0" instance=ExtResource( 13 )]
@@ -79,6 +93,13 @@ actor = ExtResource( 10 )
 gravity = 0.0
 max_speed = 0.0
 
+[node name="ActorSpawner" parent="StateMachine/Sequence/SpawnActor/Spawners" index="0"]
+object = null
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
+
 [node name="SpawnActor2" parent="StateMachine/Sequence" index="3" instance=ExtResource( 5 )]
 position = Vector2( -1280, -512 )
 duration = 1.0
@@ -87,6 +108,13 @@ actor = ExtResource( 10 )
 [node name="Gravity" parent="StateMachine/Sequence/SpawnActor2" index="2"]
 gravity = 0.0
 max_speed = 0.0
+
+[node name="ActorSpawner" parent="StateMachine/Sequence/SpawnActor2/Spawners" index="0"]
+object = null
+random_degrees = 0.0
+random_radius = 0.0
+team = "team_2"
+actor_name = ""
 
 [node name="DrillPumpTripleWeapon" parent="StateMachine/Sequence" index="4" instance=ExtResource( 4 )]
 weapons = [ ExtResource( 12 ) ]
@@ -105,12 +133,12 @@ weapons = [ ExtResource( 9 ) ]
 stagger = false
 active_after_exit = true
 
-[node name="Stagger" parent="StateMachine" index="3" instance=ExtResource( 6 )]
+[node name="Stagger" parent="StateMachine" index="5" instance=ExtResource( 6 )]
 look_away_from_move_direction = false
 next_state = "Sequence"
 keep_staggering = false
 
-[node name="Die" parent="StateMachine" index="4" instance=ExtResource( 1 )]
+[node name="Die" parent="StateMachine" index="6" instance=ExtResource( 1 )]
 
 [node name="Stats" parent="." index="6"]
 max_health = 500
@@ -120,7 +148,9 @@ max_health = 500
 [node name="TargetPosition1" parent="TargetPositions" index="0"]
 position = Vector2( 0, -64 )
 
-[editable path="StateMachine/OpeningSequence/WaitTime"]
+[editable path="StateMachine/Wait"]
+
+[editable path="StateMachine/WaitForTargetDistance"]
 
 [editable path="StateMachine/Sequence/WaitTime"]
 

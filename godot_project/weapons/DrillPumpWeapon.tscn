@@ -141,7 +141,7 @@ weapon_animation = "pump"
 [node name="MoveWeaponToTargetEffect" parent="Pivot/Attacks/Pump/AdditionalEffects" index="0" instance=ExtResource( 9 )]
 
 [node name="Stab" parent="Pivot/Attacks" index="1" instance=ExtResource( 4 )]
-actor_animation = "inject"
+actor_animation = "pump"
 weapon_animation = "inject"
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/Stab" index="3" instance=ExtResource( 5 )]

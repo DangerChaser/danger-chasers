@@ -454,7 +454,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://vfx/transitions/TransitionColor.gd"
 }, {
-"base": "Label",
+"base": "KeyLabel",
 "class": "TypewriterLabel",
 "language": "GDScript",
 "path": "res://core/typewriter_label/TypewriterLabel.gd"
@@ -606,7 +606,6 @@ ImportData="*res://autoload/ImportData.gd"
 Transition="*res://autoload/Transition.tscn"
 PhysicsLayers="*res://autoload/PhysicsLayers.gd"
 Utilities="*res://autoload/Utilities.gd"
-CutsceneManager="*res://autoload/CutsceneManager.gd"
 QuestManager="*res://autoload/QuestManager.tscn"
 Settings="*res://autoload/Settings.gd"
 DebugWipStuff="*res://DebugWIPStuff.tscn"

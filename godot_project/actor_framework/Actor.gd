@@ -181,3 +181,7 @@ func enable_input() -> void:
 
 func disable_input() -> void:
 	input_enabled = false
+
+
+func change_state(next_state : String, args := {}) -> void:
+	state_machine.change_state(next_state, args)

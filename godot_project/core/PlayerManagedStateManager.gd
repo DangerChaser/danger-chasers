@@ -37,3 +37,9 @@ func enable_activation_scanner() -> void:
 func disable_activation_scanner() -> void:
 	actor = PlayerManager.player
 	actor.activation_scanner.disable()
+
+func show_player_hud() -> void:
+	PlayerManager.show_player_hud()
+
+func hide_player_hud() -> void:
+	PlayerManager.hide_player_hud()

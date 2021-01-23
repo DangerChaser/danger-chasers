@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/sprites/actors/time_dragon/wing.png" type="Texture" id=1]
+[ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=47]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+
+[node name="Pivot" instance=ExtResource( 47 )]
+z_index = 1
+
+[node name="AnimationPlayer" parent="." index="0"]
+autoplay = "SETUP"
+anims/SETUP = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -29 )

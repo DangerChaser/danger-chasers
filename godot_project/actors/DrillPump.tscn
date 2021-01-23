@@ -17,7 +17,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 664, 624 )
+extents = Vector2( 192, 576 )
 
 [node name="DrillPump" groups=[
 "enemies",
@@ -28,13 +28,14 @@ collision_mask = 1
 [node name="Pivot" parent="." index="0" instance=ExtResource( 7 )]
 
 [node name="CollisionBox" parent="." index="1"]
-position = Vector2( -360, -624 )
+position = Vector2( 0, -576 )
 shape = SubResource( 1 )
 
 [node name="Sequence" parent="StateMachine" index="0" instance=ExtResource( 2 )]
 next_state = "Sequence"
 
 [node name="WaitForTargetDistance" parent="StateMachine/Sequence" index="0" instance=ExtResource( 8 )]
+animation = "idle"
 stagger_state = ""
 duration = 2.0
 target_distance = 10000.0
@@ -46,6 +47,7 @@ active_after_exit = true
 
 [node name="SpawnActor" parent="StateMachine/Sequence" index="2" instance=ExtResource( 11 )]
 position = Vector2( 2304, 0 )
+animation = "idle"
 actor = ExtResource( 13 )
 
 [node name="DrillPumpHighLow" parent="StateMachine/Sequence" index="3" instance=ExtResource( 4 )]
@@ -60,6 +62,7 @@ active_after_exit = true
 
 [node name="SpawnActor2" parent="StateMachine/Sequence" index="5" instance=ExtResource( 11 )]
 position = Vector2( 2304, 0 )
+animation = "idle"
 actor = ExtResource( 13 )
 
 [node name="DrillPumpLowHigh" parent="StateMachine/Sequence" index="6" instance=ExtResource( 4 )]

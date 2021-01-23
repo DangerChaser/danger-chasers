@@ -23,7 +23,6 @@
 [ext_resource path="res://actors/ariko/weapons/Tricks.tscn" type="PackedScene" id=22]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=23]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.3801
 height = 113.05

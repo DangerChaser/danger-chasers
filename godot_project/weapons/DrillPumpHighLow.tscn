@@ -422,12 +422,12 @@ position = Vector2( 2720, -104 )
 grounded = false
 
 [node name="Aim" parent="Pivot/Attacks" index="0" instance=ExtResource( 4 )]
-actor_animation = "aim"
+actor_animation = "idle"
 weapon_animation = "aim"
 
 [node name="ShootHigh" parent="Pivot/Attacks" index="1" instance=ExtResource( 10 )]
 position = Vector2( 0, -256 )
-actor_animation = "shoot_high"
+actor_animation = "pump"
 weapon_animation = "shoot_high"
 muzzle_flash = ExtResource( 11 )
 screen_shake_amplitude = 20.0
@@ -451,7 +451,7 @@ object = ExtResource( 12 )
 DRAW_COLOR = Color( 0.0784314, 0.0941176, 1, 1 )
 
 [node name="ShootLow" parent="Pivot/Attacks" index="2" instance=ExtResource( 10 )]
-actor_animation = "shoot_low"
+actor_animation = "pump"
 weapon_animation = "shoot_low"
 muzzle_flash = ExtResource( 11 )
 screen_shake_amplitude = 20.0

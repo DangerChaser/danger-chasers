@@ -2,14 +2,15 @@
 
 [ext_resource path="res://core/typewriter_label/TypewriterLabel.gd" type="Script" id=1]
 
-
 [node name="TypewriterLabel" type="Label"]
 margin_right = 40.0
 margin_bottom = 40.0
 align = 1
 valign = 1
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 bus = "Sfx"
-

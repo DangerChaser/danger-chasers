@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/music/Ruin Valley Act 1.ogg" type="AudioStream" id=1]
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=2]
 [ext_resource path="res://level/levels/tutorial/rooms/MovementIntro.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/levels/tutorial/rooms/DrillPumpMiniboss.tscn" type="PackedScene" id=4]
+[ext_resource path="res://level/levels/tutorial/rooms/DreamDragonBossRoom.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sfx/rain_thunder_ambience.ogg" type="AudioStream" id=6]
+[ext_resource path="res://level/levels/tutorial/rooms/TheTowerBase.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/levels/tutorial/rooms/WallrunIntro.tscn" type="PackedScene" id=9]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -33,8 +34,14 @@ position = Vector2( 8960, -256 )
 [node name="DrillPumpMiniboss" parent="Rooms" index="2" instance=ExtResource( 4 )]
 position = Vector2( 26624, 1280 )
 
+[node name="DreamDragonBossRoom" parent="Rooms" index="3" instance=ExtResource( 5 )]
+position = Vector2( 46016, 3840 )
+
+[node name="TheTowerBase" parent="Rooms" index="4" instance=ExtResource( 7 )]
+position = Vector2( 40448, -2560 )
+
 [node name="0" parent="PlayerSpawnPoints" index="0"]
-position = Vector2( -10944, -1792 )
+position = Vector2( 24608, -3104 )
 camera_limit_trigger = NodePath("../../Rooms/MovementIntro/Triggers/CameraLimitTrigger")
 
 [editable path="InitialMusic"]

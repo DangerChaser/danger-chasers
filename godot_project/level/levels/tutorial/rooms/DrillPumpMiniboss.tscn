@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/tilesets/orange_map.tres" type="TileSet" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 128, 640 )
+extents = Vector2( 128, 1152 )
 
 [sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
