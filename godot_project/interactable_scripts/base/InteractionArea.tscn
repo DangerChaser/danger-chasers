@@ -17,6 +17,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+bus = "Sfx"
 script = ExtResource( 3 )
 
 [node name="Pin" parent="." instance=ExtResource( 2 )]

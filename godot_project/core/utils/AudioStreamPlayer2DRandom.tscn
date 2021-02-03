@@ -5,4 +5,5 @@
 [node name="AudioStreamPlayer2DRandom" type="AudioStreamPlayer2D"]
 max_distance = 6000.0
 attenuation = 0.5
+bus = "Sfx"
 script = ExtResource( 1 )

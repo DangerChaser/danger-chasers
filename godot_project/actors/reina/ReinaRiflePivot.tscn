@@ -3,8 +3,6 @@
 [ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/actors/reina/rifle_reina.png" type="Texture" id=3]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
@@ -29,3 +27,5 @@ anims/SETUP = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="." index="1"]
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
+
+[node name="Weapons" type="Node2D" parent="." index="2"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/sprites/objects/nova_fortress_piston_clock_normal.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/objects/nova_fortress_piston_clock.png" type="Texture" id=2]
+[ext_resource path="res://assets/particles/SteamExpel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://core/utils/AudioStreamPlayer2DRandom.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sfx/metal_clang_2.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sfx/metal_clang_1.wav" type="AudioStream" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "loop"
+length = 2.4
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.6, 0.7, 0.8, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.7, 1.75, 1.8, 2, 2.1, 2.2, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("SfxParticleSpawner")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("SmallPistonSfx")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("BigPistonSfx")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[node name="NovaFortressPistonClock" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "loop"
+anims/loop = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+normal_map = ExtResource( 1 )
+hframes = 24
+frame = 9
+
+[node name="SfxParticleSpawner" parent="." instance=ExtResource( 4 )]
+position = Vector2( 96, -32 )
+rotation = -1.41023
+object = ExtResource( 3 )
+
+[node name="BigPistonSfx" parent="." instance=ExtResource( 5 )]
+stream = ExtResource( 7 )
+max_distance = 2000.0
+bus = "Sfx"
+
+[node name="SmallPistonSfx" parent="." instance=ExtResource( 5 )]
+stream = ExtResource( 6 )
+max_distance = 2000.0
+bus = "Sfx"

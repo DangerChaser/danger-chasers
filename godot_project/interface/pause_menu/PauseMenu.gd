@@ -16,6 +16,7 @@ onready var menus = [pause_menu, settings_menu, input_menu, audio_menu, graphics
 enum Menus { PAUSE, SETTINGS, INPUT, AUDIO, GRAPHICS, UNPAUSED }
 
 var current_menu
+var can_pause := true
 
 
 func _ready() -> void:
@@ -23,6 +24,9 @@ func _ready() -> void:
 
 
 func pause() -> void:
+	if not can_pause:
+		return
+		
 	get_tree().paused = true
 	$Background.visible = true
 	$PauseSfx.play()
@@ -47,6 +51,9 @@ func pause() -> void:
 
 
 func unpause() -> void:
+	if not can_pause:
+		return
+		
 	$Background.visible = false
 	PlayerManager.enable_input()
 	change_menu(Menus.UNPAUSED)
@@ -54,6 +61,9 @@ func unpause() -> void:
 
 
 func change_menu(new_menu) -> void:
+	if not can_pause:
+		return
+		
 	current_menu = new_menu
 	
 	hide_menus()
@@ -72,6 +82,9 @@ func change_menu(new_menu) -> void:
 
 
 func _input(event : InputEvent) -> void:
+	if not can_pause:
+		return
+	
 	if event.is_action_pressed("pause"):
 		if not get_tree().paused:
 			pause()

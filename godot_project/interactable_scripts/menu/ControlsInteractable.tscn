@@ -6,7 +6,6 @@
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=4]
 [ext_resource path="res://interface/input_mapper/InputMenu.tscn" type="PackedScene" id=5]
 
-
 [sub_resource type="GDScript" id=1]
 script/source = "extends Sprite
 

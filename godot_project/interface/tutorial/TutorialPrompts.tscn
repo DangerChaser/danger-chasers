@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
 [ext_resource path="res://interface/tutorial/Movement.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://interface/tutorial/Jump.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/tutorial/Attack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/tutorial/Wallrun.tscn" type="PackedScene" id=6]
+[ext_resource path="res://interface/tutorial/Interact.tscn" type="PackedScene" id=7]
 
 [node name="TutorialPrompts" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -27,3 +28,5 @@ modulate = Color( 1, 1, 1, 0 )
 [node name="Attack" parent="Prompts" instance=ExtResource( 5 )]
 
 [node name="Wallrun" parent="Prompts" instance=ExtResource( 6 )]
+
+[node name="Interact" parent="Prompts" instance=ExtResource( 7 )]

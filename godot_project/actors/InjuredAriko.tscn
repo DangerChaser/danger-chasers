@@ -1,0 +1,105 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://actor_framework/player/CameraTargetPosition.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/actors/ariko/icons/icon.png" type="Texture" id=3]
+[ext_resource path="res://actor_framework/player/PlayerActor.gd" type="Script" id=4]
+[ext_resource path="res://core/utils/ActivationScanner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actor_states/motion/Air.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interface/target_reticle/TargetReticleHUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actor_framework/DropThroughArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actor_pivots/ArikoPivot.tscn" type="PackedScene" id=14]
+[ext_resource path="res://actor_framework/player/states/Idle.tscn" type="PackedScene" id=15]
+[ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=16]
+[ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=17]
+[ext_resource path="res://actor_states/JobState.tscn" type="PackedScene" id=18]
+[ext_resource path="res://interface/BattleHUD/BattleHUD.tscn" type="PackedScene" id=20]
+[ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=21]
+[ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=23]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 31.3801
+height = 113.05
+
+[sub_resource type="CircleShape2D" id=2]
+resource_local_to_scene = true
+
+[node name="InjuredAriko" groups=[
+"players",
+] instance=ExtResource( 21 )]
+collision_layer = 2
+collision_mask = 225
+script = ExtResource( 4 )
+icon = ExtResource( 3 )
+team = "team_1"
+pause_offscreen = false
+
+[node name="Pivot" parent="." index="0" instance=ExtResource( 14 )]
+
+[node name="CollisionBox" parent="." index="1"]
+position = Vector2( 0, -87.2057 )
+shape = SubResource( 1 )
+
+[node name="VisibilityEnabler2D" parent="." index="2"]
+position = Vector2( 16.26, -21.493 )
+
+[node name="Idle" parent="StateMachine" index="0" instance=ExtResource( 15 )]
+run_animation = "walk"
+
+[node name="MotionSteering" parent="StateMachine/Idle/Motion" index="1"]
+max_speed = 300.0
+
+[node name="Air" parent="StateMachine" index="1" instance=ExtResource( 7 )]
+
+[node name="Stagger" parent="StateMachine" index="2" instance=ExtResource( 16 )]
+next_state = "Idle"
+keep_staggering = false
+
+[node name="Die" parent="StateMachine" index="3" instance=ExtResource( 23 )]
+queue_free_on_die = false
+
+[node name="Job" parent="StateMachine" index="4" instance=ExtResource( 18 )]
+
+[node name="Wait" parent="StateMachine" index="5" instance=ExtResource( 17 )]
+face_target = false
+
+[node name="Stats" parent="." index="6"]
+max_health = 100
+
+[node name="TargetPosition1" parent="TargetPositions" index="0"]
+position = Vector2( 0, -110.578 )
+
+[node name="CameraTargetPosition" type="Node2D" parent="." index="9"]
+position = Vector2( 125, 0 )
+script = ExtResource( 2 )
+
+[node name="PlayerHUDLayer" type="CanvasLayer" parent="." index="10"]
+layer = 100
+
+[node name="BattleHUD" parent="PlayerHUDLayer" index="0" instance=ExtResource( 20 )]
+
+[node name="TargetReticleHUD" parent="PlayerHUDLayer" index="1" instance=ExtResource( 10 )]
+mouse_filter = 2
+
+[node name="DropThroughArea" parent="." index="11" instance=ExtResource( 12 )]
+
+[node name="ActivationScanner" parent="." index="12" instance=ExtResource( 6 )]
+position = Vector2( 0, -110.875 )
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" parent="ActivationScanner" index="0"]
+shape = SubResource( 2 )
+disabled = true
+[connection signal="ticked" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_ticked"]
+[connection signal="vial_finished" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_vial_finished"]
+[connection signal="vial_started" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="open_health_vial"]
+
+[editable path="StateMachine/Idle"]
+
+[editable path="StateMachine/Idle/Motion"]
+
+[editable path="Stats"]
+
+[editable path="PlayerHUDLayer/BattleHUD"]
+
+[editable path="ActivationScanner"]

@@ -17,8 +17,8 @@ func _draw() -> void:
 
 
 func spawn(actor) -> void:
-	assert(camera_limit_trigger)
-	get_node(camera_limit_trigger).change()
+	if camera_limit_trigger:
+		get_node(camera_limit_trigger).change()
 	
 	GameManager.current_camera.global_position = global_position
 	actor.global_position = global_position

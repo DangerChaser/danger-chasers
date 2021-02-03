@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actor_states/motion/Scan.gd" type="Script" id=2]
+[ext_resource path="res://core/utils/AudioStreamPlayer2DRandom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sfx/alarm.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/beep_1000hz.wav" type="AudioStream" id=5]
+[ext_resource path="res://core/ray_cast_line_2d/RayCastLine2D.tscn" type="PackedScene" id=6]
+[ext_resource path="res://core/utils/CollisionTrigger.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sfx/beep_short.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sfx/beep.wav" type="AudioStream" id=9]
+
+[sub_resource type="RayShape2D" id=1]
+length = 5000.0
+
+[node name="Scan" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="MotionSteering" parent="." index="1"]
+max_speed = 0.0
+
+[node name="Gravity" parent="." index="2"]
+gravity = 0.0
+
+[node name="Timer" type="Timer" parent="." index="3"]
+one_shot = true
+
+[node name="LockOnTimer" type="Timer" parent="." index="4"]
+one_shot = true
+
+[node name="ActiveTimer" type="Timer" parent="." index="5"]
+one_shot = true
+
+[node name="Tween" type="Tween" parent="." index="6"]
+
+[node name="ScanSfx" parent="." index="7" instance=ExtResource( 3 )]
+stream = ExtResource( 8 )
+
+[node name="LockOnSfx" parent="." index="8" instance=ExtResource( 3 )]
+stream = ExtResource( 5 )
+
+[node name="TargetConfirmedSfx" parent="." index="9" instance=ExtResource( 3 )]
+stream = ExtResource( 4 )
+
+[node name="TargetLostSfx" parent="." index="10" instance=ExtResource( 3 )]
+stream = ExtResource( 9 )
+
+[node name="RayCastLine2DVisuals" parent="." index="11" instance=ExtResource( 6 )]
+ray_cast_collide = true
+
+[node name="CollisionTrigger" parent="." index="12" instance=ExtResource( 7 )]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="CollisionTrigger" index="0"]
+rotation = -1.5708
+shape = SubResource( 1 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="LockOnTimer" to="." method="_on_LockOnTimer_timeout"]
+[connection signal="timeout" from="ActiveTimer" to="." method="_on_ActiveTimer_timeout"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="area_entered" from="CollisionTrigger" to="." method="_on_CollisionTrigger_area_entered"]
+[connection signal="body_entered" from="CollisionTrigger" to="." method="_on_CollisionTrigger_body_entered"]
+
+[editable path="CollisionTrigger"]

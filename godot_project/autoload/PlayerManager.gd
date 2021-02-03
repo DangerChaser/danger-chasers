@@ -36,7 +36,9 @@ func disable_input() -> void:
 		player.input_enabled = false
 
 func show_player_hud() -> void:
-	player.player_hud.visible = true
+	if player:
+		player.player_hud.visible = true
 
 func hide_player_hud() -> void:
-	player.player_hud.visible = false
+	if player:
+		player.player_hud.visible = false

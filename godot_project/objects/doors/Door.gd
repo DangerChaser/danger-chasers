@@ -1,10 +1,16 @@
 extends Node2D
 class_name Door
 
-var opened : bool = false
+export var opened : bool = false
 
 func _ready() -> void:
-	close()
+	if opened:
+		$StaticBody2D/CollisionShape2D.disabled = true
+		$AnimationPlayer.play("open_loop")
+	else:
+		$StaticBody2D/CollisionShape2D.disabled = false
+		$AnimationPlayer.play("close_loop")
+
 
 func interact() -> void:
 	if opened:
@@ -16,11 +22,19 @@ func interact() -> void:
 
 func open() -> void:
 	$AnimationPlayer.play("open")
-	$OpenSfx.play()
 	opened = true
 
 
 func close() -> void:
 	$AnimationPlayer.play("close")
-	$CloseSfx.play()
 	opened = false
+
+
+func assert_closed() -> void:
+	$StaticBody2D/CollisionShape2D.disabled = false
+	$AnimationPlayer.play("close_loop")
+
+
+func assert_opened() -> void:
+	$StaticBody2D/CollisionShape2D.disabled = true
+	$AnimationPlayer.play("open_loop")

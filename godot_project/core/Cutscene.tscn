@@ -1,23 +1,69 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://core/Cutscene.gd" type="Script" id=4]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "0"
 
-[sub_resource type="Animation" id=1]
-resource_name = "SETUP"
+[sub_resource type="Animation" id=2]
 length = 0.001
 
-[sub_resource type="Animation" id=2]
-resource_name = "end"
+[sub_resource type="Animation" id=3]
+
+[sub_resource type="Animation" id=4]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "fade_in_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "SETUP"
-anims/0 = SubResource( 3 )
-anims/SETUP = SubResource( 1 )
-anims/end = SubResource( 2 )
+anims/0 = SubResource( 1 )
+anims/SETUP = SubResource( 2 )
+anims/end = SubResource( 3 )
+
+[node name="SkipCutsceneFade" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SkipCutsceneFade"]
+autoplay = "SETUP"
+anims/SETUP = SubResource( 4 )
+anims/fade_in_out = SubResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="SkipCutsceneFade"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

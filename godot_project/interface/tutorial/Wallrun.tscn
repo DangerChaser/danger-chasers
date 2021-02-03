@@ -58,8 +58,8 @@ key = "WALLRUN"
 
 [node name="DescriptionLabel" parent="." instance=ExtResource( 1 )]
 anchor_bottom = 0.0
-margin_top = 288.0
-margin_bottom = 302.0
+margin_top = 320.0
+margin_bottom = 334.0
 text = "While next to a wall, jump."
 align = 1
 valign = 1
@@ -69,9 +69,9 @@ key = "WALLRUN_PROMPT_HELPER"
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -64.0
-margin_top = 448.0
+margin_top = 512.0
 margin_right = 64.0
-margin_bottom = 576.0
+margin_bottom = 640.0
 rect_min_size = Vector2( 128, 128 )
 rect_rotation = -90.0
 texture = ExtResource( 2 )

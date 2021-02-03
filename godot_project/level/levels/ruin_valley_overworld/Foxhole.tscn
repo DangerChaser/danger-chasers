@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sfx/rain_thunder_ambience.ogg" type="AudioStream" id=1]
+[ext_resource path="res://level/levels/ruin_valley_overworld/rooms/Foxhole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+
+[node name="Foxhole" instance=ExtResource( 3 )]
+level_name_key = "RUIN_VALLEY"
+skybox_color = Color( 0.454902, 0.890196, 0.960784, 1 )
+
+[node name="CollisionShape2D" parent="InitialMusic" index="0"]
+shape = SubResource( 1 )
+
+[node name="Ambience" parent="." index="1"]
+stream = ExtResource( 1 )
+
+[node name="Foxhole" parent="Rooms" index="0" instance=ExtResource( 2 )]
+
+[node name="0" parent="PlayerSpawnPoints" index="0"]
+position = Vector2( -3840, -256 )
+
+[editable path="InitialMusic"]
+
+[editable path="Rooms/Foxhole"]
+
+[editable path="PlayerSpawnPoints/0"]

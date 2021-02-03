@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/objects/nova_fortress_ceiling_pipe_center_normal.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/objects/nova_fortress_ceiling_pipe_center.png" type="Texture" id=2]
+
+[node name="NovaFortressCeilingPipeCenter" type="Sprite"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+normal_map = ExtResource( 1 )

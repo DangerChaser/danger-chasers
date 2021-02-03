@@ -17,7 +17,7 @@ func _ready():
 		var max_lifetime = 0.0
 		for particle in $Pivot.get_children():
 			max_lifetime = max(max_lifetime, particle.lifetime)
-		timer.wait_time = max_lifetime
+		timer.wait_time = max_lifetime + 1.0
 		add_child(timer)
 
 

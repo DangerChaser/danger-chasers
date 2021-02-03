@@ -13,6 +13,9 @@ func _ready() -> void:
 	original_volume = volume_db
 	tween.connect("tween_completed", self, "_on_tween_completed")
 	add_child(tween)
+	
+	if autoplay:
+		play()
 
 
 func play(var from_position=0.0):

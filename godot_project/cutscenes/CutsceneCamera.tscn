@@ -5,7 +5,6 @@
 
 [node name="CutsceneCamera" type="Camera2D"]
 script = ExtResource( 1 )
-initial_lerp = 0.02
 
 [node name="Tween" type="Tween" parent="."]
 

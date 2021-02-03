@@ -1,0 +1,826 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://level/CameraLimitTrigger.tscn" type="PackedScene" id=1]
+[ext_resource path="res://level/levels/Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/tilesets/orange_map.tres" type="TileSet" id=3]
+[ext_resource path="res://cutscenes/NovaFortressPrologueCutscene1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sfx/metro_subway_ambience.ogg" type="AudioStream" id=5]
+[ext_resource path="res://objects/nova_fortress/NovaFortressAlarm.tscn" type="PackedScene" id=6]
+[ext_resource path="res://core/utils/CollisionTrigger.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interface/tutorial/TutorialPrompts.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/nova_fortress/NovaFortressCeilingLight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/nova_fortress/NovaFortressContainmentBayLabel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/nova_fortress/NovaFortressCeilingPipeCenter.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/nova_fortress/NovaFortress2xCeilingPipeLeft.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/nova_fortress/NovaFortressCeilingPipeLeft.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/nova_fortress/NovaFortress2xCeilingPipeCenter.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/nova_fortress/NovaFortress2xCeilingPipeRight.tscn" type="PackedScene" id=15]
+[ext_resource path="res://objects/nova_fortress/NovaFortressCeilingPipeRight.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/sprites/tilesets/nova_fortress_pattern_background.png" type="Texture" id=17]
+[ext_resource path="res://objects/nova_fortress/NovaFortressDiagonalPipe45.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/nova_fortress/NovaFortressDiagonalPipe45EndTop.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/nova_fortress/NovaFortressDiagonalPipe45End.tscn" type="PackedScene" id=20]
+[ext_resource path="res://objects/nova_fortress/NovaFortressPistonClock.tscn" type="PackedScene" id=21]
+[ext_resource path="res://objects/nova_fortress/NovaFortressBlastDoorLight.tscn" type="PackedScene" id=22]
+[ext_resource path="res://actors/NovaFortressCeilingTurret.tscn" type="PackedScene" id=23]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="TileSet" id=5]
+0/name = "nova_fortress_pattern_background.png 0"
+0/texture = ExtResource( 17 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "nova_fortress_pattern_background.png 1"
+1/texture = ExtResource( 17 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 64, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "nova_fortress_pattern_background.png 2"
+2/texture = ExtResource( 17 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 128, 0, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 3 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "nova_fortress_pattern_background.png 3"
+3/texture = ExtResource( 17 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 192, 0, 64, 64 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 4 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 128, 1408 )
+
+[sub_resource type="RectangleShape2D" id=7]
+resource_local_to_scene = true
+extents = Vector2( 128, 896 )
+
+[node name="NovaFortressPrologue" instance=ExtResource( 2 )]
+
+[node name="TutorialPrompts" parent="." index="0" instance=ExtResource( 8 )]
+
+[node name="RoomAmbience" parent="." index="1"]
+position = Vector2( -96, -896 )
+stream = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="Background/WallJump" index="0"]
+scale = Vector2( 4, 4 )
+tile_set = SubResource( 5 )
+collision_use_parent = true
+occluder_light_mask = 0
+format = 1
+tile_data = PoolIntArray( -327672, 1, 0, -327671, 1, 0, -327670, 1, 0, -327669, 1, 0, -327668, 1, 0, -327667, 1, 0, -262144, 1, 0, -262142, 1, 0, -262141, 1, 0, -262140, 1, 0, -262139, 1, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -262134, 1, 0, -262133, 1, 0, -262132, 1, 0, -262131, 1, 0, -131085, 1, 0, -131084, 1, 0, -131083, 1, 0, -131082, 1, 0, -131081, 1, 0, -131080, 1, 0, -131079, 3, 0, -131078, 3, 0, -131077, 3, 0, -131076, 2, 0, -131075, 2, 0, -131074, 2, 0, -131073, 3, 0, -196608, 3, 0, -196607, 3, 0, -196606, 1, 0, -196605, 1, 0, -196604, 1, 0, -196603, 1, 0, -196602, 1, 0, -196601, 1, 0, -196600, 1, 0, -196599, 1, 0, -196598, 1, 0, -196597, 1, 0, -196596, 1, 0, -196595, 1, 0, -196594, 1, 0, -196593, 1, 0, -196592, 1, 0, -196591, 1, 0, -196590, 1, 0, -196589, 1, 0, -196588, 1, 0, -196587, 1, 0, -65549, 1, 0, -65548, 1, 0, -65547, 1, 0, -65546, 1, 0, -65545, 1, 0, -65544, 1, 0, -65543, 3, 0, -65542, 3, 0, -65541, 3, 0, -65540, 2, 0, -65539, 2, 0, -65538, 2, 0, -65537, 3, 0, -131072, 3, 0, -131071, 3, 0, -131070, 1, 0, -131069, 1, 0, -131068, 1, 0, -131067, 1, 0, -131066, 1, 0, -131065, 1, 0, -131064, 1, 0, -131063, 1, 0, -131062, 1, 0, -131061, 1, 0, -131060, 1, 0, -131059, 1, 0, -131058, 1, 0, -131057, 1, 0, -131056, 1, 0, -131055, 1, 0, -131054, 1, 0, -131053, 1, 0, -131052, 1, 0, -131051, 1, 0, -13, 1, 0, -12, 1, 0, -11, 1, 0, -10, 1, 0, -9, 1, 0, -8, 1, 0, -7, 3, 0, -6, 3, 0, -5, 3, 0, -4, 2, 0, -3, 2, 0, -2, 2, 0, -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, 65533, 2, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0 )
+
+[node name="NovaFortressCopntainmentBayLabel" parent="Background" index="1" instance=ExtResource( 10 )]
+margin_left = -224.0
+margin_top = -736.0
+margin_right = 480.0
+margin_bottom = -221.0
+
+[node name="NovaFortressCopntainmentBayLabel2" parent="Background" index="2" instance=ExtResource( 10 )]
+margin_left = -1760.0
+margin_top = -736.0
+margin_right = -1040.0
+margin_bottom = -221.0
+text = "LC
+041-A"
+
+[node name="NovaFortressAlarm" parent="Background" index="3" instance=ExtResource( 6 )]
+position = Vector2( 384, -768 )
+
+[node name="NovaFortressAlarm2" parent="Background" index="4" instance=ExtResource( 6 )]
+position = Vector2( -1664, -768 )
+
+[node name="NovaFortressAlarm3" parent="Background" index="5" instance=ExtResource( 6 )]
+position = Vector2( 1920, 0 )
+scale = Vector2( 1, -1 )
+
+[node name="NovaFortressAlarm4" parent="Background" index="6" instance=ExtResource( 6 )]
+position = Vector2( 3456, -768 )
+
+[node name="NovaFortressCeilingLight3" parent="Background" index="7" instance=ExtResource( 9 )]
+position = Vector2( 1152, -640 )
+
+[node name="NovaFortressCeilingLight4" parent="Background" index="8" instance=ExtResource( 9 )]
+position = Vector2( 2688, -640 )
+
+[node name="NovaFortressCeilingLight7" parent="Background" index="9" instance=ExtResource( 9 )]
+position = Vector2( 4224, -640 )
+
+[node name="MegaPipeDiagonal" type="Node2D" parent="Background" index="10"]
+position = Vector2( 2080, -544 )
+
+[node name="NovaFortressDiagonalPipe" type="Node2D" parent="Background/MegaPipeDiagonal" index="0"]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="NovaFortressDiagonalPipe2" type="Node2D" parent="Background/MegaPipeDiagonal" index="1"]
+position = Vector2( 96, -160 )
+scale = Vector2( -1, -1 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe2" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe2" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe2" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe2" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe2" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe2" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe2" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe2" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="NovaFortressDiagonalPipe4" type="Node2D" parent="Background/MegaPipeDiagonal" index="2"]
+position = Vector2( -96, 96 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe4" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe4" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe4" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe4" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe4" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe4" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe4" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe4" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="NovaFortressDiagonalPipe3" type="Node2D" parent="Background/MegaPipeDiagonal" index="3"]
+position = Vector2( -192, 128 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe3" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe3" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe3" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe3" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe3" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe3" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe3" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe3" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="MegaPipeDiagonal2" type="Node2D" parent="Background" index="11"]
+position = Vector2( 3200, -480 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="NovaFortressDiagonalPipe3" type="Node2D" parent="Background/MegaPipeDiagonal2" index="0"]
+position = Vector2( -160, 64 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe3" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe3" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe3" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe3" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe3" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe3" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe3" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe3" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="NovaFortressDiagonalPipe" type="Node2D" parent="Background/MegaPipeDiagonal2" index="1"]
+position = Vector2( -96, 96 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="NovaFortressDiagonalPipe4" type="Node2D" parent="Background/MegaPipeDiagonal2" index="2"]
+position = Vector2( -64, 32 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe4" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe4" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe4" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe4" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe4" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe4" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe4" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe4" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="NovaFortressDiagonalPipe2" type="Node2D" parent="Background/MegaPipeDiagonal2" index="3"]
+position = Vector2( 160, -288 )
+rotation = -3.14159
+
+[node name="NovaFortressDiagonalPipe45End" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe2" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe2" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe2" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe2" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe2" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe2" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe2" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe2" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="NovaFortressClockPipe" type="Node2D" parent="Background" index="12"]
+position = Vector2( -1600, -736 )
+scale = Vector2( 4, -4 )
+
+[node name="NovaFortressCeilingPipeLeft" parent="Background/NovaFortressClockPipe" index="0" instance=ExtResource( 13 )]
+position = Vector2( 160, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter" parent="Background/NovaFortressClockPipe" index="1" instance=ExtResource( 11 )]
+position = Vector2( 192, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter2" parent="Background/NovaFortressClockPipe" index="2" instance=ExtResource( 11 )]
+position = Vector2( 224, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter3" parent="Background/NovaFortressClockPipe" index="3" instance=ExtResource( 11 )]
+position = Vector2( 256, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter4" parent="Background/NovaFortressClockPipe" index="4" instance=ExtResource( 11 )]
+position = Vector2( 288, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeRight" parent="Background/NovaFortressClockPipe" index="5" instance=ExtResource( 16 )]
+position = Vector2( 320, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="NovaFortressClockPipe2" type="Node2D" parent="Background" index="13"]
+position = Vector2( -256, 64 )
+rotation = 4.71239
+scale = Vector2( 4, 4 )
+
+[node name="NovaFortressCeilingPipeLeft" parent="Background/NovaFortressClockPipe2" index="0" instance=ExtResource( 13 )]
+position = Vector2( 8, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter" parent="Background/NovaFortressClockPipe2" index="1" instance=ExtResource( 11 )]
+position = Vector2( 40, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter2" parent="Background/NovaFortressClockPipe2" index="2" instance=ExtResource( 11 )]
+position = Vector2( 72, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter3" parent="Background/NovaFortressClockPipe2" index="3" instance=ExtResource( 11 )]
+position = Vector2( 104, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter4" parent="Background/NovaFortressClockPipe2" index="4" instance=ExtResource( 11 )]
+position = Vector2( 136, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeRight" parent="Background/NovaFortressClockPipe2" index="5" instance=ExtResource( 16 )]
+position = Vector2( 168, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="NovaFortressPistonClock" parent="Background" index="14" instance=ExtResource( 21 )]
+position = Vector2( -288, -640 )
+
+[node name="NovaFortressPistonClock2" parent="Background" index="15" instance=ExtResource( 21 )]
+position = Vector2( -992, -640 )
+
+[node name="NovaFortressBlastDoorLight" parent="Background" index="16" instance=ExtResource( 22 )]
+position = Vector2( -672, -768 )
+
+[node name="NovaFortressCeilingPipe" type="Node2D" parent="Ground" index="0"]
+position = Vector2( 1152, -992 )
+scale = Vector2( 4, 4 )
+
+[node name="NovaFortressCeilingPipeLeft" parent="Ground/NovaFortressCeilingPipe" index="0" instance=ExtResource( 13 )]
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter" parent="Ground/NovaFortressCeilingPipe" index="1" instance=ExtResource( 11 )]
+position = Vector2( 32, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter2" parent="Ground/NovaFortressCeilingPipe" index="2" instance=ExtResource( 11 )]
+position = Vector2( 64, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter3" parent="Ground/NovaFortressCeilingPipe" index="3" instance=ExtResource( 11 )]
+position = Vector2( 96, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter4" parent="Ground/NovaFortressCeilingPipe" index="4" instance=ExtResource( 11 )]
+position = Vector2( 128, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter5" parent="Ground/NovaFortressCeilingPipe" index="5" instance=ExtResource( 11 )]
+position = Vector2( 160, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter6" parent="Ground/NovaFortressCeilingPipe" index="6" instance=ExtResource( 11 )]
+position = Vector2( 192, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter7" parent="Ground/NovaFortressCeilingPipe" index="7" instance=ExtResource( 11 )]
+position = Vector2( 192, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter8" parent="Ground/NovaFortressCeilingPipe" index="8" instance=ExtResource( 11 )]
+position = Vector2( 224, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter9" parent="Ground/NovaFortressCeilingPipe" index="9" instance=ExtResource( 11 )]
+position = Vector2( 256, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter10" parent="Ground/NovaFortressCeilingPipe" index="10" instance=ExtResource( 11 )]
+position = Vector2( 288, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeRight" parent="Ground/NovaFortressCeilingPipe" index="11" instance=ExtResource( 16 )]
+position = Vector2( 320, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="NovaFortressCeilingPipe2" type="Node2D" parent="Ground" index="1"]
+position = Vector2( 1696, -960 )
+scale = Vector2( 4, 4 )
+
+[node name="NovaFortressCeilingPipeLeft" parent="Ground/NovaFortressCeilingPipe2" index="0" instance=ExtResource( 13 )]
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter" parent="Ground/NovaFortressCeilingPipe2" index="1" instance=ExtResource( 11 )]
+position = Vector2( 32, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter2" parent="Ground/NovaFortressCeilingPipe2" index="2" instance=ExtResource( 11 )]
+position = Vector2( 64, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter3" parent="Ground/NovaFortressCeilingPipe2" index="3" instance=ExtResource( 11 )]
+position = Vector2( 96, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter4" parent="Ground/NovaFortressCeilingPipe2" index="4" instance=ExtResource( 11 )]
+position = Vector2( 128, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter5" parent="Ground/NovaFortressCeilingPipe2" index="5" instance=ExtResource( 11 )]
+position = Vector2( 160, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter6" parent="Ground/NovaFortressCeilingPipe2" index="6" instance=ExtResource( 11 )]
+position = Vector2( 192, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter7" parent="Ground/NovaFortressCeilingPipe2" index="7" instance=ExtResource( 11 )]
+position = Vector2( 192, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter8" parent="Ground/NovaFortressCeilingPipe2" index="8" instance=ExtResource( 11 )]
+position = Vector2( 224, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter9" parent="Ground/NovaFortressCeilingPipe2" index="9" instance=ExtResource( 11 )]
+position = Vector2( 256, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeCenter10" parent="Ground/NovaFortressCeilingPipe2" index="10" instance=ExtResource( 11 )]
+position = Vector2( 288, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="NovaFortressCeilingPipeRight" parent="Ground/NovaFortressCeilingPipe2" index="11" instance=ExtResource( 16 )]
+position = Vector2( 320, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="NovaFortress2xCeilingPipe" type="Node2D" parent="Ground" index="2"]
+position = Vector2( 640, -928 )
+
+[node name="NovaFortress2xCeilingPipeLeft" parent="Ground/NovaFortress2xCeilingPipe" index="0" instance=ExtResource( 12 )]
+
+[node name="NovaFortress2xCeilingPipeCenter" parent="Ground/NovaFortress2xCeilingPipe" index="1" instance=ExtResource( 14 )]
+position = Vector2( 256, 0 )
+
+[node name="NovaFortress2xCeilingPipeCenter2" parent="Ground/NovaFortress2xCeilingPipe" index="2" instance=ExtResource( 14 )]
+position = Vector2( 512, 0 )
+
+[node name="NovaFortress2xCeilingPipeCenter3" parent="Ground/NovaFortress2xCeilingPipe" index="3" instance=ExtResource( 14 )]
+position = Vector2( 768, 0 )
+
+[node name="NovaFortress2xCeilingPipeCenter4" parent="Ground/NovaFortress2xCeilingPipe" index="4" instance=ExtResource( 14 )]
+position = Vector2( 1024, 0 )
+
+[node name="NovaFortress2xCeilingPipeCenter5" parent="Ground/NovaFortress2xCeilingPipe" index="5" instance=ExtResource( 14 )]
+position = Vector2( 1280, 0 )
+
+[node name="NovaFortress2xCeilingPipeCenter6" parent="Ground/NovaFortress2xCeilingPipe" index="6" instance=ExtResource( 14 )]
+position = Vector2( 1536, 0 )
+
+[node name="NovaFortress2xCeilingPipeCenter7" parent="Ground/NovaFortress2xCeilingPipe" index="7" instance=ExtResource( 14 )]
+position = Vector2( 1792, 0 )
+
+[node name="NovaFortress2xCeilingPipeCenter8" parent="Ground/NovaFortress2xCeilingPipe" index="8" instance=ExtResource( 14 )]
+position = Vector2( 2048, 0 )
+
+[node name="NovaFortress2xCeilingPipeCenter9" parent="Ground/NovaFortress2xCeilingPipe" index="9" instance=ExtResource( 14 )]
+position = Vector2( 2304, 0 )
+
+[node name="NovaFortress2xCeilingPipeCenter10" parent="Ground/NovaFortress2xCeilingPipe" index="10" instance=ExtResource( 14 )]
+position = Vector2( 2560, 0 )
+
+[node name="NovaFortress2xCeilingPipeCenter11" parent="Ground/NovaFortress2xCeilingPipe" index="11" instance=ExtResource( 14 )]
+position = Vector2( 2816, 0 )
+
+[node name="NovaFortress2xCeilingPipeRight" parent="Ground/NovaFortress2xCeilingPipe" index="12" instance=ExtResource( 15 )]
+position = Vector2( 3072, 0 )
+
+[node name="TileMap" type="TileMap" parent="Ground/Walls" index="0"]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 3 )
+collision_use_parent = true
+format = 1
+tile_data = PoolIntArray( -458772, 0, 0, -458771, 0, 0, -458770, 0, 0, -458769, 0, 0, -458768, 0, 0, -458767, 0, 0, -458766, 0, 0, -458765, 0, 0, -458764, 0, 0, -458763, 0, 0, -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -458757, 0, 0, -458756, 0, 0, -458755, 0, 0, -458754, 0, 0, -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 0, 0, -524285, 0, 0, -524284, 0, 0, -524283, 0, 0, -524282, 0, 0, -524281, 0, 0, -524280, 0, 0, -524279, 0, 0, -524278, 0, 0, -524277, 0, 0, -524276, 0, 0, -524275, 0, 0, -524274, 0, 0, -524273, 0, 0, -524272, 0, 0, -524271, 0, 0, -524270, 0, 0, -524269, 0, 0, -524268, 0, 0, -524267, 0, 0, -393236, 0, 0, -393235, 0, 0, -393234, 0, 0, -393233, 0, 0, -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 0, 0, -393228, 0, 0, -393227, 0, 0, -393226, 0, 0, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -458744, 0, 0, -458743, 0, 0, -458742, 0, 0, -458741, 0, 0, -458740, 0, 0, -458739, 0, 0, -458738, 0, 0, -458737, 0, 0, -458736, 0, 0, -458735, 0, 0, -458734, 0, 0, -458733, 0, 0, -458732, 0, 0, -458731, 0, 0, -327700, 0, 0, -327699, 0, 0, -327698, 0, 0, -327697, 0, 0, -327696, 0, 0, -327695, 0, 0, -327694, 0, 0, -327693, 0, 0, -327692, 0, 0, -327691, 0, 0, -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -393207, 0, 0, -393206, 0, 0, -393205, 0, 0, -393204, 0, 0, -393203, 0, 0, -393202, 0, 0, -393201, 0, 0, -393200, 0, 0, -393199, 0, 0, -393198, 0, 0, -393197, 0, 0, -393196, 0, 0, -393195, 0, 0, -262164, 0, 0, -262163, 0, 0, -262162, 0, 0, -262161, 0, 0, -262160, 0, 0, -262159, 0, 0, -262158, 0, 0, -262157, 0, 0, -262156, 0, 0, -262155, 0, 0, -262154, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 0, 0, -327670, 0, 0, -327669, 0, 0, -327668, 0, 0, -327667, 0, 0, -327666, 0, 0, -327665, 0, 0, -327664, 0, 0, -327663, 0, 0, -327662, 0, 0, -327661, 0, 0, -327660, 0, 0, -327659, 0, 0, -196628, 0, 0, -196627, 0, 0, -196626, 0, 0, -196625, 0, 0, -196624, 0, 0, -196623, 0, 0, -196622, 0, 0, -196621, 0, 0, -196620, 0, 0, -196619, 0, 0, -196618, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262131, 0, 0, -262130, 0, 0, -262129, 0, 0, -262128, 0, 0, -262127, 0, 0, -262126, 0, 0, -262125, 0, 0, -262124, 0, 0, -262123, 0, 0, 65516, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 131052, 0, 0, 131053, 0, 0, 131054, 0, 0, 131055, 0, 0, 131056, 0, 0, 131057, 0, 0, 131058, 0, 0, 131059, 0, 0, 131060, 0, 0, 131061, 0, 0, 131062, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 0, 0, 196588, 0, 0, 196589, 0, 0, 196590, 0, 0, 196591, 0, 0, 196592, 0, 0, 196593, 0, 0, 196594, 0, 0, 196595, 0, 0, 196596, 0, 0, 196597, 0, 0, 196598, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0 )
+
+[node name="CameraLimitTrigger" parent="Triggers" index="0" instance=ExtResource( 1 )]
+position = Vector2( 1792, 256 )
+limits_tween_duration = 0.5
+zoom_tween_duration = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/CameraLimitTrigger" index="0"]
+visible = false
+position = Vector2( 5536, -1920 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="ColliderTrigger" parent="Triggers/CameraLimitTrigger" index="1"]
+visible = false
+position = Vector2( -5024, -928 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="TopLeft" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="0"]
+position = Vector2( -2688, -1536 )
+
+[node name="BottomRight" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="1"]
+position = Vector2( 2944, 0 )
+
+[node name="NovaFortressPrologueCutscene1" parent="Triggers" index="1" instance=ExtResource( 4 )]
+auto_start = true
+
+[node name="CollisionTrigger" parent="Triggers/NovaFortressPrologueCutscene1" index="4" instance=ExtResource( 7 )]
+position = Vector2( -3840, -256 )
+disable_on_trigger = true
+
+[node name="NovaFortressCeilingTurret" parent="Actors" index="0" instance=ExtResource( 23 )]
+position = Vector2( 864, -416 )
+
+[node name="Foreground" parent="." index="6"]
+position = Vector2( -64, -32 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Foreground" index="0"]
+layer = 99
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Foreground/ParallaxBackground" index="0"]
+motion_scale = Vector2( 1.1, 1.1 )
+
+[node name="NovaFortressDiagonalPipe" type="Node2D" parent="Foreground/ParallaxBackground/ParallaxLayer2" index="0"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1856, -192 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="NovaFortressDiagonalPipe2" type="Node2D" parent="Foreground/ParallaxBackground/ParallaxLayer2" index="1"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2400, -544 )
+rotation = -3.14159
+scale = Vector2( 1.5, 1.5 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="NovaFortressDiagonalPipe3" type="Node2D" parent="Foreground/ParallaxBackground/ParallaxLayer2" index="2"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2528, -544 )
+rotation = -3.14159
+scale = Vector2( 1.5, 1.5 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Foreground/ParallaxBackground" index="1"]
+motion_scale = Vector2( 1.2, 1.2 )
+
+[node name="NovaFortressDiagonalPipe" type="Node2D" parent="Foreground/ParallaxBackground/ParallaxLayer" index="0"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2080, -544 )
+rotation = -3.14159
+scale = Vector2( -2, 2 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+
+[node name="NovaFortressDiagonalPipe2" type="Node2D" parent="Foreground/ParallaxBackground/ParallaxLayer" index="1"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -672, -960 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+
+[node name="NovaFortressDiagonalPipe45End" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="0" instance=ExtResource( 20 )]
+position = Vector2( -520, 540 )
+
+[node name="NovaFortressDiagonalPipe45" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="1" instance=ExtResource( 18 )]
+position = Vector2( -320, 352 )
+
+[node name="NovaFortressDiagonalPipe46" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="2" instance=ExtResource( 18 )]
+position = Vector2( -128, 160 )
+
+[node name="NovaFortressDiagonalPipe47" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="3" instance=ExtResource( 18 )]
+position = Vector2( 64, -32 )
+
+[node name="NovaFortressDiagonalPipe48" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="4" instance=ExtResource( 18 )]
+position = Vector2( 256, -224 )
+
+[node name="NovaFortressDiagonalPipe49" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="5" instance=ExtResource( 18 )]
+position = Vector2( 448, -416 )
+
+[node name="NovaFortressDiagonalPipe50" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="6" instance=ExtResource( 18 )]
+position = Vector2( 640, -608 )
+
+[node name="NovaFortressDiagonalPipe45EndTop" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="7" instance=ExtResource( 19 )]
+position = Vector2( 824, -812 )
+[connection signal="finished" from="Triggers/NovaFortressPrologueCutscene1" to="Triggers/CameraLimitTrigger" method="change"]
+[connection signal="area_entered_no_area" from="Triggers/NovaFortressPrologueCutscene1/CollisionTrigger" to="Triggers/NovaFortressPrologueCutscene1" method="start"]
+
+[editable path="Triggers/CameraLimitTrigger"]

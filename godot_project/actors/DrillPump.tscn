@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://weapons/DrillPumpTripleWeapon.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actors/kobolds/KoboldGunner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://combat/effects/buffs/NoHitstun.tscn" type="PackedScene" id=14]
+[ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -60,13 +61,26 @@ weapons = [ ExtResource( 12 ) ]
 stagger = false
 active_after_exit = true
 
-[node name="SpawnActor2" parent="StateMachine/Sequence" index="5" instance=ExtResource( 11 )]
-position = Vector2( 2304, 0 )
-animation = "idle"
-actor = ExtResource( 13 )
+[node name="WaitTime" parent="StateMachine/Sequence" index="5" instance=ExtResource( 15 )]
+stagger_state = ""
+duration = 2.0
 
 [node name="DrillPumpLowHigh" parent="StateMachine/Sequence" index="6" instance=ExtResource( 4 )]
 weapons = [ ExtResource( 5 ) ]
+stagger = false
+active_after_exit = true
+
+[node name="WaitTime2" parent="StateMachine/Sequence" index="7" instance=ExtResource( 15 )]
+stagger_state = ""
+duration = 2.0
+
+[node name="DrillPumpTripleWeapon2" parent="StateMachine/Sequence" index="8" instance=ExtResource( 4 )]
+weapons = [ ExtResource( 12 ) ]
+stagger = false
+active_after_exit = true
+
+[node name="DrillPumpHighLow2" parent="StateMachine/Sequence" index="9" instance=ExtResource( 4 )]
+weapons = [ ExtResource( 10 ) ]
 stagger = false
 active_after_exit = true
 

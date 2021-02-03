@@ -5,7 +5,8 @@
 [ext_resource path="res://objects/springs/red_spring.png" type="Texture" id=3]
 [ext_resource path="res://core/utils/CollisionTrigger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/utils/SfxRandom.gd" type="Script" id=5]
-[ext_resource path="res://objects/springs/sfx/spring_blip.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sfx/spring_blip.wav" type="AudioStream" id=6]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

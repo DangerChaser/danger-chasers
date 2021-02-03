@@ -1,0 +1,274 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/doors/interactable_doors/NovaFortressBlastDoor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://cutscenes/CutsceneCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/doors/interactable_doors/NovaFortressBlastDoorController.tscn" type="PackedScene" id=5]
+[ext_resource path="res://core/PlayerManagedStateManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "0"
+length = 14.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("CutsceneCamera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "enable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PlayerManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 6.6, 10, 13 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "idle" ],
+"method": "play_animation"
+}, {
+"args": [ "run" ],
+"method": "play_animation"
+}, {
+"args": [ "idle" ],
+"method": "play_animation"
+}, {
+"args": [ "walk" ],
+"method": "play_animation"
+}, {
+"args": [ "idle" ],
+"method": "play_animation"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("PlayerManagedStateManager")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable_input"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PlayerManagedStateManager:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5, 6.1, 6.6, 10, 13 ),
+"transitions": PoolRealArray( 1, 0.5, -2, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1536, 0 ), Vector2( -1536, 0 ), Vector2( 0, 0 ), Vector2( -64, 0 ), Vector2( -64, 0 ), Vector2( 256, 0 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("PlayerManagedStateManager")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide_player_hud"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("PlayerManagedStateManager:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 6.1, 10, 13 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ), Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("NovaFortressBlastDoor/NovaFortressBlastDoorController")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 6.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "interact"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+
+[sub_resource type="Animation" id=6]
+length = 0.2
+tracks/0/type = "method"
+tracks/0/path = NodePath("PlayerManagedStateManager")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PlayerManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show_player_hud"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_input"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("CutsceneCamera")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.5 ],
+"method": "disable"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PlayerManagedStateManager:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 256, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PlayerManagedStateManager:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("NovaFortressBlastDoor")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "assert_closed"
+} ]
+}
+
+[sub_resource type="CircleShape2D" id=7]
+resource_local_to_scene = true
+radius = 200.0
+
+[node name="NovaFortressPrologueCutscene1" instance=ExtResource( 1 )]
+
+[node name="AnimationPlayer" parent="." index="0"]
+anims/0 = SubResource( 1 )
+anims/SETUP = SubResource( 5 )
+anims/end = SubResource( 6 )
+next/0 = "end"
+
+[node name="CutsceneCamera" parent="." index="1" instance=ExtResource( 4 )]
+position = Vector2( 448, -512 )
+zoom = Vector2( 1.4, 1.4 )
+initial_lerp = 1.0
+
+[node name="PlayerManagedStateManager" parent="." index="2" instance=ExtResource( 11 )]
+position = Vector2( -1536, 0 )
+managed_state = ExtResource( 12 )
+
+[node name="NovaFortressBlastDoor" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( -640, -384 )
+
+[node name="NovaFortressBlastDoorController" parent="NovaFortressBlastDoor" index="6" instance=ExtResource( 5 )]
+position = Vector2( 512, 224 )
+disable_on_trigger = true
+
+[node name="CollisionShape2D" parent="NovaFortressBlastDoor/NovaFortressBlastDoorController" index="0"]
+visible = false
+shape = SubResource( 7 )
+disabled = true
+
+[node name="Sfx" parent="NovaFortressBlastDoor/NovaFortressBlastDoorController" index="1"]
+bus = "Master"
+[connection signal="interacted" from="NovaFortressBlastDoor/NovaFortressBlastDoorController" to="NovaFortressBlastDoor" method="interact"]
+
+[editable path="NovaFortressBlastDoor/NovaFortressBlastDoorController"]
