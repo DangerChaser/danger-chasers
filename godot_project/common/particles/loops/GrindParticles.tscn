@@ -2,7 +2,6 @@
 
 [ext_resource path="res://objects/vehicles/trolley/grind_sparks.png" type="Texture" id=1]
 
-
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
 particles_anim_h_frames = 4

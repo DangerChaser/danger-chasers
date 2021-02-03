@@ -3,9 +3,9 @@
 [ext_resource path="res://core/utils/AudioStreamPlayer2DRandom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sfx/industrial_alarm.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/sprites/objects/nova_fortress_alarm.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/misc/white_circle_gradient.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/misc/white_circle_gradient_4096x4096.png" type="Texture" id=4]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=4]
 script/source = "extends Node2D
 
 
@@ -15,12 +15,20 @@ export var on := true
 func _ready() -> void:
 	if on:
 		$AnimationPlayer.play(\"on\")
+
+
+func _on_VisibilityNotifier2D_screen_entered():
+	$Light2D	.enabled = true
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	$Light2D.enabled = false
 "
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=5]
 length = 0.001
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=6]
 resource_name = "on"
 length = 1.4
 loop = true
@@ -58,18 +66,18 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0, 0.4, 1 ),
-"transitions": PoolRealArray( 2, 2, 0 ),
+"transitions": PoolRealArray( 1, 2, 0 ),
 "update": 0,
 "values": [ 2.0, 2.0, 0.0 ]
 }
 
 [node name="NovaFortressAlarm" type="Node2D"]
-script = SubResource( 1 )
+script = SubResource( 4 )
 
 [node name="Sfx" parent="." instance=ExtResource( 1 )]
 stream = ExtResource( 2 )
 volume_db = -2.0
-max_distance = 1600.0
+max_distance = 3000.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 128 )
@@ -78,13 +86,17 @@ texture = ExtResource( 3 )
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/SETUP = SubResource( 2 )
-anims/on = SubResource( 3 )
+anims/SETUP = SubResource( 5 )
+anims/on = SubResource( 6 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, 32 )
 texture = ExtResource( 4 )
-texture_scale = 16.0
+texture_scale = 2.0
 color = Color( 1, 0, 0.137255, 1 )
-energy = 1.5
 shadow_enabled = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -3776, -3840 )
+rect = Rect2( 0, 0, 7000, 7000 )
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -105,6 +105,7 @@ position = Vector2( 16, 0 )
 
 [node name="MotionSfx" parent="." index="4" instance=ExtResource( 53 )]
 stream = ExtResource( 1 )
+volume_db = -12.0
 random_pitch_low = 0.96
 random_pitch_high = 1.04
 

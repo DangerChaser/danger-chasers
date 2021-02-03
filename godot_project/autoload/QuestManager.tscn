@@ -11,10 +11,10 @@ quest_name_key = "PROLOGUE"
 quest_description_key = "PROLOGUE_KEY"
 level_path = "res://level/levels/nova_fortress/NovaFortressPrologue.tscn"
 
-[node name="Prologue2" parent="." instance=ExtResource( 1 )]
-quest_name_key = "PROLOGUE"
-quest_description_key = "PROLOGUE_KEY"
-level_path = "res://level/levels/nova_fortress/NovaFortressPrologue.tscn"
+[node name="NovaFortressTest" parent="." instance=ExtResource( 1 )]
+quest_name_key = "NOVA_FORTRESS_TEST"
+quest_description_key = "NOVA_FORTRESS_TEST"
+level_path = "res://level/levels/nova_fortress/NovaFortressTest.tscn"
 
 [node name="Tutorial" parent="." instance=ExtResource( 1 )]
 quest_name_key = "TUTORIAL"

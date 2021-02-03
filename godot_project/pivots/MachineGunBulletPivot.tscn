@@ -1,0 +1,179 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://assets/sfx/bullet_flyby_4.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/sprites/projectiles/machine_gun_bullet.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/misc/white_square_red_glow.png" type="Texture" id=3]
+[ext_resource path="res://assets/sfx/bullet_flyby_0.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/bullet_flyby_3.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/bullet_flyby_6.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sfx/bullet_flyby_5.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/bullet_flyby_1.wav" type="AudioStream" id=8]
+[ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sfx/bullet_flyby_2.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/sfx/bullet_flyby_8.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sfx/bullet_flyby_7.wav" type="AudioStream" id=13]
+[ext_resource path="res://vfx/Trail.tscn" type="PackedScene" id=49]
+[ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=53]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TrailParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "destroy"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TrailParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "motion"
+length = 0.4
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0, 1, 2, 3 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("MotionSfx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "spawn"
+length = 0.001
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 10.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 16.0
+angular_velocity = 60.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.1
+scale_random = 0.2
+
+[node name="Pivot" instance=ExtResource( 9 )]
+z_index = 1
+
+[node name="AnimationPlayer" parent="." index="0"]
+autoplay = "SETUP"
+anims/SETUP = SubResource( 1 )
+anims/destroy = SubResource( 6 )
+anims/motion = SubResource( 2 )
+anims/spawn = SubResource( 7 )
+
+[node name="Trail" parent="." index="1" instance=ExtResource( 49 )]
+width = 42.0
+width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
+target_path = NodePath("../Sprite")
+active_animations = [ "motion" ]
+trail_length = 5
+autostart = false
+
+[node name="TrailParticles" type="Particles2D" parent="." index="2"]
+material = SubResource( 4 )
+position = Vector2( -24, 0 )
+lifetime = 0.5
+visibility_rect = Rect2( -100000, -100000, 200000, 200000 )
+local_coords = false
+process_material = SubResource( 5 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="." index="3"]
+position = Vector2( -16, 0 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="MotionSfx" parent="." index="4" instance=ExtResource( 53 )]
+stream = ExtResource( 4 )
+max_distance = 600.0
+sfx_list = [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 11 ) ]
+random_pitch_low = 0.96
+random_pitch_high = 1.04
+
+[node name="Weapons" type="Node2D" parent="." index="5"]
+[connection signal="animation_changed" from="." to="Trail" method="stop"]
+[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_started" from="." to="Trail" method="start"]

@@ -40,14 +40,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta : float) -> void:
-	if get_slide_count() > 0: # Should only collide with Obstacles layer
-		var particles = destroy()
-		if particles:
-			particles.start(global_position, \
- 					motion.steering.velocity.angle() + PI, \
-					global_scale.abs(), \
-					get_parent())
-	
 	var target_object = $Target.get_target()
 	if homing and target_object:
 		target_direction = global_position.direction_to(target_object.global_position)
@@ -55,6 +47,14 @@ func _physics_process(delta : float) -> void:
 	motion.move(target_direction)
 	
 	motion.rotate_to_move_direction()
+	
+	if get_slide_count() > 0: # Should only collide with Obstacles layer
+		var particles = destroy()
+		if particles:
+			particles.start(global_position, \
+ 					motion.steering.velocity.angle() + PI, \
+					global_scale.abs(), \
+					get_parent())
 
 
 func set_friendly_teams(friendly_teams : Array) -> void:

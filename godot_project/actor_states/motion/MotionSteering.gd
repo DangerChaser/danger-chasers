@@ -21,16 +21,15 @@ func exit() -> void:
 
 
 func move(direction : Vector2) -> void:
-	if direction:
-		move_to(owner.global_position + direction.normalized() * max_speed)
-	else:
-		move_to(owner.global_position)
+	var target_position = owner.global_position + direction.normalized() * max_speed if direction else owner.global_position
+	max_speed_reached_currently = max(max_speed_reached_currently, velocity.length())
+	var target_speed = max_speed if slow_down_if_faster_than_max_speed else max(max_speed, max_speed_reached_currently)
+	velocity = Steering.arrive_to(velocity, owner.global_position, target_position, target_speed, mass, slow_radius)
 
 
 func move_to(target_position : Vector2) -> void:
 	max_speed_reached_currently = max(max_speed_reached_currently, velocity.length())
-	var normal_max_speed = max_speed * owner.global_scale.length()
-	var target_speed = normal_max_speed if slow_down_if_faster_than_max_speed else max(normal_max_speed, max_speed_reached_currently)
+	var target_speed = max_speed if slow_down_if_faster_than_max_speed else max(max_speed, max_speed_reached_currently)
 	velocity = Steering.arrive_to(velocity, owner.global_position, target_position, target_speed, mass, slow_radius)
 #	owner.move_and_slide_with_snap(velocity - owner.get_floor_velocity(), snap, Vector2.UP, true)
 	if owner.global_position.distance_to(target_position) < arrive_distance:

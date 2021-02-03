@@ -8,15 +8,6 @@ export var max_distance := -1.0 # Set negative number to lock on regardless of d
 var target
 
 
-func _physics_process(delta : float) -> void:
-	if target:
-		if not is_instance_valid(target):
-			target = null
-			if owner.is_in_group("team_2") or owner.is_in_group("team_3"): # Reserved for enemies
-				lock_on()
-		global_position = target.global_position
-
-
 func lock_on(new_target=null) -> void:
 	if new_target:
 		change_target(new_target)
@@ -93,3 +84,8 @@ func get_target():
 func get_distance() -> float:
 	var target = get_target()
 	return owner.global_position.distance_to(target.global_position) if target else 0.0
+
+
+func get_rotation_to() -> float: # in radians
+	var target = get_target()
+	return (target.global_position - owner.global_position).angle()

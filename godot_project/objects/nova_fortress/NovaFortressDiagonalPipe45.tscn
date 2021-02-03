@@ -13,7 +13,6 @@ normal_map = ExtResource( 1 )
 [node name="AudioStreamPlayer2DRandom" parent="." instance=ExtResource( 3 )]
 stream = ExtResource( 4 )
 volume_db = -14.0
-autoplay = true
 max_distance = 2000.0
 bus = "Ambience"
 sfx_list = [ ExtResource( 4 ) ]

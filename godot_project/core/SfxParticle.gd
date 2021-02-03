@@ -6,6 +6,7 @@ signal stopped
 
 export var can_rotate := true
 export var queue_free_after_timer := true
+export var queue_free_buffer := 0.0
 
 onready var particles := $Pivot.get_children()
 onready var timer := Timer.new()
@@ -17,7 +18,7 @@ func _ready():
 		var max_lifetime = 0.0
 		for particle in $Pivot.get_children():
 			max_lifetime = max(max_lifetime, particle.lifetime)
-		timer.wait_time = max_lifetime + 1.0
+		timer.wait_time = max_lifetime + queue_free_buffer
 		add_child(timer)
 
 

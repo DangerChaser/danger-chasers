@@ -5,7 +5,6 @@
 [ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=7]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001

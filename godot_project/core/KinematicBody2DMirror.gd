@@ -6,10 +6,12 @@ class_name MirrorBody2D
 var look_direction := Vector2.RIGHT
 
 func set_rotation(value : float) -> void:
+	value = fmod(value, 2 * PI)
 	rotation = value
 	_correct_rotation()
 
 func set_rotation_degrees(value : float) -> void:
+	value = fmod(value, 360)
 	rotation_degrees = value
 	_correct_rotation()
 

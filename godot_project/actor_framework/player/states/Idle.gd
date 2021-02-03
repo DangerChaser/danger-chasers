@@ -75,8 +75,6 @@ func _physics_process(delta : float) -> void:
 	if not owner.is_on_floor():
 		if air_timer.time_left <= 0.0:
 			air_timer.start()
-	else:
-		air_timer.stop()
 	
 	var direction = Vector2(motion.get_input_direction().x, 0.0)
 	motion.move(direction)

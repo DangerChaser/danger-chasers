@@ -1,15 +1,10 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://level/CameraLimitTrigger.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/levels/Room.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tilesets/orange_map.tres" type="TileSet" id=3]
-[ext_resource path="res://cutscenes/NovaFortressPrologueCutscene1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sfx/metro_subway_ambience.ogg" type="AudioStream" id=5]
-[ext_resource path="res://objects/nova_fortress/NovaFortressAlarm.tscn" type="PackedScene" id=6]
-[ext_resource path="res://core/utils/CollisionTrigger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interface/tutorial/TutorialPrompts.tscn" type="PackedScene" id=8]
-[ext_resource path="res://objects/nova_fortress/NovaFortressCeilingLight.tscn" type="PackedScene" id=9]
-[ext_resource path="res://objects/nova_fortress/NovaFortressContainmentBayLabel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/nova_fortress/NovaFortressCeilingPipeCenter.tscn" type="PackedScene" id=11]
 [ext_resource path="res://objects/nova_fortress/NovaFortress2xCeilingPipeLeft.tscn" type="PackedScene" id=12]
 [ext_resource path="res://objects/nova_fortress/NovaFortressCeilingPipeLeft.tscn" type="PackedScene" id=13]
@@ -21,8 +16,7 @@
 [ext_resource path="res://objects/nova_fortress/NovaFortressDiagonalPipe45EndTop.tscn" type="PackedScene" id=19]
 [ext_resource path="res://objects/nova_fortress/NovaFortressDiagonalPipe45End.tscn" type="PackedScene" id=20]
 [ext_resource path="res://objects/nova_fortress/NovaFortressPistonClock.tscn" type="PackedScene" id=21]
-[ext_resource path="res://objects/nova_fortress/NovaFortressBlastDoorLight.tscn" type="PackedScene" id=22]
-[ext_resource path="res://actors/NovaFortressTurret.tscn" type="PackedScene" id=23]
+[ext_resource path="res://actors/NovaFortressTurretFull.tscn" type="PackedScene" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -129,7 +123,7 @@ extents = Vector2( 128, 1408 )
 resource_local_to_scene = true
 extents = Vector2( 128, 896 )
 
-[node name="NovaFortressPrologue" instance=ExtResource( 2 )]
+[node name="NovaFortressLightHanger" instance=ExtResource( 2 )]
 
 [node name="TutorialPrompts" parent="." index="0" instance=ExtResource( 8 )]
 
@@ -143,42 +137,9 @@ tile_set = SubResource( 5 )
 collision_use_parent = true
 occluder_light_mask = 0
 format = 1
-tile_data = PoolIntArray( -327672, 1, 0, -327671, 1, 0, -327670, 1, 0, -327669, 1, 0, -327668, 1, 0, -327667, 1, 0, -262144, 1, 0, -262142, 1, 0, -262141, 1, 0, -262140, 1, 0, -262139, 1, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -262134, 1, 0, -262133, 1, 0, -262132, 1, 0, -262131, 1, 0, -131085, 1, 0, -131084, 1, 0, -131083, 1, 0, -131082, 1, 0, -131081, 1, 0, -131080, 1, 0, -131079, 3, 0, -131078, 3, 0, -131077, 3, 0, -131076, 2, 0, -131075, 2, 0, -131074, 2, 0, -131073, 3, 0, -196608, 3, 0, -196607, 3, 0, -196606, 1, 0, -196605, 1, 0, -196604, 1, 0, -196603, 1, 0, -196602, 1, 0, -196601, 1, 0, -196600, 1, 0, -196599, 1, 0, -196598, 1, 0, -196597, 1, 0, -196596, 1, 0, -196595, 1, 0, -196594, 1, 0, -196593, 1, 0, -196592, 1, 0, -196591, 1, 0, -196590, 1, 0, -196589, 1, 0, -196588, 1, 0, -196587, 1, 0, -65549, 1, 0, -65548, 1, 0, -65547, 1, 0, -65546, 1, 0, -65545, 1, 0, -65544, 1, 0, -65543, 3, 0, -65542, 3, 0, -65541, 3, 0, -65540, 2, 0, -65539, 2, 0, -65538, 2, 0, -65537, 3, 0, -131072, 3, 0, -131071, 3, 0, -131070, 1, 0, -131069, 1, 0, -131068, 1, 0, -131067, 1, 0, -131066, 1, 0, -131065, 1, 0, -131064, 1, 0, -131063, 1, 0, -131062, 1, 0, -131061, 1, 0, -131060, 1, 0, -131059, 1, 0, -131058, 1, 0, -131057, 1, 0, -131056, 1, 0, -131055, 1, 0, -131054, 1, 0, -131053, 1, 0, -131052, 1, 0, -131051, 1, 0, -13, 1, 0, -12, 1, 0, -11, 1, 0, -10, 1, 0, -9, 1, 0, -8, 1, 0, -7, 3, 0, -6, 3, 0, -5, 3, 0, -4, 2, 0, -3, 2, 0, -2, 2, 0, -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, 65533, 2, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0 )
+tile_data = PoolIntArray( -1048589, 1, 0, -1048588, 1, 0, -1048587, 1, 0, -1048586, 1, 0, -1048585, 1, 0, -1048584, 1, 0, -1048583, 1, 0, -1048582, 1, 0, -1048581, 1, 0, -1048580, 1, 0, -1048579, 1, 0, -1048578, 1, 0, -1048577, 1, 0, -1114112, 1, 0, -1114111, 1, 0, -1114110, 1, 0, -1114109, 1, 0, -1114108, 1, 0, -1114107, 1, 0, -1114106, 1, 0, -1114105, 1, 0, -1114104, 1, 0, -1114103, 1, 0, -1114102, 1, 0, -1114101, 1, 0, -1114100, 1, 0, -1114099, 1, 0, -1114098, 1, 0, -1114097, 1, 0, -1114096, 1, 0, -1114095, 1, 0, -1114094, 1, 0, -983053, 1, 0, -983052, 1, 0, -983051, 1, 0, -983050, 1, 0, -983049, 1, 0, -983048, 1, 0, -983047, 1, 0, -983046, 1, 0, -983045, 1, 0, -983044, 1, 0, -983043, 1, 0, -983042, 1, 0, -983041, 1, 0, -1048576, 1, 0, -1048575, 1, 0, -1048574, 1, 0, -1048573, 1, 0, -1048572, 1, 0, -1048571, 1, 0, -1048570, 1, 0, -1048569, 1, 0, -1048568, 1, 0, -1048567, 1, 0, -1048566, 1, 0, -1048565, 1, 0, -1048564, 1, 0, -1048563, 1, 0, -1048562, 1, 0, -1048561, 1, 0, -1048560, 1, 0, -1048559, 1, 0, -1048558, 1, 0, -917517, 1, 0, -917516, 1, 0, -917515, 1, 0, -917514, 1, 0, -917513, 1, 0, -917512, 1, 0, -917511, 1, 0, -917510, 1, 0, -917509, 1, 0, -917508, 1, 0, -917507, 1, 0, -917506, 1, 0, -917505, 1, 0, -983040, 1, 0, -983039, 1, 0, -983038, 1, 0, -983037, 1, 0, -983036, 1, 0, -983035, 1, 0, -983034, 1, 0, -983033, 1, 0, -983032, 1, 0, -983031, 1, 0, -983030, 1, 0, -983029, 1, 0, -983028, 1, 0, -983027, 1, 0, -983026, 1, 0, -983025, 1, 0, -983024, 1, 0, -983023, 1, 0, -983022, 1, 0, -851981, 1, 0, -851980, 1, 0, -851979, 1, 0, -851978, 1, 0, -851977, 1, 0, -851976, 1, 0, -851975, 1, 0, -851974, 1, 0, -851973, 1, 0, -851972, 1, 0, -851971, 1, 0, -851970, 1, 0, -851969, 1, 0, -917504, 1, 0, -917503, 1, 0, -917502, 1, 0, -917501, 1, 0, -917500, 1, 0, -917499, 1, 0, -917498, 1, 0, -917497, 1, 0, -917496, 1, 0, -917495, 1, 0, -917494, 1, 0, -917493, 1, 0, -917492, 1, 0, -917491, 1, 0, -917490, 1, 0, -917489, 1, 0, -917488, 1, 0, -917487, 1, 0, -917486, 1, 0, -786445, 1, 0, -786444, 1, 0, -786443, 1, 0, -786442, 1, 0, -786441, 1, 0, -786440, 1, 0, -786439, 1, 0, -786438, 1, 0, -786437, 1, 0, -786436, 1, 0, -786435, 1, 0, -786434, 1, 0, -786433, 1, 0, -851968, 1, 0, -851967, 1, 0, -851966, 1, 0, -851965, 1, 0, -851964, 1, 0, -851963, 1, 0, -851962, 1, 0, -851961, 1, 0, -851960, 1, 0, -851959, 1, 0, -851958, 1, 0, -851957, 1, 0, -851956, 1, 0, -851955, 1, 0, -851954, 1, 0, -851953, 1, 0, -851952, 1, 0, -851951, 1, 0, -851950, 1, 0, -720909, 1, 0, -720908, 1, 0, -720907, 1, 0, -720906, 1, 0, -720905, 1, 0, -720904, 1, 0, -720903, 1, 0, -720902, 1, 0, -720901, 1, 0, -720900, 1, 0, -720899, 1, 0, -720898, 1, 0, -720897, 1, 0, -786432, 1, 0, -786431, 1, 0, -786430, 1, 0, -786429, 1, 0, -786428, 1, 0, -786427, 1, 0, -786426, 1, 0, -786425, 1, 0, -786424, 1, 0, -786423, 1, 0, -786422, 1, 0, -786421, 1, 0, -786420, 1, 0, -786419, 1, 0, -786418, 1, 0, -786417, 1, 0, -786416, 1, 0, -786415, 1, 0, -786414, 1, 0, -655373, 1, 0, -655372, 1, 0, -655371, 1, 0, -655370, 1, 0, -655369, 1, 0, -655368, 1, 0, -655367, 1, 0, -655366, 1, 0, -655365, 1, 0, -655364, 1, 0, -655363, 1, 0, -655362, 1, 0, -655361, 1, 0, -720896, 1, 0, -720895, 1, 0, -720894, 1, 0, -720893, 1, 0, -720892, 1, 0, -720891, 1, 0, -720890, 1, 0, -720889, 1, 0, -720888, 1, 0, -720887, 1, 0, -720886, 1, 0, -720885, 1, 0, -720884, 1, 0, -720883, 1, 0, -720882, 1, 0, -720881, 1, 0, -720880, 1, 0, -720879, 1, 0, -720878, 1, 0, -589837, 1, 0, -589836, 1, 0, -589835, 1, 0, -589834, 1, 0, -589833, 1, 0, -589832, 1, 0, -589831, 1, 0, -589830, 1, 0, -589829, 1, 0, -589828, 1, 0, -589827, 1, 0, -589826, 1, 0, -589825, 1, 0, -655360, 1, 0, -655359, 1, 0, -655358, 1, 0, -655357, 1, 0, -655356, 1, 0, -655355, 1, 0, -655354, 1, 0, -655353, 1, 0, -655352, 1, 0, -655351, 1, 0, -655350, 1, 0, -655349, 1, 0, -655348, 1, 0, -655347, 1, 0, -655346, 1, 0, -655345, 1, 0, -655344, 1, 0, -655343, 1, 0, -655342, 1, 0, -524301, 2, 0, -524300, 2, 0, -524299, 2, 0, -524298, 2, 0, -524297, 2, 0, -524296, 1, 0, -524295, 1, 0, -524294, 1, 0, -524293, 1, 0, -524292, 1, 0, -524291, 1, 0, -524290, 1, 0, -524289, 1, 0, -589824, 1, 0, -589823, 1, 0, -589822, 1, 0, -589821, 1, 0, -589820, 1, 0, -589819, 1, 0, -589818, 1, 0, -589817, 1, 0, -589816, 1, 0, -589815, 1, 0, -589814, 1, 0, -589813, 1, 0, -589812, 1, 0, -589811, 1, 0, -589810, 1, 0, -589809, 1, 0, -589808, 1, 0, -589807, 1, 0, -589806, 1, 0, -458764, 0, 0, -458763, 0, 0, -393228, 0, 0, -393227, 0, 0, -393226, 0, 0, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -327691, 0, 0, -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -393207, 0, 0, -393206, 0, 0, -393205, 0, 0, -393204, 0, 0, -393203, 0, 0, -393202, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327672, 1, 0, -327671, 1, 0, -327670, 1, 0, -327669, 1, 0, -327668, 1, 0, -327667, 1, 0, -262144, 1, 0, -262142, 1, 0, -262141, 1, 0, -262140, 1, 0, -262139, 1, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -262134, 1, 0, -262133, 1, 0, -262132, 1, 0, -262131, 1, 0, -131085, 1, 0, -131084, 1, 0, -131083, 1, 0, -131082, 1, 0, -131081, 1, 0, -131080, 1, 0, -131079, 3, 0, -131078, 3, 0, -131077, 3, 0, -131076, 2, 0, -131075, 2, 0, -131074, 2, 0, -131073, 3, 0, -196608, 3, 0, -196607, 3, 0, -196606, 1, 0, -196605, 1, 0, -196604, 1, 0, -196603, 1, 0, -196602, 1, 0, -196601, 1, 0, -196600, 1, 0, -196599, 1, 0, -196598, 1, 0, -196597, 1, 0, -196596, 1, 0, -196595, 1, 0, -196594, 1, 0, -196593, 1, 0, -196592, 1, 0, -196591, 1, 0, -196590, 1, 0, -196589, 1, 0, -196588, 1, 0, -196587, 1, 0, -65549, 1, 0, -65548, 1, 0, -65547, 1, 0, -65546, 1, 0, -65545, 1, 0, -65544, 1, 0, -65543, 3, 0, -65542, 3, 0, -65541, 3, 0, -65540, 2, 0, -65539, 2, 0, -65538, 2, 0, -65537, 3, 0, -131072, 3, 0, -131071, 3, 0, -131070, 1, 0, -131069, 1, 0, -131068, 1, 0, -131067, 1, 0, -131066, 1, 0, -131065, 1, 0, -131064, 1, 0, -131063, 1, 0, -131062, 1, 0, -131061, 1, 0, -131060, 1, 0, -131059, 1, 0, -131058, 1, 0, -131057, 1, 0, -131056, 1, 0, -131055, 1, 0, -131054, 1, 0, -131053, 1, 0, -131052, 1, 0, -131051, 1, 0, -13, 1, 0, -12, 1, 0, -11, 1, 0, -10, 1, 0, -9, 1, 0, -8, 1, 0, -7, 3, 0, -6, 3, 0, -5, 3, 0, -4, 2, 0, -3, 2, 0, -2, 2, 0, -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, 65533, 2, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0 )
 
-[node name="NovaFortressCopntainmentBayLabel" parent="Background" index="1" instance=ExtResource( 10 )]
-margin_left = -224.0
-margin_top = -736.0
-margin_right = 480.0
-margin_bottom = -221.0
-
-[node name="NovaFortressCopntainmentBayLabel2" parent="Background" index="2" instance=ExtResource( 10 )]
-margin_left = -1760.0
-margin_top = -736.0
-margin_right = -1040.0
-margin_bottom = -221.0
-text = "LC
-041-A"
-
-[node name="NovaFortressAlarm" parent="Background" index="3" instance=ExtResource( 6 )]
-position = Vector2( 384, -768 )
-
-[node name="NovaFortressAlarm3" parent="Background" index="4" instance=ExtResource( 6 )]
-position = Vector2( 1920, 0 )
-scale = Vector2( 1, -1 )
-
-[node name="NovaFortressAlarm4" parent="Background" index="5" instance=ExtResource( 6 )]
-position = Vector2( 3456, -768 )
-
-[node name="NovaFortressCeilingLight7" parent="Background" index="6" instance=ExtResource( 9 )]
-position = Vector2( 4224, -640 )
-
-[node name="NovaFortressCeilingLight8" parent="Background" index="7" instance=ExtResource( 9 )]
-position = Vector2( 1280, -640 )
-
-[node name="NovaFortressCeilingLight9" parent="Background" index="8" instance=ExtResource( 9 )]
-position = Vector2( 2560, -640 )
-
-[node name="MegaPipeDiagonal" type="Node2D" parent="Background" index="9"]
+[node name="MegaPipeDiagonal" type="Node2D" parent="Background" index="1"]
 position = Vector2( 1216, -544 )
 
 [node name="NovaFortressDiagonalPipe" type="Node2D" parent="Background/MegaPipeDiagonal" index="0"]
@@ -290,7 +251,7 @@ position = Vector2( 640, -608 )
 [node name="NovaFortressDiagonalPipe45EndTop" parent="Background/MegaPipeDiagonal/NovaFortressDiagonalPipe3" index="7" instance=ExtResource( 19 )]
 position = Vector2( 824, -812 )
 
-[node name="MegaPipeDiagonal2" type="Node2D" parent="Background" index="10"]
+[node name="MegaPipeDiagonal2" type="Node2D" parent="Background" index="2"]
 position = Vector2( 3200, -480 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
@@ -404,7 +365,7 @@ position = Vector2( 640, -608 )
 [node name="NovaFortressDiagonalPipe45EndTop" parent="Background/MegaPipeDiagonal2/NovaFortressDiagonalPipe2" index="7" instance=ExtResource( 19 )]
 position = Vector2( 824, -812 )
 
-[node name="NovaFortressClockPipe" type="Node2D" parent="Background" index="11"]
+[node name="NovaFortressClockPipe" type="Node2D" parent="Background" index="3"]
 position = Vector2( -1600, -736 )
 scale = Vector2( 4, -4 )
 
@@ -433,44 +394,11 @@ position = Vector2( 320, 0 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="NovaFortressClockPipe2" type="Node2D" parent="Background" index="12"]
-position = Vector2( -256, 64 )
-rotation = 4.71239
-scale = Vector2( 4, 4 )
-
-[node name="NovaFortressCeilingPipeLeft" parent="Background/NovaFortressClockPipe2" index="0" instance=ExtResource( 13 )]
-position = Vector2( 8, 0 )
-scale = Vector2( 1, 1 )
-
-[node name="NovaFortressCeilingPipeCenter" parent="Background/NovaFortressClockPipe2" index="1" instance=ExtResource( 11 )]
-position = Vector2( 40, 0 )
-scale = Vector2( 1, 1 )
-
-[node name="NovaFortressCeilingPipeCenter2" parent="Background/NovaFortressClockPipe2" index="2" instance=ExtResource( 11 )]
-position = Vector2( 72, 0 )
-scale = Vector2( 1, 1 )
-
-[node name="NovaFortressCeilingPipeCenter3" parent="Background/NovaFortressClockPipe2" index="3" instance=ExtResource( 11 )]
-position = Vector2( 104, 0 )
-scale = Vector2( 1, 1 )
-
-[node name="NovaFortressCeilingPipeCenter4" parent="Background/NovaFortressClockPipe2" index="4" instance=ExtResource( 11 )]
-position = Vector2( 136, 0 )
-scale = Vector2( 1, 1 )
-
-[node name="NovaFortressCeilingPipeRight" parent="Background/NovaFortressClockPipe2" index="5" instance=ExtResource( 16 )]
-position = Vector2( 168, 0 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
-
-[node name="NovaFortressPistonClock" parent="Background" index="13" instance=ExtResource( 21 )]
+[node name="NovaFortressPistonClock" parent="Background" index="4" instance=ExtResource( 21 )]
 position = Vector2( -288, -640 )
 
-[node name="NovaFortressPistonClock2" parent="Background" index="14" instance=ExtResource( 21 )]
+[node name="NovaFortressPistonClock2" parent="Background" index="5" instance=ExtResource( 21 )]
 position = Vector2( -992, -640 )
-
-[node name="NovaFortressBlastDoorLight" parent="Background" index="15" instance=ExtResource( 22 )]
-position = Vector2( -672, -768 )
 
 [node name="NovaFortressCeilingPipe" type="Node2D" parent="Ground" index="0"]
 position = Vector2( 1152, -992 )
@@ -622,10 +550,11 @@ scale = Vector2( 4, 4 )
 tile_set = ExtResource( 3 )
 collision_use_parent = true
 format = 1
-tile_data = PoolIntArray( -458772, 0, 0, -458771, 0, 0, -458770, 0, 0, -458769, 0, 0, -458768, 0, 0, -458767, 0, 0, -458766, 0, 0, -458765, 0, 0, -458764, 0, 0, -458763, 0, 0, -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -458757, 0, 0, -458756, 0, 0, -458755, 0, 0, -458754, 0, 0, -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 0, 0, -524285, 0, 0, -524284, 0, 0, -524283, 0, 0, -524282, 0, 0, -524281, 0, 0, -524280, 0, 0, -524279, 0, 0, -524278, 0, 0, -524277, 0, 0, -524276, 0, 0, -524275, 0, 0, -524274, 0, 0, -524273, 0, 0, -524272, 0, 0, -524271, 0, 0, -524270, 0, 0, -524269, 0, 0, -524268, 0, 0, -524267, 0, 0, -393236, 0, 0, -393235, 0, 0, -393234, 0, 0, -393233, 0, 0, -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 0, 0, -393228, 0, 0, -393227, 0, 0, -393226, 0, 0, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -458744, 0, 0, -458743, 0, 0, -458742, 0, 0, -458741, 0, 0, -458740, 0, 0, -458739, 0, 0, -458738, 0, 0, -458737, 0, 0, -458736, 0, 0, -458735, 0, 0, -458734, 0, 0, -458733, 0, 0, -458732, 0, 0, -458731, 0, 0, -327700, 0, 0, -327699, 0, 0, -327698, 0, 0, -327697, 0, 0, -327696, 0, 0, -327695, 0, 0, -327694, 0, 0, -327693, 0, 0, -327692, 0, 0, -327691, 0, 0, -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -393207, 0, 0, -393206, 0, 0, -393205, 0, 0, -393204, 0, 0, -393203, 0, 0, -393202, 0, 0, -393201, 0, 0, -393200, 0, 0, -393199, 0, 0, -393198, 0, 0, -393197, 0, 0, -393196, 0, 0, -393195, 0, 0, -262164, 0, 0, -262163, 0, 0, -262162, 0, 0, -262161, 0, 0, -262160, 0, 0, -262159, 0, 0, -262158, 0, 0, -262157, 0, 0, -262156, 0, 0, -262155, 0, 0, -262154, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 0, 0, -327670, 0, 0, -327669, 0, 0, -327668, 0, 0, -327667, 0, 0, -327666, 0, 0, -327665, 0, 0, -327664, 0, 0, -327663, 0, 0, -327662, 0, 0, -327661, 0, 0, -327660, 0, 0, -327659, 0, 0, -196628, 0, 0, -196627, 0, 0, -196626, 0, 0, -196625, 0, 0, -196624, 0, 0, -196623, 0, 0, -196622, 0, 0, -196621, 0, 0, -196620, 0, 0, -196619, 0, 0, -196618, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262131, 0, 0, -262130, 0, 0, -262129, 0, 0, -262128, 0, 0, -262127, 0, 0, -262126, 0, 0, -262125, 0, 0, -262124, 0, 0, -262123, 0, 0, 65516, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 131052, 0, 0, 131053, 0, 0, 131054, 0, 0, 131055, 0, 0, 131056, 0, 0, 131057, 0, 0, 131058, 0, 0, 131059, 0, 0, 131060, 0, 0, 131061, 0, 0, 131062, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 0, 0, 196588, 0, 0, 196589, 0, 0, 196590, 0, 0, 196591, 0, 0, 196592, 0, 0, 196593, 0, 0, 196594, 0, 0, 196595, 0, 0, 196596, 0, 0, 196597, 0, 0, 196598, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0 )
+tile_data = PoolIntArray( -1114126, 0, 0, -1114125, 0, 0, -1114124, 0, 0, -1114123, 0, 0, -1114122, 0, 0, -1114121, 0, 0, -1114120, 0, 0, -1114119, 0, 0, -1114118, 0, 0, -1114117, 0, 0, -1114116, 0, 0, -1114115, 0, 0, -1114114, 0, 0, -1114113, 0, 0, -1179648, 0, 0, -1179647, 0, 0, -1179646, 0, 0, -1179645, 0, 0, -1179644, 0, 0, -1179643, 0, 0, -1179642, 0, 0, -1179641, 0, 0, -1179640, 0, 0, -1179639, 0, 0, -1179638, 0, 0, -1179637, 0, 0, -1179636, 0, 0, -1179635, 0, 0, -1179634, 0, 0, -1179633, 0, 0, -1179632, 0, 0, -1179631, 0, 0, -1179630, 0, 0, -1179629, 0, 0, -1048590, 0, 0, -1114093, 0, 0, -983054, 0, 0, -1048557, 0, 0, -917518, 0, 0, -983021, 0, 0, -851982, 0, 0, -851972, 0, 0, -851971, 0, 0, -851970, 0, 0, -851969, 0, 0, -917504, 0, 0, -917503, 0, 0, -917502, 0, 0, -917501, 0, 0, -917500, 0, 0, -917499, 0, 0, -917498, 0, 0, -917497, 0, 0, -917496, 0, 0, -917495, 0, 0, -917485, 0, 0, -786446, 0, 0, -851949, 0, 0, -720910, 0, 0, -786413, 0, 0, -655374, 0, 0, -720877, 0, 0, -589838, 0, 0, -589826, 0, 0, -589825, 0, 0, -655360, 0, 0, -655359, 0, 0, -655358, 0, 0, -655357, 0, 0, -655356, 0, 0, -655355, 0, 0, -655354, 0, 0, -655353, 0, 0, -655352, 0, 0, -655341, 0, 0, -524302, 0, 0, -524290, 0, 0, -524289, 0, 0, -589824, 0, 0, -589823, 0, 0, -589822, 0, 0, -589821, 0, 0, -589820, 0, 0, -589819, 0, 0, -589818, 0, 0, -589817, 0, 0, -589816, 0, 0, -589805, 0, 0, -458772, 0, 0, -458771, 0, 0, -458770, 0, 0, -458769, 0, 0, -458768, 0, 0, -458767, 0, 0, -458766, 0, 0, -458765, 0, 0, -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -458757, 0, 0, -458756, 0, 0, -458755, 0, 0, -458754, 0, 0, -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 0, 0, -524285, 0, 0, -524284, 0, 0, -524283, 0, 0, -524282, 0, 0, -524281, 0, 0, -524280, 0, 0, -524279, 0, 0, -524278, 0, 0, -524277, 0, 0, -524276, 0, 0, -524275, 0, 0, -524274, 0, 0, -524273, 0, 0, -524272, 0, 0, -524271, 0, 0, -524270, 0, 0, -524269, 0, 0, -524268, 0, 0, -524267, 0, 0, -393236, 0, 0, -393235, 0, 0, -393234, 0, 0, -393233, 0, 0, -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 0, 0, -458744, 0, 0, -458743, 0, 0, -458742, 0, 0, -458741, 0, 0, -458740, 0, 0, -458739, 0, 0, -458738, 0, 0, -458737, 0, 0, -458736, 0, 0, -458735, 0, 0, -458734, 0, 0, -458733, 0, 0, -458732, 0, 0, -458731, 0, 0, -327700, 0, 0, -327699, 0, 0, -327698, 0, 0, -327697, 0, 0, -327696, 0, 0, -327695, 0, 0, -327694, 0, 0, -327693, 0, 0, -327692, 0, 0, -393201, 0, 0, -393200, 0, 0, -393199, 0, 0, -393198, 0, 0, -393197, 0, 0, -393196, 0, 0, -393195, 0, 0, -262164, 0, 0, -262163, 0, 0, -262162, 0, 0, -262161, 0, 0, -262160, 0, 0, -262159, 0, 0, -262158, 0, 0, -262157, 0, 0, -262156, 0, 0, -262155, 0, 0, -262154, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 0, 0, -327670, 0, 0, -327669, 0, 0, -327668, 0, 0, -327667, 0, 0, -327666, 0, 0, -327665, 0, 0, -327664, 0, 0, -327663, 0, 0, -327662, 0, 0, -327661, 0, 0, -327660, 0, 0, -327659, 0, 0, -196628, 0, 0, -196627, 0, 0, -196626, 0, 0, -196625, 0, 0, -196624, 0, 0, -196623, 0, 0, -196622, 0, 0, -196621, 0, 0, -196620, 0, 0, -196619, 0, 0, -196618, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262131, 0, 0, -262130, 0, 0, -262129, 0, 0, -262128, 0, 0, -262127, 0, 0, -262126, 0, 0, -262125, 0, 0, -262124, 0, 0, -262123, 0, 0, -65534, 0, 0, -65525, 0, 0, 65516, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 131052, 0, 0, 131053, 0, 0, 131054, 0, 0, 131055, 0, 0, 131056, 0, 0, 131057, 0, 0, 131058, 0, 0, 131059, 0, 0, 131060, 0, 0, 131061, 0, 0, 131062, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 0, 0, 196588, 0, 0, 196589, 0, 0, 196590, 0, 0, 196591, 0, 0, 196592, 0, 0, 196593, 0, 0, 196594, 0, 0, 196595, 0, 0, 196596, 0, 0, 196597, 0, 0, 196598, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0 )
 
 [node name="CameraLimitTrigger" parent="Triggers" index="0" instance=ExtResource( 1 )]
 position = Vector2( 1792, 256 )
+zoom = Vector2( 2, 2 )
 limits_tween_duration = 0.5
 zoom_tween_duration = 0.5
 
@@ -642,182 +571,21 @@ shape = SubResource( 7 )
 disabled = true
 
 [node name="TopLeft" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="0"]
-position = Vector2( -2688, -1536 )
+position = Vector2( -5120, -4608 )
 
 [node name="BottomRight" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="1"]
 position = Vector2( 2944, 0 )
 
-[node name="NovaFortressPrologueCutscene1" parent="Triggers" index="1" instance=ExtResource( 4 )]
-auto_start = true
+[node name="NovaFortressTurretFull" parent="Actors" index="0" instance=ExtResource( 23 )]
+position = Vector2( -64, -1536 )
 
-[node name="CollisionTrigger" parent="Triggers/NovaFortressPrologueCutscene1" index="4" instance=ExtResource( 7 )]
-position = Vector2( -3840, -256 )
-disable_on_trigger = true
+[node name="NovaFortressTurretFull2" parent="Actors" index="1" instance=ExtResource( 23 )]
+position = Vector2( -1856, -3136 )
 
-[node name="NovaFortressTurret" parent="Actors" index="0" instance=ExtResource( 23 )]
-position = Vector2( 1920, -512 )
+[node name="NovaFortressTurretFull3" parent="Actors" index="2" instance=ExtResource( 23 )]
+position = Vector2( 3712, -3040 )
 
 [node name="Foreground" parent="." index="6"]
 position = Vector2( -64, -32 )
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Foreground" index="0"]
-layer = 99
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Foreground/ParallaxBackground" index="0"]
-motion_scale = Vector2( 1.1, 1.1 )
-
-[node name="NovaFortressDiagonalPipe" type="Node2D" parent="Foreground/ParallaxBackground/ParallaxLayer2" index="0"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -1312, -192 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="NovaFortressDiagonalPipe45End" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="0" instance=ExtResource( 20 )]
-position = Vector2( -520, 540 )
-
-[node name="NovaFortressDiagonalPipe45" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="1" instance=ExtResource( 18 )]
-position = Vector2( -320, 352 )
-
-[node name="NovaFortressDiagonalPipe46" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="2" instance=ExtResource( 18 )]
-position = Vector2( -128, 160 )
-
-[node name="NovaFortressDiagonalPipe47" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="3" instance=ExtResource( 18 )]
-position = Vector2( 64, -32 )
-
-[node name="NovaFortressDiagonalPipe48" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="4" instance=ExtResource( 18 )]
-position = Vector2( 256, -224 )
-
-[node name="NovaFortressDiagonalPipe49" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="5" instance=ExtResource( 18 )]
-position = Vector2( 448, -416 )
-
-[node name="NovaFortressDiagonalPipe50" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="6" instance=ExtResource( 18 )]
-position = Vector2( 640, -608 )
-
-[node name="NovaFortressDiagonalPipe45EndTop" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe" index="7" instance=ExtResource( 19 )]
-position = Vector2( 824, -812 )
-
-[node name="NovaFortressDiagonalPipe2" type="Node2D" parent="Foreground/ParallaxBackground/ParallaxLayer2" index="1"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -768, -544 )
-rotation = -3.14159
-scale = Vector2( 1.5, 1.5 )
-
-[node name="NovaFortressDiagonalPipe45End" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="0" instance=ExtResource( 20 )]
-position = Vector2( -520, 540 )
-
-[node name="NovaFortressDiagonalPipe45" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="1" instance=ExtResource( 18 )]
-position = Vector2( -320, 352 )
-
-[node name="NovaFortressDiagonalPipe46" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="2" instance=ExtResource( 18 )]
-position = Vector2( -128, 160 )
-
-[node name="NovaFortressDiagonalPipe47" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="3" instance=ExtResource( 18 )]
-position = Vector2( 64, -32 )
-
-[node name="NovaFortressDiagonalPipe48" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="4" instance=ExtResource( 18 )]
-position = Vector2( 256, -224 )
-
-[node name="NovaFortressDiagonalPipe49" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="5" instance=ExtResource( 18 )]
-position = Vector2( 448, -416 )
-
-[node name="NovaFortressDiagonalPipe50" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="6" instance=ExtResource( 18 )]
-position = Vector2( 640, -608 )
-
-[node name="NovaFortressDiagonalPipe45EndTop" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe2" index="7" instance=ExtResource( 19 )]
-position = Vector2( 824, -812 )
-
-[node name="NovaFortressDiagonalPipe3" type="Node2D" parent="Foreground/ParallaxBackground/ParallaxLayer2" index="2"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -640, -544 )
-rotation = -3.14159
-scale = Vector2( 1.5, 1.5 )
-
-[node name="NovaFortressDiagonalPipe45End" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="0" instance=ExtResource( 20 )]
-position = Vector2( -520, 540 )
-
-[node name="NovaFortressDiagonalPipe45" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="1" instance=ExtResource( 18 )]
-position = Vector2( -320, 352 )
-
-[node name="NovaFortressDiagonalPipe46" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="2" instance=ExtResource( 18 )]
-position = Vector2( -128, 160 )
-
-[node name="NovaFortressDiagonalPipe47" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="3" instance=ExtResource( 18 )]
-position = Vector2( 64, -32 )
-
-[node name="NovaFortressDiagonalPipe48" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="4" instance=ExtResource( 18 )]
-position = Vector2( 256, -224 )
-
-[node name="NovaFortressDiagonalPipe49" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="5" instance=ExtResource( 18 )]
-position = Vector2( 448, -416 )
-
-[node name="NovaFortressDiagonalPipe50" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="6" instance=ExtResource( 18 )]
-position = Vector2( 640, -608 )
-
-[node name="NovaFortressDiagonalPipe45EndTop" parent="Foreground/ParallaxBackground/ParallaxLayer2/NovaFortressDiagonalPipe3" index="7" instance=ExtResource( 19 )]
-position = Vector2( 824, -812 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Foreground/ParallaxBackground" index="1"]
-motion_scale = Vector2( 1.2, 1.2 )
-
-[node name="NovaFortressDiagonalPipe" type="Node2D" parent="Foreground/ParallaxBackground/ParallaxLayer" index="0"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 4288, -544 )
-rotation = -3.14159
-scale = Vector2( -2, 2 )
-
-[node name="NovaFortressDiagonalPipe45End" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="0" instance=ExtResource( 20 )]
-position = Vector2( -520, 540 )
-
-[node name="NovaFortressDiagonalPipe45" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="1" instance=ExtResource( 18 )]
-position = Vector2( -320, 352 )
-
-[node name="NovaFortressDiagonalPipe46" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="2" instance=ExtResource( 18 )]
-position = Vector2( -128, 160 )
-
-[node name="NovaFortressDiagonalPipe47" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="3" instance=ExtResource( 18 )]
-position = Vector2( 64, -32 )
-
-[node name="NovaFortressDiagonalPipe48" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="4" instance=ExtResource( 18 )]
-position = Vector2( 256, -224 )
-
-[node name="NovaFortressDiagonalPipe49" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="5" instance=ExtResource( 18 )]
-position = Vector2( 448, -416 )
-
-[node name="NovaFortressDiagonalPipe50" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="6" instance=ExtResource( 18 )]
-position = Vector2( 640, -608 )
-
-[node name="NovaFortressDiagonalPipe45EndTop" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe" index="7" instance=ExtResource( 19 )]
-position = Vector2( 824, -812 )
-
-[node name="NovaFortressDiagonalPipe2" type="Node2D" parent="Foreground/ParallaxBackground/ParallaxLayer" index="1"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -672, -960 )
-rotation = -3.14159
-scale = Vector2( 2, 2 )
-
-[node name="NovaFortressDiagonalPipe45End" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="0" instance=ExtResource( 20 )]
-position = Vector2( -520, 540 )
-
-[node name="NovaFortressDiagonalPipe45" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="1" instance=ExtResource( 18 )]
-position = Vector2( -320, 352 )
-
-[node name="NovaFortressDiagonalPipe46" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="2" instance=ExtResource( 18 )]
-position = Vector2( -128, 160 )
-
-[node name="NovaFortressDiagonalPipe47" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="3" instance=ExtResource( 18 )]
-position = Vector2( 64, -32 )
-
-[node name="NovaFortressDiagonalPipe48" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="4" instance=ExtResource( 18 )]
-position = Vector2( 256, -224 )
-
-[node name="NovaFortressDiagonalPipe49" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="5" instance=ExtResource( 18 )]
-position = Vector2( 448, -416 )
-
-[node name="NovaFortressDiagonalPipe50" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="6" instance=ExtResource( 18 )]
-position = Vector2( 640, -608 )
-
-[node name="NovaFortressDiagonalPipe45EndTop" parent="Foreground/ParallaxBackground/ParallaxLayer/NovaFortressDiagonalPipe2" index="7" instance=ExtResource( 19 )]
-position = Vector2( 824, -812 )
-[connection signal="finished" from="Triggers/NovaFortressPrologueCutscene1" to="Triggers/CameraLimitTrigger" method="change"]
-[connection signal="area_entered_no_area" from="Triggers/NovaFortressPrologueCutscene1/CollisionTrigger" to="Triggers/NovaFortressPrologueCutscene1" method="start"]
 
 [editable path="Triggers/CameraLimitTrigger"]

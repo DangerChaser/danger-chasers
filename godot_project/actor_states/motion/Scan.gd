@@ -1,5 +1,6 @@
 extends MotionState
 
+export var weapon_scene : PackedScene
 export var animation : String = "idle"
 export var max_rotation_degrees = 90
 export var min_rotation_degrees = -90
@@ -20,11 +21,24 @@ var going_up := true
 var initial_rotation_degrees : float
 var target_angle : float
 var locked_on := false
+var weapon
 
 
 func _ready() -> void:
 	lock_on_timer.wait_time = lock_on_time
 	active_timer.wait_time = active_time
+	set_weapon(weapon_scene)
+
+func set_weapon(weapon_scene : PackedScene) -> void:
+	weapon = weapon_scene.instance()
+	weapon.set_friendly_teams([owner.team])
+	owner.add_weapon(weapon)
+	weapon.set_owner(owner)
+	weapon.connect("attack_started", self, "attack_started")
+
+
+func attack_started(attack_animation : String) -> void:
+	owner.play_animation(attack_animation)
 
 
 func enter(args := {}) -> void:
@@ -40,7 +54,6 @@ func enter(args := {}) -> void:
 	sweep(true)
 	
 	locked_on = false
-	set_physics_process(locked_on)
 
 
 func sweep(up := true) -> void:
@@ -62,6 +75,7 @@ func sweep(up := true) -> void:
 
 func exit() -> void:
 	.exit()
+	weapon.exit()
 	timer.stop()
 	raycast_line.disable()
 	$TargetConfirmedSfx.stop()
@@ -72,15 +86,22 @@ func _process(delta):
 
 
 func _physics_process(delta) -> void:
-	var lerped_angle = lerp_angle(owner.rotation, \
-			(owner.target.global_position - owner.global_position).angle(), \
-			locked_on_lerp * delta)
-	owner.set_rotation(lerped_angle)
+	if not locked_on:
+		if raycast_line.get_collider() is Actor:
+			lock_on(raycast_line.get_collider())
+		return
 	
-	if $CollisionTrigger.get_overlapping_bodies().size() > 0 \
-			and is_instance_valid(owner.target.get_target()) \
-			and $CollisionTrigger.get_overlapping_bodies()[0] == owner.target.get_target().owner:
+	if raycast_line.get_collider() is Actor:
+		owner.target.lock_on(raycast_line.get_collider())
 		active_timer.start()
+	
+	if owner.target.get_target():
+		var lerped_angle = lerp_angle(owner.rotation, \
+				owner.target.get_rotation_to(), \
+				locked_on_lerp * delta)
+		owner.set_rotation(lerped_angle)
+	
+	weapon.attacks.register_attack()
 
 
 func _on_Tween_tween_all_completed():
@@ -90,29 +111,20 @@ func _on_Tween_tween_all_completed():
 		sweep(true)
 
 
-func _on_CollisionTrigger_area_entered(area):
-	if not locked_on:
-		lock_on(area.owner)
-
-
-func _on_CollisionTrigger_body_entered(body):
-	if not locked_on:
-		lock_on(body)
-
-
 func lock_on(target) -> void:
 	owner.target.lock_on(target)
 	tween.stop_all()
 	lock_on_timer.start()
 	locked_on = true
-	set_physics_process(locked_on)
 	$LockOnSfx.play()
 
 
 func _on_LockOnTimer_timeout():
-	if $CollisionTrigger.get_overlapping_bodies().size() > 0 and $CollisionTrigger.get_overlapping_bodies()[0] == owner.target.get_target().owner:
+	if raycast_line.get_collider() is Actor:
+		owner.target.lock_on(raycast_line.get_collider())
 		$TargetConfirmedSfx.play()
 		active_timer.start()
+		weapon.enter()
 	else:
 		lost_target()
 
@@ -122,12 +134,12 @@ func _on_ActiveTimer_timeout():
 
 
 func lost_target() -> void:
-	set_physics_process(false)
 	locked_on = false
 	$TargetLostSfx.play()
 	$TargetConfirmedSfx.stop()
 	active_timer.stop()
 	lock_on_timer.stop()
+	weapon.exit()
 	
 	going_up = true
 	var new_target_angle = initial_rotation_degrees + max_rotation_degrees
@@ -149,15 +161,15 @@ func _on_Timer_timeout():
 
 
 func pause() -> void:
-	.pause()
-	timer.paused = true
-	lock_on_timer.paused = true
-	active_timer.paused = true
-	set_physics_process(false)
+	pass
+#	.pause()
+#	timer.paused = true
+#	lock_on_timer.paused = true
+#	active_timer.paused = true
 
 func unpause() -> void:
-	.unpause()
-	timer.paused = false
-	lock_on_timer.paused = false
-	active_timer.paused = false
-	set_physics_process(locked_on)
+	pass
+#	.unpause()
+#	timer.paused = false
+#	lock_on_timer.paused = false
+#	active_timer.paused = false
