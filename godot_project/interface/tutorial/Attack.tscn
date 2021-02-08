@@ -48,8 +48,9 @@ anims/show = SubResource( 2 )
 
 [node name="KeyLabel" parent="." instance=ExtResource( 1 )]
 anchor_bottom = 0.0
-margin_top = 256.0
-margin_bottom = 270.0
+margin_top = 16.0
+margin_right = 0.0
+margin_bottom = 47.0
 text = "Attack
 "
 align = 1

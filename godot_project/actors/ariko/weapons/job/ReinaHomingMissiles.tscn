@@ -6,8 +6,6 @@
 [ext_resource path="res://assets/sprites/actors/reina/teleport.png" type="Texture" id=5]
 [ext_resource path="res://actors/reina/Reina.tscn" type="PackedScene" id=6]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
@@ -51,12 +49,15 @@ actor_animation = "jump"
 
 [node name="ActorSpawner" parent="Pivot/Attacks/ActorSpawnAttack/Spawners" index="0"]
 object = ExtResource( 6 )
+random_degrees = 0.0
+random_radius = 0.0
 team = "team_1"
+actor_name = ""
 
 [node name="JumpEffect" parent="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects" index="0" instance=ExtResource( 2 )]
 initial_mass = 18.0
-initial_speed = -300.0
-jump_force = 1000.0
+initial_speed = -75.0
+jump_force = 250.0
 finish_on_release = false
 
 [node name="Motion" parent="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects/JumpEffect" index="0"]
@@ -68,8 +69,8 @@ max_speed = 0.0
 mass = 64.0
 
 [node name="Gravity" parent="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects/JumpEffect/Motion" index="2"]
-gravity = 12000.0
-max_speed = 6000.0
+gravity = 3000.0
+max_speed = 1500.0
 
 [node name="FinishOnFloor" type="Node2D" parent="Pivot/Attacks/ActorSpawnAttack/AdditionalEffects" index="1"]
 script = ExtResource( 3 )

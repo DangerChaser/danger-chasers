@@ -39,8 +39,8 @@ max_distance = 1800.0
 bus = "Ambience"
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 256 )
-scale = Vector2( 32, 4 )
+position = Vector2( 0, 64 )
+scale = Vector2( 8, 1 )
 texture = ExtResource( 4 )
 normal_map = ExtResource( 6 )
 
@@ -49,8 +49,7 @@ anims/SETUP = SubResource( 2 )
 anims/on = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, 24 )
-scale = Vector2( 4, 4 )
+position = Vector2( 0, 6 )
 texture = ExtResource( 3 )
 texture_scale = 10.0
 shadow_enabled = true

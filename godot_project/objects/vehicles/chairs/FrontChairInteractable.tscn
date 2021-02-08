@@ -4,14 +4,13 @@
 [ext_resource path="res://objects/vehicles/chairs/FrontChair.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/objects/passenger_car_chair_1.png" type="Texture" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 256, 256 )
 
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
-radius = 60.0
+radius = 17.8848
 
 [node name="FrontChairInteractable" instance=ExtResource( 1 )]
 vehicle = ExtResource( 2 )
@@ -23,6 +22,7 @@ shape = SubResource( 1 )
 visible = true
 
 [node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2( 0, -23.7841 )
 shape = SubResource( 2 )
 disabled = false
 
@@ -30,8 +30,8 @@ disabled = false
 position = Vector2( 0, 32 )
 
 [node name="Sprite" type="Sprite" parent="." index="3"]
-position = Vector2( 0, -78.7694 )
-scale = Vector2( 6, 6 )
+position = Vector2( 0, -36 )
+scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 3 )
 
 [editable path="CollisionTrigger"]

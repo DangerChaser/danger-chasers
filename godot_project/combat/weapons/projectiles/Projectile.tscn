@@ -6,7 +6,7 @@
 [ext_resource path="res://actor_framework/Target.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 59.5189
+radius = 7.81425
 
 [node name="Projectile" type="KinematicBody2D"]
 z_index = 10

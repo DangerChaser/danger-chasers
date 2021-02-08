@@ -95,7 +95,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 16, 16 ), Vector2( 4, 4 ), Vector2( 1e-05, 1e-05 ) ]
+"values": [ Vector2( 4, 4 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("CircleBase:scale")
@@ -107,7 +107,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 4, 4 ) ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/5/type = "method"
 tracks/5/path = NodePath("SuccessParticleSpawner")
@@ -182,7 +182,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 16, 16 ), Vector2( 4, 4 ), Vector2( 1e-05, 1e-05 ) ]
+"values": [ Vector2( 4, 4 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("CircleBase:scale")
@@ -194,7 +194,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 4, 4 ) ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/5/type = "method"
 tracks/5/path = NodePath("SuccessParticleSpawner")
@@ -292,7 +292,7 @@ z_index = -1
 texture = ExtResource( 6 )
 
 [node name="SuccessParticleSpawner" parent="." index="3" instance=ExtResource( 8 )]
-position = Vector2( 0, -168.829 )
+position = Vector2( 0, -42 )
 object = ExtResource( 7 )
 
 [node name="AnimationPlayer" parent="." index="4"]
@@ -310,11 +310,12 @@ weapon_animation = "trick_1"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Trick1/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
-initial_speed = 1800.0
-jump_force = 4000.0
+initial_speed = 450.0
+jump_force = 1000.0
 finish_on_release = false
 
 [node name="MotionSteering" parent="Pivot/Attacks/Trick1/AdditionalEffects/JumpEffect/Motion" index="1"]
+max_speed = 68.0
 mass = 32.0
 
 [node name="InputCancel" parent="Pivot/Attacks/Trick1/AdditionalEffects" index="1" instance=ExtResource( 2 )]
@@ -329,11 +330,12 @@ weapon_animation = "trick_2"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Trick2/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
-initial_speed = 1800.0
-jump_force = 4000.0
+initial_speed = 450.0
+jump_force = 1000.0
 finish_on_release = false
 
 [node name="MotionSteering" parent="Pivot/Attacks/Trick2/AdditionalEffects/JumpEffect/Motion" index="1"]
+max_speed = 68.0
 mass = 32.0
 
 [node name="InputCancel" parent="Pivot/Attacks/Trick2/AdditionalEffects" index="1" instance=ExtResource( 2 )]
@@ -348,11 +350,12 @@ weapon_animation = "trick_3"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Trick3/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
-initial_speed = 1800.0
-jump_force = 4000.0
+initial_speed = 450.0
+jump_force = 1000.0
 finish_on_release = false
 
 [node name="MotionSteering" parent="Pivot/Attacks/Trick3/AdditionalEffects/JumpEffect/Motion" index="1"]
+max_speed = 68.0
 mass = 32.0
 
 [node name="InputCancel" parent="Pivot/Attacks/Trick3/AdditionalEffects" index="1" instance=ExtResource( 2 )]

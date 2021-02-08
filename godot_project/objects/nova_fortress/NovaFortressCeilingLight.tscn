@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/sprites/objects/nova_fortress_ceiling_light_texture.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/objects/nova_fortress_ceiling_light_normal.png" type="Texture" id=6]
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
 
@@ -30,7 +30,7 @@ length = 0.001
 loop = true
 
 [node name="NovaFortressCeilingLight" type="Node2D"]
-script = SubResource( 4 )
+script = SubResource( 1 )
 
 [node name="Sfx" parent="." instance=ExtResource( 1 )]
 stream = ExtResource( 2 )
@@ -39,8 +39,7 @@ max_distance = 1800.0
 bus = "Ambience"
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 256 )
-scale = Vector2( 4, 4 )
+position = Vector2( 0, 64 )
 texture = ExtResource( 4 )
 normal_map = ExtResource( 6 )
 
@@ -49,7 +48,6 @@ anims/SETUP = SubResource( 2 )
 anims/on = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, 24 )
-scale = Vector2( 4, 4 )
+position = Vector2( 0, 6 )
 texture = ExtResource( 5 )
 shadow_enabled = true

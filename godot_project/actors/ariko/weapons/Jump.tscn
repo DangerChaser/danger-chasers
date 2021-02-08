@@ -31,7 +31,6 @@ weapon_animation = "jump"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Jump/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
-initial_speed = 420.0
 take_previous_velocity = true
 
 [node name="InputCancel" parent="Pivot/Attacks/Jump/AdditionalEffects" index="1" instance=ExtResource( 2 )]

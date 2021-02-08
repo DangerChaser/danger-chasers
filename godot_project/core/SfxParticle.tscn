@@ -12,5 +12,3 @@ script = ExtResource( 2 )
 [node name="Particles2D" type="Particles2D" parent="Pivot"]
 
 [node name="Sfx" parent="." instance=ExtResource( 1 )]
-max_distance = 4000.0
-attenuation = 1.0

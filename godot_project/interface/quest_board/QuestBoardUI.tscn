@@ -29,10 +29,11 @@ __meta__ = {
 [node name="Background" type="NinePatchRect" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 64.0
-margin_top = 64.0
-margin_right = -160.0
-margin_bottom = -88.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 1216.0
+margin_bottom = 530.0
+rect_scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 224, 224 )
 patch_margin_left = 52
@@ -48,19 +49,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -823.0
-margin_top = -348.0
-margin_right = 704.0
-margin_bottom = 356.0
+margin_left = -176.0
+margin_top = -71.0
+margin_right = 176.0
+margin_bottom = 57.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="QuestListContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
-margin_right = 512.0
-margin_bottom = 704.0
-rect_min_size = Vector2( 512, 0 )
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 0 )
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -69,8 +70,8 @@ __meta__ = {
 [node name="QuestsLabel" parent="Control/HBoxContainer/QuestListContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 512.0
-margin_bottom = 68.0
+margin_right = 128.0
+margin_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -80,25 +81,25 @@ align = 1
 valign = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/HBoxContainer/QuestListContainer"]
-margin_top = 72.0
-margin_right = 512.0
-margin_bottom = 704.0
+margin_top = 22.0
+margin_right = 128.0
+margin_bottom = 128.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/QuestListContainer/ScrollContainer"]
-margin_right = 512.0
-margin_bottom = 632.0
+margin_right = 128.0
+margin_bottom = 106.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="QuestDescriptionContainer" type="NinePatchRect" parent="Control/HBoxContainer"]
-margin_left = 516.0
-margin_right = 1527.0
-margin_bottom = 704.0
+margin_left = 132.0
+margin_right = 352.0
+margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 2 )
@@ -116,10 +117,10 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/QuestDescriptionContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 28.0
-margin_top = 32.0
-margin_right = -36.0
-margin_bottom = -32.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -128,20 +129,19 @@ __meta__ = {
 [node name="QuestNameLabel" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 947.0
-margin_bottom = 68.0
+margin_right = 208.0
+margin_bottom = 18.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "QUEST_NAME"
 align = 1
 valign = 1
 
 [node name="QuestDescriptionLabel" type="RichTextLabel" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer"]
-margin_top = 72.0
-margin_right = 947.0
-margin_bottom = 584.0
+margin_top = 22.0
+margin_right = 208.0
+margin_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 892, 512 )
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -153,14 +153,14 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer"]
-margin_top = 588.0
-margin_right = 947.0
-margin_bottom = 656.0
+margin_top = 94.0
+margin_right = 208.0
+margin_bottom = 112.0
 mouse_filter = 2
 
 [node name="DeclineButton" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 8 )]
-margin_right = 313.0
-margin_bottom = 68.0
+margin_right = 66.0
+margin_bottom = 18.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
@@ -168,16 +168,16 @@ custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
 text = "DECLINE"
 
 [node name="Spacer" type="Control" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer/HBoxContainer"]
-margin_left = 317.0
-margin_right = 630.0
-margin_bottom = 68.0
+margin_left = 70.0
+margin_right = 137.0
+margin_bottom = 18.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="AcceptButton" parent="Control/HBoxContainer/QuestDescriptionContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 8 )]
-margin_left = 634.0
-margin_right = 947.0
-margin_bottom = 68.0
+margin_left = 141.0
+margin_right = 208.0
+margin_bottom = 18.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
@@ -185,11 +185,11 @@ custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
 text = "ACCEPT"
 
 [node name="BackButton" type="Button" parent="Control"]
-margin_left = 128.0
-margin_top = 128.0
-margin_right = 256.0
-margin_bottom = 256.0
-rect_min_size = Vector2( 128, 128 )
+margin_left = 48.0
+margin_top = 176.0
+margin_right = 80.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 32, 32 )
 icon = ExtResource( 9 )
 flat = true
 expand_icon = true

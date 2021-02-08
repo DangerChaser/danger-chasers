@@ -24,7 +24,7 @@ shape = SubResource( 1 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 pause_mode = 2
-rect = Rect2( -668, -668, 1337, 1337 )
+rect = Rect2( -150, -150, 300, 300 )
 pause_animations = false
 freeze_bodies = false
 pause_particles = false

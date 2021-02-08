@@ -5,6 +5,14 @@
 
 [node name="StompEffect" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+initial_speed = 1250.0
+
+[node name="MotionSteering" parent="Motion" index="1"]
+max_speed = 400.0
+
+[node name="Gravity" parent="Motion" index="2"]
+gravity = 1250.0
+max_speed = 1000.0
 
 [node name="Timer" type="Timer" parent="." index="1"]
 wait_time = 0.001

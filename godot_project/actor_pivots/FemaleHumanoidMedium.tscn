@@ -58,8 +58,9 @@
 [ext_resource path="res://assets/particles/LandDust.tscn" type="PackedScene" id=56]
 [ext_resource path="res://assets/particles/WallrunGrind.tscn" type="PackedScene" id=57]
 [ext_resource path="res://core/utils/TrailingSprites.tscn" type="PackedScene" id=58]
-[ext_resource path="res://actors/ariko/BasicKnifePivot.tscn" type="PackedScene" id=59]
+[ext_resource path="res://pivots/BasicKnifePivot.tscn" type="PackedScene" id=59]
 [ext_resource path="res://assets/sprites/misc/white_square.png" type="Texture" id=60]
+
 
 [sub_resource type="Animation" id=1]
 length = 0.001

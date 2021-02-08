@@ -19,7 +19,7 @@ func get_limit_bottom() -> float:
 ## Editor drawing code ##
 #########################
 export var line_color := Color("80aff2")
-export var line_width := 10.0
+export var line_width := 2.0
 
 
 func _process(delta: float) -> void:

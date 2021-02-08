@@ -112,11 +112,11 @@ tracks/0/keys = {
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
-extents = Vector2( 64, 30 )
+extents = Vector2( 16, 7 )
 
 [sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
-extents = Vector2( 128, 64 )
+extents = Vector2( 32, 16 )
 
 [node name="Stomp" instance=ExtResource( 2 )]
 
@@ -140,7 +140,6 @@ actor_animation = "stomp"
 weapon_animation = "stomp"
 
 [node name="DamageSource" parent="Pivot/Attacks/Stomp" index="0" instance=ExtResource( 7 )]
-position = Vector2( 0, 32 )
 hit_particles = ExtResource( 10 )
 damage = 3
 delay_milliseconds = 6
@@ -148,17 +147,11 @@ screen_shake_amplitude = 20.0
 screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Stomp/DamageSource" index="0"]
+position = Vector2( 0, 8 )
 shape = SubResource( 4 )
 
 [node name="StompEffect" parent="Pivot/Attacks/Stomp/AdditionalEffects" index="0" instance=ExtResource( 4 )]
-initial_speed = 5000.0
-
-[node name="MotionSteering" parent="Pivot/Attacks/Stomp/AdditionalEffects/StompEffect/Motion" index="1"]
-max_speed = 1200.0
-
-[node name="Gravity" parent="Pivot/Attacks/Stomp/AdditionalEffects/StompEffect/Motion" index="2"]
-gravity = 5000.0
-max_speed = 4000.0
+initial_speed = 0.0
 
 [node name="PlayStompSfx" type="Node2D" parent="Pivot/Attacks/Stomp/AdditionalEffects" index="1"]
 script = ExtResource( 5 )
@@ -169,7 +162,6 @@ actor_animation = "stomp_land"
 weapon_animation = "recover"
 
 [node name="DamageSource" parent="Pivot/Attacks/Recover" index="0" instance=ExtResource( 7 )]
-position = Vector2( 0, 64 )
 hit_particles = ExtResource( 11 )
 damage = 2
 delay_milliseconds = 2
@@ -177,6 +169,7 @@ screen_shake_amplitude = 42.0
 screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Recover/DamageSource" index="0"]
+position = Vector2( 0, 16 )
 shape = SubResource( 5 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Recover/AdditionalEffects" index="0" instance=ExtResource( 6 )]

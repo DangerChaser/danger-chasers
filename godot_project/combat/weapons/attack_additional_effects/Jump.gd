@@ -1,6 +1,6 @@
 extends MovementEffect
 
-export var jump_force := 5000.0
+export var jump_force := 1250.0
 export var finish_on_release := true
 
 var input : String

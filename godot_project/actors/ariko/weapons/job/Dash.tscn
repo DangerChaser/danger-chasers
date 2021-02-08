@@ -12,16 +12,9 @@
 [ext_resource path="res://assets/particles/ArikoDash.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/sprites/actors/ariko/icons/dash_icon.png" type="Texture" id=11]
 
-
-
-
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 211.778, 106.825 )
+extents = Vector2( 53, 26 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -125,7 +118,7 @@ icon = ExtResource( 11 )
 wait_time = 3.0
 
 [node name="ParticleSpawner" parent="." index="1" instance=ExtResource( 9 )]
-position = Vector2( 288, -96 )
+position = Vector2( 72, -24 )
 particles = ExtResource( 10 )
 
 [node name="DamageSource" parent="." index="2" instance=ExtResource( 6 )]
@@ -136,7 +129,7 @@ screen_shake_amplitude = 200.0
 screen_shake_duration = 0.3
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
-position = Vector2( 115.153, -105.714 )
+position = Vector2( 29, -26 )
 shape = SubResource( 1 )
 
 [node name="SfxRandom" parent="." index="3" instance=ExtResource( 4 )]
@@ -153,12 +146,12 @@ grounded = false
 actor_animation = "dash"
 
 [node name="MovementEffect" parent="Pivot/Attacks/Dash/AdditionalEffects" index="0" instance=ExtResource( 8 )]
-initial_speed = 5069.0
+initial_speed = 2000.0
 initialize_y = true
 takes_previous_speed = true
 
 [node name="MotionSteering" parent="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect/Motion" index="1"]
-max_speed = 3000.0
+max_speed = 750.0
 mass = 20.0
 
 [node name="Gravity" parent="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect/Motion" index="2"]
@@ -171,12 +164,12 @@ max_speed = 0.0
 actor_animation = "quick_attack"
 
 [node name="MovementEffect" parent="Pivot/Attacks/Dash2/AdditionalEffects" index="0" instance=ExtResource( 8 )]
-initial_speed = 5069.0
+initial_speed = 2000.0
 initialize_y = true
 takes_previous_speed = true
 
 [node name="MotionSteering" parent="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect/Motion" index="1"]
-max_speed = 3000.0
+max_speed = 750.0
 mass = 20.0
 
 [node name="Gravity" parent="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect/Motion" index="2"]

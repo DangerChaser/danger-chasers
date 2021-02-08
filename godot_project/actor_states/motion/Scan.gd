@@ -8,8 +8,8 @@ export var scan_one_way_duration := 2.0
 export var lock_on_time := 1.0
 export var next_state : String = ""
 export var timeout_duration := -1.0
-export var locked_on_lerp := 6.0
-export var active_time := 5.0
+export var locked_on_lerp := 4.0
+export var active_time := 3.0
 
 onready var timer : Timer = $Timer
 onready var tween : Tween = $Tween

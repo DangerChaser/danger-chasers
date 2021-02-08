@@ -1,10 +1,10 @@
 extends Node
 class_name Gravity
 
-export var gravity := 3600.0
-export var max_speed := 2000.0
+export var gravity := 900.0
+export var max_speed := 500.0
 export var direction := Vector2.DOWN
-onready var snap = Vector2.DOWN * 32
+onready var snap = Vector2.DOWN * 8
 
 var speed : float
 var velocity := Vector2()

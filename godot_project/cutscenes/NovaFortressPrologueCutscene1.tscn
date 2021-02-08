@@ -88,7 +88,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 5, 6.1, 6.6, 10, 13 ),
 "transitions": PoolRealArray( 1, 0.5, -2, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1536, 0 ), Vector2( -1536, 0 ), Vector2( 0, 0 ), Vector2( -64, 0 ), Vector2( -64, 0 ), Vector2( 256, 0 ) ]
+"values": [ Vector2( -384, 0 ), Vector2( -384, 0 ), Vector2( 0, 0 ), Vector2( -16, 0 ), Vector2( -16, 0 ), Vector2( 64, 0 ) ]
 }
 tracks/5/type = "method"
 tracks/5/path = NodePath("PlayerManagedStateManager")
@@ -131,10 +131,10 @@ tracks/7/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 length = 0.001
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 length = 0.2
 tracks/0/type = "method"
 tracks/0/path = NodePath("PlayerManagedStateManager")
@@ -205,7 +205,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 256, 0 ) ]
+"values": [ Vector2( 64, 0 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("PlayerManagedStateManager:scale")
@@ -234,7 +234,7 @@ tracks/6/keys = {
 } ]
 }
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=4]
 resource_local_to_scene = true
 radius = 200.0
 
@@ -242,33 +242,37 @@ radius = 200.0
 
 [node name="AnimationPlayer" parent="." index="0"]
 anims/0 = SubResource( 1 )
-anims/SETUP = SubResource( 5 )
-anims/end = SubResource( 6 )
+anims/SETUP = SubResource( 2 )
+anims/end = SubResource( 3 )
 next/0 = "end"
 
 [node name="CutsceneCamera" parent="." index="1" instance=ExtResource( 4 )]
-position = Vector2( 448, -512 )
+position = Vector2( 112, -128 )
 zoom = Vector2( 1.4, 1.4 )
 initial_lerp = 1.0
 
 [node name="PlayerManagedStateManager" parent="." index="2" instance=ExtResource( 11 )]
-position = Vector2( -1536, 0 )
+position = Vector2( -384, 0 )
 managed_state = ExtResource( 12 )
 
 [node name="NovaFortressBlastDoor" parent="." index="4" instance=ExtResource( 3 )]
-position = Vector2( -640, -384 )
+position = Vector2( -160, -96 )
 
 [node name="NovaFortressBlastDoorController" parent="NovaFortressBlastDoor" index="6" instance=ExtResource( 5 )]
-position = Vector2( 512, 224 )
+position = Vector2( 128, 56 )
 disable_on_trigger = true
 
 [node name="CollisionShape2D" parent="NovaFortressBlastDoor/NovaFortressBlastDoorController" index="0"]
 visible = false
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="Sfx" parent="NovaFortressBlastDoor/NovaFortressBlastDoorController" index="1"]
 bus = "Master"
+
+[node name="Pin" parent="NovaFortressBlastDoor/NovaFortressBlastDoorController" index="2"]
+margin_top = -224.0
+margin_bottom = -194.0
 [connection signal="interacted" from="NovaFortressBlastDoor/NovaFortressBlastDoorController" to="NovaFortressBlastDoor" method="interact"]
 
 [editable path="NovaFortressBlastDoor/NovaFortressBlastDoorController"]

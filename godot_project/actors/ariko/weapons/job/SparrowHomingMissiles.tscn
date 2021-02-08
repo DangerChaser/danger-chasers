@@ -4,8 +4,6 @@
 [ext_resource path="res://assets/sprites/actors/reina/teleport.png" type="Texture" id=5]
 [ext_resource path="res://actors/sparrow/Sparrow.tscn" type="PackedScene" id=6]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
@@ -48,6 +46,9 @@ grounded = false
 [node name="ActorSpawner" parent="Pivot/Attacks/ActorSpawnAttack/Spawners" index="0"]
 position = Vector2( 0, -316.784 )
 object = ExtResource( 6 )
+random_degrees = 0.0
+random_radius = 0.0
 team = "team_1"
+actor_name = ""
 
 [editable path="Pivot/Attacks/ActorSpawnAttack"]

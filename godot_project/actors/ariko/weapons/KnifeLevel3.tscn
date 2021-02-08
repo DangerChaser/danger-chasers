@@ -13,7 +13,6 @@
 [ext_resource path="res://assets/particles/Slash2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/particles/StabLine.tscn" type="PackedScene" id=12]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
@@ -230,11 +229,11 @@ tracks/2/keys = {
 
 [sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
-extents = Vector2( 224, 64 )
+extents = Vector2( 56, 16 )
 
 [sub_resource type="RectangleShape2D" id=6]
 resource_local_to_scene = true
-extents = Vector2( 224, 64 )
+extents = Vector2( 56, 16 )
 
 [node name="KnifeLevel3" instance=ExtResource( 1 )]
 
@@ -252,15 +251,15 @@ anims/slash_up = SubResource( 3 )
 anims/stab = SubResource( 4 )
 
 [node name="SlashDownParticles" parent="." index="3" instance=ExtResource( 10 )]
-position = Vector2( 256, -32 )
+position = Vector2( 64, -8 )
 particles = ExtResource( 9 )
 
 [node name="SlashUpParticleSpawner" parent="." index="4" instance=ExtResource( 10 )]
-position = Vector2( 32, -64 )
+position = Vector2( 8, -16 )
 particles = ExtResource( 11 )
 
 [node name="StabParticleSpawner" parent="." index="5" instance=ExtResource( 10 )]
-position = Vector2( 256, -80 )
+position = Vector2( 64, -20 )
 particles = ExtResource( 12 )
 
 [node name="SlashDownDamageSource" parent="." index="6" instance=ExtResource( 2 )]
@@ -271,7 +270,7 @@ screen_shake_amplitude = 42.0
 screen_shake_duration = 0.4
 
 [node name="CollisionShape2D" parent="SlashDownDamageSource" index="0"]
-position = Vector2( 256, -64 )
+position = Vector2( 64, -24 )
 shape = SubResource( 5 )
 
 [node name="SlashUpHitbox" parent="." index="7" instance=ExtResource( 2 )]
@@ -282,7 +281,7 @@ screen_shake_amplitude = 42.0
 screen_shake_duration = 0.4
 
 [node name="CollisionShape2D" parent="SlashUpHitbox" index="0"]
-position = Vector2( 256, -64 )
+position = Vector2( 64, -24 )
 shape = SubResource( 6 )
 
 [node name="StabDamageSource" parent="." index="8" instance=ExtResource( 2 )]
@@ -293,7 +292,7 @@ screen_shake_amplitude = 42.0
 screen_shake_duration = 0.4
 
 [node name="CollisionShape2D" parent="StabDamageSource" index="0"]
-position = Vector2( 256, -64 )
+position = Vector2( 64, -24 )
 shape = SubResource( 5 )
 
 [node name="Attacks" parent="Pivot" index="0"]
@@ -305,15 +304,11 @@ actor_animation = "slash_1"
 weapon_animation = "slash_down"
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashDown/AdditionalEffects" index="0" instance=ExtResource( 7 )]
-initial_speed = 3000.0
+initial_speed = 750.0
 
 [node name="MotionSteering" parent="Pivot/Attacks/SlashDown/AdditionalEffects/MovementEffect/Motion" index="1"]
-max_speed = 420.0
+max_speed = 100.0
 mass = 8.0
-
-[node name="Gravity" parent="Pivot/Attacks/SlashDown/AdditionalEffects/MovementEffect/Motion" index="2"]
-gravity = 4000.0
-max_speed = 2400.0
 
 [node name="FinishInAir" type="Node2D" parent="Pivot/Attacks/SlashDown/AdditionalEffects" index="1"]
 script = ExtResource( 8 )
@@ -323,15 +318,11 @@ actor_animation = "slash_2"
 weapon_animation = "slash_up"
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashUp/AdditionalEffects" index="0" instance=ExtResource( 7 )]
-initial_speed = 3000.0
+initial_speed = 750.0
 
 [node name="MotionSteering" parent="Pivot/Attacks/SlashUp/AdditionalEffects/MovementEffect/Motion" index="1"]
-max_speed = 420.0
+max_speed = 100.0
 mass = 8.0
-
-[node name="Gravity" parent="Pivot/Attacks/SlashUp/AdditionalEffects/MovementEffect/Motion" index="2"]
-gravity = 4000.0
-max_speed = 2400.0
 
 [node name="FinishInAir" type="Node2D" parent="Pivot/Attacks/SlashUp/AdditionalEffects" index="1"]
 script = ExtResource( 8 )
@@ -341,7 +332,10 @@ actor_animation = "slash_1"
 weapon_animation = "slash_down"
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashDown2/AdditionalEffects" index="0" instance=ExtResource( 7 )]
-initial_speed = 3000.0
+initial_speed = 750.0
+
+[node name="MotionSteering" parent="Pivot/Attacks/SlashDown2/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 100.0
 
 [node name="FinishInAir" type="Node2D" parent="Pivot/Attacks/SlashDown2/AdditionalEffects" index="1"]
 script = ExtResource( 8 )
@@ -351,7 +345,10 @@ actor_animation = "slash_2"
 weapon_animation = "slash_up"
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashUp2/AdditionalEffects" index="0" instance=ExtResource( 7 )]
-initial_speed = 3000.0
+initial_speed = 750.0
+
+[node name="MotionSteering" parent="Pivot/Attacks/SlashUp2/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 100.0
 
 [node name="FinishInAir" type="Node2D" parent="Pivot/Attacks/SlashUp2/AdditionalEffects" index="1"]
 script = ExtResource( 8 )
@@ -361,7 +358,10 @@ actor_animation = "stab"
 weapon_animation = "stab"
 
 [node name="MovementEffect" parent="Pivot/Attacks/Stab/AdditionalEffects" index="0" instance=ExtResource( 7 )]
-initial_speed = 3000.0
+initial_speed = 750.0
+
+[node name="MotionSteering" parent="Pivot/Attacks/Stab/AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 100.0
 
 [node name="FinishInAir" type="Node2D" parent="Pivot/Attacks/Stab/AdditionalEffects" index="1"]
 script = ExtResource( 8 )

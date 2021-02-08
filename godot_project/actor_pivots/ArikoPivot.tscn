@@ -1,30 +1,19 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://assets/sfx/wallrun_grinding.wav" type="AudioStream" id=1]
-[ext_resource path="res://assets/sprites/actors/ariko/die_normal.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/actors/ariko/slash_2.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/actors/ariko/thumbs_up_normal.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/actors/ariko/stand.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/actors/ariko/trick_3.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_up_normal.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_down_normal.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/actors/ariko/jump_normal.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/actors/ariko/jump.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/actors/ariko/stomp_smear.png" type="Texture" id=11]
 [ext_resource path="res://assets/sprites/actors/ariko/dash_smear.png" type="Texture" id=12]
 [ext_resource path="res://assets/sprites/actors/ariko/land_smear.png" type="Texture" id=13]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_2_normal.png" type="Texture" id=14]
-[ext_resource path="res://assets/sprites/actors/ariko/air_normal.png" type="Texture" id=15]
 [ext_resource path="res://assets/sprites/actors/ariko/slash_down.png" type="Texture" id=16]
-[ext_resource path="res://assets/sprites/actors/ariko/lean_normal.png" type="Texture" id=17]
 [ext_resource path="res://assets/sprites/actors/ariko/lean_one_eye_open.png" type="Texture" id=18]
 [ext_resource path="res://assets/sprites/actors/ariko/run.png" type="Texture" id=19]
 [ext_resource path="res://assets/sprites/actors/ariko/slash_up.png" type="Texture" id=20]
-[ext_resource path="res://assets/sprites/actors/ariko/lean_one_eye_open_normal.png" type="Texture" id=21]
-[ext_resource path="res://assets/sprites/actors/ariko/stand_front_normal.png" type="Texture" id=22]
 [ext_resource path="res://assets/sprites/actors/ariko/sit_side.png" type="Texture" id=23]
 [ext_resource path="res://assets/sprites/actors/ariko/trick_1.png" type="Texture" id=24]
-[ext_resource path="res://assets/sprites/actors/ariko/sit_side_normal.png" type="Texture" id=25]
 [ext_resource path="res://assets/sprites/actors/ariko/walk.png" type="Texture" id=26]
 [ext_resource path="res://assets/sprites/actors/ariko/one_hand_out.png" type="Texture" id=27]
 [ext_resource path="res://assets/sprites/actors/ariko/thumbs_up.png" type="Texture" id=28]
@@ -34,20 +23,14 @@
 [ext_resource path="res://assets/sprites/actors/ariko/spin_smear.png" type="Texture" id=32]
 [ext_resource path="res://assets/sprites/actors/ariko/idle.png" type="Texture" id=33]
 [ext_resource path="res://assets/sprites/actors/ariko/stagger.png" type="Texture" id=34]
-[ext_resource path="res://assets/sprites/actors/ariko/stand_normal.png" type="Texture" id=35]
-[ext_resource path="res://assets/sprites/actors/ariko/run_normal.png" type="Texture" id=36]
 [ext_resource path="res://assets/sprites/actors/ariko/air.png" type="Texture" id=37]
-[ext_resource path="res://assets/sprites/actors/ariko/slash_1_normal.png" type="Texture" id=38]
 [ext_resource path="res://assets/sprites/actors/ariko/die.png" type="Texture" id=39]
 [ext_resource path="res://assets/sprites/actors/ariko/stand_front.png" type="Texture" id=40]
-[ext_resource path="res://assets/sprites/actors/ariko/sit_front_normal.png" type="Texture" id=41]
 [ext_resource path="res://assets/sprites/actors/ariko/sit_front.png" type="Texture" id=42]
-[ext_resource path="res://assets/sprites/actors/ariko/idle_normal.png" type="Texture" id=43]
 [ext_resource path="res://assets/sprites/actors/ariko/wallrun.png" type="Texture" id=44]
 [ext_resource path="res://core/utils/SfxRandom.tscn" type="PackedScene" id=45]
 [ext_resource path="res://common/particles/DeathExplosion.tscn" type="PackedScene" id=46]
 [ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=47]
-[ext_resource path="res://assets/sprites/actors/ariko/stagger_normal.png" type="Texture" id=48]
 [ext_resource path="res://vfx/Trail.tscn" type="PackedScene" id=49]
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=50]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=51]
@@ -58,7 +41,7 @@
 [ext_resource path="res://assets/particles/LandDust.tscn" type="PackedScene" id=56]
 [ext_resource path="res://assets/particles/WallrunGrind.tscn" type="PackedScene" id=57]
 [ext_resource path="res://core/utils/TrailingSprites.tscn" type="PackedScene" id=58]
-[ext_resource path="res://actors/ariko/BasicKnifePivot.tscn" type="PackedScene" id=59]
+[ext_resource path="res://pivots/BasicKnifePivot.tscn" type="PackedScene" id=59]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -88,7 +71,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 33 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:normal_map")
+tracks/2/path = NodePath("Sprite:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -97,10 +80,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ 1 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:vframes")
+tracks/3/path = NodePath("Sprite:hframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -109,10 +92,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:hframes")
+tracks/4/path = NodePath("Sprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -121,10 +104,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 8 ]
+"values": [ 0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Sprite:frame")
+tracks/5/path = NodePath("WallrunParticles:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -133,27 +116,15 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("WallrunParticles:emitting")
+tracks/6/path = NodePath("Sprite:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:rotation_degrees")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -177,7 +148,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 37 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -186,10 +157,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 15 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -198,46 +169,46 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 4 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 4 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -100.0 ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("RightHandWeapon:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( -46, -150 ), Vector2( -46, -154 ), Vector2( -46, -150 ) ]
+"values": [ true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/6/path = NodePath("RightHandWeapon:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -246,10 +217,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -100.0 ]
+"values": [ Vector2( 1, -1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:visible")
+tracks/7/path = NodePath("RightHandWeapon:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -258,10 +229,10 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:scale")
+tracks/8/path = NodePath("RightHandWeapon:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -269,11 +240,11 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
+"update": 1,
+"values": [ Vector2( -12, -38 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:z_index")
+tracks/9/path = NodePath("Sprite:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -281,23 +252,23 @@ tracks/9/enabled = true
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:position")
+tracks/10/path = NodePath("LeftHandWeapon:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( -46, -150 ), Vector2( -46, -154 ), Vector2( -46, -150 ) ]
+"values": [ Vector2( 12, -38 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Sprite:position")
+tracks/11/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -306,22 +277,22 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ -90.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:position")
+tracks/12/path = NodePath("LeftHandWeapon:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( 50, -150 ), Vector2( 50, -154 ), Vector2( 50, -150 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/13/path = NodePath("LeftHandWeapon:z_index")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -329,11 +300,11 @@ tracks/13/enabled = true
 tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -90.0 ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:scale")
+tracks/14/path = NodePath("LeftHandWeapon:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -341,11 +312,11 @@ tracks/14/enabled = true
 tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:z_index")
+tracks/15/path = NodePath("WallrunParticles:emitting")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -354,39 +325,15 @@ tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("LeftHandWeapon:visible")
+tracks/16/path = NodePath("Sprite:rotation_degrees")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("WallrunParticles:emitting")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/18/type = "value"
-tracks/18/path = NodePath("Sprite:rotation_degrees")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -447,7 +394,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("RightHand:position")
+tracks/4/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -456,10 +403,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -14, -98 ) ]
+"values": [ -160.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/5/path = NodePath("RightHandWeapon:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -467,11 +414,11 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -160.0 ]
+"update": 1,
+"values": [ true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("RightHandWeapon:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -479,11 +426,11 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Vector2( 1, -1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:scale")
+tracks/7/path = NodePath("RightHandWeapon:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -491,11 +438,11 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:z_index")
+tracks/8/path = NodePath("RightHandWeapon:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -503,11 +450,11 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"update": 0,
+"values": [ Vector2( -2, -24 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:position")
+tracks/9/path = NodePath("Sprite:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -516,10 +463,10 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -14, -98 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:position")
+tracks/10/path = NodePath("LeftHandWeapon:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -528,10 +475,10 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 12, -30 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("LeftHandWeapon:position")
+tracks/11/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -540,10 +487,10 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 10, -110 ) ]
+"values": [ -163.5 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/12/path = NodePath("LeftHandWeapon:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -552,10 +499,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -163.5 ]
+"values": [ Vector2( 1, -1 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:scale")
+tracks/13/path = NodePath("LeftHandWeapon:z_index")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -563,11 +510,11 @@ tracks/13/enabled = true
 tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
+"update": 1,
+"values": [ -1 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:z_index")
+tracks/14/path = NodePath("LeftHandWeapon:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -576,10 +523,10 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ -1 ]
+"values": [ true ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:visible")
+tracks/15/path = NodePath("WallrunParticles:emitting")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -588,27 +535,15 @@ tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("WallrunParticles:emitting")
+tracks/16/path = NodePath("Sprite:rotation_degrees")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("Sprite:rotation_degrees")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -630,19 +565,19 @@ tracks/0/keys = {
 "values": [ ExtResource( 34 ), ExtResource( 39 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 48 ), ExtResource( 2 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -654,7 +589,7 @@ tracks/2/keys = {
 "values": [ 1 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -663,10 +598,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
+tracks/4/path = NodePath("RightHandWeapon:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -675,39 +610,27 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHandWeapon:visible")
+tracks/5/path = NodePath("Sprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Sprite:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ Vector2( 0, 0 ), Vector2( 42, -2 ), Vector2( -14, -6 ), Vector2( 46, -6 ), Vector2( 14, -26 ), Vector2( 0, 0 ), Vector2( 18, 6 ), Vector2( -14, -6 ), Vector2( 42, -2 ), Vector2( 46, -6 ), Vector2( 0, 0 ) ]
 }
-tracks/7/type = "method"
-tracks/7/path = NodePath("DeathExplosion")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/6/type = "method"
+tracks/6/path = NodePath("DeathExplosion")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "values": [ {
@@ -730,13 +653,13 @@ tracks/7/keys = {
 "method": "play"
 } ]
 }
-tracks/8/type = "method"
-tracks/8/path = NodePath("LandDust")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
+tracks/7/type = "method"
+tracks/7/path = NodePath("LandDust")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
 "times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -744,8 +667,20 @@ tracks/8/keys = {
 "method": "play"
 } ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("LeftHandWeapon:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/9/type = "value"
-tracks/9/path = NodePath("LeftHandWeapon:visible")
+tracks/9/path = NodePath("WallrunParticles:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -757,24 +692,12 @@ tracks/9/keys = {
 "values": [ false ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("WallrunParticles:emitting")
+tracks/10/path = NodePath("Sprite:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("Sprite:rotation_degrees")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -797,7 +720,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 33 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -806,10 +729,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -818,46 +741,46 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 8 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -214.0 ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("RightHandWeapon:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( -54, -70 ), Vector2( -54, -66 ), Vector2( -50, -70 ), Vector2( -54, -66 ), Vector2( -54, -70 ) ]
+"values": [ true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/6/path = NodePath("RightHandWeapon:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -866,10 +789,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -214.0 ]
+"values": [ Vector2( 1, -1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:visible")
+tracks/7/path = NodePath("RightHandWeapon:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -878,22 +801,22 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:scale")
+tracks/8/path = NodePath("RightHandWeapon:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
+"times": PoolRealArray( 0, 0.2, 0.3, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -14, -18 ), Vector2( -14, -16 ), Vector2( -12, -18 ), Vector2( -14, -16 ), Vector2( -14, -18 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:z_index")
+tracks/9/path = NodePath("Sprite:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -901,23 +824,23 @@ tracks/9/enabled = true
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:position")
+tracks/10/path = NodePath("LeftHandWeapon:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( -54, -70 ), Vector2( -54, -66 ), Vector2( -50, -70 ), Vector2( -54, -66 ), Vector2( -54, -70 ) ]
+"values": [ true ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Sprite:position")
+tracks/11/path = NodePath("LeftHandWeapon:z_index")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -925,11 +848,11 @@ tracks/11/enabled = true
 tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:visible")
+tracks/12/path = NodePath("LeftHandWeapon:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -937,11 +860,11 @@ tracks/12/enabled = true
 tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:z_index")
+tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -949,23 +872,23 @@ tracks/13/enabled = true
 tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"update": 0,
+"values": [ 30.0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:scale")
+tracks/14/path = NodePath("LeftHandWeapon:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"times": PoolRealArray( 0, 0.2, 0.3, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 12, -20 ), Vector2( 12, -18 ), Vector2( 14, -20 ), Vector2( 12, -18 ), Vector2( 12, -20 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/15/path = NodePath("WallrunParticles:emitting")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -973,40 +896,16 @@ tracks/15/enabled = true
 tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 30.0 ]
+"update": 1,
+"values": [ false ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("LeftHandWeapon:position")
+tracks/16/path = NodePath("Sprite:rotation_degrees")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( 46, -82 ), Vector2( 46, -78 ), Vector2( 50, -82 ), Vector2( 46, -78 ), Vector2( 46, -82 ) ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("WallrunParticles:emitting")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/18/type = "value"
-tracks/18/path = NodePath("Sprite:rotation_degrees")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -1065,19 +964,19 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("RightHand:position")
+tracks/4/path = NodePath("RightHandWeapon:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( -46, -78 ), Vector2( -46, -82 ) ]
+"values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHandWeapon:visible")
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1085,11 +984,11 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ -250.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/6/path = NodePath("RightHandWeapon:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1098,10 +997,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -250.0 ]
+"values": [ Vector2( 1, 1 ) ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:scale")
+tracks/7/type = "method"
+tracks/7/path = NodePath("JumpDust")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1109,11 +1008,13 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
 }
-tracks/8/type = "method"
-tracks/8/path = NodePath("JumpDust")
+tracks/8/type = "value"
+tracks/8/path = NodePath("RightHandWeapon:z_index")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1121,13 +1022,11 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "play"
-} ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:z_index")
+tracks/9/path = NodePath("RightHandWeapon:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1136,10 +1035,10 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ Vector2( -12, -20 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:normal_map")
+tracks/10/path = NodePath("Sprite:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -1147,23 +1046,23 @@ tracks/10/enabled = true
 tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 9 ) ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("RightHandWeapon:position")
+tracks/11/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Vector2( -46, -78 ), Vector2( -46, -82 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 80.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Sprite:position")
+tracks/12/path = NodePath("LeftHandWeapon:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1172,10 +1071,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 10, -20 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/13/path = NodePath("LeftHandWeapon:scale")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -1184,22 +1083,22 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 80.0 ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:position")
+tracks/14/path = NodePath("LeftHandWeapon:z_index")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 42, -82 ), Vector2( 42, -86 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:scale")
+tracks/15/path = NodePath("WallrunParticles:emitting")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -1207,40 +1106,16 @@ tracks/15/enabled = true
 tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("LeftHandWeapon:z_index")
+tracks/16/path = NodePath("Sprite:rotation_degrees")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("WallrunParticles:emitting")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/18/type = "value"
-tracks/18/path = NodePath("Sprite:rotation_degrees")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -1300,19 +1175,19 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("RightHand:position")
+tracks/4/path = NodePath("RightHandWeapon:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( -46, -78 ), Vector2( -46, -82 ) ]
+"values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHandWeapon:visible")
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1320,11 +1195,11 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ -250.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/6/path = NodePath("RightHandWeapon:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1333,10 +1208,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -250.0 ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:scale")
+tracks/7/path = NodePath("RightHandWeapon:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1344,11 +1219,11 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:z_index")
+tracks/8/path = NodePath("RightHandWeapon:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1357,10 +1232,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ Vector2( -12, -20 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Sprite:normal_map")
+tracks/9/path = NodePath("Sprite:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1368,23 +1243,23 @@ tracks/9/enabled = true
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 9 ) ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:position")
+tracks/10/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Vector2( -46, -78 ), Vector2( -46, -82 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 80.0 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Sprite:position")
+tracks/11/path = NodePath("LeftHandWeapon:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -1393,10 +1268,10 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 10, -20 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/12/path = NodePath("LeftHandWeapon:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1405,22 +1280,22 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 80.0 ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:position")
+tracks/13/path = NodePath("LeftHandWeapon:z_index")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 42, -82 ), Vector2( 42, -86 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:scale")
+tracks/14/path = NodePath("WallrunParticles:emitting")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1428,40 +1303,16 @@ tracks/14/enabled = true
 tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:z_index")
+tracks/15/path = NodePath("Sprite:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("WallrunParticles:emitting")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("Sprite:rotation_degrees")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -1520,19 +1371,19 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("RightHand:position")
+tracks/4/path = NodePath("RightHandWeapon:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -50, -66 ), Vector2( -62, -38 ), Vector2( -46, -70 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHandWeapon:visible")
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1540,11 +1391,11 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ -214.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/6/path = NodePath("RightHandWeapon:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1553,10 +1404,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -214.0 ]
+"values": [ Vector2( 1, -1 ) ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:scale")
+tracks/7/type = "method"
+tracks/7/path = NodePath("LandDust")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1564,11 +1415,13 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
 }
-tracks/8/type = "method"
-tracks/8/path = NodePath("LandDust")
+tracks/8/type = "value"
+tracks/8/path = NodePath("RightHandWeapon:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1576,25 +1429,23 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "play"
-} ]
+"update": 0,
+"values": [ Vector2( -12, -18 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:position")
+tracks/9/path = NodePath("Sprite:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -50, -66 ), Vector2( -62, -38 ), Vector2( -46, -70 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:position")
+tracks/10/path = NodePath("LeftHandWeapon:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -1603,22 +1454,22 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 16, -18 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("LeftHandWeapon:position")
+tracks/11/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 62, -70 ), Vector2( 82, -42 ), Vector2( 50, -74 ) ]
+"values": [ 30.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/12/path = NodePath("LeftHandWeapon:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1627,10 +1478,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 30.0 ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:scale")
+tracks/13/path = NodePath("LeftHandWeapon:z_index")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -1638,11 +1489,11 @@ tracks/13/enabled = true
 tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:z_index")
+tracks/14/path = NodePath("LeftHandWeapon:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1651,10 +1502,10 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:visible")
+tracks/15/path = NodePath("WallrunParticles:emitting")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -1663,27 +1514,15 @@ tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("WallrunParticles:emitting")
+tracks/16/path = NodePath("Sprite:rotation_degrees")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("Sprite:rotation_degrees")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -1706,7 +1545,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 29 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1715,10 +1554,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 17 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1727,34 +1566,34 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 8 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("Sprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1763,10 +1602,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -30, -66 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("LeftHandWeapon:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1778,7 +1617,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:position")
+tracks/7/path = NodePath("WallrunParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1786,40 +1625,16 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("LeftHandWeapon:visible")
+tracks/8/path = NodePath("Sprite:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("WallrunParticles:emitting")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -1842,7 +1657,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 18 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1851,10 +1666,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 21 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1863,34 +1678,34 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 8 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("Sprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1899,10 +1714,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -30, -66 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("LeftHandWeapon:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1914,7 +1729,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:position")
+tracks/7/path = NodePath("WallrunParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1922,40 +1737,16 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("LeftHandWeapon:visible")
+tracks/8/path = NodePath("Sprite:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("WallrunParticles:emitting")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -1978,7 +1769,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 27 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1987,10 +1778,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 35 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1999,34 +1790,34 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 8 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("Sprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -2035,10 +1826,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -22, -66 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("LeftHandWeapon:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -2050,7 +1841,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:position")
+tracks/7/path = NodePath("WallrunParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -2058,40 +1849,16 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("LeftHandWeapon:visible")
+tracks/8/path = NodePath("Sprite:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("WallrunParticles:emitting")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -2115,7 +1882,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 19 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -2124,10 +1891,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 36 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -2136,46 +1903,46 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 16 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 16 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -26, -74 ), Vector2( -30, -94 ), Vector2( -34, -102 ), Vector2( -30, -90 ), Vector2( -26, -74 ), Vector2( -30, -94 ), Vector2( -34, -102 ), Vector2( -30, -90 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 15.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("RightHandWeapon:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -2183,40 +1950,16 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/7/type = "method"
+tracks/7/path = NodePath("FootstepsLaunch")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 15.0 ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/9/type = "method"
-tracks/9/path = NodePath("FootstepsLaunch")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
 "times": PoolRealArray( 0.1, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -2227,13 +1970,13 @@ tracks/9/keys = {
 "method": "play"
 } ]
 }
-tracks/10/type = "method"
-tracks/10/path = NodePath("FootstepsLand")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
+tracks/8/type = "method"
+tracks/8/path = NodePath("FootstepsLand")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
 "times": PoolRealArray( 0.3, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -2244,8 +1987,32 @@ tracks/10/keys = {
 "method": "play"
 } ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("RightHandWeapon:z_index")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("RightHandWeapon:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -6.00001, -18 ), Vector2( -6.00001, -24 ), Vector2( -8, -26 ), Vector2( -8, -22 ), Vector2( -6, -18 ), Vector2( -8, -24 ), Vector2( -8, -26 ), Vector2( -8, -22 ) ]
+}
 tracks/11/type = "value"
-tracks/11/path = NodePath("RightHandWeapon:z_index")
+tracks/11/path = NodePath("Sprite:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -2253,11 +2020,11 @@ tracks/11/enabled = true
 tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("RightHandWeapon:position")
+tracks/12/path = NodePath("LeftHandWeapon:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -2266,10 +2033,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( -26, -74 ), Vector2( -30, -94 ), Vector2( -34, -102 ), Vector2( -30, -90 ), Vector2( -26, -74 ), Vector2( -30, -94 ), Vector2( -34, -102 ), Vector2( -30, -90 ) ]
+"values": [ Vector2( 16, -18 ), Vector2( 6, -24 ), Vector2( 4, -24 ), Vector2( 1.90735e-06, -24 ), Vector2( 10, -16 ), Vector2( 20, -24 ), Vector2( 20, -26 ), Vector2( 18, -22 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("Sprite:position")
+tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -2278,22 +2045,22 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ 190.0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:position")
+tracks/14/path = NodePath("LeftHandWeapon:scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( 66, -70 ), Vector2( 34, -86 ), Vector2( 14, -94 ), Vector2( 14, -86 ), Vector2( 38, -66 ), Vector2( 78, -94 ), Vector2( 82, -106 ), Vector2( 74, -86 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -1 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/15/path = NodePath("LeftHandWeapon:z_index")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -2301,11 +2068,11 @@ tracks/15/enabled = true
 tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 190.0 ]
+"update": 1,
+"values": [ -1 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("LeftHandWeapon:scale")
+tracks/16/path = NodePath("LeftHandWeapon:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -2313,11 +2080,11 @@ tracks/16/enabled = true
 tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("LeftHandWeapon:z_index")
+tracks/17/path = NodePath("WallrunParticles:emitting")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -2326,39 +2093,15 @@ tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ -1 ]
+"values": [ false ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("LeftHandWeapon:visible")
+tracks/18/path = NodePath("Sprite:rotation_degrees")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/19/type = "value"
-tracks/19/path = NodePath("WallrunParticles:emitting")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/20/type = "value"
-tracks/20/path = NodePath("Sprite:rotation_degrees")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -2381,7 +2124,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 42 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -2390,10 +2133,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 41 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -2402,34 +2145,34 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 8 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHandWeapon:visible")
+tracks/5/path = NodePath("Sprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -2437,11 +2180,11 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Sprite:position")
+tracks/6/path = NodePath("LeftHandWeapon:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -2449,11 +2192,11 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("LeftHandWeapon:visible")
+tracks/7/path = NodePath("WallrunParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -2465,24 +2208,12 @@ tracks/7/keys = {
 "values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("WallrunParticles:emitting")
+tracks/8/path = NodePath("Sprite:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("Sprite:rotation_degrees")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -2505,7 +2236,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 23 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -2514,10 +2245,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 25 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -2526,34 +2257,34 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 8 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHandWeapon:visible")
+tracks/5/path = NodePath("Sprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -2561,11 +2292,11 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Sprite:position")
+tracks/6/path = NodePath("LeftHandWeapon:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -2573,11 +2304,11 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("LeftHandWeapon:visible")
+tracks/7/path = NodePath("WallrunParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -2589,24 +2320,12 @@ tracks/7/keys = {
 "values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("WallrunParticles:emitting")
+tracks/8/path = NodePath("Sprite:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("Sprite:rotation_degrees")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -2629,7 +2348,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 31 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -2638,10 +2357,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 38 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -2650,58 +2369,58 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 20 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 20 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -26, -74 ), Vector2( 218, -70 ), Vector2( 194, -70 ), Vector2( 98, -78 ), Vector2( 66, -82 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 157.2 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RightHandWeapon:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( 1, -1 ) ]
+}
 tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/7/path = NodePath("RightHandWeapon:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -2710,51 +2429,27 @@ tracks/7/keys = {
 "times": PoolRealArray( 0, 0.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0.0, 157.2 ]
+"values": [ 0, -1 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:scale")
+tracks/8/path = NodePath("RightHandWeapon:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 1, 1 ), Vector2( 1, -1 ) ]
+"values": [ Vector2( 4, -24 ), Vector2( 56, -18 ), Vector2( 48, -18 ), Vector2( 24, -20 ), Vector2( 18, -20 ) ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:z_index")
+tracks/9/type = "method"
+tracks/9/path = NodePath("FootstepsLaunch")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, -1 ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( 22, -94 ), Vector2( 218, -70 ), Vector2( 194, -70 ), Vector2( 98, -78 ), Vector2( 66, -82 ) ]
-}
-tracks/11/type = "method"
-tracks/11/path = NodePath("FootstepsLaunch")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -2762,13 +2457,13 @@ tracks/11/keys = {
 "method": "play"
 } ]
 }
-tracks/12/type = "method"
-tracks/12/path = NodePath("FootstepsLand")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
+tracks/10/type = "method"
+tracks/10/path = NodePath("FootstepsLand")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
 "times": PoolRealArray( 0.15 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -2776,44 +2471,68 @@ tracks/12/keys = {
 "method": "play"
 } ]
 }
-tracks/13/type = "value"
-tracks/13/path = NodePath("Sprite:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sprite:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
-tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+tracks/12/type = "value"
+tracks/12/path = NodePath("LeftHandWeapon:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( -26, -74 ), Vector2( 62, -70 ), Vector2( -18, -74 ), Vector2( -34, -70 ) ]
+"values": [ Vector2( -6, -18 ), Vector2( 30, -22 ), Vector2( 28, -20 ), Vector2( -2, -18 ), Vector2( -6, -18 ) ]
 }
-tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:rotation_degrees")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
+tracks/13/type = "value"
+tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
 "times": PoolRealArray( 0, 0.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0.0, 150.0 ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("LeftHandWeapon:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -1 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("LeftHandWeapon:z_index")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -1 ]
+}
 tracks/16/type = "value"
-tracks/16/path = NodePath("LeftHandWeapon:scale")
+tracks/16/path = NodePath("LeftHandWeapon:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -2821,11 +2540,11 @@ tracks/16/enabled = true
 tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("LeftHandWeapon:z_index")
+tracks/17/path = NodePath("WallrunParticles:emitting")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -2834,39 +2553,15 @@ tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ -1 ]
+"values": [ false ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("LeftHandWeapon:visible")
+tracks/18/path = NodePath("Sprite:rotation_degrees")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/19/type = "value"
-tracks/19/path = NodePath("WallrunParticles:emitting")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/20/type = "value"
-tracks/20/path = NodePath("Sprite:rotation_degrees")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -2889,7 +2584,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -2898,10 +2593,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 14 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -2910,82 +2605,82 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 20 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 20 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( 62, -42 ), Vector2( 154, -58 ), Vector2( 22, -94 ), Vector2( -22, -102 ), Vector2( -10, -102 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:rotation_degrees")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/5/type = "value"
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 30.0, 5.0, 0.0, -150.0 ]
 }
-tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
+tracks/6/type = "value"
+tracks/6/path = NodePath("RightHandWeapon:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 0, 0.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Vector2( 1, -1 ), Vector2( 1, 1 ) ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:z_index")
+tracks/7/type = "value"
+tracks/7/path = NodePath("RightHandWeapon:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RightHandWeapon:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 16, -10 ), Vector2( 38, -14 ), Vector2( 4, -24 ), Vector2( -6, -26 ), Vector2( -4, -26 ) ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("FootstepsLaunch")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -2993,42 +2688,18 @@ tracks/9/enabled = true
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( 62, -42 ), Vector2( 154, -58 ), Vector2( 22, -94 ), Vector2( -22, -102 ), Vector2( -10, -102 ) ]
-}
-tracks/11/type = "method"
-tracks/11/path = NodePath("FootstepsLaunch")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "play"
 } ]
 }
-tracks/12/type = "method"
-tracks/12/path = NodePath("FootstepsLand")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
+tracks/10/type = "method"
+tracks/10/path = NodePath("FootstepsLand")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
 "times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -3036,97 +2707,97 @@ tracks/12/keys = {
 "method": "play"
 } ]
 }
-tracks/13/type = "value"
-tracks/13/path = NodePath("Sprite:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sprite:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
-tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+tracks/12/type = "value"
+tracks/12/path = NodePath("LeftHandWeapon:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 22, -54 ), Vector2( 46, -50 ), Vector2( 46, -82 ), Vector2( 74, -62 ) ]
+"values": [ Vector2( 14, -34 ), Vector2( 18, -18 ), Vector2( 12, -20 ), Vector2( 20, -16 ), Vector2( 20, -16 ) ]
 }
-tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:rotation_degrees")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
+tracks/13/type = "value"
+tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
 "times": PoolRealArray( 0, 0.05 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 150.0, 0.0 ]
 }
-tracks/16/type = "value"
-tracks/16/path = NodePath("LeftHandWeapon:scale")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
+tracks/14/type = "value"
+tracks/14/path = NodePath("LeftHandWeapon:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
 "times": PoolRealArray( 0, 0.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Vector2( 1, -1 ), Vector2( 1, 1 ) ]
 }
-tracks/17/type = "value"
-tracks/17/path = NodePath("LeftHandWeapon:z_index")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
+tracks/15/type = "value"
+tracks/15/path = NodePath("LeftHandWeapon:z_index")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
 "times": PoolRealArray( 0, 0.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ -1, 0 ]
 }
-tracks/18/type = "value"
-tracks/18/path = NodePath("LeftHandWeapon:visible")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
+tracks/16/type = "value"
+tracks/16/path = NodePath("LeftHandWeapon:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
-tracks/19/type = "value"
-tracks/19/path = NodePath("WallrunParticles:emitting")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/keys = {
+tracks/17/type = "value"
+tracks/17/path = NodePath("WallrunParticles:emitting")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
 }
-tracks/20/type = "value"
-tracks/20/path = NodePath("Sprite:rotation_degrees")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/keys = {
+tracks/18/type = "value"
+tracks/18/path = NodePath("Sprite:rotation_degrees")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -3149,7 +2820,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 16 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -3158,10 +2829,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -3170,46 +2841,46 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 6 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 6 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -22, -194 ), Vector2( 66, -174 ), Vector2( -38, -82 ), Vector2( -14, -162 ), Vector2( -26, -142 ), Vector2( -26, -146 ) ]
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -130.0, -64.0, 69.0, 140.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("RightHandWeapon:z_index")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -3218,22 +2889,22 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/7/path = NodePath("RightHandWeapon:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ -130.0, -64.0, 69.0, 140.0 ]
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -22, -194 ), Vector2( 66, -174 ), Vector2( -38, -82 ), Vector2( -14, -162 ), Vector2( -26, -142 ), Vector2( -26, -146 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:z_index")
+tracks/8/path = NodePath("Sprite:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -3241,52 +2912,28 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:position")
+tracks/9/path = NodePath("WallrunParticles:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -22, -194 ), Vector2( 66, -174 ), Vector2( -38, -82 ), Vector2( -14, -162 ), Vector2( -26, -142 ), Vector2( -26, -146 ) ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("WallrunParticles:emitting")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
 }
-tracks/12/type = "value"
-tracks/12/path = NodePath("Sprite:rotation_degrees")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sprite:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -3309,7 +2956,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 20 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -3318,10 +2965,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 7 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -3330,46 +2977,46 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 6 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 6 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -26, -146 ), Vector2( -38, -82 ), Vector2( 98, -94 ), Vector2( -18, -194 ), Vector2( 70, -174 ), Vector2( 70, -178 ) ]
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -130.0, 6.0, -72.0, 12.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("RightHandWeapon:z_index")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -3378,22 +3025,22 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/7/path = NodePath("RightHandWeapon:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.1, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ -130.0, 6.0, -72.0, 12.0 ]
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -26, -146 ), Vector2( -38, -82 ), Vector2( -2, -230 ), Vector2( -18, -194 ), Vector2( 70, -174 ), Vector2( 70, -178 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:z_index")
+tracks/8/path = NodePath("Sprite:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -3401,40 +3048,16 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:position")
+tracks/9/path = NodePath("WallrunParticles:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -26, -146 ), Vector2( -38, -82 ), Vector2( -2, -230 ), Vector2( -18, -194 ), Vector2( 70, -174 ), Vector2( 70, -178 ) ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("WallrunParticles:emitting")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -3494,7 +3117,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("RightHand:position")
+tracks/4/path = NodePath("RightHandWeapon:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -3502,35 +3125,35 @@ tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -10, -150 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHandWeapon:visible")
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:rotation_degrees")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 360.0 ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("RightHandWeapon:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:z_index")
+tracks/7/path = NodePath("RightHandWeapon:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -3538,11 +3161,11 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"update": 0,
+"values": [ Vector2( -4, -34 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:position")
+tracks/8/path = NodePath("Sprite:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -3551,10 +3174,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -10, -150 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Sprite:position")
+tracks/9/path = NodePath("LeftHandWeapon:z_index")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -3562,11 +3185,11 @@ tracks/9/enabled = true
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("LeftHandWeapon:z_index")
+tracks/10/path = NodePath("LeftHandWeapon:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -3574,35 +3197,35 @@ tracks/10/enabled = true
 tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"update": 0,
+"values": [ Vector2( 8, -18 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("LeftHandWeapon:position")
+tracks/11/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 34, -70 ) ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:rotation_degrees")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 180.0, 540.0 ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("LeftHandWeapon:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -1 ) ]
+}
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:scale")
+tracks/13/path = NodePath("LeftHandWeapon:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -3610,11 +3233,11 @@ tracks/13/enabled = true
 tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:visible")
+tracks/14/path = NodePath("WallrunParticles:emitting")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -3623,27 +3246,15 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("WallrunParticles:emitting")
+tracks/15/path = NodePath("Sprite:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("Sprite:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -3666,7 +3277,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 31 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -3675,10 +3286,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 38 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -3687,46 +3298,46 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 20 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 20 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -26, -74 ), Vector2( 218, -70 ), Vector2( 194, -70 ), Vector2( 98, -78 ), Vector2( 66, -82 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("RightHandWeapon:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -3734,23 +3345,23 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/7/path = NodePath("RightHandWeapon:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 6, -22 ), Vector2( 54, -18 ), Vector2( 48, -18 ), Vector2( 24, -20 ), Vector2( 16, -20 ) ]
 }
-tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:scale")
+tracks/8/type = "method"
+tracks/8/path = NodePath("FootstepsLaunch")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -3758,42 +3369,18 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -26, -74 ), Vector2( 218, -70 ), Vector2( 194, -70 ), Vector2( 98, -78 ), Vector2( 66, -82 ) ]
-}
-tracks/10/type = "method"
-tracks/10/path = NodePath("FootstepsLaunch")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "play"
 } ]
 }
-tracks/11/type = "method"
-tracks/11/path = NodePath("FootstepsLand")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
+tracks/9/type = "method"
+tracks/9/path = NodePath("FootstepsLand")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
 "times": PoolRealArray( 0.15 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -3801,8 +3388,32 @@ tracks/11/keys = {
 "method": "play"
 } ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sprite:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 tracks/12/type = "value"
-tracks/12/path = NodePath("Sprite:position")
+tracks/12/path = NodePath("LeftHandWeapon:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -3811,22 +3422,22 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/13/path = NodePath("LeftHandWeapon:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -6, -18 ), Vector2( 22, -20 ), Vector2( 24, -20 ), Vector2( -2, -18 ), Vector2( -6, -20 ) ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:scale")
+tracks/14/path = NodePath("LeftHandWeapon:z_index")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -3834,23 +3445,23 @@ tracks/14/enabled = true
 tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"update": 1,
+"values": [ -1 ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:position")
+tracks/15/path = NodePath("LeftHandWeapon:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( 18, -86 ), Vector2( 238, -70 ), Vector2( 170, -78 ), Vector2( 10, -90 ), Vector2( -34, -70 ) ]
+"values": [ true ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("LeftHandWeapon:z_index")
+tracks/16/path = NodePath("WallrunParticles:emitting")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -3859,39 +3470,15 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ -1 ]
+"values": [ false ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("LeftHandWeapon:visible")
+tracks/17/path = NodePath("Sprite:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/18/type = "value"
-tracks/18/path = NodePath("WallrunParticles:emitting")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/19/type = "value"
-tracks/19/path = NodePath("Sprite:rotation_degrees")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -3913,7 +3500,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 34 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -3922,10 +3509,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 48 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -3937,7 +3524,7 @@ tracks/2/keys = {
 "values": [ 1 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -3946,10 +3533,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
+tracks/4/path = NodePath("RightHandWeapon:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -3958,10 +3545,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("Sprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -3970,10 +3557,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -58, -82 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("LeftHandWeapon:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -3982,10 +3569,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/7/path = NodePath("WallrunParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -3993,136 +3580,16 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 142.549 ]
+"update": 1,
+"values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:scale")
+tracks/8/path = NodePath("Sprite:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:z_index")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -58, -82 ) ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("Sprite:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 22, -86 ) ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 40.0 ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:scale")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:z_index")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("LeftHandWeapon:visible")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("WallrunParticles:emitting")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/18/type = "value"
-tracks/18/path = NodePath("Sprite:rotation_degrees")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -4145,7 +3612,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -4154,10 +3621,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 35 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -4166,34 +3633,34 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 8 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("Sprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -4202,10 +3669,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -22, -66 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("LeftHandWeapon:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -4217,7 +3684,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:position")
+tracks/7/path = NodePath("WallrunParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -4225,40 +3692,16 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("LeftHandWeapon:visible")
+tracks/8/path = NodePath("Sprite:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("WallrunParticles:emitting")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -4281,7 +3724,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 40 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -4290,10 +3733,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 22 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -4302,34 +3745,34 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 8 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("Sprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -4338,10 +3781,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -34, -58 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("LeftHandWeapon:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -4353,7 +3796,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:position")
+tracks/7/path = NodePath("WallrunParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -4361,40 +3804,16 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("LeftHandWeapon:visible")
+tracks/8/path = NodePath("Sprite:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("WallrunParticles:emitting")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -4453,7 +3872,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("RightHand:position")
+tracks/4/path = NodePath("RightHandWeapon:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -4461,8 +3880,216 @@ tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -38, -178 ) ]
+"values": [ -100.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RightHandWeapon:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RightHandWeapon:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RightHandWeapon:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, -44 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Sprite:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("LeftHandWeapon:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10, -44 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -82.4 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("LeftHandWeapon:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("LeftHandWeapon:z_index")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("LeftHandWeapon:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("WallrunParticles:emitting")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Sprite:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ), ExtResource( 37 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 0.450625, 2.46229, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -32 ), Vector2( 0, 0 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("RightHandWeapon:visible")
@@ -4501,31 +4128,31 @@ tracks/7/keys = {
 "values": [ Vector2( 1, -1 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:z_index")
+tracks/8/path = NodePath("RightHandWeapon:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 0.450625, 2.46229, 1 ),
+"update": 0,
+"values": [ Vector2( -12, -20 ), Vector2( -11, -69 ), Vector2( -12, -38 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:position")
+tracks/9/path = NodePath("LeftHandWeapon:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -38, -178 ) ]
+"values": [ Vector2( 10, -20 ), Vector2( 11, -69 ), Vector2( 12, -38 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:position")
+tracks/10/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -4534,10 +4161,10 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ -82.4 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("LeftHandWeapon:position")
+tracks/11/path = NodePath("LeftHandWeapon:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -4546,10 +4173,10 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 38, -178 ) ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/12/path = NodePath("LeftHandWeapon:z_index")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -4557,11 +4184,11 @@ tracks/12/enabled = true
 tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -82.4 ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:scale")
+tracks/13/path = NodePath("LeftHandWeapon:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -4569,11 +4196,11 @@ tracks/13/enabled = true
 tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:z_index")
+tracks/14/path = NodePath("WallrunParticles:emitting")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -4582,259 +4209,15 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:visible")
+tracks/15/path = NodePath("Sprite:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("WallrunParticles:emitting")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("Sprite:rotation_degrees")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=25]
-length = 0.2
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 10 ), ExtResource( 37 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 9 ), ExtResource( 15 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 4 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Sprite:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 0.450625, 2.46229, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -128 ), Vector2( 0, 0 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("RightHand:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 0.5, 2.46229, 1 ),
-"update": 0,
-"values": [ Vector2( -46, -82 ), Vector2( -46, -278 ), Vector2( -46, -150 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:rotation_degrees")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -100.0 ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:scale")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 0.450625, 2.46229, 1 ),
-"update": 0,
-"values": [ Vector2( -46, -78 ), Vector2( -46, -278 ), Vector2( -46, -150 ) ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("LeftHandWeapon:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 42, -82 ), Vector2( 42, -186 ), Vector2( 46, -278 ), Vector2( 46, -258 ), Vector2( 46, -150 ) ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:rotation_degrees")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -82.4 ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:scale")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:z_index")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:visible")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("WallrunParticles:emitting")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("Sprite:rotation_degrees")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -4914,7 +4297,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -96, -104 ) ]
+"values": [ Vector2( -24, -26 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Sprite:rotation_degrees")
@@ -4929,43 +4312,43 @@ tracks/6/keys = {
 "values": [ 60.0, 120.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:scale")
+tracks/7/path = NodePath("RightHandWeapon:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 4, 4 ) ]
+"values": [ Vector2( -4, -60 ), Vector2( 0, -52 ), Vector2( 4, -46 ), Vector2( 4, -30 ), Vector2( 8, -16 ), Vector2( 6, -12 ), Vector2( 4, -8 ), Vector2( -1.90735e-06, -2 ), Vector2( -2, 2 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:position")
+tracks/8/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -24, -240 ), Vector2( -1.52588e-05, -208 ), Vector2( 16, -176 ), Vector2( 24, -112 ), Vector2( 32, -64 ), Vector2( 24, -48 ), Vector2( 24, -32 ), Vector2( -7.62939e-06, -7.62939e-06 ), Vector2( -16, 16 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:rotation_degrees")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
 "times": PoolRealArray( 0, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ -125.6, -106.9, 81.7, 96.2, 110.5, 110.5, 110.5 ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("RightHandWeapon:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:scale")
+tracks/10/path = NodePath("LeftHandWeapon:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -4977,19 +4360,19 @@ tracks/10/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("LeftHandWeapon:scale")
+tracks/11/path = NodePath("LeftHandWeapon:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [ Vector2( -2, -38 ), Vector2( 2, -34 ), Vector2( 0, -30 ), Vector2( 0, -32 ), Vector2( -2.38419e-07, -28 ), Vector2( 0, -26 ), Vector2( 2, -24 ), Vector2( 0, -20 ), Vector2( -1.90735e-06, -16 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:position")
+tracks/12/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -4998,22 +4381,22 @@ tracks/12/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -8, -160 ), Vector2( 7.99998, -120 ), Vector2( 0, -120 ), Vector2( -8.00001, -128 ), Vector2( 0, -104 ), Vector2( 0, -104 ), Vector2( 8.00001, -96 ), Vector2( 0, -64 ), Vector2( -16, -48 ) ]
+"values": [ 236.2, 236.2, 63.4, 74.9, 92.1, 97.9, 118.1, -74.9, -51.9 ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/13/path = NodePath("LeftHandWeapon:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 236.2, 236.2, 63.4, 74.9, 92.1, 97.9, 118.1, -74.9, -51.9 ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:visible")
+tracks/14/path = NodePath("RightHandWeapon:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -5025,36 +4408,24 @@ tracks/14/keys = {
 "values": [ true ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("RightHandWeapon:visible")
+tracks/15/path = NodePath("RightHandWeapon:z_index")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("RightHandWeapon:z_index")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
 "times": PoolRealArray( 0, 0.15, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, -1, 0 ]
 }
-tracks/17/type = "value"
-tracks/17/path = NodePath("LeftHandWeapon:z_index")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
+tracks/16/type = "value"
+tracks/16/path = NodePath("LeftHandWeapon:z_index")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
 "times": PoolRealArray( 0, 0.1, 0.35 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
@@ -5148,43 +4519,43 @@ tracks/6/keys = {
 "values": [ 0.0, 45.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:scale")
+tracks/7/path = NodePath("RightHandWeapon:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 4, 4 ) ]
+"values": [ Vector2( -6, -32 ), Vector2( 6, -30 ), Vector2( 18, -26 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:position")
+tracks/8/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -24, -120 ), Vector2( 24, -120 ), Vector2( 72, -104 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:rotation_degrees")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ -217.8, -171.7 ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("RightHandWeapon:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:scale")
+tracks/10/path = NodePath("LeftHandWeapon:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -5196,43 +4567,43 @@ tracks/10/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("LeftHandWeapon:scale")
+tracks/11/path = NodePath("LeftHandWeapon:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [ Vector2( 2, -30 ), Vector2( 9.99999, -28 ), Vector2( 16, -20 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:position")
+tracks/12/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 8, -120 ), Vector2( 48, -112 ), Vector2( 88, -88 ) ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 138.2, 190.0 ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("RightHandWeapon:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 tracks/14/type = "value"
-tracks/14/path = NodePath("RightHandWeapon:visible")
+tracks/14/path = NodePath("LeftHandWeapon:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -5244,7 +4615,7 @@ tracks/14/keys = {
 "values": [ true ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:visible")
+tracks/15/path = NodePath("LeftHandWeapon:z_index")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -5253,27 +4624,15 @@ tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ -1 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("LeftHandWeapon:z_index")
+tracks/16/path = NodePath("RightHandWeapon:z_index")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ -1 ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("RightHandWeapon:z_index")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -5353,7 +4712,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -24, 0 ) ]
+"values": [ Vector2( -6, 0 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Sprite:rotation_degrees")
@@ -5368,43 +4727,43 @@ tracks/6/keys = {
 "values": [ 65.3, 0.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:scale")
+tracks/7/path = NodePath("RightHandWeapon:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 4, 4 ) ]
+"values": [ Vector2( 28, -4 ), Vector2( 16, -22 ), Vector2( -3.63798e-12, -34 ), Vector2( 22, -10 ), Vector2( 18, -16 ), Vector2( 16, -18 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:position")
+tracks/8/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 112, -16 ), Vector2( 56, -104 ), Vector2( 3.8147e-06, -136 ), Vector2( 88, -40 ), Vector2( 72, -64 ), Vector2( 72, -72 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:rotation_degrees")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 70.2, 44.1, -152.3, 0.0, 0.0 ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("RightHandWeapon:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:scale")
+tracks/10/path = NodePath("LeftHandWeapon:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -5416,19 +4775,19 @@ tracks/10/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("LeftHandWeapon:scale")
+tracks/11/path = NodePath("LeftHandWeapon:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [ Vector2( 16, -14 ), Vector2( 8, -20 ), Vector2( 6, -22 ), Vector2( 6, -30 ), Vector2( -3.99999, -32 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:position")
+tracks/12/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -5437,22 +4796,22 @@ tracks/12/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 56, -56 ), Vector2( 32, -80 ), Vector2( 24, -80 ), Vector2( 16, -120 ), Vector2( -16, -128 ) ]
+"values": [ 69.2, 46.1, 17.4, -167.1, -201.7 ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/13/path = NodePath("LeftHandWeapon:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 69.2, 46.1, 17.4, -167.1, -201.7 ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:visible")
+tracks/14/path = NodePath("RightHandWeapon:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -5464,36 +4823,24 @@ tracks/14/keys = {
 "values": [ true ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("RightHandWeapon:visible")
+tracks/15/path = NodePath("RightHandWeapon:z_index")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("RightHandWeapon:z_index")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
 "times": PoolRealArray( 0, 0.05, 0.15, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, -1, 0, 0 ]
 }
-tracks/17/type = "value"
-tracks/17/path = NodePath("LeftHandWeapon:z_index")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
+tracks/16/type = "value"
+tracks/16/path = NodePath("LeftHandWeapon:z_index")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
 "times": PoolRealArray( 0, 0.1, 0.15, 0.35 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
@@ -5515,7 +4862,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 28 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -5524,10 +4871,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -5536,167 +4883,31 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 21 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 21 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Vector2( -34, -70 ), Vector2( -30, -118 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("LeftHandWeapon:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("WallrunParticles:emitting")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=30]
-length = 0.8
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 28 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 4 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 21 ]
-}
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
+tracks/4/path = NodePath("RightHandWeapon:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 13, 14, 15, 16, 17, 18, 19, 20 ]
+"values": [ false ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Sprite:position")
@@ -5747,6 +4958,106 @@ tracks/8/keys = {
 "values": [ 0.0 ]
 }
 
+[sub_resource type="Animation" id=30]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 28 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 21 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16, 17, 18, 19, 20 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("LeftHandWeapon:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WallrunParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
 [sub_resource type="Animation" id=31]
 length = 0.8
 loop = true
@@ -5763,7 +5074,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 26 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -5772,10 +5083,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 35 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -5784,34 +5095,34 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 8 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHand:position")
+tracks/5/path = NodePath("Sprite:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -5820,10 +5131,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -22, -66 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:visible")
+tracks/6/path = NodePath("LeftHandWeapon:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -5835,7 +5146,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:position")
+tracks/7/path = NodePath("WallrunParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -5843,40 +5154,16 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("LeftHandWeapon:visible")
+tracks/8/path = NodePath("Sprite:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("WallrunParticles:emitting")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -5900,7 +5187,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 44 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:normal_map")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -5909,10 +5196,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 36 ) ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/path = NodePath("Sprite:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -5921,34 +5208,34 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 16 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 16 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3, 0.325, 0.35, 0.375 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("RightHandWeapon:visible")
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -5956,11 +5243,11 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ 15.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/6/path = NodePath("RightHandWeapon:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -5969,27 +5256,15 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 15.0 ]
+"values": [ Vector2( 1, 1 ) ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("RightHandWeapon:scale")
+tracks/7/type = "method"
+tracks/7/path = NodePath("FootstepsLaunch")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/8/type = "method"
-tracks/8/path = NodePath("FootstepsLaunch")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
 "times": PoolRealArray( 0.025, 0.225 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -6000,13 +5275,13 @@ tracks/8/keys = {
 "method": "play"
 } ]
 }
-tracks/9/type = "method"
-tracks/9/path = NodePath("FootstepsLand")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
+tracks/8/type = "method"
+tracks/8/path = NodePath("FootstepsLand")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
 "times": PoolRealArray( 0.175, 0.375 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -6017,8 +5292,20 @@ tracks/9/keys = {
 "method": "play"
 } ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("RightHandWeapon:z_index")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 tracks/10/type = "value"
-tracks/10/path = NodePath("RightHandWeapon:z_index")
+tracks/10/path = NodePath("RightHandWeapon:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -6027,22 +5314,22 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ Vector2( -6, -12 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("RightHandWeapon:position")
+tracks/11/path = NodePath("Sprite:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -26, -40 ), Vector2( -24, -48 ), Vector2( -24, -56 ), Vector2( -24, -48 ), Vector2( -24, -40 ), Vector2( -24, -48 ), Vector2( -24, -56 ), Vector2( -24, -48 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Sprite:position")
+tracks/12/path = NodePath("LeftHandWeapon:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -6050,23 +5337,23 @@ tracks/12/enabled = true
 tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ Vector2( -2, -28 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:position")
+tracks/13/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ Vector2( -1.52588e-05, -104 ), Vector2( -1.66893e-06, -112 ), Vector2( -1.19212e-07, -120 ), Vector2( 3.57631e-07, -112 ), Vector2( -3.18323e-12, -104 ), Vector2( 1.19207e-07, -112 ), Vector2( -2.50111e-12, -120 ), Vector2( 2.38421e-07, -112 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 190.0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/14/path = NodePath("LeftHandWeapon:scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -6075,10 +5362,10 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 190.0 ]
+"values": [ Vector2( 1, -1 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("LeftHandWeapon:scale")
+tracks/15/path = NodePath("LeftHandWeapon:z_index")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -6086,11 +5373,11 @@ tracks/15/enabled = true
 tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -1 ) ]
+"update": 1,
+"values": [ -1 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("LeftHandWeapon:z_index")
+tracks/16/path = NodePath("LeftHandWeapon:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -6099,10 +5386,10 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ -1 ]
+"values": [ true ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("LeftHandWeapon:visible")
+tracks/17/path = NodePath("WallrunParticles:emitting")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -6113,37 +5400,13 @@ tracks/17/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/18/type = "value"
-tracks/18/path = NodePath("WallrunParticles:emitting")
+tracks/18/type = "audio"
+tracks/18/path = NodePath("GrindSfx")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/19/type = "value"
-tracks/19/path = NodePath("WallrunParticles:position")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -80, -120 ) ]
-}
-tracks/20/type = "audio"
-tracks/20/path = NodePath("GrindSfx")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -6151,13 +5414,13 @@ tracks/20/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
-tracks/21/type = "value"
-tracks/21/path = NodePath("Sprite:rotation_degrees")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/keys = {
+tracks/19/type = "value"
+tracks/19/path = NodePath("Sprite:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -6172,12 +5435,11 @@ offsets = PoolRealArray( 0, 0.331915, 0.765957, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1 )
 
 [sub_resource type="CapsuleShape2D" id=35]
-radius = 30.0
-height = 100.0
+radius = 8.0
+height = 16.0
 
 [node name="Pivot" instance=ExtResource( 47 )]
 z_index = 1
-sub_pivot_transforms = [ NodePath("RightHandWeapon") ]
 
 [node name="AnimationPlayer" parent="." index="0"]
 autoplay = "SETUP"
@@ -6222,7 +5484,6 @@ next/trick_3 = "spin"
 next/victory = "victory_loop"
 
 [node name="Trail" parent="." index="1" instance=ExtResource( 49 )]
-width = 42.0
 width_curve = SubResource( 33 )
 default_color = Color( 0.0745098, 0.698039, 0.94902, 1 )
 target_path = NodePath("../Hurtbox")
@@ -6231,6 +5492,7 @@ trail_length = 15
 autostart = false
 
 [node name="WallrunTrail" parent="." index="2" instance=ExtResource( 49 )]
+width = 2.0
 width_curve = SubResource( 33 )
 default_color = Color( 1, 0, 0, 1 )
 gradient = SubResource( 34 )
@@ -6239,10 +5501,12 @@ active_animations = [ "wallrun" ]
 trail_length = 40
 autostart = false
 
-[node name="Sprite" type="Sprite" parent="." index="3"]
-scale = Vector2( 4, 4 )
+[node name="WallrunParticles" parent="." index="3" instance=ExtResource( 57 )]
+position = Vector2( 0, -24 )
+emitting = false
+
+[node name="Sprite" type="Sprite" parent="." index="4"]
 texture = ExtResource( 33 )
-normal_map = ExtResource( 43 )
 offset = Vector2( 0, -29 )
 hframes = 8
 
@@ -6251,24 +5515,20 @@ scale = Vector2( 0.25, 0.25 )
 active_animations = [ "dash" ]
 number_of_sprites = 4
 
-[node name="FootstepsLand" parent="." index="4" instance=ExtResource( 51 )]
+[node name="FootstepsLand" parent="." index="5" instance=ExtResource( 51 )]
 particles = ExtResource( 54 )
 
-[node name="FootstepsLaunch" parent="." index="5" instance=ExtResource( 51 )]
+[node name="FootstepsLaunch" parent="." index="6" instance=ExtResource( 51 )]
 particles = ExtResource( 53 )
 
-[node name="JumpDust" parent="." index="6" instance=ExtResource( 51 )]
+[node name="JumpDust" parent="." index="7" instance=ExtResource( 51 )]
 particles = ExtResource( 52 )
 
-[node name="LandDust" parent="." index="7" instance=ExtResource( 51 )]
+[node name="LandDust" parent="." index="8" instance=ExtResource( 51 )]
 particles = ExtResource( 56 )
 
-[node name="DeathExplosion" parent="." index="8" instance=ExtResource( 51 )]
+[node name="DeathExplosion" parent="." index="9" instance=ExtResource( 51 )]
 particles = ExtResource( 46 )
-
-[node name="WallrunParticles" parent="." index="9" instance=ExtResource( 57 )]
-position = Vector2( -80, -120 )
-emitting = false
 
 [node name="GrindSfx" parent="." index="10" instance=ExtResource( 45 )]
 stream = ExtResource( 1 )
@@ -6276,39 +5536,37 @@ random_pitch_low = 0.96
 random_pitch_high = 1.04
 
 [node name="BubblePosition" type="Position2D" parent="." index="11"]
-position = Vector2( 0, -230.039 )
+position = Vector2( 0, -64 )
 
 [node name="Weapons" type="Node2D" parent="." index="12"]
 
 [node name="Hurtbox" parent="." index="13" instance=ExtResource( 50 )]
-position = Vector2( 0, -110 )
+position = Vector2( 0, -24 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 35 )
 
 [node name="RightHandWeapon" parent="." index="14" instance=ExtResource( 55 )]
-position = Vector2( -58, -82 )
-rotation = 2.48795
-scale = Vector2( 1, -1 )
+position = Vector2( -6, -12 )
+rotation = 0.261799
 
 [node name="BasicKnifePivot" parent="RightHandWeapon" index="0" instance=ExtResource( 59 )]
 
 [node name="LeftHandWeapon" parent="." index="15" instance=ExtResource( 55 )]
-position = Vector2( 22, -86 )
-rotation = 0.698132
+position = Vector2( -2, -28 )
+rotation = 3.31613
+scale = Vector2( 1, -1 )
+z_index = -1
 
 [node name="BasicKnifePivot" parent="LeftHandWeapon" index="0" instance=ExtResource( 59 )]
-
-[node name="RightHand" parent="." index="16" instance=ExtResource( 55 )]
-position = Vector2( -58, -82 )
-[connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
-[connection signal="animation_changed" from="." to="Trail" method="stop"]
 [connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
-[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_changed" from="." to="Trail" method="stop"]
+[connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_started" from="." to="WallrunTrail" method="start"]
-[connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]
+[connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_started" from="." to="WallrunTrail" method="start"]
 
 [editable path="Hurtbox"]

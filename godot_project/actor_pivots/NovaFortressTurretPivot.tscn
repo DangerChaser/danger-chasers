@@ -99,10 +99,9 @@ anims/shoot = SubResource( 3 )
 next/shoot = "normal"
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
-scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 hframes = 5
 frame = 4
 
 [node name="Weapons" type="Node2D" parent="." index="2"]
-position = Vector2( 176, 0 )
+position = Vector2( 44, 0 )

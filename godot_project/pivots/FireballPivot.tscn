@@ -80,7 +80,6 @@ anims/SETUP = SubResource( 1 )
 anims/motion = SubResource( 2 )
 
 [node name="Trail" parent="." index="1" instance=ExtResource( 49 )]
-width = 42.0
 width_curve = SubResource( 3 )
 default_color = Color( 1, 1, 1, 1 )
 target_path = NodePath("../Sprite")
@@ -89,8 +88,8 @@ trail_length = 5
 autostart = false
 
 [node name="Sprite" type="Sprite" parent="." index="2"]
+position = Vector2( -8, 0 )
 rotation = -1.5708
-scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 vframes = 6
 hframes = 10
@@ -101,7 +100,6 @@ active_animations = [ "dash" ]
 number_of_sprites = 4
 
 [node name="WallrunParticles" parent="." index="3" instance=ExtResource( 51 )]
-position = Vector2( 16, 0 )
 
 [node name="MotionSfx" parent="." index="4" instance=ExtResource( 53 )]
 stream = ExtResource( 1 )
@@ -110,9 +108,9 @@ random_pitch_low = 0.96
 random_pitch_high = 1.04
 
 [node name="Weapons" type="Node2D" parent="." index="5"]
-[connection signal="animation_changed" from="." to="Trail" method="stop"]
 [connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_changed" from="." to="Trail" method="stop"]
 [connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
 [connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]
+[connection signal="animation_started" from="." to="Trail" method="start"]

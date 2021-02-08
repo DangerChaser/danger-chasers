@@ -20,13 +20,11 @@ __meta__ = {
 }
 
 [node name="Movement" parent="Prompts" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0 )
 
 [node name="Jump" parent="Prompts" instance=ExtResource( 4 )]
-modulate = Color( 1, 1, 1, 0 )
 
 [node name="Attack" parent="Prompts" instance=ExtResource( 5 )]
 
-[node name="Wallrun" parent="Prompts" instance=ExtResource( 6 )]
-
 [node name="Interact" parent="Prompts" instance=ExtResource( 7 )]
+
+[node name="Wallrun" parent="Prompts" instance=ExtResource( 6 )]

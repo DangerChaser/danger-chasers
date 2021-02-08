@@ -6,9 +6,9 @@
 [node name="HotbarSlot" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1820.0
-margin_bottom = -920.0
-rect_min_size = Vector2( 100, 160 )
+margin_right = -455.0
+margin_bottom = -230.0
+rect_min_size = Vector2( 25, 40 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,11 +32,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -48.0
-margin_top = -64.0
-margin_right = 48.0
-margin_bottom = -32.0
-rect_min_size = Vector2( 96, 32 )
+margin_left = -12.5
+margin_top = -14.0
+margin_right = 11.5
+rect_min_size = Vector2( 24, 8 )
 text = "1"
 align = 1
 valign = 1
@@ -47,11 +46,11 @@ __meta__ = {
 [node name="Icon" type="Control" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -40.0
-margin_top = 8.0
-margin_right = 40.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
+margin_left = -10.5
+margin_top = 2.0
+margin_right = 9.5
+margin_bottom = 22.0
+rect_min_size = Vector2( 20, 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,11 +58,12 @@ __meta__ = {
 [node name="Background" type="TextureRect" parent="Icon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+expand = true
+stretch_mode = 1
 
 [node name="Icon" type="TextureProgress" parent="Icon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 64, 64 )
 value = 100.0
 fill_mode = 3
 nine_patch_stretch = true
@@ -74,6 +74,7 @@ __meta__ = {
 [node name="Overlay" type="TextureRect" parent="Icon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -83,10 +84,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -48.0
-margin_top = -48.0
-margin_right = 48.0
-margin_bottom = 48.0
+margin_left = -12.5
+margin_top = -8.0
+margin_right = 11.5
+margin_bottom = 16.0
 text = "2"
 align = 1
 valign = 1

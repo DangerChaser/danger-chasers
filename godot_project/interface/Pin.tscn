@@ -19,11 +19,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -60.0
-margin_top = -60.0
-margin_right = 60.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 120, 120 )
+margin_left = -15.0
+margin_top = -15.0
+margin_right = 15.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 30, 30 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,9 +32,9 @@ __meta__ = {
 wait_time = 0.5
 
 [node name="Background" type="AnimatedSprite" parent="."]
-position = Vector2( 69.3793, 58.4962 )
-scale = Vector2( 3, 3 )
+position = Vector2( 15, 8 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="KeyLabel" type="Label" parent="."]
@@ -42,14 +42,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -314.5
-margin_top = -68.0
-margin_right = 314.5
-margin_bottom = 68.0
+margin_left = -5.5
+margin_top = -17.5
+margin_right = 5.5
+margin_bottom = 17.5
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "INTERACTION_KEY"
+text = "F"
 align = 1
 valign = 1
 __meta__ = {
@@ -61,10 +61,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -96.0
-margin_top = -208.0
-margin_right = 96.0
-margin_bottom = 208.0
+margin_left = -24.0
+margin_top = -24.0
+margin_right = 24.0
+margin_bottom = 24.0
 flat = true
 script = ExtResource( 3 )
 __meta__ = {

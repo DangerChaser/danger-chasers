@@ -23,7 +23,6 @@ resource_local_to_scene = true
 radius = 118.085
 
 [node name="ControlsInteractable" type="Sprite"]
-scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 script = SubResource( 1 )
 
@@ -35,12 +34,13 @@ scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 2 )
 
 [node name="KeybindingsLabel" type="Label" parent="KeybindingsInteractable"]
-margin_left = -102.393
-margin_top = -171.365
-margin_right = 125.607
-margin_bottom = -103.365
+margin_left = -128.0
+margin_top = -192.0
+margin_right = 124.0
+margin_bottom = -174.0
 theme = ExtResource( 2 )
 text = "KEYBINDINGS"
+align = 1
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false

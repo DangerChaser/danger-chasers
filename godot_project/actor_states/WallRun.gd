@@ -3,8 +3,8 @@ extends State
 export var wall_state := "Air"
 export var floor_state := "Idle"
 export var jump_state := "Tricks"
-export var jump_force := 5000.0
-export var initial_speed := 200.0
+export var jump_force := 1250.0
+export var initial_speed := 600.0
 export var animation := "run"
 
 onready var motion : MotionState = $Motion

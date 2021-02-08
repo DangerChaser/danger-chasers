@@ -50,8 +50,10 @@ anims/show = SubResource( 2 )
 
 [node name="KeyLabel" parent="." instance=ExtResource( 1 )]
 anchor_bottom = 0.0
-margin_top = 256.0
-margin_bottom = 270.0
+margin_top = 16.0
+margin_right = 0.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
 text = "Movement"
 align = 1
 valign = 1
@@ -60,11 +62,10 @@ key = "MOVEMENT"
 [node name="RightArrow" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 16.0
-margin_top = 320.0
-margin_right = 144.0
-margin_bottom = 448.0
-rect_min_size = Vector2( 128, 128 )
+margin_top = 48.0
+margin_right = 32.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 32, 32 )
 texture = ExtResource( 2 )
 stretch_mode = 1
 __meta__ = {
@@ -74,11 +75,11 @@ __meta__ = {
 [node name="LeftArrow" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -144.0
-margin_top = 320.0
+margin_left = -48.0
+margin_top = 48.0
 margin_right = -16.0
-margin_bottom = 448.0
-rect_min_size = Vector2( 128, 128 )
+margin_bottom = 80.0
+rect_min_size = Vector2( 32, 32 )
 texture = ExtResource( 3 )
 stretch_mode = 1
 __meta__ = {

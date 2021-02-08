@@ -11,7 +11,7 @@ func enter(args:={}) -> void:
 		motion.steering.velocity.x = x_speed
 	var weapon = get_parent().get_parent().get_parent().get_parent().get_parent()
 	weapon.input = ''
-	motion.gravity.speed = initial_speed
+	motion.gravity.speed = motion.gravity.max_speed
 	
 	$Timer.start()
 

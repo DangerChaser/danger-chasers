@@ -6,17 +6,17 @@
 [ext_resource path="res://pivots/MachineGunBulletPivot.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 34.525
+radius = 13.9754
 
 [node name="BulletNovaFortressTurret" instance=ExtResource( 1 )]
-initial_speed = 3000
+initial_speed = 750
 destroy_particles = ExtResource( 2 )
 collision_particles = ExtResource( 3 )
 
 [node name="Pivot" parent="." index="0" instance=ExtResource( 4 )]
 
 [node name="MotionSteering" parent="Motion" index="1"]
-max_speed = 3000.0
+max_speed = 750.0
 
 [node name="Gravity" parent="Motion" index="2"]
 gravity = 0.0

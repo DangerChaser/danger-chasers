@@ -25,7 +25,7 @@ stream = ExtResource( 1 )
 [node name="FoxholeEntrance" parent="Rooms" index="0" instance=ExtResource( 2 )]
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
-position = Vector2( 224, 1024 )
+position = Vector2( 64, 256 )
 camera_limit_trigger = NodePath("../../Rooms/FoxholeEntrance/Triggers/CameraLimitTrigger")
 
 [editable path="InitialMusic"]

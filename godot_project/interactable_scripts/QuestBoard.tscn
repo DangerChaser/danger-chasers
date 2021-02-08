@@ -5,13 +5,19 @@
 [ext_resource path="res://interactable_scripts/QuestBoardInteractable.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 352, 256 )
+extents = Vector2( 96, 64 )
 
 [node name="QuestBoard" instance=ExtResource( 1 )]
 keep_focus_on_interact = true
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
+
+[node name="Pin" parent="." index="2"]
+margin_left = -16.5403
+margin_top = -97.1892
+margin_right = 13.4597
+margin_bottom = -67.1892
 
 [node name="InteractableScript" type="Node" parent="." index="3"]
 script = ExtResource( 3 )

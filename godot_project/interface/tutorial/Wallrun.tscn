@@ -49,8 +49,9 @@ anims/show = SubResource( 2 )
 
 [node name="KeyLabel" parent="." instance=ExtResource( 1 )]
 anchor_bottom = 0.0
-margin_top = 256.0
-margin_bottom = 270.0
+margin_top = 16.0
+margin_right = 0.0
+margin_bottom = 30.0
 text = "Wallrun"
 align = 1
 valign = 1
@@ -58,8 +59,9 @@ key = "WALLRUN"
 
 [node name="DescriptionLabel" parent="." instance=ExtResource( 1 )]
 anchor_bottom = 0.0
-margin_top = 320.0
-margin_bottom = 334.0
+margin_top = 32.0
+margin_right = 0.0
+margin_bottom = 46.0
 text = "While next to a wall, jump."
 align = 1
 valign = 1
@@ -68,11 +70,11 @@ key = "WALLRUN_PROMPT_HELPER"
 [node name="UpArrow" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -64.0
-margin_top = 512.0
-margin_right = 64.0
-margin_bottom = 640.0
-rect_min_size = Vector2( 128, 128 )
+margin_left = -16.0
+margin_top = 88.0
+margin_right = 16.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 32, 32 )
 rect_rotation = -90.0
 texture = ExtResource( 2 )
 stretch_mode = 1

@@ -31,21 +31,33 @@ one_shot = true
 
 [node name="ScanSfx" parent="." index="7" instance=ExtResource( 3 )]
 stream = ExtResource( 8 )
+max_distance = 2000.0
 
 [node name="LockOnSfx" parent="." index="8" instance=ExtResource( 3 )]
 stream = ExtResource( 5 )
+max_distance = 2000.0
 
 [node name="TargetConfirmedSfx" parent="." index="9" instance=ExtResource( 3 )]
 stream = ExtResource( 4 )
+max_distance = 2000.0
 
 [node name="TargetLostSfx" parent="." index="10" instance=ExtResource( 3 )]
 stream = ExtResource( 9 )
+max_distance = 2000.0
 
 [node name="RayCastLine2DVisuals" parent="." index="11" instance=ExtResource( 6 )]
+light_mask = 0
+cast_to = Vector2( 500, 0 )
 collision_mask = 3
 collide_with_areas = false
 ray_cast_collide = true
+
+[node name="Line2D" parent="RayCastLine2DVisuals" index="0"]
+width = 3.0
+default_color = Color( 1, 0.4, 0.4, 1 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="LockOnTimer" to="." method="_on_LockOnTimer_timeout"]
 [connection signal="timeout" from="ActiveTimer" to="." method="_on_ActiveTimer_timeout"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+
+[editable path="RayCastLine2DVisuals"]

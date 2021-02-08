@@ -7,16 +7,17 @@
 [ext_resource path="res://interface/BattleHUD/HealthBar.gd" type="Script" id=5]
 
 [node name="HealthBar" type="HBoxContainer"]
-margin_right = 384.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 380, 36 )
+margin_right = 400.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 95, 9 )
+rect_scale = Vector2( 0.25, 0.25 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Overlay" type="NinePatchRect" parent="."]
-margin_right = 384.0
+margin_right = 400.0
 margin_bottom = 36.0
 rect_min_size = Vector2( 100, 36 )
 size_flags_horizontal = 3

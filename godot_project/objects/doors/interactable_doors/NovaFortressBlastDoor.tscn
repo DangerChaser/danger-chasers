@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://objects/doors/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/particles/FireballExplosion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/objects/nova_fortress_blast_door.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/objects/nova_fortress_blast_door_normal.png" type="Texture" id=4]
 [ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/particles/SteamExpel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://core/utils/AudioStreamPlayer2DRandom.tscn" type="PackedScene" id=7]
@@ -12,7 +11,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 192, 384 )
+extents = Vector2( 48, 96 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "SETUP"
@@ -240,28 +239,23 @@ next/close = "close_loop"
 next/open = "open_loop"
 
 [node name="TopSmokeSpawner" parent="." index="2" instance=ExtResource( 5 )]
-position = Vector2( 0, -352 )
+position = Vector2( 0, -88 )
 rotation = 1.5708
 object = ExtResource( 6 )
 
 [node name="BottomSmokeSpawner" parent="." index="3" instance=ExtResource( 5 )]
-position = Vector2( 0, 352 )
+position = Vector2( 0, 88 )
 rotation = -1.5708
 object = ExtResource( 6 )
 
 [node name="CollideParticleSpawner" parent="." index="4" instance=ExtResource( 5 )]
-rotation = -1.5708
 object = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="." index="5"]
-scale = Vector2( 4, 4 )
 texture = ExtResource( 9 )
-frame = 5
 
 [node name="Sprite" type="Sprite" parent="." index="6"]
-scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
-normal_map = ExtResource( 4 )
 hframes = 21
 
 [node name="Sfx" parent="." index="7" instance=ExtResource( 7 )]

@@ -6,7 +6,7 @@ const VECTOR_UP = Vector2(0, -1)
 onready var motion : MotionState = $Motion
 
 export var initial_mass = 1.0
-export var initial_speed := 840.0 # Positive pushes actor to target
+export var initial_speed := 210.0 # Positive pushes actor to target
 export var actor_rotate := false # Takes priority over weapon_rotate
 export var weapon_rotate := false
 export var disable_x_input := false

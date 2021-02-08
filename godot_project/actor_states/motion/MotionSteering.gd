@@ -1,10 +1,10 @@
 extends Node
 class_name MotionSteering
 
-export var max_speed := 1000.0
+export var max_speed := 300.0
 export var mass := 4.0
 export var arrive_distance := -1.0 # Set to a negative value to never "jump" to the destination
-export var slow_radius := 200.0
+export var slow_radius := 50.0
 export var slow_down_if_faster_than_max_speed := true
 
 var velocity : Vector2
