@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/doors/interactable_doors/InteractableDoor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/doors/sprites/wood.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -14,8 +15,14 @@ radius = 160.0
 
 [node name="CollisionShape2D" parent="StaticBody2D" index="0"]
 shape = SubResource( 1 )
+disabled = false
 
 [node name="CollisionShape2D" parent="InteractionArea" index="0"]
 shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="3"]
+texture = ExtResource( 2 )
+hframes = 4
+frame = 3
 
 [editable path="InteractionArea"]

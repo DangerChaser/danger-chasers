@@ -102,6 +102,9 @@ func _on_Hurtbox_area_entered(area, hurtbox : Hurtbox):
 	if not state_machine.get_current_state() or state_machine.get_current_state().name == "Die":
 		return
 	
+	if stats.buffs.has("Unhittable"):
+		return
+	
 	if not area is DamageSource:
 		return
 	if area.friendly_teams.has(team) or area.hit_hurtboxes.has(hurtbox):

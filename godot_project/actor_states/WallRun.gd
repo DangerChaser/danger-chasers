@@ -3,7 +3,7 @@ extends State
 export var wall_state := "Air"
 export var floor_state := "Idle"
 export var jump_state := "Tricks"
-export var jump_force := 1250.0
+export var jump_force := 1300.0
 export var initial_speed := 600.0
 export var animation := "run"
 
@@ -60,6 +60,8 @@ func _physics_process(delta : float) -> void:
 	
 	if owner.is_on_floor():
 		finished(floor_state)
+		return
+	
 	if owner.is_on_wall():
 #		finished(wall_state)
 		current_speed = 0
@@ -72,6 +74,25 @@ func _physics_process(delta : float) -> void:
 	
 	if check_ui_up and Input.is_action_just_pressed("ui_up"):
 		finished(jump_state)
+		return
+	
+	
+	if owner.get_node("WallRunScanner").get_overlapping_areas().size() == 0:
+		var external_args = {
+			"velocity": motion.external.velocity,
+			"target_direction": motion.external.target_direction,
+			"target_speed": motion.external.target_speed,
+			"mass": motion.external.mass
+		}
+		var args = {
+			"velocity" : motion.steering.velocity, 
+			"gravity_speed" : 0, 
+			"target_direction" : Vector2.UP, 
+			"input_key" : "ui_up",
+			"external" : external_args
+		}
+		args["target_direction"].x = Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int 
+		finished("Air", args)
 
 
 func _on_UiUpTimer_timeout():

@@ -2,10 +2,11 @@
 
 [ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/doors/interactable_doors/NovaFortressBlastDoor.tscn" type="PackedScene" id=3]
-[ext_resource path="res://cutscenes/CutsceneCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cutscenes/framework/CutsceneCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/doors/interactable_doors/NovaFortressBlastDoorController.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/PlayerManagedStateManager.tscn" type="PackedScene" id=11]
 [ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=12]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "0"

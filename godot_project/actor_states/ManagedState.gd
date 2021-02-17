@@ -7,11 +7,13 @@ var manager
 
 func enter(args := {}) -> void:
 	.enter(args)
+	print_debug(owner.name)
 	manager = args["manager"]
 
 
 func exit() -> void:
 	.exit()
+	print_debug(owner.name)
 	queue_free()
 
 func _physics_process(delta):

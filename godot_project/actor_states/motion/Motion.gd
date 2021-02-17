@@ -61,9 +61,6 @@ func _physics_process(delta : float) -> void:
 	gravity.apply(delta)
 	total_velocity = steering.velocity + gravity.velocity + external.velocity
 	
-	if total_velocity.length() < LOOK_DIRECTION_SPEED_THRESHOLD:
-		return
-	
 	owner.move_and_slide_with_snap(total_velocity, gravity.direction * snap, -gravity.direction, true)
 	
 	var direction = total_velocity.normalized()

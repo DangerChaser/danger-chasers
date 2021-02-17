@@ -9,7 +9,7 @@ extents = Vector2( 256, 256 )
 
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
-radius = 60.0
+radius = 16.0
 
 [node name="SideChairInteractable" instance=ExtResource( 1 )]
 vehicle = ExtResource( 2 )

@@ -20,7 +20,6 @@ z_index = -10
 [node name="Walls" type="StaticBody2D" parent="Ground"]
 
 [node name="HalfPlatforms" type="StaticBody2D" parent="Ground"]
-scale = Vector2( 4, 4 )
 collision_layer = 64
 
 [node name="Triggers" type="Node2D" parent="."]

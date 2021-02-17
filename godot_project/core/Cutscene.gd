@@ -53,6 +53,10 @@ func hide_player_hud() -> void:
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		$SkipCutsceneFade/AnimationPlayer.play("fade_in_out")
-		yield(get_tree().create_timer(0.5), "timeout")
+		$SkipCutsceneFade/AnimationPlayer.play("fade_in")
+
+
+func _on_SkipCutsceneAnimationPlayer_finished(anim_name):
+	if anim_name == "fade_in":
+		$SkipCutsceneFade/AnimationPlayer.play("fade_out")
 		end()

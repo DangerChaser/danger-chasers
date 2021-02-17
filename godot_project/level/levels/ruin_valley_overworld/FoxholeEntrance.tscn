@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/sfx/rain_thunder_ambience.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/sfx/ambience/foxzine__cave-ambient-02.ogg" type="AudioStream" id=1]
 [ext_resource path="res://level/levels/ruin_valley_overworld/rooms/FoxholeEntrance.tscn" type="PackedScene" id=2]
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/music/Lets Check it Out.ogg" type="AudioStream" id=4]
+[ext_resource path="res://level/levels/ruin_valley_overworld/rooms/CaveEntrance.tscn" type="PackedScene" id=5]
+[ext_resource path="res://core/SpawnPoint.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -22,13 +24,26 @@ shape = SubResource( 1 )
 [node name="Ambience" parent="." index="1"]
 stream = ExtResource( 1 )
 
-[node name="FoxholeEntrance" parent="Rooms" index="0" instance=ExtResource( 2 )]
+[node name="CaveEntrance" parent="Rooms" index="0" instance=ExtResource( 5 )]
+position = Vector2( -2624, -1056 )
+
+[node name="FoxholeEntrance" parent="Rooms" index="1" instance=ExtResource( 2 )]
+
+[node name="PlayerSpawnPoints" parent="." index="10"]
+position = Vector2( 32, 32 )
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
-position = Vector2( 64, 256 )
+position = Vector2( -1088, 448 )
 camera_limit_trigger = NodePath("../../Rooms/FoxholeEntrance/Triggers/CameraLimitTrigger")
 
+[node name="1" parent="PlayerSpawnPoints" index="1" instance=ExtResource( 6 )]
+position = Vector2( -1216, -1888 )
+scale = Vector2( -1, 1 )
+camera_limit_trigger = NodePath("../../Rooms/CaveEntrance/Triggers/CameraLimitTrigger")
+
 [editable path="InitialMusic"]
+
+[editable path="Rooms/CaveEntrance"]
 
 [editable path="Rooms/FoxholeEntrance"]
 

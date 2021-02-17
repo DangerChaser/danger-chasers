@@ -1,0 +1,976 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/music/Ruin Valley Act 1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/music/silence.wav" type="AudioStream" id=3]
+[ext_resource path="res://cutscenes/framework/CutsceneCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://autoload/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/SmallClockworkTower.tscn" type="PackedScene" id=6]
+[ext_resource path="res://interactable_scripts/DialogInteraction.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sfx/screen_darken.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/tilesets/grass/tileset_grass.tres" type="TileSet" id=9]
+[ext_resource path="res://assets/sprites/objects/sun.png" type="Texture" id=10]
+[ext_resource path="res://core/PlayerManagedStateManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=12]
+[ext_resource path="res://core/MusicChangeTrigger.tscn" type="PackedScene" id=13]
+[ext_resource path="res://actor_framework/NPC.tscn" type="PackedScene" id=14]
+[ext_resource path="res://actor_pivots/KannaPivot.tscn" type="PackedScene" id=15]
+[ext_resource path="res://core/ActorManagedStateManager.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/sfx/polaroid_camera.wav" type="AudioStream" id=17]
+[ext_resource path="res://core/utils/AudioStreamPlayer2DRandom.tscn" type="PackedScene" id=18]
+[ext_resource path="res://addons/dialogic/Dialog.tscn" type="PackedScene" id=19]
+
+[sub_resource type="Animation" id=1]
+resource_name = "0"
+length = 13.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("CutsceneCamera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "enable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PlayerManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.5, 5.6, 5.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "walk" ],
+"method": "play_animation"
+}, {
+"args": [ "idle" ],
+"method": "play_animation"
+}, {
+"args": [ "look_back" ],
+"method": "play_animation"
+}, {
+"args": [ "look_back_up" ],
+"method": "play_animation"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("PlayerManagedStateManager")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable_input"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PlayerManagedStateManager:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -32, 0 ), Vector2( 32, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PlayerManagedStateManager:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CutsceneCamera:zoom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 6.5, 12 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1.7, 1.7 ), Vector2( 1.7, 1.7 ), Vector2( 2, 2 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CutsceneCamera:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 6.5, 12 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -168 ), Vector2( 0, -64 ), Vector2( 0, -800 ) ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("PlayerManagedStateManager")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide_player_hud"
+} ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("Silence")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_music"
+} ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("Music")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("PlayerManagedStateManager:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("Transition")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "left_to_right", 0.5 ],
+"method": "transition_out"
+}, {
+"args": [ "top_to_bottom", 1.0, "" ],
+"method": "transition_in"
+} ]
+}
+tracks/13/type = "method"
+tracks/13/path = NodePath("ActorManagedStateManager")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("ActorManagedStateManager:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/15/type = "method"
+tracks/15/path = NodePath("NPC/DialogInteraction")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "1"
+length = 8.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CutsceneCamera:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 2.4, 2.4 ), Vector2( 5, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CutsceneCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -5776 ), Vector2( 0, -6000 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Transition")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "top_to_bottom", 0.5 ],
+"method": "transition_out"
+}, {
+"args": [ "bottom_to_top", 0.5, "" ],
+"method": "transition_in"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("ZoomSfx")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "2"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CutsceneCamera:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 2 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CutsceneCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 2 ),
+"update": 0,
+"values": [ Vector2( 88, -64 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Music")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_music"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Transition")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "bottom_to_top", 0.5 ],
+"method": "transition_out"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ActorManagedStateManager:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("ActorManagedStateManager")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "look_back_snap_picture" ],
+"method": "play_animation"
+}, {
+"args": [ "look_back" ],
+"method": "play_animation"
+} ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("ActorManagedStateManager/CameraSnap")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("CanvasLayer/Dialog/DialogNode")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "initialize"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "3"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("ActorManagedStateManager")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "stand" ],
+"method": "play_animation"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerManagedStateManager:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 32, 0 ), Vector2( 32, 0 ), Vector2( 24, -8 ), Vector2( 16, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlayerManagedStateManager:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("PlayerManagedStateManager")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "stagger" ],
+"method": "play_animation"
+}, {
+"args": [ "stand" ],
+"method": "play_animation"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("CanvasLayer/Dialog/DialogNode2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "initialize"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "4"
+length = 7.5
+tracks/0/type = "method"
+tracks/0/path = NodePath("ActorManagedStateManager")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 5, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "snap_picture" ],
+"method": "play_animation"
+}, {
+"args": [ "stand" ],
+"method": "play_animation"
+}, {
+"args": [ "walk" ],
+"method": "play_animation"
+}, {
+"args": [ "stand" ],
+"method": "play_animation"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("ActorManagedStateManager/CameraSnap")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ActorManagedStateManager:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5, 7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 136, 0 ), Vector2( 136, 0 ), Vector2( 48, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("CanvasLayer/Dialog/DialogNode3")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 7.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "initialize"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "5"
+length = 0.7
+tracks/0/type = "method"
+tracks/0/path = NodePath("Transition")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "bottom_to_top", 0.5, "" ],
+"method": "transition_in"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ActorManagedStateManager:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("ActorManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ActorManagedStateManager:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 136, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ActorManagedStateManager:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("NPC/DialogInteraction")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 2.5
+tracks/0/type = "method"
+tracks/0/path = NodePath("PlayerManagedStateManager")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PlayerManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show_player_hud"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_input"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("CutsceneCamera")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 1.5 ],
+"method": "disable"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("Music")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_music"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PlayerManagedStateManager:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("PlayerManagedStateManager:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("Transition")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "top_to_bottom", 0.5 ],
+"method": "transition_out"
+} ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("ActorManagedStateManager")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "wave" ],
+"method": "play_animation"
+}, {
+"args": [ "idle" ],
+"method": "play_animation"
+} ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ActorManagedStateManager:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -288, -704 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("ActorManagedStateManager:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CutsceneCamera:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -192, -728 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CutsceneCamera:zoom")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.4, 1.4 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("ActorManagedStateManager:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/14/type = "method"
+tracks/14/path = NodePath("NPC/DialogInteraction")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+resource_local_to_scene = true
+
+[node name="Cutscene2" instance=ExtResource( 1 )]
+auto_start = true
+
+[node name="AnimationPlayer" parent="." index="0"]
+anims/0 = SubResource( 1 )
+anims/1 = SubResource( 2 )
+anims/2 = SubResource( 6 )
+anims/3 = SubResource( 7 )
+anims/4 = SubResource( 8 )
+anims/5 = SubResource( 9 )
+anims/SETUP = SubResource( 3 )
+anims/end = SubResource( 4 )
+next/0 = "1"
+next/1 = "2"
+next/5 = "end"
+
+[node name="Transition" parent="." index="2" instance=ExtResource( 5 )]
+
+[node name="CutsceneCamera" parent="." index="3" instance=ExtResource( 4 )]
+position = Vector2( 0, -168 )
+zoom = Vector2( 1.7, 1.7 )
+
+[node name="PlayerManagedStateManager" parent="." index="4" instance=ExtResource( 11 )]
+position = Vector2( -32, 0 )
+managed_state = ExtResource( 12 )
+
+[node name="NPC" parent="." index="5" instance=ExtResource( 14 )]
+position = Vector2( -288, -704 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Pivot" parent="NPC" index="8" instance=ExtResource( 15 )]
+
+[node name="DialogInteraction" parent="NPC" index="9" instance=ExtResource( 7 )]
+position = Vector2( 3.05176e-05, -32 )
+timeline = "timeline-1613443256"
+
+[node name="ActorManagedStateManager" parent="." index="6" instance=ExtResource( 16 )]
+visible = false
+position = Vector2( 136, 0 )
+scale = Vector2( -1, 1 )
+actor_path = NodePath("../NPC")
+managed_state = ExtResource( 12 )
+
+[node name="CameraSnap" parent="ActorManagedStateManager" index="0" instance=ExtResource( 18 )]
+position = Vector2( 0, -24 )
+stream = ExtResource( 17 )
+
+[node name="ZoomSfx" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource( 8 )
+
+[node name="Silence" parent="." index="8" instance=ExtResource( 13 )]
+music = ExtResource( 3 )
+previous_song_fade_out_duration = 2.0
+
+[node name="CollisionShape2D" parent="Silence" index="0"]
+visible = false
+shape = SubResource( 5 )
+disabled = true
+
+[node name="Music" parent="." index="9" instance=ExtResource( 13 )]
+music = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="Music" index="0"]
+visible = false
+shape = SubResource( 5 )
+disabled = true
+
+[node name="TowerScene" type="Node2D" parent="." index="10"]
+position = Vector2( 0, -5376 )
+
+[node name="TileMap2" type="TileMap" parent="TowerScene" index="0"]
+modulate = Color( 0.443137, 0.443137, 0.443137, 1 )
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -196648, 0, 0, -196647, 0, 1, -196646, 0, 1, -196645, 0, 1, -196644, 0, 1, -196643, 0, 1, -196642, 0, 1, -196641, 0, 1, -196640, 0, 1, -196639, 0, 1, -196638, 0, 1, -196637, 0, 1, -196636, 0, 1, -196635, 0, 1, -196634, 0, 1, -196633, 0, 1, -196632, 0, 1, -196631, 0, 1, -196630, 0, 1, -196629, 0, 1, -196628, 0, 1, -196627, 0, 1, -196626, 0, 1, -196625, 0, 1, -196624, 0, 1, -196623, 0, 1, -196622, 0, 1, -196621, 0, 1, -196620, 0, 1, -196619, 0, 1, -196618, 0, 1, -196617, 0, 1, -196616, 0, 1, -196615, 0, 1, -196614, 0, 1, -196613, 0, 1, -196612, 0, 1, -196611, 0, 1, -196610, 0, 1, -196609, 0, 1, -262144, 0, 1, -262143, 0, 1, -262142, 0, 1, -262141, 0, 1, -262140, 0, 1, -262139, 0, 1, -262138, 0, 1, -262137, 0, 1, -262136, 0, 1, -262135, 0, 1, -262134, 0, 1, -262133, 0, 1, -262132, 0, 1, -262131, 0, 1, -262130, 0, 1, -262129, 0, 1, -262128, 0, 1, -262127, 0, 1, -262126, 0, 1, -262125, 0, 1, -262124, 0, 1, -262123, 0, 1, -262122, 0, 1, -262121, 0, 1, -262120, 0, 1, -262119, 0, 1, -262118, 0, 1, -262117, 0, 1, -262116, 0, 1, -262115, 0, 1, -262114, 0, 1, -262113, 0, 1, -262112, 0, 1, -262111, 0, 1, -262110, 0, 1, -262109, 0, 1, -262108, 0, 1, -262107, 0, 1, -262106, 0, 1, -262105, 0, 2, -131112, 0, 65536, -131111, 0, 65537, -131110, 0, 65537, -131109, 0, 65537, -131108, 0, 65537, -131107, 0, 65537, -131106, 0, 65537, -131105, 0, 65537, -131104, 0, 65537, -131103, 0, 65537, -131102, 0, 65537, -131101, 0, 65537, -131100, 0, 65537, -131099, 0, 65537, -131098, 0, 65537, -131097, 0, 65537, -131096, 0, 65537, -131095, 0, 65537, -131094, 0, 65537, -131093, 0, 65537, -131092, 0, 65537, -131091, 0, 65537, -131090, 0, 65537, -131089, 0, 65537, -131088, 0, 65537, -131087, 0, 65537, -131086, 0, 65537, -131085, 0, 65537, -131084, 0, 65537, -131083, 0, 65537, -131082, 0, 65537, -131081, 0, 65537, -131080, 0, 65537, -131079, 0, 65537, -131078, 0, 65537, -131077, 0, 65537, -131076, 0, 65537, -131075, 0, 65537, -131074, 0, 65537, -131073, 0, 65537, -196608, 0, 65537, -196607, 0, 65537, -196606, 0, 65537, -196605, 0, 65537, -196604, 0, 65537, -196603, 0, 65537, -196602, 0, 65537, -196601, 0, 65537, -196600, 0, 65537, -196599, 0, 65537, -196598, 0, 65537, -196597, 0, 65537, -196596, 0, 65537, -196595, 0, 65537, -196594, 0, 65537, -196593, 0, 65537, -196592, 0, 65537, -196591, 0, 65537, -196590, 0, 65537, -196589, 0, 65537, -196588, 0, 65537, -196587, 0, 65537, -196586, 0, 65537, -196585, 0, 65537, -196584, 0, 65537, -196583, 0, 65537, -196582, 0, 65537, -196581, 0, 65537, -196580, 0, 65537, -196579, 0, 65537, -196578, 0, 65537, -196577, 0, 65537, -196576, 0, 65537, -196575, 0, 65537, -196574, 0, 65537, -196573, 0, 65537, -196572, 0, 65537, -196571, 0, 65537, -196570, 0, 65537, -196569, 0, 65538, -65576, 0, 65536, -65575, 0, 65537, -65574, 0, 65537, -65573, 0, 65537, -65572, 0, 65537, -65571, 0, 65537, -65570, 0, 65537, -65569, 0, 65537, -65568, 0, 65537, -65567, 0, 65537, -65566, 0, 65537, -65565, 0, 65537, -65564, 0, 65537, -65563, 0, 65537, -65562, 0, 65537, -65561, 0, 65537, -65560, 0, 65537, -65559, 0, 65537, -65558, 0, 65537, -65557, 0, 65537, -65556, 0, 65537, -65555, 0, 65537, -65554, 0, 65537, -65553, 0, 65537, -65552, 0, 65537, -65551, 0, 65537, -65550, 0, 65537, -65549, 0, 65537, -65548, 0, 65537, -65547, 0, 65537, -65546, 0, 65537, -65545, 0, 65537, -65544, 0, 65537, -65543, 0, 65537, -65542, 0, 65537, -65541, 0, 65537, -65540, 0, 65537, -65539, 0, 65537, -65538, 0, 65537, -65537, 0, 65537, -131072, 0, 65537, -131071, 0, 65537, -131070, 0, 65537, -131069, 0, 65537, -131068, 0, 65537, -131067, 0, 65537, -131066, 0, 65537, -131065, 0, 65537, -131064, 0, 65537, -131063, 0, 65537, -131062, 0, 65537, -131061, 0, 65537, -131060, 0, 65537, -131059, 0, 65537, -131058, 0, 65537, -131057, 0, 65537, -131056, 0, 65537, -131055, 0, 65537, -131054, 0, 65537, -131053, 0, 65537, -131052, 0, 65537, -131051, 0, 65537, -131050, 0, 65537, -131049, 0, 65537, -131048, 0, 65537, -131047, 0, 65537, -131046, 0, 65537, -131045, 0, 65537, -131044, 0, 65537, -131043, 0, 65537, -131042, 0, 65537, -131041, 0, 65537, -131040, 0, 65537, -131039, 0, 65537, -131038, 0, 65537, -131037, 0, 65537, -131036, 0, 65537, -131035, 0, 65537, -131034, 0, 65537, -131033, 0, 65538, -40, 0, 131072, -39, 0, 65542, -38, 0, 65537, -37, 0, 65537, -36, 0, 65537, -35, 0, 65537, -34, 0, 65537, -33, 0, 65537, -32, 0, 65537, -31, 0, 65537, -30, 0, 65537, -29, 0, 65537, -28, 0, 65537, -27, 0, 65537, -26, 0, 65537, -25, 0, 65537, -24, 0, 65537, -23, 0, 65537, -22, 0, 65537, -21, 0, 65537, -20, 0, 65537, -19, 0, 65537, -18, 0, 65537, -17, 0, 65537, -16, 0, 65537, -15, 0, 65537, -14, 0, 65537, -13, 0, 65537, -12, 0, 65537, -11, 0, 65537, -10, 0, 65537, -9, 0, 65537, -8, 0, 65537, -7, 0, 65537, -6, 0, 65537, -5, 0, 65537, -4, 0, 65537, -3, 0, 65537, -2, 0, 65537, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65537, -65533, 0, 65537, -65532, 0, 65537, -65531, 0, 65537, -65530, 0, 65537, -65529, 0, 65537, -65528, 0, 65537, -65527, 0, 65537, -65526, 0, 65537, -65525, 0, 65537, -65524, 0, 65537, -65523, 0, 65537, -65522, 0, 65537, -65521, 0, 65537, -65520, 0, 65537, -65519, 0, 65537, -65518, 0, 65537, -65517, 0, 65537, -65516, 0, 65537, -65515, 0, 65537, -65514, 0, 65537, -65513, 0, 65537, -65512, 0, 65537, -65511, 0, 65537, -65510, 0, 65537, -65509, 0, 65537, -65508, 0, 65537, -65507, 0, 65537, -65506, 0, 65537, -65505, 0, 65537, -65504, 0, 65537, -65503, 0, 65537, -65502, 0, 65537, -65501, 0, 65537, -65500, 0, 65537, -65499, 0, 65537, -65498, 0, 65537, -65497, 0, 65538, 65497, 0, 65536, 65498, 0, 65537, 65499, 0, 65537, 65500, 0, 65537, 65501, 0, 65537, 65502, 0, 65537, 65503, 0, 65537, 65504, 0, 65537, 65505, 0, 65537, 65506, 0, 65537, 65507, 0, 65537, 65508, 0, 65537, 65509, 0, 65537, 65510, 0, 65537, 65511, 0, 65537, 65512, 0, 65537, 65513, 0, 65537, 65514, 0, 65537, 65515, 0, 65537, 65516, 0, 65537, 65517, 0, 65537, 65518, 0, 65537, 65519, 0, 65537, 65520, 0, 65537, 65521, 0, 65537, 65522, 0, 65537, 65523, 0, 65537, 65524, 0, 65537, 65525, 0, 65537, 65526, 0, 65537, 65527, 0, 65537, 65528, 0, 65537, 65529, 0, 65537, 65530, 0, 65537, 65531, 0, 65537, 65532, 0, 65537, 65533, 0, 65537, 65534, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65537, 4, 0, 65537, 5, 0, 65537, 6, 0, 65537, 7, 0, 65537, 8, 0, 65537, 9, 0, 65537, 10, 0, 65537, 11, 0, 65537, 12, 0, 65537, 13, 0, 65537, 14, 0, 65537, 15, 0, 65537, 16, 0, 65537, 17, 0, 65537, 18, 0, 65537, 19, 0, 65537, 20, 0, 65537, 21, 0, 65537, 22, 0, 65537, 23, 0, 65537, 24, 0, 65537, 25, 0, 65537, 26, 0, 65537, 27, 0, 65537, 28, 0, 65537, 29, 0, 65537, 30, 0, 65537, 31, 0, 65537, 32, 0, 65537, 33, 0, 65537, 34, 0, 65537, 35, 0, 65537, 36, 0, 65537, 37, 0, 65537, 38, 0, 65537, 39, 0, 65538, 131033, 0, 65536, 131034, 0, 65537, 131035, 0, 65537, 131036, 0, 65537, 131037, 0, 65537, 131038, 0, 65537, 131039, 0, 65537, 131040, 0, 65537, 131041, 0, 65537, 131042, 0, 65537, 131043, 0, 65537, 131044, 0, 65537, 131045, 0, 65537, 131046, 0, 65537, 131047, 0, 65537, 131048, 0, 65537, 131049, 0, 65537, 131050, 0, 65537, 131051, 0, 65537, 131052, 0, 65537, 131053, 0, 65537, 131054, 0, 65537, 131055, 0, 65537, 131056, 0, 65537, 131057, 0, 65537, 131058, 0, 65537, 131059, 0, 65537, 131060, 0, 65537, 131061, 0, 65537, 131062, 0, 65537, 131063, 0, 65537, 131064, 0, 65537, 131065, 0, 65537, 131066, 0, 65537, 131067, 0, 65537, 131068, 0, 65537, 131069, 0, 65537, 131070, 0, 65537, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65537, 65541, 0, 65537, 65542, 0, 65537, 65543, 0, 65537, 65544, 0, 65537, 65545, 0, 65537, 65546, 0, 65537, 65547, 0, 65537, 65548, 0, 65537, 65549, 0, 65537, 65550, 0, 65537, 65551, 0, 65537, 65552, 0, 65537, 65553, 0, 65537, 65554, 0, 65537, 65555, 0, 65537, 65556, 0, 65537, 65557, 0, 65537, 65558, 0, 65537, 65559, 0, 65537, 65560, 0, 65537, 65561, 0, 65537, 65562, 0, 65537, 65563, 0, 65537, 65564, 0, 65537, 65565, 0, 65537, 65566, 0, 65537, 65567, 0, 65537, 65568, 0, 65537, 65569, 0, 65537, 65570, 0, 65537, 65571, 0, 65537, 65572, 0, 65537, 65573, 0, 65537, 65574, 0, 65537, 65575, 0, 65538, 196569, 0, 65536, 196570, 0, 65537, 196571, 0, 65537, 196572, 0, 65537, 196573, 0, 65537, 196574, 0, 65537, 196575, 0, 65537, 196576, 0, 65537, 196577, 0, 65537, 196578, 0, 65537, 196579, 0, 65537, 196580, 0, 65537, 196581, 0, 65537, 196582, 0, 65537, 196583, 0, 65537, 196584, 0, 65537, 196585, 0, 65537, 196586, 0, 65537, 196587, 0, 65537, 196588, 0, 65537, 196589, 0, 65537, 196590, 0, 65537, 196591, 0, 65537, 196592, 0, 65537, 196593, 0, 65537, 196594, 0, 65537, 196595, 0, 65537, 196596, 0, 65537, 196597, 0, 65537, 196598, 0, 65537, 196599, 0, 65537, 196600, 0, 65537, 196601, 0, 65537, 196602, 0, 65537, 196603, 0, 65537, 196604, 0, 65537, 196605, 0, 65537, 196606, 0, 65537, 196607, 0, 65537, 131072, 0, 65537, 131073, 0, 65537, 131074, 0, 65537, 131075, 0, 65537, 131076, 0, 65537, 131077, 0, 65537, 131078, 0, 65537, 131079, 0, 65537, 131080, 0, 65537, 131081, 0, 65537, 131082, 0, 65537, 131083, 0, 65537, 131084, 0, 65537, 131085, 0, 65537, 131086, 0, 65537, 131087, 0, 65537, 131088, 0, 65537, 131089, 0, 65537, 131090, 0, 65537, 131091, 0, 65537, 131092, 0, 65537, 131093, 0, 65537, 131094, 0, 65537, 131095, 0, 65537, 131096, 0, 65537, 131097, 0, 65537, 131098, 0, 65537, 131099, 0, 65537, 131100, 0, 65537, 131101, 0, 65537, 131102, 0, 65537, 131103, 0, 65537, 131104, 0, 65537, 131105, 0, 65537, 131106, 0, 65537, 131107, 0, 65537, 131108, 0, 65537, 131109, 0, 65537, 131110, 0, 65537, 131111, 0, 65538, 262105, 0, 65536, 262106, 0, 65537, 262107, 0, 65537, 262108, 0, 65537, 262109, 0, 65537, 262110, 0, 65537, 262111, 0, 65537, 262112, 0, 65537, 262113, 0, 65537, 262114, 0, 65537, 262115, 0, 65537, 262116, 0, 65537, 262117, 0, 65537, 262118, 0, 65537, 262119, 0, 65537, 262120, 0, 65537, 262121, 0, 65537, 262122, 0, 65537, 262123, 0, 65537, 262124, 0, 65537, 262125, 0, 65537, 262126, 0, 65537, 262127, 0, 65537, 262128, 0, 65537, 262129, 0, 65537, 262130, 0, 65537, 262131, 0, 65537, 262132, 0, 65537, 262133, 0, 65537, 262134, 0, 65537, 262135, 0, 65537, 262136, 0, 65537, 262137, 0, 65537, 262138, 0, 65537, 262139, 0, 65537, 262140, 0, 65537, 262141, 0, 65537, 262142, 0, 65537, 262143, 0, 65537, 196608, 0, 65537, 196609, 0, 65537, 196610, 0, 65537, 196611, 0, 65537, 196612, 0, 65537, 196613, 0, 65537, 196614, 0, 65537, 196615, 0, 65537, 196616, 0, 65537, 196617, 0, 65537, 196618, 0, 65537, 196619, 0, 65537, 196620, 0, 65537, 196621, 0, 65537, 196622, 0, 65537, 196623, 0, 65537, 196624, 0, 65537, 196625, 0, 65537, 196626, 0, 65537, 196627, 0, 65537, 196628, 0, 65537, 196629, 0, 65537, 196630, 0, 65537, 196631, 0, 65537, 196632, 0, 65537, 196633, 0, 65537, 196634, 0, 65537, 196635, 0, 65537, 196636, 0, 65537, 196637, 0, 65537, 196638, 0, 65537, 196639, 0, 65537, 196640, 0, 65537, 196641, 0, 65537, 196642, 0, 65537, 196643, 0, 65537, 196644, 0, 65537, 196645, 0, 65537, 196646, 0, 65537, 196647, 0, 65538, 327641, 0, 131072, 327642, 0, 131073, 327643, 0, 131073, 327644, 0, 131073, 327645, 0, 131073, 327646, 0, 131073, 327647, 0, 131073, 327648, 0, 131073, 327649, 0, 131073, 327650, 0, 131073, 327651, 0, 131073, 327652, 0, 131073, 327653, 0, 131073, 327654, 0, 131073, 327655, 0, 131073, 327656, 0, 131073, 327657, 0, 131073, 327658, 0, 131073, 327659, 0, 131073, 327660, 0, 131073, 327661, 0, 131073, 327662, 0, 131073, 327663, 0, 131073, 327664, 0, 131073, 327665, 0, 131073, 327666, 0, 131073, 327667, 0, 131073, 327668, 0, 131073, 327669, 0, 131073, 327670, 0, 131073, 327671, 0, 131073, 327672, 0, 131073, 327673, 0, 131073, 327674, 0, 131073, 327675, 0, 131073, 327676, 0, 131073, 327677, 0, 131073, 327678, 0, 131073, 327679, 0, 131073, 262144, 0, 131073, 262145, 0, 131073, 262146, 0, 131073, 262147, 0, 131073, 262148, 0, 131073, 262149, 0, 131073, 262150, 0, 131073, 262151, 0, 131073, 262152, 0, 131073, 262153, 0, 131073, 262154, 0, 131073, 262155, 0, 131073, 262156, 0, 131073, 262157, 0, 131073, 262158, 0, 131073, 262159, 0, 131073, 262160, 0, 131073, 262161, 0, 131073, 262162, 0, 131073, 262163, 0, 131073, 262164, 0, 131073, 262165, 0, 131073, 262166, 0, 131073, 262167, 0, 131073, 262168, 0, 131073, 262169, 0, 131073, 262170, 0, 131073, 262171, 0, 131073, 262172, 0, 131073, 262173, 0, 131073, 262174, 0, 131073, 262175, 0, 131073, 262176, 0, 131073, 262177, 0, 131073, 262178, 0, 131073, 262179, 0, 131073, 262180, 0, 131073, 262181, 0, 131073, 262182, 0, 131073, 262183, 0, 131074 )
+
+[node name="SmallClockworkTower" parent="TowerScene" index="1" instance=ExtResource( 6 )]
+position = Vector2( 0, 0.000488281 )
+
+[node name="TileMap" type="TileMap" parent="TowerScene" index="2"]
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -23, 0, 0, -22, 0, 1, -21, 0, 1, -20, 0, 1, -19, 0, 1, -18, 0, 1, -17, 0, 1, -16, 0, 1, -15, 0, 1, -14, 0, 1, -13, 0, 1, -12, 0, 1, -11, 0, 1, -10, 0, 1, -9, 0, 1, -8, 0, 1, -7, 0, 1, -6, 0, 1, -5, 0, 1, -4, 0, 1, -3, 0, 1, -2, 0, 1, -1, 0, 1, -65536, 0, 1, -65535, 0, 1, -65534, 0, 1, -65533, 0, 1, -65532, 0, 1, -65531, 0, 1, -65530, 0, 1, -65529, 0, 1, -65528, 0, 1, -65527, 0, 1, -65526, 0, 1, -65525, 0, 1, -65524, 0, 1, -65523, 0, 1, -65522, 0, 1, -65521, 0, 1, -65520, 0, 1, -65519, 0, 1, -65518, 0, 1, -65517, 0, 1, -65516, 0, 1, -65515, 0, 2, 65496, 0, 0, 65497, 0, 1, 65498, 0, 1, 65499, 0, 1, 65500, 0, 1, 65501, 0, 1, 65502, 0, 1, 65503, 0, 1, 65504, 0, 1, 65505, 0, 1, 65506, 0, 1, 65507, 0, 1, 65508, 0, 1, 65509, 0, 1, 65510, 0, 1, 65511, 0, 1, 65512, 0, 1, 65513, 0, 131078, 65514, 0, 65537, 65515, 0, 65537, 65516, 0, 65537, 65517, 0, 65537, 65518, 0, 65537, 65519, 0, 65537, 65520, 0, 65537, 65521, 0, 65537, 65522, 0, 65537, 65523, 0, 65537, 65524, 0, 65537, 65525, 0, 65537, 65526, 0, 65537, 65527, 0, 65537, 65528, 0, 65537, 65529, 0, 65537, 65530, 0, 65537, 65531, 0, 65537, 65532, 0, 65537, 65533, 0, 65537, 65534, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65537, 4, 0, 65537, 5, 0, 65537, 6, 0, 65537, 7, 0, 65537, 8, 0, 65537, 9, 0, 65537, 10, 0, 65537, 11, 0, 65537, 12, 0, 65537, 13, 0, 65537, 14, 0, 65537, 15, 0, 65537, 16, 0, 65537, 17, 0, 65537, 18, 0, 65537, 19, 0, 65537, 20, 0, 65537, 21, 0, 131077, 22, 0, 1, 23, 0, 1, 24, 0, 1, 25, 0, 1, 26, 0, 1, 27, 0, 1, 28, 0, 1, 29, 0, 1, 30, 0, 1, 31, 0, 1, 32, 0, 1, 33, 0, 1, 34, 0, 1, 35, 0, 1, 36, 0, 1, 37, 0, 1, 38, 0, 1, 39, 0, 2, 131032, 0, 65536, 131033, 0, 65537, 131034, 0, 65537, 131035, 0, 65537, 131036, 0, 65537, 131037, 0, 65537, 131038, 0, 65537, 131039, 0, 65537, 131040, 0, 65537, 131041, 0, 65537, 131042, 0, 65537, 131043, 0, 65537, 131044, 0, 65537, 131045, 0, 65537, 131046, 0, 65537, 131047, 0, 65537, 131048, 0, 65537, 131049, 0, 65537, 131050, 0, 65537, 131051, 0, 65537, 131052, 0, 65537, 131053, 0, 65537, 131054, 0, 65537, 131055, 0, 65537, 131056, 0, 65537, 131057, 0, 65537, 131058, 0, 65537, 131059, 0, 65537, 131060, 0, 65537, 131061, 0, 65537, 131062, 0, 65537, 131063, 0, 65537, 131064, 0, 65537, 131065, 0, 65537, 131066, 0, 65537, 131067, 0, 65537, 131068, 0, 65537, 131069, 0, 65537, 131070, 0, 65537, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65537, 65541, 0, 65537, 65542, 0, 65537, 65543, 0, 65537, 65544, 0, 65537, 65545, 0, 65537, 65546, 0, 65537, 65547, 0, 65537, 65548, 0, 65537, 65549, 0, 65537, 65550, 0, 65537, 65551, 0, 65537, 65552, 0, 65537, 65553, 0, 65537, 65554, 0, 65537, 65555, 0, 65537, 65556, 0, 65537, 65557, 0, 65537, 65558, 0, 65537, 65559, 0, 65537, 65560, 0, 65537, 65561, 0, 65537, 65562, 0, 65537, 65563, 0, 65537, 65564, 0, 65537, 65565, 0, 65537, 65566, 0, 65537, 65567, 0, 65537, 65568, 0, 65537, 65569, 0, 65537, 65570, 0, 65537, 65571, 0, 65537, 65572, 0, 65537, 65573, 0, 65537, 65574, 0, 65537, 65575, 0, 65538, 196568, 0, 65536, 196569, 0, 65537, 196570, 0, 65537, 196571, 0, 65537, 196572, 0, 65537, 196573, 0, 65537, 196574, 0, 65537, 196575, 0, 65537, 196576, 0, 65537, 196577, 0, 65537, 196578, 0, 65537, 196579, 0, 65537, 196580, 0, 65537, 196581, 0, 65537, 196582, 0, 65537, 196583, 0, 65537, 196584, 0, 65537, 196585, 0, 65537, 196586, 0, 65537, 196587, 0, 65537, 196588, 0, 65537, 196589, 0, 65537, 196590, 0, 65537, 196591, 0, 65537, 196592, 0, 65537, 196593, 0, 65537, 196594, 0, 65537, 196595, 0, 65537, 196596, 0, 65537, 196597, 0, 65537, 196598, 0, 65537, 196599, 0, 65537, 196600, 0, 65537, 196601, 0, 65537, 196602, 0, 65537, 196603, 0, 65537, 196604, 0, 65537, 196605, 0, 65537, 196606, 0, 65537, 196607, 0, 65537, 131072, 0, 65537, 131073, 0, 65537, 131074, 0, 65537, 131075, 0, 65537, 131076, 0, 65537, 131077, 0, 65537, 131078, 0, 65537, 131079, 0, 65537, 131080, 0, 65537, 131081, 0, 65537, 131082, 0, 65537, 131083, 0, 65537, 131084, 0, 65537, 131085, 0, 65537, 131086, 0, 65537, 131087, 0, 65537, 131088, 0, 65537, 131089, 0, 65537, 131090, 0, 65537, 131091, 0, 65537, 131092, 0, 65537, 131093, 0, 65537, 131094, 0, 65537, 131095, 0, 65537, 131096, 0, 65537, 131097, 0, 65537, 131098, 0, 65537, 131099, 0, 65537, 131100, 0, 65537, 131101, 0, 65537, 131102, 0, 65537, 131103, 0, 65537, 131104, 0, 65537, 131105, 0, 65537, 131106, 0, 65537, 131107, 0, 65537, 131108, 0, 65537, 131109, 0, 65537, 131110, 0, 65537, 131111, 0, 65538, 262104, 0, 65536, 262105, 0, 65537, 262106, 0, 65537, 262107, 0, 65537, 262108, 0, 65537, 262109, 0, 65537, 262110, 0, 65537, 262111, 0, 65537, 262112, 0, 65537, 262113, 0, 65537, 262114, 0, 65537, 262115, 0, 65537, 262116, 0, 65537, 262117, 0, 65537, 262118, 0, 65537, 262119, 0, 65537, 262120, 0, 65537, 262121, 0, 65537, 262122, 0, 65537, 262123, 0, 65537, 262124, 0, 65537, 262125, 0, 65537, 262126, 0, 65537, 262127, 0, 65537, 262128, 0, 65537, 262129, 0, 65537, 262130, 0, 65537, 262131, 0, 65537, 262132, 0, 65537, 262133, 0, 65537, 262134, 0, 65537, 262135, 0, 65537, 262136, 0, 65537, 262137, 0, 65537, 262138, 0, 65537, 262139, 0, 65537, 262140, 0, 65537, 262141, 0, 65537, 262142, 0, 65537, 262143, 0, 65537, 196608, 0, 65537, 196609, 0, 65537, 196610, 0, 65537, 196611, 0, 65537, 196612, 0, 65537, 196613, 0, 65537, 196614, 0, 65537, 196615, 0, 65537, 196616, 0, 65537, 196617, 0, 65537, 196618, 0, 65537, 196619, 0, 65537, 196620, 0, 65537, 196621, 0, 65537, 196622, 0, 65537, 196623, 0, 65537, 196624, 0, 65537, 196625, 0, 65537, 196626, 0, 65537, 196627, 0, 65537, 196628, 0, 65537, 196629, 0, 65537, 196630, 0, 65537, 196631, 0, 65537, 196632, 0, 65537, 196633, 0, 65537, 196634, 0, 65537, 196635, 0, 65537, 196636, 0, 65537, 196637, 0, 65537, 196638, 0, 65537, 196639, 0, 65537, 196640, 0, 65537, 196641, 0, 65537, 196642, 0, 65537, 196643, 0, 65537, 196644, 0, 65537, 196645, 0, 65537, 196646, 0, 65537, 196647, 0, 65538, 327640, 0, 131072, 327641, 0, 131073, 327642, 0, 131073, 327643, 0, 131073, 327644, 0, 131073, 327645, 0, 131073, 327646, 0, 131073, 327647, 0, 131073, 327648, 0, 131073, 327649, 0, 131073, 327650, 0, 131073, 327651, 0, 131073, 327652, 0, 131073, 327653, 0, 131073, 327654, 0, 131073, 327655, 0, 131073, 327656, 0, 131073, 327657, 0, 131073, 327658, 0, 131073, 327659, 0, 131073, 327660, 0, 131073, 327661, 0, 131073, 327662, 0, 131073, 327663, 0, 131073, 327664, 0, 131073, 327665, 0, 131073, 327666, 0, 131073, 327667, 0, 131073, 327668, 0, 131073, 327669, 0, 131073, 327670, 0, 131073, 327671, 0, 131073, 327672, 0, 131073, 327673, 0, 131073, 327674, 0, 131073, 327675, 0, 131073, 327676, 0, 131073, 327677, 0, 131073, 327678, 0, 131073, 327679, 0, 131073, 262144, 0, 131073, 262145, 0, 131073, 262146, 0, 131073, 262147, 0, 131073, 262148, 0, 131073, 262149, 0, 131073, 262150, 0, 131073, 262151, 0, 131073, 262152, 0, 131073, 262153, 0, 131073, 262154, 0, 131073, 262155, 0, 131073, 262156, 0, 131073, 262157, 0, 131073, 262158, 0, 131073, 262159, 0, 131073, 262160, 0, 131073, 262161, 0, 131073, 262162, 0, 131073, 262163, 0, 131073, 262164, 0, 131073, 262165, 0, 131073, 262166, 0, 131073, 262167, 0, 131073, 262168, 0, 131073, 262169, 0, 131073, 262170, 0, 131073, 262171, 0, 131073, 262172, 0, 131073, 262173, 0, 131073, 262174, 0, 131073, 262175, 0, 131073, 262176, 0, 131073, 262177, 0, 131073, 262178, 0, 131073, 262179, 0, 131073, 262180, 0, 131073, 262181, 0, 131073, 262182, 0, 131073, 262183, 0, 131074 )
+
+[node name="sun" type="Sprite" parent="TowerScene" index="3"]
+position = Vector2( -440, -1024 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="11"]
+layer = 128
+
+[node name="Dialog" type="Control" parent="CanvasLayer" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogNode" parent="CanvasLayer/Dialog" index="0" instance=ExtResource( 19 )]
+visible = false
+timeline = "timeline-1613358209"
+
+[node name="DialogNode2" parent="CanvasLayer/Dialog" index="1" instance=ExtResource( 19 )]
+visible = false
+timeline = "timeline-1613360185"
+
+[node name="DialogNode3" parent="CanvasLayer/Dialog" index="2" instance=ExtResource( 19 )]
+visible = false
+timeline = "timeline-1613415365"
+[connection signal="dialogic_signal" from="CanvasLayer/Dialog/DialogNode" to="." method="play"]
+[connection signal="dialogic_signal" from="CanvasLayer/Dialog/DialogNode2" to="." method="play"]
+[connection signal="dialogic_signal" from="CanvasLayer/Dialog/DialogNode3" to="." method="play"]
+
+[editable path="Silence"]
+
+[editable path="Music"]

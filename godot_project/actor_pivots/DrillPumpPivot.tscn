@@ -13,7 +13,7 @@
 resource_name = "SETUP"
 length = 0.001
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "die"
 tracks/0/type = "method"
 tracks/0/path = NodePath("DeathExplosion")
@@ -173,7 +173,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
 extents = Vector2( 194.697, 608 )
 
@@ -183,7 +183,7 @@ script = ExtResource( 9 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "SETUP"
 anims/SETUP = SubResource( 1 )
-anims/die = SubResource( 5 )
+anims/die = SubResource( 2 )
 anims/idle = SubResource( 3 )
 anims/pump = SubResource( 4 )
 next/pump = "idle"
@@ -209,7 +209,7 @@ position = Vector2( 5.30322, -92.0316 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -427.968 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="DeathExplosion" parent="." instance=ExtResource( 3 )]
 object = ExtResource( 5 )

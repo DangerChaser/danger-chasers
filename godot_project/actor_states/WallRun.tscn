@@ -5,7 +5,6 @@
 
 [node name="WallRun" type="Node2D"]
 script = ExtResource( 1 )
-initial_speed = 600.0
 animation = "wallrun"
 
 [node name="Motion" parent="." instance=ExtResource( 2 )]

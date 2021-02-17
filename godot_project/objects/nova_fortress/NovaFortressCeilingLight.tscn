@@ -31,6 +31,7 @@ loop = true
 
 [node name="NovaFortressCeilingLight" type="Node2D"]
 script = SubResource( 1 )
+on = false
 
 [node name="Sfx" parent="." instance=ExtResource( 1 )]
 stream = ExtResource( 2 )
@@ -49,5 +50,6 @@ anims/on = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 0, 6 )
+enabled = false
 texture = ExtResource( 5 )
 shadow_enabled = true

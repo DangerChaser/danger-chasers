@@ -4,7 +4,6 @@
 [ext_resource path="res://objects/vehicles/Vehicle.gd" type="Script" id=2]
 [ext_resource path="res://level/CameraLimitTrigger.tscn" type="PackedScene" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 304, 272 )
@@ -21,7 +20,7 @@ script = ExtResource( 2 )
 [node name="CameraLimitTrigger" parent="." instance=ExtResource( 3 )]
 change_limits = false
 
-[node name="ColliderTrigger" parent="CameraLimitTrigger" index="1"]
+[node name="ColliderTrigger" parent="CameraLimitTrigger" index="0"]
 visible = false
 shape = SubResource( 1 )
 disabled = true

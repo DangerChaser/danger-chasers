@@ -47,6 +47,11 @@ max_speed = 0.0
 [node name="Gravity" parent="StateMachine/Wait" index="2"]
 gravity = 0.0
 
+[node name="CameraLimitTrigger" parent="." index="3"]
+zoom = Vector2( 1, 1 )
+limits_tween_duration = 1.0
+zoom_tween_duration = 1.0
+
 [node name="ColliderTrigger" parent="CameraLimitTrigger" index="0"]
 shape = SubResource( 2 )
 

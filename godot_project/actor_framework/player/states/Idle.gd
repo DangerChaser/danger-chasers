@@ -112,6 +112,12 @@ func jump() -> void:
 	jump_registered = false
 	active = false
 	set_physics_process(false)
+	
+	if owner.has_node("WallRunScanner") \
+			and owner.state_machine.has_state("WallRun") \
+			and owner.get_node("WallRunScanner").get_overlapping_areas().size() > 0:
+		finished("WallRun", args)
+		return
 	finished("Jump", args)
 
 

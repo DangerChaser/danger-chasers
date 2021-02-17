@@ -48,7 +48,9 @@ position = Vector2( 0, -24 )
 shape = SubResource( 1 )
 
 [node name="VisibilityEnabler2D" parent="." index="2"]
+visible = false
 position = Vector2( 16.26, -21.493 )
+rect = Rect2( 0, 0, 1, 1 )
 
 [node name="Idle" parent="StateMachine" index="0" instance=ExtResource( 15 )]
 
