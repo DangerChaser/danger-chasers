@@ -1,0 +1,580 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://cutscenes/framework/CutsceneCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://autoload/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sfx/screen_darken.wav" type="AudioStream" id=8]
+[ext_resource path="res://core/PlayerManagedStateManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actor_framework/NPC.tscn" type="PackedScene" id=14]
+[ext_resource path="res://actor_pivots/KannaPivot.tscn" type="PackedScene" id=15]
+[ext_resource path="res://core/ActorManagedStateManager.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/sfx/polaroid_camera.wav" type="AudioStream" id=17]
+[ext_resource path="res://core/utils/AudioStreamPlayer2DRandom.tscn" type="PackedScene" id=18]
+[ext_resource path="res://addons/dialogic/Dialog.tscn" type="PackedScene" id=19]
+
+[sub_resource type="Animation" id=1]
+resource_name = "0"
+length = 6.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("CutsceneCamera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "enable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PlayerManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable_input"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("PlayerManagedStateManager")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide_player_hud"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("PlayerManagedStateManager")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "walk" ],
+"method": "play_animation"
+}, {
+"args": [ "stand" ],
+"method": "play_animation"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PlayerManagedStateManager:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 264, 0 ), Vector2( 344, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CutsceneCamera:zoom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CutsceneCamera:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 361, -93 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("PlayerManagedStateManager:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("Transition")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "left_to_right", 0.5 ],
+"method": "transition_out"
+} ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("ActorManagedStateManager")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath("ActorManagedStateManager")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "walk" ],
+"method": "play_animation"
+}, {
+"args": [ "stand" ],
+"method": "play_animation"
+} ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("ActorManagedStateManager:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 312, 0 ), Vector2( 386, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("ActorManagedStateManager:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 3.5, 4.5, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ), Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+tracks/14/type = "method"
+tracks/14/path = NodePath("CanvasLayer/Dialog/DialogNode")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "initialize"
+} ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("ActorManagedStateManager:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CutsceneCamera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 361, -93 ), Vector2( 816, -357 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CutsceneCamera:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ActorManagedStateManager:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("CanvasLayer/Dialog/DialogNode2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "initialize"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "2"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ActorManagedStateManager:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.9, 2, 4, 4.5, 6.5 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1, 2, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 386, 0 ), Vector2( 386, 0 ), Vector2( 642, -1094 ), Vector2( 989, -1094 ), Vector2( 1130, -480 ), Vector2( 1130, -480 ), Vector2( 1803, -480 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("ActorManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 2, 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "jump" ],
+"method": "play_animation"
+}, {
+"args": [ "air" ],
+"method": "play_animation"
+}, {
+"args": [ "idle" ],
+"method": "play_animation"
+}, {
+"args": [ "run" ],
+"method": "play_animation"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.7, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "hand_reach" ],
+"method": "play_animation"
+}, {
+"args": [ "stand" ],
+"method": "play_animation"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CutsceneCamera:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 6.5, 12 ),
+"transitions": PoolRealArray( 1, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CutsceneCamera:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6, 12 ),
+"transitions": PoolRealArray( 1, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 816, -357 ), Vector2( 816, -357 ), Vector2( 343, -55 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ActorManagedStateManager:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("CanvasLayer/Dialog/DialogNode3")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 12 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "initialize"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ActorManagedStateManager:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("ActorManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ActorManagedStateManager:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 136, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ActorManagedStateManager:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("PlayerManagedStateManager")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PlayerManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show_player_hud"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_input"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("CutsceneCamera")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 1.5 ],
+"method": "disable"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ActorManagedStateManager:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="Cutscene3" instance=ExtResource( 1 )]
+auto_start = true
+
+[node name="AnimationPlayer" parent="." index="0"]
+anims/0 = SubResource( 1 )
+anims/1 = SubResource( 4 )
+anims/2 = SubResource( 5 )
+anims/SETUP = SubResource( 2 )
+anims/end = SubResource( 3 )
+
+[node name="Transition" parent="." index="2" instance=ExtResource( 5 )]
+
+[node name="CutsceneCamera" parent="." index="3" instance=ExtResource( 4 )]
+position = Vector2( 816, -357 )
+zoom = Vector2( 3, 3 )
+
+[node name="PlayerManagedStateManager" parent="." index="4" instance=ExtResource( 11 )]
+position = Vector2( 344, 0 )
+managed_state = ExtResource( 12 )
+
+[node name="NPC" parent="." index="5" instance=ExtResource( 14 )]
+
+[node name="Pivot" parent="NPC" index="8" instance=ExtResource( 15 )]
+
+[node name="ActorManagedStateManager" parent="." index="6" instance=ExtResource( 16 )]
+position = Vector2( 386, 0 )
+scale = Vector2( -1, 1 )
+actor_path = NodePath("../../Cutscene3/NPC")
+managed_state = ExtResource( 12 )
+
+[node name="CameraSnap" parent="ActorManagedStateManager" index="0" instance=ExtResource( 18 )]
+position = Vector2( 0, -24 )
+stream = ExtResource( 17 )
+
+[node name="ZoomSfx" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource( 8 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
+layer = 128
+
+[node name="Dialog" type="Control" parent="CanvasLayer" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogNode" parent="CanvasLayer/Dialog" index="0" instance=ExtResource( 19 )]
+visible = false
+timeline = "timeline-1613626695"
+
+[node name="DialogNode2" parent="CanvasLayer/Dialog" index="1" instance=ExtResource( 19 )]
+visible = false
+timeline = "timeline-1613626955"
+
+[node name="DialogNode3" parent="CanvasLayer/Dialog" index="2" instance=ExtResource( 19 )]
+visible = false
+timeline = "timeline-1613630167"
+[connection signal="dialogic_signal" from="CanvasLayer/Dialog/DialogNode" to="." method="play"]
+[connection signal="dialogic_signal" from="CanvasLayer/Dialog/DialogNode2" to="." method="play"]
+[connection signal="dialogic_signal" from="CanvasLayer/Dialog/DialogNode3" to="." method="play"]

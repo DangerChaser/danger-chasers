@@ -151,7 +151,6 @@ position = Vector2( 0, 8 )
 shape = SubResource( 4 )
 
 [node name="StompEffect" parent="Pivot/Attacks/Stomp/AdditionalEffects" index="0" instance=ExtResource( 4 )]
-initial_speed = 0.0
 
 [node name="PlayStompSfx" type="Node2D" parent="Pivot/Attacks/Stomp/AdditionalEffects" index="1"]
 script = ExtResource( 5 )
@@ -177,10 +176,6 @@ shape = SubResource( 5 )
 [editable path="Pivot/Attacks/Stomp"]
 
 [editable path="Pivot/Attacks/Stomp/DamageSource"]
-
-[editable path="Pivot/Attacks/Stomp/AdditionalEffects/StompEffect"]
-
-[editable path="Pivot/Attacks/Stomp/AdditionalEffects/StompEffect/Motion"]
 
 [editable path="Pivot/Attacks/Recover"]
 

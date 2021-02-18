@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://interactable_scripts/base/InteractionArea.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interactable_scripts/base/ChangeLevelInteractionArea.gd" type="Script" id=2]
+[ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=3]
+[ext_resource path="res://core/PlayerManagedStateManager.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -26,5 +28,9 @@ anims/change = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 3 )
+
+[node name="PlayerManagedStateManager" parent="." index="4" instance=ExtResource( 4 )]
+managed_state = ExtResource( 3 )
+face_target_node_path = NodePath("..")
 [connection signal="interacted" from="." to="AnimationPlayer" method="play" binds= [ "change" ]]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="change"]

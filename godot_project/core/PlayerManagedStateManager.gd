@@ -1,4 +1,5 @@
 extends ActorManagedStateManager
+class_name PlayerManagedStateManager
 
 export var face_target_node_path : NodePath
 
