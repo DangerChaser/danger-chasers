@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
 [ext_resource path="res://interface/pause_menu/PauseMenu.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://core/utils/ButtonKey.tscn" type="PackedScene" id=11]
 [ext_resource path="res://interface/sfx/button_back.wav" type="AudioStream" id=12]
 [ext_resource path="res://interface/sfx/button_focus_enter.wav" type="AudioStream" id=13]
+[ext_resource path="res://items/Inventory.tscn" type="PackedScene" id=14]
 
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
@@ -35,10 +36,10 @@ bus = "Sfx"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 100.0
-margin_top = 100.0
-margin_right = -100.0
-margin_bottom = -100.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,10 +48,10 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 128.0
-margin_top = 128.0
-margin_right = -128.0
-margin_bottom = -128.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -46.0
 mouse_filter = 2
 theme = ExtResource( 1 )
 __meta__ = {
@@ -82,32 +83,40 @@ __meta__ = {
 }
 
 [node name="Resume" parent="Pause/Buttons" instance=ExtResource( 11 )]
-margin_right = 392.0
-margin_bottom = 68.0
+margin_right = 54.0
+margin_bottom = 18.0
 text = "RESUME"
 press_sfx = ExtResource( 5 )
 focus_enter_sfx = ExtResource( 13 )
 
 [node name="Restart" parent="Pause/Buttons" instance=ExtResource( 11 )]
-margin_left = 424.0
-margin_right = 816.0
-margin_bottom = 68.0
+margin_left = 86.0
+margin_right = 141.0
+margin_bottom = 18.0
 text = "RESTART"
 press_sfx = ExtResource( 5 )
 focus_enter_sfx = ExtResource( 13 )
 
+[node name="Inventory" parent="Pause/Buttons" instance=ExtResource( 11 )]
+margin_left = 173.0
+margin_right = 228.0
+margin_bottom = 18.0
+text = "INVENTORY"
+press_sfx = ExtResource( 5 )
+focus_enter_sfx = ExtResource( 13 )
+
 [node name="Settings" parent="Pause/Buttons" instance=ExtResource( 11 )]
-margin_left = 848.0
-margin_right = 1240.0
-margin_bottom = 68.0
+margin_left = 260.0
+margin_right = 315.0
+margin_bottom = 18.0
 text = "SETTINGS"
 press_sfx = ExtResource( 5 )
 focus_enter_sfx = ExtResource( 13 )
 
 [node name="Quit" parent="Pause/Buttons" instance=ExtResource( 11 )]
-margin_left = 1272.0
-margin_right = 1664.0
-margin_bottom = 68.0
+margin_left = 347.0
+margin_right = 416.0
+margin_bottom = 18.0
 text = "QUIT_TO_MENU"
 press_sfx = ExtResource( 12 )
 focus_enter_sfx = ExtResource( 13 )
@@ -116,10 +125,10 @@ focus_enter_sfx = ExtResource( 13 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 128.0
-margin_top = 128.0
-margin_right = -128.0
-margin_bottom = -128.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -46.0
 mouse_filter = 2
 theme = ExtResource( 1 )
 __meta__ = {
@@ -143,7 +152,8 @@ __meta__ = {
 [node name="Buttons" type="HBoxContainer" parent="Settings"]
 anchor_right = 1.0
 margin_top = 126.758
-margin_bottom = 202.758
+margin_right = 3.05176e-05
+margin_bottom = 144.758
 mouse_filter = 2
 custom_constants/separation = 32
 alignment = 1
@@ -152,57 +162,62 @@ __meta__ = {
 }
 
 [node name="Audio" parent="Settings/Buttons" instance=ExtResource( 11 )]
-margin_right = 392.0
-margin_bottom = 75.0
+margin_right = 80.0
+margin_bottom = 18.0
 text = "AUDIO"
 press_sfx = ExtResource( 5 )
 focus_enter_sfx = ExtResource( 13 )
 
 [node name="Controls" parent="Settings/Buttons" instance=ExtResource( 11 )]
-margin_left = 424.0
-margin_right = 816.0
-margin_bottom = 75.0
+margin_left = 112.0
+margin_right = 192.0
+margin_bottom = 18.0
 text = "CONTROLS"
 press_sfx = ExtResource( 5 )
 focus_enter_sfx = ExtResource( 13 )
 
 [node name="Graphics" parent="Settings/Buttons" instance=ExtResource( 11 )]
-margin_left = 848.0
-margin_right = 1240.0
-margin_bottom = 75.0
+margin_left = 224.0
+margin_right = 304.0
+margin_bottom = 18.0
 text = "GRAPHICS"
 press_sfx = ExtResource( 5 )
 focus_enter_sfx = ExtResource( 13 )
 
 [node name="Back" parent="Settings/Buttons" instance=ExtResource( 11 )]
-margin_left = 1272.0
-margin_right = 1664.0
-margin_bottom = 75.0
+margin_left = 336.0
+margin_right = 416.0
+margin_bottom = 18.0
 text = "BACK"
 press_sfx = ExtResource( 12 )
 focus_enter_sfx = ExtResource( 13 )
 
 [node name="InputMenu" parent="." instance=ExtResource( 10 )]
-margin_left = 128.0
-margin_top = 128.0
-margin_right = -128.0
-margin_bottom = -128.0
+visible = false
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -46.0
 
 [node name="AudioSettingsHUD" parent="." instance=ExtResource( 8 )]
 visible = false
-margin_left = 128.0
-margin_top = 128.0
-margin_right = -128.0
-margin_bottom = -128.0
+margin_left = 64.0
+margin_top = 16.0
+margin_right = -64.0
 
 [node name="GraphicsMenu" parent="." instance=ExtResource( 9 )]
 visible = false
-margin_left = 128.0
-margin_top = 128.0
-margin_right = -128.0
-margin_bottom = -128.0
+margin_bottom = -14.0
+
+[node name="Inventory" parent="." instance=ExtResource( 14 )]
+visible = false
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -14.0
 [connection signal="pressed" from="Pause/Buttons/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Pause/Buttons/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Pause/Buttons/Inventory" to="." method="_on_Inventory_pressed"]
 [connection signal="pressed" from="Pause/Buttons/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Pause/Buttons/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="Settings/Buttons/Audio" to="." method="_on_Audio_pressed"]
@@ -212,3 +227,4 @@ margin_bottom = -128.0
 [connection signal="finished" from="InputMenu" to="." method="_on_InputMenu_finished"]
 [connection signal="finished" from="AudioSettingsHUD" to="." method="_on_AudioSettingsHUD_finished"]
 [connection signal="finished" from="GraphicsMenu" to="." method="_on_GraphicsMenu_finished"]
+[connection signal="closed" from="Inventory" to="." method="_on_Inventory_closed"]

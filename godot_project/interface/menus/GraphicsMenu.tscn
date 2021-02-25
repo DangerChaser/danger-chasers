@@ -11,6 +11,10 @@
 [node name="GraphicsMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -46.0
 mouse_filter = 2
 theme = ExtResource( 4 )
 script = ExtResource( 2 )
@@ -20,8 +24,7 @@ __meta__ = {
 
 [node name="Title" type="Label" parent="."]
 anchor_right = 1.0
-margin_top = 72.0
-margin_bottom = 86.0
+margin_bottom = 18.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "GRAPHICS"
 align = 1
@@ -32,83 +35,88 @@ __meta__ = {
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchor_right = 1.0
-margin_top = 128.0
-margin_bottom = 232.0
+anchor_bottom = 1.0
+margin_top = 32.0
 mouse_filter = 2
-custom_constants/separation = 64
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScreenShake" type="HBoxContainer" parent="Buttons"]
-margin_right = 1920.0
-margin_bottom = 68.0
+margin_right = 416.0
+margin_bottom = 18.0
 mouse_filter = 2
 
 [node name="KeyLabel" type="Label" parent="Buttons/ScreenShake"]
-margin_right = 958.0
-margin_bottom = 68.0
+margin_right = 206.0
+margin_bottom = 18.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "SCREEN_SHAKE"
 script = ExtResource( 1 )
 
 [node name="ScreenShakeButton" parent="Buttons/ScreenShake" instance=ExtResource( 5 )]
-margin_left = 962.0
-margin_right = 1920.0
-margin_bottom = 68.0
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 18.0
 text = "NORMAL"
 press_sfx = ExtResource( 6 )
 focus_enter_sfx = ExtResource( 7 )
 
 [node name="FrameFreeze" type="HBoxContainer" parent="Buttons"]
-margin_top = 132.0
-margin_right = 1920.0
-margin_bottom = 200.0
+margin_top = 22.0
+margin_right = 416.0
+margin_bottom = 40.0
 mouse_filter = 2
 
 [node name="KeyLabel" type="Label" parent="Buttons/FrameFreeze"]
-margin_right = 958.0
-margin_bottom = 68.0
+margin_right = 206.0
+margin_bottom = 18.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "FRAME_FREEZE"
 script = ExtResource( 1 )
 
 [node name="FrameFreezeButton" parent="Buttons/FrameFreeze" instance=ExtResource( 5 )]
-margin_left = 962.0
-margin_right = 1920.0
-margin_bottom = 68.0
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 18.0
 text = "ON"
 press_sfx = ExtResource( 6 )
 focus_enter_sfx = ExtResource( 7 )
 
 [node name="WindowMode" type="HBoxContainer" parent="Buttons"]
-margin_top = 264.0
-margin_right = 1920.0
-margin_bottom = 332.0
+margin_top = 44.0
+margin_right = 416.0
+margin_bottom = 62.0
 mouse_filter = 2
 
 [node name="KeyLabel" type="Label" parent="Buttons/WindowMode"]
-margin_right = 958.0
-margin_bottom = 68.0
+margin_right = 206.0
+margin_bottom = 18.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "WINDOW_MODE"
 script = ExtResource( 1 )
 
 [node name="WindowModeButton" parent="Buttons/WindowMode" instance=ExtResource( 5 )]
-margin_left = 962.0
-margin_right = 1920.0
-margin_bottom = 68.0
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 18.0
 text = "WINDOWED"
 press_sfx = ExtResource( 6 )
 focus_enter_sfx = ExtResource( 7 )
 
+[node name="Spacer" type="Control" parent="Buttons"]
+margin_top = 66.0
+margin_right = 416.0
+margin_bottom = 138.0
+size_flags_vertical = 3
+
 [node name="BackButton" parent="Buttons" instance=ExtResource( 5 )]
-margin_top = 396.0
-margin_right = 1920.0
-margin_bottom = 464.0
+margin_top = 142.0
+margin_right = 416.0
+margin_bottom = 160.0
 text = "BACK"
 press_sfx = ExtResource( 3 )
 focus_enter_sfx = ExtResource( 7 )

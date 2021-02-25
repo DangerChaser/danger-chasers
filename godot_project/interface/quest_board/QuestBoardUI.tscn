@@ -30,16 +30,14 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
-margin_top = 32.0
-margin_right = 1216.0
-margin_bottom = 530.0
-rect_scale = Vector2( 0.25, 0.25 )
+margin_top = 24.0
+margin_right = -32.0
+margin_bottom = -46.0
 texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 224, 224 )
-patch_margin_left = 52
-patch_margin_top = 52
-patch_margin_right = 48
-patch_margin_bottom = 48
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -185,10 +183,10 @@ custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
 text = "ACCEPT"
 
 [node name="BackButton" type="Button" parent="Control"]
-margin_left = 48.0
-margin_top = 176.0
-margin_right = 80.0
-margin_bottom = 208.0
+margin_left = 408.0
+margin_top = 32.0
+margin_right = 440.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 32, 32 )
 icon = ExtResource( 9 )
 flat = true

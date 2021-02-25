@@ -14,6 +14,10 @@
 [node name="AudioSettingsHUD" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -46.0
 mouse_filter = 2
 theme = ExtResource( 5 )
 alignment = 1
@@ -25,117 +29,100 @@ __meta__ = {
 [node name="KeyLabel" parent="." instance=ExtResource( 7 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1920.0
-margin_bottom = 68.0
+margin_right = 416.0
+margin_bottom = 18.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "AUDIO"
 align = 1
 valign = 1
 
 [node name="Spacer" type="Control" parent="."]
-margin_top = 72.0
-margin_right = 1920.0
-margin_bottom = 216.0
+margin_top = 22.0
+margin_right = 416.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Music" type="VBoxContainer" parent="."]
-margin_top = 220.0
-margin_right = 1920.0
-margin_bottom = 332.0
+margin_top = 32.0
+margin_right = 416.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 40 )
 mouse_filter = 2
 
 [node name="ButtonKey" parent="Music" instance=ExtResource( 8 )]
-margin_right = 1920.0
-margin_bottom = 68.0
+margin_right = 416.0
+margin_bottom = 18.0
 text = "MUSIC"
 press_sfx = ExtResource( 9 )
 focus_enter_sfx = ExtResource( 10 )
 
 [node name="MusicLevelController" parent="Music" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 72.0
-margin_right = 1920.0
-margin_bottom = 112.0
+margin_top = 22.0
+margin_right = 416.0
+margin_bottom = 40.0
 mouse_filter = 2
-
-[node name="Spacer2" type="Control" parent="."]
-margin_top = 336.0
-margin_right = 1920.0
-margin_bottom = 480.0
-size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Sfx" type="VBoxContainer" parent="."]
-margin_top = 484.0
-margin_right = 1920.0
-margin_bottom = 596.0
+margin_top = 76.0
+margin_right = 416.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 0, 40 )
 mouse_filter = 2
 
 [node name="ButtonKey" parent="Sfx" instance=ExtResource( 8 )]
-margin_right = 1920.0
-margin_bottom = 68.0
+margin_right = 416.0
+margin_bottom = 18.0
 text = "SFX"
 press_sfx = ExtResource( 9 )
 focus_enter_sfx = ExtResource( 10 )
 
 [node name="SoundLevelController" parent="Sfx" instance=ExtResource( 2 )]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 72.0
-margin_right = 1920.0
-margin_bottom = 112.0
+margin_top = 22.0
+margin_right = 416.0
+margin_bottom = 40.0
 mouse_filter = 2
-
-[node name="Spacer3" type="Control" parent="."]
-margin_top = 600.0
-margin_right = 1920.0
-margin_bottom = 744.0
-size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Ambience" type="VBoxContainer" parent="."]
-margin_top = 748.0
-margin_right = 1920.0
-margin_bottom = 860.0
+margin_top = 120.0
+margin_right = 416.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 40 )
 mouse_filter = 2
 
 [node name="ButtonKey" parent="Ambience" instance=ExtResource( 8 )]
-margin_right = 1920.0
-margin_bottom = 68.0
+margin_right = 416.0
+margin_bottom = 18.0
 text = "AMBIENCE"
 press_sfx = ExtResource( 9 )
 focus_enter_sfx = ExtResource( 10 )
 
 [node name="AmbienceLevelController" parent="Ambience" instance=ExtResource( 1 )]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 72.0
-margin_right = 1920.0
-margin_bottom = 112.0
+margin_top = 22.0
+margin_right = 416.0
+margin_bottom = 40.0
 mouse_filter = 2
+size_flags_vertical = 3
 
 [node name="Spacer4" type="Control" parent="."]
-margin_top = 864.0
-margin_right = 1920.0
-margin_bottom = 1008.0
+margin_top = 164.0
+margin_right = 416.0
+margin_bottom = 170.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="BackButton" parent="." instance=ExtResource( 8 )]
-margin_top = 1012.0
-margin_right = 1920.0
-margin_bottom = 1080.0
+margin_top = 174.0
+margin_right = 416.0
+margin_bottom = 192.0
 text = "Back"
 press_sfx = ExtResource( 6 )
 focus_enter_sfx = ExtResource( 10 )

@@ -308,7 +308,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=7]
 resource_name = "run"
 length = 0.4
 loop = true
@@ -350,8 +350,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "snap_picture"
+[sub_resource type="Animation" id=8]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -391,7 +390,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -431,7 +430,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -471,7 +470,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -511,7 +510,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=12]
 
 [node name="Pivot" type="Node2D"]
 script = ExtResource( 9 )
@@ -524,11 +523,11 @@ anims/idle = SubResource( 3 )
 anims/jump = SubResource( 4 )
 anims/look_back = SubResource( 5 )
 anims/look_back_snap_picture = SubResource( 6 )
-anims/run = SubResource( 12 )
-anims/snap_picture = SubResource( 7 )
-anims/stand = SubResource( 8 )
-anims/walk = SubResource( 9 )
-anims/wave = SubResource( 10 )
+anims/run = SubResource( 7 )
+anims/snap_picture = SubResource( 8 )
+anims/stand = SubResource( 9 )
+anims/walk = SubResource( 10 )
+anims/wave = SubResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
@@ -541,7 +540,7 @@ hframes = 8
 position = Vector2( 0, -24 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="DeathExplosionSpawner" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -24 )

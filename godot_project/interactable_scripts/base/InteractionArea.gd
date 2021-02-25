@@ -24,7 +24,7 @@ func _ready():
 
 
 func _on_area_entered(area : Area2D) -> void:
-	._on_area_entered(area)
+	emit_signal("area_entered_no_area")
 	triggered_area = area
 	enable_interaction()
 
@@ -99,6 +99,9 @@ func interact() -> void:
 		hide_key()
 		set_process_input(false)
 	emit_signal("interacted")
+	
+	if disable_on_trigger:
+		disable()
 
 
 

@@ -4,42 +4,50 @@
 [ext_resource path="res://core/utils/KeyLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://items/ItemButton.gd" type="Script" id=3]
 
-[node name="ItemButton" type="HBoxContainer"]
-margin_right = 1164.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 0, 84 )
+[node name="ItemButton" type="Control"]
+margin_right = 480.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 16 )
 script = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemBackground" type="TextureRect" parent="."]
-margin_right = 84.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 84, 84 )
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 62.0
+margin_bottom = 24.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemBackground" type="TextureRect" parent="HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
 
-[node name="ItemButton" type="TextureButton" parent="ItemBackground"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = -4.0
-margin_bottom = -4.0
-expand = true
-
-[node name="QuantityLabel" parent="ItemBackground/ItemButton" instance=ExtResource( 2 )]
+[node name="QuantityLabel" parent="HBoxContainer/ItemBackground" instance=ExtResource( 2 )]
+margin_right = 0.0
+margin_bottom = 0.0
 text = "0"
 align = 1
 valign = 1
 
-[node name="ItemNameLabel" parent="." instance=ExtResource( 2 )]
+[node name="ItemNameLabel" parent="HBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 88.0
-margin_right = 1164.0
-margin_bottom = 84.0
+margin_left = 28.0
+margin_right = 62.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+text = "Hello"
 valign = 1
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]

@@ -12,8 +12,9 @@ onready var settings_menu : Control = $Settings
 onready var input_menu : InputMenu = $InputMenu
 onready var audio_menu := $AudioSettingsHUD
 onready var graphics_menu := $GraphicsMenu
-onready var menus = [pause_menu, settings_menu, input_menu, audio_menu, graphics_menu]
-enum Menus { PAUSE, SETTINGS, INPUT, AUDIO, GRAPHICS, UNPAUSED }
+onready var inventory_menu := $Inventory
+onready var menus = [pause_menu, settings_menu, input_menu, audio_menu, graphics_menu, inventory_menu]
+enum Menus { PAUSE, SETTINGS, INPUT, AUDIO, GRAPHICS, UNPAUSED, INVENTORY }
 
 var current_menu
 var can_pause := true
@@ -79,6 +80,8 @@ func change_menu(new_menu) -> void:
 		audio_menu.enable()
 	elif current_menu == Menus.GRAPHICS:
 		graphics_menu.enable()
+	elif current_menu == Menus.INVENTORY:
+		inventory_menu.enable()
 
 
 func _input(event : InputEvent) -> void:
@@ -144,3 +147,11 @@ func _on_Graphics_pressed():
 
 func _on_GraphicsMenu_finished():
 	change_menu(Menus.SETTINGS)
+
+
+func _on_Inventory_pressed():
+	change_menu(Menus.INVENTORY)
+
+
+func _on_Inventory_closed():
+	change_menu(Menus.PAUSE)

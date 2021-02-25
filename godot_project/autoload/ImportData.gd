@@ -1,10 +1,5 @@
 extends Node
 
-onready var item_data = read_json("res://data/ItemTable.json")
-onready var loot_data = read_json("res://data/LootTable.json")
-
-var inventory_data := { "GOLD" : 0 }
-
 
 func read_json(file_path : String):
 	var file = File.new()

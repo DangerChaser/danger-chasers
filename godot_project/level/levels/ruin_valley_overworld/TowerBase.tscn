@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/sfx/ambience/forest_spring_afternoon.ogg" type="AudioStream" id=1]
 [ext_resource path="res://level/levels/ruin_valley_overworld/rooms/TowerBase.tscn" type="PackedScene" id=2]
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/music/Lets Check it Out.ogg" type="AudioStream" id=4]
 [ext_resource path="res://objects/ClockworkTowerBase.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actors/ArikoBasic.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -12,6 +13,7 @@ resource_local_to_scene = true
 [node name="TowerBase" instance=ExtResource( 3 )]
 level_name_key = "RUIN_VALLEY"
 skybox_color = Color( 0.0745098, 0.698039, 0.94902, 1 )
+player_scene = ExtResource( 6 )
 
 [node name="InitialMusic" parent="." index="0"]
 music = ExtResource( 4 )

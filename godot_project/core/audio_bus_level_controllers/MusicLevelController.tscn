@@ -3,4 +3,10 @@
 [ext_resource path="res://core/audio_bus_level_controllers/AudioBusLevelController.tscn" type="PackedScene" id=1]
 
 [node name="MusicLevelController" instance=ExtResource( 1 )]
+margin_right = 0.0
+margin_bottom = 0.0
 bus_name = "Music"
+
+[node name="TextureProgress" parent="." index="0"]
+margin_right = 0.0
+margin_bottom = 0.0

@@ -46,16 +46,12 @@ format = 1
 
 [node name="DoorChangeLevelInteractionArea" parent="Triggers" index="0" instance=ExtResource( 5 )]
 position = Vector2( -363, 0 )
-collision_layer = 8
-collision_mask = 16
 level_path = "res://level/levels/ruin_valley_overworld/FoxholeEntrance.tscn"
 spawn_point = 1
 
 [node name="DoorChangeLevelInteractionArea2" parent="Triggers" index="1" instance=ExtResource( 5 )]
 position = Vector2( -209, -704 )
-collision_layer = 8
-collision_mask = 16
-level_path = "res://level/levels/ruin_valley/act_1/RuinValleyAct1-1.tscn"
+level_path = "res://level/levels/ruin_valley/act_1/Lobby.tscn"
 
 [node name="CameraLimitTrigger" parent="Triggers" index="2" instance=ExtResource( 1 )]
 position = Vector2( -1536, 0 )

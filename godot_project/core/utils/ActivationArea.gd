@@ -4,7 +4,7 @@ class_name ActivationArea
 signal area_entered_no_area # Just used as a trigger when no need for area checking
 signal area_exited_no_area # Just used as a trigger when no need for area checking
 
-export(bool) var disable_on_trigger := false
+export var disable_on_trigger := false
 
 func _ready() -> void:
 	connect("area_entered", self, "_on_area_entered")

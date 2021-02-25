@@ -1,31 +1,33 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/sprites/objects/crystal_tree.png" type="Texture" id=1]
-[ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/music/Ruin Valley Act 1 - Retro.ogg" type="AudioStream" id=3]
+[ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sfx/ambience/foxzine__cave-ambient-01.ogg" type="AudioStream" id=2]
+[ext_resource path="res://actors/ArikoBasic.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/levels/ruin_valley/act_1/rooms/Lobby.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/sfx/ambience/foxzine__cave-ambient-01.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/music/Ruin Valley Act 1 - Retro.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sprites/objects/crystal_tree.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 
-[node name="RuinValleyAct1-1" instance=ExtResource( 2 )]
+[node name="Lobby" instance=ExtResource( 1 )]
 level_name_key = "RUIN_VALLEY"
 skybox_color = Color( 0.454902, 0.890196, 0.960784, 1 )
+player_scene = ExtResource( 3 )
 
 [node name="InitialMusic" parent="." index="0"]
-music = ExtResource( 3 )
+music = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="InitialMusic" index="0"]
 shape = SubResource( 1 )
 
 [node name="Ambience" parent="." index="1"]
-stream = ExtResource( 5 )
+stream = ExtResource( 2 )
 
 [node name="crystal_tree" type="Sprite" parent="Background" index="0"]
 position = Vector2( -416, -2432 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 1 )
+texture = ExtResource( 6 )
 
 [node name="Lobby" parent="Rooms" index="0" instance=ExtResource( 4 )]
 

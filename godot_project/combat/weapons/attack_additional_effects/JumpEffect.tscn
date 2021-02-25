@@ -7,6 +7,7 @@
 script = ExtResource( 2 )
 initial_mass = 8.0
 initial_speed = 50.0
+jump_force = 1500.0
 
 [node name="MotionSteering" parent="Motion" index="1"]
 max_speed = 275.0

@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://core/Game.gd" type="Script" id=1]
 [ext_resource path="res://level/levels/adventurers_guild/AdventurersGuild.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/music/MusicPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/pause_menu/PauseMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/LevelLoader.gd" type="Script" id=5]
-[ext_resource path="res://items/Inventory.tscn" type="PackedScene" id=7]
 [ext_resource path="res://core/camera/Camera2D.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node"]
@@ -30,8 +29,6 @@ __meta__ = {
 layer = 100
 
 [node name="PauseMenu" parent="Interface" instance=ExtResource( 4 )]
-
-[node name="Inventory" parent="Interface" instance=ExtResource( 7 )]
 
 [node name="LevelLoader" type="Node" parent="."]
 script = ExtResource( 5 )
