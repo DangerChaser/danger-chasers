@@ -205,7 +205,7 @@ tracks/13/keys = {
 "values": [ Vector2( -1, 1 ) ]
 }
 tracks/14/type = "method"
-tracks/14/path = NodePath("CanvasLayer/Dialog/DialogNode")
+tracks/14/path = NodePath("CanvasLayer/DialogNode")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -259,7 +259,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("CanvasLayer/Dialog/DialogNode2")
+tracks/2/path = NodePath("CanvasLayer/DialogNode2")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -277,7 +277,7 @@ tracks/2/keys = {
 resource_name = "2"
 length = 4.0
 tracks/0/type = "method"
-tracks/0/path = NodePath("CanvasLayer/Dialog/DialogNode3")
+tracks/0/path = NodePath("CanvasLayer/DialogNode3")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -457,8 +457,7 @@ anims/end = SubResource( 5 )
 [node name="Transition" parent="." index="2" instance=ExtResource( 5 )]
 
 [node name="CutsceneCamera" parent="." index="3" instance=ExtResource( 4 )]
-position = Vector2( 1, -404 )
-zoom = Vector2( 3, 3 )
+position = Vector2( -22, -56 )
 
 [node name="PlayerManagedStateManager" parent="." index="4" instance=ExtResource( 11 )]
 position = Vector2( -40, 0 )
@@ -469,6 +468,7 @@ managed_state = ExtResource( 12 )
 [node name="Pivot" parent="NPC" index="8" instance=ExtResource( 3 )]
 
 [node name="ActorManagedStateManager" parent="." index="6" instance=ExtResource( 16 )]
+scale = Vector2( -1, 1 )
 actor_path = NodePath("../NPC")
 managed_state = ExtResource( 12 )
 
@@ -498,26 +498,19 @@ texture = ExtResource( 7 )
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="11"]
 layer = 128
 
-[node name="Dialog" type="Control" parent="CanvasLayer" index="0"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DialogNode" parent="CanvasLayer/Dialog" index="0" instance=ExtResource( 19 )]
+[node name="DialogNode" parent="CanvasLayer" index="0" instance=ExtResource( 19 )]
 visible = false
 timeline = "timeline-1613720603"
 
-[node name="DialogNode2" parent="CanvasLayer/Dialog" index="1" instance=ExtResource( 19 )]
+[node name="DialogNode2" parent="CanvasLayer" index="1" instance=ExtResource( 19 )]
 visible = false
 timeline = "timeline-1613721386"
 
-[node name="DialogNode3" parent="CanvasLayer/Dialog" index="2" instance=ExtResource( 19 )]
+[node name="DialogNode3" parent="CanvasLayer" index="2" instance=ExtResource( 19 )]
 visible = false
 timeline = "timeline-1613721594"
-[connection signal="dialogic_signal" from="CanvasLayer/Dialog/DialogNode" to="." method="play"]
-[connection signal="dialogic_signal" from="CanvasLayer/Dialog/DialogNode2" to="." method="play"]
-[connection signal="dialogic_signal" from="CanvasLayer/Dialog/DialogNode3" to="." method="play"]
+[connection signal="dialogic_signal" from="CanvasLayer/DialogNode" to="." method="play"]
+[connection signal="dialogic_signal" from="CanvasLayer/DialogNode2" to="." method="play"]
+[connection signal="dialogic_signal" from="CanvasLayer/DialogNode3" to="." method="play"]
 
 [editable path="ItemCollectible"]

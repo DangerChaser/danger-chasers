@@ -19,7 +19,7 @@ func _ready() -> void:
 
 
 func enable() -> void:
-	var volume = db2linear(AudioServer.get_bus_volume_db(bus_index))
+	var volume = Settings.bus_volumes[bus_name]
 	texture_progress.value = volume * 100
 	visible = true
 	set_process_input(true)
@@ -52,19 +52,13 @@ func _input(event) -> void:
 
 
 func change_volume(delta : float) -> void:
-	var volume = db2linear(AudioServer.get_bus_volume_db(bus_index))
-	volume += delta
-	volume = clamp(volume, 0.0, 1.0)
-	AudioServer.set_bus_volume_db(bus_index, linear2db(volume))
-	AudioServer.set_bus_mute(bus_index, volume == 0.0)
-	print_debug(bus_name + " bus volume: "+ str(volume))
-	
+	Settings.change_volume(bus_name, delta)
 	sfx.play()
 	update_progress()
 
 
 func update_progress() -> void:
-	var volume = db2linear(AudioServer.get_bus_volume_db(bus_index))
+	var volume = Settings.bus_volumes[bus_name]
 	texture_progress.value = volume * 100
 
 

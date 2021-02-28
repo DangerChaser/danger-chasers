@@ -76,6 +76,9 @@ func _on_Other_button_down():
 
 
 func show_item_list(inventory : Dictionary) -> void:
+	for child in item_button_container.get_children():
+		child.queue_free()
+	
 	for item_name in inventory.keys():
 		var item = ItemData.get_item(item_name)
 		if item.stack:

@@ -4,7 +4,7 @@ export var item_scene : PackedScene
 var _items : Dictionary
 
 func _ready() -> void:
-	var item_table  = ImportData.read_json("res://data/ItemTable.json")
+	var item_table  = _read_json("res://data/ItemTable.json")
 	var items_sheet = item_table.Items
 	for item_name in items_sheet:
 		var item_data = items_sheet[item_name]
@@ -24,6 +24,14 @@ func _ready() -> void:
 		
 		add_child(item)
 		_items[item.name] = item
+
+
+func _read_json(file_path : String):
+	var file = File.new()
+	file.open(file_path, File.READ)
+	var json = JSON.parse(file.get_as_text())
+	file.close()
+	return json.result
 
 
 func get_item(item_name : String) -> Item:

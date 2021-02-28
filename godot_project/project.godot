@@ -234,6 +234,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/Item.gd"
 }, {
+"base": "Reference",
+"class": "JSONBeautifier",
+"language": "GDScript",
+"path": "res://addons/json_beautifier/json_beautifier.gd"
+}, {
 "base": "State",
 "class": "Job",
 "language": "GDScript",
@@ -530,6 +535,7 @@ _global_script_class_icons={
 "InteractableScript": "",
 "InteractionArea": "",
 "Item": "",
+"JSONBeautifier": "",
 "Job": "",
 "JobState": "",
 "KeyLabel": "",
@@ -598,7 +604,6 @@ FrameFreeze="*res://autoload/FrameFreeze.gd"
 PhysicsLayers="*res://autoload/PhysicsLayers.gd"
 Effects="*res://autoload/Effects.tscn"
 PlayerManager="*res://autoload/PlayerManager.tscn"
-ImportData="*res://autoload/ImportData.gd"
 Transition="*res://autoload/Transition.tscn"
 Utilities="*res://autoload/Utilities.gd"
 QuestManager="*res://autoload/QuestManager.tscn"

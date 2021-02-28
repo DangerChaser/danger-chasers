@@ -33,7 +33,6 @@ stream = ExtResource( 6 )
 bus = "Sfx"
 
 [node name="Background" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
@@ -193,11 +192,10 @@ press_sfx = ExtResource( 12 )
 focus_enter_sfx = ExtResource( 13 )
 
 [node name="InputMenu" parent="." instance=ExtResource( 10 )]
-visible = false
 margin_left = 32.0
 margin_top = 32.0
 margin_right = -32.0
-margin_bottom = -46.0
+margin_bottom = -14.0
 
 [node name="AudioSettingsHUD" parent="." instance=ExtResource( 8 )]
 visible = false

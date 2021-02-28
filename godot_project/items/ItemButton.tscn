@@ -9,6 +9,9 @@ margin_right = 480.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 16 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="."]
 anchor_right = 1.0
@@ -29,6 +32,7 @@ __meta__ = {
 margin_right = 24.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 24, 24 )
+rect_pivot_offset = Vector2( -200, 96 )
 mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
