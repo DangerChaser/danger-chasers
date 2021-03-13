@@ -53,7 +53,6 @@ func set_volume(bus: String, volume : float) -> void:
 	volume = clamp(volume, 0.0, 1.0)
 	AudioServer.set_bus_volume_db(bus_index, linear2db(volume))
 	AudioServer.set_bus_mute(bus_index, volume == 0.0)
-	print_debug(bus + " bus volume: "+ str(volume))
 	bus_volumes[bus] = volume
 	save_data()
 

@@ -137,7 +137,7 @@ tracks/2/keys = {
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
-extents = Vector2( 352, 128 )
+extents = Vector2( 88, 32 )
 
 [node name="DirewolfKamikazeAttack" instance=ExtResource( 1 )]
 
@@ -161,46 +161,46 @@ shape = SubResource( 4 )
 [node name="WarningArea" parent="." index="4" instance=ExtResource( 6 )]
 
 [node name="WarningMarkRightArrow" parent="WarningArea/Marks" index="0" instance=ExtResource( 7 )]
-position = Vector2( 160, 0 )
+position = Vector2( 32, 0 )
 
 [node name="WarningMarkRightArrow2" parent="WarningArea/Marks" index="1" instance=ExtResource( 7 )]
-position = Vector2( 288, 0 )
+position = Vector2( 96, 0 )
 
 [node name="WarningMarkRightArrow3" parent="WarningArea/Marks" index="2" instance=ExtResource( 7 )]
-position = Vector2( 416, 0 )
+position = Vector2( 160, 0 )
 
 [node name="WarningMarkRightArrow4" parent="WarningArea/Marks" index="3" instance=ExtResource( 7 )]
-position = Vector2( 544, 0 )
+position = Vector2( 224, 0 )
 
 [node name="WarningMarkRightArrow5" parent="WarningArea/Marks" index="4" instance=ExtResource( 7 )]
-position = Vector2( 672, 0 )
+position = Vector2( 288, 0 )
 
 [node name="WarningMarkRightArrow6" parent="WarningArea/Marks" index="5" instance=ExtResource( 7 )]
-position = Vector2( 800, 0 )
+position = Vector2( 352, 0 )
 
 [node name="WarningMarkRightArrow7" parent="WarningArea/Marks" index="6" instance=ExtResource( 7 )]
-position = Vector2( 928, 0 )
+position = Vector2( 416, 0 )
 
 [node name="WarningMarkRightArrow8" parent="WarningArea/Marks" index="7" instance=ExtResource( 7 )]
-position = Vector2( 1056, 0 )
+position = Vector2( 480, 0 )
 
 [node name="WarningMarkRightArrow9" parent="WarningArea/Marks" index="8" instance=ExtResource( 7 )]
-position = Vector2( 1184, 0 )
+position = Vector2( 544, 0 )
 
 [node name="WarningMarkRightArrow10" parent="WarningArea/Marks" index="9" instance=ExtResource( 7 )]
-position = Vector2( 1312, 0 )
+position = Vector2( 608, 0 )
 
 [node name="WarningMarkRightArrow11" parent="WarningArea/Marks" index="10" instance=ExtResource( 7 )]
-position = Vector2( 1440, 0 )
+position = Vector2( 672, 0 )
 
 [node name="WarningMarkRightArrow12" parent="WarningArea/Marks" index="11" instance=ExtResource( 7 )]
-position = Vector2( 1568, 0 )
+position = Vector2( 736, 0 )
 
 [node name="WarningMarkRightArrow13" parent="WarningArea/Marks" index="12" instance=ExtResource( 7 )]
-position = Vector2( 1696, 0 )
+position = Vector2( 800, 0 )
 
 [node name="WarningMarkRightArrow14" parent="WarningArea/Marks" index="13" instance=ExtResource( 7 )]
-position = Vector2( 1824, 0 )
+position = Vector2( 864, 0 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
@@ -220,14 +220,13 @@ actor_animation = "idle"
 [node name="PassThroughActorEffect" parent="Pivot/Attacks/Attack/AdditionalEffects" index="0" instance=ExtResource( 3 )]
 
 [node name="MovementEffect" parent="Pivot/Attacks/Attack/AdditionalEffects" index="1" instance=ExtResource( 2 )]
-initial_speed = -3000.0
 disable_y_input = false
 
 [node name="Motion" parent="Pivot/Attacks/Attack/AdditionalEffects/MovementEffect" index="0"]
 look_towards_move_direction = false
 
 [node name="MotionSteering" parent="Pivot/Attacks/Attack/AdditionalEffects/MovementEffect/Motion" index="1"]
-max_speed = 8000.0
+max_speed = 2000.0
 mass = 48.0
 
 [node name="Gravity" parent="Pivot/Attacks/Attack/AdditionalEffects/MovementEffect/Motion" index="2"]

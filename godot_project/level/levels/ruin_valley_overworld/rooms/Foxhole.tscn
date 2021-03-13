@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://level/CameraLimitTrigger.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/levels/Room.tscn" type="PackedScene" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://assets/tilesets/nova_fortress_background.tres" type="TileSet" id=17]
 [ext_resource path="res://objects/WoodenSideChair.tscn" type="PackedScene" id=18]
 [ext_resource path="res://objects/vehicles/chairs/SideChairInteractable.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/sprites/objects/drawer.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/objects/bed.png" type="Texture" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 128, 1408 )
@@ -333,6 +335,14 @@ position = Vector2( -336, -288 )
 
 [node name="CeilingLight3" parent="Background" index="11" instance=ExtResource( 9 )]
 position = Vector2( 56, -448 )
+
+[node name="bed" type="Sprite" parent="Background" index="12"]
+position = Vector2( -960, -96 )
+texture = ExtResource( 21 )
+
+[node name="drawer" type="Sprite" parent="Background" index="13"]
+position = Vector2( -848, -88 )
+texture = ExtResource( 20 )
 
 [node name="TileMap" type="TileMap" parent="Ground/Walls" index="0"]
 tile_set = ExtResource( 6 )

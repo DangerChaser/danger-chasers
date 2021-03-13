@@ -61,7 +61,6 @@
 [ext_resource path="res://pivots/BasicKnifePivot.tscn" type="PackedScene" id=59]
 [ext_resource path="res://assets/sprites/misc/white_square.png" type="Texture" id=60]
 
-
 [sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "value"
@@ -6193,7 +6192,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 offsets = PoolRealArray( 0, 0.331915, 0.765957, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1 )
 
-[sub_resource type="CapsuleShape2D" id=36]
+[sub_resource type="CapsuleShape2D" id=35]
 radius = 30.0
 height = 100.0
 
@@ -6262,10 +6261,10 @@ autostart = false
 
 [node name="Sprite" type="Sprite" parent="." index="3"]
 scale = Vector2( 4, 4 )
-texture = ExtResource( 10 )
-normal_map = ExtResource( 9 )
+texture = ExtResource( 33 )
+normal_map = ExtResource( 43 )
 offset = Vector2( 0, -29 )
-hframes = 4
+hframes = 8
 
 [node name="TrailingSprites" parent="Sprite" index="0" instance=ExtResource( 58 )]
 scale = Vector2( 0.25, 0.25 )
@@ -6306,7 +6305,7 @@ visible = false
 position = Vector2( 0, -110 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 36 )
+shape = SubResource( 35 )
 
 [node name="RightLeg" parent="." index="14" instance=ExtResource( 55 )]
 position = Vector2( 8, -80 )
@@ -6343,13 +6342,13 @@ visible = false
 [node name="RightHand" parent="." index="18" instance=ExtResource( 55 )]
 position = Vector2( -46, -78 )
 [connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_changed" from="." to="Trail" method="stop"]
+[connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]
-[connection signal="animation_started" from="." to="WallrunTrail" method="start"]
 [connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_started" from="." to="WallrunTrail" method="start"]
 
 [editable path="Hurtbox"]

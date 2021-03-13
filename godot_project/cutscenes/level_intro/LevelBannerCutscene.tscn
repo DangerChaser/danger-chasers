@@ -348,6 +348,7 @@ Panel/styles/panelnc = null
 
 [node name="LevelBannerCutscene" instance=ExtResource( 3 )]
 script = ExtResource( 5 )
+replayable = true
 
 [node name="AnimationPlayer" parent="." index="0"]
 anims/0 = SubResource( 1 )

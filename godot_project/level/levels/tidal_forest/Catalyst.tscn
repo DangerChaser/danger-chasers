@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/tidal_forest_sprites/back.png" type="Texture" id=2]
+[ext_resource path="res://assets/music/tidal_forest.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/sprites/tidal_forest_sprites/middle.png" type="Texture" id=4]
+[ext_resource path="res://level/levels/tidal_forest/rooms/Catalyst.tscn" type="PackedScene" id=5]
+[ext_resource path="res://level/levels/tidal_forest/rooms/SpringZone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://level/levels/tidal_forest/rooms/Ladders.tscn" type="PackedScene" id=7]
+[ext_resource path="res://core/SpawnPoint.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+
+[node name="Catalyst" instance=ExtResource( 1 )]
+skybox_color = Color( 0.454902, 0.890196, 0.960784, 1 )
+
+[node name="InitialMusic" parent="." index="0"]
+music = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="InitialMusic" index="0"]
+shape = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background" index="0" groups=[
+"parallax_backgrounds",
+]]
+
+[node name="Back" type="ParallaxLayer" parent="Background/ParallaxBackground" index="0"]
+position = Vector2( 0, -1553.44 )
+motion_scale = Vector2( 0.01, 0 )
+motion_mirroring = Vector2( 768, 480 )
+
+[node name="Background" type="Sprite" parent="Background/ParallaxBackground/Back" index="0"]
+position = Vector2( 0, 297.44 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Mid" type="ParallaxLayer" parent="Background/ParallaxBackground" index="1"]
+position = Vector2( 0, -507.556 )
+motion_scale = Vector2( 0.05, 0.05 )
+motion_mirroring = Vector2( 176, 0 )
+
+[node name="Background" type="Sprite" parent="Background/ParallaxBackground/Mid" index="0"]
+position = Vector2( 0, 547.556 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Background2" type="Sprite" parent="Background/ParallaxBackground/Mid" index="1"]
+position = Vector2( 352, 547.556 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Background3" type="Sprite" parent="Background/ParallaxBackground/Mid" index="2"]
+position = Vector2( 704, 547.556 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Catalyst" parent="Rooms" index="0" instance=ExtResource( 5 )]
+
+[node name="SpringZone" parent="Rooms" index="1" instance=ExtResource( 6 )]
+position = Vector2( 3136, -1024 )
+
+[node name="Ladders" parent="Rooms" index="2" instance=ExtResource( 7 )]
+position = Vector2( 4544, -2176 )
+
+[node name="PlayerSpawnPoints" parent="." index="10"]
+position = Vector2( -14653.6, -4669.06 )
+
+[node name="0" parent="PlayerSpawnPoints" index="0"]
+position = Vector2( 14509.6, 4893.06 )
+camera_limit_trigger = NodePath("../../Rooms/Catalyst/Triggers/CameraLimitTrigger")
+
+[node name="1" parent="PlayerSpawnPoints" index="1" instance=ExtResource( 8 )]
+position = Vector2( 20717.6, -874.94 )
+camera_limit_trigger = NodePath("../../Rooms/Ladders/Triggers/CameraLimitTrigger")
+DRAW_COLOR = Color( 0.886275, 0.192157, 0.713726, 1 )
+transition_out_animation = "left_to_right"
+transition_out_duration = 0.5
+
+[editable path="InitialMusic"]
+
+[editable path="Rooms/Catalyst"]
+
+[editable path="Rooms/Ladders"]

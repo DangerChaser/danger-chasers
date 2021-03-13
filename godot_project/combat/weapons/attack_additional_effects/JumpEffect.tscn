@@ -10,7 +10,6 @@ initial_speed = 50.0
 jump_force = 1500.0
 
 [node name="MotionSteering" parent="Motion" index="1"]
-max_speed = 275.0
 mass = 6.0
 slow_down_if_faster_than_max_speed = false
 

@@ -143,6 +143,7 @@ tracks/3/keys = {
 
 [node name="LevelIntroCutscene" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
+replayable = true
 
 [node name="AnimationPlayer" parent="." index="0"]
 anims/0 = SubResource( 1 )

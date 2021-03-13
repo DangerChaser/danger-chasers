@@ -4,20 +4,22 @@ class_name Cutscene
 signal finished
 
 export var auto_start := false
+export var replayable := false
 
 onready var animation_player : AnimationPlayer = $AnimationPlayer
 var scene_index := 0
 
 func _ready() -> void:
-	if not auto_start:
-		play("SETUP")
-	else:
+	if not replayable:
+		var data = GameManager.load_data()
+		if data.has(name + "seen") and data[name + "seen"]:
+			queue_free()
+			return
+	
+	if auto_start:
 		start()
 
 func start() -> void:
-#	if GameManager.DEBUG_MODE:
-#		end()
-#		return
 	if GameManager.game:
 		GameManager.game.pause_menu.can_pause = false
 	play("0")
@@ -26,6 +28,7 @@ func start() -> void:
 func end():
 	if GameManager.game:
 		GameManager.game.pause_menu.can_pause = true
+	GameManager.save(name + "seen", true)
 	play("end")
 
 func next() -> void:

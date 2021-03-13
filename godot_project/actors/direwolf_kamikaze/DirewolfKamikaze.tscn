@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actor_framework/stats/DefaultStats.tres" type="Resource" id=2]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actor_states/motion/Launch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=5]
@@ -12,7 +11,7 @@
 [ext_resource path="res://actors/direwolf_kamikaze/DirewolfKamikazeExplode.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 128.0
+radius = 32.0
 
 [node name="DirewolfKamikaze" groups=[
 "enemies",
@@ -22,6 +21,9 @@ collision_mask = 1
 pause_offscreen = false
 
 [node name="Pivot" parent="." index="0" instance=ExtResource( 6 )]
+
+[node name="CollisionBox" parent="." index="1"]
+shape = SubResource( 1 )
 
 [node name="Sequence" parent="StateMachine" index="0" instance=ExtResource( 8 )]
 
@@ -57,22 +59,14 @@ max_speed = 0.0
 gravity = 0.0
 
 [node name="AIAttack" parent="StateMachine/Sequence" index="2" instance=ExtResource( 5 )]
-weapon_levels = [ 0 ]
 weapons = [ ExtResource( 9 ) ]
 stagger = false
 
 [node name="Explode" parent="StateMachine/Sequence" index="3" instance=ExtResource( 5 )]
-weapon_levels = [ 0 ]
 weapons = [ ExtResource( 10 ) ]
 stagger = false
 
 [node name="Die" parent="StateMachine/Sequence" index="4" instance=ExtResource( 3 )]
-
-[node name="CollisionBox" parent="." index="2"]
-shape = SubResource( 1 )
-
-[node name="Stats" parent="." index="5"]
-character_stats = ExtResource( 2 )
 
 [editable path="StateMachine/Sequence/Launch"]
 

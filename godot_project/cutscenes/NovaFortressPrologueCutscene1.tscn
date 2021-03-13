@@ -7,7 +7,6 @@
 [ext_resource path="res://core/PlayerManagedStateManager.tscn" type="PackedScene" id=11]
 [ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=12]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "0"
 length = 14.0

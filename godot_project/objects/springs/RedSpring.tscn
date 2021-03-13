@@ -4,11 +4,17 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 128, 64 )
+extents = Vector2( 32, 16 )
 
 [node name="RedSpring" instance=ExtResource( 1 )]
+force = 2000.0
 
 [node name="CollisionShape2D" parent="CollisionTrigger" index="0"]
+position = Vector2( 0, -16 )
 shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( 0, -32 )
+scale = Vector2( 1, 1 )
 
 [editable path="CollisionTrigger"]
