@@ -29,7 +29,7 @@ shape = SubResource( 1 )
 
 [node name="Launch" parent="StateMachine/Sequence" index="0" instance=ExtResource( 4 )]
 animation = "spawn"
-random_angle = 80.0
+random_angle = 20.0
 force = 900.0
 mass = 16.0
 

@@ -5788,14 +5788,14 @@ scale = Vector2( 1, -1 )
 z_index = -1
 
 [node name="BasicKnifePivot" parent="LeftHandWeapon" index="0" instance=ExtResource( 59 )]
+[connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
 [connection signal="animation_changed" from="." to="Trail" method="stop"]
 [connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
-[connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
+[connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
 [connection signal="animation_play_requested" from="." to="Trail" method="stop"]
 [connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
-[connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
+[connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]
 [connection signal="animation_started" from="." to="Trail" method="start"]
 [connection signal="animation_started" from="." to="WallrunTrail" method="start"]
-[connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]
 
 [editable path="Hurtbox"]

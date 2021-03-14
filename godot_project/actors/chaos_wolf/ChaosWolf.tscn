@@ -72,25 +72,18 @@ stagger = false
 [node name="ChargeSequence" parent="StateMachine" index="3" instance=ExtResource( 13 )]
 next_state = "SlashSequence"
 
-[node name="PrepSequence" parent="StateMachine/ChargeSequence" index="0" instance=ExtResource( 13 )]
-
-[node name="WaitTime" parent="StateMachine/ChargeSequence/PrepSequence" index="0" instance=ExtResource( 8 )]
-animation = "growl"
+[node name="WaitTime" parent="StateMachine/ChargeSequence" index="0" instance=ExtResource( 8 )]
+animation = "charge_prepare"
 stagger_state = ""
-duration = 0.2
+duration = 1.0
 
-[node name="Fakeout" parent="StateMachine/ChargeSequence/PrepSequence" index="1" instance=ExtResource( 12 )]
-weapons = [ ExtResource( 16 ) ]
-stagger = false
-
-[node name="WaitTime" parent="StateMachine/ChargeSequence" index="1" instance=ExtResource( 8 )]
-animation = "growl"
-stagger_state = ""
-duration = 0.2
-
-[node name="Charge" parent="StateMachine/ChargeSequence" index="2" instance=ExtResource( 12 )]
+[node name="Charge" parent="StateMachine/ChargeSequence" index="1" instance=ExtResource( 12 )]
 weapons = [ ExtResource( 1 ) ]
 stagger = false
+
+[node name="RecoverTime" parent="StateMachine/ChargeSequence" index="2" instance=ExtResource( 8 )]
+stagger_state = ""
+duration = 2.0
 
 [node name="RunToKamikazeSequence" parent="StateMachine" index="4" instance=ExtResource( 13 )]
 next_state = "SlashSequence"
@@ -108,6 +101,10 @@ stagger = false
 weapons = [ ExtResource( 5 ) ]
 stagger = false
 
+[node name="RecoverTime" parent="StateMachine/RunToKamikazeSequence" index="3" instance=ExtResource( 8 )]
+stagger_state = ""
+duration = 2.0
+
 [node name="SlashSequence" parent="StateMachine" index="5" instance=ExtResource( 13 )]
 
 [node name="PrepSequence" parent="StateMachine/SlashSequence" index="0" instance=ExtResource( 13 )]
@@ -122,15 +119,17 @@ weapons = [ ExtResource( 16 ) ]
 stagger = false
 
 [node name="WaitTime" parent="StateMachine/SlashSequence" index="1" instance=ExtResource( 8 )]
-animation = "growl"
+animation = "slash_prepare"
 stagger_state = ""
+duration = 1.2
 
 [node name="Slash" parent="StateMachine/SlashSequence" index="2" instance=ExtResource( 12 )]
 weapons = [ ExtResource( 2 ) ]
 stagger = false
 
-[node name="StaggerTime" parent="StateMachine/SlashSequence" index="3" instance=ExtResource( 8 )]
-duration = 0.2
+[node name="RecoverTime" parent="StateMachine/SlashSequence" index="3" instance=ExtResource( 8 )]
+stagger_state = ""
+duration = 2.0
 
 [node name="FakeoutSequence" parent="StateMachine" index="6" instance=ExtResource( 13 )]
 next_state = "SlashSequence"

@@ -313,8 +313,8 @@ particles = ExtResource( 12 )
 hit_particles = ExtResource( 5 )
 damage = 8
 delay_milliseconds = 2
-screen_shake_amplitude = 42.0
-screen_shake_duration = 0.4
+screen_shake_amplitude = 5.0
+screen_shake_duration = 0.2
 
 [node name="CollisionShape2D" parent="SlashDownDamageSource" index="0"]
 position = Vector2( 64, -24 )
@@ -324,8 +324,8 @@ shape = SubResource( 5 )
 hit_particles = ExtResource( 5 )
 damage = 10
 delay_milliseconds = 2
-screen_shake_amplitude = 42.0
-screen_shake_duration = 0.4
+screen_shake_amplitude = 5.0
+screen_shake_duration = 0.2
 
 [node name="CollisionShape2D" parent="SlashUpHitbox" index="0"]
 position = Vector2( 64, -24 )
@@ -335,8 +335,8 @@ shape = SubResource( 6 )
 hit_particles = ExtResource( 5 )
 damage = 15
 delay_milliseconds = 2
-screen_shake_amplitude = 42.0
-screen_shake_duration = 0.4
+screen_shake_amplitude = 5.0
+screen_shake_duration = 0.2
 
 [node name="CollisionShape2D" parent="StabDamageSource" index="0"]
 position = Vector2( 64, -24 )
