@@ -42,6 +42,9 @@ func _ready():
 	
 	if initialize_on_ready:
 		call_deferred("initialize", team)
+	
+	for child in Utilities.get_all_subchildren(self):
+		child.set_owner(self)
 
 
 func initialize(_team : String = "") -> void:

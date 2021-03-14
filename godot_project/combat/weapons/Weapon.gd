@@ -86,9 +86,9 @@ func get_exit_args() -> Dictionary:
 
 
 func set_owner(_owner) -> void:
-	owner = _owner
+	.set_owner(_owner)
 	for child in Utilities.get_all_subchildren(self):
-		child.owner = owner
+		child.set_owner(_owner)
 
 
 func pause() -> void:

@@ -2,15 +2,22 @@ extends MovementEffect
 
 export var jump_force := 1300.0
 export var finish_on_release := true
+export var jump_particles : PackedScene
 
 var input : String
 var current_speed : float
 
+
 func _ready() -> void:
 	motion.snap = 0.0
+	if not $SfxParticleSpawner.object:
+		$SfxParticleSpawner.object = jump_particles
 
 
 func enter(args := {}) -> void:
+	$SquashStretchTween.begin()
+	$SfxParticleSpawner.spawn()
+	
 	motion.snap = 0.0
 	var weapon = get_parent().get_parent().get_parent().get_parent().get_parent()
 	input = weapon.input

@@ -5,6 +5,7 @@ class_name Stomp
 func enter(args:={}) -> void:
 	.enter(args)
 	set_physics_process(false)
+	$SquashStretchTween.begin()
 	
 	if args.has("velocity"):
 		var x_speed = args["velocity"].x

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://core/utils/SquashStretchTween.gd" type="Script" id=1]
+
+[node name="SquashStretchTween" type="Tween"]
+script = ExtResource( 1 )
+[connection signal="tween_completed" from="." to="." method="_on_SquashStretchTween_tween_completed"]

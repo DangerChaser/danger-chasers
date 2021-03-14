@@ -11,7 +11,7 @@
 [ext_resource path="res://actors/direwolf_kamikaze/DirewolfKamikazeExplode.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 32.0
+radius = 16.0
 
 [node name="DirewolfKamikaze" groups=[
 "enemies",
@@ -30,7 +30,7 @@ shape = SubResource( 1 )
 [node name="Launch" parent="StateMachine/Sequence" index="0" instance=ExtResource( 4 )]
 animation = "spawn"
 random_angle = 80.0
-force = 3600.0
+force = 900.0
 mass = 16.0
 
 [node name="MotionSteering" parent="StateMachine/Sequence/Launch/Motion" index="1"]

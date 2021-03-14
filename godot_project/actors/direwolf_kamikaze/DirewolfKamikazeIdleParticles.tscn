@@ -20,20 +20,20 @@ curve = SubResource( 4 )
 
 [sub_resource type="ParticlesMaterial" id=6]
 emission_shape = 1
-emission_sphere_radius = 32.0
+emission_sphere_radius = 8.0
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 15.0
-gravity = Vector3( 0, -900, 0 )
+initial_velocity = 20.0
 angular_velocity = 72.0
 angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-linear_accel = -100.0
+linear_accel = 100.0
 angle = 360.0
 angle_random = 1.0
-scale = 0.5
-scale_random = 1.0
+scale = 0.0
+scale_random = 0.5
 scale_curve = SubResource( 5 )
 color_ramp = SubResource( 3 )
 

@@ -15,6 +15,7 @@ var animation_set_externally := false
 
 func enter(args := {}) -> void:
 	.enter(args)
+	$SquashStretchTween.begin()
 	
 	if total_velocity.y < 0:
 		change_state(State.UP)
@@ -31,10 +32,6 @@ func change_state(new_state) -> void:
 		owner.play_animation(up_animation)
 	else:
 		owner.play_animation(fall_animation)
-
-
-func exit() -> void:
-	.exit()
 
 
 func _process(delta):

@@ -147,7 +147,7 @@ anims/attack = SubResource( 2 )
 anims/prepare = SubResource( 3 )
 
 [node name="DashParticleSpawner" parent="." index="2" instance=ExtResource( 8 )]
-position = Vector2( 256, 0 )
+position = Vector2( 96, 0 )
 object = ExtResource( 10 )
 
 [node name="DamageSource" parent="." index="3" instance=ExtResource( 4 )]

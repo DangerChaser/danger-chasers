@@ -16,9 +16,8 @@
 [ext_resource path="res://actors/chaos_wolf/ChaosWolfStateMachine.gd" type="Script" id=15]
 [ext_resource path="res://actors/chaos_wolf/weapons/ChaosWolfFakeout.tscn" type="PackedScene" id=16]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 32.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 32 )
 
 [node name="ChaosWolf" groups=[
 "enemies",
@@ -29,7 +28,6 @@ pause_offscreen = false
 
 [node name="CollisionBox" parent="." index="1"]
 position = Vector2( 0, -32 )
-rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="StateMachine" parent="." index="3"]
@@ -147,6 +145,7 @@ weapons = [ ExtResource( 16 ) ]
 stagger = false
 
 [node name="Stagger" parent="StateMachine" index="7" instance=ExtResource( 14 )]
+keep_staggering = false
 revenge_threshold = 5.0
 revenge_state = "JumpBackSequence"
 
@@ -154,6 +153,13 @@ revenge_state = "JumpBackSequence"
 
 [node name="ActorInterface" parent="." index="4"]
 visible = true
+margin_left = 352.0
+margin_top = -360.0
+margin_right = 582.0
+margin_bottom = -175.001
+
+[node name="Stats" parent="." index="6"]
+max_health = 500
 
 [editable path="StateMachine/WalkSequence/MoveTo"]
 

@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/sprites/actors/ariko/hand_reach.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/actors/ariko/stand.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/actors/ariko/trick_3.png" type="Texture" id=6]
+[ext_resource path="res://core/utils/SquashStretchTween.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sprites/actors/ariko/jump.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/actors/ariko/stomp_smear.png" type="Texture" id=11]
 [ext_resource path="res://assets/sprites/actors/ariko/dash_smear.png" type="Texture" id=12]
@@ -36,7 +37,6 @@
 [ext_resource path="res://vfx/Trail.tscn" type="PackedScene" id=49]
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=50]
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=51]
-[ext_resource path="res://assets/particles/JumpDust.tscn" type="PackedScene" id=52]
 [ext_resource path="res://assets/particles/FootstepsLaunch.tscn" type="PackedScene" id=53]
 [ext_resource path="res://assets/particles/FootstepsLand.tscn" type="PackedScene" id=54]
 [ext_resource path="res://actor_framework/PivotTransform.tscn" type="PackedScene" id=55]
@@ -1113,8 +1113,8 @@ tracks/6/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
-tracks/7/type = "method"
-tracks/7/path = NodePath("JumpDust")
+tracks/7/type = "value"
+tracks/7/path = NodePath("RightHandWeapon:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1122,13 +1122,11 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "play"
-} ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RightHandWeapon:z_index")
+tracks/8/path = NodePath("RightHandWeapon:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1137,10 +1135,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ Vector2( -12, -20 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("RightHandWeapon:position")
+tracks/9/path = NodePath("Sprite:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1148,11 +1146,11 @@ tracks/9/enabled = true
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ Vector2( -12, -20 ) ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite:position")
+tracks/10/path = NodePath("LeftHandWeapon:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -1161,10 +1159,10 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ 80.0 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("LeftHandWeapon:rotation_degrees")
+tracks/11/path = NodePath("LeftHandWeapon:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -1173,10 +1171,10 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 80.0 ]
+"values": [ Vector2( 10, -20 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("LeftHandWeapon:position")
+tracks/12/path = NodePath("LeftHandWeapon:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1185,10 +1183,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 10, -20 ) ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("LeftHandWeapon:scale")
+tracks/13/path = NodePath("LeftHandWeapon:z_index")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -1196,11 +1194,11 @@ tracks/13/enabled = true
 tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("LeftHandWeapon:z_index")
+tracks/14/path = NodePath("WallrunParticles:emitting")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1209,27 +1207,15 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("WallrunParticles:emitting")
+tracks/15/path = NodePath("Sprite:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("Sprite:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -1433,7 +1419,7 @@ tracks/15/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-length = 0.2
+length = 0.1
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -1478,10 +1464,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
+"values": [ 19 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("RightHandWeapon:visible")
@@ -1640,6 +1626,20 @@ tracks/16/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/17/type = "method"
+tracks/17/path = NodePath("SquashStretchTween")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 1.3, 0.8, null, null, null ],
+"method": "initialize"
+} ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -5710,7 +5710,10 @@ next/trick_2 = "spin"
 next/trick_3 = "spin"
 next/victory = "victory_loop"
 
-[node name="Trail" parent="." index="1" instance=ExtResource( 49 )]
+[node name="SquashStretchTween" parent="." index="1" instance=ExtResource( 7 )]
+target_path = NodePath("..")
+
+[node name="Trail" parent="." index="2" instance=ExtResource( 49 )]
 width_curve = SubResource( 35 )
 default_color = Color( 0.0745098, 0.698039, 0.94902, 1 )
 target_path = NodePath("../Hurtbox")
@@ -5718,7 +5721,7 @@ active_animations = [ "dash" ]
 trail_length = 15
 autostart = false
 
-[node name="WallrunTrail" parent="." index="2" instance=ExtResource( 49 )]
+[node name="WallrunTrail" parent="." index="3" instance=ExtResource( 49 )]
 width = 2.0
 width_curve = SubResource( 35 )
 default_color = Color( 1, 0, 0, 1 )
@@ -5728,29 +5731,26 @@ active_animations = [ "wallrun" ]
 trail_length = 40
 autostart = false
 
-[node name="WallrunParticles" parent="." index="3" instance=ExtResource( 57 )]
+[node name="WallrunParticles" parent="." index="4" instance=ExtResource( 57 )]
 position = Vector2( 0, -24 )
 emitting = false
 
-[node name="Sprite" type="Sprite" parent="." index="4"]
-texture = ExtResource( 4 )
+[node name="Sprite" type="Sprite" parent="." index="5"]
+texture = ExtResource( 12 )
 offset = Vector2( 0, -29 )
-hframes = 8
-frame = 2
+vframes = 5
+hframes = 5
 
 [node name="TrailingSprites" parent="Sprite" index="0" instance=ExtResource( 58 )]
 scale = Vector2( 0.25, 0.25 )
 active_animations = [ "dash" ]
 number_of_sprites = 4
 
-[node name="FootstepsLand" parent="." index="5" instance=ExtResource( 51 )]
+[node name="FootstepsLand" parent="." index="6" instance=ExtResource( 51 )]
 particles = ExtResource( 54 )
 
-[node name="FootstepsLaunch" parent="." index="6" instance=ExtResource( 51 )]
+[node name="FootstepsLaunch" parent="." index="7" instance=ExtResource( 51 )]
 particles = ExtResource( 53 )
-
-[node name="JumpDust" parent="." index="7" instance=ExtResource( 51 )]
-particles = ExtResource( 52 )
 
 [node name="LandDust" parent="." index="8" instance=ExtResource( 51 )]
 particles = ExtResource( 56 )
@@ -5775,27 +5775,27 @@ position = Vector2( 0, -24 )
 shape = SubResource( 37 )
 
 [node name="RightHandWeapon" parent="." index="14" instance=ExtResource( 55 )]
-visible = false
-position = Vector2( -14, -16 )
-rotation = -3.735
+position = Vector2( -2, -24 )
+rotation = -2.79253
 scale = Vector2( 1, -1 )
 
 [node name="BasicKnifePivot" parent="RightHandWeapon" index="0" instance=ExtResource( 59 )]
 
 [node name="LeftHandWeapon" parent="." index="15" instance=ExtResource( 55 )]
-visible = false
-position = Vector2( 12, -18 )
-rotation = 0.523599
+position = Vector2( 12, -30 )
+rotation = -2.85361
+scale = Vector2( 1, -1 )
+z_index = -1
 
 [node name="BasicKnifePivot" parent="LeftHandWeapon" index="0" instance=ExtResource( 59 )]
-[connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_changed" from="." to="Trail" method="stop"]
+[connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
 [connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_started" from="." to="WallrunTrail" method="start"]
 [connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_started" from="." to="WallrunTrail" method="start"]
 [connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]
 
 [editable path="Hurtbox"]

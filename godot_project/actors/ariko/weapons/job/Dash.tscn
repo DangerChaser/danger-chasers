@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://common/particles/ParticleSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/particles/ArikoDash.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/sprites/actors/ariko/icons/dash_icon.png" type="Texture" id=11]
+[ext_resource path="res://core/utils/SquashStretchTween.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -110,6 +111,20 @@ tracks/3/keys = {
 "method": "play"
 } ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("SquashStretchTween")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "begin"
+} ]
+}
 
 [node name="Dash" instance=ExtResource( 2 )]
 icon = ExtResource( 11 )
@@ -117,11 +132,15 @@ icon = ExtResource( 11 )
 [node name="CooldownTimer" parent="." index="0"]
 wait_time = 3.0
 
-[node name="ParticleSpawner" parent="." index="1" instance=ExtResource( 9 )]
+[node name="SquashStretchTween" parent="." index="1" instance=ExtResource( 12 )]
+horizontal_factor = 1.6
+vertical_factor = 0.6
+
+[node name="ParticleSpawner" parent="." index="2" instance=ExtResource( 9 )]
 position = Vector2( 72, -24 )
 particles = ExtResource( 10 )
 
-[node name="DamageSource" parent="." index="2" instance=ExtResource( 6 )]
+[node name="DamageSource" parent="." index="3" instance=ExtResource( 6 )]
 hit_particles = ExtResource( 7 )
 damage = 18
 delay_milliseconds = 6
@@ -132,10 +151,10 @@ screen_shake_duration = 0.3
 position = Vector2( 29, -26 )
 shape = SubResource( 1 )
 
-[node name="SfxRandom" parent="." index="3" instance=ExtResource( 4 )]
+[node name="SfxRandom" parent="." index="4" instance=ExtResource( 4 )]
 stream = ExtResource( 5 )
 
-[node name="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" parent="." index="5"]
 anims/SETUP = SubResource( 2 )
 anims/attack = SubResource( 3 )
 

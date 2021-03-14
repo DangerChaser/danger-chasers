@@ -147,6 +147,7 @@ next/spawn = "launch"
 width = 42.0
 width_curve = SubResource( 8 )
 default_color = Color( 0.0745098, 0.698039, 0.94902, 1 )
+target_path = NodePath("../DirewolfKamikazeIdleParticles")
 active_animations = [ "attack" ]
 trail_length = 60
 autostart = false
