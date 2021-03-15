@@ -4,10 +4,12 @@
 [ext_resource path="res://combat/weapons/projectile_launchers/SpawnGroup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/golem_boss/particles/IceHit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/turret/BulletTurret.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/flying_turret/sprites/idle.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/actors/flying_turret/idle.png" type="Texture" id=5]
 [ext_resource path="res://core/ObjectSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.gd" type="Script" id=7]
 [ext_resource path="res://actor_states/motion/Motion.tscn" type="PackedScene" id=8]
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"

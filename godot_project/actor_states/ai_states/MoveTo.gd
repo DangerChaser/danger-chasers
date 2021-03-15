@@ -12,6 +12,7 @@ export var disable_obstacle_collider := false
 export var stagger := false
 export var arrive_distance := 6.0
 export var no_y := true
+export var face_target := false
 
 onready var motion : MotionState = $Motion
 onready var timer : Timer = $Timer
@@ -26,6 +27,7 @@ var target
 func enter(args := {}) -> void:
 	.enter(args)
 	motion.enter(args)
+	
 	owner.play_animation(animation)
 	start_position = owner.global_position
 	timer.start(duration)
@@ -58,8 +60,13 @@ func _physics_process(delta : float) -> void:
 		calculate_new_target_position()
 	var buffer = 6.0
 	motion.move_to(target_position)
-	if owner.global_position.distance_to(target_position) <= arrive_distance:
-		finished(next_state)
+	
+	if face_target and owner.target.get_target():
+		var direction = owner.global_position.direction_to(owner.target.get_target().global_position)
+		owner.set_rotation(Vector2(sign(direction.x), 0).angle())
+	
+#	if owner.global_position.distance_to(target_position) <= arrive_distance:
+#		finished(next_state)
 
 
 func calculate_new_target_position() -> Vector2:

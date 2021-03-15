@@ -13,7 +13,7 @@ func apply(direction:Vector2, force:float, initial_mass:float) -> void:
 	target_direction = direction
 	mass = initial_mass
 	var target_position = direction * force + owner.global_position
-	velocity = Steering.follow(velocity, owner.global_position, target_position, force * owner.global_scale.length(), mass)
+	velocity = Steering.follow(velocity, owner.global_position, target_position, force * owner.global_scale.length(), 1)
 
 
 func set_target_speed(new_target_speed : float) -> void:

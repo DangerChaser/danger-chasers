@@ -103,7 +103,7 @@ func _rotate() -> void:
 func _actor_rotate() -> void:
 	var direction = Vector2()
 	if owner.target and owner.target.get_target():
-		direction = owner.global_position.direction_to(owner.target.global_position)
+		direction = owner.global_position.direction_to(owner.target.get_target().global_position)
 	else:
 		direction = motion.total_velocity.normalized()
 	owner.set_rotation(direction.angle())
@@ -112,7 +112,7 @@ func _actor_rotate() -> void:
 func _weapon_rotate() -> void:
 	var direction = motion.total_velocity.normalized()
 	if owner.target and owner.target.get_target():
-		direction = owner.global_position.direction_to(owner.target.global_position)
+		direction = owner.global_position.direction_to(owner.target.get_target().global_position)
 	var angle = direction.angle()
 	
 	if owner is MirrorBody2D and owner.look_direction == Vector2.LEFT:

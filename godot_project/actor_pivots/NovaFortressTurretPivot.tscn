@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/actors/nova_fortress_turret/nova_fortress_turret_shoot.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/actors/nova_fortress_turret/nova_fortress_turret.png" type="Texture" id=3]
+[ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -105,3 +106,5 @@ frame = 4
 
 [node name="Weapons" type="Node2D" parent="." index="2"]
 position = Vector2( 44, 0 )
+
+[node name="Hurtbox" parent="." index="3" instance=ExtResource( 4 )]
