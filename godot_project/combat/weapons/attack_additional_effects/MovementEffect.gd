@@ -68,6 +68,9 @@ func enter(args := {}) -> void:
 	
 	target_direction = target_direction.normalized()
 	
+	if weapon_rotate:
+		target_direction = owner.global_position.direction_to(owner.target.get_target().global_position)
+	
 	if takes_previous_speed and args.has("initial_speed"):
 		motion.steering.velocity = target_direction * max(args["initial_speed"], initial_speed)
 	else:

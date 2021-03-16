@@ -1,14 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/music/Goldenbed River Battle Loop.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/tilesets/vnitti_taiga.tres" type="TileSet" id=3]
 [ext_resource path="res://actors/ChaosBat.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/chaos_wolf/ChaosWolf.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/CameraLimitTrigger.tscn" type="PackedScene" id=8]
-
-
-
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -52,7 +48,7 @@ tile_data = PoolIntArray( -2097055, 0, 65542, -2097054, 0, 65541, -2097053, 0, 6
 
 [node name="CameraLimitTrigger" parent="Triggers" index="0" instance=ExtResource( 8 )]
 position = Vector2( 864, 40 )
-zoom = Vector2( 3, 3 )
+zoom = Vector2( 2, 2 )
 
 [node name="ColliderTrigger" parent="Triggers/CameraLimitTrigger" index="0"]
 shape = SubResource( 2 )
@@ -70,10 +66,7 @@ position = Vector2( 576.446, 1246.62 )
 position = Vector2( -152.385, 1231.32 )
 camera_limit_trigger = NodePath("../../Triggers/CameraLimitTrigger")
 
-[node name="ChaosWolf" parent="." index="11" instance=ExtResource( 5 )]
-position = Vector2( 503.762, 1221.4 )
-
-[node name="FlyingTurret" parent="." index="12" instance=ExtResource( 4 )]
+[node name="FlyingTurret" parent="." index="11" instance=ExtResource( 4 )]
 position = Vector2( 338.913, 928.191 )
 
 [editable path="InitialMusic"]

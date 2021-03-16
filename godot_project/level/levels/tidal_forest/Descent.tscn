@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/tidal_forest_sprites/back.png" type="Texture" id=2]
 [ext_resource path="res://assets/music/tidal_forest.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/sprites/tidal_forest_sprites/middle.png" type="Texture" id=4]
 [ext_resource path="res://level/levels/tidal_forest/rooms/Summit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://level/levels/tidal_forest/rooms/LockedDoor.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -53,15 +54,18 @@ position = Vector2( 704, 547.556 )
 texture = ExtResource( 4 )
 centered = false
 
-[node name="Summit" parent="Ground" index="0" instance=ExtResource( 5 )]
+[node name="Summit" parent="Rooms" index="0" instance=ExtResource( 5 )]
+
+[node name="LockedDoor" parent="Rooms" index="1" instance=ExtResource( 6 )]
+position = Vector2( 1350, 0 )
 
 [node name="PlayerSpawnPoints" parent="." index="10"]
 position = Vector2( -14653.6, -4669.06 )
 
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( 14653.6, 5309.06 )
-camera_limit_trigger = NodePath("../../Ground/Summit/Triggers/CameraLimitTrigger")
+camera_limit_trigger = NodePath("../../Rooms/Summit/Triggers/CameraLimitTrigger")
 
 [editable path="InitialMusic"]
 
-[editable path="Ground/Summit"]
+[editable path="Rooms/Summit"]

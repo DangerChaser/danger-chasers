@@ -57,7 +57,7 @@ func exit() -> void:
 
 func _physics_process(delta : float) -> void:
 	if go_to_target: 
-		calculate_new_target_position()
+		target_position = calculate_new_target_position()
 	var buffer = 6.0
 	motion.move_to(target_position)
 	

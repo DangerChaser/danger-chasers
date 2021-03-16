@@ -11,12 +11,11 @@
 resource_local_to_scene = true
 extents = Vector2( 56, 136 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
 extents = Vector2( 100, 64 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "SETUP"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape2D:disabled")
 tracks/0/interp = 1
@@ -71,7 +70,7 @@ shape = SubResource( 1 )
 line_width = 2.0
 
 [node name="TopLeft" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="0"]
-position = Vector2( -72, -1024 )
+position = Vector2( -136, -1024 )
 
 [node name="BottomRight" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="1"]
 position = Vector2( 1200, -48 )
@@ -86,12 +85,12 @@ map_path = "res://level/levels/tidal_forest/Catalyst.tscn"
 spawn_point = 1
 
 [node name="CollisionShape2D" parent="Triggers/LevelTransition" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Triggers/LevelTransition" index="1"]
 autoplay = "SETUP"
-anims/SETUP = SubResource( 2 )
+anims/SETUP = SubResource( 3 )
 
 [editable path="Triggers/CameraLimitTrigger"]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
 [ext_resource path="res://interface/dynamic_fonts/Silver_128.tres" type="DynamicFont" id=2]
 [ext_resource path="res://interactable_scripts/base/MouseButton.gd" type="Script" id=3]
+[ext_resource path="res://interface/Pin.gd" type="Script" id=4]
 [ext_resource path="res://interface/kenney_pixel_ui/Colored/grey.png" type="Texture" id=5]
 [ext_resource path="res://interface/kenney_pixel_ui/Colored/grey_pressed.png" type="Texture" id=6]
 
@@ -20,6 +21,7 @@ margin_top = -16.0
 margin_right = 14.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 30, 30 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

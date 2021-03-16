@@ -1,15 +1,18 @@
 extends ActivationArea
 class_name InteractionArea
 
+signal locked
+signal unlocked
+signal interacted_locked
 signal interacted
 signal interacted_with_actor(actor)
 var interactable_script : InteractableScript
 
 onready var pin : Control = $Pin
 onready var button : Button = $Pin/Button
-onready var pin_offset : Vector2 = pin.rect_position
 onready var collider : CollisionShape2D = $CollisionShape2D
 
+export var is_locked := false
 export var keep_focus_on_interact := false
 export var actor_must_be_on_floor := false
 
@@ -17,9 +20,14 @@ var triggered_area : Area2D
 
 
 func _ready():
+	if is_locked:
+		lock()
+	else:
+		unlock()
+	
 	if has_node("InteractableScript"):
 		interactable_script = $InteractableScript
-	hide_key()
+	pin.disable()
 	set_process_input(false)
 
 
@@ -30,34 +38,20 @@ func _on_area_entered(area : Area2D) -> void:
 
 func _on_area_exited(area : Area2D) -> void:
 	._on_area_exited(area)
-	
 	if area == triggered_area:
 		disable_interaction()
-	
 	triggered_area = null
 
 
 func enable_interaction() -> void:
-	pin.get_parent().remove_child(pin)
-	GameManager.level.y_sort.add_child(pin)
-	pin.rect_scale = Vector2(1, 1) / pin.get_parent().scale
-	set_process(true)
-	
+	pin.enable(self, InputMap.get_action_list("interact")[0].as_text())
 	button.enable()
 	set_process_input(true)
-	
-	show_key()
-
 
 func disable_interaction() -> void:
-	hide_key()
+	pin.disable()
 	button.disable()
 	set_process_input(false)
-	set_process(false)
-
-
-func _process(delta):
-	pin.rect_global_position = global_position + pin_offset
 
 
 func _physics_process(delta):
@@ -74,20 +68,18 @@ func _physics_process(delta):
 		enable_interaction()
 
 
-func show_key() -> void:
-	pin.get_node("KeyLabel").text = InputMap.get_action_list("interact")[0].as_text()
-	pin.visible = true
-
-
-func hide_key():
-	pin.visible = false
-
-
 func _input(event):
 	if event.is_action_pressed("interact"):
 		interact()
 
+func _on_Button_button_down():
+	interact()
+
 func interact() -> void:
+	if is_locked:
+		emit_signal("interacted_locked")
+		return
+	
 	var actor
 	if triggered_area:
 		actor = triggered_area.owner
@@ -96,7 +88,7 @@ func interact() -> void:
 		$InteractableScript.interact(actor)
 	$Sfx.play()
 	if not keep_focus_on_interact:
-		hide_key()
+		pin.disable()
 		set_process_input(false)
 	emit_signal("interacted")
 	
@@ -104,6 +96,10 @@ func interact() -> void:
 		disable()
 
 
+func lock() -> void:
+	is_locked = true
+	emit_signal("locked")
 
-func _on_Button_button_down():
-	interact()
+func unlock() -> void:
+	is_locked = false
+	emit_signal("unlocked")
