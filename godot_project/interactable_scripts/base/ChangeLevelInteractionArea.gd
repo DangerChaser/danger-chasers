@@ -14,6 +14,9 @@ func change(anim_name):
 
 func interact() -> void:
 	.interact()
+	if is_locked:
+		return
+	
 	player_manager.hide_player_hud()
 	player_manager.disable_input()
 	player_manager.play_animation(player_animation)

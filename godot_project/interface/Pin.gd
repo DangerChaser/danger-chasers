@@ -8,6 +8,7 @@ func _ready():
 	set_process(false)
 
 func enable(target, text) -> void:
+	self.target = target
 	get_parent().remove_child(self)
 	GameManager.level.y_sort.add_child(self)
 	rect_scale = Vector2(1, 1) / get_parent().scale

@@ -61,10 +61,12 @@ position = Vector2( 704, 224 )
 
 [node name="CameraLimitTrigger" parent="Triggers" index="1" instance=ExtResource( 6 )]
 position = Vector2( 1480, 392 )
-zoom = Vector2( 1.4, 1.4 )
 
 [node name="ColliderTrigger" parent="Triggers/CameraLimitTrigger" index="0"]
 shape = SubResource( 2 )
+
+[node name="CameraLimitPositions" parent="Triggers/CameraLimitTrigger" index="1"]
+line_width = 2.0
 
 [node name="TopLeft" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="0"]
 position = Vector2( -1576, -488 )
