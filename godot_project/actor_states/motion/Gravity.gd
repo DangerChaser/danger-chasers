@@ -13,6 +13,7 @@ var enabled := true
 
 func exit() -> void:
 	speed = 0
+	velocity = Vector2.ZERO
 
 
 func apply(delta : float) -> void:

@@ -46,6 +46,7 @@ func go_to_next_state() -> void:
 		var target_direction = (target_position - owner.global_position).normalized()
 		args["target_direction"] = target_direction
 		args["target_position"] = target_position
+	
 	finished(next_state, args)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_pivots/ArikoPivot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=8]
+[ext_resource path="res://weapons/InnerSpectreHeavySlash.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -32,10 +33,17 @@ next_state = "Sequence"
 stagger_state = ""
 duration = 2.0
 
-[node name="InnerpectreJumpHarpoon" parent="StateMachine/Sequence" index="1" instance=ExtResource( 3 )]
+[node name="JumpHarpoon" parent="StateMachine/Sequence" index="1" instance=ExtResource( 3 )]
 weapons = [ ExtResource( 5 ) ]
 stagger = false
-active_after_exit = true
+
+[node name="WaitTime2" parent="StateMachine/Sequence" index="2" instance=ExtResource( 8 )]
+stagger_state = ""
+duration = 2.0
+
+[node name="HeavySlash" parent="StateMachine/Sequence" index="3" instance=ExtResource( 3 )]
+weapons = [ ExtResource( 9 ) ]
+stagger = false
 
 [node name="Stagger" parent="StateMachine" index="1" instance=ExtResource( 6 )]
 look_away_from_move_direction = false

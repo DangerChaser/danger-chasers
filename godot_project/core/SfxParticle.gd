@@ -43,7 +43,6 @@ func start(_global_position := Vector2(), _global_rot_rad =null, _scale := Vecto
 		scale = _scale
 	if can_rotate and _global_rot_rad:
 		global_rotation = _global_rot_rad
-		print_debug(global_rotation)
 	elif not can_rotate:
 		global_rotation = 0
 	

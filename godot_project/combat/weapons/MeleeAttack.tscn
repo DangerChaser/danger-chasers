@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://combat/weapons/Attack.gd" type="Script" id=2]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://combat/weapons/attack_additional_effects/MovementEffect.tscn" type="PackedScene" id=6]
+[ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/particles/Slash1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/particles/YellowSlashHit.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=3]
+resource_local_to_scene = true
+
+[sub_resource type="Animation" id=4]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "attack"
+tracks/0/type = "method"
+tracks/0/path = NodePath("DamageSource")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("SfxParticleSpawner")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+
+[node name="MeleeAttack" type="Node2D"]
+script = ExtResource( 2 )
+actor_animation = "slash_1"
+weapon_animation = "slash"
+
+[node name="DamageSource" parent="." instance=ExtResource( 7 )]
+position = Vector2( 48, -24 )
+hit_particles = ExtResource( 9 )
+damage = 20
+delay_milliseconds = 1
+screen_shake_amplitude = 30.0
+screen_shake_duration = 0.2
+
+[node name="CollisionShape2D" parent="DamageSource" index="0"]
+shape = SubResource( 3 )
+
+[node name="SfxParticleSpawner" parent="." instance=ExtResource( 5 )]
+position = Vector2( 64, -8 )
+object = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "SETUP"
+anims/SETUP = SubResource( 4 )
+anims/attack = SubResource( 5 )
+
+[node name="AdditionalEffects" type="Node2D" parent="."]
+
+[node name="MovementEffect" parent="AdditionalEffects" instance=ExtResource( 6 )]
+initial_speed = 500.0
+
+[node name="MotionSteering" parent="AdditionalEffects/MovementEffect/Motion" index="1"]
+max_speed = 0.0
+mass = 8.0
+
+[node name="ComboEffects" type="Node2D" parent="."]
+
+[node name="ExitArguments" type="Node2D" parent="."]
+
+[editable path="DamageSource"]
+
+[editable path="AdditionalEffects/MovementEffect"]
+
+[editable path="AdditionalEffects/MovementEffect/Motion"]

@@ -18,6 +18,7 @@ export var offset := Vector2()
 # Don't have both take_previous_velocity and takes_previous_speed on at the same time
 export var take_previous_velocity := false
 export var takes_previous_speed := false
+export var look_in_target_direction := true
 
 var target_direction : Vector2
 var active := false
@@ -34,6 +35,9 @@ func _physics_process(delta:float) -> void:
 	target_direction = target_direction.normalized()
 	
 	move(target_direction)
+	
+	if look_in_target_direction:
+		motion.update_look_direction(target_direction)
 
 
 func move(move_direction : Vector2) -> void:
@@ -86,6 +90,8 @@ func enter(args := {}) -> void:
 	
 	if args.has("velocity") and take_previous_velocity:
 		motion.steering.velocity = args["velocity"]
+	
+	move(target_direction)
 
 
 func exit() -> void:
