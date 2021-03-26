@@ -15,7 +15,11 @@ func _ready() -> void:
 func _on_body_entered(body) -> void:
 	if not body.is_in_group("players"):
 		return
-	emit_signal("player_entered", map_path, spawn_point, transition_in_animation, transition_in_duration)
+	change()
+
+func change() -> void:
+	GameManager.level.request_change(map_path, spawn_point, transition_in_animation, transition_in_duration)
+	#emit_signal("player_entered", map_path, spawn_point, transition_in_animation, transition_in_duration)
 
 func enable(value=null) -> void:
 	if value:

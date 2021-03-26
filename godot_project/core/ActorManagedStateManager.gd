@@ -13,7 +13,6 @@ func _ready() -> void:
 		actor = get_node(actor_path)
 
 func enable() -> void:
-	print_debug(actor.name)
 	if not actor:
 		return
 	state = managed_state.instance()

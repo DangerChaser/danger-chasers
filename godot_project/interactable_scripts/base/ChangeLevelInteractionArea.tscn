@@ -33,4 +33,4 @@ shape = SubResource( 3 )
 managed_state = ExtResource( 3 )
 face_target_node_path = NodePath("..")
 [connection signal="interacted" from="." to="AnimationPlayer" method="play" binds= [ "change" ]]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="change"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

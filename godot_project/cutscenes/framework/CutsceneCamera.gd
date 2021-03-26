@@ -23,6 +23,9 @@ func _ready() -> void:
 
 func enable(_tween_duration := -1.0) -> void:
 	current_camera = GameManager.current_camera
+	if not current_camera:
+		current_camera = self
+		current = true
 	
 	current_camera.set_physics_process(false)
 	current_camera.smoothing_enabled = false

@@ -8,7 +8,7 @@ export var player_animation := "hand_reach"
 
 onready var player_manager : PlayerManagedStateManager = $PlayerManagedStateManager
 
-func change(anim_name):
+func change():
 	GameManager.level.request_change(level_path, spawn_point, transition_in_animation, transition_in_duration)
 
 
@@ -21,3 +21,9 @@ func interact() -> void:
 	player_manager.disable_input()
 	player_manager.play_animation(player_animation)
 	player_manager.face_actor(self)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "SETUP":
+		return
+	change()

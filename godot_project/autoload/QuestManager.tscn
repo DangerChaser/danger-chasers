@@ -7,9 +7,9 @@
 script = ExtResource( 2 )
 
 [node name="Prologue" parent="." instance=ExtResource( 1 )]
-quest_name_key = "PROLOGUE"
+quest_name_key = "CURRENT TEST LEVEL"
 quest_description_key = "PROLOGUE_KEY"
-level_path = "res://level/levels/tidal_forest/Catalyst.tscn"
+level_path = "res://level/levels/tidal_forest/ChaosMeadow.tscn"
 
 [node name="NovaFortressTest" parent="." instance=ExtResource( 1 )]
 quest_name_key = "NOVA_FORTRESS_TEST"

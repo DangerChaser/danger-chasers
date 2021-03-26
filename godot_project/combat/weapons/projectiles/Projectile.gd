@@ -87,7 +87,10 @@ func _on_hit_confirmed(actor) -> void:
 
 func destroy() -> SfxParticle:
 	set_physics_process(false)
+	motion.exit()
 	pivot.play("destroy")
+	if has_node("AnimationPlayer"):
+		$AnimationPlayer.play("destroy")
 	if has_node("DamageSource"):
 		$DamageSource.disable()
 	return spawn_particles(destroy_particles)

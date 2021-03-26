@@ -29,8 +29,10 @@ func start(_global_position := Vector2(), _global_rot_rad =null, _scale := Vecto
 		parent.add_child(self)
 	elif get_parent():
 		owner = get_parent().owner
-	else:
+	elif GameManager.game:
 		GameManager.game.add_child(self)
+	else:
+		GameManager.add_child(self)
 	
 	if queue_free_after_timer:
 		timer.start()
@@ -41,6 +43,9 @@ func start(_global_position := Vector2(), _global_rot_rad =null, _scale := Vecto
 		scale = _scale
 	if can_rotate and _global_rot_rad:
 		global_rotation = _global_rot_rad
+		print_debug(global_rotation)
+	elif not can_rotate:
+		global_rotation = 0
 	
 	$Sfx.play()
 	for particle in particles:

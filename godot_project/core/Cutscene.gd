@@ -5,6 +5,7 @@ signal finished
 
 export var auto_start := false
 export var replayable := false
+export var skippable := true
 
 onready var animation_player : AnimationPlayer = $AnimationPlayer
 var scene_index := 0
@@ -56,7 +57,8 @@ func hide_player_hud() -> void:
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		$SkipCutsceneFade/AnimationPlayer.play("fade_in")
+		if skippable:
+			$SkipCutsceneFade/AnimationPlayer.play("fade_in")
 
 
 func _on_SkipCutsceneAnimationPlayer_finished(anim_name):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=83 format=2]
 
 [ext_resource path="res://assets/sfx/wallrun_grinding.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/sprites/actors/ariko/look_back.png" type="Texture" id=2]
@@ -5652,14 +5652,176 @@ tracks/19/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Curve" id=35]
+[sub_resource type="Animation" id=35]
+resource_name = "weapon_pointing_down"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 31 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 20 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHandWeapon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RightHandWeapon:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 27.5 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RightHandWeapon:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RightHandWeapon:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RightHandWeapon:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 16, -20 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Sprite:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("LeftHandWeapon:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("WallrunParticles:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Sprite:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Curve" id=36]
 _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 
-[sub_resource type="Gradient" id=36]
+[sub_resource type="Gradient" id=37]
 offsets = PoolRealArray( 0, 0.331915, 0.765957, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1 )
 
-[sub_resource type="CapsuleShape2D" id=37]
+[sub_resource type="CapsuleShape2D" id=38]
 radius = 8.0
 height = 16.0
 
@@ -5702,6 +5864,7 @@ anims/victory = SubResource( 31 )
 anims/victory_loop = SubResource( 32 )
 anims/walk = SubResource( 33 )
 anims/wallrun = SubResource( 34 )
+anims/weapon_pointing_down = SubResource( 35 )
 next/jump = "jump_loop"
 next/jump_loop = "jump_loop"
 next/stomp = "air"
@@ -5714,7 +5877,7 @@ next/victory = "victory_loop"
 target_path = NodePath("..")
 
 [node name="Trail" parent="." index="2" instance=ExtResource( 49 )]
-width_curve = SubResource( 35 )
+width_curve = SubResource( 36 )
 default_color = Color( 0.0745098, 0.698039, 0.94902, 1 )
 target_path = NodePath("../Hurtbox")
 active_animations = [ "dash" ]
@@ -5723,9 +5886,9 @@ autostart = false
 
 [node name="WallrunTrail" parent="." index="3" instance=ExtResource( 49 )]
 width = 2.0
-width_curve = SubResource( 35 )
+width_curve = SubResource( 36 )
 default_color = Color( 1, 0, 0, 1 )
-gradient = SubResource( 36 )
+gradient = SubResource( 37 )
 target_path = NodePath("../WallrunParticles")
 active_animations = [ "wallrun" ]
 trail_length = 40
@@ -5736,10 +5899,10 @@ position = Vector2( 0, -24 )
 emitting = false
 
 [node name="Sprite" type="Sprite" parent="." index="5"]
-texture = ExtResource( 12 )
+texture = ExtResource( 31 )
 offset = Vector2( 0, -29 )
-vframes = 5
-hframes = 5
+hframes = 20
+frame = 4
 
 [node name="TrailingSprites" parent="Sprite" index="0" instance=ExtResource( 58 )]
 scale = Vector2( 0.25, 0.25 )
@@ -5772,30 +5935,29 @@ position = Vector2( 0, -64 )
 position = Vector2( 0, -24 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 37 )
+shape = SubResource( 38 )
 
 [node name="RightHandWeapon" parent="." index="14" instance=ExtResource( 55 )]
-position = Vector2( -2, -24 )
-rotation = -2.79253
-scale = Vector2( 1, -1 )
+position = Vector2( 16, -20 )
+rotation = 0.479966
 
 [node name="BasicKnifePivot" parent="RightHandWeapon" index="0" instance=ExtResource( 59 )]
 
 [node name="LeftHandWeapon" parent="." index="15" instance=ExtResource( 55 )]
-position = Vector2( 12, -30 )
-rotation = -2.85361
+visible = false
+position = Vector2( -6, -18 )
 scale = Vector2( 1, -1 )
 z_index = -1
 
 [node name="BasicKnifePivot" parent="LeftHandWeapon" index="0" instance=ExtResource( 59 )]
-[connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_changed" from="." to="Trail" method="stop"]
 [connection signal="animation_changed" from="." to="WallrunTrail" method="stop"]
-[connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
-[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_changed" from="." to="Trail" method="stop"]
+[connection signal="animation_changed" from="." to="Sprite/TrailingSprites" method="stop"]
 [connection signal="animation_play_requested" from="." to="WallrunTrail" method="stop"]
-[connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]
-[connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_play_requested" from="." to="Trail" method="stop"]
+[connection signal="animation_play_requested" from="." to="Sprite/TrailingSprites" method="stop"]
 [connection signal="animation_started" from="." to="WallrunTrail" method="start"]
+[connection signal="animation_started" from="." to="Trail" method="start"]
+[connection signal="animation_started" from="." to="Sprite/TrailingSprites" method="start"]
 
 [editable path="Hurtbox"]
