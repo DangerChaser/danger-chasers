@@ -1,7 +1,5 @@
 extends AttackAdditionalEffect
-class_name MovementEffect
-
-const VECTOR_UP = Vector2(0, -1)
+class_name MoveToEffect
 
 onready var motion : MotionState = $Motion
 

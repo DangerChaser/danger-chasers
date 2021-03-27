@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://actor_states/Sequence.gd" type="Script" id=2]
+[ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://weapons/jumps/Jump1500.tscn" type="PackedScene" id=8]
+[ext_resource path="res://weapons/InnerSpectreHarpoonThrow.tscn" type="PackedScene" id=9]
+
+[node name="HarpoonThrowSequence" type="Node2D"]
+script = ExtResource( 2 )
+next_state = "KunaiThrowSequence"
+
+[node name="MoveTo" parent="." instance=ExtResource( 7 )]
+duration = 5.0
+animation = "run"
+max_roam_radius = 0.0
+arrive_distance = 150.0
+face_target = true
+finish_on_arrive = true
+disable_actor_collider = true
+disable_player_stoppers_layer = true
+
+[node name="MotionSteering" parent="MoveTo/Motion" index="1"]
+max_speed = 800.0
+
+[node name="Jump" parent="." instance=ExtResource( 4 )]
+weapons = [ ExtResource( 8 ) ]
+stagger = false
+
+[node name="WaitTime" parent="." instance=ExtResource( 5 )]
+animation = ""
+stagger_state = ""
+duration = 0.01
+
+[node name="HarpoonThrow" parent="." instance=ExtResource( 4 )]
+weapons = [ ExtResource( 9 ) ]
+stagger = false
+
+[editable path="MoveTo"]
+
+[editable path="MoveTo/Motion"]

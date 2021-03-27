@@ -1,14 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actor_states/Sequence.tscn" type="PackedScene" id=4]
-[ext_resource path="res://weapons/InnerSpectreLanceThrow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actor_states/ai_states/sequences/HeavySlashSequence.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actor_states/ai_states/sequences/HarpoonThrowSequence.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_pivots/ArikoPivot.tscn" type="PackedScene" id=7]
-[ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=8]
-[ext_resource path="res://weapons/InnerSpectreHeavySlash.tscn" type="PackedScene" id=9]
+[ext_resource path="res://actor_states/ai_states/sequences/KunaiThrowSequence.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -19,6 +17,7 @@ extents = Vector2( 8, 24 )
 ] instance=ExtResource( 1 )]
 collision_layer = 32
 collision_mask = 1
+pause_offscreen = false
 
 [node name="Pivot" parent="." index="0" instance=ExtResource( 7 )]
 
@@ -26,31 +25,20 @@ collision_mask = 1
 position = Vector2( 0, -24 )
 shape = SubResource( 1 )
 
-[node name="Sequence" parent="StateMachine" index="0" instance=ExtResource( 4 )]
-next_state = "Sequence"
+[node name="KunaiThrowSequence" parent="StateMachine" index="0" instance=ExtResource( 11 )]
+next_state = "HarpoonThrowSequence"
 
-[node name="WaitTime" parent="StateMachine/Sequence" index="0" instance=ExtResource( 8 )]
-stagger_state = ""
-duration = 2.0
+[node name="HarpoonThrowSequence" parent="StateMachine" index="1" instance=ExtResource( 4 )]
+next_state = "HeavySlashSequence"
 
-[node name="JumpHarpoon" parent="StateMachine/Sequence" index="1" instance=ExtResource( 3 )]
-weapons = [ ExtResource( 5 ) ]
-stagger = false
+[node name="HeavySlashSequence" parent="StateMachine" index="2" instance=ExtResource( 3 )]
 
-[node name="WaitTime2" parent="StateMachine/Sequence" index="2" instance=ExtResource( 8 )]
-stagger_state = ""
-duration = 2.0
-
-[node name="HeavySlash" parent="StateMachine/Sequence" index="3" instance=ExtResource( 3 )]
-weapons = [ ExtResource( 9 ) ]
-stagger = false
-
-[node name="Stagger" parent="StateMachine" index="1" instance=ExtResource( 6 )]
+[node name="Stagger" parent="StateMachine" index="3" instance=ExtResource( 6 )]
 look_away_from_move_direction = false
 next_state = "Sequence"
 keep_staggering = false
 
-[node name="Die" parent="StateMachine" index="2" instance=ExtResource( 2 )]
+[node name="Die" parent="StateMachine" index="4" instance=ExtResource( 2 )]
 
 [node name="Stats" parent="." index="6"]
 max_health = 500

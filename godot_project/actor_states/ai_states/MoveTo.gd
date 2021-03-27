@@ -5,14 +5,16 @@ export var duration := 1.0
 export var animation := "walk"
 export var next_state := ""
 export var go_to_target := true
+export var closest_x_offset := true
+export var x_offset := 0.0 # Based on what direction TARGET is facing
 export var y_offset := 0.0
 export var max_roam_radius := 600.0
 export var min_roam_radius := 0.0
-export var disable_obstacle_collider := false
 export var stagger := false
 export var arrive_distance := 6.0
 export var no_y := true
 export var face_target := false
+export var finish_on_arrive := false
 
 onready var motion : MotionState = $Motion
 onready var timer : Timer = $Timer
@@ -20,8 +22,15 @@ onready var wall_check_timer : Timer = $WallCheckTimer
 
 var target_position : Vector2 = Vector2()
 var start_position : Vector2 = Vector2()
-var original_collision_mask_bit : bool
+
 var target
+
+export var disable_obstacle_collider := false
+export var disable_actor_collider := false
+export var disable_player_stoppers_layer := false
+var original_collision_mask_bit : bool
+var original_actor_mask_bit : bool
+var original_player_stoppers_layer_bit : bool
 
 
 func enter(args := {}) -> void:
@@ -42,9 +51,16 @@ func enter(args := {}) -> void:
 		target_position = calculate_new_target_position()
 	
 	original_collision_mask_bit = owner.get_collision_mask_bit(Utilities.Layers.OBSTACLES)
+	original_actor_mask_bit = owner.get_collision_mask_bit(Utilities.Layers.ACTORS)
+	original_player_stoppers_layer_bit = owner.get_collision_layer_bit(Utilities.Layers.PLAYER_STOPPERS)
+	
 	if disable_obstacle_collider \
 			or (args.has("disable_collider_in_state") and args["disable_collider_in_state"] == true):
 		owner.set_collision_mask_bit(Utilities.Layers.OBSTACLES, false)
+	if disable_actor_collider:
+		owner.set_collision_mask_bit(Utilities.Layers.ACTORS, false)
+	if disable_player_stoppers_layer:
+		owner.set_collision_layer_bit(Utilities.Layers.PLAYER_STOPPERS, false)
 
 
 func exit() -> void:
@@ -53,20 +69,24 @@ func exit() -> void:
 	timer.stop()
 	wall_check_timer.stop()
 	owner.set_collision_mask_bit(Utilities.Layers.OBSTACLES, original_collision_mask_bit)
+	owner.set_collision_mask_bit(Utilities.Layers.ACTORS, original_actor_mask_bit)
+	owner.set_collision_layer_bit(Utilities.Layers.PLAYER_STOPPERS, original_player_stoppers_layer_bit)
 
 
 func _physics_process(delta : float) -> void:
 	if go_to_target: 
 		target_position = calculate_new_target_position()
-	var buffer = 6.0
+	
 	motion.move_to(target_position)
 	
 	if face_target and owner.target.get_target():
 		var direction = owner.global_position.direction_to(owner.target.get_target().global_position)
 		owner.set_rotation(Vector2(sign(direction.x), 0).angle())
 	
-#	if owner.global_position.distance_to(target_position) <= arrive_distance:
-#		finished(next_state)
+	if finish_on_arrive and \
+			(owner.global_position.distance_to(target_position) <= arrive_distance or \
+			(no_y and abs(owner.global_position.x - target_position.x) <= arrive_distance)):
+		finished(next_state)
 
 
 func calculate_new_target_position() -> Vector2:
@@ -80,6 +100,10 @@ func calculate_new_target_position() -> Vector2:
 			target = owner.target.get_target()
 		if target:
 			base_position = target.global_position
+			if closest_x_offset:
+				base_position.x -= x_offset * sign(target.global_position.x - owner.global_position.x)
+			else:
+				base_position.x += x_offset * sign(target.owner.look_direction.x)
 	base_position.y += y_offset
 	base_position += Vector2(cos(random_angle), sin(random_angle)) * random_radius
 	

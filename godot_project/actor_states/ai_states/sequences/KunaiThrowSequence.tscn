@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://actor_states/Sequence.gd" type="Script" id=2]
+[ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=5]
+[ext_resource path="res://weapons/DownwardKunaiThrow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=8]
+
+[node name="KunaiThrowSequence" type="Node2D"]
+script = ExtResource( 2 )
+next_state = "Sequence"
+
+[node name="MoveTo" parent="." instance=ExtResource( 8 )]
+duration = 5.0
+animation = "dash"
+closest_x_offset = false
+x_offset = -90.0
+y_offset = -150.0
+max_roam_radius = 0.0
+arrive_distance = 50.0
+no_y = false
+finish_on_arrive = true
+disable_actor_collider = true
+disable_player_stoppers_layer = true
+
+[node name="MotionSteering" parent="MoveTo/Motion" index="1"]
+max_speed = 1400.0
+mass = 12.0
+
+[node name="Gravity" parent="MoveTo/Motion" index="2"]
+max_speed = 0.0
+
+[node name="FaceTarget" parent="." instance=ExtResource( 5 )]
+animation = "spin"
+stagger_state = ""
+
+[node name="MotionSteering" parent="FaceTarget" index="1"]
+max_speed = 0.0
+
+[node name="Gravity" parent="FaceTarget" index="2"]
+max_speed = 0.0
+
+[node name="KunaiThrow" parent="." instance=ExtResource( 4 )]
+weapons = [ ExtResource( 7 ) ]
+stagger = false
+
+[editable path="MoveTo"]
+
+[editable path="MoveTo/Motion"]
+
+[editable path="FaceTarget"]
