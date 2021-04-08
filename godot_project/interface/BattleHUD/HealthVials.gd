@@ -1,7 +1,15 @@
 extends VBoxContainer
 
+export var reference_vial : PackedScene
+
 var active_vial
 var index := 0
+
+
+func vial_initialized() -> void:
+	var new_vial = reference_vial.instance()
+	add_child(new_vial)
+
 
 func open(max_value):
 	if index >= get_child_count() or active_vial:

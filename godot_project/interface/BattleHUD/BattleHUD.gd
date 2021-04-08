@@ -18,6 +18,7 @@ func _ready() -> void:
 func initialize(player : Actor, icon : Texture) -> void:
 	set_player_icon(icon)
 	health_bar.initialize(player)
+	visible = true
 #	player.character_stats.connect("mana_changed", self, "set_mana_bar")
 
 
@@ -52,3 +53,7 @@ func _on_HealthVials_ticked(value):
 
 func _on_HealthVials_vial_finished():
 	$HealthVials.finished()
+
+
+func _on_HealthVials_vial_initialized():
+	$HealthVials.vial_initialized()

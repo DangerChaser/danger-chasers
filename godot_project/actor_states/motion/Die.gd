@@ -6,6 +6,7 @@ signal died
 export var animation : String = "die"
 export var queue_free_on_die := true
 export var distance_multiplier : float = 3.0
+export var disable_collider_on_die := true
 
 const QUEUE_FREE_BUFFER := 5.0
 
@@ -21,6 +22,9 @@ func enter(args := {}) -> void:
 		if args.has("force") and args.has("mass") and args.has("duration"):
 			initialize(args["direction"], args["force"], args["mass"], args["duration"])
 	emit_signal("died")
+	
+	if disable_collider_on_die:
+		owner.get_node("CollisionBox").disabled = true
 
 
 func anim_finished(anim_name : String) -> void:

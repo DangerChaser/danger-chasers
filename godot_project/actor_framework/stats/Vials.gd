@@ -1,5 +1,6 @@
 extends Node2D
 
+signal vial_initialized
 signal vial_started(max_value)
 signal vial_finished
 signal ticked(value)
@@ -7,6 +8,10 @@ signal ticked(value)
 var active_vial
 var index := 0
 
+
+func _ready() -> void:
+	for vial in get_children():
+		emit_signal("vial_initialized")
 
 func start() -> void:
 	if get_child_count() == 0 or index >= get_child_count():

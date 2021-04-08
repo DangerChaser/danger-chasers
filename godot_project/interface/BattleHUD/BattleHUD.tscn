@@ -195,30 +195,11 @@ mouse_filter = 2
 margin_left = 208.0
 margin_top = 8.0
 margin_right = 326.0
-margin_bottom = 52.0
+margin_bottom = 16.0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="VialHUD" parent="HealthVials" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 118.0
-margin_bottom = 12.0
-
-[node name="VialHUD2" parent="HealthVials" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 16.0
-margin_right = 118.0
-margin_bottom = 28.0
-
-[node name="VialHUD3" parent="HealthVials" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 32.0
-margin_right = 118.0
-margin_bottom = 44.0
+reference_vial = ExtResource( 4 )
 
 [editable path="ManaBar"]

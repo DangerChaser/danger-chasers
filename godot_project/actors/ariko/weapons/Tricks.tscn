@@ -48,7 +48,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25, 0.4, 0.45 ),
+"times": PoolRealArray( 0.3, 0.4, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -279,15 +279,12 @@ next_state = "Air"
 input = "ui_up"
 
 [node name="CircleBase" type="Sprite" parent="." index="1"]
-visible = false
-scale = Vector2( 4, 4 )
 z_index = -1
 texture = ExtResource( 6 )
 
 [node name="ActiveCircle" type="Sprite" parent="." index="2"]
-visible = false
 modulate = Color( 1, 0, 0, 1 )
-scale = Vector2( 16, 16 )
+scale = Vector2( 1e-05, 1e-05 )
 z_index = -1
 texture = ExtResource( 6 )
 

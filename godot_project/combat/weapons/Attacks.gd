@@ -56,6 +56,9 @@ func _physics_process(delta : float) -> void:
 	if owner.paused:
 		return
 	
+	if not input == "ui_up":
+		if owner.is_in_group("players") and Input.is_action_just_pressed("ui_up"):
+			register_jump()
 	match(state):
 		State.NOT_READY:
 			pass # Do nothing
@@ -65,8 +68,6 @@ func _physics_process(delta : float) -> void:
 			if Input.is_action_just_pressed(input):
 				register_attack()
 				return
-			if owner.is_in_group("players") and Input.is_action_just_pressed("ui_up"):
-				register_jump()
 		State.REGISTERED_ATTACK:
 			if grounded and not owner.is_on_floor():
 				return

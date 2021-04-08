@@ -5,3 +5,6 @@
 
 [node name="Die" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="Gravity" parent="." index="2"]
+max_speed = 0.0
