@@ -49,4 +49,5 @@ func get_exit_args() -> Dictionary:
 	args["external"]["velocity"].y /= 3
 	if gets_input_direction:
 		args["target_direction"].x = Input.is_action_pressed("ui_right") as int - Input.is_action_pressed("ui_left") as int 
+	args["animation"] = attack.actor_animation
 	return args

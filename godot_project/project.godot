@@ -147,7 +147,22 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Dialogic",
 "language": "GDScript",
-"path": "res://addons/dialogic/Other/dialogic_class.gd"
+"path": "res://addons/dialogic/Other/DialogicClass.gd"
+}, {
+"base": "Control",
+"class": "DialogicBackgroundMusic",
+"language": "GDScript",
+"path": "res://addons/dialogic/Nodes/BackgroundMusic.gd"
+}, {
+"base": "Node",
+"class": "DialogicDefinitionsUtil",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicDefinitionsUtil.gd"
+}, {
+"base": "Reference",
+"class": "DialogicResources",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicResources.gd"
 }, {
 "base": "Reference",
 "class": "DialogicUtil",
@@ -523,6 +538,9 @@ _global_script_class_icons={
 "Cutscene": "",
 "DamageSource": "",
 "Dialogic": "",
+"DialogicBackgroundMusic": "",
+"DialogicDefinitionsUtil": "",
+"DialogicResources": "",
 "DialogicUtil": "",
 "DieState": "",
 "Door": "",
@@ -616,6 +634,7 @@ QuestManager="*res://autoload/QuestManager.tscn"
 DebugWipStuff="*res://DebugWIPStuff.tscn"
 InventoryData="*res://autoload/InventoryData.gd"
 ItemData="*res://autoload/ItemData.tscn"
+DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
 
 [debug]
 

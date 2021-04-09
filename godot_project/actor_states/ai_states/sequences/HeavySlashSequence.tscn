@@ -7,7 +7,6 @@
 
 [node name="HeavySlashSequence" type="Node2D"]
 script = ExtResource( 2 )
-next_state = "KunaiThrowSequence"
 
 [node name="MoveTo" parent="." instance=ExtResource( 5 )]
 duration = 5.0

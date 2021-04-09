@@ -869,11 +869,11 @@ next/5 = "end"
 [node name="Transition" parent="." index="2" instance=ExtResource( 5 )]
 
 [node name="CutsceneCamera" parent="." index="3" instance=ExtResource( 4 )]
-position = Vector2( 0, -132.8 )
-zoom = Vector2( 1.7, 1.7 )
+position = Vector2( 88, -64 )
+zoom = Vector2( 1.2, 1.2 )
 
 [node name="PlayerManagedStateManager" parent="." index="4" instance=ExtResource( 11 )]
-position = Vector2( 8.22857, 0 )
+position = Vector2( -32, 0 )
 managed_state = ExtResource( 12 )
 
 [node name="NPC" parent="." index="5" instance=ExtResource( 14 )]
@@ -885,10 +885,9 @@ scale = Vector2( 1, -1 )
 
 [node name="DialogInteraction" parent="NPC" index="9" instance=ExtResource( 7 )]
 position = Vector2( 3.05176e-05, -32 )
-timeline = "timeline-1613443256"
+timeline = "timeline-1613443256.json"
 
 [node name="ActorManagedStateManager" parent="." index="6" instance=ExtResource( 16 )]
-visible = false
 position = Vector2( 136, 0 )
 scale = Vector2( -1, 1 )
 actor_path = NodePath("../NPC")
@@ -951,15 +950,15 @@ layer = 128
 
 [node name="DialogNode" parent="CanvasLayer" index="0" instance=ExtResource( 19 )]
 visible = false
-timeline = "timeline-1613358209"
+timeline = "timeline-1613358209.json"
 
 [node name="DialogNode2" parent="CanvasLayer" index="1" instance=ExtResource( 19 )]
 visible = false
-timeline = "timeline-1613360185"
+timeline = "timeline-1613360185.json"
 
 [node name="DialogNode3" parent="CanvasLayer" index="2" instance=ExtResource( 19 )]
 visible = false
-timeline = "timeline-1613415365"
+timeline = "timeline-1613415365.json"
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode" to="." method="play"]
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode2" to="." method="play"]
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode3" to="." method="play"]

@@ -181,7 +181,7 @@ tracks/1/keys = {
 resource_local_to_scene = true
 extents = Vector2( 56, 16 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "attack"
 tracks/0/type = "method"
 tracks/0/path = NodePath("SlashDownParticles")
@@ -215,7 +215,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 resource_local_to_scene = true
 extents = Vector2( 56, 16 )
 
@@ -320,6 +320,7 @@ particles = ExtResource( 9 )
 [node name="SlashDownDamageSource" parent="Pivot/Attacks/SlashDown" index="1" instance=ExtResource( 2 )]
 hit_particles = ExtResource( 5 )
 damage = 8
+stagger_duration = 1.0
 delay_milliseconds = 2
 screen_shake_amplitude = 5.0
 screen_shake_duration = 0.2
@@ -329,7 +330,7 @@ position = Vector2( 64, -24 )
 shape = SubResource( 5 )
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/SlashDown" index="2"]
-anims/attack = SubResource( 7 )
+anims/attack = SubResource( 6 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashDown/AdditionalEffects" index="0" instance=ExtResource( 7 )]
 initial_speed = 750.0
@@ -352,13 +353,14 @@ particles = ExtResource( 11 )
 [node name="SlashUpHitbox" parent="Pivot/Attacks/SlashUp" index="1" instance=ExtResource( 2 )]
 hit_particles = ExtResource( 5 )
 damage = 10
+stagger_duration = 1.0
 delay_milliseconds = 2
 screen_shake_amplitude = 5.0
 screen_shake_duration = 0.2
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/SlashUp/SlashUpHitbox" index="0"]
 position = Vector2( 64, -24 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/SlashUp" index="2"]
 anims/attack = SubResource( 8 )
@@ -384,6 +386,8 @@ particles = ExtResource( 12 )
 [node name="StabDamageSource" parent="Pivot/Attacks/Stab" index="1" instance=ExtResource( 2 )]
 hit_particles = ExtResource( 5 )
 damage = 15
+stagger_duration = 1.0
+stagger_force = 800.0
 delay_milliseconds = 2
 screen_shake_amplitude = 5.0
 screen_shake_duration = 0.2

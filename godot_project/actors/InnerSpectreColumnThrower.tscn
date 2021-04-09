@@ -6,7 +6,7 @@
 [ext_resource path="res://actor_states/Sequence.gd" type="Script" id=4]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://combat/effects/buffs/Invincible.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actor_pivots/ArikoPivot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actor_pivots/InnerSpectrePivot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://weapons/jumps/Jump1500.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=9]
 

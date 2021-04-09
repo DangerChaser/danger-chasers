@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/MeleeAttack.tscn" type="PackedScene" id=2]
 [ext_resource path="res://combat/weapons/attacks/ShortHopBack.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/particles/HeavySlash.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -73,6 +74,10 @@ grounded = false
 [node name="CollisionShape2D" parent="Pivot/Attacks/MeleeAttack/DamageSource" index="0"]
 position = Vector2( 24, 0 )
 shape = SubResource( 4 )
+
+[node name="SfxParticleSpawner" parent="Pivot/Attacks/MeleeAttack" index="1"]
+position = Vector2( 32, -24 )
+object = ExtResource( 4 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/MeleeAttack/AdditionalEffects" index="0"]
 initial_speed = 1000.0

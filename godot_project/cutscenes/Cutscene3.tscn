@@ -559,15 +559,15 @@ layer = 128
 
 [node name="DialogNode" parent="CanvasLayer" index="0" instance=ExtResource( 19 )]
 visible = false
-timeline = "timeline-1613626695"
+timeline = "timeline-1613626695.json"
 
 [node name="DialogNode2" parent="CanvasLayer" index="1" instance=ExtResource( 19 )]
 visible = false
-timeline = "timeline-1613626955"
+timeline = "timeline-1613626955.json"
 
 [node name="DialogNode3" parent="CanvasLayer" index="2" instance=ExtResource( 19 )]
 visible = false
-timeline = "timeline-1613630167"
+timeline = "timeline-1613630167.json"
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode" to="." method="play"]
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode2" to="." method="play"]
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode3" to="." method="play"]

@@ -8,7 +8,6 @@
 
 [node name="KunaiThrowSequence" type="Node2D"]
 script = ExtResource( 2 )
-next_state = "Sequence"
 
 [node name="MoveTo" parent="." instance=ExtResource( 8 )]
 duration = 5.0
@@ -25,13 +24,12 @@ disable_player_stoppers_layer = true
 
 [node name="MotionSteering" parent="MoveTo/Motion" index="1"]
 max_speed = 1400.0
-mass = 4.0
 
 [node name="Gravity" parent="MoveTo/Motion" index="2"]
 max_speed = 0.0
 
 [node name="FaceTarget" parent="." instance=ExtResource( 5 )]
-animation = "spin"
+animation = "backflip"
 stagger_state = ""
 
 [node name="MotionSteering" parent="FaceTarget" index="1"]

@@ -34,10 +34,10 @@ pause_animated_sprites = false
 
 [node name="ActorInterface" parent="." instance=ExtResource( 4 )]
 visible = false
-margin_left = 151.512
-margin_top = -297.615
-margin_right = 381.512
-margin_bottom = -112.616
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 230.0
+margin_bottom = 184.999
 
 [node name="Target" type="Position2D" parent="."]
 script = ExtResource( 5 )

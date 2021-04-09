@@ -9,7 +9,6 @@
 
 [node name="HarpoonThrowSequence" type="Node2D"]
 script = ExtResource( 2 )
-next_state = "KunaiThrowSequence"
 
 [node name="MoveTo" parent="." instance=ExtResource( 7 )]
 duration = 5.0

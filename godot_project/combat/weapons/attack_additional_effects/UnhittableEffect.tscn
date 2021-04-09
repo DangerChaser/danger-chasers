@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://combat/weapons/attack_additional_effects/UnhittableEffect.gd" type="Script" id=1]
+[ext_resource path="res://combat/effects/buffs/Unhittable.tscn" type="PackedScene" id=2]
+
+[node name="UnhittableEffect" type="Node2D"]
+script = ExtResource( 1 )
+unhittable_scene = ExtResource( 2 )

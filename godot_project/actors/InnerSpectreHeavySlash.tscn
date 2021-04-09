@@ -3,8 +3,8 @@
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actor_states/ai_states/sequences/HeavySlashSequence.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actor_pivots/InnerSpectrePivot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/effects/buffs/Invincible.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actor_pivots/ArikoPivot.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -16,7 +16,7 @@ extents = Vector2( 8, 24 )
 collision_mask = 1
 pause_offscreen = false
 
-[node name="Pivot" parent="." index="0" instance=ExtResource( 7 )]
+[node name="Pivot" parent="." index="0" instance=ExtResource( 4 )]
 
 [node name="CollisionBox" parent="." index="1"]
 position = Vector2( 0, -24 )
