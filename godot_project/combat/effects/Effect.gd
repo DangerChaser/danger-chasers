@@ -16,6 +16,7 @@ func _ready() -> void:
 	timer.connect("timeout", self, "_on_timeout")
 	add_child(timer)
 	set_physics_process(false)
+	initialize()
 
 
 func initialize(args:={}) -> void: # Do not override this function, override _initialize() instead

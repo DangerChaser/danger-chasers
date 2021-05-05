@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actor_pivots/InnerSpectrePivot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actor_states/ai_states/sequences/DashSequence.tscn" type="PackedScene" id=5]
+[ext_resource path="res://combat/effects/buffs/Unhittable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/inner_spectre/DashSequence.tscn" type="PackedScene" id=5]
 [ext_resource path="res://combat/effects/buffs/Invincible.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -21,18 +22,25 @@ pause_offscreen = false
 [node name="CollisionBox" parent="." index="1"]
 position = Vector2( 0, -24 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="DashSequence" parent="StateMachine" index="0" instance=ExtResource( 5 )]
 next_state = "Die"
 
 [node name="Die" parent="StateMachine" index="1" instance=ExtResource( 2 )]
 
+[node name="Gravity" parent="StateMachine/Die" index="2"]
+max_speed = 0.0
+
 [node name="Stats" parent="." index="6"]
 max_health = 500
 
 [node name="Invincible" parent="Stats/Buffs" index="0" instance=ExtResource( 6 )]
 
+[node name="Unhittable" parent="Stats/Buffs" index="1" instance=ExtResource( 4 )]
+
 [node name="TargetPosition1" parent="TargetPositions" index="0"]
 position = Vector2( 0, -64 )
 
+[editable path="StateMachine/Die"]
 [editable path="Stats"]

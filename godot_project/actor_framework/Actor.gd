@@ -90,7 +90,6 @@ func kill(args := {}) -> void:
 		
 		emit_signal("health_depleted", self)
 		emit_signal("health_depleted_no_arg")
-		return
 
 
 func die() -> void:

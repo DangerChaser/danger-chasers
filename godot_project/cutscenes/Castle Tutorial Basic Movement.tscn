@@ -1,0 +1,316 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://core/Cutscene.gd" type="Script" id=1]
+[ext_resource path="res://cutscenes/framework/CutsceneCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://core/PlayerManagedStateManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=12]
+[ext_resource path="res://core/ActorManagedStateManager.tscn" type="PackedScene" id=16]
+[ext_resource path="res://addons/dialogic/Dialog.tscn" type="PackedScene" id=19]
+
+[sub_resource type="Animation" id=1]
+resource_name = "0"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("CutsceneCamera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "enable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PlayerManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable_input"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("PlayerManagedStateManager")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide_player_hud"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("CastleManager")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("PlayerManagedStateManager")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "stand" ],
+"method": "play_animation"
+} ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("CastleManager")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "stand" ],
+"method": "play_animation"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("CanvasLayer/DialogNode")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "initialize"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "method"
+tracks/0/path = NodePath("PlayerManagedStateManager")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PlayerManagedStateManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable_input"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show_player_hud"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("CastleManager")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "idle" ],
+"method": "play_animation"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("CastleManager")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("CutsceneCamera")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "disable"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Castle Tutorial Basic Movement" type="Node2D"]
+position = Vector2( 64, 0 )
+script = ExtResource( 1 )
+auto_start = true
+replayable = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "SETUP"
+anims/0 = SubResource( 1 )
+anims/SETUP = SubResource( 2 )
+anims/end = SubResource( 3 )
+
+[node name="SkipCutsceneFade" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SkipCutsceneFade"]
+autoplay = "SETUP"
+anims/SETUP = SubResource( 4 )
+anims/fade_in = SubResource( 5 )
+anims/fade_out = SubResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="SkipCutsceneFade"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CutsceneCamera" parent="." instance=ExtResource( 4 )]
+position = Vector2( 256, -64 )
+zoom = Vector2( 1.7, 1.7 )
+
+[node name="PlayerManagedStateManager" parent="." instance=ExtResource( 11 )]
+managed_state = ExtResource( 12 )
+
+[node name="CastleManager" parent="." instance=ExtResource( 16 )]
+position = Vector2( 608, -128 )
+scale = Vector2( -1, 1 )
+managed_state = ExtResource( 12 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="DialogNode" parent="CanvasLayer" instance=ExtResource( 19 )]
+visible = false
+timeline = "timeline-1619753666.json"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="SkipCutsceneFade/AnimationPlayer" to="." method="_on_SkipCutsceneAnimationPlayer_finished"]
+[connection signal="dialogic_signal" from="CanvasLayer/DialogNode" to="." method="play"]

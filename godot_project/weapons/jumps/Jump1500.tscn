@@ -37,7 +37,5 @@ max_speed = 0.0
 max_speed = 0.0
 
 [editable path="Pivot/Attacks/Jump"]
-
 [editable path="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect"]
-
 [editable path="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect/Motion"]

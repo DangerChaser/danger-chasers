@@ -28,3 +28,4 @@ visible = false
 visible = false
 
 [editable path="BattleHUD"]
+[editable path="BattleHUD/ManaBar"]

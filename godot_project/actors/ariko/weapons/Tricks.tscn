@@ -307,7 +307,7 @@ weapon_animation = "trick_1"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Trick1/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
-initial_speed = 450.0
+initial_speed = 260.0
 jump_force = 1000.0
 finish_on_release = false
 
@@ -327,7 +327,7 @@ weapon_animation = "trick_2"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Trick2/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
-initial_speed = 450.0
+initial_speed = 260.0
 jump_force = 1000.0
 finish_on_release = false
 
@@ -347,7 +347,7 @@ weapon_animation = "trick_3"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Trick3/AdditionalEffects" index="0" instance=ExtResource( 5 )]
 initial_mass = 6.0
-initial_speed = 450.0
+initial_speed = 260.0
 jump_force = 1000.0
 finish_on_release = false
 
@@ -362,19 +362,11 @@ next_state = "Stomp"
 [node name="PassThroughActorEffect" parent="Pivot/Attacks/Trick3/AdditionalEffects" index="2" instance=ExtResource( 4 )]
 
 [editable path="Pivot/Attacks/Trick1"]
-
 [editable path="Pivot/Attacks/Trick1/AdditionalEffects/JumpEffect"]
-
 [editable path="Pivot/Attacks/Trick1/AdditionalEffects/JumpEffect/Motion"]
-
 [editable path="Pivot/Attacks/Trick2"]
-
 [editable path="Pivot/Attacks/Trick2/AdditionalEffects/JumpEffect"]
-
 [editable path="Pivot/Attacks/Trick2/AdditionalEffects/JumpEffect/Motion"]
-
 [editable path="Pivot/Attacks/Trick3"]
-
 [editable path="Pivot/Attacks/Trick3/AdditionalEffects/JumpEffect"]
-
 [editable path="Pivot/Attacks/Trick3/AdditionalEffects/JumpEffect/Motion"]

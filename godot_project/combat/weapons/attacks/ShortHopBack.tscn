@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://combat/weapons/Attack.gd" type="Script" id=1]
+[ext_resource path="res://combat/weapons/attack_additional_effects/NextAttackOnFloor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://combat/weapons/attack_additional_effects/JumpEffect.tscn" type="PackedScene" id=3]
 
 [node name="ShortHopBack" type="Node2D"]
@@ -14,7 +15,7 @@ weapon_animation = "hop_back"
 
 [node name="JumpEffect" parent="AdditionalEffects" instance=ExtResource( 3 )]
 initial_speed = -200.0
-jump_force = 100.0
+jump_force = 300.0
 finish_on_release = false
 
 [node name="Motion" parent="AdditionalEffects/JumpEffect" index="0"]
@@ -22,16 +23,18 @@ look_towards_move_direction = false
 look_away_from_move_direction = true
 
 [node name="MotionSteering" parent="AdditionalEffects/JumpEffect/Motion" index="1"]
-max_speed = 0.0
+max_speed = -200.0
+mass = 128.0
 
 [node name="Gravity" parent="AdditionalEffects/JumpEffect/Motion" index="2"]
 gravity = 900.0
 max_speed = 2000.0
+
+[node name="NextAttackOnFloor" parent="AdditionalEffects" instance=ExtResource( 2 )]
 
 [node name="ComboEffects" type="Node2D" parent="."]
 
 [node name="ExitArguments" type="Node2D" parent="."]
 
 [editable path="AdditionalEffects/JumpEffect"]
-
 [editable path="AdditionalEffects/JumpEffect/Motion"]

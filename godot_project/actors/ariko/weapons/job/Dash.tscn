@@ -15,7 +15,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 53, 26 )
+extents = Vector2( 134.676, 26 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -137,7 +137,7 @@ horizontal_factor = 1.6
 vertical_factor = 0.6
 
 [node name="ParticleSpawner" parent="." index="2" instance=ExtResource( 9 )]
-position = Vector2( 72, -24 )
+position = Vector2( 51.7957, -12.7754 )
 particles = ExtResource( 10 )
 
 [node name="DamageSource" parent="." index="3" instance=ExtResource( 6 )]
@@ -148,13 +148,14 @@ screen_shake_amplitude = 30.0
 screen_shake_duration = 0.5
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
-position = Vector2( 29, -26 )
+position = Vector2( -2.42892, -26 )
 shape = SubResource( 1 )
 
 [node name="SfxRandom" parent="." index="4" instance=ExtResource( 4 )]
 stream = ExtResource( 5 )
 
 [node name="AnimationPlayer" parent="." index="5"]
+autoplay = "SETUP"
 anims/SETUP = SubResource( 2 )
 anims/attack = SubResource( 3 )
 
@@ -198,15 +199,9 @@ max_speed = 0.0
 [node name="PassThroughActorEffect" parent="Pivot/Attacks/Dash2/AdditionalEffects" index="1" instance=ExtResource( 3 )]
 
 [editable path="DamageSource"]
-
 [editable path="Pivot/Attacks/Dash"]
-
 [editable path="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect"]
-
 [editable path="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect/Motion"]
-
 [editable path="Pivot/Attacks/Dash2"]
-
 [editable path="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect"]
-
 [editable path="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect/Motion"]

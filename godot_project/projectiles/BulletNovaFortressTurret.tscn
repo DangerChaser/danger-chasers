@@ -35,5 +35,4 @@ shape = SubResource( 1 )
 wait_time = 60.0
 
 [editable path="Motion"]
-
 [editable path="DamageSource"]

@@ -7,7 +7,8 @@ signal level_change_requested(level)
 
 onready var player_spawn_points : = $PlayerSpawnPoints
 onready var arenas := $Arenas
-onready var y_sort := $YSort
+onready var y_sort : YSort = $YSort
+onready var player_died_script : PlayerDiedScript = $PlayerDiedScript
 
 export var level_name_key : String
 export var act := 1
@@ -16,6 +17,7 @@ export var player_scene : PackedScene
 
 
 func request_change(level_path:String, target_spawn_point:int, transition_in_animation:String, transition_in_duration:float) -> void:
+	print_debug("Request level change to: " + level_path)
 	emit_signal("level_change_requested", load(level_path), target_spawn_point, transition_in_animation, transition_in_duration)
 
 
@@ -41,3 +43,7 @@ func spawn_player(target_spawn_point : int):
 	spawn.spawn(player)
 	player.call_deferred("initialize", "team_1")
 	PlayerManager.player = player
+	
+	player.connect("died", player_died_script, "start")
+	
+	return player

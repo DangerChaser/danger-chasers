@@ -17,8 +17,7 @@ func _ready():
 
 func initialize() -> void:
 	assert (get_child_count() > 0)
-	current_state = get_child(0)
-	current_state.enter(initial_args)
+	change_state(get_child(0).name, initial_args)
 
 
 func get_state(state_name : String) -> State:

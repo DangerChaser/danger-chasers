@@ -11,11 +11,12 @@ animation = "wallrun"
 [node name="Motion" parent="." instance=ExtResource( 2 )]
 
 [node name="MotionSteering" parent="Motion" index="1"]
-max_speed = 600.0
+max_speed = 470.0
 
 [node name="UiUpTimer" type="Timer" parent="."]
 wait_time = 0.01
 one_shot = true
+
 [connection signal="timeout" from="UiUpTimer" to="." method="_on_UiUpTimer_timeout"]
 
 [editable path="Motion"]

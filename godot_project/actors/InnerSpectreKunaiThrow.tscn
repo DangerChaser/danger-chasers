@@ -4,8 +4,8 @@
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=2]
 [ext_resource path="res://weapons/DownwardKunaiThrowNoGravity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actor_pivots/InnerSpectrePivot.tscn" type="PackedScene" id=4]
-[ext_resource path="res://combat/effects/buffs/Invincible.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actor_states/ai_states/sequences/KunaiThrowSequence.tscn" type="PackedScene" id=11]
+[ext_resource path="res://combat/effects/buffs/Unhittable.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actors/inner_spectre/KunaiThrowSequence.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -22,6 +22,7 @@ pause_offscreen = false
 [node name="CollisionBox" parent="." index="1"]
 position = Vector2( 0, -24 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="KunaiThrowSequence" parent="StateMachine" index="0" instance=ExtResource( 11 )]
 next_state = "Die"
@@ -32,14 +33,20 @@ weapons = [ ExtResource( 3 ) ]
 [node name="Die" parent="StateMachine" index="1" instance=ExtResource( 2 )]
 animation = "fade_out"
 
+[node name="Gravity" parent="StateMachine/Die" index="2"]
+max_speed = 0.0
+
 [node name="Stats" parent="." index="6"]
 max_health = 500
 
-[node name="Invincible" parent="Stats/Buffs" index="0" instance=ExtResource( 6 )]
+[node name="Unhittable" parent="Stats/Buffs" index="0" instance=ExtResource( 5 )]
 
 [node name="TargetPosition1" parent="TargetPositions" index="0"]
 position = Vector2( 0, -64 )
 
 [editable path="StateMachine/KunaiThrowSequence"]
-
+[editable path="StateMachine/KunaiThrowSequence/MoveTo"]
+[editable path="StateMachine/KunaiThrowSequence/MoveTo/Motion"]
+[editable path="StateMachine/KunaiThrowSequence/FaceTarget"]
+[editable path="StateMachine/Die"]
 [editable path="Stats"]

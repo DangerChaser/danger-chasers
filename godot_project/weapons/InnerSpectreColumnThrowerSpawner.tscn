@@ -57,7 +57,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ {
-
 } ],
 "method": "spawn"
 } ]
@@ -87,10 +86,6 @@ object = ExtResource( 5 )
 [node name="ActorSpawner2" parent="Pivot/Attacks/Spawn/Spawners" index="1" instance=ExtResource( 6 )]
 position = Vector2( 192, 0 )
 object = ExtResource( 2 )
-random_degrees = 0.0
-random_radius = 0.0
-team = "team_2"
-actor_name = ""
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/Spawn/Spawners/ActorSpawner2" index="1" instance=ExtResource( 4 )]
 object = ExtResource( 5 )

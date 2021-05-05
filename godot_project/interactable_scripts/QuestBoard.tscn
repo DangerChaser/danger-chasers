@@ -23,4 +23,5 @@ margin_bottom = -67.1892
 script = ExtResource( 3 )
 
 [node name="QuestBoardUI" parent="InteractableScript" index="0" instance=ExtResource( 2 )]
+
 [connection signal="disabled" from="InteractableScript/QuestBoardUI" to="InteractableScript" method="_on_QuestBoardUI_disabled"]

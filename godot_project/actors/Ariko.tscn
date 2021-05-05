@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://actors/ariko/weapons/KnifeLevel1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/ariko/weapons/KnifeLevel3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_framework/player/CameraTargetPosition.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/actors/ariko/icons/icon.png" type="Texture" id=3]
 [ext_resource path="res://actor_framework/player/PlayerActor.gd" type="Script" id=4]
@@ -120,15 +120,14 @@ disabled = true
 
 [node name="WallRunScanner" parent="." index="13" instance=ExtResource( 13 )]
 position = Vector2( 0, -24 )
+
 [connection signal="ticked" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_ticked"]
 [connection signal="vial_finished" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_vial_finished"]
 [connection signal="vial_initialized" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_vial_initialized"]
 [connection signal="vial_started" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="open_health_vial"]
 
 [editable path="Stats"]
-
 [editable path="PlayerHUDLayer/BattleHUD"]
-
+[editable path="PlayerHUDLayer/BattleHUD/ManaBar"]
 [editable path="ActivationScanner"]
-
 [editable path="WallRunScanner"]

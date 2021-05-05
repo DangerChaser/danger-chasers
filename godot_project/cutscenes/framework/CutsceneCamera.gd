@@ -56,6 +56,7 @@ func disable(_tween_duration := -1.0) -> void:
 	current_camera.limit_right = reset_limit_right
 	current_camera.limit_bottom = reset_limit_bottom
 	current_camera.smoothing_enabled = true
+	current_camera.zoom = lerp(current_camera.zoom, original_zoom, 1.0)
 	
 	set_physics_process(false)
 	current_camera.set_physics_process(true)

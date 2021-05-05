@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/music/Castle Tutorial.ogg" type="AudioStream" id=2]
+[ext_resource path="res://actors/CastleTutorial.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/levels/castle_tutorial/rooms/CastleTutorial.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cutscenes/Castle Tutorial Tricks.tscn" type="PackedScene" id=5]
+[ext_resource path="res://cutscenes/TaskComplete.tscn" type="PackedScene" id=6]
+[ext_resource path="res://interactable_scripts/base/ChangeLevelInteractionArea.tscn" type="PackedScene" id=7]
+[ext_resource path="res://level/CameraLimitTrigger.tscn" type="PackedScene" id=8]
+[ext_resource path="res://cutscenes/framework/CutsceneCamera.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 128, 1408 )
+
+[sub_resource type="RectangleShape2D" id=3]
+resource_local_to_scene = true
+extents = Vector2( 128, 896 )
+
+[sub_resource type="CircleShape2D" id=4]
+resource_local_to_scene = true
+radius = 200.0
+
+[node name="TricksTutorial" instance=ExtResource( 1 )]
+level_name_key = "RUIN_VALLEY"
+skybox_color = Color( 0.454902, 0.890196, 0.960784, 1 )
+
+[node name="InitialMusic" parent="." index="0"]
+music = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="InitialMusic" index="0"]
+shape = SubResource( 1 )
+
+[node name="CastleTutorial" parent="Rooms" index="0" instance=ExtResource( 4 )]
+
+[node name="CameraLimitTrigger" parent="Triggers" index="0" instance=ExtResource( 8 )]
+position = Vector2( 1792, 256 )
+zoom = Vector2( 3, 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/CameraLimitTrigger" index="0"]
+visible = false
+position = Vector2( 5536, -1920 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="ColliderTrigger" parent="Triggers/CameraLimitTrigger" index="1"]
+visible = false
+position = Vector2( -5024, -928 )
+shape = SubResource( 3 )
+disabled = true
+
+[node name="TopLeft" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="0"]
+position = Vector2( -2656, -1376 )
+
+[node name="BottomRight" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="1"]
+position = Vector2( -544, -160 )
+
+[node name="Castle Tutorial Tricks" parent="Triggers" index="1" instance=ExtResource( 5 )]
+
+[node name="ChangeLevelInteractionArea" parent="Triggers" index="2" instance=ExtResource( 7 )]
+level_path = "res://level/levels/adventurers_guild/AdventurersGuild.tscn"
+
+[node name="CollisionShape2D" parent="Triggers/ChangeLevelInteractionArea" index="1"]
+visible = false
+shape = SubResource( 4 )
+disabled = true
+
+[node name="TaskComplete" parent="Triggers" index="3" instance=ExtResource( 6 )]
+
+[node name="CastleTutorial" parent="YSort" index="0" instance=ExtResource( 3 )]
+position = Vector2( 640, -128 )
+
+[node name="CutsceneCamera" parent="YSort/CastleTutorial" index="10" instance=ExtResource( 9 )]
+position = Vector2( 0, -32 )
+
+[node name="0" parent="PlayerSpawnPoints" index="0"]
+position = Vector2( 1088, -352 )
+camera_limit_trigger = NodePath("../../Triggers/CameraLimitTrigger")
+
+[connection signal="finished" from="Triggers/TaskComplete" to="Triggers/ChangeLevelInteractionArea" method="change"]
+[connection signal="started" from="Triggers/TaskComplete" to="YSort/CastleTutorial/CutsceneCamera" method="enable"]
+[connection signal="health_depleted_no_arg" from="YSort/CastleTutorial" to="Triggers/TaskComplete" method="start"]
+
+[editable path="InitialMusic"]
+[editable path="Triggers/CameraLimitTrigger"]
+[editable path="Triggers/Castle Tutorial Tricks"]
+[editable path="Triggers/ChangeLevelInteractionArea"]
+[editable path="PlayerSpawnPoints/0"]

@@ -102,12 +102,12 @@ monitorable = false
 [node name="CollisionShape2D" parent="ActivationScanner" index="0"]
 shape = SubResource( 2 )
 disabled = true
+
 [connection signal="ticked" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_ticked"]
 [connection signal="vial_finished" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_vial_finished"]
 [connection signal="vial_started" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="open_health_vial"]
 
 [editable path="Stats"]
-
 [editable path="PlayerHUDLayer/BattleHUD"]
-
+[editable path="PlayerHUDLayer/BattleHUD/ManaBar"]
 [editable path="ActivationScanner"]

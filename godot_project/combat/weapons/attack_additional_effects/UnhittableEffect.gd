@@ -10,4 +10,5 @@ func enter(args := {}) -> void:
 
 func exit() -> void:
 	.exit()
-	current_buff.queue_free()
+	if is_instance_valid(current_buff):
+		current_buff.queue_free()

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actors/InnerSpectreHarpoonThrow.tscn" type="PackedScene" id=2]
-[ext_resource path="res://combat/weapons/actor_spawners/ActorSpawnAttack.tscn" type="PackedScene" id=3]
-[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/particles/FlashHit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/particles/InnerSpectreParticle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://combat/weapons/actor_spawners/ActorSpawnAttack.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/InnerSpectreHeavySlash.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -12,6 +12,7 @@ length = 0.001
 
 [sub_resource type="Animation" id=2]
 resource_name = "spawn"
+length = 0.001
 step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks/Spawn/SfxParticleSpawner")
@@ -41,13 +42,12 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ {
-
 } ],
 "method": "spawn"
 } ]
 }
 
-[node name="InnerSpectreHarpoonThrowSpawner" instance=ExtResource( 1 )]
+[node name="InnerSpectreHeavySlashSpawner" instance=ExtResource( 3 )]
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
@@ -56,15 +56,15 @@ anims/spawn = SubResource( 2 )
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
 
-[node name="Spawn" parent="Pivot/Attacks" index="0" instance=ExtResource( 3 )]
+[node name="Spawn" parent="Pivot/Attacks" index="0" instance=ExtResource( 4 )]
 actor_animation = ""
 weapon_animation = "spawn"
 
-[node name="SfxParticleSpawner" parent="Pivot/Attacks/Spawn" index="0" instance=ExtResource( 4 )]
-object = ExtResource( 5 )
+[node name="SfxParticleSpawner" parent="Pivot/Attacks/Spawn" index="0" instance=ExtResource( 2 )]
+object = ExtResource( 1 )
 
 [node name="ActorSpawner" parent="Pivot/Attacks/Spawn/Spawners" index="0"]
-object = ExtResource( 2 )
+object = ExtResource( 5 )
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/Spawn" index="6"]
 anims/attack = SubResource( 3 )

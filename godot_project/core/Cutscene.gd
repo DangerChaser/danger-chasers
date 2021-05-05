@@ -1,10 +1,12 @@
 extends Node2D
 class_name Cutscene
 
+signal started
+signal end_started
 signal finished
 
 export var auto_start := false
-export var replayable := false
+export var replayable := true
 export var skippable := true
 
 onready var animation_player : AnimationPlayer = $AnimationPlayer
@@ -21,10 +23,12 @@ func _ready() -> void:
 		start()
 
 func start() -> void:
+	print_debug(name)
 	if GameManager.game:
 		GameManager.game.pause_menu.can_pause = false
 	play("0")
 	set_process_input(true)
+	emit_signal("started")
 
 func end():
 	if GameManager.game:
@@ -65,3 +69,8 @@ func _on_SkipCutsceneAnimationPlayer_finished(anim_name):
 	if anim_name == "fade_in":
 		$SkipCutsceneFade/AnimationPlayer.play("fade_out")
 		end()
+
+
+func _on_AnimationPlayer_animation_started(anim_name):
+	if anim_name == "end":
+		emit_signal("end_started")

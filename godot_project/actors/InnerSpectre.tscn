@@ -1,19 +1,23 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actor_states/ai_states/sequences/HeavySlashSequence.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actor_states/ai_states/sequences/HarpoonThrowSequence.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/inner_spectre/SpawnKunaiThrow-HeavySlash.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actors/inner_spectre/HeavySlashSequence.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/inner_spectre/KunaiBombThrowSequence.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_pivots/InnerSpectrePivot.tscn" type="PackedScene" id=7]
-[ext_resource path="res://actors/inner_spectre/SpawnHarpoonThrow-Dash.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/inner_spectre/SpawnKunaiBombThrow-Dash.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/BattleHUD/BossHUDLayer.tscn" type="PackedScene" id=10]
-[ext_resource path="res://actor_states/ai_states/sequences/KunaiThrowSequence.tscn" type="PackedScene" id=11]
-[ext_resource path="res://actor_states/ai_states/sequences/DashSequence.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actors/inner_spectre/KunaiThrowSequence.tscn" type="PackedScene" id=11]
+[ext_resource path="res://actors/inner_spectre/DashSequence.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=13]
 [ext_resource path="res://weapons/InnerSpectreColumnThrowerSpawner.tscn" type="PackedScene" id=14]
+[ext_resource path="res://actors/inner_spectre/SpawnKunaiThrow-Dash.tscn" type="PackedScene" id=15]
+[ext_resource path="res://actors/inner_spectre/SpawnKunaiBombThrow-KunaiThrow.tscn" type="PackedScene" id=16]
+[ext_resource path="res://actors/inner_spectre/SpawnKunaiThrow-KunaiBombThrow.tscn" type="PackedScene" id=18]
+[ext_resource path="res://actors/inner_spectre/KunaiDropperSequence.tscn" type="PackedScene" id=19]
+[ext_resource path="res://actors/inner_spectre/WallrunKunaiThrowSequence.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -22,14 +26,27 @@ extents = Vector2( 8, 24 )
 [sub_resource type="GDScript" id=2]
 script/source = "extends StateMachine
 
-
+var phase_2_entered
+var phase_2_turns
 
 
 func _decide_on_next_state() -> State:
 	if owner.stats.get_health_percent() > 0.75:
 		return _get_phase_1_state()
 	else:
-		return _get_phase_2_state()
+		if not phase_2_entered:
+			phase_2_entered = true
+			phase_2_turns = 0
+			return get_state(\"KunaiDropperSequence\")
+		else:
+			phase_2_turns += 1
+			if phase_2_turns == 3 or phase_2_turns == 6:
+				return get_state(\"WallrunKunaiThrowSequence\")
+			elif phase_2_turns == 9:
+				phase_2_turns = 0
+				return get_state(\"KunaiDropperSequence\")
+			else:
+				return _get_phase_2_state()
 
 
 func _get_phase_1_state() -> State:
@@ -37,7 +54,7 @@ func _get_phase_1_state() -> State:
 	if x >= 0.0 and x < 0.25:
 		return get_state(\"KunaiThrowSequence\")
 	elif x >= 0.25 and x < 0.5:
-		return get_state(\"HarpoonThrowSequence\")
+		return get_state(\"KunaiBombThrowSequence\")
 	elif x >= 0.5 and x < 0.75:
 		return get_state(\"HeavySlashSequence\")
 	else:
@@ -47,12 +64,14 @@ func _get_phase_1_state() -> State:
 
 func _get_phase_2_state() -> State:
 	var x = randf()
-	if x >= 0.0 and x < 0.25:
-		return get_state(\"SpawnKunaiThrow-HeavySlash\")
-	elif x >= 0.25 and x < 0.5:
-		return get_state(\"SpawnKunaiThrow-HeavySlash\")
+	if x >= 0.0 and x < 0.3:
+		return get_state(\"SpawnKunaiBombThrow-Dash\")
+	elif x >= 0.3 and x < 0.6:
+		return get_state(\"SpawnKunaiThrow-Dash\")
+	elif x >= 0.6 and x < 0.8:
+		return get_state(\"SpawnKunaiBombThrow-KunaiThrow\")
 	else:
-		return get_state(\"SpawnHarpoonThrow-Dash\")
+		return get_state(\"SpawnKunaiThrow-KunaiBombThrow\")
 "
 
 [node name="InnerSpectre" groups=[
@@ -72,7 +91,6 @@ script = SubResource( 2 )
 
 [node name="WaitTime" parent="StateMachine" index="0" instance=ExtResource( 9 )]
 next_state = "SpawnColumns"
-duration = 2.0
 
 [node name="SpawnColumns" parent="StateMachine" index="1" instance=ExtResource( 13 )]
 weapons = [ ExtResource( 14 ) ]
@@ -85,36 +103,45 @@ animation = "kneel"
 duration = 1.0
 
 [node name="WaitTime" parent="StateMachine/KunaiThrowSequence" index="4" instance=ExtResource( 9 )]
+duration = 1.0
 
-[node name="HarpoonThrowSequence" parent="StateMachine" index="3" instance=ExtResource( 4 )]
+[node name="KunaiBombThrowSequence" parent="StateMachine" index="3" instance=ExtResource( 4 )]
 
-[node name="WaitTime2" parent="StateMachine/HarpoonThrowSequence" index="4" instance=ExtResource( 9 )]
+[node name="WaitTime2" parent="StateMachine/KunaiBombThrowSequence" index="4" instance=ExtResource( 9 )]
+duration = 1.0
 
 [node name="HeavySlashSequence" parent="StateMachine" index="4" instance=ExtResource( 3 )]
 
-[node name="WaitTime3" parent="StateMachine/HeavySlashSequence" index="3" instance=ExtResource( 9 )]
-
 [node name="DashSequence" parent="StateMachine" index="5" instance=ExtResource( 12 )]
 
-[node name="WaitTime4" parent="StateMachine/DashSequence" index="3" instance=ExtResource( 9 )]
+[node name="SpawnKunaiBombThrow-Dash" parent="StateMachine" index="6" instance=ExtResource( 8 )]
 
-[node name="SpawnKunaiThrow-HeavySlash" parent="StateMachine" index="6" instance=ExtResource( 5 )]
+[node name="WaitTime6" parent="StateMachine/SpawnKunaiBombThrow-Dash" index="6" instance=ExtResource( 9 )]
 
-[node name="WaitTime5" parent="StateMachine/SpawnKunaiThrow-HeavySlash" index="4" instance=ExtResource( 9 )]
+[node name="SpawnKunaiBombThrow-KunaiThrow" parent="StateMachine" index="7" instance=ExtResource( 16 )]
 
-[node name="SpawnHarpoonThrow-Dash" parent="StateMachine" index="7" instance=ExtResource( 8 )]
+[node name="WaitTime8" parent="StateMachine/SpawnKunaiBombThrow-KunaiThrow" index="5" instance=ExtResource( 9 )]
+duration = 1.0
 
-[node name="WaitTime6" parent="StateMachine/SpawnHarpoonThrow-Dash" index="4" instance=ExtResource( 9 )]
+[node name="SpawnKunaiThrow-Dash" parent="StateMachine" index="8" instance=ExtResource( 15 )]
 
-[node name="Stagger" parent="StateMachine" index="8" instance=ExtResource( 6 )]
+[node name="WaitTime9" parent="StateMachine/SpawnKunaiThrow-Dash" index="6" instance=ExtResource( 9 )]
+
+[node name="SpawnKunaiThrow-KunaiBombThrow" parent="StateMachine" index="9" instance=ExtResource( 18 )]
+
+[node name="WaitTime10" parent="StateMachine/SpawnKunaiThrow-KunaiBombThrow" index="5" instance=ExtResource( 9 )]
+duration = 1.0
+
+[node name="KunaiDropperSequence" parent="StateMachine" index="10" instance=ExtResource( 19 )]
+
+[node name="WallrunKunaiThrowSequence" parent="StateMachine" index="11" instance=ExtResource( 20 )]
+
+[node name="Stagger" parent="StateMachine" index="12" instance=ExtResource( 6 )]
 look_away_from_move_direction = false
 revenge_threshold = 6.0
-revenge_state = "HeavySlashSequence"
+revenge_state = "DashSequence"
 
-[node name="Die" parent="StateMachine" index="9" instance=ExtResource( 2 )]
-
-[node name="ActorInterface" parent="." index="4"]
-visible = true
+[node name="Die" parent="StateMachine" index="13" instance=ExtResource( 2 )]
 
 [node name="Stats" parent="." index="6"]
 max_health = 500
@@ -125,5 +152,31 @@ position = Vector2( 0, -64 )
 [node name="BossHUDLayer" parent="." index="9" instance=ExtResource( 10 )]
 
 [editable path="StateMachine/KunaiThrowSequence"]
-
+[editable path="StateMachine/KunaiThrowSequence/MoveTo"]
+[editable path="StateMachine/KunaiThrowSequence/MoveTo/Motion"]
+[editable path="StateMachine/KunaiThrowSequence/FaceTarget"]
+[editable path="StateMachine/SpawnKunaiBombThrow-Dash"]
+[editable path="StateMachine/SpawnKunaiBombThrow-Dash/MoveTo"]
+[editable path="StateMachine/SpawnKunaiBombThrow-Dash/MoveTo/Motion"]
+[editable path="StateMachine/SpawnKunaiBombThrow-Dash/MoveTo2"]
+[editable path="StateMachine/SpawnKunaiBombThrow-Dash/MoveTo2/Motion"]
+[editable path="StateMachine/SpawnKunaiBombThrow-KunaiThrow"]
+[editable path="StateMachine/SpawnKunaiBombThrow-KunaiThrow/MoveTo"]
+[editable path="StateMachine/SpawnKunaiBombThrow-KunaiThrow/MoveTo/Motion"]
+[editable path="StateMachine/SpawnKunaiBombThrow-KunaiThrow/MoveTo2"]
+[editable path="StateMachine/SpawnKunaiBombThrow-KunaiThrow/MoveTo2/Motion"]
+[editable path="StateMachine/SpawnKunaiThrow-Dash"]
+[editable path="StateMachine/SpawnKunaiThrow-Dash/MoveTo"]
+[editable path="StateMachine/SpawnKunaiThrow-Dash/MoveTo/Motion"]
+[editable path="StateMachine/SpawnKunaiThrow-Dash/MoveTo2"]
+[editable path="StateMachine/SpawnKunaiThrow-Dash/MoveTo2/Motion"]
+[editable path="StateMachine/SpawnKunaiThrow-KunaiBombThrow"]
+[editable path="StateMachine/SpawnKunaiThrow-KunaiBombThrow/MoveTo"]
+[editable path="StateMachine/SpawnKunaiThrow-KunaiBombThrow/MoveTo/Motion"]
+[editable path="StateMachine/SpawnKunaiThrow-KunaiBombThrow/MoveTo2"]
+[editable path="StateMachine/SpawnKunaiThrow-KunaiBombThrow/MoveTo2/Motion"]
+[editable path="StateMachine/WallrunKunaiThrowSequence"]
+[editable path="StateMachine/WallrunKunaiThrowSequence/WaitTime"]
+[editable path="StateMachine/WallrunKunaiThrowSequence/WaitTime2"]
+[editable path="StateMachine/WallrunKunaiThrowSequence/WaitTime3"]
 [editable path="Stats"]

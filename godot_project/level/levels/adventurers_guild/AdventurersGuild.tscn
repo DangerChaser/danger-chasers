@@ -65,9 +65,6 @@ position = Vector2( 1480, 392 )
 [node name="ColliderTrigger" parent="Triggers/CameraLimitTrigger" index="0"]
 shape = SubResource( 2 )
 
-[node name="CameraLimitPositions" parent="Triggers/CameraLimitTrigger" index="1"]
-line_width = 2.0
-
 [node name="TopLeft" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="0"]
 position = Vector2( -1576, -488 )
 
@@ -98,7 +95,5 @@ position = Vector2( 216, 256 )
 camera_limit_trigger = NodePath("../../Triggers/CameraLimitTrigger")
 
 [editable path="InitialMusic"]
-
 [editable path="Triggers/CameraLimitTrigger"]
-
 [editable path="PlayerSpawnPoints/0"]

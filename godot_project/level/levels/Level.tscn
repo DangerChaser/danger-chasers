@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://level/Level.gd" type="Script" id=1]
+[ext_resource path="res://level/player_died_script/PlayerDiedScript.gd" type="Script" id=2]
 [ext_resource path="res://core/SpawnPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/MusicChangeTrigger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/Ariko.tscn" type="PackedScene" id=5]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -48,10 +48,11 @@ z_index = 10
 [node name="PlayerSpawnPoints" type="Node2D" parent="."]
 
 [node name="0" parent="PlayerSpawnPoints" instance=ExtResource( 3 )]
-camera_limit_trigger = NodePath("")
 DRAW_COLOR = Color( 0.886275, 0.192157, 0.713726, 1 )
-transition_out_animation = "left_to_right"
-transition_out_duration = 0.5
+
+[node name="PlayerDiedScript" type="Node" parent="."]
+script = ExtResource( 2 )
+
 [connection signal="initialized" from="." to="InitialMusic" method="change_music"]
 
 [editable path="InitialMusic"]

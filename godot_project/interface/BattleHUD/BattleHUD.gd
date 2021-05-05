@@ -18,7 +18,7 @@ func _ready() -> void:
 func initialize(player : Actor, icon : Texture) -> void:
 	set_player_icon(icon)
 	health_bar.initialize(player)
-	visible = true
+#	visible = true
 #	player.character_stats.connect("mana_changed", self, "set_mana_bar")
 
 

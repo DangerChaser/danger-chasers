@@ -32,6 +32,8 @@ layer = 100
 
 [node name="LevelLoader" type="Node" parent="."]
 script = ExtResource( 5 )
+restart_transition_in_animation = "left_to_right"
 
 [node name="Camera2D" parent="." instance=ExtResource( 8 )]
+
 [connection signal="loaded" from="LevelLoader" to="." method="level_loaded"]

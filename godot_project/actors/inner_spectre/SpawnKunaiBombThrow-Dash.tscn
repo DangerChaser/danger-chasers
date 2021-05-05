@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://weapons/InnerSpectreKunaiBombThrowSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://weapons/jumps/Backflip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actor_states/Sequence.gd" type="Script" id=3]
+[ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://weapons/InnerSpectreDash.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=7]
+
+[node name="SpawnKunaiBombThrow-Dash" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="MoveTo" parent="." instance=ExtResource( 5 )]
+duration = 5.0
+animation = "run"
+max_roam_radius = 0.0
+arrive_distance = 400.0
+face_target = true
+finish_on_arrive = true
+
+[node name="MotionSteering" parent="MoveTo/Motion" index="1"]
+max_speed = 400.0
+
+[node name="Gravity" parent="MoveTo/Motion" index="2"]
+max_speed = 2000.0
+
+[node name="MoveTo2" parent="." instance=ExtResource( 5 )]
+duration = 5.0
+animation = "dash"
+max_roam_radius = 0.0
+arrive_distance = 200.0
+face_target = true
+finish_on_arrive = true
+
+[node name="MotionSteering" parent="MoveTo2/Motion" index="1"]
+max_speed = 1000.0
+
+[node name="Gravity" parent="MoveTo2/Motion" index="2"]
+max_speed = 2000.0
+
+[node name="SpawnKunaiBombThrower" parent="." instance=ExtResource( 4 )]
+weapons = [ ExtResource( 1 ) ]
+stagger = false
+
+[node name="Backflip" parent="." instance=ExtResource( 4 )]
+weapons = [ ExtResource( 2 ) ]
+
+[node name="WaitTime" parent="." instance=ExtResource( 7 )]
+animation = "kneel"
+
+[node name="Dash" parent="." instance=ExtResource( 4 )]
+weapons = [ ExtResource( 6 ) ]
+stagger = false
+
+[editable path="MoveTo"]
+[editable path="MoveTo/Motion"]
+[editable path="MoveTo2"]
+[editable path="MoveTo2/Motion"]

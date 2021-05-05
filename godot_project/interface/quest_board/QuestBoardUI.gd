@@ -16,12 +16,15 @@ export var transition_in_animation : String
 export var transition_in_duration : float
 
 var current_quest_name_button : QuestNameButton
+var accepted : bool
 
 func _ready():
 	control.visible = false
 
 
 func enable() -> void:
+	accepted = false
+	
 	for quest in QuestManager.get_active_quests():
 		var new_quest_name_button = quest_name_button.instance()
 		quest_name_container.add_child(new_quest_name_button)
@@ -63,6 +66,9 @@ func _on_DeclineButton_button_down():
 
 
 func _on_AcceptButton_button_down():
+	if accepted:
+		return
+	accepted = true
 	var quest = current_quest_name_button.quest
 	GameManager.level.request_change(quest.level_path, spawn_point, transition_in_animation, transition_in_duration)
 

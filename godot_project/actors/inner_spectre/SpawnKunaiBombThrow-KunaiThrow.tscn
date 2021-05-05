@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://weapons/InnerSpectreHarpoonThrowSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://weapons/InnerSpectreKunaiBombThrowSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/inner_spectre/KunaiThrowSequence.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actor_states/Sequence.gd" type="Script" id=3]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=5]
-[ext_resource path="res://weapons/InnerSpectreDash.tscn" type="PackedScene" id=6]
+[ext_resource path="res://weapons/jumps/Backflip.tscn" type="PackedScene" id=6]
 
-[node name="SpawnHarpoonThrow-Dash" type="Node2D"]
+[node name="SpawnKunaiBombThrow-KunaiThrow" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="MoveTo" parent="." instance=ExtResource( 5 )]
@@ -37,18 +38,16 @@ max_speed = 1000.0
 [node name="Gravity" parent="MoveTo2/Motion" index="2"]
 max_speed = 2000.0
 
-[node name="SpawnHarpoonThrower" parent="." instance=ExtResource( 4 )]
+[node name="SpawnKunaiBombThrower" parent="." instance=ExtResource( 4 )]
 weapons = [ ExtResource( 1 ) ]
 stagger = false
 
-[node name="Dash" parent="." instance=ExtResource( 4 )]
+[node name="Backflip" parent="." instance=ExtResource( 4 )]
 weapons = [ ExtResource( 6 ) ]
-stagger = false
+
+[node name="KunaiThrowSequence" parent="." instance=ExtResource( 2 )]
 
 [editable path="MoveTo"]
-
 [editable path="MoveTo/Motion"]
-
 [editable path="MoveTo2"]
-
 [editable path="MoveTo2/Motion"]

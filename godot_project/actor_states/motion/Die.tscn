@@ -5,6 +5,10 @@
 
 [node name="Die" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+look_towards_move_direction = false
+look_away_from_move_direction = true
+disable_collider_on_die = false
 
-[node name="Gravity" parent="." index="2"]
+[node name="MotionSteering" parent="." index="1"]
 max_speed = 0.0
+mass = 42.0

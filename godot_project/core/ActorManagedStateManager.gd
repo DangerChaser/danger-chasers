@@ -28,6 +28,11 @@ func disable() -> void:
 		state.finished()
 	actor.enable_input()
 
+
+func change_state(state : String) -> void:
+	actor.state_machine.change_state(state)
+
+
 func play_animation(anim_name : String) -> void:
 	if not actor:
 		return
@@ -56,3 +61,15 @@ func queue_free_actor() -> void:
 		return
 	actor.queue_free()
 	actor = null
+
+
+func go_to_actor() -> void:
+	if not actor:
+		return
+	global_position = actor.global_position
+
+
+func initialize(team := "") -> void:
+	if not actor:
+		return
+	actor.initialize(team)

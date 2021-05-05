@@ -43,7 +43,5 @@ weapons = [ ExtResource( 7 ) ]
 stagger = false
 
 [editable path="MoveTo"]
-
 [editable path="MoveTo/Motion"]
-
 [editable path="FaceTarget"]

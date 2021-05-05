@@ -19,6 +19,7 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 anims/start = SubResource( 2 )
+
 [connection signal="started" from="." to="AnimationPlayer" method="play" binds= [ "start" ]]
 
 [editable path="DamageSource"]

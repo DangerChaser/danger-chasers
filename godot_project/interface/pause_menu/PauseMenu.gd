@@ -2,8 +2,6 @@ extends CanvasLayer
 
 export(String) var game_path : String
 export(String) var main_menu_path : String
-export(String) var restart_transition_in_animation : String
-export(float) var restart_transition_in_duration := 0.5
 export(String) var quit_transition_in_animation : String
 export(float) var quit_transition_in_duration := 0.5
 
@@ -104,8 +102,7 @@ func _on_Resume_pressed():
 
 
 func _on_Restart_pressed():
-	yield(Transition.transition_in(restart_transition_in_animation, restart_transition_in_duration), "transition_in_finished")
-	GameManager.game.level_loader.change_level(GameManager.current_loaded_level, GameManager.initial_spawn_point, "left_to_right", 0.5)
+	GameManager.game.level_loader.restart()
 	unpause()
 
 
