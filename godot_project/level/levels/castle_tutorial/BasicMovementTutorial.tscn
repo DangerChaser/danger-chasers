@@ -13,14 +13,14 @@
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 128, 1408 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
 extents = Vector2( 128, 896 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 resource_local_to_scene = true
 radius = 200.0
 
@@ -43,13 +43,13 @@ zoom = Vector2( 1.7, 1.7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/CameraLimitTrigger" index="0"]
 visible = false
 position = Vector2( 5536, -1920 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="ColliderTrigger" parent="Triggers/CameraLimitTrigger" index="1"]
 visible = false
 position = Vector2( -5024, -928 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="TopLeft" parent="Triggers/CameraLimitTrigger/CameraLimitPositions" index="0"]
@@ -68,7 +68,7 @@ level_path = "res://level/levels/castle_tutorial/CraftsTutorial.tscn"
 
 [node name="CollisionShape2D" parent="Triggers/ChangeLevelInteractionArea" index="1"]
 visible = false
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="TaskComplete" parent="Triggers" index="3" instance=ExtResource( 6 )]

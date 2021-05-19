@@ -3,7 +3,7 @@
 [ext_resource path="res://autoload/PlayerManager.gd" type="Script" id=1]
 [ext_resource path="res://actor_framework/stats/Stats.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/ariko/weapons/job/ReinaHomingMissiles.tscn" type="PackedScene" id=3]
-[ext_resource path="res://weapons/InnerSpectreHeavySlash.tscn" type="PackedScene" id=4]
+[ext_resource path="res://weapons/TomaDoubleSlash.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/ariko/weapons/job/Dash.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/ariko/weapons/job/SparrowHomingMissiles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://weapons/BackflipKunaiThrow.tscn" type="PackedScene" id=7]
@@ -49,4 +49,10 @@ initialize_on_start = false
 
 [node name="Weapons" parent="JobSkills/BackflipKunaiThrow" instance=ExtResource( 14 )]
 weapons = [ ExtResource( 7 ) ]
+initialize_on_start = false
+
+[node name="HeavySlash" parent="JobSkills" instance=ExtResource( 2 )]
+
+[node name="Weapons" parent="JobSkills/HeavySlash" instance=ExtResource( 14 )]
+weapons = [ ExtResource( 4 ) ]
 initialize_on_start = false

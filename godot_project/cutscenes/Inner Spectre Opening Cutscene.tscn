@@ -472,10 +472,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0.75, 1.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [ "walk" ],
+"args": [ "run" ],
 "method": "play_animation"
 }, {
 "args": [ "idle" ],
@@ -545,10 +545,22 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0.75, 1.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -400, 0 ), Vector2( -320, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("PlayerManagedStateManager:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1.2, 1.85 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ), Vector2( 1, 1 ) ]
 }
 
 [node name="Inner Spectre Opening Cutscene" instance=ExtResource( 2 )]
@@ -562,7 +574,7 @@ next/0 = "1"
 next/1 = "end"
 
 [node name="PlayerManagedStateManager" parent="." index="2" instance=ExtResource( 5 )]
-position = Vector2( -400, 0 )
+position = Vector2( -320, 0 )
 managed_state = ExtResource( 4 )
 
 [node name="ActorManagedStateManager" parent="." index="3" instance=ExtResource( 1 )]
@@ -577,6 +589,7 @@ tween_duration = 1.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )

@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://core/Cutscene.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx/task_complete.wav" type="AudioStream" id=2]
 [ext_resource path="res://core/utils/ChangeEngineSpeed.gd" type="Script" id=3]
 [ext_resource path="res://core/PlayerManagedStateManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://cutscenes/framework/CutsceneCamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actor_states/ManagedState.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "0"
-length = 0.3
+length = 0.2
 tracks/0/type = "method"
 tracks/0/path = NodePath("AudioStreamPlayer")
 tracks/0/interp = 1
@@ -79,6 +80,20 @@ tracks/4/keys = {
 "method": "go_to_actor"
 } ]
 }
+tracks/5/type = "method"
+tracks/5/path = NodePath("CutsceneCamera")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "enable"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -106,11 +121,25 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.088621 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 0.0 ],
 "method": "enable"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("CutsceneCamera")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "disable"
 } ]
 }
 
@@ -164,7 +193,6 @@ tracks/0/keys = {
 
 [node name="TaskComplete" type="Node2D"]
 script = ExtResource( 1 )
-replayable = true
 skippable = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -195,13 +223,17 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = -5.071
 bus = "Sfx"
 
 [node name="ChangeEngineSpeed" type="Node" parent="."]
 script = ExtResource( 3 )
 engine_speed = 0.1
 
+[node name="CutsceneCamera" parent="." instance=ExtResource( 5 )]
+
 [node name="PlayerManagedStateManager" parent="." instance=ExtResource( 4 )]
+managed_state = ExtResource( 6 )
 
 [node name="CutsceneCamera" parent="PlayerManagedStateManager" instance=ExtResource( 5 )]
 current = true

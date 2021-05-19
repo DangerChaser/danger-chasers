@@ -24,6 +24,7 @@ func _ready() -> void:
 #	PlayerManager.activate_skill("ShotgunBlast")
 	PlayerManager.activate_skill("Dash")
 	PlayerManager.activate_skill("BackflipKunaiThrow")
+	PlayerManager.activate_skill("HeavySlash")
 #	PlayerManager.activate_skill("ReinaHomingMissiles")
 #	PlayerManager.activate_skill("SparrowHomingMissiles")
 #	PlayerManager.activate_skill("LavaLauncher")

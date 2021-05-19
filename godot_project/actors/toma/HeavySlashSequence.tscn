@@ -3,9 +3,9 @@
 [ext_resource path="res://actor_states/Sequence.gd" type="Script" id=2]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=5]
-[ext_resource path="res://weapons/InnerSpectreHeavySlash.tscn" type="PackedScene" id=6]
+[ext_resource path="res://weapons/TomaDoubleSlash.tscn" type="PackedScene" id=6]
 
-[node name="HeavySlashSequence" type="Node2D"]
+[node name="DoubleSlashSequence" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="MoveTo" parent="." instance=ExtResource( 5 )]
@@ -37,14 +37,11 @@ max_speed = 1000.0
 [node name="Gravity" parent="MoveTo2/Motion" index="2"]
 max_speed = 2000.0
 
-[node name="HeavySlash" parent="." instance=ExtResource( 4 )]
+[node name="DoubleSlash" parent="." instance=ExtResource( 4 )]
 weapons = [ ExtResource( 6 ) ]
 stagger = false
 
 [editable path="MoveTo"]
-
 [editable path="MoveTo/Motion"]
-
 [editable path="MoveTo2"]
-
 [editable path="MoveTo2/Motion"]

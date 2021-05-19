@@ -16,7 +16,6 @@ var reset_limit_bottom
 var lerp_value : float
 
 
-
 func _ready() -> void:
 	set_physics_process(false)
 

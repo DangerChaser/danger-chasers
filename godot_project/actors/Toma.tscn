@@ -1,0 +1,172 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/toma/HeavySlashSequence.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actor_pivots/TomaPivot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=7]
+[ext_resource path="res://weapons/TomaScreenSlash.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=9]
+[ext_resource path="res://interface/BattleHUD/BossHUDLayer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actor_states/Sequence.gd" type="Script" id=11]
+[ext_resource path="res://weapons/TomaSlashCombo.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 8, 24 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends StateMachine
+
+var phase_2_entered
+var phase_2_turns
+
+
+func _decide_on_next_state() -> State:
+	if owner.stats.get_health_percent() > 0.75:
+		return _get_phase_1_state()
+	else:
+		if not phase_2_entered:
+			phase_2_entered = true
+			phase_2_turns = 0
+			return get_state(\"KunaiDropperSequence\")
+		else:
+			phase_2_turns += 1
+			if phase_2_turns == 3 or phase_2_turns == 6:
+				return get_state(\"WallrunKunaiThrowSequence\")
+			elif phase_2_turns == 9:
+				phase_2_turns = 0
+				return get_state(\"KunaiDropperSequence\")
+			else:
+				return _get_phase_2_state()
+
+
+func _get_phase_1_state() -> State:
+	var x = randf()
+	if x >= 0.0 and x < 0.25:
+		return get_state(\"KunaiThrowSequence\")
+	elif x >= 0.25 and x < 0.5:
+		return get_state(\"KunaiBombThrowSequence\")
+	elif x >= 0.5 and x < 0.75:
+		return get_state(\"HeavySlashSequence\")
+	else:
+		return get_state(\"DashSequence\")
+
+
+
+func _get_phase_2_state() -> State:
+	var x = randf()
+	if x >= 0.0 and x < 0.3:
+		return get_state(\"SpawnKunaiBombThrow-Dash\")
+	elif x >= 0.3 and x < 0.6:
+		return get_state(\"SpawnKunaiThrow-Dash\")
+	elif x >= 0.6 and x < 0.8:
+		return get_state(\"SpawnKunaiBombThrow-KunaiThrow\")
+	else:
+		return get_state(\"SpawnKunaiThrow-KunaiBombThrow\")
+"
+
+[node name="Toma" groups=[
+"enemies",
+] instance=ExtResource( 1 )]
+collision_mask = 1
+pause_offscreen = false
+
+[node name="Pivot" parent="." index="0" instance=ExtResource( 5 )]
+
+[node name="CollisionBox" parent="." index="1"]
+position = Vector2( 0, -24 )
+shape = SubResource( 1 )
+
+[node name="StateMachine" parent="." index="3"]
+script = SubResource( 2 )
+
+[node name="Wait" parent="StateMachine" index="0" instance=ExtResource( 7 )]
+
+[node name="HeavySlashSequence" parent="StateMachine" index="1" instance=ExtResource( 3 )]
+next_state = "ScreenSlashSequence"
+
+[node name="ScreenSlashSequence" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource( 11 )
+next_state = "SlashComboSequence"
+
+[node name="MoveTo" parent="StateMachine/ScreenSlashSequence" index="0" instance=ExtResource( 4 )]
+duration = 5.0
+animation = "run"
+max_roam_radius = 0.0
+arrive_distance = 400.0
+face_target = true
+finish_on_arrive = true
+
+[node name="MotionSteering" parent="StateMachine/ScreenSlashSequence/MoveTo/Motion" index="1"]
+max_speed = 400.0
+slow_radius = -1.0
+
+[node name="Gravity" parent="StateMachine/ScreenSlashSequence/MoveTo/Motion" index="2"]
+max_speed = 2000.0
+
+[node name="MoveTo2" parent="StateMachine/ScreenSlashSequence" index="1" instance=ExtResource( 4 )]
+duration = 5.0
+animation = "dash"
+max_roam_radius = 0.0
+arrive_distance = 50.0
+face_target = true
+finish_on_arrive = true
+
+[node name="MotionSteering" parent="StateMachine/ScreenSlashSequence/MoveTo2/Motion" index="1"]
+max_speed = 1000.0
+
+[node name="Gravity" parent="StateMachine/ScreenSlashSequence/MoveTo2/Motion" index="2"]
+max_speed = 2000.0
+
+[node name="ScreenSlash" parent="StateMachine/ScreenSlashSequence" index="2" instance=ExtResource( 9 )]
+weapons = [ ExtResource( 8 ) ]
+stagger = false
+
+[node name="SlashComboSequence" type="Node2D" parent="StateMachine" index="3"]
+script = ExtResource( 11 )
+next_state = "HeavySlashSequence"
+
+[node name="MoveTo" parent="StateMachine/SlashComboSequence" index="0" instance=ExtResource( 4 )]
+duration = 5.0
+animation = "run"
+max_roam_radius = 0.0
+arrive_distance = 400.0
+face_target = true
+finish_on_arrive = true
+
+[node name="MoveTo2" parent="StateMachine/SlashComboSequence" index="1" instance=ExtResource( 4 )]
+duration = 5.0
+animation = "dash"
+max_roam_radius = 0.0
+arrive_distance = 50.0
+face_target = true
+finish_on_arrive = true
+
+[node name="SlashCombo" parent="StateMachine/SlashComboSequence" index="2" instance=ExtResource( 9 )]
+weapons = [ ExtResource( 12 ) ]
+stagger = false
+
+[node name="Stagger" parent="StateMachine" index="4" instance=ExtResource( 6 )]
+look_away_from_move_direction = false
+next_state = "HeavySlashSequence"
+revenge_threshold = 6.0
+revenge_state = "DashSequence"
+
+[node name="Die" parent="StateMachine" index="5" instance=ExtResource( 2 )]
+
+[node name="Stats" parent="." index="6"]
+max_health = 500
+
+[node name="TargetPosition1" parent="TargetPositions" index="0"]
+position = Vector2( 0, -64 )
+
+[node name="BossHUDLayer" parent="." index="9" instance=ExtResource( 10 )]
+
+[editable path="StateMachine/ScreenSlashSequence/MoveTo"]
+[editable path="StateMachine/ScreenSlashSequence/MoveTo/Motion"]
+[editable path="StateMachine/ScreenSlashSequence/MoveTo2"]
+[editable path="StateMachine/ScreenSlashSequence/MoveTo2/Motion"]
+[editable path="Stats"]

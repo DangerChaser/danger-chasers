@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/sfx/swing.wav" type="AudioStream" id=3]
 [ext_resource path="res://combat/weapons/attack_additional_effects/PassThroughActorEffect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/particles/DirewolfSlashLine.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/particles/StabLine2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/sprites/particles/claw_slash.png" type="Texture" id=7]
 [ext_resource path="res://combat/weapons/damage_source/DamageSource.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/particles/RedClaw.tscn" type="PackedScene" id=9]
@@ -175,7 +175,7 @@ tracks/1/keys = {
 
 [sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
-extents = Vector2( 200, 16 )
+extents = Vector2( 104, 8 )
 
 [node name="InnerSpectreDash" instance=ExtResource( 1 )]
 
@@ -183,7 +183,7 @@ extents = Vector2( 200, 16 )
 stream = ExtResource( 3 )
 
 [node name="SlashParticles" parent="." index="2" instance=ExtResource( 5 )]
-position = Vector2( 8, -40 )
+position = Vector2( 24, -16 )
 object = ExtResource( 6 )
 
 [node name="AnimationPlayer" parent="." index="3"]
@@ -198,7 +198,7 @@ hit_particles = ExtResource( 9 )
 damage = 2
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
-position = Vector2( 0, 24 )
+position = Vector2( 0, 32 )
 shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Pivot" index="0"]
