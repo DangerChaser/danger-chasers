@@ -21,9 +21,10 @@ func _ready() -> void:
 	
 	if auto_start:
 		start()
+	
+	set_process_input(false)
 
 func start() -> void:
-	print_debug(name)
 	if GameManager.game:
 		GameManager.game.pause_menu.can_pause = false
 	play("0")

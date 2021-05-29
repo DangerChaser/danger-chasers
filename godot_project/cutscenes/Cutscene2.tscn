@@ -413,7 +413,7 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "initialize"
+"method": "start"
 } ]
 }
 
@@ -486,7 +486,7 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "initialize"
+"method": "start"
 } ]
 }
 
@@ -553,7 +553,7 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "initialize"
+"method": "start"
 } ]
 }
 
@@ -869,11 +869,11 @@ next/5 = "end"
 [node name="Transition" parent="." index="2" instance=ExtResource( 5 )]
 
 [node name="CutsceneCamera" parent="." index="3" instance=ExtResource( 4 )]
-position = Vector2( -192, -728 )
-zoom = Vector2( 1.4, 1.4 )
+position = Vector2( 88, -64 )
+zoom = Vector2( 1.2, 1.2 )
 
 [node name="PlayerManagedStateManager" parent="." index="4" instance=ExtResource( 11 )]
-position = Vector2( 32, 0 )
+position = Vector2( 16, 0 )
 managed_state = ExtResource( 12 )
 
 [node name="NPC" parent="." index="5" instance=ExtResource( 14 )]
@@ -888,7 +888,7 @@ position = Vector2( 3.05176e-05, -32 )
 timeline = "timeline-1613443256.json"
 
 [node name="ActorManagedStateManager" parent="." index="6" instance=ExtResource( 16 )]
-position = Vector2( -288, -704 )
+position = Vector2( 136, 0 )
 actor_path = NodePath("../NPC")
 managed_state = ExtResource( 12 )
 

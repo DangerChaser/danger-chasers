@@ -11,7 +11,6 @@ var target
 func lock_on(new_target=null) -> void:
 	if new_target:
 		change_target(new_target)
-		emit_signal("target_acquired", get_target())
 		return
 	
 	var closest_enemy
@@ -23,7 +22,6 @@ func lock_on(new_target=null) -> void:
 	
 	if closest_enemy:
 		change_target(closest_enemy)
-		emit_signal("target_acquired", get_target())
 	else:
 		unlock()
 
@@ -66,6 +64,8 @@ func change_target(new_target) -> void:
 	if not target.owner.is_connected("health_depleted", self, "target_died"):
 		target.owner.connect("health_depleted", self, "target_died")
 	global_position = target.global_position
+	
+	emit_signal("target_acquired", get_target())
 
 
 func target_died(old_target):
@@ -90,3 +90,10 @@ func get_distance() -> float:
 func get_rotation_to() -> float: # in radians
 	var target = get_target()
 	return (target.global_position - owner.global_position).angle()
+
+func get_direction() -> Vector2:
+	var target = get_target()
+	if not target:
+		return owner.look_direction
+	else:
+		return owner.global_position.direction_to(target.global_position)

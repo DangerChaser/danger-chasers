@@ -72,7 +72,8 @@ func enter(args := {}) -> void:
 	target_direction = target_direction.normalized()
 	
 	if weapon_rotate:
-		target_direction = owner.global_position.direction_to(owner.target.get_target().global_position)
+		if owner.target.get_target():
+			target_direction = owner.global_position.direction_to(owner.target.get_target().global_position)
 	
 	if takes_previous_speed and args.has("initial_speed"):
 		motion.steering.velocity = target_direction * max(args["initial_speed"], initial_speed)
@@ -90,7 +91,11 @@ func enter(args := {}) -> void:
 	if args.has("velocity") and take_previous_velocity:
 		motion.steering.velocity = args["velocity"]
 	
+	if weapon_rotate:
+		_weapon_rotate()
 	move(target_direction)
+	if weapon_rotate:
+		_weapon_rotate()
 
 
 func exit() -> void:
@@ -109,22 +114,27 @@ func _rotate() -> void:
 
 
 func _actor_rotate() -> void:
-	var direction = Vector2()
-	if owner.target and owner.target.get_target():
-		direction = owner.global_position.direction_to(owner.target.get_target().global_position)
-	else:
-		direction = motion.total_velocity.normalized()
+	var direction = owner.target.get_direction() if owner.target.get_target() else motion.total_velocity.normalized()
 	owner.set_rotation(direction.angle())
 
 
 func _weapon_rotate() -> void:
-	var direction = motion.total_velocity.normalized()
-	if owner.target and owner.target.get_target():
-		direction = owner.global_position.direction_to(owner.target.get_target().global_position)
+	var direction = owner.target.get_direction() if owner.target.get_target() else motion.total_velocity.normalized()
 	var angle = direction.angle()
 	
+	# Bro I don't know why I have to code it like this but I have to
 	if owner is MirrorBody2D and owner.look_direction == Vector2.LEFT:
-		angle = PI - angle
+		if direction.x < 0:
+			angle = PI - angle
+			weapon.scale = Vector2(abs(weapon.scale.x), abs(weapon.scale.y))
+		elif direction.x > 0:
+			weapon.scale = Vector2(abs(weapon.scale.x), abs(weapon.scale.y))
+	elif owner is MirrorBody2D and owner.look_direction == Vector2.RIGHT:
+		if direction.x < 0:
+			angle = PI - angle
+			weapon.scale = Vector2(abs(weapon.scale.x), abs(weapon.scale.y))
+		elif direction.x > 0:
+			weapon.scale = Vector2(abs(weapon.scale.x), abs(weapon.scale.y))
 	
 	weapon.set_rotation(angle)
 

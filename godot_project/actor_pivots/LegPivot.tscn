@@ -1,0 +1,781 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://assets/sprites/misc/4_pixel_cross_white.png" type="Texture" id=1]
+[ext_resource path="res://core/SfxParticleSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://core/TwoPointLine2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/actors/ariko/upper_leg_texture.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/actors/ariko/foot_texture.png" type="Texture" id=5]
+[ext_resource path="res://core/utils/SquashStretchTween.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actor_framework/Pivot.tscn" type="PackedScene" id=47]
+[ext_resource path="res://vfx/Trail.tscn" type="PackedScene" id=49]
+[ext_resource path="res://assets/particles/FootstepsLaunch.tscn" type="PackedScene" id=53]
+[ext_resource path="res://assets/particles/FootstepsLand.tscn" type="PackedScene" id=54]
+
+[sub_resource type="Curve" id=42]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Animation" id=46]
+resource_name = "135"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -7, 17 ) ]
+}
+
+[sub_resource type="Animation" id=54]
+resource_name = "150"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -5, 19 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.53674e-07, -19 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("..:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -45.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("..:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("..:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("..:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("..")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "135" ],
+"method": "play_animation"
+} ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "45"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -7, 3 ) ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "90"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, 10 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 20 ) ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "closed"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -5, 0 ) ]
+}
+
+[sub_resource type="Animation" id=53]
+resource_name = "extend"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 20 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("SquashStretchTween")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "begin"
+} ]
+}
+
+[sub_resource type="Animation" id=51]
+resource_name = "knee_front"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "knee_front_30"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 10 ) ]
+}
+
+[sub_resource type="Animation" id=52]
+resource_name = "knee_front_ground"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 4 ) ]
+}
+
+[sub_resource type="Animation" id=56]
+resource_name = "kneel_front"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.101, 0.25, 0.4, 0.45, 0.6 ),
+"transitions": PoolRealArray( 1, 0.378929, 7.46426, 7.46426, 1, 1, 1.27456, 5.85634 ),
+"update": 0,
+"values": [ Vector2( 5, 8 ), Vector2( 9, -2 ), Vector2( 10, 0 ), Vector2( 9.64286, 0.571429 ), Vector2( 6, 9 ), Vector2( 4, 9 ), Vector2( -11, 1 ), Vector2( -8, 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.25, 0.4, 0.45, 0.6 ),
+"transitions": PoolRealArray( 1, 0.378929, 7.46426, 1, 1, 1.27456, 5.85634 ),
+"update": 0,
+"values": [ Vector2( -5, 10 ), Vector2( 16, 7 ), Vector2( 22, 1 ), Vector2( 10, 20 ), Vector2( 0, 18 ), Vector2( -22, 2 ), Vector2( -18, 3 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("FootstepLandParticleSpawner")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("FootstepLaunchParticleSpawner")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+
+[sub_resource type="Animation" id=57]
+resource_name = "run_alternate"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2, 0.4, 0.45, 0.5, 0.65 ),
+"transitions": PoolRealArray( 1, 1.27456, 5.85634, 1, 0.378929, 7.46426, 1 ),
+"update": 0,
+"values": [ Vector2( 4, 9 ), Vector2( -11, 1 ), Vector2( -8, 4 ), Vector2( 5, 8 ), Vector2( 9, -2 ), Vector2( 10, 0 ), Vector2( 6, 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2, 0.4, 0.45, 0.5, 0.65 ),
+"transitions": PoolRealArray( 1, 1.27456, 5.85634, 1, 0.378929, 7.46426, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 18 ), Vector2( -22, 2 ), Vector2( -18, 3 ), Vector2( -5, 10 ), Vector2( 16, 7 ), Vector2( 22, 1 ), Vector2( 10, 20 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("FootstepLandParticleSpawner")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.65 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("FootstepLaunchParticleSpawner")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "straight"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 20 ) ]
+}
+
+[sub_resource type="Animation" id=58]
+resource_name = "wallrun"
+length = 0.2
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.025, 0.075, 0.1, 0.125, 0.175 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5, 8 ), Vector2( 11, 2 ), Vector2( 4, 3 ), Vector2( 5, 6 ), Vector2( -11, 3 ), Vector2( 5, 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.025, 0.075, 0.1, 0.125, 0.175 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -4, 10 ), Vector2( 22, 5 ), Vector2( 1, 6 ), Vector2( 1, 12 ), Vector2( -22, 6 ), Vector2( -6, 11 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("FootstepLandParticleSpawner")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.075 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("FootstepLaunchParticleSpawner")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+
+[sub_resource type="Animation" id=59]
+resource_name = "wallrun_alternate"
+length = 0.2
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.025, 0.075, 0.1, 0.125, 0.175 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5, 6 ), Vector2( -11, 3 ), Vector2( 5, 7 ), Vector2( 5, 8 ), Vector2( 11, 2 ), Vector2( 4, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomOfFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.025, 0.075, 0.1, 0.125, 0.175 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 12 ), Vector2( -22, 6 ), Vector2( -6, 11 ), Vector2( -4, 10 ), Vector2( 22, 5 ), Vector2( 1, 6 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("FootstepLandParticleSpawner")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.175 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("FootstepLaunchParticleSpawner")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+
+[sub_resource type="Curve" id=43]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=44]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="LegPivot" instance=ExtResource( 47 )]
+
+[node name="PivotSprite" type="Sprite" parent="." index="0"]
+modulate = Color( 0.14902, 0.141176, 0.227451, 1 )
+texture = ExtResource( 1 )
+
+[node name="Trail" parent="PivotSprite" index="0" instance=ExtResource( 49 )]
+width = 4.0
+width_curve = SubResource( 42 )
+default_color = Color( 0.14902, 0.141176, 0.227451, 1 )
+distance = 1
+lifetime = 0.02
+segments = 8
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "SETUP"
+anims/135 = SubResource( 46 )
+anims/150 = SubResource( 54 )
+anims/45 = SubResource( 47 )
+anims/90 = SubResource( 48 )
+anims/SETUP = SubResource( 41 )
+anims/closed = SubResource( 49 )
+anims/extend = SubResource( 53 )
+anims/knee_front = SubResource( 51 )
+anims/knee_front_30 = SubResource( 55 )
+anims/knee_front_ground = SubResource( 52 )
+anims/kneel_front = SubResource( 56 )
+anims/run = SubResource( 18 )
+anims/run_alternate = SubResource( 57 )
+anims/straight = SubResource( 50 )
+anims/wallrun = SubResource( 58 )
+anims/wallrun_alternate = SubResource( 59 )
+
+[node name="SquashStretchTween" parent="." index="2" instance=ExtResource( 7 )]
+target_path = NodePath("..")
+horizontal_factor = 0.8
+vertical_factor = 1.2
+
+[node name="BottomOfFoot" type="Position2D" parent="." index="3"]
+modulate = Color( 0.580392, 0.333333, 0.258824, 1 )
+position = Vector2( 1, 6 )
+
+[node name="Trail" parent="BottomOfFoot" index="0" instance=ExtResource( 49 )]
+width = 2.0
+width_curve = SubResource( 43 )
+default_color = Color( 0.580392, 0.333333, 0.258824, 1 )
+distance = 1
+lifetime = 0.02
+segments = 8
+
+[node name="UpperLegLine2D" parent="." index="4" instance=ExtResource( 3 )]
+width = 5.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 4 )
+texture_mode = 2
+target_0 = NodePath("../PivotSprite")
+target_1 = NodePath("../Knee")
+
+[node name="Trail" parent="UpperLegLine2D" index="0" instance=ExtResource( 49 )]
+width = 4.0
+width_curve = SubResource( 44 )
+default_color = Color( 0.14902, 0.141176, 0.227451, 1 )
+distance = 1
+lifetime = 0.02
+segments = 8
+
+[node name="FootLine2D" parent="." index="5" instance=ExtResource( 3 )]
+width = 5.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 5 )
+texture_mode = 2
+target_0 = NodePath("../Knee")
+target_1 = NodePath("../BottomOfFoot")
+
+[node name="Trail" parent="FootLine2D" index="0" instance=ExtResource( 49 )]
+width = 4.0
+width_curve = SubResource( 44 )
+default_color = Color( 0.580392, 0.333333, 0.258824, 1 )
+distance = 1
+lifetime = 0.02
+segments = 8
+
+[node name="Knee" type="Position2D" parent="." index="6"]
+modulate = Color( 0.580392, 0.333333, 0.258824, 1 )
+position = Vector2( 4, 3 )
+
+[node name="Trail" parent="Knee" index="0" instance=ExtResource( 49 )]
+width = 2.0
+width_curve = SubResource( 42 )
+default_color = Color( 0.580392, 0.333333, 0.258824, 1 )
+distance = 1
+lifetime = 0.02
+segments = 8
+
+[node name="Sprite" type="Sprite" parent="Knee" index="1"]
+texture = ExtResource( 1 )
+
+[node name="FootstepLandParticleSpawner" parent="." index="7" instance=ExtResource( 2 )]
+position = Vector2( 1, 6 )
+object = ExtResource( 54 )
+
+[node name="FootstepLaunchParticleSpawner" parent="." index="8" instance=ExtResource( 2 )]
+position = Vector2( 0, 6 )
+object = ExtResource( 53 )

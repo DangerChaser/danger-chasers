@@ -21,7 +21,6 @@ layer = 125
 script = ExtResource( 2 )
 game_path = "res://core/Game.tscn"
 main_menu_path = "res://level/levels/adventurers_guild/AdventurersGuild.tscn"
-restart_transition_in_animation = "left_to_right"
 quit_transition_in_animation = "left_to_right"
 
 [node name="PauseSfx" type="AudioStreamPlayer" parent="."]
@@ -40,6 +39,7 @@ margin_left = 32.0
 margin_top = 32.0
 margin_right = -32.0
 margin_bottom = -14.0
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -193,6 +193,7 @@ press_sfx = ExtResource( 12 )
 focus_enter_sfx = ExtResource( 13 )
 
 [node name="InputMenu" parent="." instance=ExtResource( 10 )]
+visible = false
 margin_left = 32.0
 margin_top = 32.0
 margin_right = -32.0
@@ -214,6 +215,7 @@ margin_left = 32.0
 margin_top = 32.0
 margin_right = -32.0
 margin_bottom = -14.0
+
 [connection signal="pressed" from="Pause/Buttons/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Pause/Buttons/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Pause/Buttons/Inventory" to="." method="_on_Inventory_pressed"]

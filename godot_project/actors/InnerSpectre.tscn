@@ -136,8 +136,11 @@ queue_free_on_die = false
 [node name="Gravity" parent="StateMachine/Die" index="2"]
 max_speed = 0.0
 
+[node name="Stats" parent="." index="6"]
+max_health = 500
+
 [node name="TargetPosition1" parent="TargetPositions" index="0"]
-position = Vector2( 0, -64 )
+position = Vector2( 0, -16 )
 
 [node name="BossHUDLayer" parent="." index="9" instance=ExtResource( 10 )]
 

@@ -48,7 +48,7 @@ tile_data = PoolIntArray( -2097055, 0, 65542, -2097054, 0, 65541, -2097053, 0, 6
 
 [node name="CameraLimitTrigger" parent="Triggers" index="0" instance=ExtResource( 8 )]
 position = Vector2( 864, 40 )
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 1, 1 )
 
 [node name="ColliderTrigger" parent="Triggers/CameraLimitTrigger" index="0"]
 shape = SubResource( 2 )

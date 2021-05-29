@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/levels/soul_dive/rooms/DreamDiveArena.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://cutscenes/Inner Spectre Opening Cutscene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://cutscenes/TaskComplete.tscn" type="PackedScene" id=6]
 [ext_resource path="res://cutscenes/Inner Spectre Victory Cutscene.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interactable_scripts/base/ChangeLevelInteractionArea.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -18,6 +19,10 @@ extents = Vector2( 56, 136 )
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
 extents = Vector2( 72, 744 )
+
+[sub_resource type="CircleShape2D" id=4]
+resource_local_to_scene = true
+radius = 200.0
 
 [node name="DreamDiveArena" instance=ExtResource( 1 )]
 skybox_color = Color( 0.0509804, 0.0117647, 0.0941176, 1 )
@@ -46,6 +51,16 @@ actor_path = NodePath("../../../YSort/InnerSpectre")
 [node name="ActorManagedStateManager" parent="Triggers/Inner Spectre Victory Cutscene" index="3"]
 actor_path = NodePath("../../../YSort/InnerSpectre")
 
+[node name="ChangeLevelInteractionArea" parent="Triggers" index="2" instance=ExtResource( 8 )]
+level_path = "res://level/levels/adventurers_guild/AdventurersGuild.tscn"
+transition_in_animation = ""
+transition_in_duration = 0.0
+
+[node name="CollisionShape2D" parent="Triggers/ChangeLevelInteractionArea" index="1"]
+visible = false
+shape = SubResource( 4 )
+disabled = true
+
 [node name="InnerSpectre" parent="YSort" index="0" instance=ExtResource( 4 )]
 position = Vector2( 256, 0 )
 
@@ -59,6 +74,7 @@ position = Vector2( 14301.6, 4669.06 )
 camera_limit_trigger = NodePath("../../Rooms/DreamDiveArena/Triggers/CameraLimitTrigger")
 
 [connection signal="initialized" from="." to="Triggers/Inner Spectre Opening Cutscene" method="start"]
+[connection signal="finished" from="Triggers/Inner Spectre Victory Cutscene" to="Triggers/ChangeLevelInteractionArea" method="start"]
 [connection signal="health_depleted_no_arg" from="YSort/InnerSpectre" to="YSort/InnerSpectre/TaskComplete" method="start"]
 [connection signal="finished" from="YSort/InnerSpectre/TaskComplete" to="Triggers/Inner Spectre Victory Cutscene" method="start"]
 
@@ -68,3 +84,4 @@ camera_limit_trigger = NodePath("../../Rooms/DreamDiveArena/Triggers/CameraLimit
 [editable path="Rooms/DreamDiveArena/Triggers/LevelTransition"]
 [editable path="Triggers/Inner Spectre Opening Cutscene"]
 [editable path="Triggers/Inner Spectre Victory Cutscene"]
+[editable path="Triggers/ChangeLevelInteractionArea"]

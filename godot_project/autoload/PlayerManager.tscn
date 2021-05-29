@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://autoload/PlayerManager.gd" type="Script" id=1]
 [ext_resource path="res://actor_framework/stats/Stats.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://actors/ariko/weapons/job/Dash.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/ariko/weapons/job/SparrowHomingMissiles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://weapons/BackflipKunaiThrow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://weapons/SwordWaveLauncher.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actors/ariko/weapons/job/LavaLauncher.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=14]
 
@@ -54,5 +55,5 @@ initialize_on_start = false
 [node name="HeavySlash" parent="JobSkills" instance=ExtResource( 2 )]
 
 [node name="Weapons" parent="JobSkills/HeavySlash" instance=ExtResource( 14 )]
-weapons = [ ExtResource( 4 ) ]
+weapons = [ ExtResource( 8 ) ]
 initialize_on_start = false

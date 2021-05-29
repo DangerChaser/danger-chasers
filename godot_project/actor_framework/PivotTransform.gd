@@ -9,6 +9,10 @@ func _ready() -> void:
 #		pivot.target = get_path()
 
 
-func play(name="", custom_blend:=-1.0, custom_speed:=1.0, from_end:=false):
+func play(name:="", custom_blend:=-1.0, custom_speed:=1.0, from_end:=false):
 	if pivot:
 		pivot.play(name, custom_blend, custom_speed, from_end)
+
+func play_animation(name:=""):
+	if pivot:
+		pivot.play(name)

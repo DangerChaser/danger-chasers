@@ -217,7 +217,7 @@ tracks/14/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "initialize"
+"method": "start"
 } ]
 }
 tracks/15/type = "value"
@@ -283,7 +283,7 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "initialize"
+"method": "start"
 } ]
 }
 
@@ -389,7 +389,7 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "initialize"
+"method": "start"
 } ]
 }
 
@@ -534,7 +534,7 @@ position = Vector2( 816, -357 )
 zoom = Vector2( 3, 3 )
 
 [node name="PlayerManagedStateManager" parent="." index="4" instance=ExtResource( 11 )]
-position = Vector2( 344, 0 )
+position = Vector2( 339, 0 )
 managed_state = ExtResource( 12 )
 
 [node name="NPC" parent="." index="5" instance=ExtResource( 14 )]
@@ -542,8 +542,7 @@ managed_state = ExtResource( 12 )
 [node name="Pivot" parent="NPC" index="8" instance=ExtResource( 15 )]
 
 [node name="ActorManagedStateManager" parent="." index="6" instance=ExtResource( 16 )]
-position = Vector2( 386, 0 )
-scale = Vector2( -1, 1 )
+position = Vector2( 1024.25, -940.5 )
 actor_path = NodePath("../../Cutscene3/NPC")
 managed_state = ExtResource( 12 )
 
@@ -568,6 +567,7 @@ timeline = "timeline-1613626955.json"
 [node name="DialogNode3" parent="CanvasLayer" index="2" instance=ExtResource( 19 )]
 visible = false
 timeline = "timeline-1613630167.json"
+
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode" to="." method="play"]
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode2" to="." method="play"]
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode3" to="." method="play"]

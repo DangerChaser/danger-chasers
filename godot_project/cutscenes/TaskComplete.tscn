@@ -236,7 +236,6 @@ engine_speed = 0.1
 managed_state = ExtResource( 6 )
 
 [node name="CutsceneCamera" parent="PlayerManagedStateManager" instance=ExtResource( 5 )]
-current = true
 zoom = Vector2( 1.4, 1.4 )
 tween_duration = 1.0
 

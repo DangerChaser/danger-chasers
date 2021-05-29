@@ -215,7 +215,7 @@ tracks/14/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "initialize"
+"method": "start"
 } ]
 }
 tracks/15/type = "value"
@@ -269,7 +269,7 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "initialize"
+"method": "start"
 } ]
 }
 
@@ -287,7 +287,7 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "initialize"
+"method": "start"
 } ]
 }
 tracks/1/type = "value"
@@ -457,7 +457,8 @@ anims/end = SubResource( 5 )
 [node name="Transition" parent="." index="2" instance=ExtResource( 5 )]
 
 [node name="CutsceneCamera" parent="." index="3" instance=ExtResource( 4 )]
-position = Vector2( -22, -56 )
+position = Vector2( -19.125, -99.5 )
+zoom = Vector2( 1.25, 1.25 )
 
 [node name="PlayerManagedStateManager" parent="." index="4" instance=ExtResource( 11 )]
 position = Vector2( -40, 0 )
@@ -509,6 +510,7 @@ timeline = "timeline-1613721386.json"
 [node name="DialogNode3" parent="CanvasLayer" index="2" instance=ExtResource( 19 )]
 visible = false
 timeline = "timeline-1613721594.json"
+
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode" to="." method="play"]
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode2" to="." method="play"]
 [connection signal="dialogic_signal" from="CanvasLayer/DialogNode3" to="." method="play"]

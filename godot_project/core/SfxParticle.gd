@@ -73,3 +73,10 @@ func enable_emitting() -> void:
 func disable_emitting() -> void:
 	for particle in particles:
 		particle.emitting = false
+
+
+func set_angle(value) -> void:
+	if not particles:
+		particles = $Pivot.get_children()
+	for particle in particles:
+		particle.process_material.angle = value

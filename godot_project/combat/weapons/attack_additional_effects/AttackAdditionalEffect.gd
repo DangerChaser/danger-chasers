@@ -10,6 +10,8 @@ func _ready() -> void:
 	pause()
 
 func enter(args := {}) -> void:
+	if not owner.target.get_target():
+		owner.target.lock_on()
 	unpause()
 
 func exit() -> void:
