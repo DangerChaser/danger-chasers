@@ -39,8 +39,14 @@ func _decide_on_next_state() -> State:
 			return get_state(\"KunaiDropperSequence\")
 		else:
 			phase_2_turns += 1
-			if phase_2_turns == 3 or phase_2_turns == 6:
+			if phase_2_turns == 3:
 				return get_state(\"WallrunKunaiThrowSequence\")
+			elif phase_2_turns == 6:
+				var x = randf()
+				if x >= 0.0 and x < 0.5:
+					return get_state(\"SpawnKunaiBombThrow-KunaiThrow\")
+				else:
+					return get_state(\"SpawnKunaiThrow-KunaiBombThrow\")
 			elif phase_2_turns == 9:
 				phase_2_turns = 0
 				return get_state(\"KunaiDropperSequence\")
@@ -60,15 +66,7 @@ func _get_phase_1_state() -> State:
 
 
 func _get_phase_2_state() -> State:
-	var x = randf()
-	if x >= 0.0 and x < 0.3:
-		return get_state(\"SpawnKunaiBombThrow-Dash\")
-	elif x >= 0.3 and x < 0.6:
-		return get_state(\"SpawnKunaiThrow-Dash\")
-	elif x >= 0.6 and x < 0.8:
-		return get_state(\"SpawnKunaiBombThrow-KunaiThrow\")
-	else:
-		return get_state(\"SpawnKunaiThrow-KunaiBombThrow\")
+	return get_state(\"SpawnKunaiThrow-Dash\")
 "
 
 [node name="InnerSpectre" groups=[
@@ -135,9 +133,6 @@ queue_free_on_die = false
 
 [node name="Gravity" parent="StateMachine/Die" index="2"]
 max_speed = 0.0
-
-[node name="Stats" parent="." index="6"]
-max_health = 500
 
 [node name="TargetPosition1" parent="TargetPositions" index="0"]
 position = Vector2( 0, -16 )

@@ -122,19 +122,8 @@ func _weapon_rotate() -> void:
 	var direction = owner.target.get_direction() if owner.target.get_target() else motion.total_velocity.normalized()
 	var angle = direction.angle()
 	
-	# Bro I don't know why I have to code it like this but I have to
-	if owner is MirrorBody2D and owner.look_direction == Vector2.LEFT:
-		if direction.x < 0:
-			angle = PI - angle
-			weapon.scale = Vector2(abs(weapon.scale.x), abs(weapon.scale.y))
-		elif direction.x > 0:
-			weapon.scale = Vector2(abs(weapon.scale.x), abs(weapon.scale.y))
-	elif owner is MirrorBody2D and owner.look_direction == Vector2.RIGHT:
-		if direction.x < 0:
-			angle = PI - angle
-			weapon.scale = Vector2(abs(weapon.scale.x), abs(weapon.scale.y))
-		elif direction.x > 0:
-			weapon.scale = Vector2(abs(weapon.scale.x), abs(weapon.scale.y))
+	if direction.x < 0:
+		angle = PI - angle
 	
 	weapon.set_rotation(angle)
 
