@@ -11,6 +11,11 @@ quest_name_key = "TUTORIAL"
 quest_description_key = "TUTORIAL"
 level_path = "res://level/levels/castle_tutorial/BasicMovementTutorial.tscn"
 
+[node name="Toma" parent="." instance=ExtResource( 1 )]
+quest_name_key = "TOMA"
+quest_description_key = "TOMA_DESCRIPTION"
+level_path = "res://level/levels/tidal_forest/Arena.tscn"
+
 [node name="Inner Spectre" parent="." instance=ExtResource( 1 )]
 quest_name_key = "INNER_SPECTRE"
 quest_description_key = "INNER_SPECTRE_DESCRIPTION_KEY"

@@ -9,14 +9,14 @@
 extents = Vector2( 8, 48 )
 
 [node name="SwordWave" instance=ExtResource( 1 )]
-initial_speed = 800
+initial_speed = 600
 destroy_particles = ExtResource( 2 )
 collision_particles = ExtResource( 3 )
 
 [node name="Pivot" parent="." index="0" instance=ExtResource( 4 )]
 
 [node name="MotionSteering" parent="Motion" index="1"]
-max_speed = 800.0
+max_speed = 600.0
 
 [node name="Gravity" parent="Motion" index="2"]
 gravity = 0.0

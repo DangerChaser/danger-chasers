@@ -7,7 +7,7 @@
 resource_name = "SETUP"
 length = 0.001
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "slash"
 length = 0.6
 step = 0.05
@@ -18,7 +18,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 0.4, 0.5 ),
+"times": PoolRealArray( 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -32,15 +32,15 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
 extents = Vector2( 56, 24 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
 extents = Vector2( 56, 24 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
@@ -58,7 +58,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 resource_name = "attack"
 tracks/0/type = "method"
 tracks/0/path = NodePath("DamageSource")
@@ -92,11 +92,11 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=7]
 resource_local_to_scene = true
 extents = Vector2( 56, 24 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
@@ -114,7 +114,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 resource_name = "attack"
 tracks/0/type = "method"
 tracks/0/path = NodePath("DamageSource")
@@ -152,13 +152,13 @@ tracks/1/keys = {
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
-anims/slash = SubResource( 3 )
+anims/slash = SubResource( 2 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
 
 [node name="MeleeAttack" parent="Pivot/Attacks" index="0" instance=ExtResource( 2 )]
-actor_animation = "heavy_slash"
+actor_animation = "slash"
 
 [node name="DamageSource" parent="Pivot/Attacks/MeleeAttack" index="0"]
 position = Vector2( 0, 0 )
@@ -166,7 +166,7 @@ damage = 3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/MeleeAttack/DamageSource" index="0"]
 position = Vector2( 56, -24 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/MeleeAttack" index="1"]
 position = Vector2( 56, -24 )
@@ -178,7 +178,7 @@ initial_speed = 1000.0
 max_speed = 2000.0
 
 [node name="MeleeAttack2" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
-actor_animation = "heavy_slash"
+actor_animation = "slash"
 
 [node name="DamageSource" parent="Pivot/Attacks/MeleeAttack2" index="0"]
 position = Vector2( 0, 0 )
@@ -186,14 +186,14 @@ damage = 3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/MeleeAttack2/DamageSource" index="0"]
 position = Vector2( 56, -24 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/MeleeAttack2" index="1"]
 position = Vector2( 56, -24 )
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/MeleeAttack2" index="2"]
-anims/SETUP = SubResource( 7 )
-anims/attack = SubResource( 8 )
+anims/SETUP = SubResource( 5 )
+anims/attack = SubResource( 6 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/MeleeAttack2/AdditionalEffects" index="0"]
 initial_speed = 1000.0
@@ -207,14 +207,14 @@ damage = 3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/MeleeAttack3/DamageSource" index="0"]
 position = Vector2( 56, -24 )
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/MeleeAttack3" index="1"]
 position = Vector2( 56, -24 )
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/MeleeAttack3" index="2"]
-anims/SETUP = SubResource( 10 )
-anims/attack = SubResource( 11 )
+anims/SETUP = SubResource( 8 )
+anims/attack = SubResource( 9 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/MeleeAttack3/AdditionalEffects" index="0"]
 initial_speed = 1000.0

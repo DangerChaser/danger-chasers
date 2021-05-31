@@ -574,16 +574,17 @@ next/0 = "1"
 next/1 = "end"
 
 [node name="PlayerManagedStateManager" parent="." index="2" instance=ExtResource( 5 )]
-position = Vector2( -320, 0 )
+position = Vector2( -400, 0 )
 managed_state = ExtResource( 4 )
 
 [node name="ActorManagedStateManager" parent="." index="3" instance=ExtResource( 1 )]
+position = Vector2( -320, 0 )
 scale = Vector2( -1, 1 )
 managed_state = ExtResource( 4 )
 
 [node name="CutsceneCamera" parent="." index="4" instance=ExtResource( 3 )]
-position = Vector2( 0, -96 )
-zoom = Vector2( 2, 2 )
+position = Vector2( -384, -96 )
+zoom = Vector2( 1.4, 1.4 )
 tween_duration = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]

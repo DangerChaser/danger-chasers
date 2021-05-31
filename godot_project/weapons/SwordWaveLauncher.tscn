@@ -13,7 +13,7 @@ length = 0.001
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
-length = 0.8
+length = 0.6
 step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks")
@@ -22,7 +22,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.595517, 0.7 ),
+"times": PoolRealArray( 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -62,7 +62,7 @@ can_loop = true
 grounded = false
 
 [node name="SpawnGroup" parent="Pivot/Attacks" index="0" instance=ExtResource( 2 )]
-actor_animation = "attack"
+actor_animation = "slash_up"
 muzzle_flash = ExtResource( 4 )
 screen_shake_amplitude = 0.0
 screen_shake_duration = 0.0
@@ -81,29 +81,6 @@ weapon_rotate = true
 max_speed = 0.0
 mass = 8.0
 
-[node name="SpawnGroup2" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
-actor_animation = "attack"
-muzzle_flash = ExtResource( 4 )
-screen_shake_amplitude = 0.0
-screen_shake_duration = 0.0
-
-[node name="Sfx" parent="Pivot/Attacks/SpawnGroup2" index="0"]
-stream = ExtResource( 5 )
-
-[node name="ObjectSpawner" parent="Pivot/Attacks/SpawnGroup2/Spawners" index="0"]
-object = ExtResource( 3 )
-
-[node name="MovementEffect" parent="Pivot/Attacks/SpawnGroup2/AdditionalEffects" index="0" instance=ExtResource( 6 )]
-initial_speed = 600.0
-weapon_rotate = true
-
-[node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup2/AdditionalEffects/MovementEffect/Motion" index="1"]
-max_speed = 0.0
-mass = 8.0
-
 [editable path="Pivot/Attacks/SpawnGroup"]
 [editable path="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect"]
 [editable path="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect/Motion"]
-[editable path="Pivot/Attacks/SpawnGroup2"]
-[editable path="Pivot/Attacks/SpawnGroup2/AdditionalEffects/MovementEffect"]
-[editable path="Pivot/Attacks/SpawnGroup2/AdditionalEffects/MovementEffect/Motion"]

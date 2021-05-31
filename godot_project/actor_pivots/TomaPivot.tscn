@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/actors/toma/stagger.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/sprites/actors/toma/walk.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/actors/toma/stand.png" type="Texture" id=15]
 [ext_resource path="res://assets/sprites/actors/toma/heavy_slash.png" type="Texture" id=16]
+[ext_resource path="res://actor_framework/PivotTransform.tscn" type="PackedScene" id=17]
+[ext_resource path="res://pivots/SwordPivot.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -145,6 +147,66 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, -40 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -108.3 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("WeaponPivotTransform:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "block"
@@ -196,8 +258,68 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 18, -30 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 124.2 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("WeaponPivotTransform:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=4]
 resource_name = "charge"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -235,9 +357,68 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("WeaponPivotTransform:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -49 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -90.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=4]
-resource_name = "die"
+[sub_resource type="Animation" id=5]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -288,9 +469,68 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, -5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 173.6 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("WeaponPivotTransform:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=5]
-resource_name = "heavy_slash"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -327,8 +567,68 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 1, 2 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("WeaponPivotTransform:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -14, -39 ), Vector2( 15, -15 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 141.7, 12.7 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -379,8 +679,68 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -10, -30 ), Vector2( -10, -29 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -1 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -25.5 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("WeaponPivotTransform:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -445,9 +805,68 @@ tracks/4/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -14, -20 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -248.5 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("WeaponPivotTransform:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("WeaponPivotTransform:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=8]
-resource_name = "prepare"
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -496,8 +915,68 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -1 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -20, -19 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 19.2 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("WeaponPivotTransform:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.8
 loop = true
 step = 0.05
@@ -549,9 +1028,68 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.45, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 2, -15 ), Vector2( 2, -16 ), Vector2( 2, -18 ), Vector2( 2, -17 ), Vector2( 2, -16 ), Vector2( 2, -15 ), Vector2( 2, -16 ), Vector2( 2, -18 ), Vector2( 2, -17 ), Vector2( 2, -16 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -191.1 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("WeaponPivotTransform:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=10]
-resource_name = "slash"
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -600,8 +1138,266 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 24, -22 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -1 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("WeaponPivotTransform:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
+resource_name = "slash_down"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("WeaponPivotTransform:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -13, -37 ), Vector2( 16, -14 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -165.6, 12.8 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "slash_up"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("WeaponPivotTransform:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 16, -14 ), Vector2( -12, -35 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 12.8, -152.9 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( 1, -1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=14]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -650,8 +1446,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=15]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -702,8 +1510,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=16]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -754,8 +1574,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="CircleShape2D" id=14]
+[sub_resource type="CircleShape2D" id=17]
 
 [node name="Pivot" type="Node2D"]
 script = ExtResource( 9 )
@@ -765,31 +1597,33 @@ autoplay = "SETUP"
 anims/SETUP = SubResource( 1 )
 anims/air = SubResource( 2 )
 anims/block = SubResource( 3 )
-anims/charge = SubResource( 15 )
-anims/die = SubResource( 4 )
-anims/heavy_slash = SubResource( 5 )
-anims/idle = SubResource( 6 )
-anims/jump = SubResource( 7 )
-anims/prepare = SubResource( 8 )
-anims/run = SubResource( 9 )
-anims/slash = SubResource( 10 )
-anims/stagger = SubResource( 11 )
-anims/stand = SubResource( 12 )
-anims/walk = SubResource( 13 )
+anims/charge = SubResource( 4 )
+anims/die = SubResource( 5 )
+anims/heavy_slash = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/jump = SubResource( 8 )
+anims/prepare = SubResource( 9 )
+anims/run = SubResource( 10 )
+anims/slash = SubResource( 11 )
+anims/slash_down = SubResource( 12 )
+anims/slash_up = SubResource( 13 )
+anims/stagger = SubResource( 14 )
+anims/stand = SubResource( 15 )
+anims/walk = SubResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 16 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -29 )
-hframes = 3
-frame = 2
+hframes = 8
 
 [node name="Weapons" type="Node2D" parent="."]
+position = Vector2( 0, -24 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -24 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 14 )
+shape = SubResource( 17 )
 
 [node name="DeathExplosionSpawner" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -24 )
@@ -797,5 +1631,13 @@ object = ExtResource( 5 )
 
 [node name="JumpDust" parent="." instance=ExtResource( 3 )]
 object = ExtResource( 13 )
+
+[node name="WeaponPivotTransform" parent="." instance=ExtResource( 17 )]
+visible = false
+position = Vector2( -12, -35 )
+rotation = -2.66861
+scale = Vector2( 1, -1 )
+
+[node name="Pivot" parent="WeaponPivotTransform" instance=ExtResource( 18 )]
 
 [editable path="Hurtbox"]
