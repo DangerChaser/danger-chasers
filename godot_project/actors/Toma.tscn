@@ -110,6 +110,10 @@ animation = "prepare"
 weapons = [ ExtResource( 3 ) ]
 stagger = false
 
+[node name="WaitTime3" parent="StateMachine/HeavySlashSequence" index="4" instance=ExtResource( 13 )]
+animation = "spin_around"
+duration = 0.2
+
 [node name="SlashComboSequence" type="Node2D" parent="StateMachine" index="2"]
 script = ExtResource( 11 )
 
@@ -121,9 +125,15 @@ arrive_distance = 400.0
 face_target = true
 finish_on_arrive = true
 
-[node name="SlashCombo" parent="StateMachine/SlashComboSequence" index="1" instance=ExtResource( 9 )]
+[node name="WaitTime" parent="StateMachine/SlashComboSequence" index="1" instance=ExtResource( 13 )]
+animation = "prepare"
+
+[node name="SlashCombo" parent="StateMachine/SlashComboSequence" index="2" instance=ExtResource( 9 )]
 weapons = [ ExtResource( 12 ) ]
 stagger = false
+
+[node name="WaitTime2" parent="StateMachine/SlashComboSequence" index="3" instance=ExtResource( 13 )]
+duration = 0.2
 
 [node name="SwordWaveComboSequence" type="Node2D" parent="StateMachine" index="3"]
 script = ExtResource( 11 )
@@ -132,20 +142,26 @@ script = ExtResource( 11 )
 weapons = [ ExtResource( 15 ) ]
 
 [node name="WaitTime" parent="StateMachine/SwordWaveComboSequence" index="1" instance=ExtResource( 13 )]
+animation = "prepare"
 
 [node name="SwordWave" parent="StateMachine/SwordWaveComboSequence" index="2" instance=ExtResource( 9 )]
 weapons = [ ExtResource( 16 ) ]
 stagger = false
 
 [node name="WaitTime2" parent="StateMachine/SwordWaveComboSequence" index="3" instance=ExtResource( 13 )]
-duration = 0.2
+animation = "spin_around"
 
 [node name="SwordWave2" parent="StateMachine/SwordWaveComboSequence" index="4" instance=ExtResource( 9 )]
 weapons = [ ExtResource( 16 ) ]
 stagger = false
 
+[node name="WaitTime3" parent="StateMachine/SwordWaveComboSequence" index="5" instance=ExtResource( 13 )]
+animation = "spin_around"
+
 [node name="Stagger" parent="StateMachine" index="4" instance=ExtResource( 6 )]
 look_away_from_move_direction = false
+revenge_threshold = 6.0
+revenge_state = "SwordWaveComboSequence"
 
 [node name="Die" parent="StateMachine" index="5" instance=ExtResource( 2 )]
 

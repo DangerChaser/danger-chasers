@@ -128,7 +128,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "SETUP"
 tracks/0/type = "animation"
 tracks/0/path = NodePath("ScreenSlash/AnimationPlayer")
@@ -141,7 +141,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "attack"
 length = 1.4
 tracks/0/type = "animation"
@@ -268,7 +268,7 @@ weapon_animation = "charge"
 anims/attack = SubResource( 5 )
 
 [node name="Prepare" parent="Pivot/Attacks" index="1" instance=ExtResource( 5 )]
-actor_animation = "prepare"
+actor_animation = "prepare_slash_down"
 weapon_animation = "prepare"
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/Prepare" index="0"]
@@ -280,7 +280,6 @@ object = ExtResource( 4 )
 
 [node name="MeleeAttack" type="Node2D" parent="Pivot/Attacks" index="2"]
 script = ExtResource( 2 )
-actor_animation = "heavy_slash"
 weapon_animation = "heavy_slash"
 
 [node name="ScreenSlash" parent="Pivot/Attacks/MeleeAttack" index="0" instance=ExtResource( 8 )]
@@ -295,8 +294,8 @@ object = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/Attacks/MeleeAttack" index="2"]
 autoplay = "SETUP"
-anims/SETUP = SubResource( 8 )
-anims/attack = SubResource( 9 )
+anims/SETUP = SubResource( 7 )
+anims/attack = SubResource( 8 )
 
 [node name="AdditionalEffects" type="Node2D" parent="Pivot/Attacks/MeleeAttack" index="3"]
 

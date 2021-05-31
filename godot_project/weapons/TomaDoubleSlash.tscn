@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/MeleeAttack.tscn" type="PackedScene" id=2]
@@ -12,8 +12,7 @@
 resource_name = "SETUP"
 length = 0.001
 
-[sub_resource type="Animation" id=4]
-length = 1.1
+[sub_resource type="Animation" id=2]
 tracks/0/type = "method"
 tracks/0/path = NodePath("Pivot/Attacks")
 tracks/0/interp = 1
@@ -21,7 +20,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1.01364 ),
+"times": PoolRealArray( 0.7 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ {
@@ -30,7 +29,45 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=13]
+resource_name = "prepare_slash_down"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ {
+} ],
+"method": "attack"
+} ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "prepare_slash_down_2"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/path = NodePath("Pivot/Attacks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ {
+} ],
+"method": "attack"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
 resource_name = "slash_1"
 length = 1.1
 step = 0.05
@@ -55,8 +92,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "slash_2"
+[sub_resource type="Animation" id=4]
 length = 2.0
 step = 0.05
 tracks/0/type = "method"
@@ -80,10 +116,12 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="Animation" id=5]
+
+[sub_resource type="CircleShape2D" id=6]
 radius = 88.0
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
@@ -101,7 +139,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 resource_name = "attack"
 tracks/0/type = "method"
 tracks/0/path = NodePath("DamageSource")
@@ -127,7 +165,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ null ],
@@ -135,7 +173,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "method"
 tracks/0/path = NodePath("SfxParticleSpawner")
 tracks/0/interp = 1
@@ -151,7 +189,9 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="Animation" id=15]
+
+[sub_resource type="RectangleShape2D" id=10]
 resource_local_to_scene = true
 extents = Vector2( 184, 104 )
 
@@ -182,7 +222,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ null ],
@@ -194,48 +234,65 @@ tracks/0/keys = {
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
-anims/prepare = SubResource( 4 )
-anims/slash_1 = SubResource( 19 )
-anims/slash_2 = SubResource( 3 )
+anims/prepare = SubResource( 2 )
+anims/prepare_slash_down = SubResource( 13 )
+anims/prepare_slash_down_2 = SubResource( 14 )
+anims/slash_1 = SubResource( 3 )
+anims/slash_2 = SubResource( 4 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
 
-[node name="Slash1" parent="Pivot/Attacks" index="0" instance=ExtResource( 2 )]
-actor_animation = "heavy_slash"
+[node name="PrepareSlashDown" parent="Pivot/Attacks" index="0" instance=ExtResource( 5 )]
+actor_animation = "prepare_slash_down"
+weapon_animation = "prepare_slash_down"
+
+[node name="AnimationPlayer" parent="Pivot/Attacks/PrepareSlashDown" index="0"]
+anims/attack = SubResource( 5 )
+
+[node name="Slash1" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
+actor_animation = "slash_spin_around"
 weapon_animation = "slash_1"
 
 [node name="DamageSource" parent="Pivot/Attacks/Slash1" index="0"]
-position = Vector2( 0, -24 )
-damage = 3
+position = Vector2( 96, 0 )
+damage = 10
+stagger_duration = 2.0
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Slash1/DamageSource" index="0"]
-shape = SubResource( 13 )
+shape = SubResource( 6 )
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/Slash1" index="1"]
-position = Vector2( 0, -40 )
+position = Vector2( 96, 0 )
 object = ExtResource( 6 )
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/Slash1" index="2"]
-anims/SETUP = SubResource( 9 )
-anims/attack = SubResource( 10 )
+anims/SETUP = SubResource( 7 )
+anims/attack = SubResource( 8 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Slash1/AdditionalEffects" index="0"]
-initial_speed = 1000.0
+initial_speed = 600.0
 
-[node name="Prepare" parent="Pivot/Attacks" index="1" instance=ExtResource( 5 )]
+[node name="Prepare" parent="Pivot/Attacks" index="2" instance=ExtResource( 5 )]
 actor_animation = "prepare"
 weapon_animation = "prepare"
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/Prepare" index="0"]
-anims/attack = SubResource( 18 )
+anims/attack = SubResource( 9 )
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/Prepare" index="4" instance=ExtResource( 7 )]
 position = Vector2( -48, -40 )
 object = ExtResource( 4 )
 
-[node name="Slash2" parent="Pivot/Attacks" index="2" instance=ExtResource( 2 )]
-actor_animation = "heavy_slash"
+[node name="PrepareSlashDown2" parent="Pivot/Attacks" index="3" instance=ExtResource( 5 )]
+actor_animation = "prepare_slash_down"
+weapon_animation = "prepare_slash_down"
+
+[node name="AnimationPlayer" parent="Pivot/Attacks/PrepareSlashDown2" index="0"]
+anims/attack = SubResource( 15 )
+
+[node name="Slash2" parent="Pivot/Attacks" index="4" instance=ExtResource( 2 )]
+actor_animation = "slash_down"
 weapon_animation = "slash_2"
 
 [node name="DamageSource" parent="Pivot/Attacks/Slash2" index="0"]
@@ -244,11 +301,11 @@ position = Vector2( 184, -104 )
 damage = 3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Slash2/DamageSource" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 10 )
 disabled = true
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/Slash2" index="1"]
-position = Vector2( 256, -32 )
+position = Vector2( 96, 0 )
 object = ExtResource( 3 )
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/Slash2" index="2"]
@@ -256,16 +313,18 @@ anims/SETUP = SubResource( 11 )
 anims/attack = SubResource( 12 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Slash2/AdditionalEffects" index="0"]
-initial_speed = 1000.0
+initial_speed = 600.0
 
 [node name="Gravity" parent="Pivot/Attacks/Slash2/AdditionalEffects/MovementEffect/Motion" index="2"]
 max_speed = 2000.0
 
+[editable path="Pivot/Attacks/PrepareSlashDown"]
 [editable path="Pivot/Attacks/Slash1"]
 [editable path="Pivot/Attacks/Slash1/DamageSource"]
 [editable path="Pivot/Attacks/Slash1/AdditionalEffects/MovementEffect"]
 [editable path="Pivot/Attacks/Slash1/AdditionalEffects/MovementEffect/Motion"]
 [editable path="Pivot/Attacks/Prepare"]
+[editable path="Pivot/Attacks/PrepareSlashDown2"]
 [editable path="Pivot/Attacks/Slash2"]
 [editable path="Pivot/Attacks/Slash2/DamageSource"]
 [editable path="Pivot/Attacks/Slash2/AdditionalEffects/MovementEffect"]
