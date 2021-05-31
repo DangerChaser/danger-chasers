@@ -5,6 +5,7 @@ signal attack_started
 signal not_ready
 signal icon_set(icon)
 signal attack_finished
+signal attack_connected(parameters)
 
 enum State { LISTENING, REGISTERED }
 
@@ -41,6 +42,7 @@ func set_weapon(weapon_scene : PackedScene) -> void:
 	weapon.connect("attack_started", self, "attack_started")
 	weapon.connect("not_ready", self, "not_ready")
 	weapon.connect("finished", self, "weapon_finished")
+	weapon.connect("attack_connected", self, "attack_connected")
 	set_input_key(input)
 	owner.add_weapon(weapon)
 	weapon.set_owner(owner)
@@ -133,3 +135,7 @@ func unpause() -> void:
 	.unpause()
 	if weapon:
 		weapon.unpause()
+
+
+func attack_connected(parameters) -> void:
+	emit_signal("attack_connected", parameters)

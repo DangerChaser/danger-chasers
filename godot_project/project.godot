@@ -399,6 +399,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://core/ray_cast_line_2d/RayCastLine2D.gd"
 }, {
+"base": "Node2D",
+"class": "ResourceStat",
+"language": "GDScript",
+"path": "res://actor_framework/stats/Resource.gd"
+}, {
 "base": "Node",
 "class": "RoundManager",
 "language": "GDScript",
@@ -593,6 +598,7 @@ _global_script_class_icons={
 "QuestNameButton": "",
 "QuickAttackEffect": "",
 "RayCastLine2D": "",
+"ResourceStat": "",
 "RoundManager": "",
 "RunState": "",
 "SfxParticle": "",

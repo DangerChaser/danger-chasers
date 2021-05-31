@@ -57,3 +57,7 @@ func _on_HealthVials_vial_finished():
 
 func _on_HealthVials_vial_initialized():
 	$HealthVials.vial_initialized()
+
+
+func _on_Kunai_value_changed(value, max_value):
+	$KunaiContainer/Label.text = "x" + str(value) + "/" + str(max_value)

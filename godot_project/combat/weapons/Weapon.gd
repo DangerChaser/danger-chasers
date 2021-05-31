@@ -4,6 +4,7 @@ class_name Weapon
 signal attack_started(actor_animation)
 signal not_ready()
 signal finished()
+signal attack_connected(parameters)
 
 var friendly_teams : Array = []
 
@@ -127,3 +128,7 @@ func finish(state_override : String = "", args := {}) -> void:
 		return
 	
 	emit_signal("finished", state_override, args)
+
+
+func attack_connected(parameters):
+	emit_signal("attack_connected", parameters)

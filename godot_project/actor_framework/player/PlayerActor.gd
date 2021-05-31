@@ -51,3 +51,7 @@ func _input(event : InputEvent) -> void:
 						return
 				if state_machine.get_state("Job").skill_ready(input_skill):
 					state_machine.change_state("Job", {"input_key":input_skill})
+
+
+func _on_LightAttack_attack_connected(parameters):
+	stats.resources.get_node("Kunai").add_value(1)

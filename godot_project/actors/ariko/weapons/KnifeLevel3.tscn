@@ -555,6 +555,10 @@ mass = 8.0
 [node name="FinishInAir" type="Node2D" parent="Pivot/Attacks/Stab/AdditionalEffects" index="1"]
 script = ExtResource( 8 )
 
+[connection signal="attack_connected" from="SlashDownDamageSource" to="." method="attack_connected"]
+[connection signal="attack_connected" from="SlashUpHitbox" to="." method="attack_connected"]
+[connection signal="attack_connected" from="Pivot/Attacks/DoubleSlash1/DamageSource" to="." method="attack_connected"]
+
 [editable path="SlashDownDamageSource"]
 [editable path="SlashUpHitbox"]
 [editable path="StabDamageSource"]

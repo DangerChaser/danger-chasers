@@ -18,5 +18,8 @@ script = ExtResource( 2 )
 
 [node name="HealthVials" type="Node2D" parent="."]
 script = ExtResource( 4 )
+
+[node name="Resources" type="Node2D" parent="."]
+
 [connection signal="ticked" from="HealthVials" to="." method="heal"]
 [connection signal="vial_finished" from="HealthVials" to="." method="_on_HealthVials_vial_finished"]

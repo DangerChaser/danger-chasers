@@ -16,6 +16,7 @@ onready var buffs := $Buffs
 onready var debuffs := $Debuffs
 onready var miscellaneous_effects := $MiscellaneousEffects
 onready var health_vials := $HealthVials
+onready var resources := $Resources
 
 
 var modifiers = {}

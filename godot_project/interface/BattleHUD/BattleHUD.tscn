@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
 [ext_resource path="res://interface/BattleHUD/BattleHUD.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://interface/BattleHUD/sprites/emblem_mask.png" type="Texture" id=7]
 [ext_resource path="res://core/utils/KeyLabel.gd" type="Script" id=8]
 [ext_resource path="res://interface/BattleHUD/HotbarSlot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://interface/dynamic_fonts/Silver_36.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/sprites/weapons/kunai.png" type="Texture" id=11]
 
 [node name="BattleHUD" type="Control"]
 anchor_right = 1.0
@@ -201,5 +203,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 reference_vial = ExtResource( 4 )
+
+[node name="KunaiContainer" type="Control" parent="."]
+margin_left = 200.0
+margin_top = 24.0
+margin_right = 240.0
+margin_bottom = 64.0
+
+[node name="TextureRect" type="TextureRect" parent="KunaiContainer"]
+margin_left = -40.0
+margin_top = 8.0
+margin_right = 24.0
+margin_bottom = 72.0
+rect_rotation = -46.8
+texture = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="KunaiContainer"]
+margin_left = 16.0
+margin_right = 72.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 10 )
+text = "0/3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [editable path="ManaBar"]

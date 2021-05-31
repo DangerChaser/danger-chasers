@@ -8,6 +8,7 @@ signal hit_confirmed(hit_actor_position)
 signal hit_confirmed_hurtbox(hurtbox)
 signal hit_confirmed_actor(hit_actor)
 signal hit_confirmed_no_actor
+signal attack_connected(parameters)
 
 export var hit_particles : PackedScene
 export var damage : int = 0
@@ -49,6 +50,11 @@ func add_damage(additional_damage : int = 0) -> void:
 
 
 func confirm_hit(actor, hurtbox : Hurtbox) -> void:
+	var parameters = {
+		"actor" : actor,
+		"hurtbox" : hurtbox
+	}
+	emit_signal("attack_connected", parameters)
 	emit_signal("hit_confirmed", actor.global_position)
 	emit_signal("hit_confirmed_actor", actor)
 	emit_signal("hit_confirmed_hurtbox", hurtbox)

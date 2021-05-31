@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://actors/ariko/weapons/KnifeLevel3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_framework/player/CameraTargetPosition.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/actors/ariko/icons/icon.png" type="Texture" id=3]
 [ext_resource path="res://actor_framework/player/PlayerActor.gd" type="Script" id=4]
+[ext_resource path="res://actor_framework/stats/Resource.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/utils/ActivationScanner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actor_states/motion/Air.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/ariko/weapons/Stomp.tscn" type="PackedScene" id=8]
@@ -92,6 +93,9 @@ next_state = "Air"
 [node name="Stats" parent="." index="6"]
 max_health = 100
 
+[node name="Kunai" parent="Stats/Resources" index="0" instance=ExtResource( 5 )]
+max_value = 3
+
 [node name="TargetPosition1" parent="TargetPositions" index="0"]
 position = Vector2( 0, -24 )
 
@@ -121,10 +125,12 @@ disabled = true
 [node name="WallRunScanner" parent="." index="13" instance=ExtResource( 13 )]
 position = Vector2( 0, -24 )
 
+[connection signal="attack_connected" from="StateMachine/LightAttack" to="." method="_on_LightAttack_attack_connected"]
 [connection signal="ticked" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_ticked"]
 [connection signal="vial_finished" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_vial_finished"]
 [connection signal="vial_initialized" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="_on_HealthVials_vial_initialized"]
 [connection signal="vial_started" from="Stats/HealthVials" to="PlayerHUDLayer/BattleHUD" method="open_health_vial"]
+[connection signal="value_changed" from="Stats/Resources/Kunai" to="PlayerHUDLayer/BattleHUD" method="_on_Kunai_value_changed"]
 
 [editable path="Stats"]
 [editable path="PlayerHUDLayer/BattleHUD"]
