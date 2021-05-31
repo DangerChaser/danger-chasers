@@ -15,6 +15,7 @@ export var next_state : String = ""
 export var initialize_on_start := true
 export var stagger := true
 export var active_after_exit := false
+export var resource : String
 
 var weapon
 var icon : Texture
@@ -66,6 +67,9 @@ func enter(args := {}) -> void:
 		finished(next_state, args)
 		return
 	if weapon.cooldown_timer.time_left > 0 or weapon.gcd_timer.time_left > 0:
+		not_ready()
+		return
+	if resource and not owner.stats.resources[resource].check():
 		not_ready()
 		return
 	

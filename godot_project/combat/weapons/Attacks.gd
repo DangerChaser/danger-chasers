@@ -6,14 +6,16 @@ signal finished()
 
 export var can_loop := false
 export var grounded := true
+export var cancel_inputs : Dictionary
 
-enum State { NOT_READY, LISTENING, REGISTERED_ATTACK, REGISTERED_JUMP }
+enum State { NOT_READY, LISTENING, REGISTERED_ATTACK, REGISTERED_CANCEL }
 var state = State.LISTENING
 var _ready_for_next_attack := false
 var _can_cancel_animation := false # Should be used to transition out of weapon
 var current_attack : Attack
 var current_index := 0
 var input : String
+var cancel_input : String
 
 
 func can_register_input() -> void:
@@ -56,9 +58,13 @@ func _physics_process(delta : float) -> void:
 	if owner.paused:
 		return
 	
-	if not input == "ui_up":
-		if owner.is_in_group("players") and Input.is_action_just_pressed("ui_up"):
-			register_jump()
+	for cancel_input_key in cancel_inputs.keys():
+		if input == cancel_input_key:
+			continue
+		if owner.is_in_group("players") and Input.is_action_just_pressed(cancel_input_key):
+			register_cancel(cancel_input_key)
+			break
+
 	match(state):
 		State.NOT_READY:
 			pass # Do nothing
@@ -73,13 +79,14 @@ func _physics_process(delta : float) -> void:
 				return
 			if _ready_for_next_attack and current_index < get_child_count():
 				attack()
-		State.REGISTERED_JUMP:
+		State.REGISTERED_CANCEL:
 			if _can_cancel_animation:
 				var args = {}
 				if current_attack:
 					args = current_attack.get_exit_args()
-				if owner.state_machine.has_state("Jump"):
-					emit_signal("finished", "Jump", args)
+				var state = cancel_inputs[cancel_input]
+				if owner.state_machine.has_state(state):
+					emit_signal("finished", state, args)
 
 
 func attack(args := {}):
@@ -101,11 +108,12 @@ func attack(args := {}):
 		reset()
 
 
+func register_cancel(input_key) -> void:
+	cancel_input = input_key
+	state = State.REGISTERED_CANCEL
+
 func register_attack() -> void:
 	state = State.REGISTERED_ATTACK
-
-func register_jump() -> void:
-	state = State.REGISTERED_JUMP
 
 
 func _attack_started(actor_animation, weapon_animation) -> void:

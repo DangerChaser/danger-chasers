@@ -473,6 +473,10 @@ shape = SubResource( 7 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
+cancel_inputs = {
+"attack_2": "KunaiThrow",
+"ui_up": "Jump"
+}
 
 [node name="SlashDown" parent="Pivot/Attacks" index="0" instance=ExtResource( 4 )]
 actor_animation = "slash_1"

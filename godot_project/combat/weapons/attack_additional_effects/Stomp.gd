@@ -25,10 +25,10 @@ func exit() -> void:
 func _physics_process(delta:float) -> void:
 	if owner.is_on_floor():
 		var attacks = weapon.get_node("Pivot/Attacks")
-		var jump_registered = attacks.state == attacks.State.REGISTERED_JUMP
+		var jump_registered = attacks.state == attacks.State.REGISTERED_CANCEL
 		attacks.attack()
 		if jump_registered:
-			attacks.state = attacks.State.REGISTERED_JUMP
+			attacks.register_cancel("ui_up")
 
 
 func _on_Timer_timeout():

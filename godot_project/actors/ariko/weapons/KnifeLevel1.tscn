@@ -308,6 +308,10 @@ anims/stab = SubResource( 4 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
+cancel_inputs = {
+"attack_2": "KunaiThrow",
+"ui_up": "Jump"
+}
 
 [node name="SlashDown" parent="Pivot/Attacks" index="0" instance=ExtResource( 4 )]
 actor_animation = "slash_1"
@@ -409,25 +413,14 @@ max_speed = 100.0
 script = ExtResource( 8 )
 
 [editable path="Pivot/Attacks/SlashDown"]
-
 [editable path="Pivot/Attacks/SlashDown/SlashDownDamageSource"]
-
 [editable path="Pivot/Attacks/SlashDown/AdditionalEffects/MovementEffect"]
-
 [editable path="Pivot/Attacks/SlashDown/AdditionalEffects/MovementEffect/Motion"]
-
 [editable path="Pivot/Attacks/SlashUp"]
-
 [editable path="Pivot/Attacks/SlashUp/SlashUpHitbox"]
-
 [editable path="Pivot/Attacks/SlashUp/AdditionalEffects/MovementEffect"]
-
 [editable path="Pivot/Attacks/SlashUp/AdditionalEffects/MovementEffect/Motion"]
-
 [editable path="Pivot/Attacks/Stab"]
-
 [editable path="Pivot/Attacks/Stab/StabDamageSource"]
-
 [editable path="Pivot/Attacks/Stab/AdditionalEffects/MovementEffect"]
-
 [editable path="Pivot/Attacks/Stab/AdditionalEffects/MovementEffect/Motion"]

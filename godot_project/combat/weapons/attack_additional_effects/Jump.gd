@@ -40,6 +40,8 @@ func _physics_process(delta : float) -> void:
 		motion.steering.velocity.x = 0
 		current_speed = 0
 	
+	if not input:
+		return
 	if finish_on_release and Input.is_action_just_released(input):
 		finished()
 

@@ -153,6 +153,9 @@ vertical_factor = 0.8
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
+cancel_inputs = {
+"ui_up": "Jump"
+}
 
 [node name="Stomp" parent="Pivot/Attacks" index="0" instance=ExtResource( 1 )]
 actor_animation = "stomp"
@@ -193,9 +196,6 @@ shape = SubResource( 5 )
 [node name="MovementEffect" parent="Pivot/Attacks/Recover/AdditionalEffects" index="0" instance=ExtResource( 6 )]
 
 [editable path="Pivot/Attacks/Stomp"]
-
 [editable path="Pivot/Attacks/Stomp/DamageSource"]
-
 [editable path="Pivot/Attacks/Recover"]
-
 [editable path="Pivot/Attacks/Recover/DamageSource"]

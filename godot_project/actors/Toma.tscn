@@ -160,7 +160,7 @@ animation = "spin_around"
 
 [node name="Stagger" parent="StateMachine" index="4" instance=ExtResource( 6 )]
 look_away_from_move_direction = false
-revenge_threshold = 6.0
+revenge_threshold = 12.0
 revenge_state = "SwordWaveComboSequence"
 
 [node name="Die" parent="StateMachine" index="5" instance=ExtResource( 2 )]

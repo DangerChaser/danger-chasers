@@ -90,6 +90,9 @@ anims/throw = SubResource( 3 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
+cancel_inputs = {
+"ui_up": "Jump"
+}
 
 [node name="Backflip" parent="Pivot/Attacks" index="0" instance=ExtResource( 9 )]
 actor_animation = "backflip"

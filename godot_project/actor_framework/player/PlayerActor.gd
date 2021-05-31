@@ -42,6 +42,12 @@ func _input(event : InputEvent) -> void:
 	
 	var state = state_machine.get_current_state()
 	if state != state_machine.get_state("Die") and state != state_machine.get_state("Stagger") and state != state_machine.get_state("Cutscene"):
+		if event.is_action_pressed("attack_2"):
+			if stats.resources["Kunai"].check():
+				state_machine.change_state("KunaiThrow")
+				stats.resources["Kunai"].reduce_value(1)
+				return
+		
 		for i in range(1, 9):
 			var input_skill = "skill_" + str(i)
 			if event.is_action_pressed(input_skill):
@@ -54,4 +60,4 @@ func _input(event : InputEvent) -> void:
 
 
 func _on_LightAttack_attack_connected(parameters):
-	stats.resources.get_node("Kunai").add_value(1)
+	stats.resources["Kunai"].add_value(1)
