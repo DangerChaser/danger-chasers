@@ -64,7 +64,9 @@ next_state = "Idle"
 weapons = [ ExtResource( 24 ) ]
 input = "attack_2"
 next_state = "Idle"
-resource = "Kunai"
+resources = {
+"Kunai": 1
+}
 
 [node name="Jump" parent="StateMachine" index="3" instance=ExtResource( 11 )]
 weapons = [ ExtResource( 9 ) ]

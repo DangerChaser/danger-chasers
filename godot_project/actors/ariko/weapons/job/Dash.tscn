@@ -128,6 +128,7 @@ tracks/4/keys = {
 
 [node name="Dash" instance=ExtResource( 2 )]
 icon = ExtResource( 11 )
+global_cooldown = true
 
 [node name="CooldownTimer" parent="." index="0"]
 wait_time = 3.0

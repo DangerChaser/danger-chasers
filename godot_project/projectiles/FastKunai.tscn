@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://combat/weapons/projectiles/Projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/particles/YellowExplosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/turret/BulletParticleCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pivots/KunaiPivot.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 13.9754
+
+[node name="FastKunai" instance=ExtResource( 1 )]
+initial_speed = 1337
+destroy_particles = ExtResource( 2 )
+collision_particles = ExtResource( 3 )
+
+[node name="Pivot" parent="." index="0" instance=ExtResource( 4 )]
+
+[node name="MotionSteering" parent="Motion" index="1"]
+max_speed = 1337.0
+
+[node name="Gravity" parent="Motion" index="2"]
+gravity = 500.0
+max_speed = 2000.0
+
+[node name="DamageSource" parent="." index="2"]
+position = Vector2( 16, 0 )
+damage = 5
+delay_milliseconds = 2
+screen_shake_amplitude = 6.0
+screen_shake_duration = 0.5
+
+[node name="CollisionShape2D" parent="DamageSource" index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionBox" parent="." index="3"]
+position = Vector2( 16, 0 )
+
+[node name="LifetimeTimer" parent="." index="5"]
+wait_time = 60.0
+
+[editable path="Motion"]
+[editable path="DamageSource"]
