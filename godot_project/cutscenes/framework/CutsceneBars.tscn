@@ -43,7 +43,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -128 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -36 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Control/BottomBar:rect_position")
@@ -55,7 +55,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 1080 ), Vector2( 0, 952 ) ]
+"values": [ Vector2( 0, 270 ), Vector2( 0, 234 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -68,10 +68,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true, false ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Control/TopBar:rect_position")
@@ -83,7 +83,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 0.5, 0.5 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -128 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -36 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Control/BottomBar:rect_position")
@@ -95,11 +95,11 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 0.5, 0.5 ),
 "update": 0,
-"values": [ Vector2( 0, 952 ), Vector2( 0, 1080 ) ]
+"values": [ Vector2( 0, 234 ), Vector2( 0, 270 ) ]
 }
 
 [node name="CutsceneBars" type="CanvasLayer"]
-layer = 128
+layer = 100
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SETUP = SubResource( 1 )
@@ -119,8 +119,8 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 128.0
-rect_min_size = Vector2( 0, 128 )
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 36 )
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -128,8 +128,8 @@ __meta__ = {
 
 [node name="TopBar" type="ColorRect" parent="Control"]
 anchor_right = 1.0
-margin_top = -128.0
-rect_min_size = Vector2( 0, 128 )
+margin_top = -36.0
+rect_min_size = Vector2( 0, 36 )
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

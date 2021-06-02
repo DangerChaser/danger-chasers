@@ -8,6 +8,8 @@
 
 [node name="Air" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+look_towards_move_direction = false
+look_direction = 3
 
 [node name="MotionSteering" parent="." index="1"]
 max_speed = 500.0
@@ -21,5 +23,3 @@ max_speed = 900.0
 particles = ExtResource( 4 )
 
 [node name="SquashStretchTween" parent="." index="4" instance=ExtResource( 5 )]
-horizontal_factor = 1.0
-vertical_factor = 1.0

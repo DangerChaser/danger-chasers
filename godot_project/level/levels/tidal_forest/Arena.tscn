@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/tidal_forest_sprites/back.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://level/levels/tidal_forest/rooms/Arena.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/Toma.tscn" type="PackedScene" id=6]
 [ext_resource path="res://cutscenes/Toma Opening Cutscene.tscn" type="PackedScene" id=7]
+[ext_resource path="res://cutscenes/TaskComplete.tscn" type="PackedScene" id=8]
+[ext_resource path="res://cutscenes/Toma Victory Cutscene.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -75,8 +77,15 @@ position = Vector2( -384, 0 )
 position = Vector2( -320, 0 )
 actor_path = NodePath("../../../YSort/Toma")
 
+[node name="Toma Victory Cutscene" parent="Triggers" index="1" instance=ExtResource( 9 )]
+
+[node name="ActorManagedStateManager" parent="Triggers/Toma Victory Cutscene" index="3"]
+actor_path = NodePath("../../../YSort/Toma")
+
 [node name="Toma" parent="YSort" index="0" instance=ExtResource( 6 )]
 position = Vector2( 664, 0 )
+
+[node name="TaskComplete" parent="YSort/Toma" index="10" instance=ExtResource( 8 )]
 
 [node name="PlayerSpawnPoints" parent="." index="10"]
 position = Vector2( -14653.6, -4669.06 )
@@ -85,10 +94,13 @@ position = Vector2( -14653.6, -4669.06 )
 position = Vector2( 14653.6, 4669.06 )
 
 [connection signal="initialized" from="." to="Triggers/Toma Opening Cutscene" method="start"]
-[connection signal="finished" from="Triggers/Toma Opening Cutscene" to="Arenas/Arena/Triggers/CameraLimitTrigger" method="change"]
 [connection signal="finished" from="Triggers/Toma Opening Cutscene" to="YSort/Toma" method="initialize" binds= [ "team_2" ]]
+[connection signal="finished" from="Triggers/Toma Opening Cutscene" to="Arenas/Arena/Triggers/CameraLimitTrigger" method="change"]
+[connection signal="health_depleted_no_arg" from="YSort/Toma" to="YSort/Toma/TaskComplete" method="start"]
+[connection signal="finished" from="YSort/Toma/TaskComplete" to="Triggers/Toma Victory Cutscene" method="start"]
 
 [editable path="InitialMusic"]
 [editable path="Arenas/Arena"]
 [editable path="Arenas/Arena/Triggers/CameraLimitTrigger"]
 [editable path="Triggers/Toma Opening Cutscene"]
+[editable path="Triggers/Toma Victory Cutscene"]

@@ -8184,10 +8184,10 @@ z_index = 1
 position = Vector2( 0, -18 )
 
 [node name="Sprite" type="Sprite" parent="." index="15"]
-texture = ExtResource( 15 )
+texture = ExtResource( 11 )
 offset = Vector2( 0, -29 )
-hframes = 16
-frame = 8
+hframes = 5
+vframes = 5
 
 [node name="TrailingSprites" parent="Sprite" index="0" instance=ExtResource( 58 )]
 scale = Vector2( 0.25, 0.25 )

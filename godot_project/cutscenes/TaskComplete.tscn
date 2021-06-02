@@ -99,7 +99,6 @@ tracks/5/keys = {
 length = 0.001
 
 [sub_resource type="Animation" id=3]
-length = 3.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("ChangeEngineSpeed")
 tracks/0/interp = 1

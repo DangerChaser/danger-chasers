@@ -13,6 +13,9 @@ initial_speed = 50.0
 jump_force = 1500.0
 jump_particles = ExtResource( 5 )
 
+[node name="Motion" parent="." index="0"]
+look_towards_move_direction = false
+
 [node name="MotionSteering" parent="Motion" index="1"]
 mass = 6.0
 slow_down_if_faster_than_max_speed = false

@@ -3,6 +3,11 @@ class_name MotionState
 
 export var look_towards_move_direction := true
 export var look_away_from_move_direction := false
+export var look_in_target_direction := false
+export var look_away_from_target_direction := false
+
+enum LookDirection { NONE, MOVE_DIRECTION, AWAY_FROM_MOVE_DIRECTION, TARGET_DIRECTION, AWAY_FROM_TARGET_DIRECTION }
+export(LookDirection) var look_direction = LookDirection.NONE
 
 const LOOK_DIRECTION_SPEED_THRESHOLD := 10.0
 
@@ -14,6 +19,7 @@ var total_velocity := Vector2()
 var last_move_direction := Vector2()
 var gravity_enabled := true
 var snap := 8.0
+var target_direction := Vector2()
 
 
 func _ready() -> void:
@@ -64,10 +70,24 @@ func _physics_process(delta : float) -> void:
 	owner.move_and_slide_with_snap(total_velocity, gravity.direction * snap, -gravity.direction, true)
 	
 	var direction = total_velocity.normalized()
+	match look_direction:
+		LookDirection.MOVE_DIRECTION:
+			update_look_direction(direction)
+		LookDirection.AWAY_FROM_MOVE_DIRECTION:
+			update_look_direction(-direction)
+		LookDirection.TARGET_DIRECTION:
+			update_look_direction(target_direction)
+		LookDirection.AWAY_FROM_TARGET_DIRECTION:
+			update_look_direction(-target_direction)
+	
 	if look_towards_move_direction:
 		update_look_direction(direction)
 	elif look_away_from_move_direction:
 		update_look_direction(-direction)
+	elif look_in_target_direction:
+		update_look_direction(target_direction)
+	elif look_away_from_target_direction:
+		update_look_direction(-target_direction)
 
 
 func get_input_direction() -> Vector2:
@@ -81,25 +101,21 @@ func get_input_direction() -> Vector2:
 
 
 func move(move_direction : Vector2) -> void:
+	target_direction = move_direction
+	
 	steering.move(move_direction)
 	
 	var direction = total_velocity.normalized()
 	last_move_direction = direction
-	if look_towards_move_direction:
-		update_look_direction(move_direction)
-	elif look_away_from_move_direction:
-		update_look_direction(-move_direction)
 
 
 func move_to(target_position : Vector2) -> void:
+	target_direction = (owner.global_position - target_position).normalized()
+	
 	steering.move_to(target_position)
 	
 	var direction = total_velocity.normalized()
 	last_move_direction = direction
-	if look_towards_move_direction:
-		update_look_direction(direction)
-	elif look_away_from_move_direction:
-		update_look_direction(-direction)
 
 
 func update_look_direction(direction : Vector2) -> void:

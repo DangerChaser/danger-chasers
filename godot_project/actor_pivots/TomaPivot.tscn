@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://actor_framework/hurtbox/Hurtbox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/actors/toma/stagger.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://assets/sprites/actors/toma/slash_up.png" type="Texture" id=23]
 [ext_resource path="res://assets/sprites/actors/toma/slash_forward_one_hand.png" type="Texture" id=24]
 [ext_resource path="res://assets/sprites/actors/toma/spin_back.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprites/actors/toma/knocked_down.png" type="Texture" id=26]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
@@ -426,8 +427,8 @@ tracks/7/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-length = 0.8
-loop = true
+resource_name = "die"
+length = 2.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -435,10 +436,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 10 ) ]
+"values": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 10 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -447,85 +448,85 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2 ]
+"values": [ 1, 2, 1, 2 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("Sprite:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 1 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1 ]
+}
 tracks/4/type = "value"
-tracks/4/path = NodePath("WeaponPivotTransform:position")
+tracks/4/path = NodePath("Sprite:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8, 1.4, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 0.5, 0.287175, 1 ),
 "update": 0,
-"values": [ Vector2( -8, -5 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -80, 0 ), Vector2( -120, 0 ), Vector2( -151, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/5/path = NodePath("Sprite:offset")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 0.5, 2, 0.5, 2, 1 ),
 "update": 0,
-"values": [ 173.6 ]
+"values": [ Vector2( 0, -29 ), Vector2( 0, -50 ), Vector2( 0, -29 ), Vector2( 0, -40 ), Vector2( 0, -29 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("WeaponPivotTransform:scale")
+tracks/6/path = NodePath("WeaponPivotTransform:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8, 1.1, 1.4, 1.6, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [ Vector2( -12, -19 ), Vector2( -134, -106 ), Vector2( -256, -3.8147e-06 ), Vector2( -206.5, -86 ), Vector2( -162, -46 ), Vector2( -197, -73 ), Vector2( -232, -0.999996 ), Vector2( -249, -8.99999 ), Vector2( -266, -0.999997 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("WeaponPivotTransform:z_index")
+tracks/7/path = NodePath("WeaponPivotTransform:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"times": PoolRealArray( 0, 0.8, 1.4, 1.8, 1.9, 2, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -74.9, -800.0, -123.8, -500.0, -545.0, -530.0, -540.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("WeaponPivotTransform:visible")
+tracks/8/path = NodePath("WeaponPivotTransform:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -533,11 +534,66 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("WeaponPivotTransform:z_index")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("WeaponPivotTransform:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
+tracks/11/type = "method"
+tracks/11/path = NodePath("DeathExplosionSpawner")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 1.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("WeaponPivotTransform")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "spin" ],
+"method": "play_animation"
+}, {
+"args": [ "SETUP" ],
+"method": "play_animation"
+} ]
+}
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -649,7 +705,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -775,6 +831,118 @@ tracks/9/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="Animation" id=8]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 26 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("WeaponPivotTransform:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, -5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WeaponPivotTransform:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 173.6 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponPivotTransform:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponPivotTransform:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("WeaponPivotTransform:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -885,7 +1053,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=10]
 resource_name = "prepare_slash_down"
 step = 0.05
 tracks/0/type = "value"
@@ -985,7 +1153,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.4
 loop = true
 step = 0.05
@@ -1098,7 +1266,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -1208,7 +1376,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=13]
 resource_name = "slash_back"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -1307,8 +1475,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "slash_down"
+[sub_resource type="Animation" id=14]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -1406,7 +1573,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=15]
 resource_name = "slash_forward_one_hand"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -1517,7 +1684,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=16]
 resource_name = "slash_spin_around"
 length = 0.1
 tracks/0/type = "value"
@@ -1617,8 +1784,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "slash_up"
+[sub_resource type="Animation" id=17]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -1716,7 +1882,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=18]
 resource_name = "spin_around"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -1815,7 +1981,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -1877,7 +2043,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=20]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1941,7 +2107,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=21]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -2005,7 +2171,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CircleShape2D" id=17]
+[sub_resource type="CircleShape2D" id=22]
 
 [node name="Pivot" type="Node2D"]
 script = ExtResource( 9 )
@@ -2017,26 +2183,30 @@ anims/air = SubResource( 2 )
 anims/block = SubResource( 3 )
 anims/charge = SubResource( 4 )
 anims/die = SubResource( 5 )
-anims/idle = SubResource( 7 )
-anims/jump = SubResource( 8 )
+anims/idle = SubResource( 6 )
+anims/jump = SubResource( 7 )
+anims/knocked_down = SubResource( 8 )
 anims/prepare = SubResource( 9 )
-anims/prepare_slash_down = SubResource( 22 )
-anims/run = SubResource( 10 )
-anims/slash = SubResource( 11 )
-anims/slash_back = SubResource( 18 )
-anims/slash_down = SubResource( 6 )
-anims/slash_forward_one_hand = SubResource( 19 )
-anims/slash_spin_around = SubResource( 21 )
-anims/slash_up = SubResource( 13 )
-anims/spin_around = SubResource( 23 )
-anims/stagger = SubResource( 14 )
-anims/stand = SubResource( 15 )
-anims/walk = SubResource( 16 )
+anims/prepare_slash_down = SubResource( 10 )
+anims/run = SubResource( 11 )
+anims/slash = SubResource( 12 )
+anims/slash_back = SubResource( 13 )
+anims/slash_down = SubResource( 14 )
+anims/slash_forward_one_hand = SubResource( 15 )
+anims/slash_spin_around = SubResource( 16 )
+anims/slash_up = SubResource( 17 )
+anims/spin_around = SubResource( 18 )
+anims/stagger = SubResource( 19 )
+anims/stand = SubResource( 20 )
+anims/walk = SubResource( 21 )
 next/slash_spin_around = "spin_around"
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+position = Vector2( -0.0497437, 0 )
+texture = ExtResource( 10 )
 offset = Vector2( 0, -29 )
+hframes = 2
+frame = 1
 
 [node name="Weapons" type="Node2D" parent="."]
 position = Vector2( 0, -24 )
@@ -2045,19 +2215,18 @@ position = Vector2( 0, -24 )
 position = Vector2( 0, -24 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 17 )
+shape = SubResource( 22 )
 
 [node name="DeathExplosionSpawner" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -24 )
+position = Vector2( -161, -45 )
 object = ExtResource( 5 )
 
 [node name="JumpDust" parent="." instance=ExtResource( 3 )]
 object = ExtResource( 13 )
 
 [node name="WeaponPivotTransform" parent="." instance=ExtResource( 17 )]
-position = Vector2( 27, -25 )
-rotation = -1.00182
-z_index = -1
+position = Vector2( -266, -0.999997 )
+rotation = -9.42478
 
 [node name="Pivot" parent="WeaponPivotTransform" instance=ExtResource( 18 )]
 

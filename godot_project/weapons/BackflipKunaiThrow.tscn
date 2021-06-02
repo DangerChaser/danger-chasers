@@ -109,6 +109,9 @@ initial_speed = -400.0
 jump_force = 900.0
 finish_on_release = false
 
+[node name="Motion" parent="Pivot/Attacks/Backflip/AdditionalEffects/JumpEffect" index="0"]
+look_direction = 2
+
 [node name="MotionSteering" parent="Pivot/Attacks/Backflip/AdditionalEffects/JumpEffect/Motion" index="1"]
 max_speed = 0.0
 mass = 12.0
@@ -154,8 +157,7 @@ jump_force = 400.0
 finish_on_release = false
 
 [node name="Motion" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/JumpEffect" index="0"]
-look_towards_move_direction = false
-look_away_from_move_direction = true
+look_direction = 2
 
 [node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/JumpEffect/Motion" index="1"]
 max_speed = 0.0

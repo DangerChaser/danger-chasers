@@ -1,0 +1,177 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://cutscenes/framework/CutsceneBars.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/themes/General.tres" type="Theme" id=3]
+[ext_resource path="res://interface/dynamic_fonts/Silver_36.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/sfx/typewriter_key_press.wav" type="AudioStream" id=5]
+[ext_resource path="res://core/typewriter_label/TypewriterLabel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://core/InputTrigger.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "0"
+length = 5.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("CutsceneBars/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "enter" ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("CutsceneBars/Control/TopBar/TypewriterLabel")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.02 ],
+"method": "print_string"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("CutsceneBars/Control/BottomBar/TypewriterLabel2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.02 ],
+"method": "print_string"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("InputTrigger")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "1"
+length = 5.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("CutsceneBars/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "exit" ),
+"times": PoolRealArray( 1 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("InputTrigger")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Control/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+[node name="VictoryScreen" instance=ExtResource( 1 )]
+skippable = false
+
+[node name="AnimationPlayer" parent="." index="0"]
+anims/0 = SubResource( 1 )
+anims/1 = SubResource( 4 )
+anims/SETUP = SubResource( 2 )
+anims/end = SubResource( 3 )
+
+[node name="InputTrigger" parent="." index="1" instance=ExtResource( 7 )]
+input = "continue_dialog"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+layer = 99
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CutsceneBars" parent="." index="3" instance=ExtResource( 2 )]
+
+[node name="TypewriterLabel2" parent="CutsceneBars/Control/BottomBar" index="0" instance=ExtResource( 6 )]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -38.0001
+margin_right = 0.0
+margin_bottom = -0.00012207
+custom_fonts/font = ExtResource( 4 )
+text = "You have won."
+sfx = ExtResource( 5 )
+
+[node name="TypewriterLabel" parent="CutsceneBars/Control/TopBar" index="0" instance=ExtResource( 6 )]
+anchor_right = 1.0
+margin_right = 0.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 4 )
+text = "Congratulations!"
+sfx = ExtResource( 5 )
+
+[connection signal="triggered" from="InputTrigger" to="." method="next"]
+
+[editable path="CutsceneBars"]

@@ -10,8 +10,6 @@ export var disable_collider_on_die := true
 
 const QUEUE_FREE_BUFFER := 5.0
 
-var target_direction := Vector2.ZERO
-
 
 func enter(args := {}) -> void:
 	.enter()
