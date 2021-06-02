@@ -17,14 +17,10 @@ func _ready() -> void:
 	job = $StateMachine/Job.current_job
 	player_hud.set_hotbars(job)
 	
-	yield(get_tree().create_timer(1.0), "timeout") # Prevents occasional crash from job not being declared
-#	for skill in PlayerManager.active_skills:
-#		PlayerManager.activate_skill(skill)
-#	PlayerManager.activate_skill("TillSummon")
-#	PlayerManager.activate_skill("ShotgunBlast")
+	yield(get_tree().create_timer(0.01), "timeout") # Prevents occasional crash from job not being declared
+
 	PlayerManager.activate_skill("Dash")
 	PlayerManager.activate_skill("BackflipKunaiThrow")
-	PlayerManager.activate_skill("HeavySlash")
 #	PlayerManager.activate_skill("ReinaHomingMissiles")
 #	PlayerManager.activate_skill("SparrowHomingMissiles")
 #	PlayerManager.activate_skill("LavaLauncher")

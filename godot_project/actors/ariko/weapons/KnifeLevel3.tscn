@@ -49,7 +49,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("StabDamageSource")
+tracks/2/path = NodePath("Pivot/Attacks/Stab/StabDamageSource")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -388,7 +388,7 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("../../../StabDamageSource")
+tracks/1/path = NodePath("StabDamageSource")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -459,17 +459,6 @@ screen_shake_duration = 0.2
 [node name="CollisionShape2D" parent="SlashUpHitbox" index="0"]
 position = Vector2( 64, -24 )
 shape = SubResource( 8 )
-
-[node name="StabDamageSource" parent="." index="9" instance=ExtResource( 2 )]
-hit_particles = ExtResource( 5 )
-damage = 15
-delay_milliseconds = 2
-screen_shake_amplitude = 5.0
-screen_shake_duration = 0.2
-
-[node name="CollisionShape2D" parent="StabDamageSource" index="0"]
-position = Vector2( 64, -24 )
-shape = SubResource( 7 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
@@ -543,11 +532,25 @@ anims/attack = SubResource( 13 )
 actor_animation = "stab"
 weapon_animation = "stab"
 
-[node name="AnimationPlayer" parent="Pivot/Attacks/Stab" index="0"]
+[node name="StabDamageSource" parent="Pivot/Attacks/Stab" index="0" instance=ExtResource( 2 )]
+hit_particles = ExtResource( 5 )
+damage = 20
+stagger_duration = 0.8
+stagger_mass = 16.0
+stagger_force = 800.0
+delay_milliseconds = 2
+screen_shake_amplitude = 5.0
+screen_shake_duration = 0.2
+
+[node name="CollisionShape2D" parent="Pivot/Attacks/Stab/StabDamageSource" index="0"]
+position = Vector2( 64, -24 )
+shape = SubResource( 7 )
+
+[node name="AnimationPlayer" parent="Pivot/Attacks/Stab" index="1"]
 anims/attack = SubResource( 14 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Stab/AdditionalEffects" index="0" instance=ExtResource( 7 )]
-initial_speed = 3000.0
+initial_speed = 1000.0
 
 [node name="Motion" parent="Pivot/Attacks/Stab/AdditionalEffects/MovementEffect" index="0"]
 look_towards_move_direction = false
@@ -565,7 +568,6 @@ script = ExtResource( 8 )
 
 [editable path="SlashDownDamageSource"]
 [editable path="SlashUpHitbox"]
-[editable path="StabDamageSource"]
 [editable path="Pivot/Attacks/SlashDown"]
 [editable path="Pivot/Attacks/SlashDown/AdditionalEffects/MovementEffect"]
 [editable path="Pivot/Attacks/SlashDown/AdditionalEffects/MovementEffect/Motion"]
@@ -577,5 +579,6 @@ script = ExtResource( 8 )
 [editable path="Pivot/Attacks/DoubleSlash1/AdditionalEffects/MovementEffect"]
 [editable path="Pivot/Attacks/DoubleSlash1/AdditionalEffects/MovementEffect/Motion"]
 [editable path="Pivot/Attacks/Stab"]
+[editable path="Pivot/Attacks/Stab/StabDamageSource"]
 [editable path="Pivot/Attacks/Stab/AdditionalEffects/MovementEffect"]
 [editable path="Pivot/Attacks/Stab/AdditionalEffects/MovementEffect/Motion"]

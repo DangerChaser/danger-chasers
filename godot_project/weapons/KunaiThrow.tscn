@@ -73,7 +73,8 @@ rotation = -0.0872665
 object = ExtResource( 3 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects" index="0" instance=ExtResource( 4 )]
-initial_speed = 300.0
+initial_speed = -900.0
+disable_x_input = true
 
 [node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0

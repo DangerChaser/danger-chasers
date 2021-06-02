@@ -58,7 +58,6 @@ anims/SETUP = SubResource( 1 )
 anims/attack = SubResource( 2 )
 
 [node name="Attacks" parent="Pivot" index="0"]
-can_loop = true
 grounded = false
 
 [node name="SpawnGroup" parent="Pivot/Attacks" index="0" instance=ExtResource( 2 )]

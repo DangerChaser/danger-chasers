@@ -6,6 +6,7 @@
 [ext_resource path="res://actor_states/ai_states/MoveTo.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actor_pivots/TomaPivot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actor_states/motion/Stagger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://weapons/jumps/Jump500-Backwards.tscn" type="PackedScene" id=7]
 [ext_resource path="res://weapons/TomaScreenSlash.tscn" type="PackedScene" id=8]
 [ext_resource path="res://actor_states/ai_states/AIAttack.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/BattleHUD/BossHUDLayer.tscn" type="PackedScene" id=10]
@@ -13,7 +14,6 @@
 [ext_resource path="res://weapons/TomaSlashCombo.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=14]
-[ext_resource path="res://weapons/jumps/Jump1500-Backwards.tscn" type="PackedScene" id=15]
 [ext_resource path="res://weapons/SwordWaveLauncher.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -28,9 +28,9 @@ var desperation_used := false
 
 
 func _decide_on_next_state() -> State:
-	if owner.stats.get_health_percent() < 0.5 and not desperation_used:
-		desperation_used = true
-		return get_state(\"ScreenSlashSequence\")
+#	if owner.stats.get_health_percent() < 0.5 and not desperation_used:
+#		desperation_used = true
+#		return get_state(\"ScreenSlashSequence\")
 	return _get_phase_1_state()
 
 
@@ -139,7 +139,7 @@ duration = 0.2
 script = ExtResource( 11 )
 
 [node name="JumpBack" parent="StateMachine/SwordWaveComboSequence" index="0" instance=ExtResource( 14 )]
-weapons = [ ExtResource( 15 ) ]
+weapons = [ ExtResource( 7 ) ]
 
 [node name="WaitTime" parent="StateMachine/SwordWaveComboSequence" index="1" instance=ExtResource( 13 )]
 animation = "prepare"

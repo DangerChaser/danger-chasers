@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://combat/weapons/projectiles/Projectile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/particles/YellowExplosion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/turret/BulletParticleCollision.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pivots/KunaiPivot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/particles/CircleHitMarker.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.9754
@@ -24,7 +25,9 @@ max_speed = 0.0
 
 [node name="DamageSource" parent="." index="2"]
 position = Vector2( 16, 0 )
-damage = 5
+hit_particles = ExtResource( 5 )
+damage = 10
+stagger_duration = 1.0
 delay_milliseconds = 2
 screen_shake_amplitude = 6.0
 screen_shake_duration = 0.5
@@ -39,5 +42,4 @@ position = Vector2( 16, 0 )
 wait_time = 60.0
 
 [editable path="Motion"]
-
 [editable path="DamageSource"]
