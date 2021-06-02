@@ -21,6 +21,7 @@ texture = ExtResource( 2 )
 object = ExtResource( 4 )
 
 [node name="DamageSource" parent="." index="8" instance=ExtResource( 7 )]
+
 [connection signal="spawned" from="DamageParticles" to="." method="_on_DamageParticles_spawned"]
 
 [editable path="Motion"]

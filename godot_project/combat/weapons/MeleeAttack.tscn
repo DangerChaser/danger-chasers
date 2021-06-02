@@ -7,10 +7,10 @@
 [ext_resource path="res://assets/particles/Slash1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/particles/YellowSlashHit.tscn" type="PackedScene" id=9]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
@@ -28,7 +28,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "attack"
 tracks/0/type = "method"
 tracks/0/path = NodePath("DamageSource")
@@ -37,7 +37,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -54,7 +54,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ null ],
@@ -76,7 +76,7 @@ screen_shake_amplitude = 30.0
 screen_shake_duration = 0.2
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="SfxParticleSpawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 64, -8 )
@@ -84,13 +84,16 @@ object = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "SETUP"
-anims/SETUP = SubResource( 4 )
-anims/attack = SubResource( 5 )
+anims/SETUP = SubResource( 2 )
+anims/attack = SubResource( 3 )
 
 [node name="AdditionalEffects" type="Node2D" parent="."]
 
 [node name="MovementEffect" parent="AdditionalEffects" instance=ExtResource( 6 )]
 initial_speed = 500.0
+
+[node name="Motion" parent="AdditionalEffects/MovementEffect" index="0"]
+look_direction = 3
 
 [node name="MotionSteering" parent="AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0
@@ -101,7 +104,5 @@ mass = 8.0
 [node name="ExitArguments" type="Node2D" parent="."]
 
 [editable path="DamageSource"]
-
 [editable path="AdditionalEffects/MovementEffect"]
-
 [editable path="AdditionalEffects/MovementEffect/Motion"]

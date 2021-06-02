@@ -217,6 +217,9 @@ weapon_animation = "dash"
 initial_speed = 4000.0
 initialize_y = true
 
+[node name="Motion" parent="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect" index="0"]
+look_direction = 1
+
 [node name="MotionSteering" parent="Pivot/Attacks/Dash/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0
 mass = 8.0
@@ -230,6 +233,9 @@ weapon_animation = "slash"
 [node name="MovementEffect" parent="Pivot/Attacks/Slash/AdditionalEffects" index="0" instance=ExtResource( 13 )]
 take_previous_velocity = true
 takes_previous_speed = true
+
+[node name="Motion" parent="Pivot/Attacks/Slash/AdditionalEffects/MovementEffect" index="0"]
+look_direction = 1
 
 [node name="MotionSteering" parent="Pivot/Attacks/Slash/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0

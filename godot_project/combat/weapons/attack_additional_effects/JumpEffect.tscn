@@ -14,7 +14,7 @@ jump_force = 1500.0
 jump_particles = ExtResource( 5 )
 
 [node name="Motion" parent="." index="0"]
-look_towards_move_direction = false
+look_direction = 3
 
 [node name="MotionSteering" parent="Motion" index="1"]
 mass = 6.0

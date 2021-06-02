@@ -45,7 +45,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ {
-
 } ],
 "method": "spawn"
 } ]
@@ -76,12 +75,13 @@ object = ExtResource( 3 )
 
 [node name="JumpEffect" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects" index="0" instance=ExtResource( 6 )]
 initial_speed = -300.0
-look_in_target_direction = false
+disable_x_input = true
+initialize_x = true
 jump_force = 200.0
 finish_on_release = false
 
 [node name="Motion" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/JumpEffect" index="0"]
-look_towards_move_direction = false
+look_direction = 4
 
 [node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/JumpEffect/Motion" index="1"]
 max_speed = 0.0
@@ -94,7 +94,5 @@ max_speed = 0.0
 [node name="FinishOnFloor" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects" index="1" instance=ExtResource( 8 )]
 
 [editable path="Pivot/Attacks/SpawnGroup"]
-
 [editable path="Pivot/Attacks/SpawnGroup/AdditionalEffects/JumpEffect"]
-
 [editable path="Pivot/Attacks/SpawnGroup/AdditionalEffects/JumpEffect/Motion"]

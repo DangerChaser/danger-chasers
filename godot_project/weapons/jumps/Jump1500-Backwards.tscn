@@ -32,8 +32,7 @@ initial_speed = -500.0
 take_previous_velocity = true
 
 [node name="Motion" parent="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect" index="0"]
-look_towards_move_direction = false
-look_away_from_move_direction = true
+look_direction = 2
 
 [node name="MotionSteering" parent="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect/Motion" index="1"]
 max_speed = -500.0

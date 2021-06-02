@@ -24,7 +24,7 @@ anims/jump = SubResource( 2 )
 grounded = false
 
 [node name="Jump" parent="Pivot/Attacks" index="0" instance=ExtResource( 3 )]
-actor_animation = "jump"
+actor_animation = "backflip"
 weapon_animation = "jump"
 
 [node name="JumpEffect" parent="Pivot/Attacks/Jump/AdditionalEffects" index="0" instance=ExtResource( 5 )]
@@ -32,8 +32,7 @@ initial_speed = -1000.0
 take_previous_velocity = true
 
 [node name="Motion" parent="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect" index="0"]
-look_towards_move_direction = false
-look_away_from_move_direction = true
+look_direction = 2
 
 [node name="MotionSteering" parent="Pivot/Attacks/Jump/AdditionalEffects/JumpEffect/Motion" index="1"]
 max_speed = -1000.0

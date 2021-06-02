@@ -1,11 +1,6 @@
 extends State
 class_name MotionState
 
-export var look_towards_move_direction := true
-export var look_away_from_move_direction := false
-export var look_in_target_direction := false
-export var look_away_from_target_direction := false
-
 enum LookDirection { NONE, MOVE_DIRECTION, AWAY_FROM_MOVE_DIRECTION, TARGET_DIRECTION, AWAY_FROM_TARGET_DIRECTION }
 export(LookDirection) var look_direction = LookDirection.NONE
 
@@ -41,15 +36,6 @@ func enter(args := {}) -> void:
 		external.mass = external_args["mass"]
 	
 	total_velocity = steering.velocity + gravity.velocity + external.velocity
-	
-	var direction = total_velocity.normalized()
-	last_move_direction = direction
-	if look_towards_move_direction:
-		update_look_direction(direction)
-	elif look_away_from_move_direction:
-		update_look_direction(-direction)
-	if args.has("look_direction"):
-		update_look_direction(args["look_direction"])
 
 
 func exit() -> void:
@@ -79,15 +65,6 @@ func _physics_process(delta : float) -> void:
 			update_look_direction(target_direction)
 		LookDirection.AWAY_FROM_TARGET_DIRECTION:
 			update_look_direction(-target_direction)
-	
-	if look_towards_move_direction:
-		update_look_direction(direction)
-	elif look_away_from_move_direction:
-		update_look_direction(-direction)
-	elif look_in_target_direction:
-		update_look_direction(target_direction)
-	elif look_away_from_target_direction:
-		update_look_direction(-target_direction)
 
 
 func get_input_direction() -> Vector2:

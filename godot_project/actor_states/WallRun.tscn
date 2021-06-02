@@ -9,6 +9,7 @@ initial_speed = 50.0
 animation = "wallrun"
 
 [node name="Motion" parent="." instance=ExtResource( 2 )]
+look_direction = 3
 
 [node name="MotionSteering" parent="Motion" index="1"]
 max_speed = 470.0

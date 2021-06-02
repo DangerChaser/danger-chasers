@@ -124,7 +124,6 @@ duration = 1.0
 [node name="WallrunKunaiThrowSequence" parent="StateMachine" index="10" instance=ExtResource( 20 )]
 
 [node name="Stagger" parent="StateMachine" index="11" instance=ExtResource( 6 )]
-look_away_from_move_direction = false
 revenge_threshold = 6.0
 revenge_state = "DashSequence"
 
@@ -133,6 +132,9 @@ queue_free_on_die = false
 
 [node name="Gravity" parent="StateMachine/Die" index="2"]
 max_speed = 0.0
+
+[node name="Stats" parent="." index="6"]
+max_health = 100
 
 [node name="TargetPosition1" parent="TargetPositions" index="0"]
 position = Vector2( 0, -16 )

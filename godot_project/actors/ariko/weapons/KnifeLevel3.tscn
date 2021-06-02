@@ -477,6 +477,9 @@ anims/attack = SubResource( 9 )
 [node name="MovementEffect" parent="Pivot/Attacks/SlashDown/AdditionalEffects" index="0" instance=ExtResource( 7 )]
 initial_speed = 750.0
 
+[node name="Motion" parent="Pivot/Attacks/SlashDown/AdditionalEffects/MovementEffect" index="0"]
+look_direction = 1
+
 [node name="MotionSteering" parent="Pivot/Attacks/SlashDown/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 100.0
 mass = 8.0
@@ -493,6 +496,9 @@ anims/attack = SubResource( 10 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/SlashUp/AdditionalEffects" index="0" instance=ExtResource( 7 )]
 initial_speed = 750.0
+
+[node name="Motion" parent="Pivot/Attacks/SlashUp/AdditionalEffects/MovementEffect" index="0"]
+look_direction = 1
 
 [node name="MotionSteering" parent="Pivot/Attacks/SlashUp/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 100.0
@@ -526,6 +532,9 @@ object = ExtResource( 11 )
 anims/SETUP = SubResource( 12 )
 anims/attack = SubResource( 13 )
 
+[node name="Motion" parent="Pivot/Attacks/DoubleSlash1/AdditionalEffects/MovementEffect" index="0"]
+look_direction = 1
+
 [node name="ShortHopBack" parent="Pivot/Attacks" index="3" instance=ExtResource( 15 )]
 
 [node name="Stab" parent="Pivot/Attacks" index="4" instance=ExtResource( 4 )]
@@ -553,7 +562,7 @@ anims/attack = SubResource( 14 )
 initial_speed = 1000.0
 
 [node name="Motion" parent="Pivot/Attacks/Stab/AdditionalEffects/MovementEffect" index="0"]
-look_towards_move_direction = false
+look_direction = 1
 
 [node name="MotionSteering" parent="Pivot/Attacks/Stab/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0
