@@ -69,6 +69,9 @@ anchor_bottom = 1.0
 mouse_filter = 2
 texture = ExtResource( 6 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Icon" type="TextureRect" parent="PlayerIcon"]
 light_mask = 524289

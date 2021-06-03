@@ -1,0 +1,360 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://interface/BattleHUD/sprites/rpg_empty.png" type="Texture" id=1]
+[ext_resource path="res://interface/BattleHUD/sprites/rpg_overlay_1.png" type="Texture" id=2]
+[ext_resource path="res://interface/BattleHUD/sprites/rpg_health.png" type="Texture" id=3]
+[ext_resource path="res://core/utils/KeyLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/ExperienceBar.gd" type="Script" id=5]
+[ext_resource path="res://interface/BattleHUD/sprites/emblem.png" type="Texture" id=6]
+[ext_resource path="res://interface/dynamic_fonts/Silver_36.tres" type="DynamicFont" id=7]
+
+[sub_resource type="Animation" id=3]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CurrentLevel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 24, 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 104, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer/TextureProgress:min_value")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VBoxContainer/TextureProgress:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 24, 36 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("VBoxContainer/Overlay:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 32 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("NextLevel:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 392, 18 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "exp_overflow"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 104, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 2 ),
+"transitions": PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ),
+"update": 0,
+"values": [ 0.0, 1.0, -1.0, 3.0, -3.0, 3.0, -3.0, 5.0, -5.0, 5.0, -5.0, 3.0, -3.0, 3.0, -3.0, 3.0, -3.0, 1.0, -1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer/TextureProgress:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.1, 2.5, 5.2, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 224, 28 ), Vector2( 224, 28 ), Vector2( 1000, 28 ), Vector2( 1000, 16 ), Vector2( 224, 24 ), Vector2( 0, 24 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VBoxContainer/Overlay:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.1, 2.8, 4.4, 5, 5.1, 5.5, 5.6 ),
+"transitions": PoolRealArray( 1, 0.5, 0, 0.5, 1, 0, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 32 ), Vector2( 0, 32 ), Vector2( -408, -106 ), Vector2( 652, 32 ), Vector2( -10, 32 ), Vector2( 0, 32 ), Vector2( -4, 32 ), Vector2( 0, 32 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("VBoxContainer/Overlay:rect_rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.1, 2.9 ),
+"transitions": PoolRealArray( 1, 0.5, 0 ),
+"update": 0,
+"values": [ 0.0, 0.0, -720.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("VBoxContainer/TextureProgress:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.1, 2.5, 3, 3.4, 3.8, 4.4, 4.7, 5.2, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 24, 36 ), Vector2( 24, 36 ), Vector2( -300, 24 ), Vector2( -300, 40 ), Vector2( -214, 28 ), Vector2( -214, 36 ), Vector2( -214, 28 ), Vector2( -108, 44 ), Vector2( 24, 44 ), Vector2( 24, 40 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CurrentLevel:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2.1, 2.5, 4.2, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 0, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 24, 16 ), Vector2( 24, 16 ), Vector2( -198, 0 ), Vector2( 656, 0 ), Vector2( 24, 16 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CurrentLevel:rect_rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("NextLevel:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2.1, 2.5, 4.4, 5.1 ),
+"transitions": PoolRealArray( 1, 0.5, 0, 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 392, 18 ), Vector2( 392, 18 ), Vector2( 590, 0 ), Vector2( 1032, 0 ), Vector2( 392, 18 ) ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "set_labels_to_next_level"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/TextureProgress:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 4.92458, 1 ),
+"update": 0,
+"values": [ 0.0, 100.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer/TextureProgress:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 24, 36 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer/TextureProgress:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 224, 28 ) ]
+}
+
+[node name="ExperienceBar" type="Control"]
+anchor_right = 1.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 95, 9 )
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "SETUP"
+anims/SETUP = SubResource( 3 )
+anims/exp_overflow = SubResource( 1 )
+anims/start = SubResource( 2 )
+next/start = "exp_overflow"
+
+[node name="CurrentLevel" type="NinePatchRect" parent="."]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 88.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_vertical = 0
+texture = ExtResource( 6 )
+patch_margin_left = 1
+patch_margin_right = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel" parent="CurrentLevel" instance=ExtResource( 4 )]
+margin_right = 0.0
+margin_bottom = 0.0
+custom_fonts/font = ExtResource( 7 )
+text = "1"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -136.0
+margin_right = 136.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 136, 50 )
+size_flags_horizontal = 3
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+margin_right = 272.0
+margin_bottom = 28.0
+size_flags_vertical = 3
+
+[node name="TextureProgress" type="TextureProgress" parent="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 36.0
+margin_right = -24.0
+margin_bottom = -36.0
+rect_min_size = Vector2( 0, 16 )
+step = 0.01
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Overlay" type="NinePatchRect" parent="VBoxContainer"]
+margin_top = 32.0
+margin_right = 271.999
+margin_bottom = 68.0001
+rect_min_size = Vector2( 100, 36 )
+rect_pivot_offset = Vector2( 136, 18 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 272.0
+margin_bottom = 100.0
+size_flags_vertical = 3
+
+[node name="NextLevel" type="NinePatchRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -88.0
+margin_top = 18.0
+margin_right = -23.9999
+margin_bottom = 82.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( 32, 32 )
+size_flags_vertical = 0
+texture = ExtResource( 6 )
+patch_margin_left = 1
+patch_margin_right = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyLabel" parent="NextLevel" instance=ExtResource( 4 )]
+margin_right = 0.0
+margin_bottom = 0.0
+custom_fonts/font = ExtResource( 7 )
+text = "2"
+align = 1
+valign = 1

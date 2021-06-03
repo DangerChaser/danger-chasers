@@ -30,4 +30,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func start():
+	visible = true
 	change()

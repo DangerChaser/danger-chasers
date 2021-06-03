@@ -244,7 +244,7 @@ anims/throw = SubResource( 2 )
 grounded = false
 
 [node name="SpawnGroup" parent="Pivot/Attacks" index="0" instance=ExtResource( 2 )]
-actor_animation = "slash_1"
+actor_animation = "spin"
 weapon_animation = "throw"
 screen_shake_amplitude = 0.0
 screen_shake_duration = 0.0
@@ -263,10 +263,6 @@ object = ExtResource( 9 )
 initial_speed = -300.0
 jump_force = 200.0
 finish_on_release = false
-
-[node name="Motion" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/JumpEffect" index="0"]
-look_towards_move_direction = false
-look_away_from_move_direction = true
 
 [node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/JumpEffect/Motion" index="1"]
 max_speed = 0.0

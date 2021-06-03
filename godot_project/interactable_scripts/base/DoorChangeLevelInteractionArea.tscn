@@ -26,6 +26,8 @@ margin_top = -136.0
 margin_bottom = -106.0
 
 [node name="LockIcon" parent="." index="6" instance=ExtResource( 4 )]
+
 [connection signal="interacted_locked" from="." to="LockIcon" method="interacted_locked"]
 [connection signal="locked" from="." to="LockIcon" method="lock"]
+[connection signal="unlocked" from="." to="." method="show"]
 [connection signal="unlocked" from="." to="LockIcon" method="unlock"]

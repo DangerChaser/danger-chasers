@@ -97,7 +97,7 @@ _global_script_classes=[ {
 "base": "HBoxContainer",
 "class": "Bar",
 "language": "GDScript",
-"path": "res://interface/BattleHUD/Bar.gd"
+"path": "res://interface/Bar.gd"
 }, {
 "base": "Attack",
 "class": "Block",

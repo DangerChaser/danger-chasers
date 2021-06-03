@@ -10,7 +10,7 @@
 resource_name = "SETUP"
 length = 0.001
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.2
 step = 0.05
 tracks/0/type = "method"
@@ -53,7 +53,7 @@ tracks/1/keys = {
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
-anims/throw = SubResource( 3 )
+anims/throw = SubResource( 2 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
@@ -74,7 +74,9 @@ object = ExtResource( 3 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects" index="0" instance=ExtResource( 4 )]
 initial_speed = -900.0
-disable_x_input = true
+
+[node name="Motion" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect" index="0"]
+look_direction = 3
 
 [node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 0.0

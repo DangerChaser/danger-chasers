@@ -35,6 +35,7 @@ func end():
 	if GameManager.game:
 		GameManager.game.pause_menu.can_pause = true
 	GameManager.save(name + "seen", true)
+	print_debug(name)
 	play("end")
 
 func next() -> void:

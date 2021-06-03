@@ -1,5 +1,6 @@
 extends Node
 
+var current_level : int = 1
 var skills := {}
 var gold := 0
 

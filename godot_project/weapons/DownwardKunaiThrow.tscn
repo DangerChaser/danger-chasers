@@ -110,10 +110,6 @@ initial_speed = -100.0
 jump_force = 400.0
 finish_on_release = false
 
-[node name="Motion" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/JumpEffect" index="0"]
-look_towards_move_direction = false
-look_away_from_move_direction = true
-
 [node name="MotionSteering" parent="Pivot/Attacks/SpawnGroup/AdditionalEffects/JumpEffect/Motion" index="1"]
 max_speed = 0.0
 mass = 16.0

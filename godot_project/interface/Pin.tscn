@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://interface/themes/General.tres" type="Theme" id=1]
-[ext_resource path="res://interface/dynamic_fonts/Silver_128.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interface/dynamic_fonts/Silver_36.tres" type="DynamicFont" id=2]
 [ext_resource path="res://interactable_scripts/base/MouseButton.gd" type="Script" id=3]
 [ext_resource path="res://interface/Pin.gd" type="Script" id=4]
 [ext_resource path="res://interface/kenney_pixel_ui/Colored/grey.png" type="Texture" id=5]
@@ -33,16 +33,15 @@ wait_time = 0.5
 position = Vector2( 16, 16 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="KeyLabel" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.00452
-margin_top = 2.89542
-margin_right = 2.00452
-margin_bottom = 2.89542
+margin_left = 1.91883
+margin_top = 1.08456
+margin_right = 1.91883
+margin_bottom = 6.08456
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )

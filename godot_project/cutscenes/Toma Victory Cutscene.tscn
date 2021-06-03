@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://core/ActorManagedStateManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://core/Cutscene.tscn" type="PackedScene" id=2]
@@ -8,10 +8,11 @@
 [ext_resource path="res://addons/dialogic/Dialog.tscn" type="PackedScene" id=6]
 [ext_resource path="res://core/MusicChangeTrigger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/music/Victory Theme.ogg" type="AudioStream" id=8]
+[ext_resource path="res://cutscenes/VictoryScreen.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "0"
-length = 5.0
+length = 4.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("PlayerManagedStateManager")
 tracks/0/interp = 1
@@ -195,9 +196,9 @@ tracks/13/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "1"
-length = 10.0
+length = 18.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("PlayerManagedStateManager")
 tracks/0/interp = 1
@@ -205,13 +206,19 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 2.4, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 2.4, 6, 9.5, 9.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "sheath" ],
 "method": "play_animation"
 }, {
 "args": [ "joy" ],
+"method": "play_animation"
+}, {
+"args": [ "hop_back" ],
+"method": "play_animation"
+}, {
+"args": [ "idle" ],
 "method": "play_animation"
 } ]
 }
@@ -222,10 +229,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4.5, 10 ),
-"transitions": PoolRealArray( 1, 0.5, 1 ),
+"times": PoolRealArray( 0, 4.5, 10, 11, 17.9 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 2.2974, 1 ),
 "update": 0,
-"values": [ Vector2( -32, -16 ), Vector2( -32, -16 ), Vector2( -32, -32 ) ]
+"values": [ Vector2( -32, -16 ), Vector2( -32, -16 ), Vector2( -32, -32 ), Vector2( -32, -32 ), Vector2( -32, -148 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("CutsceneCamera:zoom")
@@ -267,8 +274,46 @@ tracks/4/keys = {
 "method": "change_music"
 } ]
 }
+tracks/5/type = "method"
+tracks/5/path = NodePath("VictoryScreen")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("PlayerManagedStateManager:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 9.5, 9.6, 9.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -32, 0 ), Vector2( -32, 0 ), Vector2( -36, -4 ), Vector2( -40, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("PlayerManagedStateManager:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 9.5, 10.1, 10.4, 10.7, 11 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( -1, 1 ), Vector2( 1, 1 ), Vector2( -1, 1 ), Vector2( 1, 1 ) ]
+}
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
@@ -283,59 +328,66 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-length = 5.0
+[sub_resource type="Animation" id=4]
 step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/type = "method"
+tracks/0/path = NodePath("PlayerManagedStateManager")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 2, 3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable"
+} ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerManagedStateManager:position")
+tracks/1/type = "method"
+tracks/1/path = NodePath("CutsceneCamera")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -64, 0 ) ]
+"values": [ {
+"args": [ 0.0 ],
+"method": "disable"
+} ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerManagedStateManager:scale")
+tracks/2/type = "method"
+tracks/2/path = NodePath("PlayerManagedStateManager")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [ {
+"args": [  ],
+"method": "enable_input"
+} ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("ActorManagedStateManager:position")
+tracks/3/type = "method"
+tracks/3/path = NodePath("PlayerManagedStateManager")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 64, 0 ) ]
+"values": [ {
+"args": [  ],
+"method": "show_player_hud"
+} ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("ActorManagedStateManager:scale")
+tracks/4/path = NodePath("CutsceneCamera:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -344,42 +396,29 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1, 1 ) ]
+"values": [ Vector2( -32, -32 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("ActorManagedStateManager:visible")
+tracks/5/path = NodePath("CutsceneCamera:zoom")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/6/type = "method"
-tracks/6/path = NodePath("PlayerManagedStateManager")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0.6 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ "hand_reach_out" ],
-"method": "play_animation"
-} ]
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
 }
 
 [node name="Toma Victory Cutscene" instance=ExtResource( 2 )]
+skippable = false
 
 [node name="AnimationPlayer" parent="." index="0"]
 anims/0 = SubResource( 1 )
-anims/1 = SubResource( 4 )
-anims/SETUP = SubResource( 2 )
-anims/end = SubResource( 3 )
+anims/1 = SubResource( 2 )
+anims/SETUP = SubResource( 3 )
+anims/end = SubResource( 4 )
 next/0 = "1"
 
 [node name="PlayerManagedStateManager" parent="." index="2" instance=ExtResource( 5 )]
@@ -392,7 +431,7 @@ scale = Vector2( -1, 1 )
 managed_state = ExtResource( 4 )
 
 [node name="CutsceneCamera" parent="." index="4" instance=ExtResource( 3 )]
-position = Vector2( 112, -16 )
+position = Vector2( 106.776, -16 )
 zoom = Vector2( 0.8, 0.8 )
 tween_duration = 1.0
 
@@ -404,7 +443,9 @@ timeline = "timeline-1621556745.json"
 music = ExtResource( 8 )
 previous_song_fade_out_duration = 2.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+[node name="VictoryScreen" parent="." index="7" instance=ExtResource( 9 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
 modulate = Color( 1, 1, 1, 0 )
@@ -415,3 +456,4 @@ __meta__ = {
 }
 
 [connection signal="dialogic_signal" from="DialogNode" to="." method="play"]
+[connection signal="end_started" from="VictoryScreen" to="." method="end"]

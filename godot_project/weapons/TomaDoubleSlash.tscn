@@ -67,7 +67,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=16]
 resource_name = "slash_1"
 length = 1.1
 step = 0.05
@@ -121,7 +121,7 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=6]
 radius = 88.0
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=17]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
@@ -237,7 +237,7 @@ anims/SETUP = SubResource( 1 )
 anims/prepare = SubResource( 2 )
 anims/prepare_slash_down = SubResource( 13 )
 anims/prepare_slash_down_2 = SubResource( 14 )
-anims/slash_1 = SubResource( 3 )
+anims/slash_1 = SubResource( 16 )
 anims/slash_2 = SubResource( 4 )
 
 [node name="Attacks" parent="Pivot" index="0"]
@@ -267,7 +267,7 @@ position = Vector2( 96, 0 )
 object = ExtResource( 6 )
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/Slash1" index="2"]
-anims/SETUP = SubResource( 7 )
+anims/SETUP = SubResource( 17 )
 anims/attack = SubResource( 8 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Slash1/AdditionalEffects" index="0"]

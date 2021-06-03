@@ -77,17 +77,18 @@ weapon_animation = "jump"
 
 [node name="MovementEffect" parent="Pivot/Attacks/Jump/AdditionalEffects" index="0" instance=ExtResource( 3 )]
 
+[node name="Motion" parent="Pivot/Attacks/Jump/AdditionalEffects/MovementEffect" index="0"]
+look_direction = 3
+
 [node name="MeleeAttack" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/MeleeAttack/DamageSource" index="0"]
 shape = SubResource( 4 )
 
 [editable path="Pivot/Attacks/Jump"]
-
+[editable path="Pivot/Attacks/Jump/AdditionalEffects/MovementEffect"]
+[editable path="Pivot/Attacks/Jump/AdditionalEffects/MovementEffect/Motion"]
 [editable path="Pivot/Attacks/MeleeAttack"]
-
 [editable path="Pivot/Attacks/MeleeAttack/DamageSource"]
-
 [editable path="Pivot/Attacks/MeleeAttack/AdditionalEffects/MovementEffect"]
-
 [editable path="Pivot/Attacks/MeleeAttack/AdditionalEffects/MovementEffect/Motion"]

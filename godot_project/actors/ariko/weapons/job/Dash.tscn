@@ -195,6 +195,9 @@ initial_speed = 2000.0
 initialize_y = true
 takes_previous_speed = true
 
+[node name="Motion" parent="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect" index="0"]
+look_direction = 1
+
 [node name="MotionSteering" parent="Pivot/Attacks/Dash2/AdditionalEffects/MovementEffect/Motion" index="1"]
 max_speed = 750.0
 mass = 20.0
