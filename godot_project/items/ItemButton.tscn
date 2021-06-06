@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://interface/kenney_pixel_ui/space.png" type="Texture" id=1]
 [ext_resource path="res://core/utils/KeyLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://items/ItemButton.gd" type="Script" id=3]
+[ext_resource path="res://interface/themes/General.tres" type="Theme" id=4]
 
 [node name="ItemButton" type="Control"]
-margin_right = 480.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 0, 16 )
+anchor_right = 1.0
+anchor_bottom = 0.089
+margin_bottom = -0.0300007
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 4 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -16,42 +19,67 @@ __meta__ = {
 [node name="Button" type="Button" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 62.0
-margin_bottom = 24.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_right = -8.0
 mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemBackground" type="TextureRect" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 24.0
-margin_bottom = 24.0
+margin_bottom = 32.0
+
+[node name="Spacer" type="Control" parent="HBoxContainer/VBoxContainer"]
+margin_right = 24.0
+size_flags_vertical = 3
+
+[node name="ItemBackground" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+margin_top = 4.0
+margin_right = 24.0
+margin_bottom = 28.0
 rect_min_size = Vector2( 24, 24 )
 rect_pivot_offset = Vector2( -200, 96 )
 mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="QuantityLabel" parent="HBoxContainer/ItemBackground" instance=ExtResource( 2 )]
-margin_right = 0.0
-margin_bottom = 0.0
+[node name="QuantityLabel" parent="HBoxContainer/VBoxContainer/ItemBackground" instance=ExtResource( 2 )]
+margin_right = -2.0
+margin_bottom = 4.0
 text = "0"
-align = 1
-valign = 1
+align = 2
+valign = 2
+
+[node name="Spacer2" type="Control" parent="HBoxContainer/VBoxContainer"]
+margin_top = 32.0
+margin_right = 24.0
+margin_bottom = 32.0
+size_flags_vertical = 3
 
 [node name="ItemNameLabel" parent="HBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 28.0
-margin_right = 62.0
-margin_bottom = 24.0
+margin_left = 32.0
+margin_right = 464.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Hello"
+text = "Item"
 valign = 1
+
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]

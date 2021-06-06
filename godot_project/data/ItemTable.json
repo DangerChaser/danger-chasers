@@ -8,7 +8,7 @@
       "stack": false,
       "rarity": "common",
       "quality": "normal",
-      "level": 0
+      "level": 1
     },
     "Blue Keycard": {
       "description": null,
@@ -25,6 +25,26 @@
       "icon_name": "knife.png",
       "type": "weapon",
       "subtype": "dagger",
+      "stack": false,
+      "rarity": "common",
+      "quality": "normal",
+      "level": 1
+    },
+    "Glowing Rock": {
+      "description": "It's a rock that doubles as a nightlight.",
+      "icon_name": "glowing_rock.png",
+      "type": "miscellaneous",
+      "subtype": null,
+      "stack": false,
+      "rarity": "rare",
+      "quality": "high",
+      "level": 1
+    },
+    "Toma's Wallet": {
+      "description": "It's not theft, it's normal to loot your enemies after you knock them out.",
+      "icon_name": "toma_wallet.png",
+      "type": "miscellaneous",
+      "subtype": null,
       "stack": false,
       "rarity": "common",
       "quality": "normal",

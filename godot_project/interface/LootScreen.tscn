@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://interface/dynamic_fonts/Silver_36.tres" type="DynamicFont" id=1]
+[ext_resource path="res://items/ItemButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://core/utils/KeyLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/themes/General.tres" type="Theme" id=4]
+[ext_resource path="res://interface/LootScreen.gd" type="Script" id=5]
+[ext_resource path="res://assets/sfx/nice_blip.wav" type="AudioStream" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SETUP"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("KeyLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 32 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("KeyLabel:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 480, 35 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ItemList:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 64 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ItemList:rect_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 480, 206 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "end"
+
+[node name="LootScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -9.15527e-05
+theme = ExtResource( 4 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+item_button = ExtResource( 2 )
+
+[node name="KeyLabel" parent="." instance=ExtResource( 3 )]
+anchor_bottom = 0.0
+margin_top = 32.0
+margin_right = 0.0
+margin_bottom = 67.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Items obtained"
+align = 1
+valign = 1
+
+[node name="ItemList" type="VBoxContainer" parent="."]
+anchor_top = 0.178
+anchor_right = 1.0
+anchor_bottom = 0.859
+margin_top = 15.94
+margin_bottom = 38.0701
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueLabel" parent="." instance=ExtResource( 3 )]
+anchor_top = 1.0
+margin_top = -35.0
+margin_right = 0.0
+margin_bottom = 0.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press any button to continue"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SETUP = SubResource( 1 )
+anims/end = SubResource( 2 )
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Sfx"

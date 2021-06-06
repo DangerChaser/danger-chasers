@@ -1,6 +1,8 @@
 extends Node2D
 class_name StateMachine
 
+signal state_exited(state_name)
+signal state_entered(state_name)
 signal state_changed(states)
 
 export var initial_args : Dictionary = {}.duplicate() # Duplicate to avoid all shared instances from sharing the same dictionary
@@ -34,8 +36,10 @@ func change_state(state_override := "", args := {}) -> void:
 	
 	if current_state:
 		current_state.exit()
+		emit_signal("state_exited", current_state.name)
 	current_state = get_state(state_override) if state_override else _decide_on_next_state()
 	current_state.enter(args)
+	emit_signal("state_entered", current_state.name)
 	emit_signal("state_changed", current_state)
 
 "'Virtual function, dependent on specific state machines'"

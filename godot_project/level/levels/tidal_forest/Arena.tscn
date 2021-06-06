@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://level/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/tidal_forest_sprites/back.png" type="Texture" id=2]
-[ext_resource path="res://assets/music/Crimson Gold.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/sprites/tidal_forest_sprites/middle.png" type="Texture" id=4]
 [ext_resource path="res://level/levels/tidal_forest/rooms/Arena.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/Toma.tscn" type="PackedScene" id=6]
@@ -18,11 +17,34 @@ resource_local_to_scene = true
 resource_local_to_scene = true
 extents = Vector2( 56, 136 )
 
+[sub_resource type="RectangleShape2D" id=3]
+resource_local_to_scene = true
+
+[sub_resource type="Animation" id=4]
+resource_name = "break_tiles"
+length = 6.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("Arenas/Arena/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "break_tiles" ),
+"times": PoolRealArray( 4.2 )
+}
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends AnimationPlayer
+
+
+func _on_Toma_state_entered(state_name):
+	if state_name == \"ScreenSlashSequence\":
+		play(\"break_tiles\")
+"
+
 [node name="Arena" instance=ExtResource( 1 )]
 skybox_color = Color( 0.454902, 0.890196, 0.960784, 1 )
-
-[node name="InitialMusic" parent="." index="0"]
-music = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="InitialMusic" index="0"]
 shape = SubResource( 1 )
@@ -65,23 +87,34 @@ centered = false
 [node name="Arena" parent="Arenas" index="0" instance=ExtResource( 5 )]
 position = Vector2( -360, 0 )
 
+[node name="BreakableTiles" parent="Arenas/Arena/Breakables" index="2"]
+visible = false
+
 [node name="ColliderTrigger" parent="Arenas/Arena/Triggers/CameraLimitTrigger" index="0"]
 shape = SubResource( 2 )
 
 [node name="Toma Opening Cutscene" parent="Triggers" index="0" instance=ExtResource( 7 )]
-position = Vector2( 256, 0 )
+position = Vector2( 320, 0 )
 
-[node name="PlayerManagedStateManager" parent="Triggers/Toma Opening Cutscene" index="2"]
-position = Vector2( -384, 0 )
+[node name="CollisionShape2D" parent="Triggers/Toma Opening Cutscene/Silence" index="0"]
+shape = SubResource( 3 )
 
-[node name="ActorManagedStateManager" parent="Triggers/Toma Opening Cutscene" index="3"]
-position = Vector2( -320, 0 )
-actor_path = NodePath("../../../YSort/Toma")
+[node name="CollisionShape2D" parent="Triggers/Toma Opening Cutscene/MusicChangeTrigger" index="0"]
+shape = SubResource( 3 )
+
+[node name="ActorManagedStateManager" parent="Triggers/Toma Opening Cutscene/ActorJumpPosition" index="0"]
+actor_path = NodePath("../../../../YSort/Toma")
 
 [node name="Toma Victory Cutscene" parent="Triggers" index="1" instance=ExtResource( 9 )]
 
 [node name="ActorManagedStateManager" parent="Triggers/Toma Victory Cutscene" index="3"]
 actor_path = NodePath("../../../YSort/Toma")
+
+[node name="VictoryScreen" parent="Triggers/Toma Victory Cutscene" index="6"]
+items = {
+"Glowing Rock": 1,
+"Toma's Wallet": 1
+}
 
 [node name="DoorChangeLevelInteractionArea" parent="Triggers" index="2" instance=ExtResource( 10 )]
 visible = false
@@ -100,16 +133,22 @@ position = Vector2( -14653.6, -4669.06 )
 [node name="0" parent="PlayerSpawnPoints" index="0"]
 position = Vector2( 14653.6, 4669.06 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="12"]
+anims/break_tiles = SubResource( 4 )
+script = SubResource( 5 )
+
 [connection signal="initialized" from="." to="Triggers/Toma Opening Cutscene" method="start"]
-[connection signal="finished" from="Triggers/Toma Opening Cutscene" to="YSort/Toma" method="initialize" binds= [ "team_2" ]]
 [connection signal="finished" from="Triggers/Toma Opening Cutscene" to="Arenas/Arena/Triggers/CameraLimitTrigger" method="change"]
+[connection signal="started" from="Triggers/Toma Opening Cutscene" to="YSort/Toma" method="initialize" binds= [ "team_2" ]]
 [connection signal="end_started" from="Triggers/Toma Victory Cutscene" to="Triggers/DoorChangeLevelInteractionArea" method="unlock"]
-[connection signal="interacted_locked" from="Triggers/DoorChangeLevelInteractionArea" to="Triggers/DoorChangeLevelInteractionArea/LockIcon" method="interacted_locked"]
 [connection signal="health_depleted_no_arg" from="YSort/Toma" to="YSort/Toma/TaskComplete" method="start"]
+[connection signal="state_entered" from="YSort/Toma" to="AnimationPlayer" method="_on_Toma_state_entered"]
 [connection signal="finished" from="YSort/Toma/TaskComplete" to="Triggers/Toma Victory Cutscene" method="start"]
 
 [editable path="InitialMusic"]
 [editable path="Arenas/Arena"]
 [editable path="Arenas/Arena/Triggers/CameraLimitTrigger"]
 [editable path="Triggers/Toma Opening Cutscene"]
+[editable path="Triggers/Toma Opening Cutscene/Silence"]
+[editable path="Triggers/Toma Opening Cutscene/MusicChangeTrigger"]
 [editable path="Triggers/Toma Victory Cutscene"]

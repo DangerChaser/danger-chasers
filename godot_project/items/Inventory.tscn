@@ -269,6 +269,7 @@ margin_bottom = 18.0
 size_flags_horizontal = 3
 text = "42069"
 valign = 1
+
 [connection signal="button_down" from="Background/VBoxContainer/Header/CloseButton" to="." method="_on_CloseButton_button_down"]
 [connection signal="button_down" from="Background/VBoxContainer/MainElements/Tabs/Weapons" to="." method="_on_Weapons_button_down"]
 [connection signal="button_down" from="Background/VBoxContainer/MainElements/Tabs/Armor" to="." method="_on_Armor_button_down"]

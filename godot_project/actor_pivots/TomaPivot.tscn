@@ -2202,11 +2202,9 @@ anims/walk = SubResource( 21 )
 next/slash_spin_around = "spin_around"
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.0497437, 0 )
-texture = ExtResource( 10 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, -29 )
-hframes = 2
-frame = 1
+hframes = 3
 
 [node name="Weapons" type="Node2D" parent="."]
 position = Vector2( 0, -24 )
@@ -2225,8 +2223,9 @@ object = ExtResource( 5 )
 object = ExtResource( 13 )
 
 [node name="WeaponPivotTransform" parent="." instance=ExtResource( 17 )]
-position = Vector2( -266, -0.999997 )
-rotation = -9.42478
+position = Vector2( -10, -30 )
+rotation = -0.445059
+z_index = -1
 
 [node name="Pivot" parent="WeaponPivotTransform" instance=ExtResource( 18 )]
 

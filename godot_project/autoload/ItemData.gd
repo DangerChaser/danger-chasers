@@ -34,7 +34,7 @@ func _read_json(file_path : String):
 	return json.result
 
 
-func get_item(item_name : String) -> Item:
+func get(item_name : String) -> Item:
 	if not _items.has(item_name):
 		return null
 	

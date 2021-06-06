@@ -11,6 +11,7 @@ export var skippable := true
 
 onready var animation_player : AnimationPlayer = $AnimationPlayer
 var scene_index := 0
+var current_animation
 
 func _ready() -> void:
 	if not replayable:
@@ -27,7 +28,8 @@ func _ready() -> void:
 func start() -> void:
 	if GameManager.game:
 		GameManager.game.pause_menu.can_pause = false
-	play("0")
+	scene_index = 0
+	play(str(scene_index))
 	set_process_input(true)
 	emit_signal("started")
 
@@ -35,12 +37,14 @@ func end():
 	if GameManager.game:
 		GameManager.game.pause_menu.can_pause = true
 	GameManager.save(name + "seen", true)
-	print_debug(name)
 	play("end")
 
 func next() -> void:
-	scene_index += 1
-	play(str(scene_index))
+	scene_index = int(current_animation) + 1
+	if not animation_player.has_animation(str(scene_index)):
+		end()
+	else:
+		play(str(scene_index))
 
 func play(var name : String ="", var custom_blend : float =-1, var custom_speed : float = 1.0, var from_end : bool = false ) -> void:
 	animation_player.play(name, custom_blend, custom_speed, from_end)
@@ -52,7 +56,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if GameManager.game:
 			GameManager.game.pause_menu.can_pause = true
 	else:
-		scene_index += 1
+		scene_index = int(current_animation) + 1
 
 func show_player_hud() -> void:
 	PlayerManager.show_player_hud()
@@ -74,5 +78,6 @@ func _on_SkipCutsceneAnimationPlayer_finished(anim_name):
 
 
 func _on_AnimationPlayer_animation_started(anim_name):
+	current_animation = anim_name
 	if anim_name == "end":
 		emit_signal("end_started")

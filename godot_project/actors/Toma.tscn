@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://actor_framework/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor_states/motion/Die.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://weapons/TomaSlashCombo.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actor_states/ai_states/WaitTime.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actor_states/AttackState.tscn" type="PackedScene" id=14]
+[ext_resource path="res://actor_states/ai_states/Wait.tscn" type="PackedScene" id=15]
 [ext_resource path="res://weapons/SwordWaveLauncher.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -62,7 +63,9 @@ shape = SubResource( 1 )
 [node name="StateMachine" parent="." index="3"]
 script = SubResource( 2 )
 
-[node name="ScreenSlashSequence" type="Node2D" parent="StateMachine" index="0"]
+[node name="Wait" parent="StateMachine" index="0" instance=ExtResource( 15 )]
+
+[node name="ScreenSlashSequence" type="Node2D" parent="StateMachine" index="1"]
 script = ExtResource( 11 )
 
 [node name="WaitTime" parent="StateMachine/ScreenSlashSequence" index="0" instance=ExtResource( 13 )]
@@ -71,7 +74,7 @@ script = ExtResource( 11 )
 weapons = [ ExtResource( 8 ) ]
 stagger = false
 
-[node name="HeavySlashSequence" type="Node2D" parent="StateMachine" index="1"]
+[node name="HeavySlashSequence" type="Node2D" parent="StateMachine" index="2"]
 script = ExtResource( 11 )
 
 [node name="MoveTo" parent="StateMachine/HeavySlashSequence" index="0" instance=ExtResource( 4 )]
@@ -114,7 +117,7 @@ stagger = false
 animation = "spin_around"
 duration = 0.2
 
-[node name="SlashComboSequence" type="Node2D" parent="StateMachine" index="2"]
+[node name="SlashComboSequence" type="Node2D" parent="StateMachine" index="3"]
 script = ExtResource( 11 )
 
 [node name="MoveTo" parent="StateMachine/SlashComboSequence" index="0" instance=ExtResource( 4 )]
@@ -135,7 +138,7 @@ stagger = false
 [node name="WaitTime2" parent="StateMachine/SlashComboSequence" index="3" instance=ExtResource( 13 )]
 duration = 0.2
 
-[node name="SwordWaveComboSequence" type="Node2D" parent="StateMachine" index="3"]
+[node name="SwordWaveComboSequence" type="Node2D" parent="StateMachine" index="4"]
 script = ExtResource( 11 )
 
 [node name="JumpBack" parent="StateMachine/SwordWaveComboSequence" index="0" instance=ExtResource( 14 )]
@@ -158,12 +161,11 @@ stagger = false
 [node name="WaitTime3" parent="StateMachine/SwordWaveComboSequence" index="5" instance=ExtResource( 13 )]
 animation = "spin_around"
 
-[node name="Stagger" parent="StateMachine" index="4" instance=ExtResource( 6 )]
-look_away_from_move_direction = false
+[node name="Stagger" parent="StateMachine" index="5" instance=ExtResource( 6 )]
 revenge_threshold = 12.0
 revenge_state = "SwordWaveComboSequence"
 
-[node name="Die" parent="StateMachine" index="5" instance=ExtResource( 2 )]
+[node name="Die" parent="StateMachine" index="6" instance=ExtResource( 2 )]
 animation = "stagger"
 queue_free_on_die = false
 

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://combat/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/weapons/MeleeAttack.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/particles/explosions/HeavySlash.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/particles/YellowExplosion.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/particles/Ding.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/weapons/Attack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/particles/FireSpinOneShot.tscn" type="PackedScene" id=6]
@@ -29,7 +29,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=3]
 resource_name = "prepare_slash_down"
 length = 0.4
 tracks/0/type = "method"
@@ -48,7 +48,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=4]
 resource_name = "prepare_slash_down_2"
 length = 0.4
 tracks/0/type = "method"
@@ -67,7 +67,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=5]
 resource_name = "slash_1"
 length = 1.1
 step = 0.05
@@ -92,7 +92,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 2.0
 step = 0.05
 tracks/0/type = "method"
@@ -116,12 +116,12 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=8]
 radius = 88.0
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=9]
 resource_name = "SETUP"
 length = 0.001
 tracks/0/type = "method"
@@ -139,8 +139,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "attack"
+[sub_resource type="Animation" id=10]
 tracks/0/type = "method"
 tracks/0/path = NodePath("DamageSource")
 tracks/0/interp = 1
@@ -173,7 +172,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "method"
 tracks/0/path = NodePath("SfxParticleSpawner")
 tracks/0/interp = 1
@@ -189,14 +188,12 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=12]
 
-[sub_resource type="RectangleShape2D" id=10]
-resource_local_to_scene = true
-extents = Vector2( 184, 104 )
+[sub_resource type="CircleShape2D" id=13]
+radius = 88.3629
 
-[sub_resource type="Animation" id=11]
-resource_name = "SETUP"
+[sub_resource type="Animation" id=14]
 length = 0.001
 tracks/0/type = "method"
 tracks/0/path = NodePath("DamageSource")
@@ -213,8 +210,8 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "attack"
+[sub_resource type="Animation" id=15]
+step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath("SfxParticleSpawner")
 tracks/0/interp = 1
@@ -222,11 +219,91 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ null ],
 "method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+}, {
+"args": [ null ],
+"method": "spawn"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("DamageSource")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
+}, {
+"args": [  ],
+"method": "enable"
+}, {
+"args": [  ],
+"method": "disable"
 } ]
 }
 
@@ -235,10 +312,10 @@ tracks/0/keys = {
 [node name="AnimationPlayer" parent="." index="1"]
 anims/SETUP = SubResource( 1 )
 anims/prepare = SubResource( 2 )
-anims/prepare_slash_down = SubResource( 13 )
-anims/prepare_slash_down_2 = SubResource( 14 )
-anims/slash_1 = SubResource( 16 )
-anims/slash_2 = SubResource( 4 )
+anims/prepare_slash_down = SubResource( 3 )
+anims/prepare_slash_down_2 = SubResource( 4 )
+anims/slash_1 = SubResource( 5 )
+anims/slash_2 = SubResource( 6 )
 
 [node name="Attacks" parent="Pivot" index="0"]
 grounded = false
@@ -248,7 +325,7 @@ actor_animation = "prepare_slash_down"
 weapon_animation = "prepare_slash_down"
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/PrepareSlashDown" index="0"]
-anims/attack = SubResource( 5 )
+anims/attack = SubResource( 7 )
 
 [node name="Slash1" parent="Pivot/Attacks" index="1" instance=ExtResource( 2 )]
 actor_animation = "slash_spin_around"
@@ -260,15 +337,16 @@ damage = 10
 stagger_duration = 2.0
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Slash1/DamageSource" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 8 )
+disabled = true
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/Slash1" index="1"]
 position = Vector2( 96, 0 )
 object = ExtResource( 6 )
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/Slash1" index="2"]
-anims/SETUP = SubResource( 17 )
-anims/attack = SubResource( 8 )
+anims/SETUP = SubResource( 9 )
+anims/attack = SubResource( 10 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Slash1/AdditionalEffects" index="0"]
 initial_speed = 600.0
@@ -278,7 +356,7 @@ actor_animation = "prepare"
 weapon_animation = "prepare"
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/Prepare" index="0"]
-anims/attack = SubResource( 9 )
+anims/attack = SubResource( 11 )
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/Prepare" index="4" instance=ExtResource( 7 )]
 position = Vector2( -48, -40 )
@@ -289,19 +367,19 @@ actor_animation = "prepare_slash_down"
 weapon_animation = "prepare_slash_down"
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/PrepareSlashDown2" index="0"]
-anims/attack = SubResource( 15 )
+anims/attack = SubResource( 12 )
 
 [node name="Slash2" parent="Pivot/Attacks" index="4" instance=ExtResource( 2 )]
 actor_animation = "slash_down"
 weapon_animation = "slash_2"
 
 [node name="DamageSource" parent="Pivot/Attacks/Slash2" index="0"]
-visible = false
 position = Vector2( 184, -104 )
 damage = 3
 
 [node name="CollisionShape2D" parent="Pivot/Attacks/Slash2/DamageSource" index="0"]
-shape = SubResource( 10 )
+position = Vector2( -88, 104 )
+shape = SubResource( 13 )
 disabled = true
 
 [node name="SfxParticleSpawner" parent="Pivot/Attacks/Slash2" index="1"]
@@ -309,8 +387,8 @@ position = Vector2( 96, 0 )
 object = ExtResource( 3 )
 
 [node name="AnimationPlayer" parent="Pivot/Attacks/Slash2" index="2"]
-anims/SETUP = SubResource( 11 )
-anims/attack = SubResource( 12 )
+anims/SETUP = SubResource( 14 )
+anims/attack = SubResource( 15 )
 
 [node name="MovementEffect" parent="Pivot/Attacks/Slash2/AdditionalEffects" index="0"]
 initial_speed = 600.0

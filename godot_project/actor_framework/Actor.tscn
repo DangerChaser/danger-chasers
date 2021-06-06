@@ -51,7 +51,10 @@ script = ExtResource( 5 )
 ]]
 
 [node name="Flash" parent="." instance=ExtResource( 3 )]
+
 [connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="unpause"]
 [connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="pause"]
 [connection signal="state_changed" from="StateMachine" to="ActorInterface" method="_on_StateMachine_state_changed"]
+[connection signal="state_entered" from="StateMachine" to="." method="_on_StateMachine_state_entered"]
+[connection signal="state_exited" from="StateMachine" to="." method="_on_StateMachine_state_exited"]
 [connection signal="stats_changed" from="Stats" to="ActorInterface" method="_on_Stats_stats_changed"]

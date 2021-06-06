@@ -2,18 +2,21 @@ extends State
 class_name ManagedState
 
 export var next_state := ""
+export var unhittable_effect : PackedScene
 var manager
 
 
 func enter(args := {}) -> void:
 	.enter(args)
 	manager = args["manager"]
+	owner.stats.buffs.add(unhittable_effect.instance())
 
 
 func exit() -> void:
 	.exit()
-	print_debug(owner.name)
 	queue_free()
+	owner.stats.buffs.remove("Unhittable")
+
 
 func _physics_process(delta):
 	owner.global_position = manager.global_position

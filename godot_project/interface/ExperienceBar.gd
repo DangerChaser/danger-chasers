@@ -1,5 +1,7 @@
 extends Control
 
+signal finished
+
 onready var current_level_label : KeyLabel = $CurrentLevel/KeyLabel
 onready var next_level_label : KeyLabel = $NextLevel/KeyLabel
 
@@ -19,3 +21,8 @@ func set_labels_to_next_level() -> void:
 	current_level += 1
 	current_level_label.set_key(str(current_level))
 	next_level_label.set_key(str(current_level + 1))
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "end":
+		emit_signal("finished")

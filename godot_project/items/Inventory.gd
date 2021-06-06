@@ -80,7 +80,7 @@ func show_item_list(inventory : Dictionary) -> void:
 		child.queue_free()
 	
 	for item_name in inventory.keys():
-		var item = ItemData.get_item(item_name)
+		var item = ItemData.get(item_name)
 		if item.stack:
 			var item_button = item_button_scene.instance()
 			item_button_container.add_child(item_button)
@@ -98,7 +98,7 @@ func show_item_list(inventory : Dictionary) -> void:
 
 
 func show_item_info(name : String) -> void:
-	var item = ItemData.get_item(name)
+	var item = ItemData.get(name)
 	_show_item_info(item.name, item.icon, item.description)
 
 

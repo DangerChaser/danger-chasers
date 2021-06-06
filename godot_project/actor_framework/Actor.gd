@@ -4,6 +4,8 @@ Base class for Actor. Handles general movement.
 extends MirrorBody2D
 class_name Actor
 
+signal state_exited(state_name)
+signal state_entered(state_name)
 signal died(actor)
 signal died_no_arg
 signal health_depleted(actor) # Emits as soon as enters Die state
@@ -190,3 +192,11 @@ func disable_input() -> void:
 
 func change_state(next_state : String, args := {}) -> void:
 	state_machine.change_state(next_state, args)
+
+
+func _on_StateMachine_state_exited(state_name):
+	emit_signal("state_exited", state_name)
+
+
+func _on_StateMachine_state_entered(state_name):
+	emit_signal("state_entered", state_name)

@@ -26,7 +26,7 @@ func has(item_name : String, required_amount := 1) -> bool:
 
 
 func add(item_name : String, amount:=1) -> void:
-	var item = ItemData.get_item(item_name)
+	var item = ItemData.get(item_name)
 	if not item:
 		return
 	
@@ -41,7 +41,7 @@ func remove(item_name : String, amount:=1) -> void:
 	if not ItemData.items.has(item_name):
 		return
 	
-	var item = ItemData.get_item(item_name)
+	var item = ItemData.get(item_name)
 	var type_inventory = inventory[item.type]
 	if type_inventory.has(item.name):
 		if type_inventory[item.name] < amount:
