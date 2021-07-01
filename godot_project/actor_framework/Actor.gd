@@ -97,8 +97,7 @@ func kill(args := {}) -> void:
 func die() -> void:
 	emit_signal("died", self)
 	emit_signal("died_no_arg")
-	if has_node("CollisionBox"):
-		get_node("CollisionBox").set_deferred("disabled", true)
+	set_actor_collisions(false)
 	remove_from_group(team)
 
 
